@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo integrar Azure DevTest Labs en la 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288933"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integración de Azure DevTest Labs en la canalización de integración y entrega continuas de Azure Pipelines
@@ -129,11 +129,11 @@ El siguiente paso consiste en crear la máquina virtual de imagen maestra que se
    
    |Campo|Value|
    |---|---|
-   |**Suscripción a Azure Resource Manager**|Seleccione una conexión de servicio o suscripción de **Conexiones disponibles del servicio de Azure** o **Suscripciones de Azure disponibles** en el menú desplegable y seleccione **Autorizar** si es necesario.<br /><br />**Nota:** Para más información sobre cómo crear una conexión de permisos más restringida a su suscripción de Azure, consulte [Punto de conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
+   |**Suscripción a Azure Resource Manager**|Seleccione una conexión de servicio o suscripción de **Conexiones disponibles del servicio de Azure** o **Suscripciones de Azure disponibles** en el menú desplegable y seleccione **Autorizar** si es necesario.<br /><br />**Nota:** Para más información sobre cómo crear una conexión de permisos más restrictivos a la suscripción de Azure, consulte [Punto de conexión de servicio de Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nombre de laboratorio**|Seleccione el nombre de un laboratorio existente en el que se creará la máquina virtual de laboratorio.|
    |**Nombre de plantilla**|Escriba la ruta de acceso completa y el nombre del archivo de plantilla que guardó en el repositorio de código fuente. Puede usar las propiedades integradas para simplificar la ruta de acceso, por ejemplo:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Parámetros de plantilla**|Escriba los parámetros de las variables que definió anteriormente:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Variables de salida** > **Identificador de máquina virtual de laboratorio**|Escriba la variable para el identificador de máquina virtual de laboratorio creado. Si usa el valor predeterminado **labVMId**, puede hacer referencia a la variable en tareas posteriores como *$(labVMId)* .<br /><br />Puede crear un nombre distinto del predeterminado, pero recuerde usar el nombre correcto en las tareas posteriores. El identificador de la máquina virtual de laboratorio se puede escribir en el formato siguiente:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   |**Variables de salida** > **Identificador de máquina virtual de laboratorio**|Escriba la variable para el identificador de máquina virtual de laboratorio creado. Si usa el valor predeterminado **labVMId**, puede hacer referencia a la variable en tareas posteriores como *$(labVMId)*.<br /><br />Puede crear un nombre distinto del predeterminado, pero recuerde usar el nombre correcto en las tareas posteriores. El identificador de la máquina virtual de laboratorio se puede escribir en el formato siguiente:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>Recopilación de los detalles de la máquina virtual de DevTest Labs
 
@@ -143,7 +143,7 @@ Ejecute el script que creó anteriormente para recopilar los detalles de la máq
    
 1. En **Agregar tareas**, seleccione **Azure PowerShell** y, después, seleccione **Agregar**. 
    
-1. Seleccione **Script de Azure PowerShell: FilePath** en el panel izquierdo. 
+1. Seleccione **Azure PowerShell script: FilePath** (Script de Azure PowerShell: FilePath) en el panel izquierdo. 
    
 1. En el panel de la derecha, rellene el formulario como se indica a continuación:
    
@@ -173,7 +173,7 @@ La siguiente tarea consiste en crear una imagen de la máquina virtual recién i
    |**Nombre de laboratorio**|Seleccione el nombre de un laboratorio existente en el que se creará la imagen.|
    |**Nombre de imagen personalizada**|Escriba un nombre para la imagen personalizada.|
    |**Descripción** (opcional)|Escriba una descripción para facilitar la selección de la imagen correcta más adelante.|
-   |**Máquina virtual de laboratorio de origen** > **Identificador de máquina virtual de laboratorio de origen**|Si cambió el nombre predeterminado de la variable LabVMId, escríbalo aquí. El valor predeterminado es **$(labVMId)** .|
+   |**Máquina virtual de laboratorio de origen** > **Identificador de máquina virtual de laboratorio de origen**|Si cambió el nombre predeterminado de la variable LabVMId, escríbalo aquí. El valor predeterminado es **$(labVMId)**.|
    |**Variables de salida** > **Identificador de imagen personalizada**|Puede modificar el nombre predeterminado de la variable si es necesario.|
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>Implementación de la aplicación en la máquina de DevTest Labs (opcional)
@@ -193,13 +193,13 @@ La tarea final consiste en eliminar la máquina virtual que se implementó en la
 1. Configure la tarea de la siguiente manera:
    
    - En **Azure RM Subscription** (Suscripción de Azure Resource Manager), seleccione su suscripción o conexión de servicio. 
-   - En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable LabVMId, escríbalo aquí. El valor predeterminado es **$(labVMId)** .
+   - En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable LabVMId, escríbalo aquí. El valor predeterminado es **$(labVMId)**.
    
 ### <a name="save-the-release-pipeline"></a>Guardar la canalización de versión
 
 Para guardar la nueva canalización de versión:
 
-1. Seleccione el nombre **Nueva canalización de versión**en la página de canalización de versión y escriba un nuevo nombre para la canalización. 
+1. Seleccione el nombre **Nueva canalización de versión** en la página de canalización de versión y escriba un nuevo nombre para la canalización. 
    
 1. Seleccione el icono **Guardar** en la esquina superior derecha. 
 

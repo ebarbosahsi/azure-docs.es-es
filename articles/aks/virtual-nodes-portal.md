@@ -3,14 +3,14 @@ title: Creación de nodos virtuales mediante el portal en Azure Kubernetes Servi
 description: Aprenda a usar el Azure Portal para crear un clúster de Azure Kubernetes Service (AKS) que usa los nodos virtuales para ejecutar pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501811"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577839"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -54,15 +54,15 @@ En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso*
 En la página **Datos básicos**, configure las siguientes opciones:
 
 - *DETALLES DEL PROYECTO*: seleccione una suscripción de Azure y, a continuación, seleccione o cree un grupo de recursos de Azure, como *myResourceGroup*. Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*.
-- *DETALLES DEL CLÚSTER*: seleccione la región, la versión de Kubernetes y el prefijo del nombre DNS para el clúster de AKS.
+- *DETALLES DEL CLÚSTER*: seleccione una región y una versión de Kubernetes para el clúster de AKS.
 - *GRUPO DE NODOS PRINCIPAL*: seleccione un tamaño de máquina virtual para los nodos de AKS. El tamaño de VM **no** puede cambiarse una vez que se ha implementado un clúster de AKS.
      - Seleccione el número de nodos que se van a implementar en el clúster. Para este artículo, establezca **Número de nodos** en *1*. El número de nodos **puede** ajustarse después de implementar el clúster.
 
-Haga clic en **Siguiente: Escalado**.
+Haga clic en **Next: Node Pools** (Siguiente: Grupos de nodos).
 
-En la página **Escalado**, seleccione *Habilitado* en **Nodos virtuales**.
+En la página **Node Pools**  (Grupos de nodos), seleccione *Enable virtual nodes* (Habilitar nodos virtuales).
 
-![Creación del clúster de AKS y habilitación de los nodos virtuales](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="En un explorador, muestra cómo crear un clúster con nodos virtuales habilitados en Azure Portal. La opción &quot;Enable virtual nodes&quot; (Habilitar nodos virtuales) aparece destacada.":::
 
 De forma predeterminada, se crea una identidad del clúster. Esta identidad del clúster se usa para la comunicación del clúster y la integración con otros servicios de Azure. De forma predeterminada, esta identidad del clúster es una identidad administrada. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md). También puede usar una entidad de servicio como identidad del clúster.
 
@@ -158,7 +158,7 @@ Se asigna una dirección IP interna al pod de la subred de red virtual de Azure 
 Para probar el pod que se ejecuta en el nodo virtual, vaya a la aplicación de demostración con un cliente web. Como se asigna una dirección IP interna al pod, puede probar rápidamente esta conectividad desde otro pod en el clúster de AKS. Cree un pod de prueba y asóciele una sesión de terminal:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Instale `curl` en el pod mediante `apt-get`:

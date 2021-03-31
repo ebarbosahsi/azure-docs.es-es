@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103199"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578284"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
 
@@ -94,6 +94,21 @@ De forma predeterminada, en el ejemplo se usa:
    1. Seleccione la duración de clave **En 1 año**.
    1. Seleccione **Agregar**.
    1. Cuando aparezca el valor de clave, cópielo para usarlo más adelante. Este valor no se volverá a mostrar ni se podrá recuperar por otro medio.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
+   1. Escriba el **Nombre** de la aplicación, por ejemplo `node-webapp`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+   1. Cambie **Supported account types** (Tipos de cuenta compatibles) por **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** .
+   1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: `http://localhost:3000/redirect` .
+   1. Seleccione **Registrar** para crear la aplicación.
+1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de este proyecto.
+1. En **Administrar**, seleccione **Certificados y secretos**.
+1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
+   1. Escriba una descripción de la clave.
+   1. Seleccione una duración de la clave de **En 1 año**.
+   1. Seleccione **Agregar**.
+   1. Cuando aparezca el valor de clave, cópielo. Lo necesitará más adelante.
 
 # <a name="python"></a>[Python](#tab/python)
 

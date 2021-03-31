@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256312"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579508"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -85,7 +85,7 @@ En primer lugar, resuelva el problema que provocó que la aplicación se pusiera
 
 Una vez resuelto el problema, reinicie el trabajo de aprovisionamiento. Algunos cambios en la configuración de aprovisionamiento de la aplicación, como asignaciones de atributos o filtros de ámbito, reiniciarán automáticamente el proceso aprovisionamiento. La barra de progreso en la página **Provisioning** (Aprovisionamiento) de la aplicación indica cuándo comenzó el aprovisionamiento por última vez. Si necesita reiniciar el trabajo de aprovisionamiento manualmente, use uno de los métodos siguientes:  
 
-- Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página **Provisioning** (Aprovisionamiento) de la aplicación en **Settings** (Configuración), seleccione **Clear state and restart synchronization** (Borrar estado y reinicie la sincronización) y establezca el **estado de aprovisionamiento** en **On** (Activado). Esta acción reinicia completamente el servicio de aprovisionamiento, que puede tardar algún tiempo. Se volverá a ejecutar un ciclo inicial completo, que borrará los elementos en custodia, quitará la aplicación de la cuarentena y borrará las marcas de agua.
+- Use Azure Portal para reiniciar el trabajo de aprovisionamiento. En la página **Aprovisionamiento** de la aplicación, seleccione **Reiniciar aprovisionamiento**. Esta acción reinicia completamente el servicio de aprovisionamiento, lo que puede tardar cierto tiempo. Se volverá a ejecutar un ciclo inicial completo, que borrará los elementos en custodia, quitará la aplicación de la cuarentena y borrará las marcas de agua. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente, como se explica en este artículo, o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Use Microsoft Graph para [reiniciar el trabajo de aprovisionamiento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Así tendrá control total sobre lo que reinicie. Puede optar por borrar los elementos en custodia (para reiniciar el contador de custodia que se acumula en el estado de cuarentena), borrar la cuarentena (para quitar la aplicación de la cuarentena) o borrar las marcas de agua. Use la siguiente solicitud:
  

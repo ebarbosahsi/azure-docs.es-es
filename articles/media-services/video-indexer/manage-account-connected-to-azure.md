@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
 ms.openlocfilehash: 25025efe5254442c4862563ce329cfae69e7d033
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898450"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Administración de una cuenta de Video Indexer conectada a Azure
@@ -24,7 +24,7 @@ En este artículo se muestra cómo administrar una cuenta de Video Indexer conec
 > [!NOTE]
 > Debe ser propietario de la cuenta de Video Indexer para realizar los ajustes de configuración descritos en este tema.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Conecte su cuenta de Video Indexer a Azure, como se describe en [Conexión a Azure](connect-to-azure.md).
 
@@ -50,7 +50,7 @@ Si la cuenta de Video Indexer está conectada a Azure, verá los elementos sigui
 
 Si la cuenta precisa algunos ajustes, verá errores y advertencias pertinentes sobre la configuración de la cuenta en la página **Configuración**. Los mensajes incluyen vínculos a las ubicaciones exactas de Azure Portal donde debe realizar los cambios. Para más información, vea la sección [Errores y advertencias](#errors-and-warnings) a continuación.
 
-## <a name="repair-the-connection-to-azure"></a>Reparación de la conexión a Azure
+## <a name="repair-the-connection-to-azure"></a>Reparar la conexión a Azure
 
 En el cuadro de diálogo **Update connection to Azure Media Services** (Actualizar conexión a Azure Media Services) de la página [Video Indexer](https://www.videoindexer.ai/), se le pide que proporcione valores para la siguiente configuración:
 
@@ -61,7 +61,7 @@ En el cuadro de diálogo **Update connection to Azure Media Services** (Actualiz
 |Identificador de aplicación|El identificador de aplicación de Azure AD (con permisos para la cuenta de Media Services especificada) que creó para esta cuenta de Video Indexer. <br/><br/>Para obtener el id. de la aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Aplicación de Azure AD**. Copie los parámetros pertinentes.|
 |Clave de la aplicación|La clave de aplicación de Azure AD asociada a la cuenta de Media Services que especificó anteriormente. <br/><br/>Para obtener la clave de aplicación, vaya a Azure Portal. En la cuenta de Media Services, elija su cuenta y vaya a **Acceso de API**. Haga clic en **Conectarse a la API de Media Services con la entidad de servicio** -> **Administrar aplicación** -> **Certificados y secretos**. Copie los parámetros pertinentes.|
 
-## <a name="autoscale-reserved-units"></a>Unidades reservadas de escalado automático
+## <a name="autoscale-reserved-units"></a>Escalar automáticamente unidades reservadas
 
 En la página **Configuración** puede establecer el escalado automático de unidades reservadas de multimedia (RU). Si la opción es **On** (Activado), puede asignar el número máximo de unidades reservadas y asegurarse de que Video Indexer detiene o inicia las unidades reservadas automáticamente. Con esta opción, no tiene que pagar ningún costo adicional por el tiempo de inactividad, pero tampoco tiene que esperar mucho tiempo a que los trabajos de indexación se completen cuando la carga de indexación es elevada.
 
@@ -87,6 +87,6 @@ Si la cuenta precisa de algunos ajustes, verá errores y advertencias pertinente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para interactuar mediante programación con su cuenta de evaluación gratuita o con sus cuentas de Video Indexer conectadas a Azure, siga las instrucciones descritas en: [Uso de las API](video-indexer-use-apis.md).
+Para interactuar mediante programación con un cuenta de evaluación gratuita o con cuentas de Video Indexer conectadas a Azure, siga las instrucciones que encontrará en: [Uso de API](video-indexer-use-apis.md).
 
 Utilice el mismo usuario de Azure AD que usa al conectarse a Azure.

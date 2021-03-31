@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561070"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578794"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartido para dispositivos iOS
 
