@@ -1,24 +1,24 @@
 ---
-title: 'Inicio rápido: Script de R en Machine Learning Services y la consola de R: Azure HDInsight'
+title: 'Inicio rápido: Script de R en Machine Learning Services y la consola de R en Azure HDInsight'
 description: En el inicio rápido, ejecutará un script de R en un clúster de Machine Learning Services en Azure HDInsight con una consola de R.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
 ms.openlocfilehash: eac6fd14acfe12a0f505419a229bb78e423706d1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935740"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con una consola de R
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con la consola de R
 
 Machine Learning Services en Azure HDInsight permite que los scripts de R usen Apache Spark y Apache Hadoop MapReduce para ejecutar cálculos distribuidos. ML Services controla cómo se ejecutan las llamadas mediante el establecimiento del contexto de proceso. El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de RevoScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Apache Spark o Hadoop MapReduce de RevoScaleR.
 
 En este inicio rápido, aprenderá a ejecutar un script de R con una consola de R que muestra el uso de Spark para cálculos de R distribuidos. Definirá un contexto de proceso para llevar a cabo cálculos localmente en un nodo perimetral y, nuevamente, distribuidos entre los nodos del clúster de HDInsight.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
 
@@ -147,7 +147,7 @@ En este inicio rápido, aprenderá a ejecutar un script de R con una consola de 
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7
@@ -190,4 +190,4 @@ Para eliminar un clúster, consulte [Eliminación de un clúster de HDInsight co
 En este inicio rápido, ha aprendido a ejecutar un script de R con una consola de R que muestra el uso de Spark para cálculos de R distribuidos.  Siga con el artículo siguiente para aprender las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight.
 
 > [!div class="nextstepaction"]
->[Opciones de contexto de proceso para de ML Services en HDInsight](./r-server-compute-contexts.md)
+>[Opciones de contexto de proceso para ML Services en HDInsight](./r-server-compute-contexts.md)

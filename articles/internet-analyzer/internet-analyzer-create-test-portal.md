@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73509839"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Creación de una prueba de Internet Analyzer mediante el portal (versión preliminar)
@@ -31,14 +31,14 @@ La versión preliminar pública está disponible para su uso global; sin embargo
 1. Obtenga acceso a la versión preliminar de Internet Analyzer siguiendo las instrucciones de **¿Cómo participar en la versión preliminar?** de las [preguntas frecuentes sobre Azure Internet Analyzer](internet-analyzer-faq.md).
 2. En la página principal de [Azure Portal](https://preview.portal.azure.com), haga clic en **+ Crear un recurso**. Internet Analyzer solo está disponible actualmente en la versión preliminar de Azure Portal.
 3. En la página **Nuevo**, busque "Internet Analyzer" en el campo *Buscar en Marketplace*.
-4. Haga clic en **Internet Analyzer (versión preliminar)** . Asegúrese de que el publicador es *Microsoft* y la categoría es *Redes*.
-5. En la página **Internet Analyzer (versión preliminar)** , haga clic en **Crear** para abrir la página **Crear una instancia de Internet Analyzer**.
+4. Haga clic en **Internet Analyzer (versión preliminar)**. Asegúrese de que el publicador es *Microsoft* y la categoría es *Redes*.
+5. En la página **Internet Analyzer (versión preliminar)**, haga clic en **Crear** para abrir la página **Crear una instancia de Internet Analyzer**.
 6. Especifique los siguientes valores de configuración para el recurso de Internet Analyzer:
 
-    * **Subscription** (Suscripción): La suscripción de Azure que va a hospedar el nuevo recurso de Internet Analyzer. ***Use el mismo identificador de suscripción que usó para solicitar el acceso a la versión preliminar.***
-    * **Grupos de recursos:** grupo de recursos de Azure en el que se creará el nuevo recurso de Internet Analyzer. Si no tiene un grupo de recursos existente, puede crear uno.
-    * **Nombre:** nombre del nuevo perfil de recursos de Internet Analyzer.
-    * **Región:** región pública de Azure en la que se creará el recurso. Durante la versión preliminar, solo está disponible *Oeste de EE. UU. 2*.
+    * **Suscripción:** la suscripción de Azure que hospeda el nuevo recurso Internet Analyzer. **_Use el mismo identificador de suscripción que utilizó para solicitar el acceso a la versión preliminar._**
+    * **Grupo de recursos:** el grupo de recursos de Azure en el que se creará el nuevo recurso Internet Analyzer. Si no tiene un grupo de recursos existente, puede crear uno.
+    * **Nombre:** el nombre del nuevo perfil del recurso Internet Analyzer.
+    * **Región:** la región pública de Azure en que se creará el recurso. Durante la versión preliminar, solo está disponible *Oeste de EE. UU. 2*.
 
 7. Cuando termine de especificar la configuración del perfil, haga clic en **Revisar y Crear**.
 
@@ -54,8 +54,8 @@ Completar los pasos básicos es un requisito previo para configurar una prueba e
     ***Puntos de conexión preconfigurados: combinaciones de una y varias regiones de Azure***
     * Seleccione una región o un conjunto de regiones de una [lista preconfigurada de puntos de conexión de Azure](internet-analyzer-faq.md).
     * A continuación, seleccione el tipo de aplicación o la arquitectura de entrega de contenidos que desea evaluar.
-        * Una sola región de Azure: Aceleración de sitios ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), almacenamiento en memoria caché de contenido estático ([Azure CDN para Microsoft](https://azure.microsoft.com/services/cdn/)) o Ninguno.
-        * Varias regiones de Azure: Aceleración de sitios ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), direccionamiento DNS ([Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/))  
+        * Una sola región de Azure: aceleración de sitios ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), almacenamiento en caché de contenido estático ([Azure CDN para Microsoft](https://azure.microsoft.com/services/cdn/)) o ninguno.
+        * Varias regiones de Azure: aceleraciones de sitios ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), direccionamiento de DNS ([Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/))  
 
     ***Puntos de conexión personalizados***
     * Siga las instrucciones que aparecen en la página [Crear punto de conexión personalizado](internet-analyzer-custom-endpoint.md).
@@ -65,7 +65,7 @@ Completar los pasos básicos es un requisito previo para configurar una prueba e
 4. Haga clic en **Agregar** para agregar el punto de conexión a la prueba.
 5. Repita los pasos del 1 al 4 para configurar el segundo punto de conexión. El punto de conexión B siempre se mide en relación al punto de conexión A: al configurar los puntos de conexión, tenga en cuenta qué punto de conexión debe ser el control de prueba.
 6. Haga clic en el botón **Guardar** para guardar la prueba. Una vez que guarde una prueba, ya no podrá modificar los puntos de conexión de una prueba determinada.
-7. Seleccione las pruebas que desea iniciar y haga clic en **Iniciar prueba**. Esto cambiará el ***Estado*** de las pruebas a ***En ejecución***. Puede iniciar las pruebas en cualquier momento, pero el cliente de JavaScript debe estar insertado para que la prueba comience a recopilar medidas.
+7. Seleccione las pruebas que desea iniciar y haga clic en **Iniciar prueba**. Esto cambiará el valor del campo **_Estado_ *_ de las pruebas a _* _En ejecución_**. Puede iniciar las pruebas en cualquier momento, pero el cliente de JavaScript debe estar insertado para que la prueba comience a recopilar medidas.
 8. Agregue más pruebas en cualquier momento. Tenga en cuenta que el cliente de JavaScript único no se generará hasta que se cree una prueba.
 
 ## <a name="embed-client"></a>Inserción del cliente
