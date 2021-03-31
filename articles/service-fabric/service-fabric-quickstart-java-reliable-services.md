@@ -5,19 +5,19 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529870"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Inicio rápido:  Implementación de una aplicación de Java en Azure Service Fabric con Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Inicio rápido: Implementación de una aplicación Java en Azure Service Fabric con Linux
 
 En este inicio rápido se implementa una aplicación Java en Azure Service Fabric mediante el IDE de Eclipse en una máquina de desarrolladores con Linux. Cuando termine, tendrá una aplicación de votación con un front-end web de Java que guarda los resultados de una votación en un servicio back-end con estado en el clúster.
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Entorno de Java](./service-fabric-get-started-linux.md#set-up-java-development) y [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Eclipse Neón (4.6) +](https://www.eclipse.org/downloads/packages/) y [complemento Eclipse para Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Abra Eclipse.
 3. Seleccione **Archivo** > **Importar** > **Gradle** > **Existing Gradle Project (Proyecto existente de Gradle)** y siga los pasos del asistente.
-4. Seleccione **Directorio** y elija el directorio **Voting**en la carpeta **service-fabric-java-quickstart** que clonó de GitHub. Seleccione **Finalizar**.
+4. Seleccione **Directorio** y elija el directorio **Voting** en la carpeta **service-fabric-java-quickstart** que clonó de GitHub. Seleccione **Finalizar**.
 
     ![Importación de un proyecto de Gradle en Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -71,7 +71,7 @@ Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y s
 Para escalar el servicio front-end web, realice estas operaciones:
 
 1. Abra Service Fabric Explorer en el clúster. Por ejemplo, `https://localhost:19080`.
-2. Seleccione el botón de puntos suspensivos ( **...** ) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
+2. Seleccione el botón de puntos suspensivos (**...**) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
     ![Escalado de un servicio de Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
@@ -88,7 +88,7 @@ Mediante esta sencilla tarea de administración, hemos duplicado los recursos di
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a hacer lo siguiente:
+En este inicio rápido ha aprendido a:
 
 * Usar Eclipse como una herramienta para las aplicaciones Java en Service Fabric
 * Implementar aplicaciones Java en el clúster local

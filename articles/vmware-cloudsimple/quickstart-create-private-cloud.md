@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073915"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configuración del entorno de una nube privada
@@ -169,13 +169,13 @@ Las pantallas de vCenter en los procedimientos siguientes son del cliente vSpher
 CloudSimple recomienda cambiar la contraseña la primera vez que inicie sesión en vCenter.  
 La contraseña que establezca debe cumplir los requisitos siguientes:
 
-* Duración máxima: debe cambiar la contraseña cada 365 días
-* Restricción de reutilización: los usuarios no pueden reutilizar ninguna de las últimas cinco contraseñas
-* Longitud: entre 8 y 20 caracteres
-* Carácter especial: un carácter especial como mínimo
+* Vigencia máxima: la contraseña se debe cambiar cada 365 días.
+* Restringir la reutilización: los usuarios no pueden reutilizar ninguna de las cinco últimas contraseñas.
+* Longitud: de 8 a 20 caracteres
+* Caracteres especiales: un carácter especial como mínimo
 * Caracteres alfabéticos: un carácter en mayúscula (A-Z) como mínimo y un carácter en minúscula (a-z) como mínimo
 * Números: un carácter numérico (de 0 a 9) como mínimo
-* Máximo de caracteres adyacentes idénticos: tres
+* Número máximo de caracteres adyacentes idénticos: tres
 
     Ejemplo: CC o CCC es aceptable como parte de la contraseña, pero no CCCC.
 

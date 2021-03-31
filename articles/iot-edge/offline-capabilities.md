@@ -7,24 +7,26 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440044"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103489972"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge permite realizar operaciones sin conexión ampliadas en dispositivos IoT Edge y también operaciones sin conexión en dispositivos secundarios que no son IoT Edge. Si un dispositivo de IoT Edge ha podido conectarse a IoT Hub aunque sea una sola vez, ese dispositivo y cualquier dispositivo secundario podrán seguir funcionando con una conexión intermitente o sin conexión.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Cuando un dispositivo de IoT Edge está en modo sin conexión, el centro de IoT Edge asume tres roles. En primer lugar, almacena los mensajes que deberían enviarse y los guarda hasta que el dispositivo vuelva a tener conexión. En segundo lugar, actúa en nombre de IoT Hub para autenticar los módulos y los dispositivos secundarios, de forma que puedan seguir trabajando. En tercer lugar, permite la comunicación entre los dispositivos secundarios, que normalmente se realizaría mediante IoT Hub.
+Cuando un dispositivo de IoT Edge está en modo sin conexión, el centro de IoT Edge asume tres roles. En primer lugar, almacena los mensajes que deberían enviarse y los guarda hasta que el dispositivo vuelva a tener conexión. En segundo lugar, actúa en nombre de IoT Hub para autenticar módulos y dispositivos secundarios de modo que puedan seguir funcionando. En tercer lugar, permite la comunicación entre dispositivos secundarios que normalmente se comunicarían a través de IoT Hub.
 
 En el ejemplo siguiente, se muestra cómo funciona un escenario de IoT Edge en modo sin conexión:
 
-1. **Configuración de dispositivos**
+1. **Configurar dispositivos**
 
    De forma automática, los dispositivos de IoT Edge tienen habilitadas funcionalidades sin conexión. Para ampliar esa funcionalidad a otros dispositivos de IoT, debe declarar una relación de tipo primario/secundario entre los dispositivos de IoT Hub. A continuación, se configuran los dispositivos secundarios para que confíen en su dispositivo principal asignado y se enrutan las comunicaciones de dispositivo a nube mediante el principal como puerta de enlace.
 
@@ -48,7 +50,7 @@ Las funcionalidades sin conexión ampliadas que se describen en este artículo e
 
 Solo los dispositivos que no son IoT Edge pueden agregarse como dispositivos secundarios.
 
-Los dispositivos de IoT Edge y sus dispositivos secundarios asignados pueden funcionar indefinidamente sin conexión tras realizar una vez la sincronización inicial. Sin embargo, el almacenamiento de mensajes depende de la configuración del período de vida (TTL) y del espacio en disco disponible para almacenar los mensajes.
+Los dispositivos de IoT Edge y los dispositivos secundarios asignados pueden funcionar indefinidamente sin conexión después de la sincronización inicial única. Sin embargo, el almacenamiento de mensajes depende de la configuración del período de vida (TTL) y del espacio en disco disponible para este almacenamiento.
 
 ## <a name="set-up-parent-and-child-devices"></a>Configuración de dispositivos principales y secundarios
 
@@ -60,13 +62,13 @@ Los dispositivos secundarios pueden ser cualquier dispositivo que no sea IoT Edg
 
 En las secciones siguientes se proporcionan ejemplos de cómo puede declarar la relación principal-secundario en IoT Hub para dispositivos IoT existentes. Si va a crear identidades de dispositivo para los dispositivos secundarios, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md) para más información.
 
-#### <a name="option-1-iot-hub-portal"></a>Opción 1: Portal de IoT Hub
+#### <a name="option-1-iot-hub-portal"></a>Opción 1: Portal de IoT Hub
 
 Puede declarar la relación principal-secundario cuando se crea un dispositivo. O bien, en el caso de dispositivos existentes, puede declarar la relación en la página de detalles de cualquier dispositivo IoT Edge principal o secundario.
 
    ![Administración de dispositivos secundarios desde la página de detalles del dispositivo de IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Uso de la herramienta de línea de comandos `az`
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Usar la herramienta de línea de comandos `az`
 
 Mediante la [interfaz de línea de comandos de Azure](/cli/azure/) con la [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones principal-secundario con los subcomandos [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity). En el ejemplo siguiente se usa una consulta para asignar todos los dispositivos que no son IoT Edge del centro como dispositivos secundarios de un dispositivo IoT Edge.
 
@@ -84,16 +86,16 @@ device_list=$(az iot hub query \
 
 # Add all IoT devices to IoT Edge (as child)
 az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name
 ```
 
 Puede modificar la [consulta](../iot-hub/iot-hub-devguide-query-language.md) para seleccionar un subconjunto diferente de dispositivos. El comando puede tardar varios segundos si especifica un conjunto grande de dispositivos.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Uso del SDK de servicio de IoT Hub
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Usar el SDK de servicio de IoT Hub
 
 Por último, puede administrar las relaciones principal-secundario mediante programación con el SDK de servicio de IoT Hub para C#, Java o Node.js. Este es un [ejemplo de asignación de un dispositivo secundario](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#.
 

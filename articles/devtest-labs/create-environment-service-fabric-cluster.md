@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484016"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Creación de un entorno con un clúster de Service Fabric independiente en Azure DevTest Labs
@@ -21,7 +21,7 @@ DevTest Labs puede crear entornos de prueba independientes, tal como definen las
 ## <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
 Los clústeres de Service Fabric se crean mediante entornos en DevTest Labs. Una plantilla de Azure Resource Manager se encarga de definir cada entorno en un repositorio de Git. El [repositorio de Git público](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) de DevTest Labs incluye la plantilla de Resource Manager para crear un clúster de Service Fabric en la carpeta [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). 
 
-1. En primer lugar, cree un laboratorio en Azure DevTest Labs con las instrucciones del siguiente artículo: [Cree un laboratorio](devtest-lab-create-lab.md). Tenga en cuenta que la opción **Entornos públicos** está **Activada** de forma predeterminada. 
+1. En primer lugar, cree un laboratorio en Azure DevTest Labs con las instrucciones del siguiente artículo: [Creación de un laboratorio](devtest-lab-create-lab.md). Tenga en cuenta que la opción **Entornos públicos** está **Activada** de forma predeterminada. 
 2. Confirme que el proveedor de Service Fabric está registrado para su suscripción siguiendo estos pasos:
     1. Seleccione **Suscripciones** en el menú de navegación izquierdo y seleccione su **Suscripción**.
     2. En la página **Suscripción**, seleccione **Proveedores de recursos** en la sección **Configuración** del menú izquierdo. 
