@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129911"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
@@ -172,7 +172,7 @@ En este ejemplo, tenemos lo siguiente:
    1     ConfigurationServer
    ```
 
-   De la salida anterior, ***$ProcessServers[0]*** corresponde a *ScaleOut-ProcessServer* y ***$ProcessServers[1]*** corresponde a la función de servidor de procesos en *ConfigurationServer*.
+   En la salida anterior, **$ProcessServers[0]** corresponde a _ScaleOut-ProcessServer **y**$ProcessServers[1]_ corresponde al rol de servidor de procesos en ConfigurationServer.
 
 3. Identifique las cuentas que se han configurado en el servidor de configuración.
 
@@ -189,7 +189,7 @@ En este ejemplo, tenemos lo siguiente:
    3         LinuxAccount
    ```
 
-   De la salida anterior, ***$AccountHandles[0]*** corresponde a la cuenta *vCenter_account*, ***$AccountHandles[1]*** a la cuenta *WindowsAccount* y ***$AccountHandles[2]*** a la cuenta *LinuxAccount*.
+   En la salida anterior, **$AccountHandles[0]** corresponde a la cuenta _vCenter_account **,** $AccountHandles[1]_ a la cuenta _WindowsAccount **y**$AccountHandles[2]_ a la cuenta LinuxAccount.
 
 ## <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
@@ -342,7 +342,7 @@ Necesitará los siguientes detalles para proteger una máquina virtual detectada
 * El elemento que se puede proteger y que se va a replicar.
 * La cuenta de almacenamiento en la que replicar la máquina virtual (solo si va a replicar en la cuenta de almacenamiento). 
 * Se necesita un almacenamiento de registros para proteger las máquinas virtuales en una cuenta de almacenamiento Premium o en un disco administrado.
-* El servidor de procesos que se usará para la replicación. La lista de servidores de procesos disponibles se ha recuperado y guardado en las variables ***$ProcessServers[0]***  *(ScaleOut-ProcessServer)* y ***$ProcessServers[1]*** *(ConfigurationServer)* .
+* El servidor de procesos que se usará para la replicación. La lista de servidores de procesos disponibles se ha recuperado y guardado en las variables **$ProcessServers[0]** _(ScaleOut-ProcessServer) y **$ProcessServers[1]**_ (ConfigurationServer).
 * La cuenta que se usará para la instalación de inserción el software Mobility Service en las máquinas. La lista de cuentas disponibles se ha recuperado y almacenado en la variable ***$AccountHandles***.
 * La asignación de contenedor de protección para la directiva de replicación que se usará para la replicación.
 * El grupo de recursos en el que las máquinas virtuales deben crearse en la conmutación por error.

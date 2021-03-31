@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934878"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparación de OData en Azure Cognitive Search: `eq`, `ne`, `gt`, `lt`, `ge` y `le`
@@ -32,15 +32,15 @@ La operación más básica en una [expresión de filtro de OData](query-odata-fi
 
 Operadores de igualdad:
 
-- `eq`: se comprueba si un campo es **igual a** un valor constante
-- `ne`: se comprueba si campo **no es igual a** un valor constante
+- `eq`: se comprueba si un campo es **igual a** un valor constante.
+- `ne`: se comprueba si un campo **no es igual a** un valor constante.
 
 Operadores de rango:
 
-- `gt`: se comprueba si un campo es **mayor que** un valor constante
-- `lt`: se comprueba si un campo es **menor que** un valor constante
-- `ge`: se comprueba si un campo es **mayor o igual que** un valor constante
-- `le`: se comprueba si un campo es **menor o igual que** un valor constante
+- `gt`: se comprueba si un campo es **mayor que** un valor constante.
+- `lt`: se comprueba si un campo es **menor que** un valor constante.
+- `ge`: se comprueba si un campo es **mayor o igual que** un valor constante.
+- `le`: se comprueba si un campo es **menor o igual que** un valor constante.
 
 Puede usar los operadores de rango en combinación con los [operadores lógicos](search-query-odata-logical-operators.md) para comprobar si un campo está dentro de un intervalo de valores determinado. Vea los [ejemplos](#examples) más adelante en este artículo.
 
@@ -89,7 +89,7 @@ Los tipos de datos en ambos lados de un operador de comparación deben ser compa
 | `Edm.Int32` | `Edm.Int64` | N/D |
 | `Edm.Int32` | `Edm.Int32` | N/D |
 
-Para las comparaciones que no están permitidas, como la de un campo de tipo `Edm.Int64` con `NaN`, la API REST de Azure Cognitive Search devolverá un error "HTTP 400: Solicitud incorrecta".
+En el caso de comparaciones que no se permiten, como comparar un campo de tipo `Edm.Int64` con `NaN`, la API REST de Azure Cognitive Search devolverá un error "HTTP 400: Solicitud incorrecta".
 
 > [!IMPORTANT]
 > Aunque las comparaciones de tipos numéricos son flexibles, se recomienda encarecidamente escribir comparaciones en filtros para que el valor constante sea del mismo tipo de datos que la variable o función con la que se compara. Esto es especialmente importante cuando se mezclan valores enteros y de punto flotante, en los que las conversiones implícitas pueden perder precisión.
@@ -102,10 +102,10 @@ Al usar los operadores de comparación, es importante recordar que en Azure Cogn
 
 | Operator | Resultado cuando solo el campo o la variable es `null` | Resultado cuando solo la constante es `null` | Resultado cuando el campo o la variable y la constante son `null` |
 | --- | --- | --- | --- |
-| `gt` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
-| `lt` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
-| `ge` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
-| `le` | `false` | HTTP 400: Error de solicitud incorrecta | HTTP 400: Error de solicitud incorrecta |
+| `gt` | `false` | Error HTTP 400: Solicitud incorrecta | Error HTTP 400: Solicitud incorrecta |
+| `lt` | `false` | Error HTTP 400: Solicitud incorrecta | Error HTTP 400: Solicitud incorrecta |
+| `ge` | `false` | Error HTTP 400: Solicitud incorrecta | Error HTTP 400: Solicitud incorrecta |
+| `le` | `false` | Error HTTP 400: Solicitud incorrecta | Error HTTP 400: Solicitud incorrecta |
 | `eq` | `false` | `false` | `true` |
 | `ne` | `true` | `true` | `false` |
 
@@ -168,5 +168,5 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

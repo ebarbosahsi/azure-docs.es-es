@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2017
 ms.openlocfilehash: 3cb3472572abbd891f8d36ea036b371c1224f38c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792150"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensajes XML y archivos planos en Azure Logic Apps con Enterprise Integration Pack
@@ -21,9 +21,9 @@ En [Azure Logic Apps](logic-apps-overview.md) puede procesar los mensajes XML qu
 
 Por ejemplo, Enterprise Integration Pack incluye estas funcionalidades:
 
-* [Validación XML](logic-apps-enterprise-integration-xml-validation.md): permite validar un mensaje XML entrante o saliente con respecto a un esquema específico.
+* [Validación de XML](logic-apps-enterprise-integration-xml-validation.md): permite validar un mensaje XML entrante o saliente con respecto a un esquema específico.
 
-* [Transformación XML](logic-apps-enterprise-integration-transform.md): permite convertir o personalizar un mensaje XML en función de sus requisitos o de los de un asociado mediante asignaciones.
+* [Transformación de XML](logic-apps-enterprise-integration-transform.md): permite convertir o personalizar un mensaje XML en función de sus requisitos o de los de un asociado mediante asignaciones.
 
 * [Codificación y descodificación de archivos planos](logic-apps-enterprise-integration-flatfile.md): permite codificar o descodificar un archivo plano.
 
