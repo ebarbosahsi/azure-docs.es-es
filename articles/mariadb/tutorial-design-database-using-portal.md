@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Diseño de un servidor de Azure Database for MariaDB con Azure Portal'
+title: 'Tutorial: Diseño de un servidor de Azure Database for MariaDB - Azure Portal'
 description: En este tutorial se explica cómo crear y administrar un servidor y una base de datos de Azure Database for MariaDB con Azure Portal.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664475"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal
@@ -49,7 +49,7 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
 
    ![Formulario de creación](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    Configuración | Valor sugerido | Descripción del campo
+    Valor | Valor sugerido | Descripción del campo
     ---|---|---
     Nombre de servidor | *nombre del servidor único* | Elija un nombre único que identifique el servidor de Azure Database for MariaDB. Por ejemplo, **mydemoserver**. El nombre de dominio *.mariadb.database.azure.com* se anexa al nombre de servidor especificado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
     Subscription | *su suscripción* | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
@@ -175,7 +175,7 @@ Imagine que ha eliminado por accidente una tabla de base de datos importante y n
    ![Formulario de restauración](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Punto de restauración**: seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convertir la zona horaria local a UTC.
-   - **Restaurar en el servidor nuevo**: escriba un nuevo nombre de servidor donde se realizará la restauración.
+   - **Restaurar en el servidor nuevo**: escriba un nuevo nombre de servidor en el que restaurar.
    - **Ubicación**: la región es la misma que la del servidor de origen y no se puede cambiar.
    - **Plan de tarifa**: es el mismo que el del servidor de origen y no se puede cambiar.
    

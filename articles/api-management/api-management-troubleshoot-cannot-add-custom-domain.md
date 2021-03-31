@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75430587"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>No se pudieron actualizar los nombres de host del servicio API Management
@@ -28,7 +28,7 @@ En este artículo se describe el error "No se pudieron actualizar los nombres de
 
 Al intentar agregar un dominio personalizado para el servicio API Management mediante un certificado de Azure Key Vault, se recibe el mensaje de error siguiente:
 
-- No se pudieron actualizar los nombres de host del servicio API Management. Error en la solicitud al recurso "https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0" con código de estado: Prohibido para RequestId:. Mensaje de excepción: La operación devolvió un código de estado no válido "Forbidden".
+- No se pudieron actualizar los nombres de host del servicio API Management. La solicitud al recurso "https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0" generó un error con StatusCode: prohibido para RequestId: Mensaje de excepción: la operación devolvió un código de estado "Prohibido" no válido.
 
 ## <a name="cause"></a>Causa
 
@@ -44,11 +44,11 @@ Para resolver el problema, siga estos pasos:
 1. Seleccione **Directivas de acceso** y compruebe si hay una entidad de servicio que coincida con el nombre de la instancia del servicio API Management. Si es así, seleccione la entidad de servicio y asegúrese de que el permiso **Get** aparece en **Permisos de secretos**.  
     ![Adición de directiva de acceso para la entidad de servicio](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Si el servicio API Management no está en la lista, seleccione **Agregar directiva de acceso** y, a continuación, cree la siguiente directiva de acceso:
-    - **Configurar a partir de una plantilla**: None
-    - **Seleccionar la entidad de seguridad**: Busque el nombre del servicio API Management y, a continuación, selecciónelo en la lista.
-    - **Permisos de claves**: None
+    - **Configurar a partir de una plantilla**: Ninguno.
+    - **Seleccionar la entidad de seguridad**: busque el nombre del servicio API Management y, luego, selecciónelo en la lista.
+    - **Permisos de clave**: Ninguno
     - **Permisos de secretos**: Obtener
-    - **Permisos de certificados**: None
+    - **Permisos de certificado**: Ninguno.
 1. Seleccione **Aceptar** para crear la directiva de acceso.
 1. Seleccione **Guardar** para guardar los cambios.
 

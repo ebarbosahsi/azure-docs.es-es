@@ -7,10 +7,10 @@ ms.author: rohogue
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76152976"
 ---
 # <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Notas del producto y otros recursos de Avere vFXT for Azure
@@ -19,13 +19,13 @@ En este artículo se incluyen casos prácticos, notas del producto de tecnologí
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>Implementación de Agisoft PhotoScan en Azure
 
-**Vínculo:** [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf) (Implementación de Agisoft PhotoScan en Azure con Avere vFXT para Azure o BeeGFS)
+**Vínculo:** [Implementación de Agisoft PhotoScan en Azure con Avere vFXT para Azure o BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf)
 
 En esta guía se proporciona una guía paso a paso para instalar el software de fotogrametría Agisoft PhotoScan respaldado por el almacenamiento de Avere vFXT o el sistema de archivos paralelo de BeeGFS. El autor, Paulo Marques da Costa de AzureCAT, muestra cómo configurar PhotoScan en Azure Virtual Machines. El almacenamiento de alto rendimiento acelera el tiempo de procesamiento y se incluyen los resultados de las pruebas comparativas. Este entorno se puede escalar o reducir verticalmente según sea necesario y admite terabytes de almacenamiento sin sacrificar el rendimiento.
 
-## <a name="datasheet-avere-vfxt-for-azure"></a>Hoja de datos: Avere vFXT for Azure
+## <a name="datasheet-avere-vfxt-for-azure"></a>Hoja de datos: Avere vFXT para Azure
 
-**Vínculo:** [Hoja de datos de Avere vFXT for Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
+**Vínculo:** [Hoja de datos de Avere vFXT para Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 Este breve resumen de dos páginas contiene información básica y diagramas que explican cómo utilizar Avere vFXT for Azure en varios escenarios de casos de uso.
 

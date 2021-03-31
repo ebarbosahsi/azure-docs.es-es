@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9dd6a7a34ac231f8af9d08aab99e3d552f33ea1d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259628"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
@@ -57,12 +57,12 @@ Para cambiar las opciones de firma de certificados SAML y el algoritmo de firma 
 1. En el panel izquierdo, seleccione **Aplicaciones empresariales**. Aparecerá una lista de las aplicaciones empresariales de su cuenta.
 1. Seleccione una aplicación. Aparecerá una página de información general de la aplicación.
 
-   ![Ejemplo: Página de información general de la aplicación](./media/certificate-signing-options/application-overview-page.png)
+   ![Ejemplo: Página Información general de aplicación](./media/certificate-signing-options/application-overview-page.png)
 
 Después, cambie las opciones de firma de certificados en el token SAML de esa aplicación:
 
 1. En el panel izquierdo de la página de información general de la aplicación, seleccione **Inicio de sesión único**.
-1. Si se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , vaya al paso 5.
+1. Si se muestra la página **Configurar el inicio de sesión único con SAML (versión preliminar)**, vaya al paso 5.
 1. Si no aparece la página **Seleccione un método de inicio de sesión único**, seleccione **Cambiar los modos de inicio de sesión único** para que se muestre.
 1. En la página **Seleccione un método de inicio de sesión único**, haga clic en **SAML**, si está disponible. (Si **SAML** no está disponible, la aplicación no es compatible con SAML, por lo que puede omitir el resto de este procedimiento y el artículo).
 1. En la página **Configurar el inicio de sesión único con SAML (versión preliminar)** , busque el encabezado **Certificado de firma de SAML** y seleccione el icono **Editar** (con forma de lápiz). Aparecerá la página **Certificado de firma de SAML**.

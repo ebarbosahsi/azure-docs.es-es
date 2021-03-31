@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154770"
 ---
 # <a name="service-to-service-apps"></a>Aplicaciones de se servicio a servicio
@@ -57,9 +57,9 @@ En el flujo descrito a continuación se asume que un usuario se ha autenticado e
 
 ## <a name="code-samples"></a>Ejemplos de código
 
-Vea los ejemplos de código para escenarios de aplicación de servidor o de demonio en API web: [Aplicación de servidor o de demonio en API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Consulte los ejemplos de código de los escenarios de aplicación de demonio o servidor a API web: [De aplicación de demonio o servidor a API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity).
 
-## <a name="app-registration"></a>Registro de aplicación
+## <a name="app-registration"></a>Registro de la aplicación
 
 * Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación de demonio o de servidor debe estar registrada en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación de demonio o de servidor a sus recursos. Si se usa un tipo de identidad de usuario delegada, la aplicación de servidor debe seleccionar los permisos deseados. En la página **Permiso de API** para el registro de la aplicación, después de haber seleccionado **Agregar un permiso** y elegido la familia de API, elija **Permisos delegados** y, luego, seleccione los permisos. Este paso no es necesario si se usa el tipo de identidad de aplicación.
 * Multiempresa (varios inquilinos): en primer lugar, la aplicación de demonio o de servidor se configura para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, las dos API web se registran en el directorio.

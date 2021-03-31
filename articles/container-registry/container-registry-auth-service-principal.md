@@ -4,10 +4,10 @@ description: Proporcione acceso a las imágenes de su registro de contenedor pri
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86259147"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
@@ -30,9 +30,9 @@ Por ejemplo, configure su aplicación web para usar una entidad de servicio que 
 
 Debe usar una entidad de servicio para proporcionar acceso al registro en **escenarios de equipos sin periféricos**. Es decir, para cualquier aplicación, servicio o script que deba insertar o extraer imágenes de contenedor de forma automática o desatendida. Por ejemplo:
 
-  * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) y otros.
+  * *Extracción*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml) y otros.
 
-  * *Push*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
+  * *Inserción*: se crean imágenes de contenedor y se insertan en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 
 Para obtener acceso individual a un registro, como, por ejemplo, al extraer manualmente una imagen de contenedor en la estación de trabajo de desarrollo, se recomienda usar su propia [identidad de Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acceder al registro (por ejemplo, con [az acr login][az-acr-login]).
 
