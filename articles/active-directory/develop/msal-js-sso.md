@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690785"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Inicio de sesión único con MASL.js
@@ -116,7 +116,7 @@ De forma predeterminada, MSAL.js requiere que se llame a un método de inicio de
 
 Hay algunos casos en los que las aplicaciones tienen acceso al contexto del usuario autenticado o al token de identificación mediante una autenticación iniciada en otra aplicación y quieren aprovechar el inicio de sesión único para adquirir tokens sin tener que iniciar sesión primero con MSAL.js.
 
-Un ejemplo de ello: Un usuario ha iniciado sesión en una aplicación web primaria que hospeda otra aplicación de JavaScript que se ejecuta como un complemento.
+Un ejemplo de esto sería: un usuario ha iniciado sesión en una aplicación web primaria que hospeda otra aplicación de JavaScript que se ejecuta como un complemento.
 
 La experiencia de inicio de sesión único en este escenario puede lograrse de la forma siguiente:
 

@@ -8,17 +8,17 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90902085"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)
 El firewall del servidor Azure Database for PostgreSQL impide todo acceso al nodo de coordinación de Hiperescala (Citus) hasta que se especifica qué equipos tienen permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
 Para configurar su firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall a nivel de servidor.
 
-**Reglas de firewall:** Estas reglas permiten a los clientes acceder al nodo de coordinación de Hiperescala (Citus), es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Las reglas de firewall de nivel de servidor pueden configurarse mediante Azure Portal. Para crear reglas de firewall en el nivel del servidor, debe ser propietario o colaborador de la suscripción.
+**Regas de firewall:** Estas reglas permiten a los clientes acceder al nodo de coordinación de Hiperescala (Citus), es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Las reglas de firewall de nivel de servidor pueden configurarse mediante Azure Portal. Para crear reglas de firewall en el nivel del servidor, debe ser propietario o colaborador de la suscripción.
 
 ## <a name="firewall-overview"></a>Información general de firewalls
 El firewall bloquea de forma predeterminada el acceso de todas las bases de datos al nodo de coordinación. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
@@ -32,16 +32,16 @@ Un firewall del grupo de servidores de Hiperescala (Citus) controla quién puede
 
 Cuando el firewall bloquea las conexiones, puede provocar errores de la aplicación. Cuando se usa el controlador JDBC de PostgreSQL, por ejemplo, se genera un error similar al siguiente:
 
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Error grave: no hay entradas pg\_hba.conf para el host "123.45.67.890", usuario "citus", base de datos "citus", SSL
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "citus", database "citus", SSL
 
 Consulte [Creación y administración de reglas de firewall](howto-hyperscale-manage-firewall-using-portal.md) para saber cómo se definen las reglas.
 
 ## <a name="troubleshooting-the-database-server-firewall"></a>Solución de problemas del firewall del servidor de la base de datos
 Si al acceder a Microsoft Azure Database for PostgreSQL: Hiperescala (Citus), el servicio no se comporta según lo esperado, considere estos puntos:
 
-* **Los cambios en la lista de permitidos aún no se han aplicado:** Puede que haya un retraso de hasta cinco minutos hasta que los cambios en la configuración del firewall de Hiperescala (Citus) surtan efecto.
+* **Los cambios realizados en la lista de permitidos no han surtido efecto todavía:** puede haber un retraso de hasta cinco minutos hasta que los cambios en la configuración del firewall de Hyperscale (Citus) surtan efecto.
 
-* **El usuario no está autorizado o se usó una contraseña incorrecta:** Si un usuario no tiene permisos en el servidor o la contraseña usada es incorrecta, se denegará la conexión al servidor. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe continuar ofreciendo las credenciales de seguridad necesarias.
+* **El usuario no está autorizado o se ha usado una contraseña incorrecta:** si un usuario no tiene permisos en el servidor o la contraseña usada es incorrecta, se denegará la conexión al servidor. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe continuar ofreciendo las credenciales de seguridad necesarias.
 
 Por ejemplo, mediante un cliente JDBC, puede aparecer el siguiente error.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: Error grave: error de autenticación de contraseña para el usuario "suNombreDeUsuario"

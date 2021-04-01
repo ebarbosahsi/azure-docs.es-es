@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010909"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Llamada a operaciones de API REST con autorización de clave compartida
@@ -66,9 +66,9 @@ Revise la referencia de la operación [ListContainers](/rest/api/storageservices
 
 **Método de solicitud**: GET. Este verbo es el método HTTP que se especifica como una propiedad del objeto de solicitud. Otros valores de este verbo incluyen HEAD, PUT y DELETE, según la API a la que llame.
 
-**URI de solicitud**: `https://myaccount.blob.core.windows.net/?comp=list`.  El URI de solicitud se crea desde el punto de conexión de la cuenta de almacenamiento de blobs `https://myaccount.blob.core.windows.net` y la cadena de recurso `/?comp=list`.
+**URI de solicitud**: `https://myaccount.blob.core.windows.net/?comp=list`.  El URI de solicitud se crea desde el punto de conexión de la cuenta de almacenamiento de blobs `https://myaccount.blob.core.windows.net` y la cadena de recurso `/?comp=list`.
 
-[Parámetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): existen parámetros de consulta adicionales que puede usar al llamar a ListContainers. Dos de estos parámetros son *timeout* para la llamada (en segundos) y *prefix*, que se usa para el filtrado.
+[Parámetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): hay parámetros de consulta adicionales que puede usar al llamar a ListContainers. Dos de estos parámetros son *timeout* para la llamada (en segundos) y *prefix*, que se usa para el filtrado.
 
 Otro parámetro útil es *maxresults:* si hay un número de contenedores disponibles superior a este valor, el cuerpo de respuesta contendrá un elemento *NextMarker* que indica el siguiente contenedor que se devuelve en la solicitud siguiente. Para usar esta característica, proporcionará el valor *NextMarker* como el parámetro *marker* en el identificador URI cuando realice la solicitud siguiente. El uso de esta característica es análogo a la paginación a través de los resultados.
 
@@ -78,13 +78,13 @@ Para usar parámetros adicionales, anéxelos a la cadena de recurso con el valor
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Encabezados de solicitud](/rest/api/storageservices/List-Containers2#request-headers) **:** en esta sección se muestran los encabezados de solicitud obligatorios y opcionales. Se requieren tres de los encabezados: un encabezado de *autorización*, *x-ms-date* (contiene la hora UTC de la solicitud) y *x-ms-version* (especifica la versión de la API de REST que se usará). Incluir *x-ms-client-request-id* en los encabezados es opcional; el valor de este campo se puede establecer en nada, y se escribe en los registros de análisis de almacenamiento cuando se habilita el registro.
+[Encabezados de solicitud](/rest/api/storageservices/List-Containers2#request-headers)**:** en esta sección se muestran los encabezados de solicitud obligatorios y opcionales. Se requieren tres de los encabezados: un encabezado de *autorización*, *x-ms-date* (contiene la hora UTC de la solicitud) y *x-ms-version* (especifica la versión de la API de REST que se usará). Incluir *x-ms-client-request-id* en los encabezados es opcional; el valor de este campo se puede establecer en nada, y se escribe en los registros de análisis de almacenamiento cuando se habilita el registro.
 
-[Cuerpo de la solicitud](/rest/api/storageservices/List-Containers2#request-body) **:** no hay ningún cuerpo de solicitud para ListContainers. El cuerpo de solicitud se usa en todas las operaciones PUT al cargar los blobs, así como en SetContainerAccessPolicy, que permite enviar una lista de XML de directivas de acceso almacenadas que se aplicarán. Las directivas de acceso almacenadas se describen en el artículo [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
+[Cuerpo de la solicitud](/rest/api/storageservices/List-Containers2#request-body)**:** no hay ningún cuerpo de solicitud para ListContainers. El cuerpo de solicitud se usa en todas las operaciones PUT al cargar los blobs, así como en SetContainerAccessPolicy, que permite enviar una lista de XML de directivas de acceso almacenadas que se aplicarán. Las directivas de acceso almacenadas se describen en el artículo [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
-[Código de estado de respuesta](/rest/api/storageservices/List-Containers2#status-code) **:** indica los códigos de estado que necesita saber. En este ejemplo, un código de estado HTTP de 200 es correcto. Para ver una lista completa de códigos de estado HTTP, consulte [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definiciones de código de estado). Para ver los códigos de error específicos de las API de REST de almacenamiento, consulte [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Códigos de error comunes de API de REST).
+[Código de estado de respuesta](/rest/api/storageservices/List-Containers2#status-code)**:** indica los códigos de estado que necesita saber. En este ejemplo, un código de estado HTTP de 200 es correcto. Para ver una lista completa de códigos de estado HTTP, consulte [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definiciones de código de estado). Para ver los códigos de error específicos de las API de REST de almacenamiento, consulte [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Códigos de error comunes de API de REST).
 
-[Encabezados de respuesta](/rest/api/storageservices/List-Containers2#response-headers) **:** incluyen *Tipo de contenido*; *x-ms-request-id*, que corresponde al identificador de solicitud que pasó; *x-ms-version*, que indica la versión de Blob service utilizada; y la *Fecha* , que está en UTC y le indica la hora en que se realizó la solicitud.
+[Encabezados de respuesta](/rest/api/storageservices/List-Containers2#response-headers) **:** incluyen *Content Type*; *x-ms-request-id*, que es el identificador de solicitud que pasó; *x-ms-version*, que indica la versión del servicio de blobs usada; y *Date*, que está en formato UTC y que indica la hora a la que se hizo la solicitud.
 
 [Cuerpo de respuesta](/rest/api/storageservices/List-Containers2#response-body): este campo es una estructura XML que proporciona los datos solicitados. En este ejemplo, la respuesta es una lista de contenedores y sus propiedades.
 
@@ -206,7 +206,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Cuerpo de la respuesta (XML):** Para la operación List Containers, muestra la lista de contenedores y sus propiedades.
+**Cuerpo de respuesta (XML):** la operación List Containers muestra la lista de contenedores y sus propiedades.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -286,24 +286,24 @@ Este fragmento de código muestra el formato de la cadena de firma de clave comp
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 La mayoría de estos campos se usan muy poco. Con Blob Storage, especificará VERB, md5, longitud de contenido, encabezados con formato canónico y recursos con formato canónico. Puede dejar los demás en blanco (pero ponga la `\n` para que se sepa que están en blanco).
 
-¿Qué son CanonicalizedHeaders y CanonicalizedResource? Buena pregunta. De hecho, ¿qué significa formato canónico? Ni siquiera Microsoft Word lo reconoce como una palabra. Esto es lo que [Wikipedia dice acerca de la canonización](https://en.wikipedia.org/wiki/Canonicalization): *en informática, la canonización (en ocasiones la estandarización o la normalización) es un proceso para convertir los datos que tienen más de una posible representación en forma canónica, "normal" o "estándar".* En terminología normal, esto significa tomar la lista de elementos (como los encabezados en el caso de los encabezados con formato canónico) y estandarizarlos en un formato requerido. Básicamente, Microsoft se decidió por un formato y hay que buscar la coinciencia con él.
+¿Qué son CanonicalizedHeaders y CanonicalizedResource? Buena pregunta. De hecho, ¿qué significa formato canónico? Ni siquiera Microsoft Word lo reconoce como una palabra. Esto es lo que la [Wikipedia dice de la canonización](https://en.wikipedia.org/wiki/Canonicalization): *en informática, la canonización (en ocasiones la estandarización o la normalización) es un proceso para convertir los datos que tienen más de una posible representación en forma canónica, "normal" o "estándar".* En terminología normal, esto significa tomar la lista de elementos (como los encabezados en el caso de los encabezados con formato canónico) y estandarizarlos en un formato requerido. Básicamente, Microsoft se decidió por un formato y hay que buscar la coinciencia con él.
 
 Comencemos con esos dos campos con formato canónico, puesto que son necesarios para crear el encabezado de autorización.
 
@@ -517,7 +517,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Cuerpo de la respuesta (XML):** esta respuesta XML muestra la lista de blobs y sus propiedades.
+**Cuerpo de respuesta (XML):** esta respuesta XML muestra la lista de blobs y sus propiedades.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -570,7 +570,7 @@ En este artículo, aprendió a realizar una solicitud a la API REST de Blob Stor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
-- [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API de REST de File Service)
-- [API de REST del servicio Cola](/rest/api/storageservices/queue-service-rest-api)
+- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST de Blob service)
+- [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API REST de File Service)
+- [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api) (API REST de Queue service)
 - [API REST de Table service](/rest/api/storageservices/table-service-rest-api)

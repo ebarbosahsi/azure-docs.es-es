@@ -1,5 +1,5 @@
 ---
-title: 'Normalizar datos: referencia para los módulos'
+title: 'Datos de normalización: referencia de módulo'
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo Normalize Data (Normalizar datos) de Azure Machine Learning para transformar un conjunto de datos mediante *normalización*.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: de0a23ca9dea210d91fe259b06622226549ba3b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890448"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
@@ -54,7 +54,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
     > [!TIP]
     > Para asegurarse de que las columnas de un tipo específico se proporcionen como entrada, pruebe a usar el módulo [Select Columns in Dataset](./select-columns-in-dataset.md) (Seleccionar columnas en conjunto de datos) antes de **Normalize Data**.
 
-4. **Use 0 for constant columns when checked** (Usar 0 para columnas constantes cuando esté activada):  Seleccione esta opción cuando cualquier columna numérica contenga un único valor invariable. Esto garantiza que estas columnas no se usen en las operaciones de normalización.
+4. **Use 0 para las columnas de constantes cuando esté activada**: Seleccione esta opción cuando cualquier columna numérica contenga un único valor invariable. Esto garantiza que estas columnas no se usen en las operaciones de normalización.
 
 5. De la lista desplegable **Transformation method** (Método de transformación), elija una sola función matemática que se aplicará a todas las columnas seleccionadas. 
   
@@ -66,7 +66,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
   
       La media y la desviación estándar se calculan por separado para cada columna. Se usa la desviación estándar poblacional.
   
-    - **MinMax**: El normalizador mínimo-máximo cambia la escala linealmente de todas las características del intervalo [0,1].
+    - **MinMax**: el normalizador mínimo-máximo vuelve a escalar linealmente todas las características del intervalo [0,1].
     
       Para cambiar la escala del intervalo [0,1] se cambian los valores de cada característica para que el valor mínimo sea 0, y, luego, se divide por el nuevo valor máximo (que es la diferencia entre los valores máximos y mínimos originales).
       
@@ -74,7 +74,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
   
       ![normalización con la función min&#45;max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
-    - **Logistic**: Los valores de la columna se transforman mediante la fórmula siguiente:
+    - **Logística**: Los valores de la columna se transforman mediante la fórmula siguiente:
 
       ![fórmula de normalización por función logística](media/module/aml-normalization-logistic.png "AML_normalization-logistic")  
   
