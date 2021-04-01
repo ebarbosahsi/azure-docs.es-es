@@ -8,10 +8,10 @@ ms.date: 09/03/2020
 ms.author: cherylmc
 ms.topic: how-to
 ms.openlocfilehash: 48e0998719ea19c0b360b50d8c9171d2b448ad19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89440769"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
@@ -98,7 +98,7 @@ Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 En este momento, la puerta de enlace de virtual se ha eliminado. Puede usar los pasos siguientes para eliminar los recursos que ya no se usan.
 
-### <a name="5-delete-the-local-network-gateways"></a>5\. Elimine las puertas de enlace de red locales.
+### <a name="5-delete-the-local-network-gateways"></a>5. Elimine las puertas de enlace de red locales.
 
 Obtenga la lista de las puertas de enlace de red locales correspondientes.
 

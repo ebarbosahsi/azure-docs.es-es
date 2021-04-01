@@ -8,13 +8,13 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171608"
 ---
-# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Reenviar eventos a la nube de Event Grid
+# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Reenvío de eventos a la nube de Event Grid
 
 Este artículo le guía a través de todos los pasos necesarios para reenviar eventos perimetrales a Event Grid en la nube de Azure. Puede querer hacerlo por los siguientes motivos:
 
@@ -23,7 +23,7 @@ Este artículo le guía a través de todos los pasos necesarios para reenviar ev
 
  Para completar este tutorial, necesita comprender los conceptos de Event Grid sobre [perimetral](concepts.md) y de [Azure](../concepts.md). Para obtener más tipos de destino, consulte [Controladores de eventos](event-handlers.md). 
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 
@@ -38,7 +38,7 @@ Por ejemplo, si creó un tema denominado `testegcloudtopic` en el oeste de EE. 
 
 * **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName**: `testegcloudtopic`
-* **SasKey**: Disponible en **AccessKey** de su tema. Use **Key1**.
+* **SasKey**: disponible en **AccessKey** del tema. Use **Key1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Creación de un tema de Event Grid en el perímetro
 

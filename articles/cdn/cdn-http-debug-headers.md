@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343027"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
@@ -54,7 +54,7 @@ Para solicitar los encabezados de respuesta de caché de depuración, incluya el
 ## <a name="cache-status-code-information"></a>Información sobre el código de estado de la caché
 El encabezado de respuesta X-EC-Debug puede identificar un servidor y cómo controlar la respuesta a través de las siguientes directivas:
 
-Encabezado | Descripción
+Header | Descripción
 -------|------------
 X-EC-Debug: x-ec-cache | Este encabezado se notifica cada vez que el contenido se enruta a través de CDN. Identifica el servidor POP que satisfizo la solicitud.
 X-EC-Debug: x-ec-cache-remote | Este encabezado se notifica solo si el contenido solicitado se almacenó en caché en un servidor de escudo de origen o en un servidor de puerta de enlace de ADN.
@@ -107,7 +107,7 @@ Value  | Descripción
 -------| --------
 SÍ    | Indica que el contenido solicitado era apto para el almacenamiento en caché.
 No     | Indica que el contenido solicitado no era apto para el almacenamiento en caché. Este estado podría deberse a uno de los siguientes motivos: <br /> - Configuración específica del cliente: una configuración específica de la cuenta puede impedir a los servidores POP el almacenamiento en caché de un recurso. Por ejemplo, el motor de reglas puede impedir que un recurso se almacene en caché habilitando la característica Omisión de la memoria caché para calificar las solicitudes.<br /> - Encabezados de respuesta de la caché: los encabezados Cache-Control y Expires del recurso solicitado pueden impedir que los servidores POP almacenen el contenido en caché.
-DESCONOCIDO | Indica que los servidores no pudieron determinar si el recurso solicitado era almacenable en caché. Este estado se produce normalmente si la solicitud se deniega debido a una autenticación basada en token.
+UNKNOWN | Indica que los servidores no pudieron determinar si el recurso solicitado era almacenable en caché. Este estado se produce normalmente si la solicitud se deniega debido a una autenticación basada en token.
 
 ### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta
 
@@ -118,7 +118,7 @@ El siguiente ejemplo de encabezado de respuesta indica si el contenido solicitad
 ## <a name="cache-key-response-header"></a>Encabezado de respuesta Cache-Key
 El encabezado de respuesta `X-EC-Debug: x-ec-cache-key` indica la clave de caché física asociada al contenido solicitado. Una clave de caché física es una ruta de acceso que identifica un recurso con fines de almacenamiento en caché. En otras palabras, los servidores buscarán una versión almacenada en caché de un recurso de acuerdo a la ruta de acceso que definió la clave de caché.
 
-Esta clave de caché física empieza por una doble barra diagonal (/ /) seguida por el protocolo que se usa para solicitar el contenido (HTTP o HTTPS). Este protocolo viene seguido por la ruta de acceso relativa al recurso solicitado, que comienza por el punto de acceso al contenido (por ejemplo, _/000001/_ ).
+Esta clave de caché física empieza por una doble barra diagonal (/ /) seguida por el protocolo que se usa para solicitar el contenido (HTTP o HTTPS). Este protocolo viene seguido por la ruta de acceso relativa al recurso solicitado, que comienza por el punto de acceso al contenido (por ejemplo, _/000001/_).
 
 De forma predeterminada, las plataformas HTTP están configuradas para utilizar *standard-cache*, lo que significa que el mecanismo de almacenamiento en caché ignorará las cadenas de consulta. Este tipo de configuración impide que la clave de caché incluya los datos de la cadena de consulta.
 
@@ -155,15 +155,15 @@ Los términos que se usan en la sintaxis del encabezado de respuesta anterior se
 
     Si el servidor de origen no utiliza un servidor de caché HTTP de un tercero o si ese servidor no devuelve el encabezado de respuesta Age, la marca de tiempo de la caché será siempre la fecha y hora en la que se recuperó o revalidó el recurso. En caso contrario, los servidores POP usarán el campo Age para calcular el período de vida del recurso de la siguiente manera: Retrieval/RevalidateDateTime - Age.
 
-- ddd, dd, MMM, aaaa HH:mm:ss GMT: indica la marca de tiempo de caché del contenido solicitado en tiempo. Para más información, consulte el término UnixTime descrito anteriormente.
+- ddd, dd MMM yyyy HH:mm:ss GMT: indica la marca de tiempo de la caché del contenido solicitado. Para más información, consulte el término UnixTime descrito anteriormente.
 
-- CASeconds: indica el número de segundos transcurridos desde la marca de tiempo de caché.
+- CASeconds: indica el número de segundos transcurridos desde la marca de tiempo de la caché.
 
-- RTSeconds: indica el número de segundos que quedan antes de que el contenido almacenado en caché deje de considerarse nuevo. Este valor se calcula de la siguiente manera: RTSeconds = duración máxima - edad de caché.
+- RTSeconds: indica el número de segundos que quedan antes de que el contenido almacenado en caché deje de considerarse nuevo. Este valor se calcula de la siguiente manera: RTSeconds = max-age - cache age.
 
 - RTTimePeriod: convierte el valor del período de vida (es decir, RTSeconds) en el equivalente aproximado de una unidad mayor (por ejemplo, días).
 
-- ExpiresSeconds: indica el número de segundos que quedan antes de la fecha y hora especificadas en el encabezado de respuesta `Expires`. Si el encabezado de respuesta `Expires` no se incluyó en la respuesta, el valor de este término será *none*.
+- ExpiresSeconds: indica el número de segundos que quedan antes de la fecha y hora especificada en el encabezado de respuesta `Expires`. Si el encabezado de respuesta `Expires` no se incluyó en la respuesta, el valor de este término será *none*.
 
 ### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta
 

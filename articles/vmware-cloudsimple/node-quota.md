@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77019645"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Límites de cuota de los nodos de CloudSimple
@@ -24,11 +24,11 @@ Cuando la suscripción está habilitada para el servicio CloudSimple, la cantida
 Puede aumentar la cuota de nodos enviando una solicitud de soporte técnico. El equipo de operaciones de servicio evaluará la solicitud y le ayudará a aumentar la cuota de nodos.  Al abrir una incidencia nueva, seleccione las opciones siguientes:
 
 * Tipo de problema: **Técnico**
-* Suscripción: **Id. de suscripción**
+* Suscripción: **el id. de suscripción**
 * Tipo de servicio: **VMware Solution by CloudSimple**
-* Tipo de problema: **Cuota de nodos dedicados**
+* Tipo de problema: **cuota de nodos dedicados**
 * Subtipo de problema: **Aumentar la cuota de nodos dedicados**
-* Asunto: **Aumento de la cuota**
+* Asunto: **aumento de cuota**
 
 En los detalles de la incidencia de soporte técnico, proporcione el número de nodos necesarios y la SKU de los nodos.
 
@@ -38,4 +38,4 @@ En los detalles de la incidencia de soporte técnico, proporcione el número de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Comprar nodos](create-nodes.md)
-* [Introducción a los nodos de CloudSimple](cloudsimple-node.md)
+* [Introducción a los nodos CloudSimple](cloudsimple-node.md)
