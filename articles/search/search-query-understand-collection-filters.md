@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88932923"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Uso de los filtros de colección de OData en Azure Cognitive Search
@@ -149,7 +149,7 @@ Los valores del campo `seasons` se almacenan en una estructura denominada **índ
 | fall | 1, 2 |
 | winter | 2, 3 |
 
-Esta estructura de datos está diseñada para responder una pregunta a gran velocidad: ¿En qué documentos aparece un término determinado? La respuesta a esta pregunta funciona más como una sencilla comprobación de igualdad que un bucle a través de una colección. De hecho, este es el motivo de que Azure Cognitive Search solo permita `eq` como operador de comparación dentro de una expresión lambda `any` en las colecciones de cadenas.
+Esta estructura de datos está diseñada para responder a una pregunta con gran velocidad: ¿en qué documentos se muestra un término determinado? La respuesta a esta pregunta funciona más como una sencilla comprobación de igualdad que un bucle a través de una colección. De hecho, este es el motivo de que Azure Cognitive Search solo permita `eq` como operador de comparación dentro de una expresión lambda `any` en las colecciones de cadenas.
 
 Partiendo de la igualdad, a continuación se verá cómo se pueden combinar varias comprobaciones de igualdad en la misma variable de rango con `or`. Funciona gracias al álgebra y a [la propiedad distributiva de los cuantificadores](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Esta expresión:
 
@@ -203,5 +203,5 @@ Para obtener ejemplos específicos de qué tipos de filtros se permiten y cuále
 - [Solución de problemas de filtros de colección de OData en Azure Cognitive Search](search-query-troubleshoot-collection-filters.md)
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

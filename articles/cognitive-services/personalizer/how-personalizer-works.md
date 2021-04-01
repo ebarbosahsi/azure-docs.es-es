@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303614"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
@@ -20,8 +20,8 @@ El recurso de Personalizer, su _bucle de aprendizaje_, utiliza el aprendizaje au
 
 Usted envía _acciones con características_ y _características de contexto_ a la API Rank. La API **Rank** decide usar:
 
-* _Explotación_: el modelo actual para decidir la mejor acción según los datos anteriores.
-* _Exploración_: seleccione una acción diferente, en lugar de la acción superior. Usted [configura este porcentaje](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) para el recurso de Personalizer en Azure Portal.
+* _Vulnerabilidad de seguridad_: el modelo actual para decidir la mejor acción según los datos anteriores.
+* _Explorar_: seleccione una acción diferente, en lugar de la acción superior. Usted [configura este porcentaje](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) para el recurso de Personalizer en Azure Portal.
 
 Determina la puntuación de la recompensa y envía esa puntuación a la API Reward. La API **Reward**:
 
@@ -39,7 +39,7 @@ La siguiente imagen muestra el flujo arquitectónico de realizar las llamadas a 
     * Personalizer decide si va a explorar el modelo actual o a explorar nuevas opciones para el modelo.
     * El resultado de la clasificación se envía a EventHub.
 1. El rango superior se devuelve al sistema como _Id. de la acción de recompensa_.
-    El sistema presenta ese contenido y determina una puntuación de recompensa en función de sus propias reglas de negocio.
+    El sistema presenta ese contenido y determina una puntuación de recompensa en función de las reglas de negocio propias.
 1. El sistema devuelve la puntuación de recompensa al bucle de aprendizaje.
     * Cuando Personalizer recibe la recompensa, esta se envía a EventHub.
     * La clasificación y la recompensa están correlacionadas.

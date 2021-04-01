@@ -4,10 +4,10 @@ description: Este artículo muestra cómo configurar un generador de imágenes p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85482078"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creación de un generador de imágenes personalizadas en Azure DevTest Labs
@@ -49,4 +49,4 @@ Hay una implementación alternativa mediante un script de PowerShell para un esc
 - Los scripts de PowerShell deben ser reutilizables, por lo que podemos poner en marcha generadores adicionales según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Avance al siguiente artículo de esta sección: [Ejecución de un generador de imágenes desde Azure DevOps](image-factory-set-up-devops-lab.md)
+Vaya al siguiente artículo de esta sección: [Ejecución de una fábrica de imágenes desde AzureDevOps](image-factory-set-up-devops-lab.md)

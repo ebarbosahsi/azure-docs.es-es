@@ -5,10 +5,10 @@ ms.date: 02/07/2019
 ms.topic: how-to
 ms.custom: seodec18
 ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83726526"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquitecturas de referencia para la representación de Azure
@@ -21,9 +21,9 @@ El siguiente diagrama muestra un escenario híbrido que incluye los siguientes s
 
 * **Proceso**: grupo de Azure Batch o conjunto de escalado de máquinas virtuales.
 
-* **Red**: local: Azure ExpressRoute o VPN. Azure: red virtual de Azure.
+* **Red**: local; Azure ExpressRoute o VPN. Azure: red virtual de Azure.
 
-* **Almacenamiento**: archivos de entrada y salida: NFS o CFS que usan VM de Azure, sincronizados con el almacenamiento local mediante Azure File Sync o RSync. O bien: Avere vFXT para archivos de entrada o salida desde dispositivos NAS locales mediante NFS.
+* **Almacenamiento**: archivos de entrada y salida; NFS o CFS que usan VM de Azure, sincronizados con el almacenamiento local mediante Azure File Sync o RSync. De forma alternativa: Avere vFXT para archivos de entrada o salida desde dispositivos NAS locales mediante NFS.
 
   ![Ampliación a la nube: híbrido con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
@@ -33,9 +33,9 @@ El siguiente diagrama muestra un escenario híbrido que incluye los siguientes s
 
 * **Proceso**: grupo de Azure Batch o conjunto de escalado de máquinas virtuales.
 
-* **Red**: local: Azure ExpressRoute o VPN. Azure: red virtual de Azure.
+* **Red**: local; Azure ExpressRoute o VPN. Azure: red virtual de Azure.
 
-* **Almacenamiento**: archivos de entrada y salida: Blob Storage, montados para procesar recursos a través de Azure Blobfuse.
+* **Almacenamiento**: archivos de entrada y salida; Blob Storage, montados para procesar recursos a través de Azure Blobfuse.
 
   ![Ampliación a la nube: híbrido con Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -45,9 +45,9 @@ El siguiente diagrama muestra un escenario híbrido completamente conectado de p
 
 * **Proceso**: grupo de Azure Batch o conjunto de escalado de máquinas virtuales.
 
-* **Red**: local: Azure ExpressRoute o VPN. Azure: red virtual de Azure.
+* **Red**: local; Azure ExpressRoute o VPN. Azure: red virtual de Azure.
 
-* **Almacenamiento**: entre locales: Avere vFXT. Archivado opcional de archivos locales a través de Azure Data Box en Blob Storage, o instancia local de Avere FXT para aceleración NAS.
+* **Almacenamiento**: entre locales; Avere vFXT. Archivado opcional de archivos locales a través de Azure Data Box en Blob Storage, o instancia local de Avere FXT para aceleración NAS.
 
   ![Ampliación en la nube: proceso y almacenamiento híbrido](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 

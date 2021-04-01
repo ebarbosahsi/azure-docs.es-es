@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83739216"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configuración del teléfono de la oficina como método de verificación en dos fases
@@ -26,7 +26,7 @@ Es posible configurar el teléfono de la oficina para que actúe como método de
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configuración del número de teléfono de la oficina como método de verificación
 
-1. En la página **Comprobación de seguridad adicional**, seleccione **Teléfono de la oficina** en el área **Paso 1: ¿De qué manera deberíamos ponernos en contacto con usted?** , seleccione su país o región en la lista desplegable, escriba el número de teléfono de la oficina y, después, escriba la extensión, si procede.
+1. En la página **Comprobación de seguridad adicional**, seleccione **Teléfono de Office** en el área **Paso 1: ¿De qué manera deberíamos ponernos en contacto con usted?** , seleccione su país o región en la lista desplegable y, a continuación, introduzca su extensión, si la tiene.
 
     ![Página Comprobación de seguridad adicional, con teléfono de autenticación y llamada de teléfono](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 

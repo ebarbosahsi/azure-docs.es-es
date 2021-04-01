@@ -10,10 +10,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df8560bec3671a9f05628ee6ed8ea95c31e9b16f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998057"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Actualizaciones de Azure Notification Hubs para iOS 13
@@ -24,7 +24,7 @@ Recientemente, Apple hizo algunas modificaciones en su servicio de inserción p�
 
 ### <a name="apns-push-type"></a>Tipo de inserción de APNs
 
-Apple ahora requiere que los desarrolladores identifiquen las notificaciones como alertas o notificaciones en segundo plano a través del nuevo encabezado `apns-push-type` de la API APNs. Según la [documentación de Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "El valor de este encabezado debe reflejar con precisión el contenido de la carga de la notificación. Si no coinciden o si falta el encabezado en los sistemas requeridos, APNs puede devolver un error, retrasar la entrega de la notificación o quitarla por completo".
+Apple ahora requiere que los desarrolladores identifiquen las notificaciones como alertas o notificaciones en segundo plano a través del nuevo encabezado `apns-push-type` de la API APNs. De acuerdo con la [documentación de Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns), el valor de este encabezado debe reflejar con precisión el contenido de la carga de la notificación. Si no coinciden o si falta el encabezado en los sistemas requeridos, APNs puede devolver un error, retrasar la entrega de la notificación o quitarla por completo".
 
 Los desarrolladores ahora deben establecer este encabezado en las aplicaciones que envían notificaciones a través de Azure Notification Hubs. Debido a una limitación técnica, los clientes deben usar la autenticación basada en token para las credenciales de APNs con solicitudes que incluyan este atributo. Si usa la autenticación basada en certificados para las credenciales de APNs, debe cambiar al uso de la autenticación basada en token.
 
