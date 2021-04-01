@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Autenticación de paso a través: limitaciones actuales | Microsoft Docs'
+title: 'Autenticación de paso a través de Azure AD: limitaciones actuales | Microsoft Docs'
 description: En este artículo se describen las limitaciones actuales de la autenticación de paso a través de Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280203"
 ---
-# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: Limitaciones actuales
+# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
 >[!IMPORTANT]
 >La autenticación de paso a través de Azure Active Directory (Azure AD) es una característica gratuita y no es necesario tener ninguna versión de pago de Azure AD para usarla. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD y no en la [nube Microsoft Azure Alemania](https://www.microsoft.de/cloud-deutschland) ni en la [nube Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
@@ -34,7 +34,7 @@ Se admiten los escenarios siguientes:
 
 - El usuario inicia sesión en aplicaciones basadas en explorador web.
 - El usuario inicia sesión en clientes Outlook que usan protocolos heredados como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Versiones Office 2013 y Office 2016.
+- El usuario inicia sesión en aplicaciones del cliente de Office heredadas que admiten la [autenticación moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): versiones Office 2013 y Office 2016.
 - El usuario inicia sesión en aplicaciones de protocolo heredado, como la versión 1.0 (y otras) de PowerShell.
 - Azure AD se combina con los dispositivos con Windows 10.
 - Contraseñas de aplicaciones de Multi-Factor Authentication.
@@ -54,7 +54,7 @@ Los siguientes escenarios _no_ son compatibles:
 > Si habilita la sincronización de hash de contraseña, tiene la opción de autenticación mediante conmutación por error si se interrumpe la infraestructura local. La conmutación por error de la autenticación de paso a través a la sincronización de hash de contraseña no es automática. Deberá cambiar el método de inicio de sesión manualmente con Azure AD Connect. Si el servidor que ejecuta Azure AD Connect deja de funcionar, necesitará la ayuda de Soporte técnico de Microsoft para desactivar la autenticación de paso a través.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Inicio rápido](how-to-connect-pta-quick-start.md): póngase en marcha con la autenticación de paso a través de Azure AD.
+- [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/ADFSTOPTADPDownload): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
 - [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): Obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Profundización técnica](how-to-connect-pta-how-it-works.md): Conozca cómo funciona la característica de autenticación de paso a través.

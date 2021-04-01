@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631374"
 ---
 # <a name="common-errors"></a>Errores comunes
@@ -25,9 +25,9 @@ El error anterior se produce después de un inicio de sesión correcto, pero ant
 
 Hay algunos parámetros de servidor, como require_secure_transport, que no se admiten en el nivel de sesión y, por consiguiente, intentar cambiar los valores de estos parámetros mediante init_connect puede generar el error 1184 al conectarse al servidor MySQL, como se muestra a continuación
 
-mysql> show databases; ERROR 2006 (HY000): MySQL server has gone away No connection. Trying to reconnect... Connection id:    64897 Current database: *** NONE **_ ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
+mysql> show databases; ERROR 2006 (HY000): MySQL server has gone away No connection. Trying to reconnect... Connection id:    64897 Current database: *** NONE ***_ ERROR 1184 (08S01): Aborted connection 22 to db: 'db-name' user: 'user' host: 'hostIP' (init_connect command failed)
 
-_ *Resolución** : debe restablecer el valor init_connect en la pestaña Parámetros del servidor de Azure Portal y establecer solo los parámetros de servidor admitidos mediante el parámetro init_connect. 
+**Resolución**: debe restablecer el valor init_connect en la pestaña Parámetros del servidor de Azure Portal y establecer solo los parámetros de servidor admitidos mediante el parámetro init_connect. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Errores debidos a la falta del privilegio SUPER y del rol DBA

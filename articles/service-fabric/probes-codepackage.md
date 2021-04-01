@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82137593"
 ---
 # <a name="liveness-probe"></a>Sondeo de ejecución
@@ -38,7 +38,7 @@ Puede haber, como máximo, un sondeo en un contenedor en cualquier momento. Si e
 
 Además, Service Fabric generará los siguientes [informes de mantenimiento][health-introduction-link] de sondeo en **DeployedServicePackage**:
 
-* `OK`: El sondeo se realiza correctamente para el valor establecido en **successThreshold**.
+* `OK`:El sondeo se realiza correctamente para el valor establecido en **successThreshold**.
 
 * `Error`: El sondeo **failureCount** ==  **failureThreshold** antes de que se reinicie el contenedor.
 

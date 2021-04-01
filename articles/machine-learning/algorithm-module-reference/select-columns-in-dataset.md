@@ -1,5 +1,5 @@
 ---
-title: 'Seleccionar columnas de conjunto de datos: referencia para los módulos'
+title: 'Seleccionar columnas de conjunto de datos: Referencia de módulo'
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo usar el módulo Seleccionar columnas de conjunto de datos en Azure Machine Learning para elegir un subconjunto de columnas para usarlas en operaciones descendentes.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890299"
 ---
 # <a name="select-columns-in-dataset-module"></a>Módulo Seleccionar columnas de conjunto de datos
@@ -26,7 +26,7 @@ Este módulo es útil si necesita limitar las columnas disponibles para una oper
 
 Las columnas del conjunto de datos mantienen el mismo orden que en los datos originales, incluso si las especifica en un orden diferente.
 
-## <a name="how-to-use"></a>Modo de uso
+## <a name="how-to-use"></a>Cómo se usa
 
 Este módulo no tiene parámetros. Utiliza el selector de columnas para elegir las columnas que desea incluir o excluir.
 

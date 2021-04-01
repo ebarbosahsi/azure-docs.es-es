@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898260"
 ---
 # <a name="smote"></a>SMOTE
@@ -30,7 +30,7 @@ SMOTE es una técnica estadística de sobremuestreo de minorías sintéticas par
 
 Las instancias nuevas no son meras copias de los casos minoritarios existentes. En su lugar, el algoritmo toma muestras del *espacio de características* de cada clase de destino y de sus vecinos más próximos. Luego, el algoritmo genera nuevos ejemplos que combinan las características del caso que nos ocupa con características de sus vecinos. Este enfoque aumenta las características disponibles para cada clase y hace que las muestras sean más generales.
   
-SMOTE toma todo el conjunto de datos como una entrada, pero solo aumenta el porcentaje de los casos minoritarios. Por ejemplo, suponga que tiene un conjunto de datos con desequilibrios en el que solo el 1 % de los casos tiene el valor de destino A (la clase minoritaria), mientras que el 99 % restante tienen el valor B. Para aumentar al doble el porcentaje de los casos minoritarios, es preciso especificar **200**como**porcentaje de SMOTE** en las propiedades del módulo.  
+SMOTE toma todo el conjunto de datos como una entrada, pero solo aumenta el porcentaje de los casos minoritarios. Por ejemplo, suponga que tiene un conjunto de datos con desequilibrios en el que solo el 1 % de los casos tiene el valor de destino A (la clase minoritaria), mientras que el 99 % restante tienen el valor B. Para aumentar al doble el porcentaje de los casos minoritarios, es preciso especificar **200 **como** porcentaje de SMOTE** en las propiedades del módulo.  
   
 ## <a name="examples"></a>Ejemplos  
 
@@ -45,7 +45,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
 |Conjunto de datos original<br /><br /> (equivalente a **porcentaje SMOTE** = **0**)|570<br /><br /> 76%|178<br /><br /> 24%|748|  
 |**Porcentaje SMOTE** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
 |**Porcentaje SMOTE** = **200**|570<br /><br /> 52%|534<br /><br /> 48%|1104|  
-|**Porcentaje SMOTE** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1\.282|  
+|**Porcentaje SMOTE** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  
   
 > [!WARNING]
 > El aumento del número de casos mediante SMOTE no garantiza la producción de modelos más precisos. Pruebe la canalización con diferentes porcentajes, conjuntos de características y números de vecinos más próximos para ver de qué forma la adición de casos afecta al modelo.  
@@ -90,7 +90,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
 
 + A menudo se pueden obtener mejores resultados si se borran los valores que faltan o se aplican otras transformaciones para corregir los datos antes de aplicar SMOTE. 
 
-+ Se han realizado investigaciones para saber si SMOTE es efectivo en datos de gran dimensión o dispersos, como los que se utilizan en la clasificación de textos o en los conjuntos de datos de genómica. Este documento tiene un buen resumen de los efectos y de la validez teórica de la aplicación de SMOTE en estos casos: [Blagus y Lusa: SMOTE para datos de clase desequilibrada en su clase de gran dimensión](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
++ Se han realizado investigaciones para saber si SMOTE es efectivo en datos de gran dimensión o dispersos, como los que se utilizan en la clasificación de textos o en los conjuntos de datos de genómica. Este documento tiene un buen resumen de los efectos y de la validez teórica de la aplicación de SMOTE en estos casos: [Blagus y Lusa: SMOTE para datos de alta dimensión con desequilibrio de clases](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
 
 + Si SMOTE no es eficaz en su conjunto de datos, estos son otros enfoques que pueden resultarle útiles:
   + Métodos de sobremuestreo de casos minoritarios o de inframuestreo de casos mayoritarios.

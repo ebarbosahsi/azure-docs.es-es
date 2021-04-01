@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540275"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal
@@ -39,7 +39,7 @@ Para registrarse como proveedor de recursos de emparejamiento en su suscripción
     > [!div class="mx-imgBorder"]
     > ![Abrir la suscripción](./media/rp-subscriptions-launch.png)
 
-1. Una vez que haya abierto la suscripción, del lado izquierdo, haga clic en **Proveedores de recursos**. A continuación, en el panel derecho, busque *emparejamiento* en la ventana de búsqueda, o use la barra de desplazamiento para navegar hasta **Microsoft.Peering** y examine el **Estado**. Si el estado es ***Registered***, omita los pasos siguientes y vaya a la sección **Crear un PeerAsn**. Si el estado es ***NotRegistered***, seleccione **Microsoft.Peering** y haga clic en **Registrar**.
+1. Una vez que haya abierto la suscripción, del lado izquierdo, haga clic en **Proveedores de recursos**. A continuación, en el panel derecho, busque *emparejamiento* en la ventana de búsqueda, o use la barra de desplazamiento para navegar hasta **Microsoft.Peering** y examine el **Estado**. Si el estado es **_Registered_ *_, omita los pasos siguientes y vaya a la sección _* Crear un PeerAsn**. Si el estado es **_NotRegistered_ *_, seleccione _* Microsoft.Peering** y haga clic en **Registrar**.
 
     > [!div class="mx-imgBorder"]
     > ![Inicio del registro](./media/rp-register-start.png)
@@ -49,7 +49,7 @@ Para registrarse como proveedor de recursos de emparejamiento en su suscripción
     > [!div class="mx-imgBorder"]
     > ![Registro en curso](./media/rp-register-progress.png)
 
-1. Espere aproximadamente un minuto para que finalice el registro. A continuación, haga clic en **Actualizar** y compruebe si el estado es ***Registered***.
+1. Espere aproximadamente un minuto para que finalice el registro. A continuación, haga clic en **Actualizar** y compruebe si el estado es **_Registered_**.
 
     > [!div class="mx-imgBorder"]
     > ![Registro completado](./media/rp-register-completed.png)
