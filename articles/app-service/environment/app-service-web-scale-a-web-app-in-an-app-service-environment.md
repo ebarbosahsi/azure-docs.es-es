@@ -8,10 +8,10 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86220565"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Escalado de aplicaciones en una instancia de App Service Environment v1
@@ -39,11 +39,11 @@ Puede crear varios planes de servicio de aplicaciones mediante recursos de proce
 ### <a name="scaling-the-number-of-instances"></a>Escalado del número de instancias
 Cuando cree su aplicación web por primera vez en un Entorno de App Service, comenzará con una instancia.  Después, puede escalar horizontalmente instancias adicionales para conferir más recursos de proceso a la aplicación.   
 
-Si su ASE tiene suficiente capacidad, entonces esto es bastante sencillo.  Vaya a su plan de App Service que contiene los sitios que desea escalar verticalmente y seleccione Escalar.  Se abre la interfaz de usuario, donde puede establecer manualmente la escala del ASP o configurar reglas de escalado automático para este.  Para escalar manualmente la aplicación, simplemente establezca ***Escalar por*** en ***un recuento de instancias que escribe manualmente***.  Desde aquí, arrastre el control deslizante a la cantidad deseada o escríbala en el cuadro situado junto a él.  
+Si su ASE tiene suficiente capacidad, entonces esto es bastante sencillo.  Vaya a su plan de App Service que contiene los sitios que desea escalar verticalmente y seleccione Escalar.  Se abre la interfaz de usuario, donde puede establecer manualmente la escala del ASP o configurar reglas de escalado automático para este.  Para escalar manualmente la aplicación, simplemente establezca **Escalar por** en _un recuento de instancias que escribe manualmente_.  Desde aquí, arrastre el control deslizante a la cantidad deseada o escríbala en el cuadro situado junto a él.  
 
 ![Captura de pantalla que muestra dónde puede establecer la escala del ASP o configurar reglas de escalado automático para él.][2] 
 
-Las reglas de escalado automático de un ASP en un ASE funcionan igual que lo hacen normalmente.  Puede seleccionar ***Porcentaje de CPU*** en ***Escalar por*** y crear reglas de escalado automático para el ASP según el porcentaje de CPU, o puede crear reglas más complejas con ***reglas de programación y rendimiento***.  Para obtener más detalles sobre la configuración de la escalabilidad automática, use la guía [Escalado de aplicaciones en un entorno de App Service][AppScale]. 
+Las reglas de escalado automático de un ASP en un ASE funcionan igual que lo hacen normalmente.  Puede seleccionar **Porcentaje de CPU** en _*_Escalar por_*_ y crear reglas de escalado automático para el ASP según el porcentaje de CPU, o puede crear reglas más complejas con *_reglas de programación y rendimiento_**.  Para obtener más detalles sobre la configuración de la escalabilidad automática, use la guía [Escalado de aplicaciones en un entorno de App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>selección de grupo de trabajo
 Como se indicó anteriormente, a la selección del grupo de trabajo se accede desde la interfaz de usuario de ASP.  Abra la hoja del ASP que quiera escalar y seleccione un grupo de trabajo.  Verá todos los grupos de trabajo que ha configurado en el entorno de App Service.  Si solamente tiene un grupo de trabajo, solo se mostrará ese grupo en la lista.  Para cambiar el grupo de trabajo en el que se encuentra el ASP, simplemente seleccione el grupo de trabajo al que quiere mover su plan de App Service.  
