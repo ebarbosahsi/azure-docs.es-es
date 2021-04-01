@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87132745"
 ---
 # <a name="what-is-reinforcement-learning"></a>¿Qué es el aprendizaje de refuerzo?
@@ -62,7 +62,7 @@ Actualmente, Personalizer usa [Vowpal Wabbit](https://github.com/VowpalWabbit/vo
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966) (Toma de decisiones contextuales con una deuda técnica baja)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453) (Un enfoque de reducciones hacia una clasificación justa)
 * [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799) (Bandidos contextuales eficaces en mundos que no son fijos)
-* [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW) (Predicción de pérdida residual: refuerzo: aprendizaje son comentarios incrementales)
+* [Predicción de pérdida de residuos: refuerzo: aprendizaje sin comentarios incrementales](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795) (Asignación de instrucciones y observaciones viduales a acciones con aprendizaje reforzado)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206) (Aprendiendo a buscar mejor que el profesor)
 

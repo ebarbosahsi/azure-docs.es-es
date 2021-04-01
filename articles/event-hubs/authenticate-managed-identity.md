@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805294"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs
@@ -57,8 +57,8 @@ Para asignar un rol a los recursos de Event Hubs, vaya a ese recurso en Azure Po
 1. En Azure Portal, vaya al espacio de nombres de Event Hubs y muestre la **información general** del espacio de nombres. 
 1. Seleccione **Access Control (IAM)** en el menú de la izquierda para mostrar la configuración de control de acceso para el centro de eventos.
 1.  Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
-3.  Seleccione **Agregar** y, después, **Agregar asignación de roles**.
-4.  En la página *Agregar asignación de roles*, siga estos pasos:
+3.  Seleccione **Agregar** y, después, **Agregar asignación de roles***.
+4.  En la página **Agregar asignación de roles**, siga estos pasos:
     1. En **Rol**, seleccione el rol de Event Hubs que quiere asignar. En este ejemplo, es **Propietario de los datos de Azure Event Hubs**.
     1. En el campo **Asignar acceso a**, seleccione **App Service** en **Identidad administrada asignada por el sistema**. 
     1. Seleccione la **suscripción** en la que se creó la identidad administrada para la aplicación web.
