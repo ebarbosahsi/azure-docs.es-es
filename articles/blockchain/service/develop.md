@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348380"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Introducción al desarrollo de Azure Blockchain Service
@@ -25,13 +25,13 @@ Puede conectarse a los miembros de un consorcio mediante la extensión para Visu
 
 Para desarrollar soluciones empresariales sofisticadas de cadenas de bloques, es necesario un marco de desarrollo para conectarse a diferentes redes de cadenas de bloques y administrar el ciclo de vida del contrato inteligente. La mayoría de los proyectos interactúan con al menos dos nodos de la cadena de bloques. Los desarrolladores usan una cadena de bloques local durante el desarrollo. Cuando la aplicación está lista para la prueba o lanzamiento, el desarrollador se implementa en una red de cadena de bloques. Por ejemplo, la principal red de Ethereum pública o Azure Blockchain Service. El kit de desarrollo de Azure Blockchain para la extensión de Ethereum en Visual Studio Code usa Truffle. Truffle es uno de los marcos de desarrollo de cadenas de bloques más populares para escribir, compilar, implementar y probar aplicaciones descentralizadas en las cadenas de bloques de Ethereum. Truffle también se puede considerar como un marco que intenta integrar sin problemas el desarrollo de contratos inteligentes y el desarrollo web tradicional.
 
-Para más información, consulte [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md).
+Para más información, consulte [Inicio rápido: Uso de Visual Studio Code para conectarse a una red de consorcio de Azure Blockchain Service](connect-vscode.md).
 
 ### <a name="metamask"></a>MetaMask
 
 MetaMask es una cartera basada en explorador (cliente remoto), cliente RPC y explorador de contrato básico. A diferencia de otras carteras de explorador, MetaMask inserta una instancia web3 en el contexto de JavaScript del explorador, actuando como un cliente RPC que se conecta a una variedad de cadenas de bloques de Ethereum (*mainnet*, *Ropsten testnet*, *Kovan testnet*, nodo de RPC local, etc.). Puede configurar una RPC personalizada fácilmente para conectarse a Azure Blockchain Service e iniciar el desarrollo de la cadena de bloques mediante Remix.
 
-Para más información, consulte [Inicio rápido: Uso de MetaMask para conectarse a un contrato inteligente e implementarlo](connect-metamask.md)
+Para más información, consulte [Inicio rápido: Uso de MetaMask para conectar e implementar un contrato inteligente](connect-metamask.md).
 
 ### <a name="geth"></a>Geth
 
@@ -44,7 +44,7 @@ Para más información, consulte [Inicio rápido: Uso de Geth para conectarse a 
 Quorum es un protocolo de libro de contabilidad distribuida basado en Ethereum con transacción, además de privacidad de contrato y nuevos mecanismos de consenso. Las mejoras claves realizadas en Go-Ethereum incluyen:
 
 * **Privacidad**: Quorum admite transacciones privadas y contratos privados mediante la separación del estado público y privado y usa los intercambios de mensajes cifrados punto a punto para transferencias dirigidas de datos privados para los participantes de la red.
-* **Otros mecanismos de consenso**: sin necesidad de consenso de prueba de trabajo o de prueba de participación en una red con permisos. Quorum ofrece varios mecanismos de consenso que están diseñados para cadenas de consorcio, como RAFT e IBFT.  Azure Blockchain Service usa el mecanismo de consenso IBFT.
+* **Otros mecanismos de consenso**: sin necesidad de consenso de prueba de trabajo o de prueba de participación en una red con permisos. Quorum ofrece varios mecanismos de consenso que están diseñados para cadenas de consorcio, como RAFT e IBFT.  Azure Blockchain Service usa el mecanismo de consenso IBFT.
 * **Permisos del mismo nivel**: los permisos de nodo y del mismo nivel que usan contratos inteligentes garantizan que solo puedan unirse a la red entidades conocidas.
 * **Mayor rendimiento**: Quorum ofrece un mayor rendimiento respecto a la interfaz Geth pública.
 
@@ -55,7 +55,7 @@ Los exploradores de bloques son los exploradores de cadenas de bloques en línea
 * [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) de Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
-También puede crear su propio explorador de bloques con Blockchain Data Manager y Azure Cosmos DB. Consulte [Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB](data-manager-cosmosdb.md).
+También puede crear su propio explorador de bloques con Blockchain Data Manager y Azure Cosmos DB. Para ello, consulte [Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB](data-manager-cosmosdb.md).
 
 ## <a name="tps-measurement"></a>Medición de TPS
 

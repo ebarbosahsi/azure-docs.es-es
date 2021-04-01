@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81260421"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Encabezados HTTP de depuración para Azure CDN de Microsoft
@@ -26,7 +26,7 @@ El encabezado de respuesta de depuración, `X-Cache`, brinda detalles sobre la c
 
 ### <a name="response-header-format"></a>Formato del encabezado de respuesta
 
-Encabezado | Descripción
+Header | Descripción
 -------|------------
 X-Cache: TCP_HIT | Este encabezado se devuelve cuando el contenido se sirve desde la caché perimetral de CDN. 
 X-Cache: TCP_REMOTE_HIT | Este encabezado se devuelve cuando el contenido se sirve desde la caché regional de CDN (capa de escudo de origen).

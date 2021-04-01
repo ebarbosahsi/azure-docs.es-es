@@ -10,10 +10,10 @@ ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83121038"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
@@ -23,7 +23,7 @@ Cuando se usan varias extensiones en una máquina virtual, es importante asegura
 
 En este artículo se detalla cómo puede secuenciar las extensiones a fin de configurarlas para las instancias de máquina virtual de los conjuntos de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se da por hecho que está familiarizado con:
 -   [Extensiones](../virtual-machines/extensions/overview.md) de máquina virtual de Azure
 -   [Modificación](virtual-machine-scale-sets-upgrade-scale-set.md) de conjuntos de escalado de máquinas virtuales
@@ -243,7 +243,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>No se pueden agregar extensiones con dependencias
 1. Asegúrese de que las extensiones especificadas en provisionAfterExtensions estén definidas en el modelo del conjunto de escalado.
-2. Asegúrese de que no se haya introducido ninguna dependencia circular. Por ejemplo, la siguiente secuencia no se permite: ExtensiónA -> ExtensiónB -> ExtensiónC -> ExtensiónA
+2. Asegúrese de que no se haya introducido ninguna dependencia circular. Por ejemplo, la siguiente secuencia no está permitida: ExtensionA-> ExtensionB-> ExtensionC-> ExtensionA
 3. Asegúrese de que todas las extensiones de las que toma dependencias tengan la propiedad "settings" bajo la opción "properties" de la extensión. Por ejemplo, si la ExtensiónB se debe aprovisionar después de la ExtensiónA, la ExtensiónA debe tener el campo "settings" bajo la opción "properties". Puede especificar una propiedad "settings" vacía si la extensión no impone una configuración obligatoria.
 
 ### <a name="not-able-to-remove-extensions"></a>No se pueden quitar las extensiones

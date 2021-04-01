@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82138915"
 ---
 # <a name="azure-media-player-demos"></a>Demostraciones de Azure Media Player
@@ -21,7 +21,7 @@ A continuación se muestra una lista de vínculos a las demostraciones de Azure 
 
 | Nombre del ejemplo | Mediante programación a través de JavaScript | Estático a través de elemento de vídeo HTML5 | Descripción |
 | ------------|----------------------------|-------------------------------------|--------------|
-| Básica |
+| Básico |
 | Establecer origen | [Dinámica](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Estática](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Reproducir contenido no protegido.|
 | Características |
 | Inserción de anuncios VoD: VAST | [Dinámica](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/D | Inserte anuncios VAS previos a mid y posteriores a roll en un recurso de VoD. |

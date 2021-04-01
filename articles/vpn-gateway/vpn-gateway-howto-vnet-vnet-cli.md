@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de una red virtual a una red virtual mediante una conexión de red virtual a red virtual: Azure CLI'
+title: Conexión entre redes virtuales mediante una conexión de red virtual a red virtual con la CLI de Azure
 description: Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -10,10 +10,10 @@ ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660073"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
@@ -68,11 +68,11 @@ En este artículo, verá dos conjuntos de pasos diferentes de la conexión entre
 
 Para este ejercicio, puede combinar las configuraciones, o bien elegir con la que desea trabajar. Todas las configuraciones utilizan el tipo de conexión entre redes virtuales. Flujos de tráfico de red entre las redes virtuales que están directamente conectados entre sí. En este ejercicio, el tráfico de TestVNet4 no se enruta a TestVNet5.
 
-* [Redes virtuales que residen en la misma suscripción:](#samesub) En los pasos para esta configuración se utilizan TestVNet1 y TestVNet4.
+* [Redes virtuales que residen en la misma suscripción:](#samesub) los pasos de esta configuración utilizan TestVNet1 y TestVNet4.
 
   ![Diagrama que muestra los pasos de red virtual a red virtual para las redes que residen en la misma suscripción.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [Redes virtuales que residen en distintas suscripciones:](#difsub) En los pasos para esta configuración se utilizan TestVNet1 y TestVNet5.
+* [Redes virtuales que residen en distintas suscripciones:](#difsub) los pasos de esta configuración utilizan TestVNet1 y TestVNet5.
 
   ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -199,7 +199,7 @@ En los ejemplos usamos los siguientes valores:
 
 Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso consiste en crear conexiones de puerta de enlace de VPN entre las puertas de enlace de red virtual. Si usó los ejemplos anteriores, las puertas de enlace de red virtual se encuentran en grupos de recursos distintos. Cuando las puertas de enlace están en grupos de recursos distintos, debe identificar y especificar los identificadores de recursos para cada puerta de enlace al establecer una conexión. Si sus redes virtuales están en el mismo grupo de recursos, puede usar el [segundo conjunto de instrucciones](#samerg) porque no es necesario especificar los identificadores de recursos.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a><a name="diffrg"></a>Conexión de redes virtuales que residen en grupos de recursos distintos
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a><a name="diffrg"></a>Para conectar redes virtuales que residen en grupos de recursos distintos
 
 1. Obtenga el id. de recurso de VNet1GW de la salida del comando siguiente:
 
@@ -332,7 +332,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Paso 8: Creación de las conexiones
 
-Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** , ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
+Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]**, ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
 
 1. **[Suscripción 1]** Inicie sesión y conéctese a Suscripción 1. Ejecute el siguiente comando para obtener el nombre y el identificador de la puerta de enlace de la salida:
 
@@ -356,7 +356,7 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
 
    Copie la salida para "id:". Envíe el identificador y el nombre de la puerta de enlace de red virtual (VNet5GW) al administrador de Suscripción 1 por correo electrónico u otro método.
 
-3. **[Suscripción 1]** En este paso, va a crear la conexión de TestVNet1 a TestVNet5. Puede usar sus propios valores para la clave compartida, pero esta debe coincidir en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión.  Asegúrese de conectarse a la suscripción 1.
+3. **[Suscripción 1]** En este paso, va a crear la conexión de TestVNet1 a TestVNet5. Puede usar sus propios valores para la clave compartida, pero esta debe coincidir en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión. Asegúrese de conectarse a la suscripción 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

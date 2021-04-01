@@ -4,10 +4,10 @@ description: En este artículo, se explica cómo se procesan los datos de un cen
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85312903"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Procesamiento de datos de un centro de eventos con Azure Stream Analytics 
@@ -44,7 +44,7 @@ Estas son las principales ventajas de la integración de Azure Event Hubs y Azur
     - Puede obtener una vista previa de los datos de entrada en formato de tabla o en formato sin procesar. 
     - Si los datos que aparecen no están actualizados, seleccione **Actualizar** para ver los eventos más recientes. 
 
-        Este es un ejemplo de datos con **formato de tabla**:   ![Resultados en formato de tabla](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        A continuación, se incluye un ejemplo de datos en **formato de tabla**: ![Resultados en el formato de tabla](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Este es un ejemplo de los datos con **formato sin procesar**: 
 

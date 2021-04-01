@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1adb9b009a250942bab7e9b0e3b4b3e52840341c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481602"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Escenarios conocidos de uso de Azure DevTest Labs
 Según las necesidades de la empresa, DevTest Labs puede configurarse para satisfacer requisitos diferentes.  En este artículo se tratan los escenarios más habituales. Cada escenario aborda las ventajas del uso de DevTest Labs y los recursos para implementar estos escenarios.  
 
 - Equipos de escritorio del desarrollador
-- Entornos de pruebas
+- Entornos de prueba
 - Sesiones de aprendizaje, laboratorios prácticos y hackathons
 - Investigaciones en espacio aislado
 - Laboratorios educativos
@@ -36,7 +36,7 @@ Los desarrolladores a menudo tienen requisitos diferentes para las máquinas de 
 
 Para obtener más información, consulte [Uso de Azure DevTest Labs para desarrolladores](devtest-lab-developer-lab.md). 
 
-## <a name="test-environments"></a>Entornos de pruebas
+## <a name="test-environments"></a>Entornos de prueba
 Crear y administrar entornos de prueba en una empresa puede requerir un esfuerzo considerable. Con DevTest Labs, los entornos de prueba se pueden crear, actualizar o duplicar con facilidad. Permite que los equipos tengan acceso a un entorno completamente configurado cuando sea necesario. En este escenario, DevTest Labs ofrece las siguientes ventajas:
 
 - Las organizaciones pueden proporcionar entornos comunes de pruebas para garantizar la coherencia entre los equipos.
@@ -66,7 +66,7 @@ Un laboratorio de Azure DevTest Labs actúa como un magnífico contenedor para
 Para obtener más información, consulte [Uso de Azure DevTest Labs para entrenamiento](devtest-lab-training-lab.md).  
 
 ## <a name="proof-of-concept-vs-scaled-deployment"></a>Prueba de concepto frente a implementación a escala
-Una vez que decide explorar DevTest Labs, hay dos rutas generales: prueba de concepto o implementación a escala.  
+Una vez que decida explorar DevTest Labs, hay dos enfoques generales para seguir: la prueba de concepto y la implementación a escala.  
 
 Una **implementación a escala** conlleva semanas o meses de revisión y planeamiento con la intención de implementar DevTest Labs en toda la empresa con cientos o miles de desarrolladores.
 

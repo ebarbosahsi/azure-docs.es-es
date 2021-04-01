@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84807033"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Uso de certificados con LetsEncrypt.org en Application Gateway para clústeres de AKS
@@ -25,7 +25,7 @@ Siga los pasos que se indican a continuación para instalar [cert-manager](https
     Ejecute el siguiente script para instalar el gráfico de Helm de `cert-manager`. De este modo:
 
     - creará un nuevo espacio de nombres de `cert-manager` en su instancia de AKS
-    - creará los siguientes CRD: Certificado, Desafío, ClusterIssuer, Emisor de certificado, Orden
+    - cree el siguiente CRDs: certificado, desafío, ClusterIssuer, emisor, orden
     - instalación del gráfico de cert-manager (desde [docs.cert-manager.io)](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)
 
     ```bash
@@ -127,7 +127,7 @@ Siga los pasos que se indican a continuación para instalar [cert-manager](https
     EOF
     ```
 
-    Después de unos segundos, puede acceder al servicio de `guestbook` con la dirección URL HTTPS de Application Gateway mediante el certificado `Lets Encrypt` de **almacenamiento provisional** emitido automáticamente.
+    Después de unos segundos, puede tener acceso al servicio de `guestbook` a través de la dirección URL HTTPS de Application Gateway mediante el certificado de **almacenamiento provisional emitido automáticamente por** `Lets Encrypt`.
     Es posible que su explorador web le advierta de una entidad de certificación no válida. `CN=Fake LE Intermediate X1` emite el certificado de almacenamiento provisional. Esto indica que el sistema funcionó según lo esperado y está listo para el certificado de producción.
 
 4. Certificado de producción
