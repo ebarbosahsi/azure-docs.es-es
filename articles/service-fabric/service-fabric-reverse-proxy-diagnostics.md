@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645470"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Supervisión y diagnóstico del procesamiento de solicitudes en el proxy inverso.
@@ -77,7 +77,7 @@ Estos son algunos ejemplos sobre cómo interpretar los registros de error comune
     
     Este es un evento de ejemplo donde el proxy inverso devuelve 404 ya que no se pudo encontrar el punto de conexión del servicio de búsqueda correspondiente.
     Las entradas de carga que interesan aquí son:
-   * **processRequestPhase**: indica la fase durante el procesamiento de la solicitud cuando se produjo el error, es decir, ***TryGetEndpoint***, esto es, al intentar obtener el punto de conexión del servicio al que reenviar. 
+   * **processRequestPhase**: indica la fase durante el procesamiento de la solicitud cuando se produjo el error, es decir, **_TryGetEndpoint_** al intentar obtener el punto de conexión del servicio al que reenviar. 
    * **errorDetails**: enumera los criterios de búsqueda del punto de conexión. Aquí puede ver que el listenerName especificado = **FrontEndListener**, mientras que la lista de puntos de conexión de réplica solo contiene un agente de escucha con el nombre **OldListener**.
     
      ```

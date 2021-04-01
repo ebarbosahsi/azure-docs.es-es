@@ -15,13 +15,13 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077837"
 ---
-# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Uso de marcas de características en una aplicación de Spring Boot
+# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Uso de marcas de características en una aplicación Spring Boot
 
 Las bibliotecas de administración de características de Spring Boot proporcionan soporte para implementar marcas de características en una aplicación de Spring Boot. Estas bibliotecas le permiten agregar mediante declaración marcas de características al código.
 
@@ -51,7 +51,7 @@ Es recomendable que mantenga las marcas de características fuera de la aplicaci
 
 La manera más fácil de conectar la aplicación de Spring Boot con App Configuration es mediante el proveedor de configuración:
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
 
 ```xml
 <dependency>
@@ -61,7 +61,7 @@ La manera más fácil de conectar la aplicación de Spring Boot con App Configur
 </dependency>
 ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
 
 ```xml
 <dependency>

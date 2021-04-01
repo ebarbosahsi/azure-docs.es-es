@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74157670"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guía de rendimiento para Azure SignalR Service
@@ -23,7 +23,7 @@ En esta guía, presentaremos los factores que afectan al rendimiento de las apli
 
 *Entrante*: el mensaje entrante a Azure SignalR Service.
 
-*Salida*: el mensaje saliente de Azure SignalR Service.
+*Saliente*: el mensaje saliente de Azure SignalR Service.
 
 *Ancho de banda*: el tamaño total de todos los mensajes en 1 segundo.
 
@@ -80,7 +80,7 @@ En el modo predeterminado, el servidor de aplicaciones también podría converti
 
 En el modo sin servidor, el cliente envía un mensaje mediante HTTP Post, que es menos eficaz que WebSocket.
 
-Otro factor es el protocolo: JSON y [MessagePack](https://msgpack.org/index.html). MessagePack es más pequeño y se entrega con más rapidez que JSON. Sin embargo, es posible que MessagePack no mejore el rendimiento. El rendimiento de Azure SignalR Service no es sensible a los protocolos porque no descodifica la carga del mensaje durante el reenvío de mensajes desde los clientes a los servidores o viceversa.
+Otro factor es de protocolo: JSON y [MessagePack](https://msgpack.org/index.html). MessagePack es más pequeño y se entrega con más rapidez que JSON. Sin embargo, es posible que MessagePack no mejore el rendimiento. El rendimiento de Azure SignalR Service no es sensible a los protocolos porque no descodifica la carga del mensaje durante el reenvío de mensajes desde los clientes a los servidores o viceversa.
 
 En resumen, los siguientes factores afectan a la capacidad de entrada y salida:
 
@@ -123,7 +123,7 @@ Cada nivel tiene su propio ancho de banda entrante y saliente máximo. No se gar
 |       Eco                        | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
 | Conexiones                       | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
-| **Ancho de banda entrante** | **2 MBps**    | **4 MBps**    | **10 MBps**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
+| **Ancho de banda entrante** | **2 MBps**    | **4 MBps**    | **10 MBps**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
 | Ancho de banda saliente | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
@@ -131,7 +131,7 @@ Cada nivel tiene su propio ancho de banda entrante y saliente máximo. No se gar
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
 | Ancho de banda entrante  | 4 Kbps   | 4 Kbps   | 4 Kbps    | 4 Kbps    | 4 Kbps    | 4 Kbps     | 4 Kbps    |
-| **Ancho de banda saliente** | **4 MBps**    | **8 MBps**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
+| **Ancho de banda saliente** | **4 MBps**    | **8 MBps**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
 
 *Ancho de banda entrante* y *Ancho de banda saliente* son el tamaño total de mensajes por segundo.  Estas son las fórmulas para ellos:
 ```
@@ -147,7 +147,7 @@ Cada nivel tiene su propio ancho de banda entrante y saliente máximo. No se gar
 
 - *sendInterval*: el tiempo de envío de un mensaje. Normalmente es 1 segundo por mensaje, lo que implica enviar un mensaje cada segundo. Un intervalo más pequeño significa enviar más mensajes en un período de tiempo. Por ejemplo, 0,5 segundos por cada mensaje significa enviar dos mensajes cada segundo.
 
-- *Conexiones*: el umbral máximo confirmado de Azure SignalR Service para cada nivel. Si el número de conexiones aumenta aún más, se verá afectado por la limitación de la conexión.
+- *Connections*: el umbral máximo confirmado de Azure SignalR Service para cada nivel. Si el número de conexiones aumenta aún más, se verá afectado por la limitación de la conexión.
 
 #### <a name="evaluation-for-complex-use-cases"></a>Evaluación para casos de uso complejos
 
@@ -290,7 +290,7 @@ El coste de enrutamiento es importante para enviar mensajes a muchos grupos pequ
 | Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000 | 100 000
 | Número de miembros del grupo        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
 | Número de grupos               | 100   | 200   | 500    | 1,000  | 2\.000  | 5\.000  | 10 000 
-| Mensajes entrantes por segundo  | 200   | 400   | 1,000  | 2500  | 4\.000  | 7000  | 7000   |
+| Mensajes entrantes por segundo  | 200   | 400   | 1,000  | 2,500  | 4\.000  | 7000  | 7000   |
 | Ancho de banda entrante  | 400 Kbps  | 800 Kbps  | 2 MBps     | 5 MBps     | 8 MBps     | 14 Mbps    | 14 Mbps     |
 | Mensajes salientes por segundo | 2\.000 | 4\.000 | 10 000 | 25 000 | 40.000 | 70 000 | 70 000  |
 | Ancho de banda saliente | 4 MBps    | 8 MBps    | 20 MBps    | 50 Mbps     | 80 MBps    | 140 MBps   | 140 MBps    |
@@ -418,9 +418,9 @@ El banco de pruebas asigna nombres de usuario a todos los clientes antes de esto
 
 Para todos los casos de uso mencionados anteriormente, las pruebas de rendimiento se llevaron a cabo en un entorno de Azure. Como máximo, usamos 50 máquinas virtuales cliente y 20 máquinas virtuales de servidor de aplicaciones. Estos son algunos detalles:
 
-- Tamaño de VM cliente: DS2V2 estándar (2 vCPU, 7 G de memoria)
+- Tamaño de máquina virtual de cliente: StandardDS2V2 (2 vCPU, 7G de memoria)
 
-- Tamaño de VM de servidor de aplicaciones: F4sV2 estándar (4 vCPU, 8 G de memoria)
+- Tamaño de máquina virtual del servidor de aplicaciones: StandardF4sV2 (4 vCPU, 8G Memory)
 
 - Conexiones de servidor de Azure SDK de SignalR: 15
 
