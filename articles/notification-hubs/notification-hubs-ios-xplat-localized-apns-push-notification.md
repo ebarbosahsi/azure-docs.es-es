@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a78d3a76e2b13a120e9e744e181c95bfcb330f27
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313910"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push localizadas a iOS mediante Azure Notification Hubs
@@ -73,7 +73,7 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 
 Para más información sobre el uso de plantillas, vea el artículo [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Complete el tutorial [Envío de notificaciones push a dispositivos iOS concretos](notification-hubs-ios-xplat-segmented-apns-push-notification.md) y disponga del código, porque este tutorial se basa directamente en ese código.
 * Visual Studio 2019 es opcional.

@@ -9,10 +9,10 @@ ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
 ms.openlocfilehash: a15c6b5919f428b28daab86fea9c3b6473d19162
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606205"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migración de CouchBase a API de SQL de Azure Cosmos DB
@@ -39,7 +39,7 @@ A continuación se indican las principales características que funcionan de man
 
 * En Azure Cosmos DB no es necesario que la jerarquía de nivel superior indique la colección, porque ya existe el nombre de la colección. Esta característica simplifica la estructura JSON. A continuación se proporciona un ejemplo en el que se muestran las diferencias en cuanto al modelo de datos entre Couchbase y Azure Cosmos DB:
 
-   **Couchbase**: Id. de documento = "99FF4444"
+   **Couchbase**: ID. de documento = "99FF4444"
 
     ```json
     {
@@ -69,7 +69,7 @@ A continuación se indican las principales características que funcionan de man
     }
    ```
 
-   **Azure Cosmos DB**: Vea "id." en el documento, como se muestra a continuación
+   **Azure Cosmos DB**: consulte el "id." en el documento, como se muestra a continuación
 
     ```json
     {
@@ -433,9 +433,9 @@ Luego, para suscribirse a Mono, vea el fragmento de código de suscripción a Mo
 
 Existen dos formas de migrar datos.
 
-* **Usar Azure Data Factory:** este es el método más recomendado para migrar los datos. Configure el origen como Couchbase y sincronice como API de SQL de Azure Cosmos DB, vea el artículo de Azure [Conector Data Factory de Cosmos DB](../data-factory/connector-azure-cosmos-db.md) para obtener pasos detallados.
+* **Use Azure Data Factory:** Este es el método más recomendado para migrar los datos. Configure el origen como Couchbase y sincronice como API de SQL de Azure Cosmos DB, vea el artículo de Azure [Conector Data Factory de Cosmos DB](../data-factory/connector-azure-cosmos-db.md) para obtener pasos detallados.
 
-* **Usar la herramienta de importación de datos de Azure Cosmos DB:** se recomienda esta opción para migrar mediante máquinas virtuales con menos cantidad de datos. Para obtener pasos detallados, vea el artículo [Importador de datos](./import-data.md).
+* **Use la herramienta de importación de datos Azure Cosmos DB:** Se recomienda esta opción para migrar mediante máquinas virtuales con menos cantidad de datos. Para obtener pasos detallados, vea el artículo [Importador de datos](./import-data.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

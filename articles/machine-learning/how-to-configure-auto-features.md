@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610308"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caracterización de datos en aprendizaje automático automatizado
@@ -65,11 +65,11 @@ En la tabla siguiente se resumen las técnicas que se aplican automáticamente a
 
 |Pasos de caracterización&nbsp;| Descripción |
 | ------------- | ------------- |
-|**Eliminación de características con una cardinalidad alta o sin variación** _ |Permite eliminar estas características de los conjuntos de entrenamiento y validación. Se aplican a características en las que faltan todos los valores, que tienen el mismo valor en todas las filas o que tienen una cardinalidad alta (por ejemplo, hashes, id. o GUID).|
-|_*Atribución de los valores que faltan**_ |Para las características numéricas, se atribuyen con el promedio de los valores de la columna.<br/><br/>Para las características de categorías, se atribuyen con el valor más frecuente.|
-|_*Generación de más características**_ |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> _En el caso de las tareas de previsión*, se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
-|**Transformación y codificación** _|Permite transformar las características numéricas con pocos valores únicos en características de categorías.<br/><br/>La codificación "one-hot" se utiliza para las características de categoría de cardinalidad baja. La codificación "one-hot-hash" se utiliza para las características de categorías de cardinalidad alta.|
-|_ *Inserciones de palabras**|Caracterizador de texto que convierte los vectores de tokens de texto en vectores de oración mediante un modelo previamente entrenado. El vector de inserción de cada palabra en un documento se agrega con el resto para producir un vector de característica de documento.|
+|**Eliminación de las características de cardinalidad alta o sin variación*** |Permite eliminar estas características de los conjuntos de entrenamiento y validación. Se aplican a características en las que faltan todos los valores, que tienen el mismo valor en todas las filas o que tienen una cardinalidad alta (por ejemplo, hashes, id. o GUID).|
+|**Atribución de los valores que faltan*** |Para las características numéricas, se atribuyen con el promedio de los valores de la columna.<br/><br/>Para las características de categorías, se atribuyen con el valor más frecuente.|
+|**Generación de más características** _ |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> _En el caso de las tareas de previsión*, se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
+|**Transformación y codificación***|Permite transformar las características numéricas con pocos valores únicos en características de categorías.<br/><br/>La codificación "one-hot" se utiliza para las características de categoría de cardinalidad baja. La codificación "one-hot-hash" se utiliza para las características de categorías de cardinalidad alta.|
+|**Inserciones de palabras**|Caracterizador de texto que convierte los vectores de tokens de texto en vectores de oración mediante un modelo previamente entrenado. El vector de inserción de cada palabra en un documento se agrega con el resto para producir un vector de característica de documento.|
 |**Distancia del clúster**|Entrena un modelo de agrupación en clústeres k-means en todas las columnas numéricas. Genera *k* nuevas características (una característica numérica nueva por grupo), que contienen la distancia de cada muestra hasta el centroide de cada clúster.|
 
 ## <a name="data-guardrails"></a>Límites de protección de datos
@@ -101,7 +101,7 @@ Los límites de protección de datos muestran uno de los tres estados siguientes
 
 En la tabla siguiente se describen los límites de protección de datos admitidos actualmente, así como los estados asociados que podría ver al enviar el experimento:
 
-Límite de protección|Estado|Condición&nbsp;para&nbsp;el desencadenador
+Límite de protección|Status|Condición&nbsp;para&nbsp;el desencadenador
 ---|---|---
 **Atribución de los valores de características que faltan** |Superado <br><br><br> ¡Listo!| No se ha detectado que falten valores de característica en los datos de entrenamiento. Obtenga más información sobre la [imputación de valores que faltan](./how-to-use-automated-ml-for-ml-models.md#customize-featurization). <br><br> Se han detectado valores de característica que faltan en los datos de entrenamiento y se han imputado.
 **Control de características de cardinalidad alta** |Superado <br><br><br> ¡Listo!| Se han analizado las entradas y no se han detectado características de cardinalidad alta. <br><br> Se han detectado características de cardinalidad alta en las entradas y se han controlado.

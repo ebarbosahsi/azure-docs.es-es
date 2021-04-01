@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936102"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Aptitudes cognitivas en desuso en Búsqueda cognitiva de Azure
@@ -20,9 +20,9 @@ ms.locfileid: "88936102"
 En este documento se describen las aptitudes cognitivas que se consideran en desuso. Use la siguiente guía para el contenido:
 
 * Nombre de aptitud: el nombre de la aptitud que quedará en desuso; se asigna al atributo @odata.type.
-* Última versión de API disponible: la última versión de la API pública de Búsqueda cognitiva de Azure a través de la cual se pueden crear o actualizar conjuntos de aptitudes que contienen la correspondiente aptitud en desuso.
+* Última versión de API disponible: la última versión de la API pública de Azure Cognitive Search mediante la cual se pueden crear o actualizar conjuntos de aptitudes que contienen la correspondiente aptitud en desuso.
 * Finalización del soporte técnico: el último día después del cual se considera en desuso la aptitud correspondiente. Los conjuntos de habilidades creados anteriormente todavía funcionan, pero se recomienda a los usuarios realizar la migración desde una aptitud en desuso.
-* Recomendaciones: ruta de migración hacia delante para usar una aptitud admitida. Se aconseja a los usuarios seguir las recomendaciones para continuar recibiendo soporte técnico.
+* Recomendaciones: Ruta de migración hacia delante para usar una aptitud admitida. Se aconseja a los usuarios seguir las recomendaciones para continuar recibiendo soporte técnico.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
