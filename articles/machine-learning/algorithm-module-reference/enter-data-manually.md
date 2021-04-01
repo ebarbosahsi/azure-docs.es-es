@@ -1,5 +1,5 @@
 ---
-title: 'Introducción manual de datos: Referencia del módulo'
+title: 'Introducción manual de datos: referencia de módulo'
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo usar el módulo Introducción manual de datos en Azure Machine Learning para crear un conjunto de datos pequeño escribiendo valores. El conjunto de datos puede tener varias columnas.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908079"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
@@ -34,10 +34,10 @@ Este módulo puede ser útil en escenarios como los siguientes:
   
 1. Para **DataFormat**, seleccione una de las siguientes opciones. Estas opciones determinan cómo se deben analizar los datos proporcionados. Los requisitos para cada formato varían en gran medida, por lo que debe asegurarse de leer los temas relacionados.  
   
-   - **ARFF**: formato de archivo de relación de atributos usado por Weka.   
-   - **CSV**: formato de valores separados por comas. Para obtener más información, consulte [Convert to CSV](./convert-to-csv.md) (Convertir a CSV).    
-   - **SVMLight**: formato usado por Vowpal Wabbit y otros marcos de aprendizaje automático.    
-   - **TSV**: formato de valores separados por tabulaciones.
+   - **ARFF**: El formato de archivo de relación de atributos, usado por Weka.   
+   - **CSV**: formato de valores separados por comas. Para obtener más información, consulte [Convert to CSV](./convert-to-csv.md) (Convertir a CSV).    
+   - **SVMLight**: Formato usado por Vowpal Wabbit y otros marcos de aprendizaje automático.    
+   - **TSV**: formato de valores separados por tabulaciones.
 
    Si elige un formato y no proporciona datos que cumplan las especificaciones de formato, se produce un error en tiempo de ejecución.
   

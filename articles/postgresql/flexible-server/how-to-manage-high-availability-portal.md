@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90931851"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible
@@ -30,29 +30,29 @@ La alta disponibilidad con redundancia de zona solo está disponible en regiones
 
 En esta sección se proporcionan detalles específicos de los campos relacionados con la alta disponibilidad. Puede seguir estos pasos para implementar la alta disponibilidad al crear el servidor flexible.
 
-1.  En  [Azure Portal](https://portal.azure.com/), elija Flexible Server (Servidor flexible) y haga clic en Crear.  Para más información sobre cómo rellenar los datos de **Suscripción**, **Grupo de recursos**, **Nombre del servidor**, **Región**, y otros campos, consulte la documentación de procedimientos de la creación del servidor.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione Servidor flexible y haga clic en Crear.  Para más información sobre cómo rellenar los datos de **Suscripción**, **Grupo de recursos**, **Nombre del servidor**, **Región**, y otros campos, consulte la documentación de procedimientos de la creación del servidor.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Visualización de la suscripción y la región":::
 
 2.  Elija su **zona de disponibilidad**. Resulta útil si quiere colocar la aplicación en la misma zona de disponibilidad que la base de datos a fin de reducir la latencia. Elija **No Preference** (Sin preferencias) si quiere que el servidor flexible se implemente en cualquier zona de disponibilidad.
-    ![Selección de AZ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Visualización de la suscripción y la región":::  
+    ![Selección de AZ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Selección de la zona de disponibilidad":::  
 
 3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) en la opción de disponibilidad.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Visualización de la suscripción y la región":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Casilla Alta disponibilidad":::
 
 4.  Si quiere cambiar el proceso y el almacenamiento predeterminados, haga clic en **Configure server** (Configurar servidor).
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Visualización de la suscripción y la región":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="configure server (configurar servidor): compute+storage (proceso y almacenamiento)":::  
 
 5.  Si la opción de alta disponibilidad está activada, el nivel por ráfagas no estará disponible para elegirlo. Puede elegir los niveles de proceso **De uso general** u **Optimizado para memoria**. Después, puede seleccionar **tamaño de proceso** para elegirlo en la lista desplegable.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Visualización de la suscripción y la región":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Selección del nivel de proceso":::  
 
 
 6.  Seleccione el **tamaño de almacenamiento** en GiB con la barra deslizante y seleccione el **período de retención de copia de seguridad** entre 7 y 35 días.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Visualización de la suscripción y la región"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Copia de seguridad de almacenamiento"::: 
 
 7. Haga clic en **Guardar**. 
 
@@ -60,15 +60,15 @@ En esta sección se proporcionan detalles específicos de los campos relacionado
 
 Siga estos pasos para habilitar la alta disponibilidad para el servidor flexible existente.
 
-1.  En  [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible de PostgreSQL existente.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible de PostgreSQL existente.
 
-2.  En la página del servidor flexible, haga clic en  **Alta disponibilidad** en el panel izquierdo para abrir la página de alta disponibilidad.
+2.  En la página del servidor flexible, haga clic en **Alta disponibilidad** en el panel izquierdo para abrir la página de alta disponibilidad.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visualización de la suscripción y la región"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Selección del panel izquierdo"::: 
 
-3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **habilitar** la opción y haga clic en  **Guardar**  para guardar el cambio.
+3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **habilitar** la opción y luego en **Guardar** para guardar el cambio.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Visualización de la suscripción y la región"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Habilitación de la alta disponibilidad"::: 
 
 4.  Aparece un cuadro de diálogo de confirmación que indica que, al habilitar la alta disponibilidad, el costo aumentará debido a la implementación adicional del servidor y del almacenamiento.
 
@@ -80,15 +80,15 @@ Siga estos pasos para habilitar la alta disponibilidad para el servidor flexible
 
 Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexible que ya está configurado con redundancia de zona.
 
-1.  En  [Azure Portal](https://portal.azure.com/), seleccione su servidor flexible de Azure Database for PostgreSQL.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione su servidor flexible de Azure Database for PostgreSQL.
 
-2.  En la página del servidor flexible, haga clic en  **Alta disponibilidad** en el panel frontal para abrir la página de alta disponibilidad.
+2.  En la página del servidor flexible, haga clic en **Alta disponibilidad** en el panel frontal para abrir la página de alta disponibilidad.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Visualización de la suscripción y la región"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Selección del panel izquierdo"::: 
 
-3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **deshabilitar** la opción. A continuación, haga clic en **Guardar**  para guardar el cambio.
+3.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) para **deshabilitar** la opción. A continuación, haga clic en **Guardar** para guardar el cambio.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Visualización de la suscripción y la región"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Deshabilitación de la alta disponibilidad"::: 
 
 4.  Aparece un cuadro de diálogo de confirmación en el que puede confirmar la deshabilitación de la alta disponibilidad.
 
@@ -98,5 +98,5 @@ Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md).
--   Más información sobre la  [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+-   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)

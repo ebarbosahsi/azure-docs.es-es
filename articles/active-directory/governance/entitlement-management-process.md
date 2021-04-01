@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746242"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Proceso de solicitud y notificaciones por correo electrónico en la administración de derechos de Azure AD
@@ -72,19 +72,19 @@ En la tabla siguiente se proporcionan más detalles sobre cada una de estas noti
 | # | Asunto del correo electrónico | Cuándo se envía | Se envía a |
 | --- | --- | --- | --- |
 | 1 | Acción requerida: Aprobar o denegar la solicitud reenviada por *[fecha]* | Este correo electrónico se enviará a los aprobadores alternativos de la fase 1 (después de escalar la solicitud) para realizar una acción. | Aprobadores alternativos de la fase 1 |
-| 2 | Acción requerida: Aprobar o denegar una solicitud por *[date]* | Este correo electrónico se enviará al primer aprobador, si la escalación está deshabilitada, para realizar una acción. | Primer aprobador |
+| 2 | Acción requerida: Aprobar o denegar la solicitud por *[fecha]* | Este correo electrónico se enviará al primer aprobador, si la escalación está deshabilitada, para realizar una acción. | Primer aprobador |
 | 3 | Recordatorio: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al primer aprobador, si la escalación está deshabilitada. El correo electrónico le pide que realice alguna acción si no lo ha hecho. | Primer aprobador |
 | 4 | Aprobar o denegar la solicitud por *[hora]* el *[fecha]* | Este correo electrónico se enviará al primer aprobador, si la escalación está habilitada, para realizar una acción. | Primer aprobador |
-| 5 | Se requiere recordatorio de la acción: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al primer aprobador, si la escalación está habilitada. El correo electrónico le pide que realice alguna acción si no lo ha hecho. | Primer aprobador |
+| 5 | Recordatorio de acción requerida: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al primer aprobador, si la escalación está habilitada. El correo electrónico le pide que realice alguna acción si no lo ha hecho. | Primer aprobador |
 | 6 | La solicitud expiró para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1 después de que la solicitud ha expirado. | Primer aprobador, aprobadores alternativos de la fase 1 |
 | 7 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1 al completarse la solicitud. | Primer aprobador, aprobadores alternativos de la fase 1 |
 | 8 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al primer aprobador y a los aprobadores alternativos de la fase 1, de una solicitud en 2 fases, cuando la solicitud de la fase 1 esté aprobada. | Primer aprobador, aprobadores alternativos de la fase 1 |
 | 9 | Se denegó la solicitud a *[access_package]* | Este correo electrónico se enviará al solicitante cuando se deniegue su solicitud. | Solicitante |
 | 10 | Expiró su solicitud a *[access_package]* | Este correo electrónico se enviará al solicitante al final de una solicitud en 1 o 2 fases. El correo electrónico notifica al solicitante que la solicitud ha expirado. | Solicitante |
-| 11 | Acción requerida: Aprobar o denegar una solicitud por *[date]* | Este correo electrónico se enviará al segundo aprobador, si la escalación está deshabilitada, para realizar una acción. | Segundo aprobador |
-| 12 | Se requiere recordatorio de la acción: Aprobar o denegar una solicitud antes del *[date]* | Este correo electrónico de recordatorio se enviará al segundo aprobador, si la escalación está deshabilitada. La notificación le pide que realice alguna acción si no lo ha hecho. | Segundo aprobador |
+| 11 | Acción requerida: Aprobar o denegar la solicitud por *[fecha]* | Este correo electrónico se enviará al segundo aprobador, si la escalación está deshabilitada, para realizar una acción. | Segundo aprobador |
+| 12 | Recordatorio de acción requerida: Aprobar o denegar la solicitud por *[fecha]* | Este correo electrónico de recordatorio se enviará al segundo aprobador, si la escalación está deshabilitada. La notificación le pide que realice alguna acción si no lo ha hecho. | Segundo aprobador |
 | 13 | Acción requerida: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico se enviará al segundo aprobador, si la escalación está habilitada, para realizar una acción. | Segundo aprobador |
-| 14 | Se requiere recordatorio de la acción: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al segundo aprobador, si la escalación está habilitada. La notificación le pide que realice alguna acción si no lo ha hecho. | Segundo aprobador |
+| 14 | Recordatorio de acción requerida: Aprobar o denegar la solicitud por *[fecha]* para *[solicitante]* | Este correo electrónico de recordatorio se enviará al segundo aprobador, si la escalación está habilitada. La notificación le pide que realice alguna acción si no lo ha hecho. | Segundo aprobador |
 | 15 | Acción requerida: Aprobar o denegar la solicitud reenviada por *[fecha]* | Este correo electrónico se enviará a los aprobadores alternativos de la fase 2, si la escalación está habilitada, para realizar una acción. | Aprobadores alternativos de la fase 2 |
 | 16 | Solicitud aprobada para el *[solicitante]* para *[access_package]* | Este correo electrónico se enviará al segundo aprobador y a los aprobadores alternativos de la fase 2 al aprobar la solicitud. | Segundo aprobador, aprobadores alternativos de la fase 2 |
 | 17 | Una solicitud expiró para *[access_package]* | Este correo electrónico se enviará al segundo aprobador y a los aprobadores alternativos después de que la solicitud ha expirado. | Segundo aprobador, aprobadores alternativos de la fase 2 |

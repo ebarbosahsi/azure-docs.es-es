@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907847"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de asignación de Dirichlet latente
@@ -30,7 +30,7 @@ Este módulo toma una columna de texto y genera las salidas siguientes:
 
 + Una transformación, que se puede guardar y volver a aplicar al nuevo texto que se usa como una entrada.
 
-En este módulo se usa la biblioteca scikit-learn. Para obtener más información sobre scikit-learn, consulte el  [repositorio de GitHub](https://github.com/scikit-learn/scikit-learn), que incluye tutoriales y una explicación del algoritmo.
+En este módulo se usa la biblioteca scikit-learn. Para obtener más información sobre scikit-learn, consulte el [repositorio de GitHub](https://github.com/scikit-learn/scikit-learn), que incluye tutoriales y una explicación del algoritmo.
 
 ## <a name="more-about-latent-dirichlet-allocation"></a>Más información sobre la asignación de Dirichlet latente
 
@@ -196,10 +196,10 @@ Una vez calculados los índices de términos, una medida de similitud basada en 
 |Energía aplicada a la iteración durante las actualizaciones|Float|[0.0;1.0]|Se aplica cuando se selecciona la casilla **Mostrar todas las opciones**|0.5|Energía aplicada al recuento de iteraciones para controlar la velocidad de aprendizaje. Corresponde al parámetro `learning_decay`. |  
 |Número de iteraciones de entrenamiento|Entero|[1;1024]|Se aplica cuando se selecciona la casilla **Mostrar todas las opciones**|25|Número de iteraciones de entrenamiento.|  
 |Crear diccionario de n-gramas|Boolean|Verdadero o falso|Se aplica cuando la casilla **Mostrar todas las opciones** *no* está seleccionada|True|Crea un diccionario de n-gramas antes del cálculo de LDA. Útil para la inspección e interpretación del modelo.|  
-|Tamaño máximo del diccionario de n-gramas|Entero|[1;int.MaxValue]|Se aplica cuando la opción **Crear diccionario de n-gramas** es **True**|20 000|Tamaño máximo del diccionario de n-gramas. Si el número de tokens de la entrada supera este tamaño, pueden producirse colisiones.|  
+|Tamaño máximo del diccionario de n-gramas|Entero|[1;int.MaxValue]|Se aplica cuando la opción **Crear diccionario de n-gramas** es **True**|20000|Tamaño máximo del diccionario de n-gramas. Si el número de tokens de la entrada supera este tamaño, pueden producirse colisiones.|  
 |Número de bits que se usarán para la operación de hash de características.|Entero|[1;31]|Se aplica cuando la casilla **Mostrar todas las opciones** *no* está seleccionada y el valor de **Crear diccionario de n-gramas** es **False**|12|Número de bits que se usarán para la operación de hash de características.| 
 |Crear diccionario de n-gramas antes de LDA|Boolean|Verdadero o falso|Se aplica cuando se selecciona la casilla **Mostrar todas las opciones**|True|Crea un diccionario de n-gramas antes de LDA. Útil para la inspección e interpretación del modelo.|  
-|Número máximo de n-gramas en el diccionario|Entero|[1;int.MaxValue]|Se aplica cuando la casilla **Mostrar todas las opciones** está seleccionada y la opción **Crear diccionario de n-gramas** es **True**|20 000|Tamaño máximo del diccionario. Si el número de tokens de la entrada supera este tamaño, pueden producirse colisiones.|  
+|Número máximo de n-gramas en el diccionario|Entero|[1;int.MaxValue]|Se aplica cuando la casilla **Mostrar todas las opciones** está seleccionada y la opción **Crear diccionario de n-gramas** es **True**|20000|Tamaño máximo del diccionario. Si el número de tokens de la entrada supera este tamaño, pueden producirse colisiones.|  
 |Número de bits de hash|Entero|[1;31]|Se aplica cuando la casilla **Mostrar todas las opciones** está seleccionada y la opción **Crear diccionario de n-gramas** es **False**|12|Número de bits que se usarán durante la operación de hash de características.|   
 
 
