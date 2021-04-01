@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76903058"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Creación de esquemas de seguimiento personalizado que supervisen los flujos de trabajo de un extremo a otro en Azure Logic Apps
@@ -64,7 +64,7 @@ Azure Logic Apps tiene seguimiento integrado que se puede habilitar para las par
 | correlationId | No | String | Identificador de correlación para correlacionar los mensajes |
 | clientRequestId | No | String | El cliente puede rellenar esta propiedad para correlacionar los mensajes |
 | eventLevel | Sí | String | Nivel del evento |
-| eventTime | Sí | DateTime | Hora del evento en formato UTC: *AAAA-MM-DDTHH:MM:SS.00000Z* |
+| eventTime | Sí | DateTime | Hora del evento, en formato UTC: *AAAA-MM-DDTHH:MM:SS.00000Z* |
 | recordType | Sí | String | Tipo de registro de seguimiento con solo este valor permitido: `custom` |
 | registro | Sí | JToken | Tipo de registro personalizado solo con formato JToken |
 |||||

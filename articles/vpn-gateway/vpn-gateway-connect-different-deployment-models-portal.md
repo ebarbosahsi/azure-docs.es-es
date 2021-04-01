@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: Portal | Microsoft Docs'
+title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal | Microsoft Docs'
 description: Pasos para conectar redes virtuales clásicas a redes virtuales de Resource Manager mediante VPN Gateway y el portal
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376809"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
@@ -100,7 +100,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 
 1. Vaya a **Todos los recursos** y ubique **ClassicVNet** en la lista.
 2. Haga clic en **Puerta de enlace** en la sección **Configuración** del menú y, a continuación, haga clic en el banner para crear una puerta de enlace.
-  ![Configuración de una puerta de enlace de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configuración de una instancia de VPN Gateway")
+  ![Configuración de una instancia de VPN Gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configuración de una instancia de VPN Gateway")
 3. En la página **Nueva conexión de VPN**, en la opción **Tipo de conexión**, seleccione **De sitio a sitio**.
 4. En **Sitio local**, haga clic en **Configurar los valores obligatorios**. Con esto se abre la página **Sitio local**.
 5. En la página **Sitio Local**, cree un nombre para hacer referencia a la red virtual de Resource Manager. Por ejemplo, "RMVNetLocal".
@@ -114,7 +114,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
    ![Apertura de la página de configuración de las puertas de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Apertura de la página de configuración de las puertas de enlace")
-3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El campo **Nombre** ya está establecido en el valor apropiado: **GatewaySubnet**.
+3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El **nombre** ya está configurado con valor requerido: **GatewaySubnet**.
 4. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los [valores de ejemplo](#values). En este ejemplo se usa "10.0.0.32/28". Haga clic en **Aceptar** para crear la subred de puerta de enlace.
 5. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
 6. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la página **Nueva conexión de VPN**.
@@ -168,7 +168,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 ### <a name="3-create-a-local-network-gateway"></a><a name="createlng"></a>3. Creación de una puerta de enlace de red local
 
-**Valores de ejemplo:** Puerta de enlace de red local = LocalRedVClásica
+**Valores de ejemplo:** Puerta de enlace de red local = ClassicVNetLocal
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
@@ -258,7 +258,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visualización de los valores de archivo de configuración de red
 
-Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en Azure Portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre debería parecerse al siguiente: "Group ClassicRG ClassicVNet". En estos pasos se descarga el archivo de configuración de red y se ven los valores.
+Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en Azure Portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre podría ser similar al siguiente: "Group ClassicRG ClassicVNet". En estos pasos se descarga el archivo de configuración de red y se ven los valores.
 
 Cree un directorio en el equipo y, a continuación, exporte el archivo de configuración de red al directorio. En este ejemplo, se exporta el archivo de configuración de red a C:\AzureNet.
 

@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Creación de una copia de seguridad programada'
+title: 'CLI: creación de una copia de seguridad programada'
 description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo crear una copia de seguridad programada para una aplicación.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 500ac99cd35cfdf601be75a19a1d43f84795cbe8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006436"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Creación de una copia de seguridad programada para una aplicación de App Service mediante la CLI

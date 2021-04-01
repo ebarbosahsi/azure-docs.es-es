@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730749"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicación con el centro de IoT mediante el protocolo AMQP
@@ -29,7 +29,7 @@ Para conectarse a un centro de IoT mediante el uso de AMQP, un cliente puede uti
 
 La siguiente información es necesaria para el cliente del servicio:
 
-| Information | Value |
+| Información | Value |
 |-------------|--------------|
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Nombre de clave | `service` |
@@ -131,7 +131,7 @@ for msg in batch:
 
 Como se muestra en el código anterior, un mensaje de comentarios de la nube al dispositivo tiene un tipo de contenido *application/vnd.microsoft.iothub.feedback.json*. Puede usar las propiedades del cuerpo JSON del mensaje para deducir el estado de entrega del mensaje original:
 
-* La clave `statusCode` del cuerpo de los comentarios tiene uno de los valores siguientes: *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected* o *Purged*.
+* La clave `statusCode` del cuerpo de comentarios tiene uno de los siguientes valores: *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected* o *purged*.
 
 * La clave `deviceId` del cuerpo de los comentarios tiene el identificador del dispositivo de destino.
 
@@ -225,7 +225,7 @@ Para conectarse a un centro de IoT mediante el uso de AMQP, un dispositivo puede
 
 La siguiente información es necesaria para el cliente del dispositivo:
 
-| Information | Value |
+| Información | Value |
 |-------------|--------------|
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Clave de acceso | Una clave principal o secundaria asociada al dispositivo. |
@@ -375,6 +375,6 @@ Para más información sobre el protocolo AMQP, consulte la [especificación de 
 
 Para más información acerca de la mensajería de IoT Hub, consulte:
 
-* [Mensajes de la nube al dispositivo](./iot-hub-devguide-messages-c2d.md)
+* [Mensajes de nube a dispositivo](./iot-hub-devguide-messages-c2d.md)
 * [Compatibilidad con protocolos adicionales](iot-hub-protocol-gateway.md)
 * [Compatibilidad con el protocolo Message Queuing Telemetry Transport (MQTT)](./iot-hub-mqtt-support.md)
