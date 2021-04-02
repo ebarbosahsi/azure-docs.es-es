@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730102"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
@@ -37,7 +37,7 @@ Los trabajos se inician mediante el back-end de solución y se mantienen mediant
 
 ## <a name="jobs-to-execute-direct-methods"></a>Trabajos para ejecutar métodos directos
 
-El siguiente fragmento de código muestra los detalles de la solicitud HTTPS 1.1 para ejecutar un [método directo](iot-hub-devguide-direct-methods.md) en un conjunto de dispositivos mediante un trabajo:
+El siguiente fragmento de código muestra los detalles de la solicitud HTTP 1.1 para ejecutar un [método directo](iot-hub-devguide-direct-methods.md) en un conjunto de dispositivos mediante un trabajo:
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -184,22 +184,22 @@ La siguiente lista muestra las propiedades y las descripciones correspondientes,
 | **startTime** |Hora de inicio proporcionada de la aplicación (ISO 8601) para el trabajo. |
 | **endTime** |Fecha proporcionada de IoT Hub (ISO 8601) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
 | **type** |Tipos de trabajos: |
-| | **scheduleUpdateTwin**: trabajo que se usa para actualizar un conjunto determinado de propiedades o etiquetas. |
-| | **scheduleDeviceMethod**: trabajo que se usa para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
+| | **scheduleUpdateTwin**: un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. |
+| | **scheduleDeviceMethod**: un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
 | **status** |Estado actual del trabajo. Posibles valores para el estado: |
 | | **pending**: programado y en espera a que lo recopile el servicio de trabajo. |
 | | **scheduled**: programado para una hora futura. |
 | | **running**: trabajo activo actualmente. |
-| | **canceled**: el trabajo se ha cancelado. |
-| | **failed**: error del trabajo. |
+| | **cancelled**: el trabajo se ha cancelado. |
+| | **failed**: trabajo erróneo. |
 | | **completed**: el trabajo se ha completado. |
 | **deviceJobStatistics** |Estadísticas sobre la ejecución del trabajo. |
 | | Propiedades **deviceJobStatistics**: |
-| | **deviceJobStatistics.deviceCount**: Número de dispositivos en el trabajo. |
-| | **deviceJobStatistics.failedCount**: Número de dispositivos en los que se ha producido un error del trabajo. |
-| | **deviceJobStatistics.succeededCount**: Número de dispositivos en los que se ha realizado correctamente el trabajo. |
-| | **deviceJobStatistics.runningCount**: Número de dispositivos que ejecutan actualmente el trabajo. |
-| | **deviceJobStatistics.pendingCount**: Número de dispositivos pendientes de ejecutar el trabajo. |
+| | **deviceJobStatistics.deviceCount**: número de dispositivos en el trabajo. |
+| | **deviceJobStatistics.failedCount**: número de dispositivos en los que no se produjo un error del trabajo. |
+| | **deviceJobStatistics.succeededCount**: número de dispositivos en los que el trabajo se realizó correctamente. |
+| | **deviceJobStatistics.runningCount**: número de dispositivos que están ejecutando el trabajo en estos momentos. |
+| | **deviceJobStatistics.pendingCount**: número de dispositivos que tienen pendiente ejecutar el trabajo. |
 
 ### <a name="additional-reference-material"></a>Material de referencia adicional
 
@@ -211,7 +211,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 
 * En [SDK de dispositivo y servicio IoT de Azure](iot-hub-devguide-sdks.md) se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
 
-* En [Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md) se describe el lenguaje de consulta de IoT Hub. Use este lenguaje de consulta para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
+* En [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md) se describe el lenguaje de consulta de IoT Hub. Use este lenguaje de consulta para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 
 * En [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md) se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 

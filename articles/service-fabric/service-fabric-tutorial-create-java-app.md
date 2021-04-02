@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
 ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532200"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Creación de una aplicación con un servicio front-end de la API de Java y un servicio back-end con estado en Service Azure Fabric
@@ -34,7 +34,7 @@ En la primera parte de la serie, se aprende a:
 > * Usar una comunicación remota de servicio para comunicarse con el servicio con estado
 > * Implementar una aplicación en un clúster local de Service Fabric
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -544,7 +544,7 @@ Ahora se crea el esqueleto del servicio front-end sin estado y del servicio back
 
  El siguiente paso es conectar el servicio front-end sin estado y el servicio back-end. Ambos usan una interfaz denominada VotingRPC que define las operaciones de la aplicación Voting. Esta interfaz la implementan los servicios front-end y back-end para habilitar las llamadas a procedimiento remoto (RPC) entre ambos servicios. Por desgracia, Eclipse no admite la adición de subproyectos de Gradle, de modo que el paquete que contiene esta interfaz debe agregarse manualmente.
 
-1. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de paquetes y seleccione**New** > **Folder** (Nuevo > Carpeta). Asigne a la carpeta el nombre **VotingRPC/src/rpcmethods**.
+1. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de paquetes y seleccione **New** > **Folder** (Nuevo > Carpeta). Asigne a la carpeta el nombre **VotingRPC/src/rpcmethods**.
 
     ![Creación de un paquete VotingRPC en el explorador de paquetes de Eclipse](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
@@ -884,7 +884,7 @@ En este momento, la aplicación está lista para implementarse en un clúster lo
 
 2. Ejecute el clúster local de Service Fabric. Este paso depende del entorno de desarrollo (Mac o Linux).
 
-    Si usa un equipo Mac, ejecute el clúster local con el siguiente comando: Reemplace el comando pasado al parámetro **-v** por la ruta de acceso a su propio espacio de trabajo.
+    Si utiliza un equipo Mac, ejecute el clúster local con el siguiente comando: reemplace el comando que se usa en el **- v** parámetro por la ruta de acceso a su propia área de trabajo.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest

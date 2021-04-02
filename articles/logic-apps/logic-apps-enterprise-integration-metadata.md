@@ -9,24 +9,24 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792479"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Adición u obtención de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
 
 Puede definir metadatos personalizados para artefactos en cuentas de integración y obtener metadatos durante el tiempo de ejecución para que los use su aplicación lógica. Por ejemplo, puede proporcionar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tiene los artefactos donde desea agregar metadatos; por ejemplo: 
 
   * [Asociado](logic-apps-enterprise-integration-partners.md)
-  * [Acuerdo](logic-apps-enterprise-integration-agreements.md)
+  * [Contrato](logic-apps-enterprise-integration-agreements.md)
   * [Esquema](logic-apps-enterprise-integration-schemas.md)
   * [Map](logic-apps-enterprise-integration-maps.md)
 
@@ -55,7 +55,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 1. En el Diseñador de aplicación lógica, si va a agregar el paso para obtener los metadatos en el desencadenador o la última acción del flujo de trabajo, elija **Nuevo paso** > **Agregar una acción**. 
 
-1. En el cuadro de búsqueda, escriba "cuenta de integración". En el cuadro de búsqueda, elija **Todas**. En la lista de acciones, seleccione esta acción: **Búsqueda de artefactos de la cuenta de integración: cuenta de integración**
+1. En el cuadro de búsqueda, escriba "cuenta de integración". En el cuadro de búsqueda, elija **Todas**. En la lista acciones, seleccione esta acción: **Búsqueda de artefactos de la cuenta de integración: cuenta de integración**.
 
    ![Selección de "Búsqueda de artefactos de la cuenta de integración"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
@@ -75,7 +75,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
    1. En la acción **Búsqueda de artefactos de la cuenta de integración**, elija **Siguiente paso** y seleccione **Agregar una acción**. 
 
-   1. En el cuadro de búsqueda, escriba "http". En el cuadro de búsqueda, elija **Integraciones** y seleccione esta acción: **HTTP - HTTP**
+   1. En el cuadro de búsqueda, escriba "http". En el cuadro de búsqueda, elija **Integraciones** y seleccione esta acción: **HTTP - HTTP**.
 
       ![Adición de acción HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
 
