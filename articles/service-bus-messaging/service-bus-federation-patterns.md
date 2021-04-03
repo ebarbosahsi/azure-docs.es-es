@@ -4,17 +4,17 @@ description: En este artículo se proporcionan instrucciones detalladas para imp
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: d823ee7ccd4f53bfc3e10211a4f44908273a110d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97663496"
 ---
 # <a name="message-replication-tasks-patterns"></a>Patrones de tareas de replicación de mensajes
 
 En las páginas de [introducción a la federación](service-bus-federation-overview.md) e [introducción a las funciones del replicador](service-bus-federation-replicator-functions.md), se explica la lógica y los elementos básicos de las tareas de replicación. Se recomienda familiarizarse con ellos antes de continuar con este artículo.
 
-En este artículo, se detallan las instrucciones de implementación de varios de los patrones resaltados en la sección de información general. 
+En este artículo, se detallan las instrucciones de implementación de algunos de los patrones resaltados en la sección de información general. 
 
 ## <a name="replication"></a>Replicación 
 
@@ -40,7 +40,7 @@ Si usa la replicación para la recuperación ante desastres, para protegerse de 
 
 En todos los escenarios de conmutación por error, se supone que los elementos necesarios de los espacios de nombres son estructuralmente idénticos, lo que significa que tanto las colas como los temas tienen un nombre idéntico y que las reglas de firma de acceso compartido o las reglas de control de acceso basado en roles se configuran de la misma manera. Para crear (y actualizar) un espacio de nombres secundario, siga la [guía para mover espacios de nombres](move-across-regions.md) y omita el paso de limpieza.
 
-Para obligar a los productores y consumidores a realizar el cambio, debe proporcionar la información sobre qué espacios de nombres usar para realizar la búsqueda en una ubicación a la que se pueda acceder fácilmente y que sea fácil de actualizar. Si los productores o consumidores sufren errores frecuentes o persistentes, deben consultar esa ubicación y ajustar su configuración. Hay muchas maneras de compartir esa configuración, pero a continuación se indican solo un par de ellas: DNS y recursos compartidos de archivos.
+Para obligar a los productores y consumidores a realizar el cambio, debe proporcionar la información sobre qué espacios de nombres usar para realizar la búsqueda en una ubicación con la que se pueda establecer contacto fácilmente y que sea fácil de actualizar. Si los productores o los consumidores encuentran errores frecuentes o persistentes, deben consultar esa ubicación y ajustar su configuración. Hay muchas maneras de compartir esa configuración, pero se indican dos a continuación: DNS y recursos compartidos.
 
 #### <a name="dns-based-failover-configuration"></a>Configuración de conmutación por error basada en DNS
 
@@ -61,7 +61,7 @@ En la zona de la aplicación, creará una entrada CNAME que apunte a la zona sub
 |------------------------------|-------------------------------------------------------------
 | `servicebus.test.example.com`  | `test1.test.example.com`
 
-El uso de un cliente DNS que permita consultar los registros CNAME y SRV explícitamente (los clientes integrados de Java y .NET solo permiten la resolución simple de nombres en direcciones IP), puede resolver el punto de conexión deseado. Por ejemplo, con [DnsClient.NET](https://dnsclient.michaco.net/) la función lookup es:
+El uso de un cliente DNS que permite consultar los registros CNAME y SRV explícitamente (los clientes integrados de Java y .NET solo permiten la resolución simple de nombres en direcciones IP), puede resolver el punto de conexión deseado. Con [DnsClient.NET](https://dnsclient.michaco.net/), por ejemplo, la función de búsqueda es:
 
 ``` C#
 static string GetServiceBusName(string aliasName)
@@ -76,7 +76,7 @@ static string GetServiceBusName(string aliasName)
 }
 ```
 
-La función devuelve el nombre de host de destino registrado para el puerto 5671 de la zona que actualmente tiene un alias con el CNAME como se mostró anteriormente. 
+La función devuelve el nombre de host de destino registrado para el puerto 5671 de la zona que tiene un alias actualmente con el CNAME como se mostró anteriormente. 
 
 Para realizar una conmutación por error es necesario editar el registro CNAME y apuntarlo a la zona alternativa. 
 
@@ -105,18 +105,18 @@ El último escenario requiere la exclusión de la replicación de los mensajes q
 
 ## <a name="editor"></a>Editor
 
-El patrón de editor se basa en el patrón de[replicación](#replication), pero los mensajes se modifican antes de reenviarse. Estos son algunos ejemplos de esas modificaciones:
+El patrón de editor se basa en el patrón de [replicación](#replication), pero los mensajes se modifican antes de reenviarse. Estos son algunos ejemplos de esas modificaciones:
 
-- **_Transcodificación_* _: si el contenido del mensaje (también conocido como "cuerpo" o "carga") llega del origen codificado mediante el formato _Apache Avro *, o algún formato de serialización propietario, pero la expectativa de que el sistema que posee el destino es que el contenido tenga codificación *JSON*, lo primero que hará una tarea de replicación de transcodificación será deserializar la carga de *Apache Avro* en un gráfico de objetos en memoria y, después, serializará ese gráfico en el formato *JSON* para el mensaje que se reenvía. La transcodificación también incluye las tareas de descompresión y **compresión del contenido**.
-- **_Transformación_* _: es posible que los mensajes que contienen datos con estructura necesiten volver a dar forma a dichos datos para facilitar su consumo por parte de los consumidores de bajada, lo que puede obligar a realizar trabajos como el acoplamiento de estructuras anidadas, la eliminación de elementos de datos extraños o la remodelación de la carga para ajustarse exactamente a un esquema determinado.
-- _*_Procesamiento por lotes_*_: los mensajes se pueden recibir en lotes (varios mensajes en una única transferencia) desde un origen, pero se deben reenviar uno a uno a su destino, o viceversa. Por tanto, un tarea puede reenviar varios mensajes según una única transferencia de mensajes de entrada, o bien agregar un conjunto de mensajes que, posteriormente, se transfieren juntos. 
-- _*_Validación_*_: a menudo, hay que comprobar si los datos de los mensajes de orígenes externos cumplen un conjunto de reglas antes de reenviarlos. Las reglas se pueden expresar mediante esquemas o un código. Los mensajes que se detecte que no las cumplen se pueden eliminar, e indicar el problema en los registros, o se pueden reenviar a un destino especial para tratarlos más.   
-- _*_Enrique cimiento_*_: es posible que los datos de mensajes que provienen de algunos orígenes deban enriquecerse con mayor contexto, con el fin de que se puedan usar en los sistemas de destino, lo que puede implicar la búsqueda de datos de referencia y la inserción de datos con el mensaje, o la incorporación de información sobre el origen que se conoce en la tarea de replicación, pero que no se incluye en los mensajes. 
-- _*_Filtro_*_: es posible que algunos mensajes que lleguen de un origen tengan que retenerse en el destino debido a alguna regla. Un filtro prueba el mensaje con una regla y lo elimina si no la cumple. El filtrado de mensajes duplicados mediante la observación de determinados criterios y la eliminación de los mensajes posteriores con los mismos valores es una forma de filtrado.
-- _*_Enrutamiento y creación de particiones_*_: es posible que algunas tareas de replicación permitan dos o más destinos alternativos y definan las reglas para las que se elige el destino de replicación en cualquier mensaje determinado en función de los metadatos o del contenido del mensaje. Una forma especial de enrutamiento es la creación de particiones, donde la tarea asigna explícitamente las particiones a un destino de replicación en función de las reglas.
-- _*_Criptografía_*_: puede que una tarea de replicación tenga que descifrar el contenido que llega del origen o cifrar el contenido que se reenvía a un destino, o puede que tenga que comprobar la integridad del contenido y los metadatos, en relación con una firma que incluye en el mensaje, o bien adjuntar dicha firma. 
-- _*_Atestación_*_: una tarea de replicación puede adjuntar metadatos, potencialmente protegidos por una firma digital, a un mensaje que atestigua que el mensaje se ha recibido a través de un canal concreto o en un momento determinado.     
-- _ *_Encadenamiento_**: una tarea de replicación puede aplicar firmas a secuencias de mensajes, de modo que la integridad de la secuencia esté protegida y se puedan detectar los mensajes que faltan.
+- ***Transcodificación***: si el contenido del mensaje (también llamado "cuerpo" o "carga útil") llega codificado de origen con formato *Apache Avro*, o algún otro formato de serialización propietario, pero el sistema al que pertenece el destino espera que la codificación del contenido sea *JSON*, una tarea de replicación de transcodificación primero deserializará la carga útil de *Apache Avro* en un gráfico de objetos en memoria y, después, serializará ese gráfico con el formato *JSON* para el mensaje que se reenvíe. La transcodificación también incluye las tareas de descompresión y **compresión del contenido**.
+- ***Transformación***: es posible que los mensajes con datos estructurados necesiten remodelar esos datos para facilitar el consumo por parte de los consumidores finales. lo que puede obligar a realizar trabajos como el acoplamiento de estructuras anidadas, la eliminación de elementos de datos extraños o la remodelación de la carga para ajustarse exactamente a un esquema determinado.
+- ***Procesamiento por lotes***: los mensajes se pueden recibir en lotes (varios mensajes en una única transferencia) desde un origen, pero se deben reenviar uno a uno a su destino, o viceversa. Por tanto, un tarea puede reenviar varios mensajes según una única transferencia de mensajes de entrada, o bien agregar un conjunto de mensajes que, posteriormente, se transfieren juntos. 
+- ***Validación***: a menudo, hay que comprobar si los datos de los mensajes de orígenes externos cumplen un conjunto de reglas antes de reenviarlos. Las reglas se pueden expresar mediante esquemas o un código. Los mensajes que se detecte que no las cumplen se pueden eliminar, e indicar el problema en los registros, o se pueden reenviar a un destino especial para tratarlos más.   
+- ***Enrique cimiento***: es posible que los datos de mensajes que provienen de algunos orígenes deban enriquecerse con mayor contexto, con el fin de que se puedan usar en los sistemas de destino, lo que puede implicar la búsqueda de datos de referencia y la inserción de datos con el mensaje, o la incorporación de información sobre el origen que se conoce en la tarea de replicación, pero que no se incluye en los mensajes. 
+- ***Filtro***: es posible que algunos mensajes que lleguen de un origen tengan que retenerse en el destino debido a alguna regla. Un filtro prueba el mensaje con una regla y lo elimina si no la cumple. El filtrado de mensajes duplicados mediante la observación de determinados criterios y la eliminación de los mensajes posteriores con los mismos valores es una forma de filtrado.
+- ***Enrutamiento y creación de particiones***: es posible que algunas tareas de replicación permitan dos o más destinos alternativos y definan las reglas para las que se elige el destino de replicación en cualquier mensaje determinado en función de los metadatos o del contenido del mensaje. Una forma especial de enrutamiento es la creación de particiones, donde la tarea asigna explícitamente las particiones a un destino de replicación en función de las reglas.
+- ***Criptografía***: puede que una tarea de replicación tenga que descifrar el contenido que llega del origen o cifrar el contenido que se reenvía a un destino, o puede que tenga que comprobar la integridad del contenido y los metadatos, en relación con una firma que incluye en el mensaje, o bien adjuntar dicha firma. 
+- ***Atestación***: una tarea de replicación puede adjuntar metadatos, potencialmente protegidos por una firma digital, a un mensaje que atestigua que el mensaje se ha recibido a través de un canal concreto o en un momento determinado.     
+- ***Encadenamiento***: una tarea de replicación puede aplicar firmas a secuencias de mensajes, de tal manera que la integridad de la secuencia esté protegida y se puedan detectar mensajes que falten.
 
 Todos esos patrones se pueden implementar mediante Azure Functions, y usar el [desencadenador de los centros de mensajes](../azure-functions/functions-bindings-service-bus-trigger.md) para adquirir mensajes y el [enlace de salida de la cola o del tema](../azure-functions/functions-bindings-service-bus-output.md) para entregarlos. 
 

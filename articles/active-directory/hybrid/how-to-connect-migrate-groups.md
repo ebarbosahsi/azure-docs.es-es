@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migración de grupos de un bosque a otro'
+title: 'Azure AD Connect: Migración de grupos de un bosque a otro'
 description: En este artículo se describen los pasos necesarios para migrar correctamente grupos de un bosque a otro en Azure AD Connect.
 services: active-directory
 author: billmath
@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85358589"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Migración de grupos de un bosque a otro en Azure AD Connect

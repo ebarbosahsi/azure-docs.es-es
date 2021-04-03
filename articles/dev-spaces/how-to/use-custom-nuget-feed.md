@@ -9,10 +9,10 @@ description: Use una fuente NuGet personalizada para acceder a paquetes NuGet y 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 manager: gwallace
 ms.openlocfilehash: d60d7142d9b9979be76eebb3d324a448bd76638f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91960225"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Uso de una fuente NuGet personalizada con Azure Dev Spaces
