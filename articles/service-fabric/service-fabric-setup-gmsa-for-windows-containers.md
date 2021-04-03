@@ -4,10 +4,10 @@ description: Aprenda ahora a configurar cuentas de servicio administradas de gru
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: d34b4c6e11628b6a4843f8a9077ebf69c9e023fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86260878"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configuración de gMSA para contenedores de Windows que se ejecutan en Service Fabric

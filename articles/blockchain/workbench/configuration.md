@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87073082"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
@@ -418,7 +418,7 @@ Los identificadores representan una colección de información que se usa para d
 
 ## <a name="configuration-file-example"></a>Ejemplo de archivo de configuración
 
-La transferencia de recursos es un escenario de contrato inteligente pensado para la compra y venta de recursos de alto valor, que requieren un inspector y un evaluador. Los vendedores pueden enumerar los recursos mediante la creación de una instancia de un contrato inteligente de transferencia de recursos. Los compradores pueden realizar ofertas mediante la ejecución de una acción en el contrato inteligente y las demás partes pueden realizar acciones para inspeccionar o evaluar el recurso. Una vez que se marca el recurso como inspeccionado y evaluado, el comprador y el vendedor confirmarán la venta de nuevo antes de establecer el contrato como completo. En cada punto del proceso, todos los participantes pueden ver el estado del contrato a medida que se actualiza. 
+La transferencia de recursos es un escenario de contrato inteligente pensado para la compra y venta de recursos de alto valor, que requieren un inspector y un evaluador. Los vendedores pueden enumerar los recursos mediante la creación de una instancia de un contrato inteligente de transferencia de recursos. Los compradores pueden realizar ofertas mediante la ejecución de una acción en el contrato inteligente y las demás partes pueden realizar acciones para inspeccionar o evaluar el recurso. Una vez que se marca el recurso como inspeccionado y evaluado, el comprador y el vendedor confirmarán la venta de nuevo antes de establecer el contrato como completo. En cada punto del proceso, todos los participantes pueden ver el estado del contrato a medida que se actualiza. 
 
 Para más información, incluidos los archivos de código, consulte el [ejemplo de transferencia de recursos de Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

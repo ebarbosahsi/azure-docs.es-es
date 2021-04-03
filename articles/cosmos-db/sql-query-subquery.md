@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340862"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Ejemplos de subconsultas SQL para Azure Cosmos DB
@@ -25,16 +25,16 @@ En este artículo se describen las subconsultas SQL y sus casos de uso comunes e
 
 Existen dos tipos principales de subconsultas:
 
-* **Correlacionadas** : Una subconsulta que hace referencia a valores de la consulta externa. La subconsulta se evalúa una vez para cada fila que procesa la consulta externa.
-* **No correlacionadas** : Una subconsulta que es independiente de la consulta externa. Se puede ejecutar por sí misma sin depender de la consulta externa.
+* **Correlacionado**: una subconsulta que hace referencia a valores de la consulta externa. La subconsulta se evalúa una vez para cada fila que procesa la consulta externa.
+* **Sin correlacionar**: una subconsulta que es independiente de la consulta externa. Se puede ejecutar por sí misma sin depender de la consulta externa.
 
 > [!NOTE]
 > Azure Cosmos DB admite solo subconsultas correlacionadas.
 
 Las subconsultas se pueden clasificar aún más en función del número de filas y columnas que devuelven. Existen tres tipos:
-* **Tabla** : devuelve varias filas y varias columnas.
-* **Multivalor** : devuelve varias filas y una sola columna.
-* **Escalar** : devuelve una sola fila y una sola columna.
+* **Tabla**: devuelve varias filas y varias columnas.
+* **Valores múltiples**: devuelve varias filas y una sola columna.
+* **Escalar**: devuelve una sola fila y una sola columna.
 
 Las consultas SQL en Azure Cosmos DB siempre devuelven una sola columna (ya sea un valor simple o un documento complejo). Por lo tanto, solo las subconsultas escalares y multivalor se aplican en Azure Cosmos DB. Puede usar una subconsulta multivalor solo en la cláusula FROM como expresión relacional. Puede usar una subconsulta escalar como expresión escalar en la cláusula SELECT o WHERE, o como expresión relacional en la cláusula FROM.
 
@@ -49,7 +49,7 @@ Las subconsultas multivalor devuelven un conjunto de documentos y siempre se usa
 
 Las subconsultas multivalor pueden optimizar las expresiones JOIN mediante la inserción de predicados después de cada expresión select-many, en lugar de hacerlo después de todas las combinaciones cruzadas en la cláusula WHERE.
 
-Considere la siguiente consulta:
+Considere la consulta siguiente:
 
 ```sql
 SELECT Count(1) AS Count
@@ -131,7 +131,7 @@ Por ejemplo, considere este conjunto de datos de referencia:
 | ng       | Nanogramo            | 1,00E-09       | Gramo          |
 | µg       | Microgramo           | 1,00E-06       | Gramo          |
 | mg       | Miligramo           | 1,00E-03       | Gramo          |
-| g        | Gramo                | 1,00E+00       | Gramo          |
+| e        | Gramo                | 1,00E+00       | Gramo          |
 | kg       | Kilogramo            | 1,00E+03       | Gramo          |
 | Mg       | Megagramo            | 1,00E+06       | Gramo          |
 | Gg       | Gigagramo            | 1,00E+09       | Gramo          |
@@ -370,7 +370,7 @@ SELECT EXISTS (SELECT undefined)
 
 La subconsulta enmarcará la lista de valores en la lista seleccionada en un objeto. Si la lista seleccionada no tiene valores, la subconsulta devolverá el valor único "{}". Este valor está definido, por lo que EXISTS se evalúa como true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Ejemplo: Reescribir ARRAY_CONTAINS y JOIN como EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Ejemplo: reescritura de ARRAY_CONTAINS y JOIN como EXISTS.
 
 Un caso de uso común de ARRAY_CONTAINS es para filtrar un documento por la existencia de un elemento en una matriz. En este caso, vamos a ver si la matriz tags contiene un elemento denominado "orange".
 

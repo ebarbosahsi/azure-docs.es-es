@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649269"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
@@ -34,8 +34,9 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 
 > [!IMPORTANT]
 > 1. Tenga en cuenta que la directiva de IPsec/IKE solo funciona en las SKU de puerta de enlace siguiente:
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (basado en ruta) _ ***Standard** _ y _*_HighPerformance_*_ (basado en ruta)
-> 2. Solo se puede especificar _*_una_*_ combinación de directivas para una conexión dada.
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (basadas en enrutamiento)
+>    * ***Standard** _ y _ *_HighPerformance_** (basadas en rutas)
+> 2. Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
 > 3. Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 > 4. Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
 
@@ -55,7 +56,7 @@ Las instrucciones incluidas en este artículo le ayudan a instalar y configurar 
 
 En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles de las claves admitidos que pueden configurar los clientes:
 
-| _ *IPsec/IKEv2**  | **Opciones**    |
+| **IPsec o IKEv2**  | **Opciones**    |
 | ---  | --- 
 | Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5  |

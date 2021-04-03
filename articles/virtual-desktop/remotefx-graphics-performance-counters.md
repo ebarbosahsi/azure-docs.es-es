@@ -7,10 +7,10 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007173"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnóstico de problemas de rendimiento de gráficos en Escritorio remoto
@@ -23,8 +23,8 @@ Necesitará el nombre de la sesión remota para identificar los contadores de re
 
 1. Abra el símbolo del sistema de Windows desde la sesión remota.
 2. Ejecute el comando **qwinsta** y busque el nombre de la sesión.
-    - Si la sesión se hospeda en una máquina virtual de sesión múltiple: La instancia de cada contador tiene como sufijo el mismo número que el sufijo de su nombre de sesión, como "rdp-tcp 37".
-    - Si la sesión se hospeda en una máquina virtual compatible con unidades de procesamiento gráfico virtuales (vGPU): La instancia de cada contador se almacena en el servidor en lugar de en la máquina virtual. Las instancias de contador incluyen el nombre de la máquina virtual en lugar del número que hay en el nombre de la sesión, como "Win8 Enterprise VM".
+    - Si la sesión está hospedada en una máquina virtual (VM) de varias sesiones: la instancia de cada contador tiene como sufijo el mismo número de sufijos que el nombre de la sesión, como "rdp-tcp 37".
+    - Si la sesión está hospedada en una VM que admite unidades de procesamiento de gráficos virtuales (vGPU): la instancia de cada contador se almacena en el servidor en lugar de en la VM. Las instancias de contador incluyen el nombre de la máquina virtual en lugar del número que hay en el nombre de la sesión, como "Win8 Enterprise VM".
 
 >[!NOTE]
 > Aunque los contadores tienen RemoteFX en el nombre, también incluyen gráficos de escritorio remoto en escenarios de vGPU.
@@ -34,7 +34,7 @@ Necesitará el nombre de la sesión remota para identificar los contadores de re
 Una vez determinado el nombre de la sesión remota, siga estas instrucciones para recopilar los contadores de rendimiento de los gráficos de RemoteFX para su sesión remota.
 
 1. Seleccione **Inicio** > **Herramientas administrativas** > **Monitor de rendimiento**.
-2. En el cuadro de diálogo **Monitor de rendimiento**, expanda **Herramientas de supervisión**, seleccione **Monitor de rendimiento**y, a continuación, seleccione **Agregar**.
+2. En el cuadro de diálogo **Monitor de rendimiento**, expanda **Herramientas de supervisión**, seleccione **Monitor de rendimiento** y, a continuación, seleccione **Agregar**.
 3. En el cuadro de diálogo **Agregar contadores** de la lista **Contadores disponibles**, expanda la sección Gráficos RemoteFX.
 4. Seleccione los contadores que desea supervisar.
 5. En la lista **Instancias del objeto seleccionado**, seleccione las instancias específicas que quiere supervisar para los contadores seleccionados y, a continuación, seleccione **Agregar**. Para seleccionar todas las instancias de contadores disponibles, seleccione **Todas las instancias**.
