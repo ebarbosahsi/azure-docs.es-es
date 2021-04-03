@@ -4,10 +4,10 @@ description: Aprenda a integrar entornos de Azure DevTest Labs en las canalizaci
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483030"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integración de entornos en las canalizaciones CI/CD de Azure DevOps
@@ -25,14 +25,14 @@ Antes de integrar la canalización de CI/CD con Azure DevTest Labs, instale la e
 En esta sección se describe cómo crear y configurar un laboratorio donde se va a implementar el entorno de Azure.
 
 1. [Cree un laboratorio](devtest-lab-create-lab.md) si aún no tiene uno. 
-2. Configure el laboratorio y cree una plantilla de entorno mediante las instrucciones de este artículo: [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
+2. Configure el laboratorio y cree una plantilla de entorno siguiendo las instrucciones de este artículo: [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 3. En este ejemplo, use una plantilla de inicio rápido de Azure existente [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
 4. Copie la carpeta **201-web-app-redis-cache-sql-database** en la carpeta **ArmTemplate** en el repositorio configurado en el paso 2.
 
 ## <a name="create-a-release-definition"></a>Creación de una definición de versión
 Para crear la definición de la versión, siga estos pasos:
 
-1.  En la pestaña **Versiones** del concentrador **Compilación y versión**, seleccione el botón con el **signo de la suma (+)** .
+1.  En la pestaña **Versiones** del concentrador **Compilación y versión**, seleccione el botón con el **signo de la suma (+)**.
 2.  En la ventana **Crear definición de versión**, seleccione la plantilla **Vacía** y, luego, seleccione **Siguiente**.
 3.  Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una nueva definición de versión con un entorno predeterminado y ningún artefacto vinculado.
 4.  Para abrir el menú contextual, en la nueva definición de versión, seleccione los **puntos suspensivos (...)** junto al nombre del entorno y, luego, seleccione **Configurar variables**.

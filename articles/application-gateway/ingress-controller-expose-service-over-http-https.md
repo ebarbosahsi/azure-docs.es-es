@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85850353"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponer un servicio de AKS a través de HTTP o HTTPS mediante Application Gateway 
 
 Estos tutoriales ayudan a ilustrar el uso de [los recursos de entrada de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) para exponer un servicio de Kubernetes de ejemplo mediante [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) a través de HTTP o HTTPS.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Haber instalado el gráfico de Helm `ingress-azure`.
-  - [**Implementación Greenfield**](ingress-controller-install-new.md): Si empieza desde cero, consulte estas instrucciones de instalación, en las que se describen los pasos para implementar un clúster de AKS con Application Gateway e instalar el controlador de entrada de Application Gateway en el clúster de AKS.
-  - [**Implementación Brownfield**](ingress-controller-install-existing.md): Si ya tiene un clúster de AKS y una instancia de Application Gateway, consulte estas instrucciones para instalar el controlador de entrada de Application Gateway en el clúster de AKS.
+  - [**Implementación Greenfield**](ingress-controller-install-new.md): si empieza desde cero, consulte estas instrucciones de instalación, en las que se describen los pasos para implementar un clúster de AKS con Application Gateway e instalar el controlador de entrada de Application Gateway en el clúster de AKS.
+  - [**Implementación Brownfield**](ingress-controller-install-existing.md): si ya tiene un clúster de AKS y una instancia de Application Gateway, consulte estas instrucciones para instalar el controlador de entrada de Application Gateway en el clúster de AKS.
 - Si desea usar HTTPS en esta aplicación, necesitará un certificado X509 y su clave privada.
 
 ## <a name="deploy-guestbook-application"></a>Implementación de la aplicación `guestbook`

@@ -4,16 +4,16 @@ description: Los laboratorios de DevTest Labs proporcionan información que pued
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480820"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnóstico de errores de artefactos en el laboratorio 
 Después de crear un artefacto, también puede comprobar si se realizó correctamente o no. Los registros de artefactos de Azure DevTest Labs proporcionan información que puede utilizar para diagnosticar un error de artefacto. Tiene dos opciones para ver la información de registro del artefacto de una máquina virtual de Windows:
 
-* En el Portal de Azure
+* En Azure Portal
 * En la máquina virtual
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Después de crear un artefacto, también puede comprobar si se realizó correcta
 
 3. Abra el archivo **status**.
 
-Para obtener instrucciones sobre cómo buscar los archivos de registro en una máquina virtual **Linux**, consulte el artículo siguiente: [Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+Para obtener instrucciones sobre cómo buscar los archivos de registro en una máquina virtual **Linux**, consulte el artículo [Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting).
 
 
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86257094"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -17,7 +17,7 @@ Consulte y administre las particiones para cualquier servicio.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|Descripción|
 | --- | --- |
 | data-loss | Esta API inducirá la pérdida de datos para la partición especificada. |
 | data-loss-status | Obtiene el progreso de una operación de pérdida de datos de partición que se ha iniciado mediante la API StartDataLoss. |

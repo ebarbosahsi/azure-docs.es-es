@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 193d779a2e9246fe36af4828251a15d593e80ac7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514782"
 ---
-# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integración de Soloinsight-CloudGate SSO con Azure Active Directory
+# <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integración de Soloinsight-CloudGate SSO con Azure Active Directory
 
 En este tutorial, aprenderá a integrar Soloinsight-CloudGate SSO con Azure Active Directory (Azure AD). Al integrar Soloinsight-CloudGate SSO con Azure AD, puede:
 
@@ -37,52 +37,52 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Soloinsight-CloudGate SSO permite utilizar el inicio de sesión único iniciado por **SP** .
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Soloinsight-CloudGate SSO permite utilizar el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-soloinsight-cloudgate-sso-from-the-gallery"></a>Incorporación de Soloinsight CloudGate SSO desde la galería
 
 Para configurar la integración de Soloinsight-CloudGate SSO en Azure AD, tiene que agregar Soloinsight-CloudGate SSO desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En el cuadro de búsqueda de la sección **Agregar desde la galería** , escriba **Soloinsight-CloudGate SSO** .
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En el cuadro de búsqueda de la sección **Agregar desde la galería**, escriba **Soloinsight-CloudGate SSO**.
 1. Seleccione **Soloinsight-CloudGate SSO** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-Configure y pruebe el inicio de sesión único de Azure AD con Soloinsight-CloudGate SSO utilizando un usuario de prueba llamado **Britta Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Soloinsight-CloudGate SSO.
+Configure y pruebe el inicio de sesión único de Azure AD con Soloinsight-CloudGate SSO utilizando un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Soloinsight-CloudGate SSO.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Soloinsight-CloudGate SSO, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración de Soloinsight-CloudGate SSO](#configure-soloinsight-cloudgate-sso)** , para configurar el inicio de sesión único en la aplicación.
+2. **[Configuración de Soloinsight-CloudGate SSO](#configure-soloinsight-cloudgate-sso)**, para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Soloinsight-CloudGate SSO](#create-soloinsight-cloudgate-sso-test-user)** , para tener un homólogo de Britta Simon en Soloinsight-CloudGate SSO que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba en Soloinsight-CloudGate SSO](#create-soloinsight-cloudgate-sso-test-user)**, para tener un homólogo de Britta Simon en Soloinsight-CloudGate SSO que esté vinculado a la representación del usuario en Azure AD.
 6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Soloinsight-CloudGate SSO** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , seleccione **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Soloinsight-CloudGate SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configuración básica de SAML** , especifique los valores de los siguientes campos:
+1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
-    1. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.sigateway.com/login`
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.sigateway.com/login`
 
     1. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.sigateway.com/process/sso`
 
    > [!NOTE]
    > Estos valores no son reales. Actualice estos valores con la dirección URL de inicio de sesión real y el identificador que se explica más adelante en la sección **Configuración del inicio de sesión único de Soloinsight CloudGate SSO** del tutorial.
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -92,7 +92,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 ### <a name="configure-soloinsight-cloudgate-sso"></a>Configuración de Soloinsight-CloudGate SSO
 
-1. Para automatizar la configuración de Soloinsight-CloudGate SSO, debe instalar la **extensión de inicio de sesión seguro de Mis aplicaciones** en el explorador. Para ello, haga clic en **Instalar la extensión** .
+1. Para automatizar la configuración de Soloinsight-CloudGate SSO, debe instalar la **extensión de inicio de sesión seguro de Mis aplicaciones** en el explorador. Para ello, haga clic en **Instalar la extensión**.
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
@@ -108,7 +108,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 5. **Dirección URL del consumidor de SAML**
 
-    * Copie los vínculos disponibles en los campos **Saml Consumer URL** (Dirección URL del consumidor de SAML) y **Redirect URL** (Dirección URL de redirección) y péguelos en la sección **Configuración básica de SAML** de Azure Portal, en los campos **Identificador (id. de entidad)** y **Dirección URL de respuesta** , respectivamente.
+    * Copie los vínculos disponibles en los campos **Saml Consumer URL** (Dirección URL del consumidor de SAML) y **Redirect URL** (Dirección URL de redirección) y péguelos en la sección **Configuración básica de SAML** de Azure Portal, en los campos **Identificador (id. de entidad)** y **Dirección URL de respuesta**, respectivamente.
 
         ![SAMLIdentifier](./media/soloinsight-cloudgate-sso-tutorial/saml-identifier.png)
 
@@ -146,31 +146,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `Britta Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `Britta Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que Britta Simon acceda a Soloinsight-CloudGate SSO utilizando el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Soloinsight CloudGate SSO** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Soloinsight CloudGate SSO**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En la lista de usuarios del cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En la lista de usuarios del cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-soloinsight-cloudgate-sso-test-user"></a>Creación de un usuario de prueba de Soloinsight CloudGate SSO
 

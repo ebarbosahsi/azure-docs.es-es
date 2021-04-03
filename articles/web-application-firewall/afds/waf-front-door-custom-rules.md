@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79475831"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Reglas personalizadas para el firewall de aplicaciones web con Azure Front Door
@@ -64,17 +64,17 @@ Puede controlar el acceso con una regla WAF personalizada que defina un número 
     - Llamadas y código insertado
     - Agrupación atómica y cuantificadores de posesivos
 
-  - **Negate [opcional]:** Puede establecer la condición *negate* para que sea true si el resultado de una condición debe negarse.
+  - **Negate [opcional]:** puede establecer la condición *negate* para que sea "true" si el resultado de una condición debe negarse.
       
-  - **Transform [opcional]:** Una lista de cadenas con los nombres de las transformaciones que se van a realizar antes de la coincidencia. Pueden ser las siguientes:
-     - Uppercase 
+  - **Transform [optional]:** una lista de cadenas con los nombres de las transformaciones que se van a realizar antes de la coincidencia. Pueden ser las siguientes:
+     - Mayúsculas 
      - Minúsculas
      - Trim
      - RemoveNulls
      - UrlDecode
      - UrlEncode
      
-   - **Valor de coincidencia:** Los valores del método de solicitud HTTP admitidos incluyen:
+   - **Valor coincidente:** los valores del método de solicitud HTTP admitidos incluyen:
      - GET
      - POST
      - PUT

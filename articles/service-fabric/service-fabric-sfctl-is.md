@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 349f70c32ea4ebb4559f053d5ef05b4b37b6480f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86260379"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -17,7 +17,7 @@ Consulte y envíe comandos al servicio de infraestructura.
 
 ## <a name="commands"></a>Comandos:
 
-|Comando|Descripción|
+|Get-Help|Descripción|
 | --- | --- |
 | command | Invoca un comando administrativo en la instancia del servicio de infraestructura determinada. |
 | Query | Invoca una consulta de solo lectura en la instancia del servicio de infraestructura determinada. |
