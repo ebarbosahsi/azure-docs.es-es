@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo usar los servicios de plataforma c
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85478746"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Uso de servicios de plataforma como servicio (PaaS) en Azure DevTest Labs
@@ -37,7 +37,7 @@ El propietario del laboratorio puede personalizar los entornos de laboratorio pa
 Hay cierta información de laboratorio personalizada que está fuera del grupo de recursos y es específica para los entornos a los que puede tener acceso la plantilla. Estas son algunas de ellas: 
 
 - Identificación de la red del laboratorio
-- Location
+- Ubicación
 - Cuenta de Storage donde se almacenan los archivos de plantilla de Resource Manager. 
  
 #### <a name="lab-virtual-network"></a>Red virtual del laboratorio
@@ -62,7 +62,7 @@ La característica de seguimiento de costos incluye recursos de Azure en los dis
 ### <a name="security"></a>Seguridad
 Una suscripción a Azure configurada correctamente con DevTest Labs puede [limitar el acceso a recursos de Azure solo a través del laboratorio](devtest-lab-add-devtest-user.md). Con los entornos, un propietario de laboratorio puede permitir que los usuarios tengan acceso a los recursos de PaaS con configuraciones aprobadas sin permitir el acceso a otros recursos de Azure. En el caso en que los usuarios del laboratorio personalizan entornos, el propietario del laboratorio puede permitir el acceso de colaborador. El acceso de colaborador permite que el usuario del laboratorio agregue o quite recursos de Azure solo dentro del grupo de recursos administrados. Permite un seguimiento y una administración más fáciles en relación con el permiso de acceso de colaborador usuario a la suscripción.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatización
 Automation es un componente clave para una gran escala y un ecosistema eficaz. Automation es necesaria para controlar la administración o el seguimiento de varios entornos a través de suscripciones y laboratorios.
 
 ### <a name="cicd-pipeline"></a>Canalización de CI/CD

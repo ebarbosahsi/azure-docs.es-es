@@ -4,10 +4,10 @@ description: En este artículo se proporcionan instrucciones acerca de cómo obt
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537197"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtención de una cadena de conexión de Event Hubs
@@ -37,7 +37,7 @@ En este artículo se explican distintas formas de obtener la cadena de conexión
 6. En la página **Espacio de nombres de Event Hubs**, seleccione **Directivas de acceso compartido** en el menú de la izquierda.
 
     ![Elemento de menú Directivas de acceso compartido](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Seleccione una **directiva de acceso compartido** en la lista de directivas. El valor predeterminado se denomina: **RootManageSharedAccessPolicy**. Puede agregar una directiva con los permisos adecuados (lectura y escritura) y usar esa directiva. 
+7. Seleccione una **directiva de acceso compartido** en la lista de directivas. El valor predeterminado es: **RootManageSharedAccessPolicy**. Puede agregar una directiva con los permisos adecuados (lectura y escritura) y usar esa directiva. 
 
     ![Directivas de acceso compartido de Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Seleccione el botón **Copiar** junto al campo **Cadena de conexión: clave principal**. 
