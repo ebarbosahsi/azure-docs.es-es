@@ -14,22 +14,22 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996736"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Inicio rápido: Visualización de los grupos y miembros de la organización en Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guía de inicio rápido: Visualización de los grupos y miembros de la organización en Azure Active Directory
 Puede ver los grupos existentes en la organización y los miembros de los grupos mediante Azure Portal. Los grupos se usan para administrar usuarios (miembros) que necesitan el mismo acceso y permisos para servicios y aplicaciones potencialmente restringidos.
 
 En esta guía de inicio rápido podrá ver todos los grupos existentes en la organización y ver los miembros asignados.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, deberá:
 
 - Crear un inquilino de Azure Active Directory. Para más información, consulte [Acceso al portal de Azure Active Directory y creación de un nuevo inquilino](active-directory-access-create-new-tenant.md).
@@ -44,9 +44,9 @@ Cree un nuevo grupo llamado _MDM policy - West_. Para más información acerca d
 
 2. Rellene la página **Grupo**:
     
-    - **Tipo de grupo:** seleccione **Seguridad**.
+    - **Tipo de grupo:** seleccione **Seguridad**
     
-    - **Nombre del grupo:** escriba _MDM policy - West (Directiva de MDM - Oeste)_
+    - **Nombre de grupo:** escriba _MDM policy - West_
     
     - **Tipo de pertenencia:** seleccione **Asignado**.
 
@@ -61,7 +61,7 @@ Cree un nuevo usuario llamado _Alain Charon_. El usuario debe existir antes de s
 
     - **Nombre:** escriba _Alain Charon_.
 
-    - **Nombre de usuario:** Escriba *alain\@contoso.com*.
+    - **Nombre de usuario:** escriba *alain\@contoso.com*.
 
 3. Copie la contraseña generada automáticamente proporcionada en el cuadro de texto **Contraseña** y, a continuación, seleccione **Crear**.
 
@@ -131,4 +131,4 @@ Este grupo se utiliza en varios de los procesos de procedimientos disponibles en
 Avance al siguiente artículo para obtener información sobre cómo asociar una suscripción al directorio de Azure AD.
 
 > [!div class="nextstepaction"]
-> [Asociación de una suscripción de Azure](active-directory-how-subscriptions-associated-directory.md)
+> [Asociación de una suscripción a Azure](active-directory-how-subscriptions-associated-directory.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: allensu
 ms.openlocfilehash: a5f3f8dbb83b23fc16fd1225e5a9cbeab16b9576
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "81260248"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Ubicaciones POP para Azure CDN por abreviatura
@@ -30,7 +30,7 @@ ms.locfileid: "81260248"
 
 En este artículo se enumeran las ubicaciones POP actuales, ordenadas por abreviatura POP, para **Azure CDN de Verizon**.
 
-Abreviatura | Location | Region
+Abreviatura | Ubicación | Region
 | --- | --- | --- |
 AGA | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 AGB | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
