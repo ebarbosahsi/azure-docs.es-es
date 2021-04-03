@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171625"
 ---
 # <a name="delivery-and-retry"></a>Entrega y nuevo intento
@@ -25,11 +25,11 @@ Event Grid ofrece entrega duradera. Intenta entregar cada mensaje al menos una v
 
 Event Grid espera 60 segundos para obtener una respuesta después de entregar un mensaje. Si el punto de conexión del suscriptor no confirma la respuesta, el mensaje se pondrá en una de nuestras colas de reserva en los sucesivos reintentos.
 
-Hay dos colas de reserva preconfiguradas que determinan la programación según la que se realizará un reintento. Son las siguientes:
+Hay dos colas de reserva preconfiguradas que determinan la programación según la que se realizará un reintento. Son los siguientes:
 
 | Programación | Descripción |
 | ---------| ------------ |
-| 1 minuto. | Los mensajes que terminan aquí se intentan cada minuto.
+| 1 minuto | Los mensajes que terminan aquí se intentan cada minuto.
 | 10 minutos | Los mensajes que terminan aquí se intentan cada 10 minutos.
 
 ### <a name="how-it-works"></a>Funcionamiento
@@ -41,7 +41,7 @@ Hay dos colas de reserva preconfiguradas que determinan la programación según 
 
 ## <a name="retry-policy-limits"></a>Límites de la directiva de reintentos
 
-Hay dos configuraciones que determinan la directiva de reintentos. Son las siguientes:
+Hay dos configuraciones que determinan la directiva de reintentos. Son los siguientes:
 
 * Número máximo de intentos
 * Período de vida del evento (TTL)
@@ -52,10 +52,10 @@ Si se alcanza alguno de los límites de la directiva de reintentos, se descartar
 
 Hay dos propiedades, `brokers__defaultMaxDeliveryAttempts` y `broker__defaultEventTimeToLiveInSeconds`, que se pueden configurar como parte de la implementación de Event Grid, que controlan los valores predeterminados de la directiva de reintentos de todos los suscriptores.
 
-| Nombre de propiedad | Descripción |
+| Nombre de la propiedad | Descripción |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Número máximo de intentos de entrega de un evento. Valor predeterminado: 30.
-| `broker__defaultEventTimeToLiveInSeconds` | TTL del evento en segundos transcurrido el cual se descartará un evento si no se entrega. Valor predeterminado: **7200** segundos
+| `broker__defaultEventTimeToLiveInSeconds` | TTL del evento en segundos transcurrido el cual se descartará un evento si no se entrega. Valor predeterminado: **7200** segundos.
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configuración de valores predeterminados por suscriptor
 

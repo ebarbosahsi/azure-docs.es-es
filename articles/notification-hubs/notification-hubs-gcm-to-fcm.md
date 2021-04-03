@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/10/2019
 ms.openlocfilehash: 2f2ca4b56445b3f399477e396de579d8a8c539e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80127020"
 ---
 # <a name="azure-notification-hubs-and-google-firebase-cloud-messaging-migration"></a>Azure Notification Hubs y migración de Google Firebase Cloud Messaging
@@ -43,7 +43,7 @@ Si su aplicación usa la biblioteca de GCM, continúe y siga las instrucciones d
 
 A continuación, se muestran algunas respuestas a preguntas habituales que hemos recibido de los clientes:
 
-**P:** ¿Qué tengo que hacer para tener compatibilidad antes de la fecha límite (la fecha límite actual de Google es el 29 de mayo y puede cambiar)?
+**P:** ¿Qué tengo que hacer para tener compatibilidad antes de la fecha límite? (la fecha límite actual de Google es el 29 de mayo y puede cambiar)
 
 **R:** Nada. Se mantendrá la compatibilidad con el esquema de notificaciones de GCM existente. La clave de GCM seguirá funcionando con normalidad, así como todos los SDK y las bibliotecas de GCM que se usan en la aplicación.
 
@@ -55,10 +55,10 @@ Si está creando un nuevo proyecto de FCM y no lo asocia al proyecto de GCM exis
 
 **R:** Nada. Hemos realizado la migración a los nuevos puntos de conexión, que terminará pronto, por lo que no es necesario ningún cambio. No ha sucedido nada. El punto de conexión omitido solo ha causado mensajes de advertencia de Google.
 
-**P:** ¿Cómo puedo realizar la transición a las bibliotecas y los SDK de FCM nuevos sin que ello afecte a los usuarios existentes?
+**P:** ¿Cómo puedo realizar la transición a las nuevas bibliotecas y SDK de FCM sin que los usuarios existentes se vean afectado?
 
-A. Realice la actualización en cualquier momento. Google no ha anunciado aún ninguna retirada de las bibliotecas y los SDK de GCM existentes. Para asegurarse de no interrumpir las notificaciones de inserción a los usuarios existentes, cuando cree el nuevo proyecto de Firebase asegúrese de asociarlo al proyecto de GCM existente. De este modo se asegurará de que los nuevos secretos de Firebase funcionan para los usuarios que ejecutan versiones anteriores de la aplicación con SDK y bibliotecas de GCM, así como para los nuevos usuarios de su aplicación con SDK y bibliotecas de FCM.
+R: Realice la actualización en cualquier momento. Google no ha anunciado aún ninguna retirada de las bibliotecas y los SDK de GCM existentes. Para asegurarse de no interrumpir las notificaciones de inserción a los usuarios existentes, cuando cree el nuevo proyecto de Firebase asegúrese de asociarlo al proyecto de GCM existente. De este modo se asegurará de que los nuevos secretos de Firebase funcionan para los usuarios que ejecutan versiones anteriores de la aplicación con SDK y bibliotecas de GCM, así como para los nuevos usuarios de su aplicación con SDK y bibliotecas de FCM.
 
-**P:** ¿Cuándo puedo utilizar las características y los esquemas de FCM nuevos para mis notificaciones?
+**P:** ¿Cuándo puedo utilizar las nuevas características y esquemas de FCM para mis notificaciones?
 
-**R:** Cuando publiquemos una actualización para nuestros SDK y nuevas API, esté atento: tendremos algo para usted en los próximos meses.
+**R:** Cuando publiquemos una actualización de nuestros SDK y API, esté atento, esperamos tener noticias para usted en los próximos meses.

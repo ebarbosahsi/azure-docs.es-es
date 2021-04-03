@@ -5,17 +5,17 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87500579"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
 Este es el último tutorial de una serie de tres partes. En las series anteriores, [se creó una imagen de contenedor](container-instances-tutorial-prepare-app.md) y [se insertó en una instancia de Azure Container Registry](container-instances-tutorial-prepare-acr.md). En este artículo se completa la serie con la implementación del contenedor en Azure Container Instances.
 
-En este tutorial, hizo lo siguiente:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Implementar el contenedor de Azure Container Registry a Azure Container Instances
@@ -44,7 +44,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Implementación de un contenedor
 
-Ahora, utilice el comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` por el valor obtenido con el comando anterior. Reemplace `<service-principal-ID>` y `<service-principal-password>` por el identificador de la entidad de servicio y la contraseña que creó para acceder al registro. Reemplace `<aciDnsLabel>` por el nombre de DNS que desee.
+Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` por el valor obtenido con el comando anterior. Reemplace `<service-principal-ID>` y `<service-principal-password>` por el identificador de la entidad de servicio y la contraseña que creó para acceder al registro. Reemplace `<aciDnsLabel>` por el nombre de DNS que desee.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80

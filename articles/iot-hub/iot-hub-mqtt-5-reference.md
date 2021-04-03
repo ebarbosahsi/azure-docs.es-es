@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96603088"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>Referencia de la API de MQTT 5 del plano de datos de IoT Hub
@@ -74,7 +74,7 @@ Estado notificado de Patch Twin
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | if-version | u64 | no |  |
 
@@ -84,7 +84,7 @@ Estado notificado de Patch Twin
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | version | u64 | sí | Versión de estado notificado después de aplicar la revisión. |
 
@@ -128,7 +128,7 @@ Recepción y control de comandos
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | sequence-no | u64 | sí | Número de secuencia del mensaje. |
 | enqueued-time | time | sí | Marca de tiempo de la entrada del mensaje en el sistema. |
@@ -190,7 +190,7 @@ Recepción y control de llamadas a métodos directos
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | response-code | u32 | sí |  |
 
@@ -229,7 +229,7 @@ Recibir actualizaciones del estado deseado del gemelo
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | version | u64 | sí | Versión del estado deseado coincidente con esta actualización. |
 
@@ -260,7 +260,7 @@ Publicación del mensaje en el canal de telemetría: EventHubs de forma predeter
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | Tipo de contenido | string | no | Se convierte en la propiedad del sistema `content-type` en el mensaje publicado. |
 | content-encoding | string | no | Se convierte en la propiedad del sistema `content-encoding` en el mensaje publicado. |
@@ -321,7 +321,7 @@ El mensaje de la operación tiene un formato incorrecto y no se puede procesar.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
 
@@ -337,7 +337,7 @@ La operación está en conflicto con otra operación en curso.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
@@ -354,7 +354,7 @@ No se permite la operación.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
 
@@ -370,7 +370,7 @@ El cliente no tiene autorización para realizar la operación.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 
@@ -386,7 +386,7 @@ El recurso de la solicitud no existe.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
 
@@ -438,7 +438,7 @@ El recurso no tiene capacidad para completar la operación.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
 
@@ -454,7 +454,7 @@ Servidor ocupado.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 
@@ -470,7 +470,7 @@ Error interno del servidor.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 
@@ -486,7 +486,7 @@ El destino respondió pero la respuesta no era válida o tenía un formato incor
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
 
@@ -502,7 +502,7 @@ Se agotó el tiempo de espera para que el destino completara la solicitud.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 | reason | string | no | Contiene información sobre los elementos específicamente no válidos en relación con el mensaje. |
@@ -543,7 +543,7 @@ Se agotó el tiempo de espera de la operación antes de que pudiera completarse.
 
 **Propiedades**:
 
-| Nombre | Tipo | Requerido | Descripción |
+| Nombre | Tipo | Obligatorio | Descripción |
 | :--- | :--- | :------- | :---------- |
 | trace-id | string | no | Identificador de seguimiento de correlación con diagnósticos adicionales del error. |
 

@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75932612"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Configuración de directivas para el firewall de aplicaciones web con Azure Front Door
@@ -21,7 +21,7 @@ Una directiva de firewall de aplicaciones web (WAF) permite controlar el acceso 
 ## <a name="waf-state"></a>Estado de WAF
 
 Una directiva WAF para Front Door puede tener uno de los dos estados siguientes:
-- **Habilitada:** Cuando se habilita una directiva, WAF inspecciona activamente las solicitudes entrantes y realiza las acciones correspondientes según las definiciones de la regla.
+- **Habilitado:** Cuando se habilita una directiva, WAF inspecciona activamente las solicitudes entrantes y realiza las acciones correspondientes según las definiciones de la regla
 - **Deshabilitada:** : cuando una directiva está deshabilitada, la inspección de WAF está en pausa. Las solicitudes entrantes omiten WAF y se envían a los servidores back-end en función del enrutamiento de Front Door.
 
 ## <a name="waf-mode"></a>Modo WAF

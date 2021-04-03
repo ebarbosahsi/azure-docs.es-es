@@ -4,10 +4,10 @@ description: En este artículo se proporciona un tutorial que muestra cómo carg
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b393b886a50f60a918690ee2a5583f9623dbe39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88650764"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Carga de archivos VHD en la cuenta de almacenamiento del laboratorio mediante PowerShell
