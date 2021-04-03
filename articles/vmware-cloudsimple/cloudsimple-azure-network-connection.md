@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77025085"
 ---
 # <a name="azure-network-connections-overview"></a>Introducción a las conexiones de red de Azure
@@ -63,5 +63,5 @@ La conexión a la red CloudSimple desde la red local y desde la red virtual de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Conexión de red virtual de Azure a CloudSimple mediante ExpressRoute](virtual-network-connection.md)
+* [Conexión de la red virtual de Azure a CloudSimple mediante ExpressRoute](virtual-network-connection.md)
 * [Conexión desde una red local a CloudSimple mediante ExpressRoute](on-premises-connection.md)

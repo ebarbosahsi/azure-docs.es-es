@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo usar Azure DevTest Labs en canaliz
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080341"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
@@ -26,7 +26,7 @@ Una vez que la compilación se haya completado correctamente, la **canalización
 
 Una de las premisas necesarias es que toda la información necesaria para volver a crear el ecosistema probado esté disponible dentro de los artefactos de compilación, incluida la configuración de los recursos de Azure. Debido a que el uso de estos supone un costo, las empresas quieren controlar o realizar un seguimiento del uso de estos recursos. En algunas situaciones, otro departamento, como el de TI, puede administrar las plantillas de Azure Resource Manager que se usan para crear y configurar los recursos. Además, estas plantillas pueden almacenarse en otro repositorio. Esto da lugar a una situación interesante, en la que se creará y probará una compilación, y tanto el código como la configuración se tendrán que almacenar en los artefactos de compilación para poder volver a crear correctamente el sistema en entornos de producción. 
 
-Mediante el uso de DevTest Labs durante la fase de compilación y prueba, puede agregar plantillas de Azure Resource Manager y archivos auxiliares a los orígenes de la compilación para que, durante la fase de publicación, la configuración exacta empleada para realizar la prueba se implemente en producción. La tarea **Creación de entorno de Azure DevTest Labs** con la configuración adecuada guardará las plantillas de Resource Manager en los artefactos de compilación. En este ejemplo, se usará el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) para implementar y probar la aplicación web en Azure.
+Mediante el uso de DevTest Labs durante la fase de compilación y prueba, puede agregar plantillas de Azure Resource Manager y archivos auxiliares a los orígenes de la compilación para que, durante la fase de publicación, la configuración exacta empleada para realizar la prueba se implemente en producción. La tarea **Creación de entorno de Azure DevTest Labs** con la configuración adecuada guardará las plantillas de Resource Manager en los artefactos de compilación. En este ejemplo, usará el código que obtendrá en [Tutorial: compilación de LA aplicación web de .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md), para implementar y probar la aplicación web en Azure.
 
 ![Flujo general](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Hay un par de elementos que se deben crear con antelación:
 La canalización de compilación creará un entorno de DevTest Labs e implementará el código para las pruebas.
 
 ## <a name="set-up-a-build-pipeline"></a>Configuración de una canalización de compilación
-En Azure Pipelines, cree una canalización de compilación con el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
+En Azure Pipelines, cree una canalización de compilación mediante el código que encontrará en [Tutorial: compilación de la aplicación web de .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
 
 ![Selección de la plantilla ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -72,12 +72,12 @@ La segunda tarea (**Relleno de entorno de Azure DevTest Labs**) consiste en actu
 ![Tarea Relleno de entorno de Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
 
 ## <a name="app-service-deploy-task"></a>Tarea Implementación de App Service
-La tercera tarea es **Implementación de Azure App Service**. El tipo de aplicación se establece en **Aplicación web** y el nombre de App Service se establece en **$(WebSite)** .
+La tercera tarea es **Implementación de Azure App Service**. El tipo de aplicación se establece en **Aplicación web** y el nombre de App Service se establece en **$(WebSite)**.
 
 ![Tarea Implementación de App Service](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>Configuración de una canalización de versión
-Puede crear una canalización de versión con dos tareas: **Implementación en Azure: creación o actualización del grupo de recursos** e **Implementación de Azure App Service**. 
+Puede crear una canalización de versión con dos tareas: **Implementación de Azure: crear o actualizar el grupo de recursos** e **Implementación de Azure App Service**. 
 
 En la primera tarea, especifique el nombre y la ubicación del grupo de recursos. La ubicación de la plantilla es un artefacto vinculado. Si la plantilla de Resource Manager incluye plantillas vinculadas, será necesario implementar una implementación de grupo de recursos personalizado. La plantilla está en el artefacto de colocación publicado. Invalide los parámetros de la plantilla de Resource Manager. Puede dejar la configuración restante con los valores predeterminados. 
 

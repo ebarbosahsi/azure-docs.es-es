@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75445749"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor
@@ -21,7 +21,7 @@ Al insertar la implementación de las imágenes de contenedor en un registro de 
 
 ## <a name="stable-tags"></a>Etiquetas estables
 
-**Recomendación:** Utilice etiquetas estables para mantener **imágenes base** para las compilaciones del contenedor. Evite las implementaciones con etiquetas estables, ya que estas etiquetas siguen recibiendo actualizaciones y pueden introducir inconsistencias en los entornos de producción.
+**Recomendación**: utilice etiquetas estables para mantener **imágenes base** para las compilaciones del contenedor. Evite las implementaciones con etiquetas estables, ya que estas etiquetas siguen recibiendo actualizaciones y pueden introducir inconsistencias en los entornos de producción.
 
 *Las etiquetas estables* significan que un desarrollador, o un sistema de compilación, puede continuar con la extracción de una etiqueta específica, que continúa recibiendo actualizaciones. Estable no significa que el contenido esté inmovilizado. Por el contrario, estable implica que la imagen debe ser estable para la intención de esa versión. Para mantenerse "estable", se puede utilizar para aplicar las revisiones de seguridad o actualizaciones de la plataforma.
 
@@ -44,7 +44,7 @@ Si se actualiza una imagen con una etiqueta estable, se elimina la etiqueta de l
 
 ## <a name="unique-tags"></a>Etiquetas únicas
 
-**Recomendación:** Utilice etiquetas únicas para **implementaciones**, especialmente en un entorno que pueda escalar en varios nodos. Es probable que desee realizar implementaciones deliberadas de una versión coherente de los componentes. Si el contenedor se reinicia o un orquestador se escala horizontalmente con más instancias, los hosts no extraerán accidentalmente una versión más nueva, incoherente con los otros nodos.
+**Recomendación**: utilice etiquetas únicas para **implementaciones**, especialmente en un entorno que pueda escalar en varios nodos. Es probable que desee realizar implementaciones deliberadas de una versión coherente de los componentes. Si el contenedor se reinicia o un orquestador se escala horizontalmente con más instancias, los hosts no extraerán accidentalmente una versión más nueva, incoherente con los otros nodos.
 
 El etiquetado único simplemente significa que cada imagen que se inserta en un registro tiene una etiqueta única. No se reutilizan las etiquetas. Hay varios patrones que puede seguir para generar etiquetas únicas, como los siguientes:
 
@@ -63,7 +63,7 @@ El bloqueo de una imagen implementada le permite igualmente quitar otras imágen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener una explicación más detallada de los conceptos de este artículo, consulte la entrada de blog [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/) (Etiquetado de Docker: Procedimientos recomendados para el etiquetado y el control de versiones de las imágenes de Cocker).
+Para obtener una explicación más detallada de los conceptos de este artículo, consulte la entrada de blog sobre el [Etiquetado de Docker: procedimientos recomendados para el etiquetado y el control de versiones de las imágenes de Docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
 Para maximizar el rendimiento y rentabilizar el uso del registro de contenedor de Azure, consulte [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md).
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020191"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: Creación de una aptitud personalizada con Bing Entity Search API
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: creación de una aptitud personalizada mediante Bing Entity Search API
 
 En este ejemplo, obtiene información sobre cómo crear una aptitud personalizada de la API web. Esta aptitud aceptará ubicaciones, personajes públicos y organizaciones, y devolverá sus descripciones. En el ejemplo se usa una [función de Azure](https://azure.microsoft.com/services/functions/) para encapsular [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para que implemente la interfaz de la aptitud personalizada.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Si no está familiarizado con la interfaz de entrada o salida que debe implementar una aptitud personalizada, lea el artículo sobre la [interfaz de aptitud personalizada](cognitive-search-custom-skill-interface.md).
 
@@ -34,11 +34,11 @@ Aunque este ejemplo utiliza una función de Azure para hospedar una API web, est
 
 ### <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-1. En Visual Studio, seleccione **Nuevo** > **Proyecto** en el menú Archivo.
+1. En Visual Studio, seleccione **Nuevo** > **proyecto** en el menú Archivo.
 
-1. En el cuadro de diálogo Nuevo proyecto, seleccione **Instalado**, expanda **Visual C#**  > **Nube**, seleccione **Azure Functions**, escriba un nombre para el proyecto y haga clic en **Aceptar**. El nombre de la aplicación de funciones debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones ni otros caracteres no alfanuméricos.
+1. En el cuadro de diálogo Nuevo proyecto, seleccione **Instalado**, expanda **Visual C#** > **Nube**, seleccione **Azure Functions**, escriba un nombre para el proyecto y haga clic en **Aceptar**. El nombre de la aplicación de funciones debe ser válido como espacio de nombres de C#, por lo que no debe usar guiones bajos, guiones ni otros caracteres no alfanuméricos.
 
-1. Seleccione **Azure Functions v2 (.NET Core)** . También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
+1. Seleccione **Azure Functions v2 (.NET Core)**. También puede hacerlo con la versión 1, pero el código que se escribe a continuación utiliza la plantilla de la versión 2.
 
 1. Asegúrese de que el tipo es **Desencadenador HTTP**.
 
