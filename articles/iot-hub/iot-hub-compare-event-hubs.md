@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
 ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92142769"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Conexión de dispositivos IoT a Azure: IoT Hub y Event Hubs
@@ -40,10 +40,10 @@ En la tabla siguiente se proporcionan detalles de la comparación entre dos nive
 | Identidad por dispositivo | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Carga de archivos desde dispositivos | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Servicio de aprovisionamiento de dispositivos | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
-| Mensajería de la nube a un dispositivo | ![Comprobar][checkmark] |  |  |
-| Administración de dispositivos y dispositivos gemelos | ![Comprobar][checkmark] |  |  |
-| Flujos de dispositivos (versión preliminar) | ![Comprobar][checkmark] |  |  |
-| IoT Edge | ![Comprobar][checkmark] |  |  |
+| Mensajería de la nube a un dispositivo | ![de Azure Functions][checkmark] |  |  |
+| Administración de dispositivos y dispositivos gemelos | ![de Azure Functions][checkmark] |  |  |
+| Flujos de dispositivos (versión preliminar) | ![de Azure Functions][checkmark] |  |  |
+| IoT Edge | ![de Azure Functions][checkmark] |  |  |
 
 Aunque el único uso sea la ingesta de datos de dispositivo a nube, es muy recomendable utilizar IoT Hub porque ofrece un servicio que está diseñado para la conectividad de dispositivos IoT. 
 

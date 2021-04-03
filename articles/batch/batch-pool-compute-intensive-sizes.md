@@ -4,10 +4,10 @@ description: Aprovechamiento de los tamaños de máquina virtual HPC y GPU en gr
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86147341"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
@@ -88,7 +88,7 @@ Dispone de varias opciones para instalar el software o los controladores necesar
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automáticamente los controladores de GPU y RDMA para trabajar de forma transparente con cargas de trabajo en contenedores en Azure Batch. Batch Shipyard se controla por completo con archivos de configuración. Hay muchas configuraciones de recetas de ejemplo disponibles que habilitan las cargas de trabajo de GPU y RDMA, como la [receta CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI), que preconfigura los controladores de GPU en máquinas virtuales de la serie N y carga el software Microsoft Cognitive Toolkit como una imagen de Docker.
 
 
-## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Ejemplo: Controladores de GPU de NVIDIA en un grupo de máquinas virtuales NC Windows
+## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Ejemplo: controladores de GPU de NVIDIA en un grupo de VM de NC Windows.
 
 Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar los controladores de GPU de NVIDIA. Los siguientes pasos de ejemplo usan un paquete de aplicación para instalar los controladores de GPU de NVIDIA. Puede elegir esta opción si la carga de trabajo depende de una versión específica del controlador de GPU.
 
@@ -107,7 +107,7 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar l
 | **Referencias de paquetes de aplicación** | GPUDriver, versión 411.82 |
 | **Tarea de inicio habilitada** | True<br>**Línea de comandos** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidad del usuario**: Usuario automático de grupo, administrador<br/>**Esperar operación correcta**: True
 
-## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Ejemplo: Controladores de GPU de NVIDIA en un grupo de máquinas virtuales NC Linux
+## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Ejemplo: controladores de GPU de NVIDIA en un grupo de VM de NC Linux.
 
 Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los controladores de GPU de NVIDIA Tesla desde el Kit de herramientas de CUDA. Los siguientes pasos de ejemplo crean e implementan una imagen personalizada de Ubuntu 16.04 LTS con los controladores de GPU:
 
@@ -122,10 +122,10 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
 | **Imagen personalizada** | *Nombre de la imagen* |
-| **SKU de agente del nodo** | batch.node.ubuntu 16.04 |
+| **SKU del agente de nodo** | batch.node.ubuntu 16.04 |
 | **Tamaño del nodo** | Estándar NC6 |
 
-## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Ejemplo: Microsoft MPI en un grupo de máquinas virtuales H16r Windows
+## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Ejemplo: Microsoft MPI en un grupo de VM de H16r Windows.
 
 Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virtuales H16r de Azure, debe configurar la extensión HpcVmDrivers e instalar [Microsoft MPI](/message-passing-interface/microsoft-mpi). Estos son los pasos de ejemplo para implementar una imagen personalizada de Windows Server 2016 con los controladores y el software necesarios:
 
@@ -140,12 +140,12 @@ Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virt
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
 | **Imagen personalizada** | *Nombre de la imagen* |
-| **SKU de agente del nodo** | batch.node.windows amd64 |
+| **SKU del agente de nodo** | batch.node.windows amd64 |
 | **Tamaño del nodo** | H16r Estándar |
 | **Comunicación entre nodos habilitada** | True |
 | **Número máximo de tareas por nodo** | 1 |
 
-## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Ejemplo: Intel MPI en un grupo de máquinas virtuales H16r Linux
+## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Ejemplo: Intel MPI en un grupo de VM de H16r Linux.
 
 Para ejecutar aplicaciones MPI en un grupo de nodos Linux de la serie H, una opción consiste en usar la imagen [HPC basada en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) desde Azure Marketplace. Los controladores de RDMA de Linux e Intel MPI están preinstalados. Esta imagen también admite cargas de trabajo de contenedor de Docker.
 

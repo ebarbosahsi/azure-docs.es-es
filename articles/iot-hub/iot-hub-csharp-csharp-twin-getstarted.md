@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013765"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introducción a los dispositivos gemelos (.NET)
@@ -37,7 +37,7 @@ En este tutorial, creará estas aplicaciones de consola de .NET:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -234,7 +234,7 @@ En esta sección, creará una aplicación de consola de .NET que se conecta al c
 
 1. En **Propiedades comunes** > **Proyecto de inicio**, seleccione **Proyectos de inicio múltiples**. En **ReportConnectivity**, seleccione **Iniciar** como **Acción**. Seleccione **Aceptar** para guardar los cambios.  
 
-1. Ejecute esta aplicación haciendo clic con el botón derecho en el proyecto **ReportConnectivity** y seleccionando **Depurar**, seguido de **Iniciar nueva instancia**. Debería ver cómo obtiene la información del gemelo y, luego, envía la conectividad como una ***propiedad notificada***.
+1. Ejecute esta aplicación haciendo clic con el botón derecho en el proyecto **ReportConnectivity** y seleccionando **Depurar**, seguido de **Iniciar nueva instancia**. Debería ver cómo obtiene la información del gemelo y, luego, cómo envía la conectividad como una **_propiedad notificada_**.
 
     ![Ejecución la aplicación para dispositivo para notificar sobre la conectividad](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

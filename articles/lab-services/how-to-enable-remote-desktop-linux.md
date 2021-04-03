@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo habilitar Escritorio remoto para m
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94647960"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
