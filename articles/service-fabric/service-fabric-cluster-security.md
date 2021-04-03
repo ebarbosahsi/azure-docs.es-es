@@ -4,10 +4,10 @@ description: Información acerca de los escenarios de seguridad para un clúster
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.openlocfilehash: 6f7bb785184938fe5c1e20e3c915b0112c7723ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96573075"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric

@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95912491"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
@@ -21,7 +21,7 @@ Puede usar [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.h
 
 DistCp proporciona una variedad de parámetros de línea de comandos y se recomienda encarecidamente leer este artículo para optimizar el uso de la herramienta. En este artículo se explica la funcionalidad básica, al mismo tiempo que se centra en su uso para copiar datos a una cuenta con el espacio de nombres jerárquico habilitado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico.

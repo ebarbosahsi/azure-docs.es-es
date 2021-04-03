@@ -4,10 +4,10 @@ description: Aprenda a configurar el inicio automático para las máquinas virtu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91328489"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Inicio automático de máquinas virtuales del laboratorio  

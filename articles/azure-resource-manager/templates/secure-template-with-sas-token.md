@@ -4,10 +4,10 @@ description: Implemente recursos en Azure con una plantilla de Azure Resource Ma
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88855655"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
