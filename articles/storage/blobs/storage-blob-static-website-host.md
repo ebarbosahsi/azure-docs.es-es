@@ -9,10 +9,10 @@ ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888511"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
@@ -97,7 +97,7 @@ A continuación, cree una página web de Hola mundo con Visual Studio Code e imp
     </html>
     ```
 
-1. Haga clic con el botón derecho en la carpeta *mywebsite* en el panel **Explorador** y seleccione **Implementar en el sitio web estático...**  para implementar el sitio web. Se le pedirá que inicie sesión en Azure para recuperar una lista de suscripciones.
+1. Haga clic con el botón derecho en la carpeta *mywebsite* en el panel **Explorador** y seleccione **Implementar en el sitio web estático...** para implementar el sitio web. Se le pedirá que inicie sesión en Azure para recuperar una lista de suscripciones.
 
 1. Seleccione la suscripción que contiene la cuenta de almacenamiento para la que habilitó el hospedaje estático de sitios web. A continuación, seleccione la cuenta de almacenamiento cuando se le solicite.
 
