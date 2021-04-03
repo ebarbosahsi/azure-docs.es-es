@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 3c3f776ad0996fa0b7422f0fca2d899a35e853d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98016140"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementación de CI/CD para Stream Analytics en IoT Edge mediante API
@@ -54,7 +54,7 @@ echo $response
  
 Para crear un trabajo de Stream Analytics, llame al método PUT con la API Stream Analytics.
 
-|Método|URL de la solicitud|
+|Método|URL de solicitud|
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
@@ -141,7 +141,7 @@ Para más información, consulte la [documentación de la API](/rest/api/streama
  
 Para publicar un trabajo de Stream Analytics en IoT Edge, llame al método POST mediante la API Edge Package Publish.
 
-|Método|URL de la solicitud|
+|Método|URL de solicitud|
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
