@@ -4,10 +4,10 @@ description: Use Azure Resource Manager para trasladar recursos de App Service a
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90531379"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Orientaciones para el traslado de recursos de App Service

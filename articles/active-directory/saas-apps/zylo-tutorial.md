@@ -16,10 +16,10 @@ ms.date: 08/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c84c126e3b611b0bf37abec4f07ab7f3f187b1b9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92517402"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zylo"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zylo
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar Zylo con Azure Active Directory (Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

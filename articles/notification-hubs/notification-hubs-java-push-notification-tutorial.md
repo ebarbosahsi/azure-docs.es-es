@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87322948"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
@@ -42,11 +42,11 @@ El SDK admite actualmente:
 * Envíos regulares
 * Envíos programados
 * Operaciones asincrónicas mediante Java NIO
-* Plataformas compatibles: APNS (iOS), FCM (Android), WNS (Aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire) y Baidu (Android sin servicios de Google)
+* Plataformas admitidas: APNS (iOS), FCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google)
 
 ## <a name="sdk-usage"></a>Uso del SDK
 
-### <a name="compile-and-build"></a>Compilación y creación
+### <a name="compile-and-build"></a>Compilar y generar
 
 Uso de [Maven]
 

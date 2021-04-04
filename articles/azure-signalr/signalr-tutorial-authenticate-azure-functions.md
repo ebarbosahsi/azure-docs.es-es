@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92150912"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
@@ -327,7 +327,7 @@ Para una aplicación de función que se ejecute en Azure, se necesita una cuenta
 
 1. Escriba la siguiente información.
 
-    | Nombre | Value |
+    | Nombre | Valor |
     |---|---|
     | Subscription | Seleccione la suscripción que contenga la instancia de SignalR Service |
     | Resource group | Seleccione el mismo grupo de recursos |
@@ -461,7 +461,7 @@ La aplicación web se hospedará mediante la característica de sitios web está
 
 1. Escriba los siguientes valores:
 
-    | Nombre | Value |
+    | Nombre | Valor |
     |---|---|
     | Subscription | Seleccione su suscripción. |
     | Cuenta de almacenamiento | Seleccione la cuenta de almacenamiento que creó anteriormente |
