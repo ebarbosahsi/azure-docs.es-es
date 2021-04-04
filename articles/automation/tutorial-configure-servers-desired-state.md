@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99053574"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configuración de máquinas en un estado deseado
@@ -147,7 +147,7 @@ Si decide quitar el nodo del servicio, puede hacerlo mediante Azure Portal o con
 > Esto no afecta a la configuración vigente del nodo.
 > Para quitar la configuración actual, use [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) o elimine el archivo de configuración local (esta es la única opción con los nodos de Linux).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Portal de Azure
 
 En Azure Automation, haga clic en **State Configuration (DSC)** en la tabla de contenido.
 Luego, haga clic en **Nodos** para ver la lista de nodos que están registrados con el servicio.

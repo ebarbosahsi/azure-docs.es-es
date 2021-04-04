@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588313"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FloQast
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FloQast
 
 En este tutorial aprenderá a integrar FloQast con Azure Active Directory (Azure AD). Al integrar FloQast con Azure AD, puede hacer lo siguiente:
 
@@ -61,8 +61,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con FloQast, e
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en FloQast](#configure-floqast-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba en FloQast](#create-floqast-test-user)** : para tener un homólogo de B.Simon en FloQast vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en FloQast](#configure-floqast-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba en FloQast](#create-floqast-test-user)**: para tener un homólogo de B.Simon en FloQast vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
