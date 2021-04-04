@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895706"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configuración de una conexión de alta disponibilidad desde la ubicación local a la puerta de enlace VPN de CloudSimple
@@ -152,11 +152,11 @@ Inicie sesión en el firewall de Palo Alto y seleccione **Network** > **Interfac
 * Interface Name (Nombre de la interfaz). El primer campo se rellena automáticamente con la palabra clave "tunnel". En el campo adyacente, escriba cualquier número entre 1 y 9999. Esta interfaz se usará como una interfaz de túnel principal para transportar el tráfico de sitio a sitio entre el centro de recursos local y la nube privada.
 * Comment (Comentario). Escriba comentarios para facilitar la identificación de la finalidad del túnel.
 * Perfil de NetFlow. Deje el valor predeterminado.
-* Config (Configuración). Assign Interface To (Asignar la interfaz a): Virtual Router (Enrutador virtual): seleccione **default**. 
-        Security Zone (Zona de seguridad): seleccione la zona para el tráfico LAN de confianza. En este ejemplo, el nombre de la zona para el tráfico LAN es "Trust".
+* Config (Configuración). Asignar interfaz a: enrutador virtual: seleccione el **valor predeterminado**. 
+        Zona de seguridad: seleccione la zona para el tráfico de LAN de confianza. En este ejemplo, el nombre de la zona para el tráfico LAN es "Trust".
 * IPv4. Haga clic en **Add** (Agregar) y agregue cualquier dirección IP sin usar /32 que no se superponga en su entorno. Esta se asignará a la interfaz de túnel principal y se usará para supervisar los túneles (se explica más adelante).
 
-Dado que esta configuración es para una VPN de alta disponibilidad, se necesitan dos interfaces de túnel: una principal y otra secundaria. Repita los pasos anteriores para crear la interfaz de túnel secundaria. Seleccione otro id. de túnel y otra dirección IP /32 sin usar.
+Dado que esta configuración es para una VPN de alta disponibilidad, se necesitan dos interfaces de túnel: una primaria y una secundaria. Repita los pasos anteriores para crear la interfaz de túnel secundaria. Seleccione otro id. de túnel y otra dirección IP /32 sin usar.
 
 ### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Configuración de rutas estáticas para comunicarse con las subredes de nube privada a través de la VPN de sitio a sitio
 
@@ -166,7 +166,7 @@ Seleccione **Network** > **Virtual Routers** > *default* > **Static Routes** > *
 
 * Name (Nombre). Escriba cualquier nombre para facilitar la identificación de la finalidad de la ruta.
 * Destination (Destino). Especifique las subredes de nube privada de CloudSimple con las que se comunicará a través de interfaces de túnel S2S desde el entorno local.
-* Interface (Interfaz). Seleccione la interfaz de túnel principal creada en el paso 1 (sección 2) de la lista desplegable. En este ejemplo, es tunnel.20.
+* . Seleccione la interfaz de túnel principal creada en el paso 1 (sección 2) de la lista desplegable. En este ejemplo, es tunnel.20.
 * Next Hop (Próximo salto). Seleccione **Ninguno**.
 * Admin Distance (Distancia de administrador). Deje el valor predeterminado.
 * Metric (Métrica). Escriba cualquier valor entre 1 y 65535. La clave consiste en especificar una métrica inferior para la ruta correspondiente a la interfaz de túnel principal en comparación con la ruta correspondiente a la interfaz de túnel secundaria, de modo que la primera sea la ruta preferida. Si tunnel.20 tiene un valor de métrica de 20 y tunnel.30 tiene un valor de métrica de 30, se prefiere tunnel.20.
@@ -185,7 +185,7 @@ Seleccione **Network** > **Expand Network Profiles** > **IKE Crypto** > **Add** 
 * Name (Nombre). Escriba cualquier nombre de perfil de cifrado de IKE.
 * DH Group (Grupo DH). Haga clic en **Agregar** y seleccione el grupo DH adecuado.
 * Cifrado. Haga clic en **Agregar** y seleccione el método de cifrado adecuado.
-* Autenticación Haga clic en **Agregar** y seleccione el método de autenticación adecuado.
+* Autenticación. Haga clic en **Agregar** y seleccione el método de autenticación adecuado.
 * Key lifetime (Vigencia de clave). Deje el valor predeterminado.
 * IKEv2 Authentication Multiple (Múltiplo de autenticación IKEv2). Deje el valor predeterminado.
 
@@ -200,11 +200,11 @@ Pestaña General:
 * Name (Nombre). Escriba el nombre de la puerta de enlace de IKE que se va a emparejar con la VPN de CloudSimple principal del mismo nivel.
 * Se trata de la versión. Seleccione **IKEv1 only mode** (Modo solo IKEv1).
 * Address Type (Tipo de dirección). Seleccione **IPv4**.
-* Interface (Interfaz). Seleccione la interfaz pública o externa.
+* . Seleccione la interfaz pública o externa.
 * Local IP Address (Dirección IP local). Deje el valor predeterminado.
 * Peer IP Address Type (Tipo de dirección IP del mismo nivel). Seleccione **IP**.
 * Peer Address (Dirección del mismo nivel). Escriba la dirección IP del mismo nivel de la VPN de CloudSimple principal.
-* Autenticación Seleccione **Clave previamente compartida** (Clave previamente compartida).
+* Autenticación. Seleccione **Clave previamente compartida** (Clave previamente compartida).
 * Pre-shared Key/Confirm Pre-shared Key (Clave previamente compartida/Confirmar clave precompartida). Escriba la clave previamente compartida para que coincida con la clave de puerta de enlace de la VPN de CloudSimple.
 * Local Identification (Identificación local). Escriba la dirección IP pública del firewall de Palo Alto local.
 * Peer Identification (Identificación del mismo nivel). Escriba la dirección IP del mismo nivel de la VPN de CloudSimple principal.
@@ -229,7 +229,7 @@ Seleccione **Network** > **Expand Network Profiles** > **IPSEC Crypto** > **Add*
 * Name (Nombre). Escriba un nombre para el perfil de cifrado de IPsec.
 * IPsec Protocol (Protocolo IPsec). Seleccione **ESP**.
 * Cifrado. Haga clic en **Agregar** y seleccione el método de cifrado adecuado.
-* Autenticación Haga clic en **Agregar** y seleccione el método de autenticación adecuado.
+* Autenticación. Haga clic en **Agregar** y seleccione el método de autenticación adecuado.
 * DH Group (Grupo DH). Seleccione **no-pfs**.
 * Lifetime (Duración). Establezca un valor de 30 minutos.
 * Enable (Habilitar). Deje la casilla desactivada.
@@ -263,7 +263,7 @@ Pestaña General:
 * Destination IP (IP de destino). Escriba cualquier dirección IP perteneciente a la subred de la nube privada de CloudSimple que esté permitida a través de la conexión de sitio a sitio. Asegúrese de que las interfaces de túnel (como tunnel.20 - 10.64.5.2/32 y tunnel.30 - 10.64.6.2/32) en Palo Alto puedan comunicarse con la dirección IP de la nube privada de CloudSimple a través de la VPN de sitio a sitio. Consulte la configuración siguiente para obtener los id. de proxy.
 * Profile (Perfil). Seleccione el perfil del monitor.
 
-Pestaña Id. de proxy: Haga clic en **IPv4** > **Add** (IPv4 > Agregar) y configure las siguientes opciones:
+Pestaña Proxy IDs (Id. de proxy): haga clic en **IPv4** > **Agregar** y configure los siguientes valores:
 
 * Proxy ID (Id. de proxy). Escriba cualquier nombre para el tráfico interesante. Podría haber varios Id. de proxy transportados dentro de un túnel de IPsec.
 * Local. Especifique las subredes locales que pueden comunicarse con subredes de nube privada a través de la VPN de sitio a sitio.

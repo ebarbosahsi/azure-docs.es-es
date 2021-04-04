@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0c5e3a095b312d36cb05a78e84a13bc2a73d95d5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91875593"
 ---
 La configuración de DNS no es un paso necesario de esta configuración, pero el servidor DNS es necesario si quiere resolver los nombres de las VM. La especificación de un valor no crea un servidor DNS nuevo. La dirección IP del servidor DNS que especifique debe ser un servidor DNS que pueda resolver los nombres de los recursos a los que se conecta.

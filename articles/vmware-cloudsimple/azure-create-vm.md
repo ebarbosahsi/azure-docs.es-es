@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898766"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Creación de una máquina virtual en Azure mediante plantillas de máquina virtual en la infraestructura de VMware
@@ -75,8 +75,8 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
     | ------------ | ------------- |
     | Nombre | Escriba un nombre para identificar el disco.  |
     | Size | Seleccione uno de los tamaños disponibles.  |
-    | SCSI Controller (Controladora SCSI) | Seleccione una controladora SCSI para el disco.  |
-    | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual.  El modo independiente no persistente permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
+    | Controladora SCSI | Seleccione una controladora SCSI para el disco.  |
+    | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios que se escriben en el disco se descartan al apagar o restablecer la máquina virtual.  El modo independiente no persistente permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 
 7. Cuando finalice la validación, revise la configuración y haga clic en **Create** (Crear). Para realizar cambios, haga clic en las pestañas de la parte superior.
 

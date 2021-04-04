@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241742"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Administración de la alta disponibilidad con redundancia de zona en un servidor flexible de Azure Database for MySQL (versión preliminar)
@@ -32,7 +32,7 @@ En esta página se proporcionan instrucciones sobre cómo habilitar o deshabilit
 
 En esta sección se proporcionan detalles específicos de los campos relacionados con la alta disponibilidad. Puede seguir estos pasos para implementar la alta disponibilidad al crear el servidor flexible.
 
-1.  En [Azure Portal](https://portal.azure.com/), seleccione Servidor flexible y haga clic en **Crear**.  Para más información sobre cómo rellenar los datos de **Suscripción** , **Grupo de recursos** , **Nombre del servidor** , **Región** y otros campos, consulte la documentación de procedimientos de la creación del servidor.
+1.  En [Azure Portal](https://portal.azure.com/), seleccione Servidor flexible y haga clic en **Crear**.  Para más información sobre cómo rellenar los datos de **Suscripción**, **Grupo de recursos**, **Nombre del servidor**, **Región** y otros campos, consulte la documentación de procedimientos de la creación del servidor.
 
 2.  Haga clic en la casilla **Zone redundant high availability** (Alta disponibilidad con redundancia de zona) en la opción de disponibilidad.
 
@@ -41,9 +41,9 @@ En esta sección se proporcionan detalles específicos de los campos relacionado
 4.  Si la opción de alta disponibilidad está activada, el nivel por ráfagas no estará disponible para elegirlo. Puede elegir los niveles de proceso **De uso general** u **Optimizado para memoria**.
 
     > [!IMPORTANT]
-    > Solo se admite la alta disponibilidad con redundancia de zona en los planes de tarifa *_De uso general_* y _*_Optimizado para memoria_*_.
+    > Solo se admite la alta disponibilidad con redundancia de zona en los planes de tarifa ***De uso general** _ y _ *_Optimizado para memoria_**.
 
-5.  Seleccione el *Tamaño de proceso* que prefiera en la lista desplegable.
+5.  Seleccione **Tamaño de proceso** para elegirlo en la lista desplegable.
 
 6.  Seleccione el **tamaño de almacenamiento** en GiB con la barra deslizante y seleccione el **período de retención de copia de seguridad** entre 7 y 35 días.   
 
@@ -65,5 +65,5 @@ Siga estos pasos para deshabilitar la alta disponibilidad en el servidor flexibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md).
+-   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
 -   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)

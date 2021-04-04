@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c2a2446da0e1ccf1b3dab88fe898b179291ddaba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726155"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Software AG Cloud con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Software AG Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

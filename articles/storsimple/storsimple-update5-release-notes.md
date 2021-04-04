@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96021051"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5
@@ -44,7 +44,7 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 5
 
 En las tablas siguientes se proporciona un resumen de los problemas corregidos en Update 5.
 
-| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No | Característica | Incidencia | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Comunicación remota de Windows PowerShell |En la versión anterior, un usuario recibiría un error al intentar establecer una conexión remota al dispositivo StorSimple Cloud Appliance mediante Windows PowerShell. La causa raíz de este problema se corrigió en esta versión. |No |Sí |
 | 2 |Plantillas de ancho de banda |En las versiones anteriores, hubo un problema con las plantillas de ancho de banda que daba como resultado un ancho de banda inferior para el que se había configurado el dispositivo. Este problema se ha corregido en esta versión. |Sí |Sí |

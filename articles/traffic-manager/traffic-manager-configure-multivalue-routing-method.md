@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95994934"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
@@ -40,7 +40,7 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. En **Crear perfil de Traffic Manager**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
     
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Nombre                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento de **varios valores**.                                       |
@@ -59,7 +59,7 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Punto de conexión externo                                   |
     | Nombre           | myEndpoint1                                        |
