@@ -15,10 +15,10 @@ ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
 ms.openlocfilehash: eab376c44065979de86e5c70b796be952fccffaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87065403"
 ---
 # <a name="video-indexer-failover-and-disaster-recovery"></a>Conmutación por error y recuperación ante desastres de Video Indexer
@@ -41,7 +41,7 @@ Para implementar BCDR, debe tener dos cuentas de Video Indexer para controlar la
 > [!TIP]
 > Puede automatizar los procesos de BCDR mediante la configuración de alertas de registro de actividad para las notificaciones de mantenimiento del servicio, según se explica en [Creación de alertas del registro de actividad en notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
-Para información sobre el uso de varios inquilinos, consulte [Administración de varios inquilinos](manage-multiple-tenants.md). Para implementar BCDR, elija una de estas dos opciones: [una cuenta de Video Indexer por cada inquilino](manage-multiple-tenants.md#video-indexer-account-per-tenant) o [una suscripción de Azure por cada inquilino](manage-multiple-tenants.md#azure-subscription-per-tenant).
+Para información sobre el uso de varios inquilinos, consulte [Administración de varios inquilinos](manage-multiple-tenants.md). Para implementar BCDR, elija una de estas dos opciones: [Video Indexer cuenta por inquilino](manage-multiple-tenants.md#video-indexer-account-per-tenant) o [suscripción de Azure por inquilino](manage-multiple-tenants.md#azure-subscription-per-tenant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

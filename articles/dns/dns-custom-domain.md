@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92487405"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
@@ -38,7 +38,7 @@ Observe la dirección URL actual de la hoja **Dominios personalizados**. Esta di
 
 Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la información siguiente en la hoja **Agregar conjunto de registros** y haga clic en **Aceptar** para crearlo.
 
-|Propiedad  |Value  |Descripción  |
+|Propiedad  |Valor  |Descripción  |
 |---------|---------|---------|
 |Nombre     | myfunctionapp        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
 |Tipo     | CNAME        | Use un registro CNAME que use un alias.        |
@@ -63,7 +63,7 @@ Vaya a **Redes** > **Dirección IP pública**, seleccione el recurso de direcci�
 Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la información siguiente en la hoja **Agregar conjunto de registros** y haga clic en **Aceptar** para crearlo.
 
 
-|Propiedad  |Value  |Descripción  |
+|Propiedad  |Valor  |Descripción  |
 |---------|---------|---------|
 |Nombre     | mywebserver        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
 |Tipo     | Un        | Use un registro A como recurso en una dirección IP.        |
@@ -90,7 +90,7 @@ Observe la dirección URL actual de la hoja **Dominios personalizados**. Esta di
 Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la información siguiente en la hoja **Agregar conjunto de registros** y haga clic en **Aceptar** para crearlo.
 
 
-|Propiedad  |Value  |Descripción  |
+|Propiedad  |Valor  |Descripción  |
 |---------|---------|---------|
 |Nombre     | mywebserver        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
 |Tipo     | CNAME        | Use un registro CNAME que use un alias. Si el recurso usa una dirección IP, se usará un registro A.        |
@@ -126,7 +126,7 @@ Vaya a **Storage** > **Cuentas de almacenamiento**, seleccione la cuenta de alma
 Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la información siguiente en la hoja **Agregar conjunto de registros** y haga clic en **Aceptar** para crearlo.
 
 
-|Propiedad  |Value  |Descripción  |
+|Propiedad  |Valor  |Descripción  |
 |---------|---------|---------|
 |Nombre     | asverify.mystorageaccount        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
 |Tipo     | CNAME        | Use un registro CNAME que use un alias.        |
@@ -154,7 +154,7 @@ Seleccione el punto de conexión con el que está trabajando y haga clic en **+ 
 
 Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la información siguiente en la hoja **Agregar conjunto de registros** y haga clic en **Aceptar** para crearlo.
 
-|Propiedad  |Value  |Descripción  |
+|Propiedad  |Valor  |Descripción  |
 |---------|---------|---------|
 |Nombre     | cdnverify.mycdnendpoint        | Este valor junto con la etiqueta de nombre de dominio es el FQDN del nombre de dominio personalizado.        |
 |Tipo     | CNAME        | Use un registro CNAME que use un alias.        |

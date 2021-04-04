@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4fdfe26104e4b69212b7bf6870582ef4cbb4de2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutorial: Integración de Azure Active Directory con AMMS
@@ -73,10 +73,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con AMMS, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de AMMS](#configure-amms-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de AMMS](#configure-amms-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de AMMS](#create-amms-test-user)** : para tener un homólogo de Britta Simon en AMMS que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de AMMS](#create-amms-test-user)**: para tener un homólogo de Britta Simon en AMMS que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -144,7 +144,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a AMMS.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y  **AMMS**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **AMMS**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -168,7 +168,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-amms-test-user"></a>Creación de un usuario de prueba en AMMS
 
-En esta sección, creará un usuario llamado Britta Simon en AMMS. Trabaje con el  [equipo de soporte técnico de AMMS](mailto:techsupport@microwestsoftware.com) para agregar los usuarios a la plataforma de AMMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en AMMS. Trabaje con el [equipo de soporte técnico de AMMS](mailto:techsupport@microwestsoftware.com) para agregar los usuarios a la plataforma de AMMS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

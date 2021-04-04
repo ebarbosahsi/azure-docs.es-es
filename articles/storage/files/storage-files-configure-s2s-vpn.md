@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629298"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configuración de una VPN de sitio a sitio para su uso con Azure Files
@@ -23,7 +23,7 @@ Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-n
 
 En este artículo se detallan los pasos para configurar una VPN de sitio a sitio para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico sincrónico para Azure File Sync a través de una VPN de sitio a sitio, consulte [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
 
 - Un punto de conexión privado para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar localmente. Para más información sobre cómo crear un punto de conexión privado, consulte [Configuración de puntos de conexión de red de Azure Files](storage-files-networking-endpoints.md?tabs=azure-portal). 
@@ -48,15 +48,15 @@ En la tabla de contenido de Azure Portal, seleccione **Crear un recurso** y busq
 
 Con el fin de implementar una instancia de Azure VPN Gateway, debe rellenar los campos siguientes:
 
-- **Name**: nombre del recurso de Azure para VPN Gateway. Este puede ser cualquier nombre que le resulte útil para la administración.
+- **Nombre**: nombre del recurso de Azure para VPN Gateway. Este puede ser cualquier nombre que le resulte útil para la administración.
 - **Región**: región en la que se implementará la instancia de VPN Gateway.
 - **Tipo de puerta de enlace**: con el fin de implementar una VPN de sitio a sitio, debe seleccionar **VPN**.
-- **Tipo de VPN**: puede elegir entre *Basada en rutas* o **Basada en directivas** en función de su dispositivo VPN. Las VPN basadas en rutas son compatibles con IKEv2, mientras que las VPN basadas en directivas solo admiten IKEv1. Para obtener más información sobre los dos tipos de puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN basadas en directivas y en rutas](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about).
+- **Tipo de VPN**: puede elegir entre *Basada en rutas* o **Basadas en directivas** en función de su dispositivo VPN. Las VPN basadas en rutas son compatibles con IKEv2, mientras que las VPN basadas en directivas solo admiten IKEv1. Para obtener más información sobre los dos tipos de puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN basadas en directivas y en rutas](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about).
 - **SKU**: la SKU controla el número de túneles de sitio a sitio permitidos y el rendimiento deseado de la VPN. Para seleccionar la SKU adecuada para su caso de uso, consulte la lista de [SKU de puerta de enlace](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). La SKU de VPN Gateway se puede cambiar más adelante si es necesario.
-- **Red virtual**: red virtual que creó en el paso anterior.
+- **Red virtual**: la red virtual que creó en el paso anterior.
 - **Dirección IP pública**: dirección IP de la instancia de VPN Gateway que se expondrá en Internet. Lo más probable es que necesite crear una nueva dirección IP. No obstante, también puede usar una dirección IP existente sin usar si es adecuado. Si selecciona **Crear nuevo**, se creará un nuevo recurso de Azure de dirección IP en el mismo grupo de recursos que la instancia de VPN Gateway y el **Nombre de la dirección IP pública** será el nombre de la dirección IP que se acaba de crear. Si selecciona **Usar existente**, debe seleccionar la dirección IP existente sin usar.
-- **Habilitar el modo activo/activo**: seleccione **Habilitado** solo si va a crear una configuración de puerta de enlace activa/activa. De lo contrario, deje seleccionada la opción **Deshabilitado**. Para obtener más información sobre el modo activo/activo, consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-- **Configure BGP ASN** (Configuración de ASN de BGP): seleccione **Habilitado** solo si la configuración requiere este ajuste específicamente. Para obtener más información acerca de esta configuración, consulte [Acerca de BGP con Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Habilitar modo activa/activa**: seleccione **Habilitado** solo si va a crear una configuración de puerta de enlace activa/activa. De lo contrario, deje seleccionada la opción **Deshabilitado**. Para obtener más información sobre el modo activo/activo, consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+- **Configurar BGP ASN**: seleccione **Habilitado** solo si la configuración requiere este ajuste específicamente. Para obtener más información acerca de esta configuración, consulte [Acerca de BGP con Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 Seleccione **Revisar y crear** para crear la instancia de VPN Gateway. Una instancia de VPN Gateway puede tardar hasta 45 minutos en crearse e implementarse completamente.
 
@@ -65,12 +65,12 @@ Una puerta de enlace de red local es un recurso de Azure que representa al dispo
 
 Con el fin de implementar el recurso de puerta de enlace de red local, debe rellenar los campos siguientes:
 
-- **Name**: nombre del recurso de Azure para la puerta de enlace de red local. Este puede ser cualquier nombre que le resulte útil para la administración.
+- **Nombre**: nombre del recurso de Azure para la puerta de enlace de red local. Este puede ser cualquier nombre que le resulte útil para la administración.
 - **Dirección IP**: dirección IP pública de la puerta de enlace local en el entorno local.
 - **Espacio de direcciones**: intervalo de direcciones de la red que representa esta puerta de enlace de red local. Puede agregar varios intervalos de espacios de direcciones, aunque debe asegurarse de que los intervalos especificados no se superpongan con los de otras redes a las que quiera conectarse. 
-- **Configurar BGP**: solo debe configurar los valores de BGP si la configuración lo requiere. Para obtener más información acerca de esta configuración, consulte [Acerca de BGP con Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Configurar los valores BGP**: solo debe configurar los valores de BGP si la configuración lo requiere. Para obtener más información acerca de esta configuración, consulte [Acerca de BGP con Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 - **Suscripción**: la suscripción deseada. No es necesario que coincida con la suscripción usada para la instancia de VPN Gateway o la cuenta de almacenamiento.
-- **Grupo de recursos**: grupo de recursos deseado. No es necesario que coincida con el grupo de recursos usado para la instancia de VPN Gateway o la cuenta de almacenamiento.
+- **Grupo de recursos**: el grupo de recursos deseado. No es necesario que coincida con el grupo de recursos usado para la instancia de VPN Gateway o la cuenta de almacenamiento.
 - **Ubicación**: la región de Azure en la que debe crearse el recurso de puerta de enlace de red local. Debe coincidir con la región seleccionada para la instancia de VPN Gateway y la cuenta de almacenamiento.
 
 Seleccione **Crear** para crear el recurso de la puerta de enlace de red local.  
@@ -81,8 +81,8 @@ Los pasos específicos para configurar el dispositivo de red local dependen del 
 ## <a name="create-the-site-to-site-connection"></a>Creación de la conexión de sitio a sitio
 Para completar la implementación de una VPN de sitio a sitio, debe crear una conexión entre el dispositivo de red local (representado por el recurso de puerta de enlace de red local) y la instancia de VPN Gateway. Para ello, vaya a la instancia de VPN Gateway que creó anteriormente. En la tabla de contenido de VPN Gateway, seleccione **Conexiones** y haga clic en **Agregar**. En el panel **Agregar conexión** se necesitan los siguientes campos:
 
-- **Name**: El nombre de la conexión Una instancia de VPN Gateway puede hospedar varias conexiones, por lo que debe elegir un nombre que le resulte útil para la administración y que distinga esta conexión concreta.
-- **Tipo de conexión**: dad que se trata de una conexión S2S, seleccione **Sitio a sitio (IPSec)** en la lista desplegable.
+- **Nombre**: nombre de la conexión. Una instancia de VPN Gateway puede hospedar varias conexiones, por lo que debe elegir un nombre que le resulte útil para la administración y que distinga esta conexión concreta.
+- **Tipo de conexión**: dado que se trata de una conexión S2S, seleccione **Sitio a sitio (IPSec)** en la lista desplegable.
 - **Puerta de enlace de red virtual**: este campo se selecciona automáticamente para la instancia de VPN Gateway con la que está realizando la conexión y no se puede cambiar.
 - **Puerta de enlace de red local**: esta es la puerta de enlace de red local que quiere conectar a su instancia de VPN Gateway. El panel de selección resultante debe tener el nombre de la puerta de enlace de red local que creó anteriormente.
 - **Clave compartida (PSK)** : combinación de letras y números que se usa para establecer el cifrado de la conexión. Se debe usar la misma clave compartida tanto en la red virtual como en las puertas de enlace de red locales. Si el dispositivo de puerta de enlace no proporciona una, puede crearla aquí y establecerla en el dispositivo.

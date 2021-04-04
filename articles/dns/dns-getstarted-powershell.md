@@ -10,10 +10,10 @@ ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92282219"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante Azure PowerShell
@@ -26,7 +26,7 @@ Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para
 
 Azure DNS también admite la creación de dominios privados. Para obtener instrucciones paso a paso sobre cómo crear la primera zona DNS privada y registrarla, consulte [Introducción al uso de PowerShell con las zonas privadas de Azure DNS](private-dns-getstarted-powershell.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell instalado localmente o Azure Cloud Shell
