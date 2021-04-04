@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92310032"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloqueo de conexiones creadas por conectores en Azure Logic Apps
@@ -150,7 +150,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
     }
     ```
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | `mode` | `All` | Modo que determina los tipos de recursos que evalúa la directiva. <p><p>En este escenario se establece `mode` en `All`, que aplica la directiva a los grupos de recursos, las suscripciones y todos los tipos de recursos de Azure. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | La condición que determina cuándo aplicar la regla de directiva. <p><p>En este escenario, `{condition-to-evaluate}` determina si el valor de `api.id` en `Microsoft.Web/connections/api.id` coincide con `*managedApis/{connector-name}`, que especifica un valor de carácter comodín (*). <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -271,7 +271,7 @@ Cuando se crea una conexión dentro de una aplicación lógica, dicha conexión 
     }
     ```
 
-   | Propiedad | Value | Descripción |
+   | Propiedad | Valor | Descripción |
    |----------|-------|-------------|
    | `mode` | `All` | Modo que determina los tipos de recursos que evalúa la directiva. <p><p>En este escenario se establece `mode` en `All`, que aplica la directiva a los grupos de recursos, las suscripciones y todos los tipos de recursos de Azure. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condición que determina cuándo aplicar la regla de directiva. <p><p>En este escenario, `{condition-to-evaluate}` determina si la salida de la cadena de `[string(field('Microsoft.Logic/workflows/parameters'))]` contiene la cadena `{connector-name}`. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
