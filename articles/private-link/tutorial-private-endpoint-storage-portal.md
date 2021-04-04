@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96484828"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de almacenamiento mediante un punto de conexión privado de Azure
@@ -162,7 +162,7 @@ En esta sección, creará una cuenta de almacenamiento y configurará el punto d
 
     | Configuración | Value                                          |
     |-----------------------|----------------------------------|
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroup**. |
     | Location | Seleccione **Este de EE. UU**. |
     | Nombre | Escriba **myPrivateEndpoint**. |

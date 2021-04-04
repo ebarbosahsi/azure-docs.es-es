@@ -4,10 +4,10 @@ description: Vea y filtre las recomendaciones de Azure Advisor para reducir el r
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90986863"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visualización de recomendaciones de Azure Advisor interesantes para usted

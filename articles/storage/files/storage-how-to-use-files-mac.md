@@ -8,10 +8,10 @@ ms.date: 09/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326072"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
@@ -37,7 +37,7 @@ ms.locfileid: "91326072"
     ![Captura de pantalla de un recurso compartido de archivos de Azure montado](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montaje de un recurso compartido de archivos de Azure con el Terminal
-1. Reemplace  `<storage-account-name>`, `<storage-account-key>` y `<share-name>` por los valores adecuados para su entorno.
+1. Reemplace `<storage-account-name>`, `<storage-account-key>` y `<share-name>` por los valores adecuados para su entorno.
 
     ```
     open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>
