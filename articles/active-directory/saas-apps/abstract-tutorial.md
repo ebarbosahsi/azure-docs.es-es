@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587832"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integración de Abstract con Azure Active Directory
@@ -60,10 +60,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Abstract mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Abstract, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración del inicio de sesión único en Abstract](#configure-abstract-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Abstract](#configure-abstract-sso)**, para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Abstract](#create-abstract-test-user)** , para tener un homólogo de Britta Simon en Abstract que esté vinculado a su representación en Azure AD.
+5. **[Creación de un usuario de prueba de Abstract](#create-abstract-test-user)**, para tener un homólogo de Britta Simon en Abstract que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD

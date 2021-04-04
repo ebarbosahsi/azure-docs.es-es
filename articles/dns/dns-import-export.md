@@ -9,10 +9,10 @@ ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: e2b998432f6c4417da0242d86347ed43acb5071a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968237"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importación y exportación de un archivo de zona DNS mediante la CLI de Azure
@@ -54,7 +54,7 @@ En las notas siguientes, se ofrecen detalles técnicos adicionales sobre el proc
 * La directiva `$TTL` es opcional y se admite. Cuando no se indica ninguna directiva `$TTL`, los registros sin TTL explícito se importan con un TTL predeterminado de 3600 segundos. Cuando dos registros del mismo conjunto de registros especifican diferentes TTL, se usa el valor más bajo.
 * La directiva `$ORIGIN` es opcional y se admite. Cuando no se establece ninguna directiva `$ORIGIN` , el valor predeterminado que se usa es el nombre de la zona según lo especificado en la línea de comandos (terminado en ".").
 * No se admiten las directivas `$INCLUDE` ni `$GENERATE`.
-* Se admiten estos tipos de registros: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV y TXT.
+* Se admiten los tipos de registro siguientes: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV y TXT.
 * DNS de Azure crea automáticamente el registro SOA cuando se crea una zona. Cuando se importa un archivo de zona, todos los parámetros SOA se toman del archivo de zona *excepto* el parámetro `host`. Este parámetro usa el valor proporcionado por DNS de Azure. Esto se debe a que este parámetro debe hacer referencia al servidor de nombres principal proporcionado por DNS de Azure.
 * DNS de Azure también crea automáticamente el conjunto de registros de servidor de nombres en el ápice de zona al crear la zona. Solo se importa el TTL de este conjunto de registros. Estos registros contienen los nombres de servidores de nombres proporcionados por DNS de Azure. No se sobrescriben los datos del registro con los valores contenidos en el archivo de zona importado.
 * Durante la versión preliminar pública, DNS de Azure admite solamente registros TXT de cadena única. Los registros TXT multicadena se concatenan y se truncan tras 255 caracteres.
@@ -149,7 +149,7 @@ Para comprobar la zona DNS después de importar el archivo, puede utilizar cualq
         134.170.188.221
     ```
 
-### <a name="step-3-update-dns-delegation"></a>Paso 3. Actualización de la delegación de DNS
+### <a name="step-3-update-dns-delegation"></a>Paso 3. Actualización de la delegación de DNS
 
 Una vez que haya comprobado que la zona se importó correctamente, debe actualizar la delegación de DNS para que apunte a los servidores de nombres DNS de Azure. Para más información, consulte el artículo [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md).
 
