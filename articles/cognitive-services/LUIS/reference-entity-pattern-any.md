@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542213"
 ---
 # <a name="patternany-entity"></a>Entidad Pattern.any
@@ -33,9 +33,9 @@ En la tabla siguiente, cada fila tiene dos versiones de la declaración. La expr
 
 |Expresión con la entidad en negrita|
 |--|
-|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>¿El libro **El hombre que confundió a su mujer con un sombrero** lo escribió un autor americano este año?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>¿El libro El hombre que confundió a su mujer con un sombrero lo escribió un autor americano este año?|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>¿El libro **Was Half Asleep in Frog Pajamas** (Medio dormido en pijama con estampado de ranas) lo escribió un autor americano este año?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>¿El libro **La insólita amargura del pastel de limón** lo escribió un autor americano este año?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>¿Fue **La insólita amargura del pastel de limón: una novela** escrita por un estadounidense este año?|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>¿El libro **¡Hay un molillo en mi bolsillo!** lo escribió un autor americano este año?|
 ||
 
@@ -43,7 +43,7 @@ En la tabla siguiente, cada fila tiene dos versiones de la declaración. La expr
 
 ## <a name="example-json"></a>Ejemplo de JSON
 
-Considere la siguiente consulta:
+Considere la consulta siguiente:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
