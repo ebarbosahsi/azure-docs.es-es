@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98016157"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
@@ -27,7 +27,7 @@ Después de completar esta solución, podrá:
 * Desarrollar soluciones de streaming para los clientes usando el lenguaje de consulta de Stream Analytics.
 * Usar la experiencia de supervisión y registro para solucionar problemas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Necesita cumplir con estos requisitos previos para completar esta solución:
 * [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 

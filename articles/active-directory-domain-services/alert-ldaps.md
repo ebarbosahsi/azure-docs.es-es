@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96620314"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de LDAP seguro en Azure Active Directory Domain Services
@@ -30,7 +30,7 @@ Este artículo le ayuda a comprender y resolver las alertas comunes con acceso a
 
 *LDAP seguro a través de Internet está habilitado para el dominio administrado. Sin embargo, el acceso al puerto 636 no está bloqueado mediante un grupo de seguridad de red. Esto puede exponer las cuentas de usuario del dominio administrado a los ataques de fuerza bruta de contraseñas.*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Al habilitar LDAP seguro, se recomienda crear reglas adicionales que restrinjan el acceso de LDAPS entrantes a direcciones IP específicas. Estas reglas protegen el dominio administrado de ataques por fuerza bruta. Para actualizar el grupo de seguridad de red y restringir el acceso al puerto TCP 636 para LDAP seguro, complete los pasos siguientes:
 
@@ -54,7 +54,7 @@ El estado del dominio administrado se actualiza automáticamente en dos horas y 
 
 *El certificado LDAP seguro del dominio administrado expirará en [fecha].*
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Cree un certificado LDAP seguro de reemplazo; para ello, siga los pasos y [cree un certificado para LDAP seguro](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Aplique el certificado de reemplazo a Azure AD DS y distribúyalo a los clientes que se conectan mediante LDAP seguro.
 

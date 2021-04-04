@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 1b73b8fa14271619d07fca63b01e4197f4f7c8cb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98017857"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminación de blobs de almacenamiento de registros de flujo de grupo de seguridad de red en Network Watcher
@@ -126,9 +126,9 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. Escriba los siguientes parámetros en el script según sea necesario:
-   - **SubscriptionId** (obligatorio): identificador de la suscripción desde la que quiere eliminar los blobs de registro de flujo de NSG.
-   - **Location** (obligatorio): _cadena de ubicación_ de la región de los registros NSG donde quiere eliminar los blobs de registro de flujo de NSG. Esta información se puede encontrar en Azure Portal o en [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Confirm** (opcional): pase la marca de confirmación en caso de que quiera confirmar manualmente la eliminación de cada blob de almacenamiento.
+   - **SubscriptionId** [obligatorio]:identificador de la suscripción desde la que quiere eliminar los blobs de registro de flujo de NSG.
+   - **Ubicación** [obligatorio]: La _cadena de ubicación_ de la región de los registros NSG donde quiere eliminar los blobs de registro de flujo de NSG. Esta información se puede encontrar en Azure Portal o en [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Confirmar** [opcional]: Pase la marca de confirmación en caso de que quiera confirmar manualmente la eliminación de cada blob de almacenamiento.
 
 1. Ejecute el script guardado como se muestra en el siguiente ejemplo, donde el archivo de script se guardó como **Delete-NsgFlowLogsBlobs.ps1**:
    ```

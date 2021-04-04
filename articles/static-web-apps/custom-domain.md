@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92173691"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configuración de un dominio personalizado en Azure Static Web Apps (versión preliminar)
@@ -65,7 +65,7 @@ Un registro CNAME asigna un dominio a otro. Puede usar un registro CNAME para as
 
 4. Cree un nuevo registro **CNAME** con los siguientes valores:
 
-    | Configuración             | Value                     |
+    | Configuración             | Valor                     |
     | ------------------- | ------------------------- |
     | Tipo                | CNAME                     |
     | Host                | www                       |
@@ -110,7 +110,7 @@ A veces, desea que todo el tráfico que se envía a un subdominio se enrute a ot
 
 4. Cree un nuevo registro **CNAME** con los siguientes valores, y reemplace `www.example.com` por el nombre de dominio personalizado.
 
-    | Configuración | Value                  |
+    | Configuración | Valor                  |
     | ------- | ---------------------- |
     | Tipo    | CNAME                  |
     | Host    | \*                     |

@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
 ms.openlocfilehash: 2e01e74f5086f7f1eb7e85661fbd35f452d8dae8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92790209"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Aceleración de análisis de macrodatos en tiempo real mediante el conector de Spark
@@ -38,7 +38,7 @@ El repositorio de GitHub para el conector antiguo al que se vinculaba anteriorme
 | Scala                                 | 2.10 o posterior            |
 | Microsoft JDBC Driver para SQL Server  | 6.2 o posterior             |
 | Microsoft SQL Server                  | SQL Server 2008 o posterior |
-| Azure SQL Database                    | Compatible                |
+| Azure SQL Database                    | Compatible                |
 | Instancia administrada de Azure SQL            | Compatible                |
 
 El conector de Spark usa Microsoft JDBC Driver para SQL Server para mover datos entre los nodos de trabajo de Spark y las bases de datos:
