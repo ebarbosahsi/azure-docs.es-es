@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0a84d0310573a1210e21157102a445fff9244782
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88923983"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Función `search.score` de OData en Azure Cognitive Search
 
 Cuando se envía una consulta a Azure Cognitive Search sin el parámetro [**$orderby**](search-query-odata-orderby.md), los resultados que se devuelven se clasificarán en orden descendente por puntuación de relevancia. Incluso cuando se usa **$orderby**, de forma predeterminada se usará la puntuación de relevancia para resolver los empates. Pero en ocasiones resulta útil usar la puntuación de relevancia como un criterio de ordenación inicial y cualquier otro criterio como el factor de desempate. La función `search.score` permite hacer esto.
 
-## <a name="syntax"></a>Sintaxis
+## <a name="syntax"></a>Syntax
 
 La sintaxis de `search.score` en **$orderby** es `search.score()`. La función `search.score` no toma ningún parámetro. Se puede usar con el especificador de criterio de ordenación `asc` o `desc`, al igual que cualquier otra cláusula del parámetro **$orderby**. Puede aparecer en cualquier lugar de la lista de criterios de ordenación.
 

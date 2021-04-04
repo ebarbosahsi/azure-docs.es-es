@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: be87d2af698bb71573952943b5ddc3f0910a3333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85839079"
 ---
-| Nivel | Gratuito | Básica | Estándar |
+| Nivel | Gratuito | Básico | Estándar |
 | --- | --- | --- | --- |
 | Llamadas a API |500.000 |1,5 millones por unidad |15 millones por unidad |
 | Dispositivos activos |500 |Sin límite |Sin límite |
@@ -22,7 +22,7 @@ ms.locfileid: "85839079"
 | Scheduled jobs |Limitado |Se incluye |Se incluye |
 | Azure SQL Database (obligatorio) <br/>Se aplicarán tarifas estándar para capacidad adicional |20 MB incluidos |20 MB incluidos |20 MB incluidos |
 | Capacidad de CPU |60 minutos por día |Sin límite |Sin límite |
-| Transferencia de datos salientes |165 MB por día (sustitución a diario) |Se incluye |Se incluye |
+| Transferencia de datos de salida |165 MB por día (sustitución a diario) |Se incluye |Se incluye |
 
 Para más información sobre límites y precios, consulte [Precios de Azure Mobile Services](https://azure.microsoft.com/pricing/details/mobile-services/). 
 
