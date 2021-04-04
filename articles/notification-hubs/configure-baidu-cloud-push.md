@@ -12,20 +12,20 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 759e35ba353f470ea3abc5f5d4182fa2b2ea0e73
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003589"
 ---
-# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>En desuso: Establecimiento de la configuración de Baidu Cloud Push para un centro de notificaciones en Azure Portal
+# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>En desuso: establecimiento de la configuración de Baidu Cloud Push para un centro de notificaciones en Azure Portal
 
 En este artículo podrá ver cómo establecer la configuración de Baidu Cloud Push para un centro de notificaciones de Azure mediante Azure Portal.
 
 > [!IMPORTANT]
 > Este tutorial está en desuso. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Si aún no ha creado un centro de notificaciones, cree uno ahora. Para más información, consulte [Creación de un centro de notificaciones de Azure en Azure Portal](create-notification-hub-portal.md). 
 
 ## <a name="configure-baidu-cloud-push"></a>Configuración de Baidu Cloud Push

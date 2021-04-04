@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151652"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Procedimiento para clonar un centro de Azure IoT Hub en otra región
@@ -107,7 +107,7 @@ En esta sección se proporcionan instrucciones específicas para migrar el centr
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Busque el centro original y expórtelo a una plantilla de recursos.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 1. Vaya a **Grupos de recursos** y seleccione el grupo de recursos que contiene el centro que quiere trasladar. También puede ir a **Recursos** y buscar el centro de este modo. Seleccione el centro.
 
@@ -347,7 +347,7 @@ Ya dispone de una plantilla que creará un nuevo centro que se parece casi exact
 
 Cree el nuevo centro en la nueva ubicación mediante la plantilla. Si tiene recursos de enrutamiento que se van a trasladar, los recursos deben configurarse en la nueva ubicación y las referencias de la plantilla deben actualizarse para que coincidan. Si no va a trasladar los recursos de enrutamiento, deben estar en la plantilla con las claves actualizadas.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Crear un recurso**. 
 
@@ -413,7 +413,7 @@ La aplicación tiene .NET Core como destino, por lo que puede ejecutarla en Wind
 
 ### <a name="downloading-the-sample"></a>Descarga del ejemplo
 
-1. Use los ejemplos de C# de IoT de esta página: [Ejemplos de Azure IoT para C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Descargue el archivo .zip y descomprímalo en el equipo. 
+1. Use los ejemplos de C# de IoT de esta página: [ejemplos de Azure IoT para C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Descargue el archivo .zip y descomprímalo en el equipo. 
 
 1. El código pertinente está en ./iot-hub/Samples/service/ImportExportDevicesSample. No tiene que ver ni editar el código para ejecutar la aplicación.
 
@@ -543,7 +543,7 @@ Ahora tiene las variables de entorno en un archivo con los comandos SET y sabe c
 
 1. Seleccione F5 para ejecutar la aplicación. Una vez finalizada la ejecución, puede ver los resultados.
 
-### <a name="view-the-results"></a>View the results 
+### <a name="view-the-results"></a>Visualización de los resultados 
 
 Puede ver los dispositivos en [Azure Portal](https://portal.azure.com) y comprobar que están en la nueva ubicación.
 

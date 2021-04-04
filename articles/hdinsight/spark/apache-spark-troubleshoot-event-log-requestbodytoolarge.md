@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
 ms.openlocfilehash: 73ae646cb083841ee1d55b6c7ce6af7180cef08e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929438"
 ---
 # <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem...RequestBodyTooLarge" aparecen en el registro de las aplicaciones de Apache Spark Streaming en HDInsight
@@ -29,7 +29,7 @@ En Spark 2.3, cada aplicación de Spark genera un archivo de registro de eventos
 
 Hay tres soluciones disponibles para este error:
 
-* Aumente el tamaño del bloque hasta 100 MB. En la interfaz de usuario de Ambari, modifique la propiedad de configuración `fs.azure.write.request.size` de HDFS (o créela en la sección `Custom core-site`). Establezca la propiedad en un valor mayor, por ejemplo: 33554432. Guarde la configuración actualizada y reinicie los componentes afectados.
+* Aumente el tamaño del bloque hasta 100 MB. En la interfaz de usuario de Ambari, modifique la propiedad de configuración `fs.azure.write.request.size` de HDFS (o créela en la sección `Custom core-site`). Establezca un valor mayor para la propiedad, por ejemplo: 33554432. Guarde la configuración actualizada y reinicie los componentes afectados.
 
 * Detenga y vuelva a enviar periódicamente el trabajo de streaming de Spark.
 

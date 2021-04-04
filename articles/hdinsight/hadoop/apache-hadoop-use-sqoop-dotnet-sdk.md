@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928345"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Sqoop con el SDK de .NET para Apache Hadoop en HDInsight
@@ -18,7 +18,7 @@ ms.locfileid: "98928345"
 
 Aprenda a usar el SDK de Azure HDInsight para .NET ejecutar trabajos de Apache Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos de Azure SQL o SQL Server.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Finalización de la [configuración de un entorno de prueba](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [Uso de Apache Sqoop con Hadoop en HDInsight](./hdinsight-use-sqoop.md).
 
@@ -134,7 +134,7 @@ HDInsight basado en Linux presenta las siguientes limitaciones:
 
 * Exportación masiva: el conector de Sqoop que se usa para exportar datos a Microsoft SQL Server o Azure SQL Database no admite actualmente inserciones masivas.
 
-* Procesamiento por lotes: con el modificador `-batch`, Sqoop realiza inserciones múltiples en lugar de procesar por lotes las operaciones de inserción.
+* Procesamiento por lotes: al usar el modificador `-batch`, Sqoop realiza inserciones múltiples en lugar de procesar por lotes las operaciones de inserción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

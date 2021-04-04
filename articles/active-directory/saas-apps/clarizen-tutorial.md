@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Clarizen | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clarizen.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672973"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integración de Azure Active Directory con Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integración de Azure Active Directory con Clarizen
 
 En este tutorial, aprenderá a integrar Clarizen con Azure Active Directory (Azure AD).
 La integración de Clarizen con Azure AD proporciona las siguientes ventajas:
@@ -30,7 +30,7 @@ La integración de Clarizen con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Clarizen, necesita los siguientes elementos:
 
@@ -73,10 +73,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Clarizen, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Clarizen](#configure-clarizen-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Clarizen](#configure-clarizen-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba de Clarizen](#create-clarizen-test-user)** , para tener un homólogo de Britta Simon en Clarizen vinculado a la representación del usuario en Azure AD.
+5. **[Creación del usuario de prueba de Clarizen](#create-clarizen-test-user)**, para tener un homólogo de Britta Simon en Clarizen vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -140,7 +140,7 @@ Para configurar el inicio de sesión único en Azure AD con Clarizen, realice lo
 
     a. Seleccione **Habilitar autenticación federada**.
 
-    b. Para cargar el certificado descargado, haga clic en **Cargar** .
+    b. Haga clic en **Cargar** para cargar el certificado descargado.
 
     c. En el cuadro **URL de inicio de sesión**, escriba el valor de **Dirección URL de inicio de sesión** de la ventana de configuración de aplicaciones de Azure AD.
 
@@ -215,7 +215,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, debe apr
 
     ![Clic en "People" (Personas)](./media/clarizen-tutorial/create_aaduser_001.png "Personas")
 
-3. Haga clic en **Invitar a usuario**.
+3. Haga clic en **Invitar usuario**.
 
     ![Botón "Invite user" (Invitar a usuario)](./media/clarizen-tutorial/create_aaduser_002.png "Invitar a usuarios")
 

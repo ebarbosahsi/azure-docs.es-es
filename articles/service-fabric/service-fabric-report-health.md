@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001871"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
@@ -49,9 +49,9 @@ Una vez que el diseño de informes de mantenimiento está vacío, los informes d
 ## <a name="health-client"></a>Cliente de mantenimiento
 Los informes de mantenimiento se envían al administrador de mantenimiento por medio de un cliente de mantenimiento, que reside en el cliente de Fabric. El administrador de mantenimiento guarda los informes en el almacén de estado. El cliente de mantenimiento puede configurarse con las opciones siguientes:
 
-* **HealthReportSendInterval**: el retraso entre el momento en que el informe se agrega al cliente y el momento en que se envía al administrador de mantenimiento. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
-* **HealthReportRetrySendInterval**: el intervalo en el que el cliente de mantenimiento reenvía los informes de mantenimiento acumulados al administrador de mantenimiento. Valor predeterminado: 30 segundos, mínimo: 1 segundo.
-* **HealthOperationTimeout**: el período de tiempo de expiración de un mensaje de informe enviado al administrador de mantenimiento. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el administrador de mantenimiento confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
+* **HealthReportSendInterval**: el desfase entre el momento en que el informe se agrega al cliente y el momento en que se envía al Administrador de estado. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
+* **HealthReportRetrySendInterval**: el intervalo con el que el cliente de mantenimiento reenvía los informes de mantenimiento acumulados al Administrador de estado. Valor predeterminado: 30 segundos (mínimo 1 segundo).
+* **HealthOperationTimeout**: el período de tiempo de espera para un mensaje de informe enviado al almacén de estado. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el administrador de mantenimiento confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
 
 > [!NOTE]
 > Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el administrador de mantenimiento no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
