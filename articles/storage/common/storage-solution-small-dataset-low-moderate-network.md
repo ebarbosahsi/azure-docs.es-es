@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023234"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
@@ -49,7 +49,7 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 
-| Característica | Explorador de Azure Storage | Portal de Azure | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
+| Característica | Explorador de Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidad | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
 | Interfaz gráfica | Sí | Sí | No | No |

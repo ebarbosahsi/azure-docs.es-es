@@ -1,16 +1,16 @@
 ---
-title: 'Capacidad de prueba: Comunicación de servicio'
+title: 'Capacidad de prueba: comunicación del servicio'
 description: La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba.
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: fbf889422d69d031d777acd80cf3becfb3184568
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575931"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de comprobación de prueba de Service Fabric: Comunicación de servicio
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric de Azure. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en los casos más simples, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
 
 La comunicación entre servicios es un punto crítico de integración de una aplicación, ya que cada servicio expone una API remota a otros servicios. El trabajo con un conjunto de límites de API que implican E/S requiere generalmente tomar algunas precauciones y realizar una buena cantidad de pruebas y validaciones.

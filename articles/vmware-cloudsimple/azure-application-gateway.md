@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97897950"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Uso de Azure Application Gateway con máquinas virtuales de VMware en el entorno de nube privada de CloudSimple
@@ -71,7 +71,7 @@ Las instrucciones detalladas para este procedimiento están disponibles en [Crea
 
 1. Cree una red virtual en la suscripción y grupo de recursos.
 2. Cree una subred (para usarla como subred dedicada) dentro de la red virtual.
-3. Cree una versión estándar de Application Gateway (opcionalmente habilite WAF):  En la página principal de Azure Portal, haga clic en **Recurso** > **Redes** > **Application Gateway** en el lado superior izquierdo de la página. Seleccione el tamaño y la SKU estándar y proporcione la información de la suscripción, el grupo de recursos y la ubicación de Azure. Si es necesario, cree una dirección IP pública para esta puerta de enlace de aplicaciones y proporcione detalles sobre la red virtual y la subred dedicada de dicha puerta de enlace.
+3. Cree una instancia estándar de Application Gateway (opcionalmente, puede habilitar WAF): en la página principal de Azure Portal, haga clic en **Recursos** > **Redes** > **Application Gateway** en la parte superior izquierda de la página. Seleccione el tamaño y la SKU estándar y proporcione la información de la suscripción, el grupo de recursos y la ubicación de Azure. Si es necesario, cree una dirección IP pública para esta puerta de enlace de aplicaciones y proporcione detalles sobre la red virtual y la subred dedicada de dicha puerta de enlace.
 4. Agregue un grupo back-end con máquinas virtuales e incorpórelo a la puerta de enlace de aplicaciones.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. Crear y configurar un grupo de máquinas virtuales de servidor web en la nube privada

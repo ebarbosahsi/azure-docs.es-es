@@ -4,10 +4,10 @@ description: En este artículo se muestra cómo agregar un usuario al rol Creado
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a6c89483744f943926f126701d28988358627a27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96435967"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Incorporación de creadores de laboratorios a una cuenta de laboratorio de Azure Lab Services

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bright Pattern Omnichannel Contact Center | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bright Pattern Omnichannel Contact Center | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Bright Pattern Omnichannel Contact Center.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 9929dc3dbe5870fbe1a5047fbc3fc552e32aba59
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456708"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bright Pattern Omnichannel Contact Center
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Bright Pattern Omnichannel Contact Center
 
 En este tutorial, obtendrá información sobre cómo integrar Bright Pattern Omnichannel Contact Center con Azure Active Directory (Azure AD). Al integrar Bright Pattern Omnichannel Contact Center con Azure AD, puede hacer lo siguiente:
 
@@ -50,16 +50,16 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de Bright Pattern Omnichannel Contact Center en Azure AD, deberá agregar Bright Pattern Omnichannel Contact Center desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
-1. En la sección **Agregar desde la galería** , escriba **Bright Pattern Omnichannel Contact Center** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Bright Pattern Omnichannel Contact Center** en el cuadro de búsqueda.
 1. Seleccione **Bright Pattern Omnichannel Contact Center** del panel de resultados y luego agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-bright-pattern-omnichannel-contact-center"></a>Configuración y prueba del inicio de sesión único de Azure AD para Bright Pattern Omnichannel Contact Center
 
-Configure y pruebe el SSO de Azure AD con Bright Pattern Omnichannel Contact Center mediante un usuario de prueba llamado **B.Simon** . Para que SSO funcione, tiene que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Bright Pattern Omnichannel Contact Center.
+Configure y pruebe el SSO de Azure AD con Bright Pattern Omnichannel Contact Center mediante un usuario de prueba llamado **B.Simon**. Para que SSO funcione, tiene que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Bright Pattern Omnichannel Contact Center.
 
 Para configurar y probar el SSO de Azure AD con Bright Pattern Omnichannel Contact Center, complete los siguientes bloques de creación:
 
@@ -67,28 +67,28 @@ Para configurar y probar el SSO de Azure AD con Bright Pattern Omnichannel Conta
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único en Bright Pattern Omnichannel Contact Center](#configure-bright-pattern-omnichannel-contact-center-sso)** : para la configuración del inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)** , para tener un homólogo de B.Simon en Bright Pattern Omnichannel Contact Center que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)**, para tener un homólogo de B.Simon en Bright Pattern Omnichannel Contact Center que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Bright Pattern Omnichannel Contact Center** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
-1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
-1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Bright Pattern Omnichannel Contact Center**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `<SUBDOMAIN>_sso`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<SUBDOMAIN>_sso`
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.brightpattern.com/agentdesktop/sso/redirect`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.brightpattern.com/agentdesktop/sso/redirect`
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.brightpattern.com/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.brightpattern.com/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -105,11 +105,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | lastName | user.surname |
     | email | user.mail |
 
-1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Bright Pattern Omnichannel Contact Center** , copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Bright Pattern Omnichannel Contact Center**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -117,35 +117,35 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario** , siga estos pasos:
-   1. En el campo **Nombre** , escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
-   1. Haga clic en **Crear** .
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a B.Simon para usar el inicio de sesión único de Azure al concederle acceso a Bright Pattern Omnichannel Contact Center.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
-1. En la lista de aplicaciones, seleccione **Bright Pattern Omnichannel Contact Center** .
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Bright Pattern Omnichannel Contact Center**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ## <a name="configure-bright-pattern-omnichannel-contact-center-sso"></a>Configuración del SSO de Bright Pattern Omnichannel Contact Center
 
-Para configurar el inicio de sesión único en **Bright Pattern Omnichannel Contact Center** , debe enviar el **certificado (Base64)** descargado y las direcciones URL adecuadas copiadas desde Azure Portal al [equipo de soporte técnico de Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Bright Pattern Omnichannel Contact Center**, debe enviar el **certificado (Base64)** descargado y las direcciones URL adecuadas copiadas desde Azure Portal al [equipo de soporte técnico de Bright Pattern Omnichannel Contact Center](mailto:support@brightpattern.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-bright-pattern-omnichannel-contact-center-test-user"></a>Creación de un usuario de prueba Bright Pattern Omnichannel Contact Center
 

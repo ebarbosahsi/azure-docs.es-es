@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.openlocfilehash: d8c785295380d3a90fde41f52b002f4686decad6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587373"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Abintegro
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Abintegro
 
 En este tutorial, aprenderá a integrar Abintegro con Azure Active Directory (Azure AD). Al integrar Abintegro con Azure AD, puede hacer lo siguiente:
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar Abintegro con Azure Active Directory (Az
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -64,8 +64,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Abintegro,
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Abintegro](#configure-abintegro-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Abintegro](#create-abintegro-test-user)** , para tener un homólogo de B. Simon en Abintegro vinculado a la representación de ella en Azure AD.
+1. **[Configuración del inicio de sesión único en Abintegro](#configure-abintegro-sso)**, para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Abintegro](#create-abintegro-test-user)**, para tener un homólogo de B. Simon en Abintegro vinculado a la representación de ella en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD

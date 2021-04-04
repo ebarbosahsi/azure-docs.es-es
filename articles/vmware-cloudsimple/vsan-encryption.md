@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899055"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configuración del cifrado de vSAN para la nube privada de CloudSimple
@@ -43,8 +43,8 @@ El proceso de implementación consta de los siguientes pasos:
 2. [Portal de CloudSimple: Obtención de información de emparejamiento de ExpressRoute](#cloudsimple-portal-obtain-expressroute-peering-information)
 3. [Azure Portal: Conexión de la red virtual a la nube privada](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Azure Portal: Implementación de un clúster de HyTrust KeyControl en la red virtual](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
-5. [Interfaz de usuario web de HyTrust: Configuración del servidor de KMIP](#hytrust-webui-configure-the-kmip-server)
-6. [Interfaz de usuario de vCenter: Configuración del cifrado de vSAN para que use el clúster de KMS en la red virtual de Azure](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
+5. [HyTrust WebUI: Configuración de servidores de KMIP](#hytrust-webui-configure-the-kmip-server)
+6. [IU de vCenter: Configuración del cifrado de vSAN para que use el clúster de KMS en la red virtual de Azure](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
 
 ### <a name="verify-prerequisites-are-met"></a>Comprobación de que se cumplen los requisitos previos
 
@@ -81,14 +81,14 @@ Para implementar un clúster de HyTrust KeyControl en la instancia de Azure Reso
 6. Cuando se le solicite en el shell de SSH, seleccione `No` para establecer el nodo como el nodo inicial de KeyControl.
 7. Agregue nodos adicionales de KeyControl repitiendo los pasos 3-5 de este procedimiento y seleccionando `Yes` cuando se le pida que lo agregue a un clúster existente.
 
-### <a name="hytrust-webui-configure-the-kmip-server"></a>Interfaz de usuario web de HyTrust: Configuración del servidor de KMIP
+### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: Configuración de servidores de KMIP
 
 Vaya a https://*public-ip*, donde *public-ip* es la dirección IP pública de la máquina virtual del nodo de KeyControl. Siga estos pasos de la [documentación de HyTrust](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0).
 
 1. [Configuración de un servidor de KMIP](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/configuring-kmip-server.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____2)
 2. [Creación de una agrupación de certificados para el cifrado de VMware](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-user-for-vmcrypt.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____3)
 
-### <a name="vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network"></a>Interfaz de usuario de vCenter: Configuración del cifrado de vSAN para que use el clúster de KMS en la red virtual de Azure
+### <a name="vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network"></a>IU de vCenter: Configuración del cifrado de vSAN para que use el clúster de KMS en la red virtual de Azure
 
 Siga las instrucciones de HyTrust para [crear un clúster de KMS en vCenter](https://docs.hytrust.com/DataControl/4.2/Admin_Guide-4.2/index.htm#Books/VMware-vSphere-VSAN-Encryption/creating-KMS-Cluster.htm%3FTocPath%3DHyTrust%2520KeyControl%2520with%2520VSAN%25C2%25A0and%2520VMware%2520vSphere%2520VM%2520Encryption%7C_____4).
 
