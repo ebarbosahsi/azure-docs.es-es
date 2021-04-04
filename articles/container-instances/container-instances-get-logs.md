@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92746975"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperación de eventos y registros de contenedor en Azure Container Instances
 
 Cuando haya un contenedor que se comporte de manera inadecuada en Azure Container Instances, empiece por ver sus registros con [az container logs][az-container-logs] y transmitir su salida estándar y error estándar con [az container attach][az-container-attach]. También puede ver registros y eventos para instancias de contenedor en el Azure Portal, o bien enviar datos de registro y eventos para los grupos de contenedores a los [registros de Azure Monitor](container-instances-log-analytics.md).
 
-## <a name="view-logs"></a>Ver registros
+## <a name="view-logs"></a>Visualización de registros
 
 Para ver los registros desde el código de la aplicación dentro de un contenedor, puede utilizar el comando [az container logs][az-container-logs].
 
