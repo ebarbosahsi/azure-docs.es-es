@@ -6,17 +6,17 @@ ms.topic: conceptual
 description: Describe cómo funciona la preparación del proyecto con Azure Dev Spaces
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91968164"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Cómo funciona la preparación de un proyecto para Azure Dev Spaces
 
 [!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
-Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las aplicaciones Kubernetes y colaborar con su equipo en un clúster de Azure Kubernetes Service (AKS). Dev Spaces puede generar archivos Dockerfile y gráficos de Helm para su proyecto. Dev Spaces también crea y usa un archivo de configuración para implementar, ejecutar y depurar las aplicaciones de Kubernetes en AKS. Todos estos archivos residen con el código de la aplicación y se pueden agregar al sistema de control de versiones.
+Azure Dev Spaces proporciona varias maneras de iterar y depurar rápidamente las aplicaciones de Kubernetes y colaborar con su equipo en un clúster de Azure Kubernetes Service (AKS). Dev Spaces puede generar archivos Dockerfile y gráficos de Helm para su proyecto. Dev Spaces también crea y usa un archivo de configuración para implementar, ejecutar y depurar las aplicaciones de Kubernetes en AKS. Todos estos archivos residen con el código de la aplicación y se pueden agregar al sistema de control de versiones.
 
 En este artículo se describe lo que sucede al preparar el proyecto para ejecutarlo en AKS con Dev Spaces.
 
@@ -36,7 +36,7 @@ El comando `prep` consultará los archivos del proyecto e intentará crear el ar
 
 Es *necesario* ejecutar el comando `prep` desde un directorio que contenga código fuente. Al ejecutar el comando `prep` desde el directorio correcto, las herramientas de cliente pueden identificar el lenguaje y crear un archivo Dockerfile adecuado para incluir la aplicación en un contenedor. También puede ejecutar el comando `prep` desde un directorio que contenga un archivo *pom.xml* para proyectos de Java.
 
-Si ejecuta el comando `prep` desde un directorio que no contenga código fuente, las herramientas de cliente no generarán un archivo Dockerfile. Además, mostrarán el siguiente mensaje de error: *Dockerfile could not be generated due to unsupported language* (No se pudo generar un archivo Dockerfile debido a un lenguaje no admitido). Este error también se produce si las herramientas de cliente no reconocen el tipo de proyecto.
+Si ejecuta el comando `prep` desde un directorio que no contenga código fuente, las herramientas de cliente no generarán un archivo Dockerfile. También mostrará un error que indica que *no se pudo generar Dockerfile debido a un lenguaje no admitido*. Este error también se produce si las herramientas de cliente no reconocen el tipo de proyecto.
 
 Al ejecutar el comando `prep`, tendrá la opción de especificar la marca `--enable-ingress`. Esta marca le indica al controlador que cree un punto de conexión accesible desde Internet para este servicio. Si no especifica esta marca, el servicio solo será accesible desde dentro del clúster o mediante el túnel de localhost que crean las herramientas de cliente. Para habilitar o deshabilitar este comportamiento después de ejecutar el comando `prep`, actualice el gráfico de Helm generado.
 

@@ -4,10 +4,10 @@ description: Información general de las categorías de las aplicaciones de nube
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575676"
 ---
 # <a name="service-fabric-application-scenarios"></a>Escenarios de aplicación de Service Fabric
@@ -20,15 +20,15 @@ Para instrucciones de diseño sobre la compilación de aplicaciones, consulte [A
 
 Considere la opción de usar la plataforma Service Fabric de Azure para los siguientes tipos de aplicaciones:
 
-* **Recopilación de datos, procesamiento e IoT**: Service Fabric se ocupa de sus servicios con estado a gran escala y tiene latencia baja. Puede ayudar a procesar los datos de millones de dispositivos donde se colocan los datos del dispositivo y el cálculo.
+* **Compilación de datos, procesamiento e IoT**: Service Fabric se ocupa de sus servicios con estado a gran escala y tiene latencia baja. Puede ayudar a procesar los datos de millones de dispositivos donde se colocan los datos del dispositivo y el cálculo.
 
     Algunos de los clientes que han compilado servicios de IoT mediante Service Fabric son [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [ Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric) y [Mesh Systems](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
-* **Juegos y aplicaciones interactivas basadas en sesión**: Service Fabric es útil si la aplicación requiere operaciones de lectura y escritura con latencia baja, con el juego en línea o la mensajería instantánea. Service Fabric le permite crear estas aplicaciones con estado interactivas sin tener que crear un almacén o memoria caché independientes. Visite las [soluciones para juegos de Azure](https://azure.microsoft.com/solutions/gaming/) para una guía de diseño sobre el [uso de Service Fabric en los servicios para juegos](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* **Aplicaciones interactivas basadas en sesión y juegos**: Service Fabric es útil si su aplicación requiere lecturas y escrituras de baja latencia, como en los juegos en línea o la mensajería instantánea. Service Fabric le permite crear estas aplicaciones con estado interactivas sin tener que crear un almacén o memoria caché independientes. Visite las [soluciones para juegos de Azure](https://azure.microsoft.com/solutions/gaming/) para una guía de diseño sobre el [uso de Service Fabric en los servicios para juegos](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
     Los clientes que han compilado servicios para juegos incluyen [Next Games](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) y [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Los clientes que han compilado sesiones interactivas incluyen [Honeywell con Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
-* **Procesamiento de análisis y flujos de trabajo de datos**: Las aplicaciones que deben procesar de forma confiable eventos o flujos de datos se benefician de operaciones de lectura y escritura optimizadas en Service Fabric. Service Fabric también admite canalizaciones de procesamiento de aplicaciones donde los resultados deben ser confiables y pasar a la siguiente fase de procesamiento sin pérdidas. Estas canalizaciones incluyen sistemas transaccionales y financieros donde las garantías de procesamiento y coherencia de datos son fundamentales.
+* **Análisis de datos y procesamiento de flujo de datos**: Las aplicaciones que deben procesar de forma confiable eventos o flujos de datos se benefician de operaciones de lectura y escritura optimizadas en Service Fabric. Service Fabric también admite canalizaciones de procesamiento de aplicaciones donde los resultados deben ser confiables y pasar a la siguiente fase de procesamiento sin pérdidas. Estas canalizaciones incluyen sistemas transaccionales y financieros donde las garantías de procesamiento y coherencia de datos son fundamentales.
 
     Los clientes que han compilado servicios de flujo de trabajo empresarial incluyen [Zeiss grupo](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform), [Quorum Business Solutions](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric) y [Société General](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric).
 
@@ -60,9 +60,9 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 
 En los siguientes diagramas se muestran las diferencias entre diseñar una aplicación sin estado y otra con estado. Al aprovecharse los modelos de programación de [Reliable Services](service-fabric-reliable-services-introduction.md) y [Reliable Actors](service-fabric-reliable-actors-introduction.md), los servicios con estado reducen la complejidad de la aplicación, al mismo tiempo que se obtienen un alto rendimiento y una baja latencia.
 
-Esta es una aplicación de ejemplo que usa servicios sin estado: ![Aplicación que utiliza servicios con estado][Image1]
+A continuación se muestra una aplicación de ejemplo que usa servicios sin estado: ![ aplicación que usa servicios sin estado][Image1]
 
-Esta es una aplicación de ejemplo que usa servicios con estado: ![Aplicación que utiliza servicios con estado][Image2]
+A continuación se muestra una aplicación de ejemplo que usa servicios con estado: ![ aplicación que usa servicios con estado][Image2]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

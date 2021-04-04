@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5a088d5918a957036b905db9136f9b16e5f0527e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93307169"
 ---
-# <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
+# <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Proceso de datos de blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932564"
 ---
 # <a name="key-values"></a>Valores clave
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Coincide con las etiquetas que empiezan por **prod**|
 |`label=prod,test`|Coincide con las etiquetas **prod** o **test** (limitado a 5 archivos CSV)|
 
-**_Caracteres reservados_* _
+***Caracteres reservados***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Si un carácter reservado forma parte del valor, se debe escapar mediante `\{Reserved Character}`. Los caracteres no reservados también se pueden escapar.
 
-***Validación del filtro** _
+***Validación del filtro***
 
 En el caso de un error de validación del filtro, la respuesta es HTTP `400` con detalles del error:
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Ejemplos**
+**Ejemplos**
 
 - All
 

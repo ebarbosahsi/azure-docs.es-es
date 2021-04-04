@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Incorporación de un usuario invitado con PowerShell (Azure AD)'
+title: 'Inicio rápido: Incorporación de un usuario invitado con PowerShell en Azure AD'
 description: En este tutorial, obtendrá información sobre cómo usar PowerShell para enviar una invitación a un usuario externo de colaboración de Azure AD B2B.
 services: active-directory
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87910596"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Inicio rápido: Incorporación de un usuario invitado con PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Guía de inicio rápido: Incorporación de un usuario invitado con PowerShell
 
 Hay muchas maneras de invitar a los asociados externos a sus aplicaciones y servicios con la colaboración de Azure Active Directory B2B. En el tutorial anterior, vimos cómo agregar usuarios invitados directamente en el portal de administración de Azure Active Directory. También puede usar PowerShell para agregar usuarios invitados, uno a uno o de forma masiva. En este tutorial, usará el comando New-AzureADMSInvitation para agregar un usuario invitado a su inquilino de Azure.
 

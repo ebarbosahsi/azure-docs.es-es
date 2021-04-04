@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91565266"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Mejora de la seguridad de los mensajes B2B mediante certificados
@@ -44,7 +44,7 @@ Para usar un *certificado público* en las aplicaciones lógicas con funcionalid
 
 3. En **Certificados**, elija **Agregar**. En **Agregar certificado**, proporcione los detalles de su certificado. Cuando termine, elija **Aceptar**.
 
-   | Propiedad | Value | Descripción | 
+   | Propiedad | Valor | Descripción | 
    |----------|-------|-------------|
    | **Nombre** | <*nombre-certificado*> | El nombre del certificado, que es "publicCert" en este ejemplo | 
    | **Tipo de certificado** | Público | Su tipo de certificado |
@@ -83,7 +83,7 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
 
 5. En **Certificados**, elija **Agregar**. En **Agregar certificado**, proporcione los detalles de su certificado. Cuando termine, elija **Aceptar**.
 
-   | Propiedad | Value | Descripción | 
+   | Propiedad | Valor | Descripción | 
    |----------|-------|-------------|
    | **Nombre** | <*nombre-certificado*> | El nombre del certificado, que es "publicCert" en este ejemplo | 
    | **Tipo de certificado** | Privada | Su tipo de certificado |
