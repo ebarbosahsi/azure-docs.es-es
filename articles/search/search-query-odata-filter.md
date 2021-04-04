@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88934861"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxis de $filter de OData en Azure Cognitive Search
 
 En Azure Cognitive Search se usan [expresiones de filtro de OData](query-odata-filter-orderby-syntax.md) para aplicar criterios adicionales a una consulta de búsqueda, además de los términos de búsqueda de texto completo. En este artículo se describe con detalle la sintaxis de los filtros. Para información general sobre qué son los filtros y cómo usarlos para desarrollar escenarios de consulta específicos, consulte [Filtros de Azure Cognitive Search](search-filters.md).
 
-## <a name="syntax"></a>Sintaxis
+## <a name="syntax"></a>Syntax
 
 En el lenguaje OData, un filtro es una expresión booleana, que a su vez puede ser uno de los distintos tipos de expresión, como se muestra en la siguiente EBNF ([forma de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
@@ -75,7 +75,7 @@ Los tipos de expresiones booleanas incluyen los siguientes:
 
 Si escribe una expresión de filtro sin paréntesis alrededor de sus subexpresiones, Azure Cognitive Search la evaluará según un conjunto de reglas de precedencia de operadores. Estas reglas se basan en qué operadores se usan para combinar las subexpresiones. En la tabla siguiente se enumeran los grupos de operadores en orden de mayor a menor prioridad:
 
-| Grupo | Operadores |
+| Group (Grupo) | Operadores |
 | --- | --- |
 | Operadores lógicos | `not` |
 | Operadores de comparación | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

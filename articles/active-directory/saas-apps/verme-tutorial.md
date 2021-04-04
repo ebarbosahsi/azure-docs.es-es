@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jeedes
 ms.openlocfilehash: 5543fa8525c85bdc866143f04f55eca5b4a6e0ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92517674"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verme"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Verme
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar Verme con Azure Active Directory (Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
