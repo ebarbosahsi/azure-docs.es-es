@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95026034"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integración con una aplicación cliente mediante el SDK de Voz
@@ -25,7 +25,7 @@ En este artículo, obtendrá información sobre cómo enviar solicitudes a una a
 - Publicación de una aplicación de comandos personalizados y obtención de un identificador de aplicación (id. de aplicación)
 - Creación de una aplicación cliente para la Plataforma universal de Windows (UWP) con el SDK de Voz para que pueda comunicarse con su aplicación de comandos personalizados
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se requiere una aplicación de comandos personalizados para completar este artículo. Si aún no ha creado una aplicación de Comandos personalizados, puede hacerlo al seguir estos inicios rápidos:
 > [!div class = "checklist"]

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182893"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
@@ -39,10 +39,10 @@ Además, cuando se usa App Service detrás de una puerta de enlace de aplicacion
 
 ## <a name="sample-configuration"></a>Configuración de ejemplo
 
-- Agente de escucha HTTP: básico o multisitio
+- Cliente de escucha HTTP: básico o de varios sitios
 - Grupo de direcciones de back-end: App Service
-- Configuración de HTTP: **Seleccionar el nombre de host de la dirección de back-end** habilitado
-- Sondeo: **Seleccionar el nombre de host de la configuración de HTTP de back-end** habilitado
+- Configuración HTTP: opción **Pick Hostname from Backend Address** (Seleccionar el nombre de host de la dirección de back-end) habilitada
+- Sondeo: opción **Pick Hostname from HTTP Settings** (Seleccionar el nombre de host de la configuración HTTP) habilitada
 
 ## <a name="cause"></a>Causa
 
@@ -78,14 +78,14 @@ X-Powered-By: ASP.NET
 ```
 En el ejemplo anterior, observe que el encabezado de respuesta tiene un código de estado 301 para el redireccionamiento. El encabezado de ubicación tiene el nombre de host de la instancia de App Service en lugar del nombre de host original, `www.contoso.com`.
 
-## <a name="solution-rewrite-the-location-header"></a>Solución: Reescribir el encabezado de ubicación
+## <a name="solution-rewrite-the-location-header"></a>Solución: reescribir el encabezado de ubicación
 
 Establezca el nombre de host del encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones. Para ello, cree una [regla de reescritura](./rewrite-http-headers.md) con una condición que evalúe si el encabezado de ubicación en la respuesta contiene azurewebsites.net. También debe realizar una acción para volver a escribir el encabezado de ubicación de modo que tenga el nombre de host de la puerta de enlace de aplicaciones. Para obtener más información, vea las instrucciones para [volver a escribir el encabezado de ubicación](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
 > La compatibilidad con la reescritura de encabezados HTTP solo está disponible para [Standard_v2 y WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) de Application Gateway. Si usa la SKU v1, se recomienda [migrar de v1 a V2](./migrate-v1-v2.md). Quiere usar la reescritura y otras [funcionalidades avanzadas](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) que están disponibles con la SKU v2.
 
-## <a name="alternate-solution-use-a-custom-domain-name"></a>Solución alternativa: Usar un dominio personalizado
+## <a name="alternate-solution-use-a-custom-domain-name"></a>Solución alternativa: utilizar un nombre de dominio personalizado
 
 Si usa la SKU v1, no puede volver a escribir el encabezado de la ubicación. Esta funcionalidad solo está disponible para la SKU v2. Para resolver el problema de redireccionamiento, pase el mismo nombre de host que recibe Application Gateway a App Service, en lugar de realizar un reemplazo del host.
 
