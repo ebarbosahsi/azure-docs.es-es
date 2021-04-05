@@ -4,10 +4,10 @@ description: Conozca el modo en que el servicio Azure Blueprints permite crear, 
 ms.date: 01/27/2021
 ms.topic: overview
 ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919349"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
@@ -47,7 +47,7 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Azure Blueprints admite actualmente los siguientes recursos como artefactos:
 
-|Resource  | Opciones de la jerarquía| Descripción  |
+|Recurso  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
 |Plantilla ARM | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |

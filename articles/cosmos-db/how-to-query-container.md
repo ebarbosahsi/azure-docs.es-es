@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335898"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de un contenedor de Azure Cosmos
@@ -59,9 +59,9 @@ Los SDK 1.9.0 y posteriores de Azure Cosmos DB admiten opciones de ejecución de
 
 Puede administrar la ejecución de consultas en paralelo ajustando los parámetros siguientes:
 
-- **MaxConcurrency** : establece el número máximo de conexiones de red simultáneas a las particiones del contenedor. Si establece esta propiedad en `-1`, el SDK administra el grado de paralelismo. Si  `MaxConcurrency` se establece en `0`, hay una única conexión de red a las particiones del contenedor.
+- **MaxConcurrency**: establece el número máximo de conexiones de red simultáneas a las particiones del contenedor. Si establece esta propiedad en `-1`, el SDK administra el grado de paralelismo. Si  `MaxConcurrency` se establece en `0`, hay una única conexión de red a las particiones del contenedor.
 
-- **MaxBufferedItemCount** : equilibra la latencia de las consultas frente al uso de memoria del lado cliente. Si se omite esta opción o se establece en -1, el SDK administra el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo.
+- **MaxBufferedItemCount**: equilibra la latencia de las consultas frente al uso de memoria del lado cliente. Si se omite esta opción o se establece en -1, el SDK administra el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo.
 
 Debido a la capacidad de Azure Cosmos DB de paralelizar las consultas entre particiones, la latencia de las consultas normalmente se escalará correctamente, ya que el sistema agrega [particiones físicas](partitioning-overview.md#physical-partitions). Sin embargo, el cargo RU aumenta significativamente a medida que aumenta el número total de particiones físicas.
 
@@ -106,4 +106,4 @@ Debe intentar evitar las consultas entre particiones si la carga de trabajo cump
 Consulte los siguientes artículos para información sobre la creación de particiones en Azure Cosmos DB:
 
 - [Creación de particiones en Azure Cosmos DB](partitioning-overview.md)
-- [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md) (Claves de partición sintéticas en Azure Cosmos DB)
+- [Claves de partición sintéticas en Azure Cosmos DB](synthetic-partition-keys.md)

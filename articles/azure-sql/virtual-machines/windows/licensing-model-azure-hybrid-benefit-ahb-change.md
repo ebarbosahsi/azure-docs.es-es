@@ -15,10 +15,10 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361560"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
@@ -47,7 +47,7 @@ Para indicar el uso de la Ventaja híbrida de Azure para SQL Server en una VM d
 
 El tipo de licencia de SQL Server se puede configurar cuando se aprovisiona la VM o en cualquier momento posterior. El cambio entre los modelos de licencia no genera ningún tiempo de inactividad, no reinicia la máquina virtual ni el servicio SQL Server, no agrega ningún costo adicional y es efectivo inmediatamente. De hecho, activar la Ventaja híbrida de Azure *reduce* el costo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 El cambio del modelo de licencia de la máquina virtual con SQL Server tiene los siguientes requisitos: 
 

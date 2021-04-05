@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de una red virtual a varios sitios mediante VPN Gateway: Clásico'
+title: 'Conexión de una red virtual a varios sitios mediante VPN Gateway: versión clásica'
 description: Conecte varios sitios locales a una red virtual clásica con una instancia de VPN Gateway.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660702"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
@@ -71,8 +71,8 @@ Si ya tiene una VPN de sitio a sitio con una puerta de enlace de enrutamiento di
 2. Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, consulte [Especificación del tipo de VPN y SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Asegúrese de especificar el tipo de enrutamiento como "Dinámico".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si no dispone de una red virtual de sitio a sitio:
-1. Cree la red virtual de sitio a sitio mediante las instrucciones que se describen en: [Creación de una red virtual con una conexión VPN de sitio a sitio](./vpn-gateway-howto-site-to-site-classic-portal.md).  
-2. Configure una puerta de enlace de enrutamiento mediante estas instrucciones: [Configuración de una instancia de VPN Gateway](./vpn-gateway-howto-site-to-site-classic-portal.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
+1. Cree una red virtual de sitio a sitio con estas instrucciones: [Creación de una red virtual con una conexión VPN de sitio a sitio](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configure una puerta de enlace de enrutamiento dinámico con estas instrucciones: [Configuración de una instancia de VPN Gateway](./vpn-gateway-howto-site-to-site-classic-portal.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Exportar el archivo de configuración de red
 

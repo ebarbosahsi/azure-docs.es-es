@@ -13,10 +13,10 @@ ms.custom: subject-armqs
 ms.author: jgao
 ms.date: 01/14/2021
 ms.openlocfilehash: 75d6c484a0f1d6325aaa7894d8902ff78cadbd74
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99092507"
 ---
 # <a name="quickstart-create-an-azure-ddos-protection-standard-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure DDoS Protection Estándar mediante la plantilla de ARM
@@ -29,7 +29,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-create-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
