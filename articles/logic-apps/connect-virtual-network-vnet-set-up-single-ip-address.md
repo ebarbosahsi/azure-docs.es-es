@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: e88c4bf05d88007a6e19b568f1bc1085e24b0325
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102211063"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configuración de una única dirección IP para uno o varios entornos de servicio de integración en Azure Logic Apps
@@ -49,7 +49,7 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
 
    ![Configuración de una regla para dirigir el tráfico saliente](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre de ruta** | <*unique-route-name*> | Un nombre único para la ruta en la tabla de rutas. |
    | **Prefijo de dirección** | <*destination-address*> | El prefijo de la dirección del sistema de destino adonde quiere que vaya el tráfico saliente. Asegúrese de usar la [notación de enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esta dirección. En este ejemplo, el prefijo de dirección es para un servidor SFTP, que se describe en la sección [Configuración de la regla de red](#set-up-network-rule). |
@@ -73,7 +73,7 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
 
    **Propiedades de una colección de reglas de red**
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*network-rule-collection-name*> | El nombre de la colección de reglas de red. |
    | **Prioridad** | <*priority-level*> | El orden de prioridad que se va a usar para ejecutar la colección de reglas. Para más información, consulte [¿Cuáles son algunos de los conceptos de Azure Firewall](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts)? |
@@ -82,7 +82,7 @@ En este tema se muestra cómo enrutar el tráfico saliente a través de Azure Fi
 
    **Propiedades de una regla de red**
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*network-rule-name*> | El nombre de la regla de red. |
    | **Protocolo** | <*connection-protocols*> | Los protocolos de conexión que se van a usar. Por ejemplo, si usa reglas de NSG, seleccione tanto **TCP** como **UDP**, no solo **TCP**. |

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
 ms.openlocfilehash: fcb8090427530271600a6699fafa5c488c426784
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97680868"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>Tutorial: Migración de una aplicación web desde Google Maps
@@ -1318,7 +1318,7 @@ map.overlayMapTypes.insertAt(0, new google.maps.ImageMapType({
 
 ![Capa de mosaicos de Google Maps](media/migrate-google-maps-web-app/google-maps-tile-layer.png)
 
-#### <a name="after-azure-maps"></a>Después: Azure Maps
+#### <a name="after-azure-maps"></a>Después: Azure Maps
 
 Agregue una capa de mosaicos al mapa igual que haría con cualquier otra capa. Use una dirección URL con formato que tenga marcadores de X, Y y zoom: `{x}`, `{y}`, `{z}`, para indicar a la capa dónde puede acceder a los mosaicos. Las capas de mosaicos de Azure Maps también admiten los marcadores de posición `{quadkey}`, `{bbox-epsg-3857}` y `{subdomain}`.
 

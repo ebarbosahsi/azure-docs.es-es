@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
 ms.openlocfilehash: 7c1a6623883cbee46ba98982808f3c392dc50ffa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946651"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Apache Hadoop en HDInsight
 
 Aprenda a usar Apache Maven para crear una aplicación MapReduce basada en Java y ejecutarla con Apache Hadoop en Azure HDInsight.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
@@ -44,8 +44,8 @@ cd C:\HDI
     Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro `artifactID` (**hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
 
     * `pom.xml`: el [modelo de objetos de proyectos (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contiene la información y los detalles de configuración para compilar el proyecto.
-    * src\main\java\org\apache\hadoop\examples: Contiene el código de la aplicación.
-    * src\test\java\org\apache\hadoop\examples: Contiene pruebas para la aplicación.
+    * src\main\java\org\apache\hadoop\examples: contiene el código de la aplicación.
+    * src\main\java\org\apache\hadoop\examples: contiene pruebas de la aplicación.
 
 1. Quite el código de ejemplo generado. Especifique los siguientes comandos para eliminar los archivos de aplicación y de prueba generados (`AppTest.java` y `App.java`):
 

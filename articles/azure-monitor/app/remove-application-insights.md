@@ -4,10 +4,10 @@ description: Procedimiento para quitar el SDK de Application Insights para ASP.N
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1d70413fa6a47e2d41693db6eb705f31b2a2b1b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101704317"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Procedimiento para quitar Application Insights en Visual Studio
