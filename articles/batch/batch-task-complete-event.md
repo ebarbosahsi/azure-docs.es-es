@@ -4,10 +4,10 @@ description: Referencia del evento completo de tarea de Batch. Este evento se em
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: 11f727b07723f32cd08130b4af17e57ede3d264f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91850898"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
