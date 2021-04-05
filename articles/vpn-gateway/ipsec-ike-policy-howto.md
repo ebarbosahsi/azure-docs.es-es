@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878551"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configuración de una directiva de IPsec o IKE para conexiones VPN S2S o conexiones entre redes virtuales: Azure Portal
@@ -28,8 +28,10 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 ### <a name="considerations"></a>Consideraciones
 
 * La directiva IPsec/IKE solo funciona en las siguientes SKU de puerta de enlace:
-  * ***VpnGw1~5 and VpnGw1AZ~5AZ** _ _ ***Standard** _ y _*_HighPerformance_*_ _ Solo se puede especificar ***una** _ combinación de directivas para una conexión determinada.
-  _ Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
+  * ***VpnGw1~5 y VpnGw1AZ~5AZ***
+  * ***Standard** _ y _ *_HighPerformance_**
+* Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
+* Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 * Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Flujo de trabajo

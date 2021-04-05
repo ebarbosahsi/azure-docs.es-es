@@ -2,14 +2,14 @@
 title: Elección de los tamaños y las imágenes de máquina virtual de los grupos
 description: Cómo elegir uno de los tamaños de máquina virtual y una de las versiones de sistema operativo disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455202"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800489"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -35,11 +35,13 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | DC | No compatible |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
-| Dav4, Dasv4 | Todos los tamaños |
+| Dav4 | Todos los tamaños |
+| Dasv4 | Todos los tamaños |
 | Ddv4, Ddsv4 |  Todos los tamaños |
 | Dv4, Dsv4 | No compatible |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
-| Eav4, Easv4 | Todos los tamaños |
+| Eav4 | Todos los tamaños |
+| Easv4 | Todos los tamaños |
 | Edv4, Edsv4 |  Todos los tamaños |
 | Ev4, Esv4 | No compatible |
 | F, Fs | Todos los tamaños |
@@ -56,7 +58,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NC | Todos los tamaños |
 | NCv2 | Todos los tamaños |
 | NCv3 | Todos los tamaños |
-| NCasT4_v3 | Todos los tamaños |
+| NCasT4_v3 | Ninguno: no disponible todavía |
 | ND | Todos los tamaños |
 | NDv2 | Ninguno: no disponible todavía |
 | NV | Todos los tamaños |
@@ -100,6 +102,8 @@ Use una de las siguientes API para devolver una lista de imágenes de máquina v
 - API REST del servicio Batch: [Enumerar imágenes compatibles](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - CLI de Azure: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
+
+Se recomienda evitar las imágenes con fechas de final del ciclo de vida (EOL) inminentes para el soporte técnico de Batch. Estas fechas se pueden detectar con la [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Consulte [Guía de procedimientos recomendados de Batch](best-practices.md) para más información sobre la selección de imágenes de máquina virtual del grupo de Batch.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

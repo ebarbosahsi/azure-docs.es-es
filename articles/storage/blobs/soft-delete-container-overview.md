@@ -10,12 +10,12 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211148"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800751"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -35,6 +35,9 @@ Para una protección integral de los datos de blobs, Microsoft recomienda habili
 Al habilitar la eliminación temporal de contenedores, puede especificar un período de retención de 1 a 365 días para los contenedores eliminados. El período de retención predeterminado es de 7 días. Durante el período de retención, puede recuperar un contenedor eliminado mediante una llamada a la operación **Restore Container** (Restaurar contenedor).
 
 Al restaurar un contenedor, también se restauran los blobs del contenedor y las versiones de blob. Sin embargo, solo puede usar la eliminación temporal de contenedores para restaurar blobs si se eliminó el propio contenedor. Para restaurar un blob eliminado cuando su contenedor principal no se ha eliminado, debe usar la eliminación temporal de blobs o el control de versiones de blobs.
+
+> [!WARNING]
+> La eliminación temporal de contenedores solo puede restaurar contenedores completos y los blobs que contenían en el momento de la eliminación. No se puede restaurar un blob eliminado dentro de un contenedor mediante la eliminación temporal del contenedor.
 
 En el diagrama siguiente se muestra cómo se puede restaurar un contenedor eliminado cuando está habilitada la eliminación temporal de contenedores:
 

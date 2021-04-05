@@ -1,20 +1,20 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593143"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103199054"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
 Como proveedor de servicios, es posible que desee conocer cuándo se delegan las suscripciones o grupos de recursos del cliente al inquilino mediante [Azure Lighthouse](../overview.md), o cuándo se eliminan los recursos delegados anteriormente.
 
-En el inquilino de administración, el [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) realiza un seguimiento de la actividad de delegación en el nivel del inquilino. Esta actividad registrada incluye cualquier delegación agregada o eliminada de todos los inquilinos del cliente.
+En el inquilino de administración, el [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) realiza un seguimiento de la actividad de delegación en el nivel del inquilino. Esta actividad registrada incluye cualquier delegación agregada o eliminada de los inquilinos del cliente.
 
 En este tema se explican los permisos necesarios para supervisar la actividad de delegación en el inquilino (en todos los clientes). También incluye un script de ejemplo que muestra un método para realizar consultas e informes sobre estos datos.
 

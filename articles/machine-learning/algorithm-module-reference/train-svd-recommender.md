@@ -1,5 +1,5 @@
 ---
-title: 'Entrenamiento del recomendador SVD: referencia para los módulos'
+title: Referencia del módulo de entrenamiento del recomendador SVD
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo de entrenamiento del recomendador SVD en Azure Machine Learning para entrenar a un recomendador bayesiano con el algoritmo SVD.
 services: machine-learning
@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890243"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654465"
 ---
 # <a name="train-svd-recommender"></a>Entrenamiento del recomendador SVD
 
 En este artículo se describe cómo usar el módulo Entrenar recomendador de SVD del diseñador de Azure Machine Learning. Use este módulo para entrenar un modelo de recomendación basado en el algoritmo de descomposición en valores singulares (SVD).  
 
-El módulo Entrenar recomendador de SVD lee un conjunto de datos de tripletas usuario-elemento-clasificación. Devuelve un recomendador SVD entrenado. Después, puede usar el modelo entrenado para predecir las clasificaciones o generar recomendaciones con el uso del módulo [ de puntuación del recomendador SVD](score-svd-recommender.md).  
+El módulo Entrenar recomendador de SVD lee un conjunto de datos de tripletas usuario-elemento-clasificación. Devuelve un recomendador SVD entrenado. Después, puede usar el modelo entrenado para predecir las clasificaciones o generar recomendaciones mediante la conexión del módulo de [puntuación del recomendador SVD](score-svd-recommender.md).  
 
 
   
@@ -35,7 +35,7 @@ Existen dos enfoques principales para los sistemas de recomendación:
 
 El recomendador SVD usa identificadores de los usuarios y los elementos, así como una matriz de las clasificaciones que los usuarios le proporcionan a los elementos. Es un *recomendador colaborativo*. 
 
-Para más información sobre el recomendador SVD, consulte el documento de investigación pertinente: [Técnicas de factorización de matriz para los sistemas de recomendación](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Para más información sobre el recomendador SVD, consulte el artículo de investigación pertinente: [Técnicas de factorización de matriz para los sistemas de recomendación](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Cómo configurar el entrenamiento del recomendador SVD  
@@ -70,6 +70,9 @@ En este ejemplo, se puede ver que un único usuario ha clasificado varias pelíc
   
 5.  Envíe la canalización.  
 
+## <a name="results"></a>Results
+
+Una vez completada la ejecución de la canalización, para usar el modelo para la puntuación, conecte el módulo de [entrenamiento del recomendador SVD](train-svd-recommender.md) al módulo de [puntuación del recomendador SVD](score-svd-recommender.md) para predecir valores para los nuevos ejemplos de entrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
