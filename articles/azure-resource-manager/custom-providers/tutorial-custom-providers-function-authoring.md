@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200216"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Creación de un punto de conexión de RESTful para proveedores personalizados
@@ -23,11 +23,11 @@ Un proveedor personalizado es un contrato entre Azure y un punto de conexión. L
 
 En este tutorial, va a actualizar la aplicación de funciones para que sirve de punto de conexión de RESTful para el proveedor personalizado. Los recursos y las acciones de Azure se modelan en función de la especificación de RESTful básica:
 
-- **PUT**: Crear un nuevo recurso
-- **GET (instancia)** : Recuperar un recurso existente
-- **DELETE**: Quitar un recurso existente
-- **POST**: Desencadenar una acción
-- **GET (colección)** : Enumerar todos los recursos existentes
+- **PUT**: crear un recurso.
+- **GET (instancia)** : recuperar un recurso existente.
+- **DELETE**: quitar un recurso existente.
+- **POST**: desencadenar una acción.
+- **GET (colección)** : enumerar todos los recursos existentes.
 
  En este tutorial, va a utilizar Azure Table Storage. Sin embargo, cualquier servicio o de base de datos o de almacenamiento puede funcionar.
 
@@ -138,7 +138,7 @@ Propiedad | Ejemplo | Descripción
 ---|---|---
 **name** | {myCustomResourceName} | El nombre del recurso personalizado
 **type** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | El espacio de nombres del tipo de recurso
-**id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | El identificador del recurso
+**identificador** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | El identificador del recurso
 
 Además de agregar las propiedades, también guardamos el documento JSON en Azure Table Storage.
 

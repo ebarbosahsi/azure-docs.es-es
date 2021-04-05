@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
 ms.openlocfilehash: e28d21ed71cf5f485165c639a8bd519b3a2736e1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928992"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desarrollo de topologías Apache Storm con Python en HDInsight
@@ -19,7 +19,7 @@ Aprenda a crear una topología de [Apache Storm](https://storm.apache.org/) que 
 > [!IMPORTANT]  
 > La información de este documento se probó con Storm en HDInsight 3.6.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Storm en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Storm** como **Tipo de clúster**.
 
@@ -69,7 +69,7 @@ Flux espera que los scripts de Python estén en el directorio `/resources` dentr
 
 Como se mencionó anteriormente, hay un `storm.py`archivo que implementa la definición de Thrift para Storm. El marco de trabajo de Flux incluye `storm.py` automáticamente cuando se compila el proyecto, por lo que no tiene que preocuparse de incluirlo.
 
-## <a name="build-the-project"></a>Compilación del proyecto
+## <a name="build-the-project"></a>Compilar el proyecto
 
 1. Descargue el proyecto de [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -142,4 +142,4 @@ Para detener la topología, use __Ctrl+C__.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los siguientes documentos para ver otras maneras de usar Python con HDInsight. [Cómo usar las funciones definidas por el usuario (UDF) de Python en Apache Pig y Apache Hive](../hadoop/python-udf-hdinsight.md).
+Consulte los siguientes documentos para ver otras formas de usar Python con HDInsight: [Uso de las funciones definidas por el usuario (UDF) de Python en Apache Pig y Apache Hive](../hadoop/python-udf-hdinsight.md).
