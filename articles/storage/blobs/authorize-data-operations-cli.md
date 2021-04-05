@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361679"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Distintas formas de autorizar el acceso a datos en blobs con la CLI de Azure
@@ -35,7 +35,7 @@ Los comandos de la CLI de Azure para leer y escribir datos de blobs incluyen el 
 Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de Azure, versión 2.0.46 o posterior. Ejecute `az --version` para comprobar la versión instalada.
 
 > [!NOTE]
-> Cuando una cuenta de almacenamiento se bloquea con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Enumerar claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Enumerar claves** es una operación POST y todas las operaciones POST se evitan cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta se bloquea con un bloqueo **ReadOnly**, los usuarios que aún no disponen de las claves de cuenta deben usar credenciales de Azure AD para tener acceso a los datos de blob.
+> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta se bloquea con un bloqueo **ReadOnly**, los usuarios que aún no disponen de las claves de cuenta deben usar credenciales de Azure AD para tener acceso a los datos de blob.
 
 > [!IMPORTANT]
 > Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno **AZURE_STORAGE_KEY**. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).

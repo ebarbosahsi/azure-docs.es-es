@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: 6d196f7037fe9c0209e66e9d6e9ab25bdf807b59
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181915"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Tutorial: Configuración de New Relic by Organization para el aprovisionamiento automático de usuarios
@@ -31,7 +31,7 @@ En este tutorial se describen los pasos que debe realizar en New Relic by Organi
 > * Aprovisionamiento de grupos y pertenencias a grupos en New Relic by Organization
 > * [Inicio de sesión único](./new-relic-limited-release-tutorial.md) en New Relic by Organization (recomendado)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -60,7 +60,7 @@ El representante de la cuenta le proporciona la siguiente información que neces
 
 El token de portador de SCIM permite el aprovisionamiento de los usuarios en New Relic, por lo que el valor debe protegerse. El representante de la cuenta le transferirá el token de portador de SCIM de forma segura.
 
-## <a name="step-3-add-new-relic-by-organization-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de New Relic by Organization desde la galería de aplicaciones Azure AD
+## <a name="step-3-add-new-relic-by-organization-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de New Relic by Organization desde la galería de aplicaciones Azure AD
 
 Agregue New Relic by Organization desde la galería de aplicaciones de Azure AD para empezar a administrar el aprovisionamiento para New Relic by Organization. Si ha configurado anteriormente New Relic by Organization para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
 
