@@ -15,10 +15,10 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895893"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
@@ -89,7 +89,7 @@ La información es útil para planear futuras implementaciones de recursos.
 
 Los grupos de seguridad de red (NSG) permiten o deniegan el tráfico entrante o saliente de una interfaz de red de una máquina virtual. La funcionalidad *Registro de flujos de NSG* permite registrar la dirección IP de origen y destino, el puerto, el protocolo y si un NSG ha permitido o denegado el tráfico. Puede analizar los registros con distintas herramientas, como PowerBI y la funcionalidad *análisis de tráfico*. El análisis de tráfico ofrece visualizaciones enriquecidas de los datos escritos en registros de flujos de NSG. En la imagen siguiente se muestra parte de la información y las visualizaciones que el análisis de tráfico presenta de los datos de registros de flujos de NSG.
 
-![Análisis del tráfico](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+![Análisis de tráfico](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
 Más información acerca de los registros de flujo NSG siguiendo el tutorial [Registro del tráfico de red hacia y desde una máquina virtual](network-watcher-nsg-flow-logging-portal.md) y los procedimientos para implementar el [análisis de tráfico](traffic-analytics.md).
 
@@ -98,7 +98,7 @@ Más información acerca de los registros de flujo NSG siguiendo el tutorial [Re
 Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Los registros de diagnóstico se pueden ver con herramientas como Microsoft Power BI y los registros de Azure Monitor. Para más información acerca del análisis de los registros de diagnóstico de la red de Azure, consulte [Soluciones de supervisión de redes de Azure en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Habilitación automática de Network Watcher
-Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de la red virtual. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni supone un cargo adicional. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
+Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de Virtual Network. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni supone un cargo adicional. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

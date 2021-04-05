@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: c35d5d2f63f4a7abe80a0ff19e5994013355c386
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98020526"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integración de Azure Stream Analytics con Azure Machine Learning (versión preliminar)
 
 Puede implementar modelos de Machine Learning como funciones definidas por el usuario en los trabajos de Azure Stream Analytics para realizar predicciones y puntuaciones en tiempo real a partir de los datos de entrada de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) le permite usar cualquier herramienta de código abierto popular (como Tensorflow, scikit-learn o PyTorch) para preparar, entrenar e implementar modelos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Siga los pasos que se indican a continuación antes de agregar un modelo de Machine Learning como función a su trabajo de Stream Analytics:
 

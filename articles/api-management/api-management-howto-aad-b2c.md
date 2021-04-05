@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013571"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
@@ -92,7 +92,7 @@ Azure Active Directory B2C es una solución de administración de identidades en
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal para desarrolladores: incorporación de autenticación de cuenta de Azure AD B2C
 
-En el portal para desarrolladores, se puede iniciar sesión con AAD B2C utilizando el widget **Sign-in button: OAuth** (Botón de inicio de sesión: OAuth). El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
+En el portal para desarrolladores, se puede iniciar sesión con AAD B2C utilizando el widget **Botón de inicio de sesión: OAuth**. El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
 
 Aunque se creará automáticamente una nueva cuenta cada vez que un nuevo usuario inicie sesión con AAD B2C, puede considerar la idea de agregar el mismo widget a la página de registro.
 
@@ -127,7 +127,7 @@ El widget **Sign-up form: OAuth** (Formulario de inicio de sesión: OAuth) repre
 ## <a name="next-steps"></a>Pasos siguientes
 
 *  [Introducción a Azure Active Directory B2C]
-*  [Azure Active Directory B2C: Marco de directiva extensible]
+*  [Azure Active Directory B2C: marco de directivas extensible]
 *  [Uso de una cuenta Microsoft como proveedor de identidades en Azure Active Directory B2C]
 *  [Uso de una cuenta de Google como proveedor de identidades en Azure Active Directory B2C]
 *  [Uso de una cuenta de LinkedIn como proveedor de identidades en Azure Active Directory B2C]
@@ -196,7 +196,7 @@ El widget **Sign-up form: OAuth** (Formulario de inicio de sesión: OAuth) repre
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Introducción a Azure Active Directory B2C]: ../active-directory-b2c/overview.md
 [Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory]: ./api-management-howto-aad.md
-[Azure Active Directory B2C: Marco de directiva extensible]: ../active-directory-b2c/user-flow-overview.md
+[Azure Active Directory B2C: marco de directivas extensible]: ../active-directory-b2c/user-flow-overview.md
 [Uso de una cuenta Microsoft como proveedor de identidades en Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
 [Uso de una cuenta de Google como proveedor de identidades en Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-google.md
 [Uso de una cuenta de Facebook como proveedor de identidades en Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-facebook.md

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100368853"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copia de datos desde MongoDB mediante Azure Data Factory (heredado)
@@ -35,7 +35,7 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 - **Versiones 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6** de MongoDB.
 - Copiar datos mediante la autenticación **Básica** o **Anónima**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
