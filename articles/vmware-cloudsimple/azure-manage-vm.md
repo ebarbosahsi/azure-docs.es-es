@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895196"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de CloudSimple en Azure
@@ -27,7 +27,7 @@ Los siguientes controles están disponibles en la página **Overview** (Informac
 | ------------ | ------------- |
 | Conectar | Conecta a la máquina virtual especificada.  |
 | Start | Inicia la máquina virtual especificada.  |
-| Reinicio | Apaga y enciende la máquina virtual especificada.  |
+| Reiniciar | Apaga y enciende la máquina virtual especificada.  |
 | Stop | Apaga la máquina virtual específica.  |
 | Capturar | Captura una imagen de la máquina virtual especificada para que se pueda usar para crear otras máquinas virtuales. Consulte [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Mueve a la máquina virtual especificada.  |
@@ -55,8 +55,8 @@ Para agregar un disco de máquina virtual, abra la página **Disks** (Discos) de
    | ------------ | ------------- |
    | Nombre | Escriba un nombre para identificar el disco.  |
    | Size | Seleccione uno de los tamaños disponibles.  |
-   | SCSI Controller (Controladora SCSI) | Seleccione una controladora SCSI. Las controladoras disponibles varían según los distintos sistemas operativos admitidos.  |
-   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual.  Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Controladora SCSI | Seleccione una controladora SCSI. Las controladoras disponibles varían según los distintos sistemas operativos admitidos.  |
+   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios que se escriben en el disco se descartan al apagar o restablecer la máquina virtual.  Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Para eliminar un disco, selecciónelo y haga clic en **Delete** (Eliminar).
 
