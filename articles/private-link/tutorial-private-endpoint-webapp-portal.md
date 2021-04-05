@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896980"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una aplicación web mediante un punto de conexión privado de Azure
@@ -48,7 +48,7 @@ El host bastión se utilizará para conectarse de forma segura a la máquina vir
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Red virtual** o busque **Red virtual** en el cuadro de búsqueda.
 
-2. En **Crear red virtual** , escriba o seleccione esta información en la pestaña **Conceptos básicos** :
+2. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
 
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -61,15 +61,15 @@ El host bastión se utilizará para conectarse de forma segura a la máquina vir
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
-4. En la pestaña **Direcciones IP** , especifique esta información:
+4. En la pestaña **Direcciones IP**, especifique esta información:
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
-5. En **Nombre de subred** , seleccione la palabra **predeterminada**.
+5. En **Nombre de subred**, seleccione la palabra **predeterminada**.
 
-6. En **Editar subred** , especifique esta información:
+6. En **Editar subred**, especifique esta información:
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
@@ -80,13 +80,13 @@ El host bastión se utilizará para conectarse de forma segura a la máquina vir
 
 8. Seleccione la pestaña **Seguridad** .
 
-9. En **BastionHost** , seleccione **Habilitar**. Escriba esta información:
+9. En **BastionHost**, seleccione **Habilitar**. Escriba esta información:
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Nombre del bastión | Escriba **myBastionHost**. |
     | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/24**. |
-    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre** , escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
+    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
 
 
 8. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
@@ -100,7 +100,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
 
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** o **Máquina virtual** en el cuadro de búsqueda.
    
-2. En **Crear una máquina virtual** , escriba o seleccione los valores en la pestaña **Básico** :
+2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
     | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
@@ -142,7 +142,7 @@ En esta sección, creará una aplicación web.
 
 1. En el menú izquierdo, seleccione **Crear un recurso** > **Almacenamiento** > **Aplicación web** o busque **Aplicación web** en el cuadro de búsqueda.
 
-2. En la pestaña **Básico** de **Crear aplicación web** , escriba o seleccione la información siguiente:
+2. En la pestaña **Básico** de **Crear aplicación web**, escriba o seleccione la información siguiente:
 
     | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
@@ -171,11 +171,11 @@ En esta sección, creará una aplicación web.
 
 2. En la información general de la aplicación web, seleccione **Configuración** > **Redes**.
 
-3. En **Redes** , seleccione **Configurar las conexiones de punto de conexión privado**.
+3. En **Redes**, seleccione **Configurar las conexiones de punto de conexión privado**.
 
-4. En la pantalla **Conexiones de punto de conexión privado** , seleccione **+ Agregar**.
+4. En la pantalla **Conexiones de punto de conexión privado**, seleccione **+ Agregar**.
 
-5. En la pantalla **Agregar punto de conexión privado** , escriba o seleccione la siguiente información:
+5. En la pantalla **Agregar punto de conexión privado**, escriba o seleccione la siguiente información:
 
     | Configuración | Valor |
     | ------- | ----- |
@@ -198,7 +198,7 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
 
 3. Seleccione **myVM**.
 
-4. En la página de información general para **myVM** , seleccione **Conectar** y, luego, **Bastion**.
+4. En la página de información general para **myVM**, seleccione **Conectar** y, luego, **Bastion**.
 
 5. Seleccione el botón **Usar bastión** azul.
 
@@ -226,7 +226,7 @@ En esta sección, utilizará la máquina virtual creada en el paso anterior para
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Página 403 para la dirección externa de la aplicación web." border="true":::
 
-11. En la conexión bastión a **myVM** , abra Internet Explorer.
+11. En la conexión bastión a **myVM**, abra Internet Explorer.
 
 12. Escriba la dirección URL de la aplicación web, **https://\<webapp-name>.azurewebsites.net**.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 2eccf94f6ae34de027c652dafab81744f924f963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181652"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-remotepc"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con RemotePC
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar RemotePC con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en RemotePC con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97814336"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicio de una conmutación por error de la cuenta de almacenamiento
@@ -29,7 +29,7 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder realizar una conmutación por error de su cuenta de almacenamiento, asegúrese de que la cuenta de almacenamiento está configurada para la replicación geográfica. La cuenta de almacenamiento puede usar cualquiera de las siguientes opciones de redundancia:
 
