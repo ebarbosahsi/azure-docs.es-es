@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3fedfbe55fd8ea3d2b4cc910df631e40bc74e210
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899072"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Conexión de la red virtual de Azure a CloudSimple mediante ExpressRoute
@@ -24,11 +24,11 @@ Puede extender la red de la nube privada a la red virtual de Azure y a los recur
 Se requiere una clave de autorización para la conexión de ExpressRoute entre la nube privada y la red virtual de Azure. Para obtenerla, abra una incidencia de <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">soporte técnico</a>.  Use la siguiente información para la solicitud:
 
 * Tipo de problema: **Técnico**
-* Suscripción: **Seleccione la suscripción en la que se implementa el servicio de CloudSimple**
+* Suscripción: **Seleccione la suscripción donde está implementado el servicio CloudSimple**.
 * Servicio: **VMware Solution by CloudSimple**
 * Tipo de problema: **Solicitud de servicio**
-* Subtipo de problema: **Clave de autorización para la conexión de red virtual de Azure**
-* Asunto: **Solicitud de clave de autorización para la conexión de red virtual de Azure**
+* Subtipo de problema: **Clave de autorización para la conexión de VNET de Azure**
+* Asunto: **Solicitud de clave de autorización para la conexión de VNET de Azure**
 
 ## <a name="get-peering-information-from-cloudsimple-portal"></a>Obtención de información de emparejamiento desde el portal de CloudSimple
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90931839"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Reinicio en Azure Database for PostgreSQL: Servidor flexible
@@ -33,7 +33,7 @@ Para completar esta guía, necesita:
 
 Siga estos pasos para reiniciar el servidor flexible.
 
-1.  En  [Azure Portal](https://portal.azure.com/), elija el servidor flexible que quiera detener.
+1.  En [Azure Portal](https://portal.azure.com/), elija el servidor flexible que quiera reiniciar.
 
 2.  Haga clic en **Información general** en el panel izquierdo y, después, haga clic en **Reiniciar**.
    
@@ -43,11 +43,11 @@ Siga estos pasos para reiniciar el servidor flexible.
 
 4.  Haga clic en **Sí** si quiere continuar.
    
-     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Selección de reinicio":::
+     :::image type="content" source="./media/how-to-restart-server-portal/restart-pop-up.png" alt-text="Confirmación de reinicio":::
  
 6.  Se mostrará una notificación en la que se indica que se ha iniciado la operación de reinicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre [continuidad empresarial](./concepts-business-continuity.md)
--   Más información sobre la  [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+-   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
+-   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)

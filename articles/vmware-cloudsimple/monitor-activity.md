@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899310"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Supervisión de una actividad de VMware Solution by CloudSimple
@@ -50,14 +50,14 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 ------------ | ------------- |
 | Tipo de alerta | Categoría de la alerta.|
 | Time | Hora en que se produjo la alerta. |
-| severity | Importancia de la alerta.|
+| Gravedad | Importancia de la alerta.|
 | Nombre de recurso | Nombre asignado al recurso, como el nombre de la nube privada. |
-| Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
+| Tipo de recurso | Categoría del recurso: nube privada, bastidor de nube. |
 | Id. de recurso | Identificador del recurso. |
 | Descripción | Descripción de lo que desencadenó la alerta. |
 | Confirmado | Indicación de si se ha confirmado la alerta. |
 
-## <a name="events"></a>Eventos
+## <a name="events"></a>Events
 
 Los eventos muestran la actividad del usuario y del sistema en el portal de CloudSimple. La página Eventos muestra la actividad asociada a un recurso específico y la gravedad del impacto.
 
@@ -67,9 +67,9 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 ------------ | ------------- |
 | Time | Fecha y hora en que se produjo el evento. |
 | Tipo de evento | Código numérico que identifica el evento. |
-| severity | Gravedad del evento.|
+| Gravedad | Gravedad del evento.|
 | Nombre de recurso | Nombre asignado al recurso, como el nombre de la nube privada. |
-| Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
+| Tipo de recurso | Categoría del recurso: nube privada, bastidor de nube. |
 | Descripción | Descripción de lo que desencadenó la alerta. |
 
 ## <a name="tasks"></a>Tareas
@@ -80,15 +80,15 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 
 | Columna | Descripción |
 ------------ | ------------- |
-| Id. de tarea | Identificador único para la tarea. |
+| Identificador de tarea | Identificador único para la tarea. |
 | Operación | Acción que realiza la tarea. |
 | Usuario | Usuario asignado para completar la tarea. |
 | Nombre de recurso | Nombre asignado al recurso. |
-| Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
+| Tipo de recurso | Categoría del recurso: nube privada, bastidor de nube. |
 | Id. de recurso | Identificador del recurso. |
 | Start | Hora de inicio de la tarea. |
 | End | Hora de finalización de la tarea. |
-| Status | Estado actual de la tarea. |
+| Estado | Estado actual de la tarea. |
 | Tiempo transcurrido | Tiempo en que tardó en completarse la tarea (si se completa) o que está tomando (si está en curso). |
 | Descripción | Descripción de la tarea. |
 
@@ -104,7 +104,7 @@ Las siguientes columnas de información están disponibles para las alertas. Hag
 | Operación | Acción que realiza la tarea. |
 | Usuario | Usuario asignado a la tarea. |
 | Nombre de recurso | Nombre asignado al recurso. |
-| Tipo de recurso | Categoría del recurso: Nube privada, bastidor de nube. |
+| Tipo de recurso | Categoría del recurso: nube privada, bastidor de nube. |
 | Id. de recurso | Identificador del recurso. |
 | Resultado | Resultado de la actividad, como **Correcto**. |
 | Tiempo empleado | Tiempo para completar la tarea. |

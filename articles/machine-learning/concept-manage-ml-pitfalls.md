@@ -11,10 +11,10 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
 ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96922620"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar el sobreajuste y los datos desequilibrados con el aprendizaje automático automatizado
@@ -29,7 +29,7 @@ Examine los siguientes modelos entrenados y sus correspondientes precisiones de 
 
 | Modelo | Precisión del entrenamiento | Precisión de la prueba |
 |-------|----------------|---------------|
-| Un | 99,9 % | 95 % |
+| A | 99,9 % | 95 % |
 | B | 87 % | 87 % |
 | C | 99,9 % | 45 % |
 

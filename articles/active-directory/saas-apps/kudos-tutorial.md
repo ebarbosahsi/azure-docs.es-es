@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 656c7467507c105f492f266f06c05a9f41e8f76a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92458870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integración de Azure Active Directory con Kudos
@@ -30,7 +30,7 @@ La integración de Kudos con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Kudos, necesita los siguientes elementos:
 
@@ -41,7 +41,7 @@ Para configurar la integración de Azure AD con Kudos, necesita los siguientes e
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Kudos admite el inicio de sesión único iniciado por **SP** .
+* Kudos admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-kudos-from-the-gallery"></a>Adición de Kudos desde la galería
 
@@ -49,11 +49,11 @@ Para configurar la integración de Kudos en Azure AD, deberá agregar Kudos desd
 
 **Para agregar Kudos desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,22 +61,22 @@ Para configurar la integración de Kudos en Azure AD, deberá agregar Kudos desd
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Kudos** , seleccione **Kudos** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Kudos**, seleccione **Kudos** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Kudos en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kudos con un usuario de prueba llamado **Britta Simon** .
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kudos con un usuario de prueba llamado **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Kudos.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Kudos, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Kudos](#configure-kudos-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Kudos](#configure-kudos-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Kudos](#create-kudos-test-user)** : el objetivo es tener un homólogo de Britta Simon en Kudos que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Kudos](#create-kudos-test-user)**: el objetivo es tener un homólogo de Britta Simon en Kudos que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -85,28 +85,28 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Kudos, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Kudos** , seleccione **Inicio de sesión único** .
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Kudos**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML** , siga estos pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Kudos](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<company>.kudosnow.com`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company>.kudosnow.com`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte al cliente de Kudos](http://success.kudosnow.com/home) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Kudos, realice los p
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Kudos.
 
-1. En el menú de la parte superior, haga clic en el **icono de configuración** .
+1. En el menú de la parte superior, haga clic en el **icono de configuración**.
 
     ![Configuración](./media/kudos-tutorial/ic787806.png "Configuración")
 
@@ -134,19 +134,19 @@ Para configurar el inicio de sesión único de Azure AD con Kudos, realice los p
 
     a. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    b. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
+    b. Abra el certificado codificado en Base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
 
     c. En el cuadro de texto **Logout URL** (Dirección URL de cierre de sesión), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    d. En el cuadro de texto **Su dirección URL de Kudos** , escriba el nombre de su compañía.
+    d. En el cuadro de texto **Su dirección URL de Kudos**, escriba el nombre de la empresa.
 
-    e. Haga clic en **Save** (Guardar).
+    e. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -158,40 +158,40 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre** , escriba **BrittaSimon** .
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario** , escriba `brittasimon@yourcompanydomain.extension`.  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear** .
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Kudos.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, a continuación, seleccione **Kudos** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, a continuación, seleccione **Kudos**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Kudos** .
+2. En la lista de aplicaciones, seleccione **Kudos**.
 
     ![Vínculo a Kudos en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-kudos-test-user"></a>Creación de un usuario de prueba de Kudos
 
@@ -199,25 +199,25 @@ Para permitir que los usuarios de Azure AD inicien sesión en Kudos, deben aprov
 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
-1. Inicie sesión como administrador en el sitio de la compañía de **Kudos** .
+1. Inicie sesión como administrador en el sitio de la compañía de **Kudos**.
 
-1. En el menú de la parte superior, haga clic en el **icono de configuración** .
+1. En el menú de la parte superior, haga clic en el **icono de configuración**.
 
    ![Configuración](./media/kudos-tutorial/ic787806.png "Configuración")
 
-1. Haga clic en **Administrador de usuarios** .
+1. Haga clic en **Administración de usuarios**.
 
 1. Haga clic en la pestaña **Users** (Usuarios) y, a continuación, haga clic en **Add user** (Agregar un usuario).
 
    ![Administrador de usuarios](./media/kudos-tutorial/ic787809.png "Administrador de usuarios")
 
-1. En la sección **Agregar un usuario** , realice estos pasos:
+1. En la sección **Agregar un usuario**, lleve a cabo los siguientes pasos:
 
     ![Adición de un usuario](./media/kudos-tutorial/ic787810.png "Agregar un usuario")
 
-    a. Escriba en los cuadros de texto correspondientes el **nombre** , los **apellidos** , el **correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que desee aprovisionar.
+    a. Escriba el **Nombre**, **Apellido**, **Correo electrónico** y otros detalles de una cuenta válida de Azure Active Directory que desea aprovisionar en los cuadros de texto relacionados.
 
-    b. Haga clic en **Create User** (Crear usuario).
+    b. Haga clic en **Create User**(Crear usuario).
 
 > [!NOTE]
 > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Kudos ofrecida por Kudos para aprovisionar cuentas de usuario de Azure AD.

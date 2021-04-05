@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018261"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
@@ -74,7 +74,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
 
    Por ejemplo, una regla de escalado horizontal podría desencadenar una adición de una unidad de Azure API Management, cuando la métrica de capacidad promedio durante los últimos 30 minutos supere el 80 %. En la tabla siguiente se proporciona la configuración para este tipo de regla.
 
-    | Parámetro             | Value             | Notas                                                                                                                                                                                                                                                                           |
+    | Parámetro             | Valor             | Notas                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origen de métricas         | Recurso actual  | Defina la regla según las métricas de recursos de Azure API Management actuales.                                                                                                                                                                                                     |
     | *Criterios*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -101,7 +101,7 @@ Siga los pasos a continuación para configurar el escalado automático para un s
 
     Por ejemplo, una regla de reducción horizontal podría desencadenar una eliminación de una unidad de Azure API Management, cuando la métrica de capacidad promedio durante los últimos 30 minutos haya sido inferior al 35 %. En la tabla siguiente se proporciona la configuración para este tipo de regla.
 
-    | Parámetro             | Value             | Notas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parámetro             | Valor             | Notas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origen de métricas         | Recurso actual  | Defina la regla según las métricas de recursos de Azure API Management actuales.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Criterios*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
