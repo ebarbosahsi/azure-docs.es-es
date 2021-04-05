@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
 ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98201440"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conexi√≥n a Azure Database for MySQL con redireccionamiento
@@ -57,7 +57,7 @@ En las secciones siguientes del documento se describe c√≥mo instalar la extensi√
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
-#### <a name="prerequisites"></a>Requisitos previos 
+#### <a name="prerequisites"></a>Prerrequisitos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - PHP PEAR 
 - php-mysql
@@ -96,7 +96,7 @@ En las secciones siguientes del documento se describe c√≥mo instalar la extensi√
 
 ### <a name="windows"></a>Windows
 
-#### <a name="prerequisites"></a>Requisitos previos 
+#### <a name="prerequisites"></a>Prerrequisitos 
 - Versiones de PHP 7.2.15 y posterior y 7.3.2 y posterior.
 - php-mysql
 - Servidor de Azure Database for MySQL
