@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014863"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sustitución de un componente de hardware en el dispositivo StorSimple serie 8000
@@ -57,7 +57,7 @@ Antes de intentar reemplazar un componente, considere la siguiente información.
 * Conecte una buena descarga a tierra en sí mismo mediante una descarga electrostática o alfombra antiestática al manipular los módulos y los componentes del dispositivo StorSimple.
 * No toque los circuitos. Utilice las asas y las guías proporcionadas al manipular los componentes que pueden tener circuitos expuestos.
 
-![Icono de advertencia](./media/storsimple-hardware-component-replacement/Warning.png) ![Icono de aviso](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **AVISO:**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **AVISO:**
 
 Al reemplazar un módulo, **NUNCA deje un compartimento vacío en la parte posterior del gabinete**. Obtenga un módulo de reemplazo o vacío antes de quitar la parte problemática.
 
@@ -135,7 +135,7 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 * Módulo de batería de reserva
 * Kit de guías de montaje en bastidor
 
-[Póngase en contacto con el servicio técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para solicitar cualquiera de estas unidades de reemplazo.
+Póngase en contacto con el [soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para solicitar cualquiera de estas unidades de sustitución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

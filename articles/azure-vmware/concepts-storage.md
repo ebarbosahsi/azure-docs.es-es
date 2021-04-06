@@ -4,10 +4,10 @@ description: Obtenga información sobre las principales funcionalidades de almac
 ms.topic: conceptual
 ms.date: 03/13/2021
 ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104801628"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceptos de almacenamiento de Azure VMware Solution

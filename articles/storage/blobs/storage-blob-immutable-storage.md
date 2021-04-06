@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430945"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800727"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -63,13 +63,15 @@ Para obtener más información sobre cómo establecer y bloquear las directivas 
 ## <a name="time-based-retention-policies"></a>Directivas de retención con duración definida
 
 > [!IMPORTANT]
-> Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Se recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. El estado inicial de una directiva de retención con duración definida es *desbloqueada*, lo que permite probar la característica y realizar cambios en la directiva antes de bloquearla. Aunque el estado *desbloqueada* proporciona protección de inmutabilidad, no se recomienda su uso para otros fines que no sean las evaluaciones de la característica a corto plazo. 
+> Una directiva de retención con duración definida debe estar *bloqueada* para que el blob esté en estado inmutable (protegido frente a escritura y eliminación) y, por consiguiente, se cumplan SEC 17a-4(f) y otras regulaciones. Microsoft recomienda bloquear la directiva en un período razonable, normalmente antes de 24 horas. El estado inicial de una directiva de retención con duración definida es *desbloqueada*, lo que permite probar la característica y realizar cambios en la directiva antes de bloquearla. Aunque el estado *desbloqueada* proporciona protección de inmutabilidad, no se recomienda el uso del estado *desbloqueada* para otros fines que no sean las evaluaciones de características a corto plazo.
+>
+> Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar la directiva y se permite un máximo de cinco aumentos al período de retención efectivo. No se puede reducir el período de retención.
 
 Cuando se aplica una directiva de retención con duración definida a un contenedor, todos los blobs de este permanecen en estado inmutable durante el período de retención *efectivo*. El período de retención efectivo para los blobs es igual a la diferencia entre la **hora de creación** del blob y el intervalo de retención especificado por el usuario. Como los usuarios pueden ampliar el intervalo de retención, el almacenamiento inmutable utiliza el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 
 Por ejemplo, supongamos que un usuario crea una directiva de retención de duración definida con un intervalo de retención de cinco años. Un blob existente en ese contenedor, _testblob1_, se ha creado hace un año; por tanto, el período de retención efectivo para _testblob1_ es de cuatro años. Cuando se carga un nuevo blob, _testblob2_, en el contenedor, el período de retención efectivo de _testblob2_ es de cinco años a partir de su creación.
 
-Se recomienda una directiva de retención con duración definida desbloqueada solo para probar la característica; no obstante, una directiva debe estar bloqueada para el cumplimiento de SEC 17a-4(f) y otras normas. Una vez que se ha bloqueado una directiva de retención con duración definida, no se puede quitar la directiva y se permite un máximo de cinco aumentos al período de retención efectivo.
+Se recomienda una directiva de retención con duración definida desbloqueada solo para probar la característica; no obstante, una directiva debe estar bloqueada para el cumplimiento de SEC 17a-4(f) y otras normas.
 
 Los límites siguientes se aplican a las directivas de retención:
 

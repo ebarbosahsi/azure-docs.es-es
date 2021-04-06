@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516598"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801594"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 
 Al crear consultas, pude usar la sintaxis del [analizador de consultas de Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) en los formularios de consulta especializados; por ejemplo, el carácter comodín, la búsqueda aproximada, la búsqueda por proximidad o las expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Cognitive Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen mediante las expresiones **`$filter`** . 
 
-La sintaxis completa de Lucene se usa para las expresiones de consulta que se pasan en el parámetro **`search`** de una solicitud de [búsqueda de documentos (API de REST)](/rest/api/searchservice/search-documents); no se debe confundir con la [sintaxis de OData](query-odata-filter-orderby-syntax.md) que se usa para las expresiones [ **`$filter`**](search-filters.md) y [ **`$orderby`** ](search-query-odata-orderby.md) de la misma solicitud. Los parámetros de OData tienen diferentes reglas y sintaxis para crear consultas, cadenas de escape y otros elementos.
+Para usar la sintaxis completa de Lucene, establecerá el valor de queryType en "full" y pasará una expresión de consulta con un patrón de caracteres comodín, una búsqueda aproximada o uno de los demás formularios de consulta que admite la sintaxis completa. En REST, se proporcionan expresiones de consulta en el parámetro **`search`** de una solicitud de [búsqueda de documentos (API de REST)](/rest/api/searchservice/search-documents).
 
 ## <a name="example-full-syntax"></a>Ejemplo (sintaxis completa)
 
-Establezca el parámetro **`queryType`** para especificar el valor completo de Lucene. En el ejemplo siguiente se invoca la búsqueda en campo y la mejora de términos. Esta consulta busca hoteles en los que el campo de la categoría contiene el término "budget". Los documentos que contienen la expresión "recently renovated" tienen una clasificación más alta como resultado del valor de impulso del término (3).  
+En el ejemplo siguiente se muestra una solicitud de búsqueda construida con la sintaxis completa. En este ejemplo concreto se muestra la búsqueda en campo y la mejora de términos. Esta consulta busca hoteles en los que el campo de la categoría contiene el término "económico". Los documentos que contienen la expresión "recently renovated" tienen una clasificación más alta como resultado del valor de impulso del término (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-El parámetro **`searchMode`** es significativo en este ejemplo. Cada vez que los operadores están en la consulta, normalmente debe establecer `searchMode=all` para asegurarse de que se busca la coincidencia con *todos* los criterios.  
+Aunque no es específico de ningún tipo de consulta, el parámetro **`searchMode`** es relevante en este ejemplo. Cada vez que los operadores están en la consulta, normalmente debe establecer `searchMode=all` para asegurarse de que se busca la coincidencia con *todos* los criterios.  
 
-Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene](search-query-lucene-examples.md). Para más información sobre la solicitud de consultas y los parámetros, consulte la [Búsqueda de documentos (API de REST)](/rest/api/searchservice/Search-Documents).
+Para ver ejemplos adicionales, consulte los [ejemplos de sintaxis de consulta de Lucene](search-query-lucene-examples.md). Para obtener más información sobre la solicitud de consultas y los parámetros, consulte [Búsqueda de documentos (API de REST)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Fundamentos de sintaxis  
 
