@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100391735"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
@@ -195,7 +195,7 @@ Role | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son tr
 
 La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
 
-Status    | Comentarios/Escenarios
+Estado    | Comentarios/Escenarios
 :------- | :------------------
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
@@ -206,7 +206,7 @@ Inactivo | El nodo tiene una configuración diferente de la configuración de la
 
 La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace. 
 
-Status | Comentarios
+Estado | Comentarios
 :----- | :-------
 Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
 En línea | Los nodos de la puerta de enlace están en línea

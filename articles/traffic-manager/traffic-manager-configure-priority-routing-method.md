@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
 ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92208063"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En la página *Crear perfil de Traffic Manager*, defina la siguiente configuración:
 
-    | Configuración         | Value                                              |
+    | Configuración         | Valor                                              |
     | ---             | ---                                                |
     | Nombre            | Proporcione un nombre para el perfil. Este nombre debe ser único dentro de la zona trafficmanager.net. Para acceder a su perfil de Traffic Manager, use el nombre DNS `<profilename>.trafficmanager.net`. |    
     | Método de enrutamiento  | Seleccione **Prioridad**. |
@@ -67,7 +67,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Seleccione o escriba los siguientes valores: 
 
-    | Configuración                | Value                                              |
+    | Configuración                | Valor                                              |
     | ---                    | ---                                                |
     | Tipo                   | Seleccione el tipo de punto de conexión. |    
     | Nombre                   | Asigne un nombre para identificar este punto de conexión. |

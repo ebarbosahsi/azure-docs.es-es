@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: bbe928084a758335e5fa3b0531726c77a6d599b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85839009"
 ---
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de Azure IoT Hub Device Provisioning Service.
 
-| Resource | Límite |
+| Recurso | Límite |
 | --- | --- |
 | Servicios máximos de aprovisionamiento de dispositivos por suscripción de Azure | 10 |
 | Número máximo de inscripciones | 1 000 000 |
@@ -33,6 +33,6 @@ El servicio de aprovisionamiento de dispositivos limita las solicitudes cuando s
 
 | Limitación | Valor por unidad |
 | --- | --- |
-| Operaciones | 200/min/servicio |
+| Operations | 200/min/servicio |
 | Registros de dispositivos | 200/min/servicio |
 | Operación de sondeo de dispositivos | 5/10 s/dispositivo |

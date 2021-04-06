@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305701"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
@@ -28,9 +28,9 @@ La [API de detección de anomalías](https://gallery.azure.ai/MachineLearningAPI
 
 Estas API pueden detectar los siguientes tipos de patrones anómalos en datos de series temporales:
 
-* **Tendencias positivas y negativas** : por ejemplo, al supervisar el uso de memoria en informática, una tendencia al alza puede resultar interesante porque puede ser indicativa de una pérdida de memoria.
-* **Cambios en el intervalo dinámico de valores** : por ejemplo, al supervisar las excepciones producidas por un servicio en la nube, cualquier cambio en el intervalo dinámico de valores podría indicar inestabilidad en el estado del servicio.
-* **Cambios abruptos e interrupciones** : por ejemplo, al supervisar el número de errores de inicio de sesión en un servicio o el número de finalizaciones de compras en un sitio de comercio electrónico, los cambios abruptos y las interrupciones podrían indicar un comportamiento anormal.
+* **Tendencias positivas y negativas**: por ejemplo, al supervisar el uso de memoria en informática, una tendencia al alza puede resultar interesante porque puede ser indicativa de una pérdida de memoria.
+* **Cambios en el intervalo dinámico de valores**: por ejemplo, al supervisar las excepciones producidas por un servicio en la nube, cualquier cambio en el intervalo dinámico de valores podría indicar inestabilidad en el estado del servicio.
+* **Cambios abruptos e interrupciones**: por ejemplo, al supervisar el número de errores de inicio de sesión en un servicio o el número de finalizaciones de compras en un sitio de comercio electrónico, los cambios abruptos y las interrupciones podrían indicar un comportamiento anormal.
 
 Estos detectores de aprendizaje automático realizan un seguimiento de dichos cambios en los valores con el paso del tiempo e informan de los cambios continuados en sus valores con puntuaciones de anomalías. No requieren el ajuste del umbral ad hoc y sus puntuaciones pueden utilizarse para controlar el índice de falsos positivos. La API de detección de anomalías es útil en varios escenarios, por ejemplo, la supervisión de servicios mediante el seguimiento de KPI en el tiempo, la supervisión del uso mediante métricas como el número de búsquedas o el número de clics y la supervisión del rendimiento mediante contadores como la memoria, la CPU, las lecturas de archivos, etc., en el tiempo.
 
@@ -117,10 +117,10 @@ La API de detección de anomalías admite detectores en tres categorías general
 
 | Categoría del detector | Detector | Descripción | Parámetros de entrada | Salidas |
 | --- | --- | --- | --- | --- |
-| Detectores de pico |Detector de TSpike |Detecta picos y DIP según lo lejos que estén los valores del primer y el tercer cuartil. |*tspikedetector.Sensitivity:* toma el valor entero en el intervalo 1-10 (valor predeterminado: 3); los valores más altos capturarán más valores extremos, por tanto, habrá menos sensibilidad. |TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario |
-| Detectores de pico | Detector de ZSpike |Detecta picos y DIP en función de lo lejos que estén los puntos de datos de la media. |*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (valor predeterminado: 3); los valores más altos capturarán más valores extremos, por lo que habrá menos sensibilidad. |ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0' |
-| Detector de tendencia lenta |Detector de tendencia lenta |Detección de tendencia positiva lenta según la sensibilidad establecida |*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25; 3,25 - 5 es un intervalo razonable para realizar la elección; cuanto mayor, menos sensible) |tscore: número flotante que representa la puntuación de anomalías en la tendencia |
-| Detectores de cambio de nivel | Detector de cambio de nivel bidireccional |Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida |*bileveldetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25; 3,25 - 5 es un intervalo razonable para realizar la elección; cuanto mayor, menos sensible) |rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente |
+| Detectores de pico |Detector de TSpike |Detecta picos y DIP según lo lejos que estén los valores del primer y el tercer cuartil. |*tspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (predeterminado: 3); los valores más altos capturarán más valores extremos; por tanto, habrá menos sensibilidad. |TSpike: valores binarios: '1' si se detecta un pico o una interrupción, '0' en caso contrario |
+| Detectores de pico | Detector de ZSpike |Detecta picos y DIP en función de lo lejos que estén los puntos de datos de la media. |*zspikedetector.sensitivity:* toma el valor entero en el intervalo 1-10 (predeterminado: 3); los valores más altos capturarán más valores extremos; por tanto, habrá menos sensibilidad. |ZSpike: valores binarios: '1' si se detecta un pico o una interrupción, si no '0' |
+| Detector de tendencia lenta |Detector de tendencia lenta |Detección de tendencia positiva lenta según la sensibilidad establecida |*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar un valor; cuanto más alto, menos sensible) |tscore: número flotante que representa la puntuación de anomalías en la tendencia |
+| Detectores de cambio de nivel | Detector de cambio de nivel bidireccional |Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida |*bileveldetector.sensitivity*: umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar un valor; cuanto más alto, menos sensible) |rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente |
 
 ### <a name="parameters"></a>Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
