@@ -17,17 +17,17 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b5895d016e2d9d9b471218bc083ea7585254b45
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258688"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
 En esta guía paso a paso se explica cómo integrar una granja de servidores de SharePoint local con Azure Active Directory (Azure AD) Application Proxy.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar la configuración, necesita los siguientes recursos:
 - Una granja de servidores de SharePoint 2013, o posterior.
@@ -51,15 +51,15 @@ En este artículo se usan los siguientes valores:
 - Dirección URL externa: `https://spsites-demo1984.msappproxy.net/`
 - Cuenta del grupo de aplicaciones para la aplicación web de SharePoint: `Contoso\spapppool`
 
-## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Paso 1: Configuración en Azure AD de una aplicación que usa el proxy de aplicación
+## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Paso 1: Configuración de una aplicación en Azure AD que usa Application Proxy
 
 En este paso, creará en su inquilino de Azure Active Directory una aplicación que usa el proxy de aplicación. Establezca la dirección URL externa y especifique la dirección URL interna. Ambas direcciones se usarán más adelante en SharePoint.
 
 1. Cree la aplicación como se describe en la siguiente configuración. Para obtener instrucciones detalladas, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   * **Dirección URL interna**: Dirección URL interna de SharePoint que se establecerá más adelante en SharePoint, como `https://sharepoint`.
-   * **Autenticación previa**: Azure Active Directory
-   * **Traducir las URL en encabezados**: No
-   * **Traducir direcciones URL en el cuerpo de la aplicación**: No
+   * **Dirección URL interna**: la dirección URL interna de SharePoint que se establecerá más adelante en SharePoint, como `https://sharepoint`.
+   * **Autenticación previa**: Azure Active Directory.
+   * **Traducción de direcciones URL en encabezados**: No.
+   * **Traducción de direcciones URL en el cuerpo de la aplicación**: No.
 
    ![Publicación de SharePoint como aplicación](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
@@ -141,7 +141,7 @@ Para identificar la cuenta que ejecuta el grupo de aplicaciones de la aplicació
 
    ![Opciones para configurar una cuenta de servicio](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-1. Confirme que **Seleccione una cuenta para este componente**  devuelve una cuenta de dominio y recuérdela, ya que se necesitará en el paso siguiente.
+1. Confirme que **Seleccione una cuenta para este componente** devuelve una cuenta de dominio y recuérdela, ya que se necesitará en el paso siguiente.
 
 ### <a name="make-sure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Asegúrese de que hay un certificado HTTPS configurado para el sitio IIS de la zona Extranet.
 
@@ -198,7 +198,7 @@ Ya está listo para iniciar sesión en SharePoint mediante la dirección URL ext
 
 ## <a name="troubleshoot-sign-in-errors"></a>Solución de errores de inicio de sesión
 
-Si el inicio de sesión en el sitio no funciona, puede obtener más información sobre el problema en los registros del conector: En la máquina que ejecuta el conector, abra el visor de eventos, vaya a **Registros de aplicaciones y servicios** > **Microsoft**  > **AadApplicationProxy**  > **Conector** e inspeccione el registro de **Admin**.
+Si el inicio de sesión en el sitio no funciona, puede obtener más información sobre el problema en los registros del conector: desde la máquina que ejecuta el conector, abra el visor de eventos, vaya a **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** e inspeccione el registro **Admin**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

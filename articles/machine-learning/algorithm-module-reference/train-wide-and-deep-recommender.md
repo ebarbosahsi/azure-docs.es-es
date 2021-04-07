@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d7dd7105ddb0d6503faefb996b84c0e53a62ce49
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421182"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655383"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Deep Recommender
 En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender** de Azure Machine Learning Designer para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.
@@ -136,6 +136,10 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
      La normalización por lotes es una técnica que se usa para combatir el problema interno de desplazamiento de la covariable durante el entrenamiento de las redes. En general, puede ayudar a mejorar la velocidad, rendimiento y estabilidad de las redes. 
 
 17.  Ejecución de la canalización
+
+## <a name="results"></a>Results
+
+Una vez completada la ejecución de la canalización, para usar el modelo para la puntuación, conecte el módulo de [entrenamiento del recomendador Wide & Deep](train-wide-and-deep-recommender.md) al módulo de [puntuación del recomendador Wide & Deep](score-wide-and-deep-recommender.md) para predecir valores para los nuevos ejemplos de entrada.
 
 ##  <a name="technical-notes"></a>Notas técnicas
 

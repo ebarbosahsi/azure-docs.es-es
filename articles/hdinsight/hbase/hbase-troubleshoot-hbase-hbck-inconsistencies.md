@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: cbe4231bbecdf279c637cd334336437a020188d4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936990"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Escenario: el comando `hbase hbck` devuelve incoherencias en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problema: la región no está en `hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Incidencia: la región no está en `hbase:meta`.
 
 La región xxx está en HDFS, pero no se muestra en `hbase:meta` ni está implementada en ningún servidor de regiones.
 
@@ -38,7 +38,7 @@ Varía.
     ```
 ---
 
-## <a name="issue-region-is-offline"></a>Problema: la región está sin conexión
+## <a name="issue-region-is-offline"></a>Incidencia: la región está sin conexión.
 
 La región xxx no está implementada en ningún RegionServer. Esto significa que la región está en `hbase:meta`, pero sin conexión.
 
@@ -56,7 +56,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ---
 
-## <a name="issue-regions-have-the-same-startend-keys"></a>Problema: las regiones tienen las mismas claves de inicio y fin
+## <a name="issue-regions-have-the-same-startend-keys"></a>Incidencia: las regiones tienen las mismas claves de inicio y fin.
 
 ### <a name="cause"></a>Causa
 
@@ -78,7 +78,7 @@ En este escenario, debe combinar RegionA con RegionC y obtener RegionD con el mi
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problema: no se puede cargar `.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Incidencia: no se puede cargar `.regioninfo`.
 
 No se puede cargar `.regioninfo` para la región `/hbase/data/default/tablex/regiony`.
 
