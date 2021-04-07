@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
 ms.openlocfilehash: c9d73804484ea7cc72e0198b857099fd8fba46d5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95559463"
 ---
 Los límites siguientes son para el número de recursos de Cognitive Services por suscripción de Azure. Cada una de las instancias de Cognitive Services puede tener limitaciones adicionales; para obtener más información,consulte [Azure Cognitive Services](../articles/cognitive-services/index.yml).

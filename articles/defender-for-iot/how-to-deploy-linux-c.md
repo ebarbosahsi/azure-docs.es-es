@@ -4,10 +4,10 @@ description: Aprenda a instalar e implementar el agente de seguridad basado en C
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6f59db7ff24412c66a6a4898b14272ea9540fdd2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778821"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C de Defender for IoT en Linux
@@ -78,7 +78,7 @@ Compruebe el estado de implementación, para lo que debe ejecutar:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea la [información general](overview.md) del servicio Defender for IoT.
-- Más información sobre la [arquitectura](architecture.md) de Defender for IoT.
+- Obtenga más información sobre la [arquitectura](architecture.md) de Defender para IoT.
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 - Obtenga información acerca de las [alertas de seguridad](concept-security-alerts.md)

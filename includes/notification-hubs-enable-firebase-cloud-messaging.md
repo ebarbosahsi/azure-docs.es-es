@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ccb5e40738680181e7339b8652d029597c7d0bd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70935151"
 ---
 1. Inicie sesión en la [consola Firebase](https://firebase.google.com/console/). Si aún no tiene uno, cree un nuevo proyecto de Firebase.
@@ -20,7 +20,7 @@ ms.locfileid: "70935151"
 
     ![Agregar Firebase a una aplicación de Android](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
 3. En la página **Add Firebase to your Android app** (Agregar Firebase a la aplicación Android), haga lo siguiente: 
-    1. En **Android package name** (Nombre del paquete Android), copie el valor de **applicationId** en el archivo build.gradle de la aplicación. En este ejemplo, es `com.fabrikam.fcmtutorial1app`. 
+    1. En **Nombre del paquete de Android**, copie el valor de su **applicationId** en el archivo build.gradle de la aplicación. En este ejemplo, es `com.fabrikam.fcmtutorial1app`. 
 
         ![Especifique el nombre del paquete.](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Seleccione **Registrar aplicación**. 
@@ -28,7 +28,7 @@ ms.locfileid: "70935151"
 
     ![Descargue el archivo google-services.json.](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
 5. Haga que los siguientes **cambios de configuración** en el proyecto en Android Studio. 
-    1.  En el archivoproject-level build.gradle (&lt;project&gt;/build.gradle), agregue la siguiente instrucción a la sección **dependencies**. 
+    1.  En el archivoproject-level build.gradle (&lt;project&gt;/build.gradle), agregue la siguiente instrucción a la sección de **dependencias**. 
 
         ```
         classpath 'com.google.gms:google-services:4.0.1'

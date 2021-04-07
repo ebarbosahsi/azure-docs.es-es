@@ -8,10 +8,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100392908"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
@@ -29,7 +29,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde una tabl
 > [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para utilizar este conector de tabla web, debe configurar Integration Runtime autohospedado (también conocido como Data Management Gateway) y configurar la propiedad `gatewayName` en el servicio vinculado del receptor. Por ejemplo, para copiar de la tabla web a Azure Blob Storage, configure el servicio vinculado de Azure Storage de la siguiente manera:
 

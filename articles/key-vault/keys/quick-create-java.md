@@ -9,10 +9,10 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97935281"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Inicio rápido: Biblioteca cliente de claves de Azure Key Vault para Java
@@ -25,7 +25,7 @@ Recursos adicionales:
 * [Documentación del producto](index.yml)
 * [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 - [Apache Maven](https://maven.apache.org)

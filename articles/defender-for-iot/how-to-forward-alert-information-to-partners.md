@@ -4,10 +4,10 @@ description: Puede enviar información de alertas a los sistemas asociados media
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778804"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
