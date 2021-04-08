@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d01a750948f8e3c264b9bcffdaad3ae72fa40ac0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938389"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579117"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -51,6 +51,8 @@ De forma predeterminada, el acceso condicional requiere todos los controles sele
 ### <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
 
 Al seleccionar esta casilla, los usuarios deberán ejecutar Azure AD Multi-Factor Authentication. Puede encontrar más información acerca de la implementación de Azure AD Multi-Factor Authentication en el artículo [Planeación de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../authentication/howto-mfa-getstarted.md).
+
+[Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview) satisface el requisito de la autenticación multifactor de las directivas de acceso condicional. 
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Requerir que el dispositivo esté marcado como compatible
 

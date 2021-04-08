@@ -20,7 +20,7 @@ $LINKERD_VERSION="stable-2.6.0"
 
 # Enforce TLS 1.2
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
-$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe&quot; -OutFile &quot;linkerd2-cli-$LINKERD_VERSION-windows.exe"
+$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
 El binario de cliente `linkerd` se ejecuta en la máquina cliente y permite interactuar con la malla de servicio de Linkerd. Use los siguientes comandos para instalar el binario de cliente `linkerd` de Linkerd en un shell basado en PowerShell en Windows. Estos comandos copian el binario de cliente `linkerd` en una carpeta de Linkerd y, luego, permiten que estén disponible de inmediato (en el shell actual) y de forma permanente (entre reinicios del shell) mediante `PATH`. No es necesario tener privilegios elevados (administrador) para ejecutar estos comandos y no hace falta reiniciar el shell.
@@ -32,7 +32,7 @@ Copy-Item -Path ".\linkerd2-cli-$LINKERD_VERSION-windows.exe" -Destination "C:\L
 
 # Add C:\Linkerd to PATH. 
 # Make the new PATH permanently available for the current User
-$USER_PATH = [environment]::GetEnvironmentVariable("PATH&quot;, &quot;User&quot;) + &quot;;C:\Linkerd\"
+$USER_PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Linkerd\"
 [environment]::SetEnvironmentVariable("PATH", $USER_PATH, "User")
 # Make the new PATH immediately available in the current shell
 $env:PATH += ";C:\Linkerd\"

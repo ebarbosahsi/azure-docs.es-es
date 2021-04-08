@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734628"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655858"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizaciones para Application Change Analysis (versión preliminar)
 
@@ -22,11 +22,11 @@ Busque Change Analysis en la barra de búsqueda de Azure Portal para iniciar la 
 
 ![Captura de pantalla de búsqueda de Change Analysis en Azure Portal](./media/change-analysis/search-change-analysis.png)
 
-Todos los recursos de una suscripción seleccionada se muestran con los cambios de las últimas 24 horas. Para optimizar el rendimiento de carga de páginas, el servicio muestra 10 recursos a la vez. Seleccione la página siguiente para ver más recursos. Estamos trabajando actualmente para poder quitar esta limitación.
+Todos los recursos de una suscripción seleccionada se muestran con los cambios de las últimas 24 horas. Todos los cambios se muestran con el valor antiguo y el nuevo para proporcionar conclusiones a simple vista.
 
 ![Captura de pantalla de la hoja Change Analysis en Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Haga clic en un recurso para ver todos sus cambios. Si es necesario, explore en profundidad un cambio para ver la información y los detalles sobre el cambio en formato JSON.
+Hacer clic en un cambio para ver el fragmento de código completo de Resource Manager y otras propiedades.
 
 ![Captura de pantalla de los detalles del cambio](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ La UI permite seleccionar varias suscripciones para ver los cambios de los recur
 
 ![Captura de pantalla del filtro de suscripción que admite la selección de varias suscripciones](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico y solución de problemas de una aplicación web
-
-En Azure Monitor, Change Analysis también está integrado en la experiencia de autoservicio **Diagnosticar y solucionar problemas**. Obtenga acceso a esta experiencia desde la pagina **Información general** de la aplicación de App Service.
-
-![Captura de pantalla de los botones "Información general" y "Diagnosticar y solucionar problemas"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Application Change Analysis en la herramienta Diagnosticar y solucionar problemas
 
@@ -69,6 +64,13 @@ Application Change Analysis es un detector independiente en las herramientas de 
 5. Los datos modificados también están disponibles en ciertos detectores de **Web App Down** (Aplicación web fuera de servicio) y **Application Crashes** (Bloqueo de aplicaciones). Verá un gráfico con un resumen del tipo de cambios a lo largo del tiempo, junto con detalles sobre estos cambios: De forma predeterminada, se muestran los cambios en las últimas 24 horas para ayudar a solucionar problemas inmediatos.
 
      ![Captura de pantalla de la vista de diferencias de cambios](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Herramienta Diagnosticar y solucionar problemas
+Change Analysis está disponible como una tarjeta de información en la herramienta Diagnosticar y solucionar problemas. Si un recurso experimenta problemas y se han detectado cambios en las últimas 72 horas, la tarjeta de información mostrará el número de cambios. Al hacer clic en el vínculo de visualización de detalles de cambios, se mostrará la vista filtrada de la interfaz de usuario independiente de Change Analysis.
+
+![Captura de pantalla de visualización de la información de cambios en la herramienta Diagnosticar y solucionar problemas.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnóstico y solución de problemas de una máquina virtual
 

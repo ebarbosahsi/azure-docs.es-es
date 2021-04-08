@@ -154,12 +154,12 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
           ![Establecimiento de las propiedades del nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. En el cuaderno "mynotebook&quot; recién creado, agregue el código siguiente:
+       1. En el cuaderno "mynotebook" recién creado, agregue el código siguiente:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
+           dbutils.widgets.text("input", "","")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
