@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 15db3e5182c39f756d4e9cd63378c3b86ab1eb32
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449556"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104585237"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Boomi
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Boomi con Azure Active Directory (Azure
 * Permitir que los usuarios inicien sesión automáticamente en Boomi con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -194,9 +194,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * En Azure Portal, haga clic en "Probar esta aplicación". Al hacerlo, debería iniciar sesión automáticamente en la instancia de Boomi en la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de Boomi de Aplicaciones, debería iniciar sesión automáticamente en la solución Boomi en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Si hace clic en el icono de Boomi de Aplicaciones, debería iniciar sesión automáticamente en la solución Boomi en la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Boomi, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Boomi, podrá aplicar el control de sesión, que protege la información confidencial de la organización en tiempo real de posibles filtraciones. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

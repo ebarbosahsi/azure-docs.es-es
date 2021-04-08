@@ -1,20 +1,20 @@
 ---
-title: Configuración de OpenVPN en Azure VPN Gateway
-description: Obtenga información sobre cómo usar PowerShell para habilitar el protocolo OpenVPN en Azure VPN Gateway para un entorno de punto a sitio.
+title: Configuración de OpenVPN para Azure VPN Gateway
+description: Obtenga información sobre cómo usar habilitar el protocolo OpenVPN en Azure VPN Gateway para un entorno de punto a sitio.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4b48e98ab35b620030b15165d4c9341c0f11b440
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 137e4e1372ef1af3319c0b9af7ba965fffcb9e34
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393282"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584047"
 ---
-# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurar OpenVPN para VPN Gateway de punto a sitio de Azure
+# <a name="configure-openvpn-for-point-to-site-vpn-gateways"></a>Configuración de OpenVPN para instancias de VPN Gateway de punto a sitio
 
 En este artículo le ayudamos a configurar el **protocolo OpenVPN®** en Azure VPN Gateway. Puede usar las instrucciones del portal o de PowerShell.
 
@@ -36,7 +36,7 @@ En este artículo le ayudamos a configurar el **protocolo OpenVPN®** en Azure V
    :::image type="content" source="./media/vpn-gateway-howto-openvpn/portal.png" alt-text="Selección de OpenVPN SSL en la lista desplegable":::
 1. Guarde los cambios y continúe con los **pasos siguientes**.
 
-## <a name="enable-openvpn-on-your-gateway-using-powershell"></a>Habilite OpenVPN en la puerta de enlace mediante PowerShell.
+## <a name="powershell"></a>PowerShell
 
 1. Habilite OpenVPN en la puerta de enlace mediante el ejemplo siguiente:
 

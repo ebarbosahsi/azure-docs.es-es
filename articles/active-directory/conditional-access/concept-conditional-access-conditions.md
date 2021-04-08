@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362427"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579134"
 ---
 # <a name="conditional-access-conditions"></a>Acceso condicional: Condiciones
 
 Dentro de una directiva de acceso condicional, un administrador puede usar señales de condiciones como el riesgo, la plataforma del dispositivo o la ubicación para mejorar sus decisiones de directivas. 
 
-[ ![Definición de una directiva de acceso condicional y especificación de condiciones](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
+[![Definición de una directiva de acceso condicional y especificación de condiciones](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Se pueden combinar varias condiciones para crear directivas de acceso condicional específicas y concretas.
 
@@ -174,11 +174,11 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 
 ### <a name="exchange-activesync-clients"></a>Clientes de Exchange ActiveSync
 
-- Las organizaciones solo pueden seleccionar clientes de Exchange ActiveSync al asignar directivas a usuarios o grupos. La selección de **Todos los usuarios**, **Todos los usuarios externos e invitados** o **Roles del directorio** hará que todos los usuarios se bloqueen.
+- Las organizaciones solo pueden seleccionar clientes de Exchange ActiveSync al asignar directivas a usuarios o grupos. Si selecciona **Todos los usuarios**, **Todos los usuarios externos e invitados** o **Roles del directorio**, todos los usuarios estarán sujetos a la directiva.
 - Al crear una directiva asignada a los clientes de Exchange ActiveSync, **Exchange Online** debe ser la única aplicación en la nube asignada a la directiva. 
 - Las organizaciones pueden restringir el ámbito de esta directiva a plataformas específicas mediante la condición **Plataformas de dispositivo**.
 
-Si el control de acceso que se asigna a la directiva usa **Requerir aplicación cliente aprobada**, se dirige al usuario para que instale y use el cliente móvil de Outlook. En el caso de que se requiera **Multi-factor Authentication**, los usuarios afectados están bloqueados, ya que la autenticación básica no admite la autenticación multifactor.
+Si el control de acceso que se asigna a la directiva usa **Requerir aplicación cliente aprobada**, se dirige al usuario para que instale y use el cliente móvil de Outlook. En el caso de que se requiera **autenticación multifactor**, **Términos de uso** o **controles personalizados**, los usuarios afectados se bloquearán, ya que la autenticación básica no admite estos controles.
 
 Para más información, consulte los siguientes artículos.
 

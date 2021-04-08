@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4a11783b28352cb62c5a3c0d38e45dcdc47a8d86
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583552"
 ---
 # <a name="resume-report-executions-api"></a>API de reanudación de ejecuciones de informes
@@ -29,7 +29,7 @@ Esta API, al ejecutarse, reanuda la ejecución programada de un informe de anál
 
 | Encabezado | Tipo | Descripción |
 | ------------ | ------------- | ------------- |
-| Authorization | string | Necesario. El token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>`. |
+| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 ||||
 

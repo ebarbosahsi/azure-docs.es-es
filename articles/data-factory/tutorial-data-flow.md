@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497068"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584540"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azure Data Factory](introduction.md).
 
 En este tutorial, usará la interfaz de usuario de Azure Data Factory (UX) para crear una canalización que copie y transforme los datos desde un origen de Azure Data Lake Storage (ADLS) Gen2 hasta un receptor de ADLS Gen2 mediante un flujo de datos de asignación. El patrón de configuración de este tutorial se puede expandir al transformar los datos mediante el flujo de datos de asignación.
 
+ >[!NOTE]
+   >Este tutorial está pensado para los flujo de datos de asignación en general. Los flujos de datos están disponibles en las canalizaciones Azure Data Factory y Synapse. Si no está familiarizado con los flujos de datos en las canalizaciones de Azure Synapse, siga el [flujo de datos con las canalizaciones de Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview). 
+   
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
@@ -32,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
 
@@ -51,7 +54,7 @@ En este paso, creará una factoría de datos y abrirá la interfaz de usuario de
 
    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. (Por ejemplo, utilice SuNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
-     ![Nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuevo mensaje de error de factoría de datos por nombre duplicado.":::
 4. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 5. Para **Grupo de recursos**, realice uno de los siguientes pasos:
 

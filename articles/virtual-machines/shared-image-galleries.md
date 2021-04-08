@@ -10,10 +10,10 @@ ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102609148"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
@@ -35,7 +35,7 @@ Si tiene un gran número de imágenes que se deben mantener y quiere que estén 
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Resource | Descripción|
+| Recurso | Descripción|
 |----------|------------|
 | **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea; un disco duro virtual o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo configurar un clúster de Service 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791818"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
@@ -19,14 +19,14 @@ ms.locfileid: "98791818"
 
 Un [clúster de Azure Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas virtuales conectadas a la red, en las que se implementan y administran los microservicios.  Un clúster de Service Fabric que se ejecuta en Azure es un recurso de Azure y se implementa mediante Azure Resource Manager. En este artículo se describe cómo implementar un clúster de Service Fabric seguro en Azure mediante Resource Manager. Puede usar una plantilla de clúster predeterminada o una plantilla personalizada.  Si no dispone de una plantilla personalizada, puede [aprender cómo crear una](service-fabric-cluster-creation-create-template.md).
 
-El tipo de seguridad elegido para proteger el clúster (es decir: identidad de Windows, X509, etc.) se debe especificar para la creación inicial del clúster y no se puede cambiar después. Antes de configurar un clúster, lea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security]. En Azure, Service Fabric usa un certificado x509 para proteger el clúster y sus puntos de conexión, autenticar a los clientes y cifrar los datos. También se recomienda Azure Active Directory para proteger el acceso a los puntos de conexión de administración. Para obtener más información, lea [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md) (Configuración de Azure AD para autenticar clientes).
+El tipo de seguridad elegido para proteger el clúster (es decir, Windows Identity, X509 etc.) debe especificarse en la creación inicial del clúster y no se puede cambiar después. Antes de configurar un clúster, lea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security]. En Azure, Service Fabric usa un certificado x509 para proteger el clúster y sus puntos de conexión, autenticar a los clientes y cifrar los datos. También se recomienda Azure Active Directory para proteger el acceso a los puntos de conexión de administración. Para obtener más información, lea [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md) (Configuración de Azure AD para autenticar clientes).
 
 Si va a crear un clúster de producción para ejecutar cargas de trabajo de producción, se recomienda leer primero la [Lista de comprobación sobre la preparación de producción](service-fabric-production-readiness-checklist.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Requisitos previos 
 En este artículo, use el powershell de RM de Service Fabric o los módulos de la CLI de Azure para implementar un clúster:
 
 * [Azure PowerShell 4.1 y posterior][azure-powershell]
@@ -162,7 +162,7 @@ Si tiene un certificado que quiere usar para proteger el clúster, use el siguie
 Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves *debe estar en la misma región* que el clúster que lo usa.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada de cinco nodos, un tipo de nodo que se incluye con el módulo
-La plantilla que se usa está disponible en los [ejemplos de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 Implemente el clúster mediante PowerShell:
 

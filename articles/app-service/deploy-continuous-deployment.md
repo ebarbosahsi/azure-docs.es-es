@@ -7,10 +7,10 @@ ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103470275"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service

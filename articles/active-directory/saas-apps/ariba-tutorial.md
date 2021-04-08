@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: jeedes
 ms.openlocfilehash: 3ecbe96e0385bff6199094af7138017df500175b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101647259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integración de Azure Active Directory con Ariba
@@ -77,7 +77,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Ariba](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
     
     ```http
     https://<subdomain>.sourcing.ariba.com

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
 ms.openlocfilehash: 65f4963f23d97ca2e3af34febb0d5dbea652fc12
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101646992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Shopify Plus
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Shopify Plus con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en Shopify Plus con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 

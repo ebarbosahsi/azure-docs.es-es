@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
 ms.openlocfilehash: e046f8cbf6fa0418244f20e9a0c6f75f6da34136
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102434634"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
@@ -35,7 +35,7 @@ En este momento, los Comandos personalizados admiten suscripciones de Voz creada
 * Sudeste de Asia
 * Centro de la India
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.</a> Consulte la sección **Disponibilidad regional** anterior para ver una lista de las regiones compatibles.
