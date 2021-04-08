@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98798040"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Administración de listas de reproducción en Azure Sentinel mediante la API de REST
@@ -51,7 +51,7 @@ Este comando recupera todas las listas de reproducción asociadas a un área de 
 ### <a name="request-uri"></a>URI de la solicitud
 (El URI tiene una sola línea, dividida para facilitar la lectura)
 
-| Método | URI de la solicitud |
+| Método | URI de solicitud |
 |-|-|
 | GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists?api-version={{api-version}}` |
 |
@@ -71,7 +71,7 @@ Este comando recupera una lista de reproducción específica asociada a un área
 ### <a name="request-uri"></a>URI de la solicitud
 (El URI tiene una sola línea, dividida para facilitar la lectura)
 
-| Método | URI de la solicitud |
+| Método | URI de solicitud |
 |-|-|
 | GET | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
@@ -130,7 +130,7 @@ Este comando elimina una lista de reproducción y sus elementos.
 ### <a name="request-uri"></a>URI de la solicitud
 (El URI tiene una sola línea, dividida para facilitar la lectura)
 
-| Método | URI de la solicitud |
+| Método | URI de solicitud |
 |-|-|
 | DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}?api-version={{api-version}}` |
 |
@@ -190,7 +190,7 @@ Este comando elimina un elemento de lista de reproducción existente.
 ### <a name="request-uri"></a>URI de la solicitud
 (El URI tiene una sola línea, dividida para facilitar la lectura)
 
-| Método | URI de la solicitud |
+| Método | URI de solicitud |
 |-|-|
 | DELETE | `https://management.azure.com/subscriptions/{{subscriptionId}}/`<br>`resourceGroups/{{resourceGroupName}}/`<br>`providers/Microsoft.OperationalInsights/`<br>`workspaces/{{workspaceName}}/`<br>`providers/Microsoft.SecurityInsights/`<br>`watchlists/{{watchlistAlias}}/`<br>`watchlistitems/{{watchlistItemId}}?api-version={{api-version}}` |
 |

@@ -4,10 +4,10 @@ description: En este artículo se responden algunas de las preguntas más frecue
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98693418"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Preguntas más frecuentes (FAQ) sobre Azure Service Bus

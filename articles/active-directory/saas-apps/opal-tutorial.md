@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Opal | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Opal | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Opal.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 80c4b1998872c749228d7352484fd5af22b6d23d
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608347"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Opal
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opal"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Opal
 
 En este tutorial, aprenderá a integrar Opal con Azure Active Directory (Azure AD). Si integra Opal con Azure AD, podrá hacer lo siguiente:
 
@@ -64,8 +64,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Opal, comp
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Opal](#configure-opal-sso)** , para configurar el inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Opal](#create-opal-test-user)** , para tener un homólogo de B.Simon en Opal que esté vinculado a la representación de este usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en Opal](#configure-opal-sso)**, para configurar el inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Opal](#create-opal-test-user)**, para tener un homólogo de B.Simon en Opal que esté vinculado a la representación de este usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD

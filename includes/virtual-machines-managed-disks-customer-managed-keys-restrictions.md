@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 75acbb30c2bf811b7ae72d6939b9f164554fdd32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98859532"
 ---
 - Solo se admiten [software y claves RSA de HSM](../articles/key-vault/keys/about-keys.md) con un tamaño de 2048 bits, 3072 bits y 4096 bits, ninguna otra clave o tamaño.

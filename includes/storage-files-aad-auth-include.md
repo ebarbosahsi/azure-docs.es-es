@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 84fa97ec964d490eb9571c7e030704562a4a81d0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95555715"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) admite la autenticación basada en identidades a través del Bloque de mensajes del servidor (SMB) mediante [Active Directory Domain Services (AD DS) local](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) y [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). En este artículo se describe la forma en que los recursos compartido de archivos de Azure pueden usar los servicios de dominio, ya sea de forma local o en Azure, para admitir el acceso basado en identidad a los recursos compartidos de archivos de Azure a través de SMB. La habilitación del acceso basado en identidad de los recursos compartidos de archivos de Azure permite reemplazar los servidores de archivos existentes por recursos compartidos de archivos de Azure sin reemplazar el servicio de directorio existente, con lo que se mantiene el acceso sin problemas de los usuarios a los recursos compartidos. 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TimeOffManager
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar TimeOffManager con
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -140,13 +140,13 @@ En esta sección, va a conceder a B.Simon acceso a TimeOffManager utilizando el 
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-timeoffmanager-sso"></a>Configuración del inicio de sesión único de TimeOffManager
+## <a name="configure-timeoffmanager-sso&quot;></a>Configuración del inicio de sesión único de TimeOffManager
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de TimeOffManager.
 
 2. Vaya a **Cuenta \> Opciones de cuenta \> Configuración de inicio de sesión único**.
    
-    ![Captura de pantalla que muestra la opción Configuración de inicio de sesión único seleccionada en Opciones de cuenta.](./media/timeoffmanager-tutorial/ic795917.png "Configuración de inicio de sesión único")
+    ![Captura de pantalla que muestra la opción Configuración de inicio de sesión único seleccionada en Opciones de cuenta.](./media/timeoffmanager-tutorial/ic795917.png &quot;Configuración de inicio de sesión único")
 
 3. En la sección **Configuración del inicio de sesión único** , siga estos pasos:
    

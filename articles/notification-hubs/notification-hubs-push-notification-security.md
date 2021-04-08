@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548257"
 ---
 # <a name="notification-hubs-security"></a>Seguridad de Notification Hubs
@@ -46,13 +46,13 @@ La clave con acceso de **escucha** permite a una aplicación cliente registrarse
 
 ## <a name="security-claims"></a>Notificaciones de seguridad
 
-De modo similar a otras entidades, las operaciones del Centro de notificaciones se permiten para tres notificaciones de seguridad: **escucha**, **envío** y **administración**.
+De modo similar a otras entidades, las operaciones del centro de notificaciones se permiten para tres notificaciones de seguridad: **escucha**, **envío** y **administración**.
 
 | Notificación   | Descripción                                          | Operaciones permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Escuchar  | Crear o actualizar, leer y eliminar registros únicos | Crear o actualizar registro<br><br>Leer el registro<br><br>Leer todos los registros de un controlador<br><br>Eliminar registro |
-| Envío    | Enviar mensajes a la instancia de Notification Hubs                | Enviar mensaje |
-| Administrar  | CRUD en Notification Hubs (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear, actualizar, leer, escribir, eliminar centros<br><br>Leer registros por etiqueta |
+| Enviar    | Enviar mensajes a la instancia de Notification Hubs                | Enviar mensaje |
+| Administración  | CRUD en Notification Hubs (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear, actualizar, leer, escribir, eliminar centros<br><br>Leer registros por etiqueta |
 
 Notification Hubs acepta tokens de SAS generados con claves compartidas configuradas directamente en el centro.
 

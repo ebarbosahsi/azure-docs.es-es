@@ -11,10 +11,10 @@ ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103467483"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalación y ejecución de contenedores de Form Recognizer (en retirada)
@@ -31,7 +31,7 @@ Para reducir la complejidad e integrar fácilmente un modelo de Form Recognizer 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de utilizar los contenedores de Form Recognizer, debe cumplir los siguientes requisitos previos:
 
