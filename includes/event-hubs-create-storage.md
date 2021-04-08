@@ -9,10 +9,10 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75692565"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Creación de una cuenta de almacenamiento para el host de procesador de eventos
@@ -22,7 +22,7 @@ El host de procesador de eventos es un agente inteligente que simplifica la rece
 
     ![Crear un elemento del menú de recursos, Microsoft Azure Portal](./media/event-hubs-create-storage/create-resource.png)
 
-2. Seleccione **Storage** > **Cuenta de Storage**.
+2. Seleccione **Almacenamiento** > **Cuenta de almacenamiento**.
    
     ![Creación de una cuenta de almacenamiento, Microsoft Azure Portal](./media/event-hubs-create-storage/select-storage-account.png)
 

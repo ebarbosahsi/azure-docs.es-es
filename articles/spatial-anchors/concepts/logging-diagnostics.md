@@ -1,5 +1,5 @@
 ---
-title: Registro y diagnóstico
+title: Registro y diagnósticos
 description: Explicación detallada sobre cómo generar y recuperar registros y diagnósticos en Azure Spatial Anchors.
 author: msftradford
 manager: MehranAzimi-msft
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: da8ffd7ff0b8473ce558943bb420b36f26c3fc32
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95494648"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro y diagnóstico en Azure Spatial Anchors
@@ -110,4 +110,4 @@ El conjunto de diagnósticos podría contener esta información:
 
 - **Imágenes de fotograma clave**: las imágenes del entorno capturadas durante la sesión mientras el modo de diagnóstico estaba habilitado.
 - **Registros**: los eventos de registro registrados por el entorno en tiempo de ejecución.
-- **Metadatos de la sesión**: los metadatos que identifican a la sesión.
+- **Metadatos de sesión**: los metadatos que identifican a la sesión.

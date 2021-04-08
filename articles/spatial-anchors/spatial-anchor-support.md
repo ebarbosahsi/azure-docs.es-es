@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95494716"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure Spatial Anchors
@@ -32,7 +32,7 @@ Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure 
 1. Al completar los campos de la incidencia de soporte técnico:
 
 - Tipo de problema: Requisitos previos técnicos
-- Servicio: Spatial Anchors
+- Servicio: Anclajes espaciales
 
 ![Campos de la incidencia de soporte técnico de Azure Portal](./media/spatial-anchor-support3.png)
 

@@ -13,10 +13,10 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600129"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
@@ -98,7 +98,7 @@ Después de habilitar los valores de seguridad predeterminados en el inquilino, 
 
 Las organizaciones usan diversos servicios de Azure que se administran mediante la API de Azure Resource Manager, entre ellos:
 
-- Azure portal 
+- Azure Portal 
 - Azure PowerShell 
 - Azure CLI
 
@@ -128,14 +128,14 @@ Estos valores predeterminados de seguridad gratis permiten el registro y el uso 
 | Código de verificación de aplicación móvil o token de hardware | X* | X |
 | Mensaje de texto al teléfono |   | X |
 | Llamada al teléfono |   | X |
-| Contraseñas de aplicación |   | X**_ |
+| Contraseñas de aplicación |   | X*** |
 
-- _* Los usuarios pueden utilizar códigos de verificación de la aplicación Microsoft Authenticator, pero solo pueden registrarse mediante la opción de notificación.
-- **_ Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados solo si las habilitan los administradores.
+- ** Los usuarios pueden usar códigos de verificación de la aplicación Microsoft Authenticator, pero solo pueden registrarse mediante la opción de notificación.
+- *** Las contraseñas de aplicación solo están disponibles en MFA por usuario con escenarios de autenticación heredados si las habilitan los administradores.
 
 ### <a name="disabled-mfa-status"></a>Estado de MFA deshabilitado
 
-Si su organización es un usuario anterior de Azure AD Multi-Factor Authentication basado en usuarios, no se alarme si no ve usuarios con el estado _ *Habilitado** o **Aplicado** en la página de estado de Multi-Factor Authentication. **Deshabilitado** es el estado adecuado para los usuarios que utilizan valores predeterminados de seguridad o Azure AD Multi-Factor Authentication basado en el acceso condicional.
+Si su organización es un usuario anterior de Azure AD Multi-Factor Authentication basado en usuarios, no se alarme si no ve usuarios con el estado **Habilitado** o **Aplicado** en la página de estado de Multi-Factor Authentication. **Deshabilitado** es el estado adecuado para los usuarios que utilizan valores predeterminados de seguridad o Azure AD Multi-Factor Authentication basado en el acceso condicional.
 
 ### <a name="conditional-access"></a>Acceso condicional
 

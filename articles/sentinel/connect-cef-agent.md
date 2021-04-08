@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ee28837d3e687d78b645a1ab18a9add1f8e57fcc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585362"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771267"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Paso 1: Implementación del reenviador de registros
 
@@ -229,5 +229,7 @@ Elija un demonio de syslog para ver la descripción adecuada.
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a implementar el agente de Log Analytics para conectar dispositivos CEF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
+- Obtenga información sobre la [asignación de campos de CEF y CommonSecurityLog](cef-name-mapping.md).
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 547906e3d3131483468d21623744ac243090ad84
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1b539c168deab7c1893f071a2453be28310fc132
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720243"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022932"
 ---
 # <a name="quickstart-get-a-token-and-call-the-microsoft-graph-api-by-using-a-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante una identidad de aplicación de consola
 
@@ -116,12 +116,10 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 >    ```
 >    En el código:
 >    - `Enter_the_Application_Id_Here` es el identificador de aplicación (cliente) de la aplicación que se registró.
+        Para buscar los valores del identificador de aplicación (cliente) y del identificador de directorio (inquilino), vaya a la página **Información general** de Azure Portal.
 >    - Reemplace `Enter_the_Tenant_Id_Here` por el identificador de inquilino o el nombre del inquilino (por ejemplo, `contoso.microsoft.com`).
 >    - Reemplace `Enter_the_Client_Secret_Here` por el secreto de cliente que creó en el paso 1.
-
-> [!div renderon="docs"]
-> > [!TIP]
-> > Para buscar los valores del identificador de aplicación (cliente) y del identificador de directorio (inquilino), vaya a la página **Información general** de Azure Portal. Para generar una nueva clave, vaya a la página **Certificados y secretos**.
+    Para generar una nueva clave, vaya a la página **Certificados y secretos**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Paso 3: Consentimiento de administrador
@@ -150,12 +148,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> En esa dirección URL:
->> * Reemplace `Enter_the_Tenant_Id_Here` por el identificador de inquilino o el nombre del inquilino (por ejemplo, `contoso.microsoft.com`).
->> * `Enter_the_Application_Id_Here` es el identificador de aplicación (cliente) de la aplicación que se registró.
+> En esa dirección URL:
+> * Reemplace `Enter_the_Tenant_Id_Here` por el identificador de inquilino o el nombre del inquilino (por ejemplo, `contoso.microsoft.com`).
+> * `Enter_the_Application_Id_Here` es el identificador de aplicación (cliente) de la aplicación que se registró.
 
-> [!NOTE]
-> Es posible que después de conceder consentimiento a la aplicación mediante la URL anterior, aparezca el error "AADSTS50011: no hay direcciones de respuesta registradas para la aplicación". Este error se produce porque esta aplicación y la dirección URL no tienen un URI de redirección. Puede pasarla por alto.
+Es posible que después de conceder consentimiento a la aplicación mediante la URL anterior, aparezca el error "AADSTS50011: no hay direcciones de respuesta registradas para la aplicación". Este error se produce porque esta aplicación y la dirección URL no tienen un URI de redirección. Puede pasarla por alto.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-4-run-the-application"></a>Paso 4: Ejecución de la aplicación
@@ -169,14 +166,12 @@ Si utiliza Visual Studio o Visual Studio para Mac, presione **F5** para ejecut
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
-
-> En el código:
-> * `{ProjectFolder}` es la carpeta donde extrajo el archivo zip. Un ejemplo es `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
+En el código:
+* `{ProjectFolder}` es la carpeta donde extrajo el archivo zip. Un ejemplo es `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
 Como resultado, verá una lista de usuarios en Azure Active Directory.
 
-> [!IMPORTANT]
-> Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como un cliente confidencial. El secreto de cliente se agrega como un archivo de texto sin formato a los archivos de proyecto. Por motivos de seguridad, se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como de producción. Para más información sobre cómo usar un certificado, consulte [estas instrucciones](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) en el repositorio de GitHub para este ejemplo.
+Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como un cliente confidencial. El secreto de cliente se agrega como un archivo de texto sin formato a los archivos de proyecto. Por motivos de seguridad, se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como de producción. Para más información sobre cómo usar un certificado, consulte [estas instrucciones](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) en el repositorio de GitHub para este ejemplo.
 
 ## <a name="more-information"></a>Más información
 En esta sección, se proporciona una introducción al código necesario para el inicio de sesión de usuarios. Esta introducción puede ser útil para comprender cómo funciona el código, cuáles son los argumentos principales y cómo agregar el inicio de sesión a una aplicación de consola de .NET Core existente.
@@ -214,11 +209,11 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Elemento | Descripción |
-> |---------|---------|
-> | `config.ClientSecret` | Es el secreto de cliente creado para la aplicación en Azure Portal. |
-> | `config.ClientId` | Es el identificador de aplicación (cliente) de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
-> | `config.Authority`    | (Opcional) El punto de conexión del servicio de token de seguridad (STS) para que el usuario se autentique. Normalmente `https://login.microsoftonline.com/{tenant}` en la nube pública, donde `{tenant}` es el nombre o el identificador del inquilino.|
+ | Elemento | Descripción |
+ |---------|---------|
+ | `config.ClientSecret` | Es el secreto de cliente creado para la aplicación en Azure Portal. |
+ | `config.ClientId` | Es el identificador de aplicación (cliente) de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
+ | `config.Authority`    | (Opcional) El punto de conexión del servicio de token de seguridad (STS) para que el usuario se autentique. Normalmente `https://login.microsoftonline.com/{tenant}` en la nube pública, donde `{tenant}` es el nombre o el identificador del inquilino.|
 
 Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication).
 
@@ -231,9 +226,9 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Elemento| Descripción |
-> |---------|---------|
-> | `scopes` | Contiene los ámbitos solicitados. Para clientes confidenciales, este valor debe tener un formato similar a `{Application ID URI}/.default`. Este formato indica que los ámbitos solicitados son los que están definidos estáticamente en el conjunto de objetos de la aplicación en Azure Portal. Para Microsoft Graph, `{Application ID URI}` apunta a `https://graph.microsoft.com`. Con API web personalizadas, `{Application ID URI}` se define en Azure Portal, en **Registro de aplicaciones (versión preliminar)**  > **Exponer una API**. |
+|Elemento| Descripción |
+|---------|---------|
+| `scopes` | Contiene los ámbitos solicitados. Para clientes confidenciales, este valor debe tener un formato similar a `{Application ID URI}/.default`. Este formato indica que los ámbitos solicitados son los que están definidos estáticamente en el conjunto de objetos de la aplicación en Azure Portal. Para Microsoft Graph, `{Application ID URI}` apunta a `https://graph.microsoft.com`. Con API web personalizadas, `{Application ID URI}` se define en Azure Portal, en **Registro de aplicaciones (versión preliminar)**  > **Exponer una API**. |
 
 Para más información, consulte la [documentación de referencia de `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient).
 

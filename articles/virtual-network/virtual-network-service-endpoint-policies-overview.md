@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216655"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022269"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Directivas de punto de conexión de servicio de red virtual para Azure Storage
 
@@ -109,6 +109,8 @@ No se dispone de un registro centralizado para las directivas de punto de conexi
   - Asegúrese de que las cuentas no sean **cuentas de almacenamiento clásicas** con directivas de punto de conexión de servicio en la subred.
 - Un servicio de Azure administrado ha dejado de funcionar después de aplicar una directiva de punto de conexión de servicio a través de la subred
   - Los servicios administrados no son compatibles con las directivas de punto de conexión de servicio de momento. *No pierda de vista este espacio para ver si hay actualizaciones*.
+- El acceso a las cuentas de almacenamiento administradas dejó de funcionar después de aplicar una directiva de punto de conexión de servicio a través de la subred
+  - Las cuentas de almacenamiento administradas no son compatibles con las directivas de punto de conexión de servicio. Si está configurado, las directivas deniegan el acceso a todas las cuentas de almacenamiento administradas de forma predeterminada. Si la aplicación necesita acceso a las cuentas de almacenamiento administradas, no se deben usar directivas de punto de conexión para este tráfico.
 
 ## <a name="provisioning"></a>Aprovisionamiento
 

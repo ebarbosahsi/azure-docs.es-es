@@ -4,18 +4,18 @@ description: Antes de poder acceder a datos locales desde Azure Logic Apps, desc
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054778"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576805"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
-Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), descargue e instale la [puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer) en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia de datos rápida y el cifrado entre orígenes de datos locales y las aplicaciones lógicas. Puede usar la misma instalación de puerta de enlace con otros servicios en la nube, tales como Power BI, Power Automate, Power Apps y Azure Analysis Services. Para obtener información sobre cómo usar la puerta de enlace con estos servicios, consulte estos artículos:
+Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), descargue e instale la [puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer) en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia de datos rápida y el cifrado entre orígenes de datos locales y las aplicaciones lógicas. Puede usar la misma instalación de puerta de enlace con otros servicios en la nube, como Power Automate, Power BI, Power Apps y Azure Analysis Services. Para obtener información sobre cómo usar la puerta de enlace con estos servicios, consulte estos artículos:
 
 * [Puerta de enlace de datos local de Microsoft Power Automate](/power-automate/gateway-reference)
 * [Puerta de enlace de datos local de Microsoft Power BI](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
   * Si tiene previsto usar la autenticación de Windows, asegúrese de instalar la puerta de enlace en un equipo que sea miembro del mismo entorno de Active Directory que los orígenes de datos.
 
-  * La región que seleccione para la instalación de la puerta de enlace es la misma ubicación que debe seleccionar cuando cree posteriormente el recurso de puerta de enlace de Azure para la aplicación lógica. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD que administra su cuenta de Azure. Sin embargo, puede cambiar la ubicación durante la instalación de la puerta de enlace.
+  * La región que seleccione para la instalación de la puerta de enlace es la misma ubicación que debe seleccionar cuando cree posteriormente el recurso de puerta de enlace de Azure para la aplicación lógica. De forma predeterminada, esta región es la misma ubicación que la del inquilino de Azure AD que administra su cuenta de usuario de Azure. Sin embargo, la ubicación se puede cambiar durante la instalación de la puerta de enlace, o incluso después.
+
+    > [!IMPORTANT]
+    > Durante la configuración de la puerta de enlace, el comando para **cambiar la región** no está disponible si ha iniciado sesión con su cuenta de Azure Government, que está asociada a un inquilino de Azure Active Directory (Azure AD) en la [nube de Azure Government](../azure-government/compare-azure-government-global-azure.md). La puerta de enlace usa automáticamente la misma región que el inquilino de Azure AD de la cuenta de usuario.
+    > 
+    > Para seguir usando su cuenta de Azure Government, pero configurar la puerta de enlace para que funcione en la nube de Azure Commercial multiinquilino global en su lugar, en primer lugar inicie sesión durante la instalación de la puerta de enlace con el `prod@microsoft.com` nombre de usuario. Esta solución fuerza a la puerta de enlace a usar la nube global multiinquilino de Azure, pero le permite seguir usando su cuenta de Azure Government.
 
   * Si actualiza la instalación de la puerta de enlace, desinstale antes la puerta de enlace actual para que la experiencia sea más ordenada.
 

@@ -9,10 +9,10 @@ ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 57b0bb9ab8ceb34021a38db0d0abf2c9c919e808
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94356659"
 ---
 ### <a name="can-i-still-deploy-multiple-bastion-hosts-across-peered-virtual-networks"></a>¿Puedo seguir implementando varios hosts bastión en redes virtuales emparejadas?
@@ -30,7 +30,7 @@ Sí, la conectividad a través de Bastion continuará funcionando para redes vir
 Asegúrese de que el usuario tenga acceso de **lectura** tanto a la máquina virtual como a la red virtual emparejada. Además, compruebe en IAM que el usuario tiene acceso de **lectura** a los siguientes recursos:
 
 * Rol Lector en la máquina virtual.
-* Rol Lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
+* Rol de lector en la tarjeta de interfaz de red con la dirección IP privada de la máquina virtual.
 * Rol Lector en el recurso de Azure Bastion.
 * Rol Lector en la red virtual (no es necesario si no hay ninguna red virtual emparejada).
 

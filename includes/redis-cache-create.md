@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
 ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96002478"
 ---
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**.
@@ -38,7 +38,7 @@ ms.locfileid: "96002478"
 
 1. En la pestaña **Redes**, seleccione el método de conectividad.
 
-1. Seleccione la pestaña **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
+1. Seleccione el botón **Siguiente: Opciones avanzadas** o haga clic en el botón **Siguiente: Opciones avanzadas** de la parte inferior de la página.
 
 1. En la pestaña **Opciones avanzadas** de una instancia de caché básica o estándar, seleccione el botón de alternancia de habilitación si desea habilitar un puerto que no sea TLS. También puede seleccionar la versión de Redis que quiere usar, la 4 o (VERSIÓN PRELIMINAR) la 6.
 

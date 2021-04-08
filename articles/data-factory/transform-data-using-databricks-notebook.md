@@ -8,10 +8,10 @@ author: nabhishek
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100374089"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
@@ -154,12 +154,12 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
           ![Establecimiento de las propiedades del nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. En el cuaderno "mynotebook" recién creado, agregue el código siguiente:
+       1. En el cuaderno "mynotebook&quot; recién creado, agregue el código siguiente:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text("input", "","")
+           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
