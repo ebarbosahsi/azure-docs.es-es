@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94365015"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenido externo y de la comunidad para Text Analytics en Cognitive Services
@@ -27,13 +27,13 @@ ms.locfileid: "94365015"
 
 + [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (blog de AutomationNext)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [R Quick tip: Microsoft Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
++ [Sugerencia rápida de R: Text Analytics API de Microsoft Cognitive Services (blogueros de R)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [Análisis de opiniones de aplicación lógica mediante los datos de SQL Server (blog de TechNet)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
 + [Análisis de opiniones con Dynamics 365 CRM Online (blog de MSDN)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
-+ Blog de Power BI: Extracción de frases clave de los mensajes de Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) y [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Blog de Power BI: extracción de frases clave de los mensajes de Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) y [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
 + [Identifique la opinión de los comentarios de un grupo de Yammer con MS Flow (comunidad técnica de Microsoft)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 

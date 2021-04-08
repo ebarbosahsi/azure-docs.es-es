@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397287"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
@@ -103,9 +103,9 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 3. Escriba *myBackendSubnet* como nombre de la subred.
 4. Escriba *10.0.2.0/24* para el intervalo de direcciones y, a continuación, seleccione **Aceptar**.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Adición de un agente de escucha y una regla de redireccionamiento
+## <a name="add-a-listener-and-redirection-rule&quot;></a>Adición de un agente de escucha y una regla de redireccionamiento
 
-### <a name="add-the-listener"></a>Adición del agente de escucha
+### <a name=&quot;add-the-listener&quot;></a>Adición del agente de escucha
 
 En primer lugar, agregue un agente de escucha llamado *myListener* para el puerto 80.
 
@@ -115,7 +115,7 @@ En primer lugar, agregue un agente de escucha llamado *myListener* para el puert
 4. Escriba *httpPort* para el nombre del nuevo puerto de front-end y *80* para el puerto.
 5. Asegúrese de que el protocolo está establecido en **HTTP** y, a continuación, seleccione **Aceptar**.
 
-### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Adición de una regla de enrutamiento con una configuración de redireccionamiento
+### <a name=&quot;add-a-routing-rule-with-a-redirection-configuration&quot;></a>Adición de una regla de enrutamiento con una configuración de redireccionamiento
 
 1. En **myAppGateway**, seleccione **Reglas** y, a continuación, seleccione **+Regla de enrutamiento de solicitud**.
 2. En **Nombre de la regla**, escriba *Rule2*.
@@ -127,7 +127,7 @@ En primer lugar, agregue un agente de escucha llamado *myListener* para el puert
 8. Para **Cadena de consulta de inclusión** y **Ruta de acceso de inclusión** seleccione *Sí*.
 9. Seleccione **Agregar**.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
+## <a name=&quot;create-a-virtual-machine-scale-set&quot;></a>Crear un conjunto de escalado de máquinas virtuales
 
 En este ejemplo, creará un conjunto de escalado de máquinas virtuales para proporcionar servidores al grupo de servidores back-end de la puerta de enlace de aplicaciones.
 
@@ -147,7 +147,7 @@ En este ejemplo, creará un conjunto de escalado de máquinas virtuales para pro
 14. Asegúrese de que **Subred** está establecido en **myBackendSubnet**.
 15. Seleccione **Crear**.
 
-### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Asociación del conjunto de escalado con el grupo de back-end correcto
+### <a name=&quot;associate-the-scale-set-with-the-proper-backend-pool&quot;></a>Asociación del conjunto de escalado con el grupo de back-end correcto
 
 La interfaz de usuario del portal del conjunto de escalado de máquinas virtuales crea un nuevo grupo de back-end para el conjunto de escalado, pero desea asociarlo a appGatewayBackendPool.
 
@@ -164,7 +164,7 @@ La interfaz de usuario del portal del conjunto de escalado de máquinas virtuale
 11. En **Configuraciones de interfaz de red**, seleccione **myvmssNic**.
 12. Seleccione **Guardar**.
 
-### <a name="upgrade-the-scale-set"></a>Actualización del conjunto de escalado
+### <a name=&quot;upgrade-the-scale-set&quot;></a>Actualización del conjunto de escalado
 
 Por último, debe actualizar el conjunto de escalado con estos cambios.
 
@@ -176,14 +176,14 @@ Por último, debe actualizar el conjunto de escalado con estos cambios.
 6. Seleccione **myAppGatewaymyvmss** y, a continuación, seleccione **Eliminar**.
 7. Seleccione **Aceptar** para confirmar.
 
-### <a name="install-iis"></a>Instalación de IIS
+### <a name=&quot;install-iis&quot;></a>Instalación de IIS
 
 Una manera fácil de instalar IIS en el conjunto de escalado es usar PowerShell. Desde el portal, haga clic en el icono Cloud Shell y asegúrese de que **PowerShell** está seleccionado.
 
 Pegue el código siguiente en la ventana de PowerShell y presione ENTRAR.
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
+$publicSettings = @{ &quot;fileUris&quot; = (,&quot;https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
