@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75392295"
 ---
 En la tabla siguiente se describe cada uno de los principales aceleradores, valores predeterminados, límites y cuotas de Azure Scheduler.
 
-| Resource | Descripción de límites |
+| Recurso | Descripción de límites |
 | -------- | ----------------- |
 | **Tamaño del trabajo** | El tamaño máximo del trabajo es 16 000. Si una operación PUT o PATCH produce un tamaño de trabajo mayor que este límite, se devuelve un código de estado 400 Solicitud incorrecta. | 
 | **Colecciones de trabajos** | El número máximo de colecciones de trabajos por suscripción de Azure es 200 000. | 

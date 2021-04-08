@@ -1,5 +1,5 @@
 ---
-title: 'VPN Gateway: Solución de problemas de un cliente VPN: autenticación de Azure AD'
+title: 'VPN Gateway: solución de problemas de un cliente de VPN con autenticación de Azure AD'
 description: Solución de problemas de clientes de autenticación de VPN Gateway P2S Azure AD
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84988097"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solución de problemas de un cliente VPN de autenticación Azure AD

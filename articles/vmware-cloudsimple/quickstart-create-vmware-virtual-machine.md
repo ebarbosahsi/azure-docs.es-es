@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Uso de máquinas virtuales de VMware en Azure'
+title: 'Inicio rápido: uso de máquinas virtuales de VMware en Azure'
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Aprenda a configurar y a usar máquinas virtuales de VMware desde Azure Portal mediante VMware Solution by CloudSimple
 author: sharaths-cs
@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77019560"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Inicio rápido: Uso de máquinas virtuales de VMware en Azure
@@ -74,8 +74,8 @@ Cree una máquina virtual en la nube privada desde la interfaz de usuario de vCe
     | ------------ | ------------- |
     | Nombre | Escriba un nombre para identificar el disco.  |
     | Size | Seleccione uno de los tamaños disponibles.  |
-    | SCSI Controller (Controladora SCSI) | Seleccione una controladora SCSI para el disco.  |
-    | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual.  El modo independiente no persistente permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentación de VMware</a>.
+    | Controladora SCSI | Seleccione una controladora SCSI para el disco.  |
+    | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios que se escriben en el disco se descartan al apagar o restablecer la máquina virtual.  El modo independiente no persistente permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentación de VMware</a>.
 
 7. Cuando finalice la validación, revise la configuración y haga clic en **Crear**. Para realizar cambios, haga clic en las pestañas de la parte superior.
 
