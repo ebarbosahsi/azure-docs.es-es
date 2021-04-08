@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: f68e227e10a85b7e1d98dcabbfb870933059ec04
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936941"
 ---
-# <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>Escenario: La actualización de HDP hace que no haya datos en las vistas de Apache Phoenix en Azure HDInsight
+# <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>Escenario: la actualización de HDP hace que no haya datos en las vistas de Apache Phoenix en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 

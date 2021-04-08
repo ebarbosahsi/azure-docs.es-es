@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
 ms.openlocfilehash: 5ce459e2820cfd2ea5cacb036f5d6885c9c5afa0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98933368"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK de REST de Apache Phoenix Query Server
@@ -20,7 +20,7 @@ En este artículo se describe cómo usar PQS REST SDK para crear tablas, realiza
 
 Para obtener más información, consulte [Apache Calcite Avatica Protocol Buffers Reference](https://calcite.apache.org/avatica/docs/protobuf_reference.html) (Referencia de los búferes de protocolo de Apache Calcite Avatica).
 
-## <a name="install-the-sdk"></a>Instalación del SDK
+## <a name="install-the-sdk"></a>Instalar el SDK
 
 El controlador Microsoft .NET para Apache Phoenix Query Server se proporciona como un paquete de NuGet, que puede instalarse desde la **Consola del Administrador de paquetes de NuGet** de Visual Studio con el siguiente comando:
 

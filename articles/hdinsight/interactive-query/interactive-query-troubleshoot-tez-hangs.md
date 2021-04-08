@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
 ms.openlocfilehash: 56c68c26ae953034283031e2427b7a4afadee94e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98935940"
 ---
-# <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Escenario: La aplicación Apache Tez se bloquea en Azure HDInsight
+# <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Escenario: la aplicación Apache Tez se bloquea en Azure HDInsight.
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 

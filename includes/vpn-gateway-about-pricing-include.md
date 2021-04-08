@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8f8d366961049deb3eda193718ccb553aac930e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "67666374"
 ---
 Se paga por dos cosas: los costos de proceso por horas de la puerta de enlace de red virtual y la transferencia de datos de salida de esta. Puede encontrar más información sobre los precios en la página de [precios](https://azure.microsoft.com/pricing/details/vpn-gateway). Para los precios de SKU de puerta de enlace heredada, consulte la [página de precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) y vaya a la sección **Puertas de enlace de red virtual**.

@@ -9,27 +9,27 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538211"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Errores internos
 
-En este artículo se describen las causas y las soluciones de los **errores internos 500xxx** .
+En este artículo se describen las causas y las soluciones de los **errores internos 500xxx**.
 
 ## <a name="symptoms"></a>Síntomas
 
 La solicitud a IoT Hub produce un error que comienza con 500 y un tipo de "error de servidor". Las posibilidades son las siguientes:
 
-* **500001 ServerError** : IoT Hub genera un error en el servidor.
+* **500001 ServerError**: IoT Hub genera un error en el servidor.
 
-* **500008 GenericTimeout** : IoT Hub no pudo completar la solicitud de conexión antes de agotar el tiempo de expiración.
+* **500008 GenericTimeout**: IoT Hub no pudo completar la solicitud de conexión antes de agotar el tiempo de expiración.
 
-* **ServiceUnavailable (sin código de error)** : IoT Hub encontró un error interno.
+* **ServiceUnavailable (sin código de error)** : IoT Hub detectó un error interno.
 
-* **InternalServerError (sin código de error)** : IoT Hub encontró un error interno.
+* **InternalServerError (sin código de error)** : IoT Hub detectó un error interno.
 
 ## <a name="cause"></a>Causa
 

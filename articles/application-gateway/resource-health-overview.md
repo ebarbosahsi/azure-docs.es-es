@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397179"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Información general sobre Resource Health de Azure Application Gateway
@@ -43,7 +43,7 @@ Resource Health proporciona detalles adicionales sobre el evento y el proceso de
 
 ![Estado No disponible](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Unknown
+## <a name="unknown"></a>Desconocido
 
 El estado **Desconocido** indica que Resource Health no ha recibido información sobre la puerta de enlace desde hace más de 10 minutos. Este estado no es una indicación definitiva del estado de la puerta de enlace, aunque es un punto de datos importante en el proceso de solución de problemas.
 

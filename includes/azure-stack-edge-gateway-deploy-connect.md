@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: 60b0a1e07099c48474d6890480be663f2058797f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96464983"
 ---
 1. Abra una ventana del explorador y acceda a la interfaz de usuario web local del dispositivo en `https://192.168.100.10`. Esta acción puede tardar unos minutos en completarse después de que haya activado el dispositivo.

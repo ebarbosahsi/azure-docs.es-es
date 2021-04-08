@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394618"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
@@ -34,12 +34,12 @@ Se necesitan dos o más tokens de SAS para cada flujo de trabajo que se envía a
 
 La firma de acceso compartido de los archivos de entrada debe tener las siguientes propiedades:
  - Ámbito (cuenta, contenedor, blob): blob
- - Expiración: 48 horas desde ahora
+ - Expiración: 48 horas a partir de ahora
  - Permisos: lectura
 
 La firma de acceso compartido del contenedor de salida debe tener las siguientes propiedades:
  - Ámbito (cuenta, contenedor, blob): contenedor
- - Expiración: 48 horas desde ahora
+ - Expiración: 48 horas a partir de ahora
  - Permisos: lectura, escritura, eliminación
 
 
@@ -47,7 +47,7 @@ La firma de acceso compartido del contenedor de salida debe tener las siguientes
 Hay dos maneras de crear un token de SAS: mediante el Explorador de Azure Storage o mediante programación.  Si va a escribir código, puede construir la firma de acceso compartido por sí mismo o usar el SDK de Azure Storage en el lenguaje que prefiera.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuración: creación de una SAS mediante el Explorador de Azure Storage
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuración: Creación de una SAS mediante el Explorador de Azure Storage
 
 El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una herramienta para administrar los recursos que están almacenados en Azure Storage.  Puede obtener más información sobre cómo usar el Explorador de Azure Storage [aquí](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
@@ -56,7 +56,7 @@ La firma de acceso compartido de los archivos de entrada debe estar limitada al 
  ![Explorador de Storage de SAS para Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Storage de SAS para Genomics")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configuración: Creación de una firma de acceso compartido mediante programación
+### <a name="set-up-create-a-sas-programmatically"></a>Configurar: creación de una firma de acceso compartido mediante programación
 
 Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](../storage/common/storage-sas-overview.md), [Python](../storage/blobs/storage-quickstart-blobs-python.md) y [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md). 
 

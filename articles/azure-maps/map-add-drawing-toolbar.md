@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896402"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa

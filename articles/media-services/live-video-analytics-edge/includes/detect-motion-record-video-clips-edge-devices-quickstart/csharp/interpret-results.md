@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 870b5b54c4a5afb39b43063bd00d3cb73e8ee0f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88682240"
 ---
 Cuando se ejecuta el grafo multimedia, los resultados del nodo del procesador de detección del movimiento pasan a través del nodo de receptor de IoT Hub al centro de IoT. Los mensajes que aparecen en la ventana **SALIDA** de Visual Studio Code contienen una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
@@ -18,7 +18,7 @@ Cuando se crean instancias del grafo multimedia, el nodo de origen RTSP intenta 
 [IoTHubMonitor] [05:37:21 AM] Message received from [lva-sample-device/lvaEdge]:
 {  
 "body": {
-"sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"  
+"sdp&quot;: &quot;SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 xxx.xxx.xxx.xxx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"  
 },  
 "applicationProperties": {  
     "dataVersion": "1.0",  
@@ -34,7 +34,7 @@ En la salida anterior:
 
 * El mensaje es un evento de diagnóstico `MediaSessionEstablished`. Indica que el nodo de origen RTSP (el sujeto) ha establecido una conexión con el simulador RTSP y ha comenzado a recibir una fuente en directo (simulada).
 * En `applicationProperties`, `subject` hace referencia al nodo de la topología del grafo de elementos multimedia desde el que se generó el mensaje. En este caso, el mensaje se origina en el nodo de origen RTSP.
-* En `applicationProperties`, `eventType` indica que este evento es de diagnóstico.
+* En `applicationProperties`, `eventType` indica que este evento es un evento de diagnóstico.
 * El valor `eventTime` es la hora en que se produjo el evento.
 * La sección `body` contiene datos sobre el evento de diagnóstico. En este caso, los datos incluyen detalles sobre el [protocolo de descripción de sesiones (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol).
 
@@ -49,14 +49,14 @@ A continuación se muestra un ejemplo de este mensaje:
 {
   "body": {
     "outputType": "filePath",
-    "outputLocation": "/var/media/sampleFilesFromEVR-filesinkOutput-20200521T053726Z.mp4"
+    "outputLocation&quot;: &quot;/var/media/sampleFilesFromEVR-filesinkOutput-20200521T053726Z.mp4"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
     "subject": "/graphInstances/Sample-Graph-1/sinks/fileSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
     "eventTime": "2020-05-21T05:37:27.713Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92788090"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure
@@ -32,7 +32,7 @@ En este tutorial se usa Python y las [API REST de Search](/rest/api/searchservic
 
 Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 + [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
@@ -315,7 +315,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
