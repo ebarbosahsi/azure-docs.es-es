@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/02/2020
 ms.author: pabouwer
 ms.openlocfilehash: a02c17013a205ccc0da85536b491d467ef72fa48
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91666737"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descargar e instalar el binario de cliente istioctl de Istio
@@ -19,7 +19,7 @@ En un shell basado en PowerShell en Windows, use `Invoke-WebRequest` para descar
 $ISTIO_VERSION="1.7.3"
 
 [Net.ServicePointManager]::SecurityProtocol = "tls12"
-$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istioctl-$ISTIO_VERSION-win.zip" -OutFile "istioctl-$ISTIO_VERSION.zip"
+$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istioctl-$ISTIO_VERSION-win.zip&quot; -OutFile &quot;istioctl-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istioctl-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
@@ -32,7 +32,7 @@ Move-Item -Path .\istioctl.exe -Destination "C:\Istio\"
 
 # Add C:\Istio to PATH. 
 # Make the new PATH permanently available for the current User
-$USER_PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Istio\"
+$USER_PATH = [environment]::GetEnvironmentVariable("PATH&quot;, &quot;User&quot;) + &quot;;C:\Istio\"
 [environment]::SetEnvironmentVariable("PATH", $USER_PATH, "User")
 # Make the new PATH immediately available in the current shell
 $env:PATH += ";C:\Istio\"

@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo agregar un artefacto a una máquin
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483897"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Incorporación de un artefacto a una máquina virtual
@@ -15,7 +15,7 @@ Al crear una máquina virtual, puede agregar artefactos existentes a esta. Estos
 
 Los *artefactos* de Azure DevTest Labs permiten especificar las *acciones* que se realizan al aprovisionarse la máquina virtual, como, por ejemplo, la ejecución de scripts de Windows PowerShell, la ejecución de comandos Bash y la instalación de software. Los *parámetros* del artefacto le permiten personalizar el artefacto para su escenario en particular.
 
-Para obtener información sobre cómo crear artefactos personalizados, consulte el artículo: [Cree artefactos personalizados](devtest-lab-artifact-author.md).
+Para obtener información sobre cómo crear artefactos personalizados, consulte el artículo: [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -156,6 +156,6 @@ if ($virtualMachine -ne $null) {
 Consulte los artículos siguientes sobre los artefactos:
 
 - [Especificación de artefactos obligatorios para su laboratorio](devtest-lab-mandatory-artifacts.md)
-- [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
+- [Crear artefactos personalizado](devtest-lab-artifact-author.md)
 - [Incorporación de un repositorio de artefactos a un laboratorio](devtest-lab-artifact-author.md)
 - [Diagnóstico de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md)

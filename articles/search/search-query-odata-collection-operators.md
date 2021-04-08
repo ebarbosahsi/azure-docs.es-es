@@ -20,17 +20,17 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88934912"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de colección de OData en Azure Cognitive Search: `any` y `all`
 
 Al escribir una [expresión de filtro de OData](query-odata-filter-orderby-syntax.md) para usarla con Azure Cognitive Search, a menudo es útil filtrar por los campos de la colección. Esto se puede conseguir con los operadores `any` y `all`.
 
-## <a name="syntax"></a>Sintaxis
+## <a name="syntax"></a>Syntax
 
 En la siguiente EBNF ([forma de Backus-Naur extendida](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) se define la gramática de una expresión de OData en la que se usa `any` o `all`.
 

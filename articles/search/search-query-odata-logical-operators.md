@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88917880"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos de OData en Azure Cognitive Search: `and`, `or`, `not`
@@ -72,7 +72,7 @@ Hay dos formas de expresiones lógicas: binarias (`and`/`or`), donde hay dos sub
 
 La mayoría de las expresiones booleanas, como las funciones y las comparaciones, no pueden generar valores `null`, y los operadores lógicos no se pueden aplicar directamente al literal `null` (por ejemplo, no se permite `x and null`). Pero los campos booleanos pueden ser `null`, por lo que debe tener en cuenta cómo se comportan los operadores `and`, `or` y `not` en presencia de NULL. Esto se resume en la tabla siguiente, donde `b` es un campo de tipo `Edm.Boolean`:
 
-| Expression | Resultado cuando `b` es `null` |
+| Expresión | Resultado cuando `b` es `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -119,5 +119,5 @@ Comparar documentos para hoteles en Vancouver, Canadá donde hay una habitación
 
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

@@ -9,10 +9,10 @@ ms.date: 01/15/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82506412"
 ---
 Si va a seguir con el siguiente artículo recomendado, puede mantener los recursos que ya ha creado y volverlos a utilizar.
@@ -29,7 +29,7 @@ Para eliminar un grupo de recursos por el nombre:
 
 1. En el cuadro **Filtrar por nombre**, escriba el nombre del grupo de recursos que contiene el centro de IoT.
 
-1. A la derecha del grupo de recursos, en la lista de resultados, seleccione los puntos suspensivos ( **...** ) y, después, **Eliminar grupo de recursos**.
+1. A la derecha del grupo de recursos, en la lista de resultados, seleccione los puntos suspensivos (**...**) y, después, **Eliminar grupo de recursos**.
 
     ![El botón "Eliminar grupo de recursos"](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 

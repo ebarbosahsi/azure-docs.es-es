@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 76a080d40721fa78ad703f77f6dbe7a3363ab77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68857490"
 ---
 ## <a name="install-wordpress"></a>Instalación de WordPress
@@ -21,7 +21,7 @@ Esta instalación de WordPress es solo para la prueba de concepto. Para instalar
 
 ### <a name="install-the-wordpress-package"></a>Instalación del paquete de WordPress
 
-Ejecute el siguiente comando:
+Ejecute el comando siguiente:
 
 ```bash
 sudo apt install wordpress

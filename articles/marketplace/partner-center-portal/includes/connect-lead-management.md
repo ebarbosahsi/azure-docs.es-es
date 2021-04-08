@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88815678"
 ---
 Al publicar su oferta en Marketplace comercial a través del Centro de partners, debe conectar su oferta al sistema CRM. De este modo, podrá recibir información de contacto del cliente inmediatamente después de que un cliente exprese interés o implemente el producto.

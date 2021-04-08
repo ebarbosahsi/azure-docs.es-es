@@ -1,13 +1,13 @@
 ---
-title: 'Patrón: propiedades field en una definición de directiva'
+title: 'Patrón: Propiedades field en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar propiedades field en una definición de directiva.
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072975"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Patrón de Azure Policy: propiedades field

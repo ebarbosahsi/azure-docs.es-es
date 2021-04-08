@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: mahender
 ms.openlocfilehash: 3b282a99bb7f6f107717d9c265a46d285d03b849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83649077"
 ---
 Una identidad administrada de Azure Active Directory (Azure AD) permite a la aplicación acceder fácilmente a otros recursos protegidos por Azure AD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para más información sobre las identidades administradas en Azure AD, consulte [Identidades administradas para recursos de Azure](../articles/active-directory/managed-identities-azure-resources/overview.md).

@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91335456"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
@@ -49,7 +49,7 @@ En esta sección se usa Visual Studio Code para crear un proyecto local en Azur
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar el lenguaje para el proyecto de la aplicación de funciones | JavaScript | Cree un proyecto local de Functions en Node.js. |
     | Selección de una versión | Azure Functions v3 | Esta opción solo se ve si las herramientas principales no estén instaladas. En este caso, las herramientas principales se instalan la primera vez que se ejecuta la aplicación. |
@@ -84,7 +84,7 @@ Se usa una plantilla para crear el código de la función de Durable Functions d
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Orquestador de Durable Functions | Crear una orquestación de Durable Functions |
     | Proporcionar un nombre de función | HelloOrchestrator | Nombre de la función de Durable Functions |
@@ -99,7 +99,7 @@ A continuación, agregará la función de actividad `Hello` a la que se hace ref
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Actividad de Durable Functions | Crear una función de actividad |
     | Proporcionar un nombre de función | Hola | Nombre de la función de actividad |
@@ -114,7 +114,7 @@ Por último, agregará una función desencadenada por HTTP que inicie la orquest
 
 1. Siguiendo las indicaciones, proporcione la información siguiente:
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar una plantilla para la función | Inicio de HTTP de Durable Functions | Crear una función de inicio de HTTP |
     | Proporcionar un nombre de función | DurableFunctionsHttpStart | Nombre de la función de actividad |
@@ -139,7 +139,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
 1. Siga las indicaciones y proporcione la siguiente información para crear una nueva cuenta de almacenamiento en Azure.
 
-    | Prompt | Value | Descripción |
+    | Prompt | Valor | Descripción |
     | ------ | ----- | ----------- |
     | Seleccionar suscripción | *nombre de la suscripción* | Selección de su suscripción a Azure |
     | Seleccione una cuenta de almacenamiento | Creación de una cuenta de almacenamiento nueva |  |

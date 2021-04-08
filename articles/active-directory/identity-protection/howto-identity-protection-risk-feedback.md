@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88950364"
 ---
-# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Instrucciones: Enviar comentarios sobre riesgo en Azure AD Identity Protection
+# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Aprenda cómo enviar comentarios sobre riesgo en Azure AD Identity Protection
 
 Azure AD Identity Protection le permite enviar comentarios sobre su evaluación de riesgos. En el documento siguiente se enumeran los escenarios en los que puede enviar comentarios sobre la evaluación del riesgo de Azure AD Identity Protection y se proporciona información para incorporarlos.
 

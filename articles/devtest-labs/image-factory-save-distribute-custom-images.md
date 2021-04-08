@@ -4,16 +4,16 @@ description: En este artículo se tratan los pasos para guardar imágenes person
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476247"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imágenes personalizadas y distribuirlas a varios laboratorios
 En este artículo se tratan los pasos para guardar las imágenes personalizadas de máquinas virtuales (VM) que ya se han creado. También se trata cómo distribuir estas imágenes personalizadas en otros laboratorios DevTest Labs de la organización.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Los siguientes elementos ya deben estar implementados:
 
 - Un laboratorio para el generador de imágenes en Azure DevTest Labs.
@@ -36,8 +36,8 @@ Una vez que tenga la nueva tarea en la lista, seleccione el elemento para que po
 ## <a name="generalized-vs-specialized-custom-images"></a>Imágenes personalizadas generalizadas o especializadas
 En [Azure Portal](https://portal.azure.com), al crear una imagen personalizada desde una máquina virtual, puede elegir que sea una imagen personalizada generalizada o especializada.
 
-- **Imagen personalizada especializada:** En el equipo NO se ejecutó sysprep ni el desaprovisionamiento. Esto significa que la imagen es una copia exacta del disco del sistema operativo en la máquina virtual existente (una instantánea).  Están presentes los mismos archivos, aplicaciones, cuentas de usuario, nombre de equipo, etc. cuando se crea una nueva máquina desde esta imagen personalizada.
-- **Imagen personalizada generalizada:** En el equipo se ejecutó sysprep o el desaprovisionamiento.  Cuando se ejecuta este proceso, se quitan las cuentas de usuario, el nombre del equipo, los subárboles del registro de usuario, etc., con el objetivo de generalizar la imagen, para que se pueda personalizar al crear otra máquina virtual.  Al generalizar una máquina virtual (ejecutando sysprep), el proceso destruye la máquina virtual actual (que ya no será funcional).
+- **Imagen personalizada especializada:** en la máquina NO se ejecutó sysprep ni el desaprovisionamiento. Esto significa que la imagen es una copia exacta del disco del sistema operativo en la máquina virtual existente (una instantánea).  Están presentes los mismos archivos, aplicaciones, cuentas de usuario, nombre de equipo, etc. cuando se crea una nueva máquina desde esta imagen personalizada.
+- **Imagen personalizada generalizada:** en la máquina se ejecutó sysprep o el desaprovisionamiento.  Cuando se ejecuta este proceso, se quitan las cuentas de usuario, el nombre del equipo, los subárboles del registro de usuario, etc., con el objetivo de generalizar la imagen, para que se pueda personalizar al crear otra máquina virtual.  Al generalizar una máquina virtual (ejecutando sysprep), el proceso destruye la máquina virtual actual (que ya no será funcional).
 
 El script para ajustar las imágenes personalizadas en el generador de imágenes guardará los discos duros virtuales para las máquinas virtuales creadas en el paso anterior (que se identifican por medio de una etiqueta en el recurso de Azure).
 
@@ -86,4 +86,4 @@ Esta tarea toma las imágenes personalizadas presentes en el generador de imáge
 Una vez completada la tarea de compilación de distribución, ponga en cola una compilación nueva para asegurarse de que todo funciona. Cuando la compilación se complete correctamente, las nuevas imágenes personalizadas se mostrarán en el laboratorio de destino que se especificó en el archivo de configuración Labs.json.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En el siguiente artículo de la serie, se actualiza el generador de imágenes con una directiva de retención y pasos para la limpieza: [Configuración de la directiva de retención y ejecución de scripts de limpieza](image-factory-set-retention-policy-cleanup.md).
+En el siguiente artículo de la serie, deberá actualizar el generador de imágenes mediante una directiva de retención y pasos para la limpieza: [Establecimiento de la directiva de retención y ejecución de los scripts para la limpieza](image-factory-set-retention-policy-cleanup.md).
