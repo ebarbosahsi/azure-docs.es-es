@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 513af1ba2e354412278fb88af4ee6527c236fae3
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895604"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Uso del sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon
@@ -40,7 +40,7 @@ En las secciones siguientes se describe cómo implementar una solución de VDI c
 ### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verificar que las versiones de los productos de VMware son compatibles
 
 * Verifique que las versiones actuales y planeadas de Horizon, App Volumes, Unified Access Gateway y User Environment Manager sean compatibles entre sí y con vCenter y PSC en la nube privada. Para obtener información sobre la compatibilidad, consulte [Matriz de compatibilidad de VMware para Horizon 7.5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
-* Para averiguar las versiones actuales de vCenter y PSC en la nube privada, vaya a **Recursos** en el [portal de CloudSimple](access-cloudsimple-portal.md), seleccione la nube privada y haga clic en la pestaña **Red de administración de vSphere** .
+* Para averiguar las versiones actuales de vCenter y PSC en la nube privada, vaya a **Recursos** en el [portal de CloudSimple](access-cloudsimple-portal.md), seleccione la nube privada y haga clic en la pestaña **Red de administración de vSphere**.
 
 ![Versiones de vCenter y PSC](media/private-cloud-vsphere-versions.png)
 
@@ -73,7 +73,7 @@ En las secciones siguientes se detallan las instrucciones para configurar una im
 * Disponibilidad de IP desde las subredes del usuario final del entorno local a las subredes de la nube privada de CloudSimple.
 * AD/DHCP/DNS instalados para la nube privada.
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portal de CloudSimple: crear una VLAN o subred dedicada para grupos de escritorios
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portal de CloudSimple: creación de una VLAN o subred dedicada para grupos de escritorios
 
 Cree una VLAN para los grupos de escritorios de Horizon y asígnele un valor de CIDR de subred. Para obtener instrucciones, consulte el artículo [Creación y administración de subredes y VLAN.](create-vlan-subnet.md) Esta es la red en la que se ejecutarán todas las máquinas virtuales de escritorio.
 
@@ -85,7 +85,7 @@ Siga los procedimientos recomendados de seguridad estándar para proteger la imp
 
 Puede aplicar estos procedimientos recomendados mediante la configuración de [reglas de firewall](firewall.md) desde el portal de CloudSimple.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portal de CloudSimple: configurar reglas de firewall para proteger el plano de administración de Horizon
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portal de CloudSimple: configuración de reglas de firewall para proteger el plano de administración de Horizon
 
 Configure las siguientes reglas en el portal de CloudSimple. Para obtener instrucciones, consulte [Configuración de tablas y reglas de firewall](firewall.md).
 
@@ -93,23 +93,23 @@ Configure las siguientes reglas en el portal de CloudSimple. Para obtener instru
 
 2. Cree las reglas de firewall E-W entre la VLAN de administración de Horizon y la VLAN del grupo de escritorios de la nube privada.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>Portal de CloudSimple: crear una dirección IP pública para Unified Access Gateway
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>Portal de CloudSimple: creación de una dirección IP pública para Unified Access Gateway
 
 Cree una dirección IP pública para el dispositivo Unified Access Gateway a fin de habilitar las conexiones de cliente de escritorio desde Internet. Para obtener instrucciones, consulte el artículo [Asignación de direcciones IP públicas](public-ips.md).
 
 Una vez se completa la instalación, la dirección IP pública se asigna y se muestra en la página IP públicas.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>Portal de CloudSimple: Escalado de privilegios
+#### <a name="cloudsimple-portal-escalate-privileges"></a>Portal de CloudSimple: escalado de privilegios
 
 El usuario "cloudowner" predeterminado no tiene privilegios suficientes en la instancia de vCenter de la nube privada para instalar Horizon, por lo que se deben escalar los privilegios de vCenter del usuario. Para obtener más información, consulte [Escalar privilegios](escalate-private-cloud-privileges.md).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>Interfaz de usuario de vCenter: crear un usuario en la nube privada para la instalación de Horizon
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>Interfaz de usuario de vCenter: creación de un usuario en la nube privada para la instalación de Horizon
 
 1. Inicie sesión en vCenter con las credenciales de usuario de "cloudowner".
 2. Cree un nuevo usuario, "horizon-soln-admin", en vCenter y agréguelo al grupo de administradores de vCenter.
 3. Cierre sesión de vCenter con el usuario "cloudowner" e iníciela con el usuario "horizon-soln-admin".
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>Interfaz de usuario de vCenter: instalar VMware Horizon
+#### <a name="vcenter-ui-install-vmware-horizon"></a>Interfaz de usuario de vCenter: instalación del horizonte de VMware
 
 Tal y como se mencionó en la sección de arquitectura lógica anterior, la solución de Horizon tiene los siguientes componentes:
 

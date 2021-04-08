@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integración de Azure Active Directory con TeamSeer
@@ -120,13 +120,13 @@ Para configurar el inicio de sesión único de Azure AD con TeamSeer, siga estos
 
     c. URL de cierre de sesión
 
-### <a name="configure-teamseer-single-sign-on"></a>Configuración del inicio de sesión único en TeamSeer
+### <a name="configure-teamseer-single-sign-on&quot;></a>Configuración del inicio de sesión único en TeamSeer
 
 1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de TeamSeer como administrador.
 
 1. Vaya a **Administrador de RR. HH**.
 
-    ![Captura de pantalla que muestra el administrador de RR. HH. seleccionado en la ventana TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administrador de RR. HH.")
+    ![Captura de pantalla que muestra el administrador de RR. HH. seleccionado en la ventana TeamSeer.](./media/teamseer-tutorial/ic789634.png &quot;Administrador de RR. HH.")
 
 1. Haga clic en **Configuración**.
 
