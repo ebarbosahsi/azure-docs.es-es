@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 13044b8f087b403f83516a32a490d2dee8db700f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 989535d0bd6f514e63c7cea9e5fd71912f8fb08b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054232"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780164"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importación de actualizaciones a Device Update para IoT Hub: esquema y otra información
 Si quiere importar una actualización a Device Update para IoT Hub, asegúrese de revisar primero los [conceptos](import-concepts.md) y la [guía paso a paso](import-update.md). Si le interesan los detalles del esquema que se usa al construir un manifiesto de importación, así como la información sobre los objetos relacionados, vea las secciones que se presentan a continuación.
@@ -22,8 +22,8 @@ Si quiere importar una actualización a Device Update para IoT Hub, asegúrese d
 | --------- | --------- | --------- | --------- |
 | UpdateId | Objecto `UpdateId` | Identidad de actualización. |
 | UpdateType | string | Tipo de actualización: <br/><br/> * Especifique `microsoft/apt:1` al realizar una actualización basada en paquetes mediante un agente de referencia.<br/> * Especifique `microsoft/swupdate:1` al realizar una actualización basada en imágenes mediante un agente de referencia.<br/> * Especifique `microsoft/simulator:1` al usar un simulador de agente de ejemplo.<br/> * Especifique un tipo personalizado si va a desarrollar un agente personalizado. | Formato: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Un máximo de 32 caracteres en total. |
-| InstalledCriteria | string | Cadena que interpreta el agente para determinar si la actualización se aplicó correctamente:  <br/> * Especifique el **valor** de SWVersion para el tipo de actualización `microsoft/swupdate:1`.<br/> * Especifique `{name}-{version}` para el tipo de actualización `microsoft/apt:1`, cuyo nombre y versión se obtienen del archivo de APT.<br/> * Especifique el hash del archivo de actualización para el tipo de actualización `microsoft/simulator:1`.<br/> * Especifique una cadena personalizada si va a desarrollar un agente personalizado.<br/> | 64 caracteres como máximo |
-| Compatibilidad | Matriz de objetos `CompatibilityInfo` | Información de compatibilidad del dispositivo compatible con esta actualización. | Un máximo de 10 elementos |
+| InstalledCriteria | string | Cadena que interpreta el agente para determinar si la actualización se aplicó correctamente:  <br/> * Especifique el **valor** de SWVersion para el tipo de actualización `microsoft/swupdate:1`.<br/> * Especifique `{name}-{version}` para el tipo de actualización `microsoft/apt:1`, cuyo nombre y versión se obtienen del archivo de APT.<br/> * Especifique una cadena personalizada si va a desarrollar un agente personalizado.<br/> | 64 caracteres como máximo |
+| Compatibilidad | Matriz de `CompatibilityInfo` [objetos](#compatibilityinfo-object) | Información de compatibilidad del dispositivo compatible con esta actualización. | Un máximo de 10 elementos |
 | CreatedDateTime | date/time | Fecha y hora en que se creó la carpeta. | Formato de fecha y hora delimitado que sigue la norma ISO 8601, en UTC |
 | ManifestVersion | string | Versión del esquema de manifiesto de importación. Especifique `2.0`, que será compatible tanto con la interfaz de `urn:azureiot:AzureDeviceUpdateCore:1`, como con la interfaz de `urn:azureiot:AzureDeviceUpdateCore:4`. | Debe ser `2.0` |
 | Archivos | Matriz de objetos `File` | Archivos de carga de Update | Un máximo de cinco archivos |

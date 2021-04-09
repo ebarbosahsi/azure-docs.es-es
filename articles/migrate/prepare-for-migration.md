@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614894"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558234"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -86,7 +86,7 @@ En la tabla se resumen los cambios necesarios.
 --- | --- | --- | ---
 **Configurar la directiva de SAN como Todo en línea**<br/><br/> Esto asegura que los volúmenes de Windows en la máquina virtual de Azure usan las mismas asignaciones de letra de unidad que la máquina virtual local. | Se establece automáticamente para máquinas que ejecutan Windows Server 2008 R2 o posterior.<br/><br/> Configure la opción manualmente para sistemas operativos anteriores. | Se establece automáticamente en la mayoría de los casos. | Configure de forma manual.
 **Instalar la integración de invitado de Hyper-V** | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) en máquinas que ejecutan Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) en máquinas que ejecutan Windows Server 2003.
-**Habilitar la consola serie de Azure**.<br/><br/>[Habilite la consola](../virtual-machines/troubleshooting/serial-console-windows.md) en las máquinas virtuales de Azure para ayudar en la solución de problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
+**Habilitar la consola serie de Azure**.<br/><br/>[Habilite la consola](/troubleshoot/azure/virtual-machines/serial-console-windows) en las máquinas virtuales de Azure para ayudar en la solución de problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
 **Conectarse después de la migración**<br/><br/> Para conectarse después de la migración, hay que realizar una serie de pasos antes de la migración. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Configure](#prepare-to-connect-to-azure-windows-vms) manualmente.
 
 
@@ -126,7 +126,7 @@ Para otras versiones, prepare las máquinas como se resume en la tabla.
 **Acción** | **Detalles** | **Versión de Linux**
 --- | --- | ---
 **Instalar los servicios de integración de Linux de Hyper-V** | Recompile la imagen init de Linux para que contenga los controladores de Hyper-V necesarios. La recompilación de la imagen init garantiza que la máquina virtual se iniciará en Azure. | La mayoría de las nuevas versiones de las distribuciones de Linux lo incluyen de forma predeterminada.<br/><br/> Si no se ha incluido, instálelo manualmente para todas las versiones excepto las mencionadas anteriormente.
-**Habilitar el registro de la consola serie de Azure** | La habilitación del registro de la consola ayuda a solucionar problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual.<br/><br/> Siga [estas instrucciones](../virtual-machines/troubleshooting/serial-console-linux.md) para habilitarlo.
+**Habilitar el registro de la consola serie de Azure** | La habilitación del registro de la consola ayuda a solucionar problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual.<br/><br/> Siga [estas instrucciones](/troubleshoot/azure/virtual-machines/serial-console-linux) para habilitarlo.
 **Actualizar el archivo de asignación de dispositivos** | Actualice el archivo de asignación de dispositivos que contiene las asociaciones de nombre de dispositivo y volumen para usar identificadores de dispositivo persistentes. | Instálelo manualmente para todas las versiones excepto las mencionadas anteriormente. (Solo se aplica en el escenario de VMware basado en agente)
 **Actualizar las entradas de fstab** |  Actualice las entradas para utilizar identificadores de volumen persistentes.    | Actualícelo manualmente para todas las versiones excepto las mencionadas anteriormente.
 **Eliminar regla udev** | Elimine las reglas udev que reserven los nombres de interfaz en función de la dirección MAC, etc. | Elimínelas de forma manual para todas las versiones excepto las mencionadas anteriormente.
@@ -148,7 +148,7 @@ En la tabla siguiente se resumen los pasos que se realizan automáticamente para
 
 Más información sobre los pasos para [ejecutar una máquina virtual Linux en Azure](../virtual-machines/linux/create-upload-generic.md) y obtenga instrucciones para algunas de las distribuciones de Linux más populares.
 
-Revise la lista de [paquetes necesarios](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) para instalar el agente de máquina virtual Linux. Azure Migrate instala el agente de máquina virtual Linux automáticamente para RHEL6, RHEL7, CentOS7 (6 debe ser compatible con RHEL), Ubuntu 14.04, Ubuntu 16.04 y Ubuntu 18.04 cuando se usa el método sin agente para la migración de VMware.
+Revise la lista de [paquetes necesarios](../virtual-machines/extensions/agent-linux.md#requirements) para instalar el agente de máquina virtual Linux. Azure Migrate instala el agente de máquina virtual Linux automáticamente para RHEL6, RHEL7, CentOS7 (6 debe ser compatible con RHEL), Ubuntu 14.04, Ubuntu 16.04 y Ubuntu 18.04 cuando se usa el método sin agente para la migración de VMware.
 
 ## <a name="check-azure-vm-requirements"></a>Comprobación de los requisitos de la máquina virtual de Azure
 
@@ -187,7 +187,7 @@ Después de la migración, lleve a cabo estos pasos en las máquinas virtuales d
 
 1. Para conectarse a la máquina virtual desde Internet, asígnele una dirección IP pública. Debe usar una dirección IP pública diferente para la máquina virtual de Azure de la que usó para la máquina local. [Más información](../virtual-network/virtual-network-public-ip-address.md).
 2. Compruebe que las reglas del grupo de seguridad de red (NSG) en la máquina virtual permiten las conexiones entrantes al puerto RDP o SSH.
-3. Compruebe los [diagnósticos de arranque](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para ver la máquina virtual.
+3. Compruebe los [diagnósticos de arranque](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) para ver la máquina virtual.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -200,4 +200,4 @@ En máquinas virtuales de VMware, Server Migration admite la [migración con age
 
 - **VM de VMware**: compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-vmware-migration.md) de las máquinas virtuales de VMware.
 - **VM de Hyper-V**: Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-hyper-v-migration.md) de las máquinas virtuales de Hyper-V.
-- **Máquinas físicas**: compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-physical-migration.md) de máquinas físicas locales y otros servidores virtualizados. 
+- **Máquinas físicas**: compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-physical-migration.md) de máquinas físicas locales y otros servidores virtualizados.

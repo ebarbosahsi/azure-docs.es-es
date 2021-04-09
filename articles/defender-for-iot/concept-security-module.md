@@ -1,26 +1,16 @@
 ---
-title: Módulo de seguridad y dispositivo gemelos
-description: Sepa en qué consiste el concepto de módulos gemelos de seguridad y cómo se usan en Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Defender-IoT-micro-agent y los dispositivos gemelos
+description: Obtenga información sobre el concepto de los módulos gemelos de Defender-IoT-micro-agent y cómo se usan en Defender para IoT.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/24/2019
-ms.author: mlottner
-ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 1ed6faf03d168ed7a2a2f07733cb7e238d234915
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522927"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104779178"
 ---
-# <a name="security-module"></a>Módulo de seguridad
+# <a name="defender-iot-micro-agent"></a>Defender-IoT-micro-agent
 
 En este artículo se explica el modo en que Defender para IoT usa módulos y dispositivos gemelos.
 
@@ -32,15 +22,15 @@ Defender para IoT ofrece integración completa con la plataforma de administraci
 
 Obtenga más información sobre el concepto de [dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md) en Azure IoT Hub.
 
-## <a name="security-module-twins"></a>Módulos de seguridad gemelos
+## <a name="defender-iot-micro-agent-twins"></a>Módulos gemelos de Defender-IoT-micro-agent
 
-Defender para IoT conserva un módulo gemelo de seguridad por cada dispositivo que haya en el servicio.
-Este módulo contiene toda la información relevante relativa a la seguridad de cada dispositivo específico de la solución.
-En un módulo de seguridad gemelo dedicado se conservan las propiedades de seguridad del dispositivo para que la comunicación sea más segura y para permitir unas actualizaciones y un mantenimiento que requiere menos recursos.
+Defender para IoT mantiene un módulo gemelo de Defender-IoT-micro-agent para cada dispositivo en el servicio.
+Este módulo gemelo contiene toda la información pertinente para la seguridad de cada dispositivo específico de la solución.
+En un módulo gemelo de Defender-IoT-micro-agent dedicado se conservan las propiedades de seguridad del dispositivo para que la comunicación sea más segura y para permitir unas actualizaciones y un mantenimiento que requieren menos recursos.
 
-Vea [Creación de un módulo gemelo](quickstart-create-security-twin.md) y [Configurar agentes de seguridad](how-to-agent-configuration.md) para obtener información sobre cómo crear, personalizar y configurar el módulo gemelo. Vea [Descripción de módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) para obtener más información sobre el concepto de módulo gemelo en IoT Hub.
+Consulte [Creación de un módulo gemelo de Defender-IoT-micro-agent](quickstart-create-security-twin.md) y [Configuración de agentes de seguridad](how-to-agent-configuration.md) para obtener información sobre cómo crear, personalizar y configurar el módulo gemelo. Vea [Descripción de módulos gemelos](../iot-hub/iot-hub-devguide-module-twins.md) para obtener más información sobre el concepto de módulo gemelo en IoT Hub.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 - [Información general de Defender para IoT](overview.md)
 - [Implementación de agentes de seguridad](how-to-deploy-agent.md)

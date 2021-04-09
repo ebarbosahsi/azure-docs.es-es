@@ -2,14 +2,14 @@
 title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/15/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745123"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103493142"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -32,7 +32,9 @@ Para obtener una lista que asigna proveedores de recursos con servicios de Azure
 
 ## <a name="register-resource-provider"></a>Registro del proveedor de recursos
 
-Antes de usar un proveedor de recursos, la suscripción de Azure debe registrarse para el proveedor de recursos. El registro configura su suscripción para así poder trabajar con el proveedor de recursos. Algunos proveedores de recursos están registrados de forma predeterminada. Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Por ejemplo, cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de forma automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos. Para obtener una lista de los proveedores de recursos registrados de forma predeterminada, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
+Antes de usar un proveedor de recursos, la suscripción de Azure debe registrarse para el proveedor de recursos. El registro configura su suscripción para así poder trabajar con el proveedor de recursos. Algunos proveedores de recursos están registrados de forma predeterminada. Para obtener una lista de los proveedores de recursos registrados de forma predeterminada, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
+
+Otros proveedores de recursos están registrados automáticamente cuando toma determinadas medidas. Cuando implementa una plantilla de Azure Resource Manager, se registran automáticamente todos los proveedores de recursos necesarios. Cuando crea un recurso a través del portal, el proveedor de recursos normalmente se registra de manera automática. En otros escenarios, es posible que tenga que registrar manualmente un proveedor de recursos. 
 
 En este artículo se muestra cómo comprobar el estado del registro de un proveedor de recursos y registrarlo según sea necesario. Debe tener permiso para realizar la operación `/register/action` para el proveedor de recursos. El permiso se incluye en los roles Colaborador y Propietario.
 

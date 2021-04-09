@@ -2,14 +2,14 @@
 title: Eliminación del grupo de recursos y los recursos
 description: Se describe cómo eliminar grupos de recursos y recursos. También se describe cómo Azure Resource Manager ordena la eliminación de recursos al eliminar un grupo de recursos. Describe los códigos de respuesta y cómo Resource Manager los controla para determinar si la eliminación se realizó correctamente.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dd6c3f9ac178a518545a662eb94d33066f7614b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614417"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932733"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Eliminación de grupos de recursos y recursos en Azure Resource Manager
 
@@ -119,8 +119,15 @@ az resource delete \
 
 ---
 
+## <a name="required-access"></a>Acceso necesario
+
+Para eliminar un grupo de recursos, debe tener acceso a la acción de eliminación para el recurso **Microsoft.Resources/subscriptions/resourceGroups**. También debe eliminar todos los recursos del grupo de recursos.
+
+Para obtener una lista de las operaciones, consulte [Operaciones del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md). Para ver una lista de los roles integrados, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
+
+Si tiene el acceso necesario, pero se produce un error en la solicitud de eliminación, puede deberse a la existencia de un [bloqueo](lock-resources.md) en el grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para comprender los conceptos de Resource Manager, consulte [Información general sobre Azure Resource Manager](overview.md).
-* Para los comandos de eliminación, consulte [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [CLI de Azure](/cli/azure/group#az-group-delete), y [API de REST](/rest/api/resources/resourcegroups/delete).
+* Para los comandos de eliminación, consulte [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [CLI de Azure](/cli/azure/group#az-group-delete), y [API de REST](/rest/api/resources/resources/resourcegroups/delete).

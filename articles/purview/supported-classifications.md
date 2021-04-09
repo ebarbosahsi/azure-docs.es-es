@@ -1,18 +1,18 @@
 ---
 title: Lista de clasificaciones admitidas
 description: En esta página se enumeran las clasificaciones del sistema admitidas en Azure Purview.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 2/5/2021
-ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/05/2021
+ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988314"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200797"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Clasificaciones admitidas en Azure Purview
 
@@ -59,7 +59,9 @@ Con formato:
 - un guion
 - cuatro dígitos
 - un guion
-- un dígito sin formato: nueve dígitos consecutivos que empiezan por 0, 1, 2, 3, 6, 7 u 8
+- un dígito
+
+Sin formato: nueve dígitos consecutivos que empiezan por 0, 1, 2, 3, 6, 7 u 8
 
 ### <a name="keywords"></a>Palabras clave
 

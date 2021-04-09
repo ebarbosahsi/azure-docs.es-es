@@ -15,12 +15,12 @@ ms.date: 03/13/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32a6034f407bd81e5d2d2ab8227d08a67f034d4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: af5329f33cc4cbaa3309450165e657fc829c828b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258649"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709504"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedimientos: Configuración del cifrado de tokens SAML de Azure AD
 
@@ -124,7 +124,7 @@ Cuando configure un valor keyCredential mediante Graph, PowerShell o en el manif
 
 1. Use el módulo de PowerShell de Azure AD más reciente para conectarse a su inquilino.
 
-1. Establezca la configuración de cifrado de tokens mediante el comando **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
+1. Establezca la configuración de cifrado de tokens mediante el comando **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>

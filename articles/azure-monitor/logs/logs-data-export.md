@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449499"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615591"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -117,7 +117,7 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
 Una regla de exportación de datos define las tablas cuyos datos se exportarán y el destino. Actualmente, puede crear una sola regla para cada destino.
 
-Si necesita una lista de tablas en el área de trabajo para la configuración de reglas de exportación, ejecute esta consulta en el área de trabajo.
+La regla de exportación debe incluir las tablas que tenga en el área de trabajo. Ejecute esta consulta para obtener una lista de tablas disponibles en el área de trabajo.
 
 ```kusto
 find where TimeGenerated > ago(24h) | distinct Type

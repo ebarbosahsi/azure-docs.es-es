@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 2f991dd93549cf73005127569af496df541eecde
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: af57bc396349286c3edcaefc8385ddbaec066226
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549607"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103199449"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 
@@ -49,21 +49,21 @@ Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante 
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Captura de pantalla que muestra el panel Discos con un nombre de disco seleccionado.":::
 
-4. En la sección **Configuración** del menú de la izquierda, seleccione **Configuración**.
+4. En el menú de la izquierda, en **Configuración**, seleccione **Size + performance** (Tamaño y rendimiento).
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de pantalla que muestra la opción Configuración seleccionada en la sección Configuración del menú.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Captura de pantalla que muestra la opción Size and performance (Tamaño y rendimiento) seleccionada en la sección Configuración del menú.":::
 
-5. En **Tamaño (GiB)** , seleccione el tamaño de disco que quiera.
+5. En **Size + performance** (Tamaño y rendimiento), seleccione el tamaño de disco que quiera.
    
    > [!WARNING]
    > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 2048 GB para los discos del sistema operativo. (El blob de VHD se puede expandir más, pero el sistema operativo solo usa los primeros 2048 GB de espacio).
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra el panel Configuración con el tamaño de disco seleccionado.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Captura de pantalla que muestra el panel Size and performance (Tamaño y rendimiento) con el tamaño de disco seleccionado.":::
 
-6. Seleccione **Guardar**.
+6. Seleccione **Cambiar tamaño** en la parte inferior de la página.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de pantalla que muestra el panel Configuración con el botón Guardar seleccionado.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Captura de pantalla que muestra el panel Size and performance (Tamaño y rendimiento) con el botón Cambiar tamaño seleccionado.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Cambio de tamaño de un disco administrado mediante PowerShell
