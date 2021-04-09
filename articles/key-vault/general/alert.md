@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 523f24a7d8131dda67244e4d48510d9e1cb7cdb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070668"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582636"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -27,6 +27,8 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 + Métricas básicas de Key Vault para supervisar
 + Configuración de las métricas y creación de un panel
 + Creación de alertas en los umbrales especificados
+
+Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. [Obtenga más información acerca de Azure Monitor para Key Vault aquí](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault).
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas de Key Vault para supervisar
 

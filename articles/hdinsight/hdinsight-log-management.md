@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 20a7a7392070a6f888add630398516b2f872cd7d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945268"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865492"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -20,13 +20,13 @@ La administración de registros de clúster de HDInsight incluye la retención d
 
 A continuación, se indican los pasos habituales de administración de registros de HDInsight:
 
-* Paso 1: Determinación de las directivas de retención de registros
-* Paso 2: Administración de los registros de configuración de las versiones del servicio de clúster
-* Paso 3: Administración de los archivos de registro de ejecución de trabajo del clúster
-* Paso 4: Previsión de los costos y tamaños de almacenamiento del volumen de registros
-* Paso 5: Determinación de las directivas y procesos del archivo de registro
+* Paso 1: Determinar las directivas de retención de registros
+* Paso 2: Administrar los registros de configuración de las versiones del servicio de clúster
+* Paso 3: Administrar los archivos de registro de ejecución de trabajo del clúster
+* Paso 4: Prever los costos y tamaños de almacenamiento del volumen de registros
+* Paso 5: Determinar las directivas y procesos del archivo de registro
 
-## <a name="step-1-determine-log-retention-policies"></a>Paso 1: Determinación de las directivas de retención de registros
+## <a name="step-1-determine-log-retention-policies"></a>Paso 1: Determinar las directivas de retención de registros
 
 El primer paso para crear una estrategia de administración de registros de clúster de HDInsight consiste en recopilar información acerca de escenarios empresariales y los requisitos de almacenamiento del historial de ejecución de trabajos.
 
@@ -64,7 +64,7 @@ Es importante entender los tipos de cargas de trabajo que se ejecutan en los cl�
 
 * Tenga en cuenta cómo puede recopilar registros del clúster, o de varios clústeres, e intercálelos para fines tales como la auditoría, la supervisión, el planeamiento y las alertas. Puede usar una solución personalizada para tener acceso a los archivos de registro, y descargarlos, de forma regular, y combinarlos y analizarlos para proporcionar una pantalla de panel. También puede agregar funcionalidades adicionales para las alertas de seguridad o detección de errores. Puede compilar estas utilidades mediante PowerShell, los SDK de HDInsight o el código que tiene acceso al modelo de implementación clásica de Azure.
 
-* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Por ejemplo, muchas compañías ofrecen servicios para supervisar las soluciones de macrodatos basadas en Hadoop, por ejemplo: Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
+* Considere si una solución o un servicio de supervisión sería una ventaja útil. Microsoft System Center proporciona un [paquete de administración de HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). También puede usar herramientas de terceros, como Apache Chukwa y Ganglia, para recopilar y centralizar los registros. Muchas compañías ofrecen servicios para supervisar soluciones de macrodatos basadas en Hadoop, por ejemplo Centerity, Compuware APM, Sematext SPM y Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Paso 2: Administración de versiones de servicio del clúster y visualización de registros
 
@@ -76,11 +76,11 @@ Apache Ambari simplifica la administración, la configuración y la supervisión
 
 Para abrir una lista de vistas de servicio, seleccione el panel de **vistas de Ambari** en la página de Azure Portal para HDInsight.  Esta lista varía en función de qué bibliotecas haya instalado.  Por ejemplo, puede ver YARN Queue Manager, Hive View y Tez View.  Seleccione cualquier vínculo de servicio para ver información sobre la configuración y el servicio.  La página de **pila y la versión** de la UI de Ambari proporciona información sobre la configuración de los servicios de clúster y el historial de versiones del servicio. Para navegar a esta sección de la UI de Ambari, seleccione el menú **Administración** y, a continuación, **Stacks and Versions** (Pilas y versiones).  Seleccione la pestaña **Versiones** para ver la información de la versión del servicio.
 
-![Versiones y pila de administración de Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-log-management/ambari-stack-versions.png" alt-text="Versiones y pila de administración de Apache Ambari":::
 
 Con la UI de Ambari, puede descargar la configuración de cualquier servicio (o de todos) que se ejecute en un host determinado (o nodo) del clúster.  Seleccione el menú **Hosts** y, a continuación, el vínculo para el host de interés. En la página de dicho host, seleccione el botón **Acciones del host** y, a continuación, **Descargar configuraciones de cliente**.
 
-![Configuración del cliente de host de descarga de Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
+:::image type="content" source="./media/hdinsight-log-management/download-client-configs.png" alt-text="Configuración del cliente de host de descarga de Apache Ambari":::
 
 ### <a name="view-the-script-action-logs"></a>Ver los registros de acciones de script
 
@@ -98,11 +98,11 @@ to
 log4j.logger.alerts=DEBUG,alerts
 ```
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Paso 3: Administración de los archivos de registro de ejecución de trabajo del clúster
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Paso 3: Administrar los archivos de registro de ejecución de trabajo del clúster
 
 El paso siguiente es revisar los archivos de registro de ejecución de trabajo de los distintos servicios.  Estos servicios podrían incluir Apache HBase, Apache Spark y muchos más. Un clúster de Hadoop genera un gran número de registros detallados, por lo que determinar qué registros son útiles (y cuáles no) puede llevar mucho tiempo.  Comprender el sistema de registro es importante para la administración dirigida de archivos de registro.  La imagen siguiente es un archivo de registro de ejemplo.
 
-![Salida de ejemplo del archivo de registro de ejemplo de HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="Salida de ejemplo del archivo de registro de ejemplo de HDInsight":::
 
 ### <a name="access-the-hadoop-log-files"></a>Acceso a los archivos de registro de Hadoop
 
@@ -139,11 +139,11 @@ yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-applica
 
 La interfaz de usuario de YARN ResourceManager se ejecuta en el nodo principal del clúster y puede tener acceso a ella mediante la UI web de Ambari. Para ver los registros de YARN, use los siguientes pasos:
 
-1. Abra un explorador y vaya a `https://CLUSTERNAME.azurehdinsight.net`. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net`. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 2. En la lista de servicios de la izquierda de la página, seleccione YARN.
 3. En la lista desplegable Vínculos rápidos, seleccione uno de los nodos principales del clúster y, a continuación, **Registros de ResourceManager**. Aparece una lista de vínculos a los registros de YARN.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Paso 4: Previsión de los costos y tamaños de almacenamiento del volumen de registros
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Paso 4: Prever los costos y tamaños de almacenamiento del volumen de registros
 
 Tras completar los pasos anteriores, comprenderá los tipos y volúmenes de los archivos de registro que generan los clústeres de HDInsight.
 
@@ -157,7 +157,7 @@ Después de determinar qué archivos de registro se pueden eliminar, puede ajust
 
 Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros de Resource Manager mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad**.  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos.
 
-![Vista previa del registro de actividad de exportación de Azure Portal](./media/hdinsight-log-management/hdi-export-log-files.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Vista previa del registro de actividad de exportación de Azure Portal":::
 
 Como alternativa, puede crear scripts de archivado de registros con PowerShell.  Para obtener un ejemplo de script de PowerShell, consulte [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8) (Archivado de registros de Azure Automation en Azure Blob Storage).
 

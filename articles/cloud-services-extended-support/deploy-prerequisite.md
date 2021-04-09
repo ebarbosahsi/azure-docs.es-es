@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728117"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104865611"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Requisitos previos para la implementación de Azure Cloud Services (soporte extendido)
 
@@ -78,8 +78,16 @@ Quite la configuración antigua de Escritorio remoto del archivo de configuraci�
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Quite la configuración de diagnóstico antigua de cada rol del archivo de configuración del servicio (.cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Actualizaciones necesarias del archivo de definición de servicio (.csdef)
+
+> [!NOTE]
+> Los cambios en el archivo de definición de servicio (.csdef) requieren que se vuelva a generar el archivo de paquete (.cspkg). Compile y reempaquete el archivo .cspkg después de realizar los siguientes cambios en el archivo .csdef para obtener la configuración más reciente del servicio en la nube.
 
 ### <a name="1-virtual-machine-sizes"></a>1) Tamaños de máquina virtual
 Los tamaños siguientes están en desuso en Azure Resource Manager. Pero si quiere seguir usándolos, actualice el nombre `vmsize` con la convención de nomenclatura de Azure Resource Manager asociada.  
@@ -117,10 +125,15 @@ Las implementaciones que usan los complementos antiguos de Escritorio remoto deb
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
 ```
+Las implementaciones que usaron los complementos de diagnóstico antiguos necesitan que se quite la configuración de cada rol del archivo de definición de servicio (.csdef).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+```
 
 ## <a name="key-vault-creation"></a>Creación de Key Vault 
 
-Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. Key Vault se puede crear por medio de [Azure Portal](../key-vault/general/quick-create-portal.md) y [PowerShell](../key-vault/general/quick-create-powershell.md). Key Vault se debe crear en la misma región y suscripción que el servicio en la nube. Para obtener más información, vea [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio. También debe habilitar las "Directivas de acceso" (en el portal) en "Azure Virtual Machines para la implementación" en Key Vault, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. Puede crear un almacén de claves en [Azure Portal](../key-vault/general/quick-create-portal.md) o con [PowerShell](../key-vault/general/quick-create-powershell.md). El almacén de claves debe crearse en la misma región y suscripción que el servicio en la nube. Para más información, consulte [Uso de certificados con Azure Cloud Services (soporte extendido)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).

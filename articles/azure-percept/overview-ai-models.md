@@ -1,22 +1,22 @@
 ---
 title: Modelos de inteligencia artificial de Azure Percept
 description: Más información sobre los modelos de inteligencia artificial disponibles para la creación de prototipos y la implementación
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f10a330de52d40f728cd628a1d7cb83b54ad1ff6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218169"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557367"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos de inteligencia artificial de Azure Percept
 
-Azure Percept le permite desarrollar e implementar modelos de IA directamente en Azure Percept DK con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La implementación de modelos utiliza [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
+Azure Percept permite desarrollar e implementar modelos de inteligencia artificial directamente en [Azure Percept DK](./overview-azure-percept-dk.md) con [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). La implementación de modelos utiliza [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 
 ## <a name="sample-ai-models"></a>Modelos de ejemplo de inteligencia artificial
 
@@ -27,7 +27,7 @@ Azure Percept Studio contiene modelos de ejemplo para las siguientes aplicacione
 - Detección general de objetos
 - Detección de productos en estantes
 
-Con modelos previamente entrenados, no se requiere ninguna recopilación de datos de entrenamiento ni codificación. Solo tiene que implementar el modelo que desee en Azure Percept DK desde el portal y abrir la secuencia de vídeo del kit de desarrollo para ver la inferencia de modelos en acción. También se puede acceder a los datos de telemetría de la inferencia de modelos a través de la herramienta [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
+Con modelos previamente entrenados, no se requiere ninguna recopilación de datos de entrenamiento ni codificación. Solo tiene que [implementar el modelo que desee](./how-to-deploy-model.md) en Azure Percept DK desde el portal y abrir la [secuencia de vídeo](./how-to-view-video-stream.md) del kit de desarrollo para ver la inferencia de modelos en acción. También se puede acceder a los [datos de telemetría de la inferencia de modelos](./how-to-view-telemetry.md) mediante la herramienta [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
 
 ## <a name="reference-solutions"></a>Soluciones de referencia
 
@@ -37,9 +37,13 @@ También hay disponible una [solución de referencia de recuento de personas](ht
 
 ## <a name="custom-no-code-solutions"></a>Soluciones sin código personalizadas
 
-Mediante Azure Percept Studio, puede desarrollar soluciones de [visión](./tutorial-nocode-vision.md) y voz personalizadas, sin necesidad de codificación.
+Mediante Azure Percept Studio, puede desarrollar soluciones de [visión](./tutorial-nocode-vision.md) y [voz](./tutorial-no-code-speech.md) personalizadas, sin necesidad de codificación.
 
 En el caso de las soluciones de visión personalizadas, están disponibles los modelos de inteligencia artificial para la detección y la clasificación de objetos. Simplemente cargue y etiquete sus imágenes de entrenamiento, las cuales se pueden tomar directamente del módulo de sistema de visión de Azure Percept DK, si lo desea. El entrenamiento y la evaluación de modelos se realiza fácilmente en [Custom Vision](https://www.customvision.ai/), que forma parte de [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
 
 En el caso de las soluciones de voz personalizadas, las plantillas del asistente para voz están disponibles actualmente para las siguientes aplicaciones:
 
@@ -54,6 +58,6 @@ Las palabras clave y los comandos predefinidos del asistente para voz están dis
 
 Consulte las instrucciones, los tutoriales y los ejemplos de [desarrollo avanzado de Azure Percept en GitHub](https://github.com/microsoft/azure-percept-advanced-development) sobre aspectos como:
 
-* Incorporación de un modelo de AI personalizado al dispositivo
-* Actualización de un modelo que ya es compatible con aprendizaje por transferencia
-* Y mucho más
+- Implementación de un modelo de IA personalizado en Azure Percept DK
+- Actualización de un modelo admitido con aprendizaje por transferencia
+- Y mucho más

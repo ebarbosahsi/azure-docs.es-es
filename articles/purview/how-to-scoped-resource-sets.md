@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668442"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102608009"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Creación de reglas de configuración de un conjunto de recursos con ámbito
 
@@ -24,20 +24,29 @@ Al analizar una cuenta de almacenamiento, Azure Purview usa un conjunto de patro
 
 Siga los pasos que se indican a continuación para crear una nueva configuración para un conjunto de recursos con ámbito:
 
-1. Vaya al centro de administración. Seleccione **Scoped resource sets** (Conjuntos de recursos con ámbito) en el menú. Haga clic en **+ Nuevo** para crear un nuevo conjunto de reglas de configuración.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Crear nueva regla de conjunto de recursos con ámbito" border="true":::
+1. Vaya al centro de administración. Seleccione **Scoped resource sets** (Conjuntos de recursos con ámbito) en el menú. Seleccione **+ Nuevo** para crear un nuevo conjunto de reglas de configuración.
 
-1. Especifique el ámbito de la configuración del conjunto de recursos con ámbito. Seleccione el tipo y el nombre de la cuenta de almacenamiento en la que desea crear un conjunto de reglas. Cada conjunto de reglas se aplica en relación con el ámbito de una ruta de acceso de una carpeta especificada en el campo **Ruta de acceso de la carpeta**. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Crear nueva regla de conjunto de recursos con ámbito" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Crear nueva regla de conjunto de recursos con ámbito" border="true":::
+
+1. Especifique el ámbito de la configuración del conjunto de recursos con ámbito. Seleccione el tipo y el nombre de la cuenta de almacenamiento en la que desea crear un conjunto de reglas. Cada conjunto de reglas se aplica en relación con el ámbito de una ruta de acceso de una carpeta especificada en el campo **Ruta de acceso de la carpeta**.
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Creación de configuraciones del conjunto de recursos con ámbito" border="true":::
 
 1. Para especificar una regla para un ámbito de configuración, seleccione **+ New Rule** (+ Nueva regla).
+
 1. Escriba en los campos siguientes para crear una regla:
-    1. **Nombre de regla:** el nombre de la regla de configuración. Este campo no tiene ningún efecto en los recursos a los que se aplica la regla.
-    1. **Nombre completo:** una ruta de acceso completa que usa una combinación de texto, sustitutos dinámicos y sustitutos estáticos para hacer coincidir los recursos con la regla de configuración. Esta ruta de acceso está relacionada con el ámbito de la regla de configuración. Consulte la sección de [Sintaxis](#syntax) que aparece a continuación para obtener instrucciones detalladas sobre cómo especificar nombres completos. 
-    1. **Nombre para mostrar:** el nombre para mostrar del recurso. Este campo es opcional. Use texto sin formato y sustitutos estáticos para personalizar el modo en que se muestra un recurso en el catálogo. Para obtener instrucciones más detalladas, consulte la sección [Sintaxis](#syntax) que aparece a continuación.
-    1. **Do not group as resource set** (No agrupar como conjunto de recursos): si está habilitado, el recurso coincidente no se agrupará en un conjunto de recursos. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Crear nueva regla de conjunto de recursos con ámbito" border="true"::: 
-1. Haga clic en **Agregar** para guardar la regla. 
+
+   1. **Nombre de regla:** el nombre de la regla de configuración. Este campo no tiene ningún efecto en los recursos a los que se aplica la regla.
+
+   1. **Nombre completo:** una ruta de acceso completa que usa una combinación de texto, sustitutos dinámicos y sustitutos estáticos para hacer coincidir los recursos con la regla de configuración. Esta ruta de acceso está relacionada con el ámbito de la regla de configuración. Consulte la sección de [Sintaxis](#syntax) que aparece a continuación para obtener instrucciones detalladas sobre cómo especificar nombres completos.
+
+   1. **Nombre para mostrar:** el nombre para mostrar del recurso. Este campo es opcional. Use texto sin formato y sustitutos estáticos para personalizar el modo en que se muestra un recurso en el catálogo. Para obtener instrucciones más detalladas, consulte la sección [Sintaxis](#syntax) que aparece a continuación.
+
+   1. **Do not group as resource set** (No agrupar como conjunto de recursos): si está habilitado, el recurso coincidente no se agrupará en un conjunto de recursos.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Creación de una nueva regla de configuración." border="true":::
+
+1. Haga clic en **Agregar** para guardar la regla.
 
 ## <a name="scoped-resource-set-syntax"></a><a name="syntax"></a> Sintaxis del conjunto de recursos con ámbito
 
@@ -69,21 +78,23 @@ A continuación se muestran los tipos disponibles que se pueden usar en los sust
 | ---- | --------- |
 | string | Una serie de uno o varios caracteres Unicode, incluidos delimitadores como los espacios. |
 | int | Una serie de uno o varios caracteres ASCII del 0-9, se puede usar 0 como prefijo (por ejemplo, 0001). |
-| guid | Una serie de 32 representaciones de cadenas (o 8-4-4-4-12) de un UUID como se definen en https://tools.ietf.org/html/rfc4122 |
-| date | Una serie de 6 u 8 caracteres ASCII del 0-9 que, opcionalmente, puede incluir separadores: aaaammdd, aaaa-mm-dd, aammdd, aa-mm-dd, como se especifica en https://tools.ietf.org/html/rfc3339 |
-| time | Una serie de 4 o 6 caracteres ASCII del 0-9 con separadores opcionales: HHmm, HH:mm, HHmmss, HH:mm:ss como se especifica en https://tools.ietf.org/html/rfc3339 |
-| timestamp | Una serie de 12 o 14 caracteres ASCII del 0-9 con separadores opcionales: aaaa-mm-ddTHH:mm, aaaammddhhmm, aaaa-mm-ddTHH:mm:ss, aaaammddHHmmss como se especifica en https://tools.ietf.org/html/rfc3339 |
+| guid | Una serie de 32 representaciones de cadenas (o 8-4-4-4-12) de un UUID como se definen en [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| date | Una serie de 6 u 8 caracteres ASCII del 0-9 que, opcionalmente, puede incluir separadores: aaaammdd, aaaa-mm-dd, aammdd, aa-mm-dd, como se especifica en [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| time | Una serie de 4 o 6 caracteres ASCII del 0-9 con separadores opcionales: HHmm, HH:mm, HHmmss, HH:mm:ss como se especifica en [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| timestamp | Una serie de 12 o 14 caracteres ASCII del 0-9 con separadores opcionales: aaaa-mm-ddTHH:mm, aaaammddhhmm, aaaa-mm-ddTHH:mm:ss, aaaammddHHmmss como se especifica en [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | boolean | Puede contener "true" o "false", sin distinción entre mayúsculas y minúsculas. |
-| number | Una serie de 0 o más caracteres ASCII del 0-9, puede usar 0 como prefijo (por ejemplo, 0001) seguido opcionalmente de un punto "." y una serie de uno o varios caracteres ASCII del 0-9, se puede usar 0 como prefijo (por ejemplo, 100). | 
+| number | Una serie de 0 o más caracteres ASCII 0-9, puede tener un prefijo 0 (por ejemplo, 0001) seguido de un punto "." y una serie de 1 o más caracteres ASCII 0-9, puede ser un postfijo 0 (por ejemplo,. 100) |
 | hex | Una serie de uno o varios caracteres ASCII del conjunto 0-1 y A-F, el valor puede tener el prefijo 0 |
-| locale | Una cadena que coincide con la sintaxis especificada en https://tools.ietf.org/html/rfc5646. |
+| locale | Una cadena que coincide con la sintaxis especificada en [RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Orden de las reglas del conjunto de recursos con ámbito que se aplican.
+## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Orden de las reglas del conjunto de recursos con ámbito que se aplican
 
 A continuación se muestra el orden de las operaciones para aplicar las reglas del conjunto de recursos con ámbito:
 
-1. Los ámbitos más específicos tendrán prioridad si un recurso coincide con dos reglas. Por ejemplo, las reglas de un ámbito `container/folder` se aplicarán antes que las reglas del ámbito `container`. 
+1. Los ámbitos más específicos tendrán prioridad si un recurso coincide con dos reglas. Por ejemplo, las reglas de un ámbito `container/folder` se aplicarán antes que las reglas del ámbito `container`.
+
 1. Orden de las reglas dentro de un ámbito específico. Esto se puede editar en la experiencia del usuario.
+
 1. Si un recurso no coincide con ninguna regla especificada, se aplica la heurística predeterminada del conjunto de recursos.
 
 ## <a name="examples"></a>Ejemplos
@@ -95,16 +106,16 @@ Extracción de datos de SAP en cargas completas y diferenciales
 #### <a name="inputs"></a>Entradas
 
 Archivos:
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito 
+#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito
 
-**Ámbito:** https://myazureblob.blob.core.windows.net/bar/
+**Ámbito:** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Nombre para mostrar:** "Cliente externo"
 
@@ -112,7 +123,7 @@ Archivos:
 
 **Conjunto de recursos:** true
 
-#### <a name="output"></a>Output 
+#### <a name="output"></a>Output
 
 Un recurso del conjunto de recursos
 
@@ -124,17 +135,18 @@ Un recurso del conjunto de recursos
 
 Datos de IoT en formato Avro
 
-#### <a name="inputs"></a>Entradas 
+#### <a name="inputs"></a>Entradas
 
 Archivos:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rules"></a>Regla del conjunto de recursos con ámbito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ámbito:** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rules"></a>Regla del conjunto de recursos con ámbito
+
+**Ámbito:** `https://myazureblob.blob.core.windows.net/bar/`
 
 Regla 1
 
@@ -150,11 +162,11 @@ Regla 2
 
 **Nombre completo:** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Conjunto de recursos: true* 
+#### <a name="resource-set-true"></a>*Conjunto de recursos: true*
 
-#### <a name="outputs"></a>Salidas 
+#### <a name="outputs"></a>Salidas
 
-2 conjuntos de recursos 
+2 conjuntos de recursos
 
 Conjunto de recursos 1
 
@@ -172,17 +184,18 @@ Conjunto de recursos 2
 
 Datos de IoT en formato Avro
 
-#### <a name="inputs"></a>Entradas 
+#### <a name="inputs"></a>Entradas
 
 Archivos:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ámbito:** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito
+
+**Ámbito:** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Nombre para mostrar:** "Machine-{{machineid}}"
 
@@ -190,7 +203,7 @@ Archivos:
 
 **Conjunto de recursos:** true
 
-#### <a name="outputs"></a>Salidas 
+#### <a name="outputs"></a>Salidas
 
 Conjunto de recursos 1
 
@@ -208,25 +221,26 @@ Conjunto de recursos 2
 
 No agrupar en conjuntos de recursos
 
-#### <a name="inputs"></a>Entradas 
+#### <a name="inputs"></a>Entradas
 
 Archivos:
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Ámbito:** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Regla del conjunto de recursos con ámbito
 
-**Nombre para mostrar:** "Machine-{{machineid}}"
+**Ámbito:** `https://myazureblob.blob.core.windows.net/bar/`
+
+**Nombre para mostrar:** `Machine-{{machineid}}`
 
 **Nombre completo:** `raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **Conjunto de recursos:** false
 
-#### <a name="outputs"></a>Salidas 
+#### <a name="outputs"></a>Salidas
 
 4 recursos individuales
 

@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401107"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557673"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -74,7 +74,7 @@ Un nodo de origen RTSP permite ingerir elementos multimedia desde un servidor [R
 
 #### <a name="iot-hub-message-source"></a>Origen de mensajes de IoT Hub 
 
-Al igual que otros [módulos de IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), el módulo Análisis de vídeos en vivo en IoT Edge puede recibir mensajes a través del [centro de IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Estos mensajes se pueden enviar desde otros módulos o aplicaciones que se ejecutan en el dispositivo perimetral o desde la nube. Estos mensajes se entregan (enrutan) a una [entrada con nombre](../../iot-edge/module-composition.md#sink) en el módulo. Un nodo de origen de mensajes de IoT Hub permite que dichos mensajes lleguen a un grafo multimedia. Estos mensajes o señales se pueden usar internamente en el grafo multimedia, normalmente para activar las puertas de señales (vea [puertas de señales](#signal-gate-processor) a continuación). 
+Al igual que otros [módulos de IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), el módulo Análisis de vídeos en vivo en IoT Edge puede recibir mensajes a través del [centro de IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Estos mensajes se pueden enviar desde otros módulos o aplicaciones que se ejecutan en el dispositivo perimetral o desde la nube. Estos mensajes se entregan (enrutan) a una [entrada con nombre](../../iot-edge/module-composition.md#sink) en el módulo. Un nodo de origen de mensajes de IoT Hub permite que dichos mensajes lleguen a un grafo multimedia. Estos mensajes o señales se pueden usar internamente en el grafo multimedia, normalmente para activar las puertas de señales (vea [puertas de señales](#signal-gate-processor) a continuación). 
 
 Por ejemplo, puede tener un módulo de IoT Edge que genera un mensaje cuando se abre una puerta. El mensaje de ese módulo se puede enrutar al centro de IoT Edge, desde donde se puede enrutar al origen de los mensajes del centro de IoT de un grafo multimedia. Dentro del grafo multimedia, el origen de los mensajes del centro de IoT puede pasar el evento a un procesador de la puerta de señales, que puede activar la grabación del vídeo desde un origen RTSP en un archivo. 
 

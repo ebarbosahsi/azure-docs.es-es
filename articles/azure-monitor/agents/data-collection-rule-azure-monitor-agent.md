@@ -4,13 +4,13 @@ description: Se describe cómo crear una regla de recopilación de datos para re
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723646"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022983"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
 
@@ -68,6 +68,34 @@ Haga clic en **Agregar origen de datos** (Agregar origen de datos) y, después, 
 > [!NOTE]
 > Una vez creadas las asociaciones y la regla de recopilación de datos, los datos pueden tardar hasta cinco minutos en enviarse a los destinos.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Limitar la recopilación de datos con consultas XPath personalizadas
+Dado que se le cobran los datos recopilados en un área de trabajo Log Analytics, debe recopilar solo los datos que necesite. Con la configuración básica en el Azure Portal, solo tiene una capacidad limitada para filtrar los eventos que se van a recopilar. En el caso de los registros del sistema y de la aplicación, se trata de todos los registros con una gravedad determinada. En el caso de los registros de seguridad, se trata de todos los registros de auditoría correcta o error de auditoría.
+
+Para especificar filtros adicionales, debe usar la configuración personalizada y especificar un XPath que filtre los eventos que no tiene. Las entradas XPath se escriben en el formulario `LogName!XPathQuery`. Por ejemplo, puede que desee devolver solo los eventos del registro de eventos de aplicación con el identificador de evento 1035. El XPathQuery para estos eventos sería `*[System[EventID=1035]]`. Dado que desea recuperar los eventos del registro de eventos de la aplicación, el XPath sería `Application!*[System[EventID=1035]]`
+
+Vea [limitaciones de XPath 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) para obtener una lista de las limitaciones de XPath que admite el registro de eventos de Windows.
+
+> [!TIP]
+> Use el cmdlet de PowerShell `Get-WinEvent` con el `FilterXPath` parámetro para probar la validez de un XPathQuery. El script siguiente muestra un ejemplo de la edición.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Si se devuelven eventos, la consulta es válida.
+> - Si recibe el mensaje *No se encontraron eventos que coincidan con los criterios de selección especificados.* , la consulta puede ser válida, pero no hay eventos coincidentes en el equipo local.
+> - Si recibe el mensaje *La consulta especificada no es válida*, la sintaxis de la consulta no es válida. 
+
+En la tabla siguiente se muestran ejemplos de filtrado de eventos mediante un XPath personalizado.
+
+| Descripción |  XPath |
+|:---|:---|
+| Recopilar solo eventos del Sistema con id. de Evento = 4648 |  `System!*[System[EventID=4648]]`
+| Recopilar solo eventos del Sistema con id. de evento = 4648 y un nombre de proceso de consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
+| Recopilar todos los eventos críticos, de error, de advertencia y de información del registro de eventos del Sistema, excepto el id. de evento = 6 (controlador cargado) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Recopilación de todos los eventos de seguridad correctos y erróneos excepto el id. de evento 4624 (inicio de sesión correcto) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Creación de reglas y asociaciones mediante una API REST
 
@@ -83,6 +111,8 @@ Siga los pasos que se indican a continuación para crear una regla de recopilaci
 ## <a name="create-association-using-resource-manager-template"></a>Creación de una asociación mediante plantillas de Resource Manager
 
 No puede crear una regla de recopilación de datos mediante una plantilla de Resource Manager, pero puede crear una asociación entre una máquina virtual de Azure o un servidor habilitado para Azure Arc mediante una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para reglas de recopilación de datos en Azure Monitor](./resource-manager-data-collection-rules.md) para obtener plantillas de ejemplo.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

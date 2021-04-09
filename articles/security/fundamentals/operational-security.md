@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712001"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046647"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -165,7 +165,7 @@ Azure Security Center recopila copias efímeras de los archivos de volcado de me
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-La solución de [seguridad y auditoría de registros de Azure Monitor](../../security-center/security-center-monitoring.md) permite a TI supervisar activamente todos los recursos con el fin de minimizar el impacto de los incidentes de seguridad. La seguridad y auditoría de registros de Azure Monitor tiene dominios de seguridad que pueden usarse para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
+La solución de [seguridad y auditoría de registros de Azure Monitor](../../security-center/security-center-remediate-recommendations.md) permite a TI supervisar activamente todos los recursos con el fin de minimizar el impacto de los incidentes de seguridad. La seguridad y auditoría de registros de Azure Monitor tiene dominios de seguridad que pueden usarse para la supervisión de recursos. El dominio de seguridad proporciona acceso rápido a opciones para supervisar la seguridad. Se proporciona más información de los siguientes dominios:
 
 -   Evaluación de malware
 -   Evaluación de la actualización

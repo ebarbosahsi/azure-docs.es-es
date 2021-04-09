@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302612"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582687"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenciones de IoT Plug and Play
 
@@ -25,7 +25,7 @@ Se describen la telemetría, las propiedades y los comandos que implementa un di
 - **Sin componentes**: un modelo sin componentes. El modelo declara la telemetría, las propiedades y los comandos como propiedades de nivel superior en la sección de contenido de la interfaz principal. En la herramienta de exploración Azure IoT, este modelo aparece como un único _componente predeterminado_.
 - **Varios componentes**: modelo compuesto por dos o más interfaces. Una interfaz principal, que aparece como _componente predeterminado_, con telemetría, propiedades y comandos. Una o más interfaces declaradas como componentes con telemetría, propiedades y comandos adicionales.
 
-Para más información, consulte [Componentes de los modelos de IoT Plug and Play](concepts-components.md).
+Para más información, consulte la [Guía de modelado de IoT Plug and Play](concepts-modeling-guide.md).
 
 ## <a name="identify-the-model"></a>Identificación del modelo
 
@@ -353,4 +353,4 @@ Ahora que aprendió sobre las convenciones de IoT Plug and Play, estos son algun
 - [Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK para dispositivos C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](/rest/api/iothub/device)
-- [Componentes del modelo](./concepts-components.md)
+- [Guía de modelado de IoT Plug and Play](concepts-modeling-guide.md)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943405"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863384"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -37,7 +37,7 @@ Estas configuraciones permiten que se produzca el siguiente comportamiento:
 
 En el diagrama siguiente, las líneas verdes son solicitudes de recursos que finalizan en el sufijo DNS de la red virtual. Las líneas azules son solicitudes de recursos en la red local o en Internet.
 
-![Diagrama de cómo se resuelven las solicitudes DNS en la configuración](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagrama de cómo se resuelven las solicitudes DNS en la configuración" border="false":::
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -64,7 +64,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
   
 1. En el menú superior, seleccione **+ Crear un recurso**.
 
-    ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Creación de una máquina virtual Ubuntu":::
 
 1. Seleccione **Proceso** > **Virtual machine** (Máquina virtual) para ir a la página **Crear una máquina virtual**.
 
@@ -78,12 +78,12 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
     |Region | Seleccione la misma región que la de la red virtual que creó anteriormente.  No todos los tamaños de máquina virtual están disponibles en todas las regiones.  |
     |Opciones de disponibilidad |  Seleccione el nivel de disponibilidad que desee.  Azure ofrece varias opciones para administrar la disponibilidad y resistencia de las aplicaciones.  Diseñe su solución para que use las máquinas virtuales replicadas en Availability Zones o en conjuntos de disponibilidad para proteger sus aplicaciones y datos de las interrupciones del centro de datos y de los eventos de mantenimiento. En este ejemplo se usa **No se requiere redundancia de la infraestructura**. |
     |Imagen | Déjelo en **Ubuntu Server 18.04 LTS**. |
-    |Tipo de autenticación | __Contraseña__ o __Clave pública SSH__: El método de autenticación de la cuenta SSH. Se recomienda usar claves públicas, porque son más seguras. Este ejemplo utiliza **Contraseña**.  Para más información, consulte el documento [Creación y uso de claves SSH para máquinas virtuales Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
+    |Tipo de autenticación | __Clave pública SSH__ o __Contraseña__: método de autenticación de la cuenta SSH. Se recomienda usar claves públicas, porque son más seguras. Este ejemplo utiliza **Contraseña**.  Para más información, consulte el documento [Creación y uso de claves SSH para máquinas virtuales Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nombre de usuario |Escriba el nombre de usuario del administrador de la máquina virtual.  En el ejemplo se utiliza **sshuser**.|
     |Contraseña o clave pública SSH | El campo disponible lo determina la opción elegida en **Tipo de autenticación**.  Escriba el valor adecuado.|
     |Puertos de entrada públicos|Seleccione **Permitir los puertos seleccionados**. A continuación, seleccione **SSH (22)** en la lista desplegable **Seleccionar puertos de entrada**.|
 
-    ![Configuración básica de la máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Configuración básica de la máquina virtual":::
 
     Deje otras entradas con los valores predeterminados y seleccione la pestaña **Redes**.
 
@@ -95,9 +95,9 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
     |Subnet | Seleccione la subred predeterminada de la red virtual que ha creado antes. __No__ seleccione la subred que la puerta de enlace de VPN usa.|
     |Dirección IP pública | Use el valor que se rellena automáticamente.  |
 
-    ![Configuración de red virtual de HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="Configuración de red virtual de HDInsight":::
 
-    Deje otras entradas con los valores predeterminados y seleccione **Revisar y crear** .
+    Deje otras entradas con los valores predeterminados y seleccione **Revisar y crear**.
 
 5. En la pestaña **Revisar y crear**, seleccione **Crear** para crear la máquina virtual.
 
@@ -109,7 +109,7 @@ Una vez que se haya creado la máquina virtual, recibirá una notificación de *
 
 2. Anote los valores de **ETIQUETA CDE NOMBRE DNS O DIRECCIÓN IP PÚBLICA** y **DIRECCIÓN IP PRIVADA** para su uso posterior.
 
-   ![Direcciones IP pública y privada](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Direcciones IP pública y privada":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalación y configuración de Bind (software DNS)
 
@@ -245,7 +245,7 @@ Para configurar la red virtual para que use el servidor DNS personalizado, en lu
 
 5. Seleccione __Guardar__.  <br />  
 
-    ![Establecimiento del servidor DNS personalizado para la red](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Establecimiento del servidor DNS personalizado para la red":::
 
 ## <a name="configure-on-premises-dns-server"></a>Configuración del servidor DNS local
 
@@ -285,8 +285,8 @@ Puede usar grupos de seguridad de red (NSG) o rutas definidas por el usuario (UD
 
 2. Para las direcciones IP identificadas en el paso 1, permita el tráfico entrante desde ellas.
 
-   * Si usa __NSG__: permita el tráfico __entrante__ en el puerto __443__ para las direcciones IP.
-   * Si usa __UDR__: Establezca el tipo __Próximo salto__ de la ruta a __Internet__ de las direcciones IP.
+   * Si usa __NSG__: permita el tráfico __entrante__ en el puerto __443__ para las direcciones IP.
+   * Si usa __UDR__: establezca el tipo __Próximo salto__ de la ruta en __Internet__ para las direcciones IP.
 
 Para un ejemplo de cómo usar Azure PowerShell o la CLI de Azure para crear NSG, consulte el documento [Extensión de HDInsight con redes virtuales de Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 

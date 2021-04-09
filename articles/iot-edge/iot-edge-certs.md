@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
 ms.openlocfilehash: ffe2f2b7f94d546cdfe393170da2fd2ca6ac0149
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103491000"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Información sobre los certificados de Azure IoT Edge
@@ -36,16 +36,16 @@ La ilustración siguiente muestra el uso de certificados de IoT Edge. Puede habe
 ![Diagrama de relaciones típicas de certificado](./media/iot-edge-certs/edgeCerts-general.png)
 
 <!--1.1-->
-:::moniker range="iotedge-2018-06"
+:::moniker range="iotedge-2018-06&quot;
 
 > [!NOTE]
 > Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior. Esta limitación se aplica al certificado de CA del dispositivo, a los certificados del paquete de confianza y a los certificados de identificador de dispositivo usados para los métodos de aprovisionamiento X.509.
 
 :::moniker-end
 
-### <a name="certificate-authority"></a>Entidad de certificación
+### <a name=&quot;certificate-authority&quot;></a>Entidad de certificación
 
-La entidad de certificación, o "CA" para abreviar, es una entidad que emite certificados digitales. Una entidad de certificación actúa como un tercero de confianza entre el propietario y el receptor del certificado. Un certificado digital certifica la propiedad de una clave pública por parte del receptor del certificado. La cadena de certificados de confianza funciona mediante la emisión de un certificado raíz inicialmente, que es la base de confianza de todos los certificados emitidos por la autoridad. Después, el propietario puede usar el certificado raíz para emitir más certificados intermedios (certificados "hoja").
+La entidad de certificación, o &quot;CA&quot; para abreviar, es una entidad que emite certificados digitales. Una entidad de certificación actúa como un tercero de confianza entre el propietario y el receptor del certificado. Un certificado digital certifica la propiedad de una clave pública por parte del receptor del certificado. La cadena de certificados de confianza funciona mediante la emisión de un certificado raíz inicialmente, que es la base de confianza de todos los certificados emitidos por la autoridad. Después, el propietario puede usar el certificado raíz para emitir más certificados intermedios (certificados &quot;hoja").
 
 ### <a name="root-ca-certificate"></a>Certificado de entidad de certificación raíz
 

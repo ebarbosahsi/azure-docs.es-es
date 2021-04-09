@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 88c0d88a1d3119ef2fa00eb49da447749fde3221
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97629364"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543846"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -141,7 +141,7 @@ En el siguiente diagrama se muestran dos operaciones de escritura independientes
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Para leer las páginas, use el método [PageBlobClient.download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) para leer un intervalo de bytes del blob en páginas. 
+Para leer las páginas, use el método [PageBlobClient.download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) para leer un intervalo de bytes del blob en páginas. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 

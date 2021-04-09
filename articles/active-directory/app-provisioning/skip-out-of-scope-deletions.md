@@ -12,18 +12,19 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256126"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
 
 De forma predeterminada, el motor de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que están fuera del ámbito. Sin embargo, en determinados escenarios, como el aprovisionamiento entrante de usuarios de Workday a AD, es posible que este comportamiento no sea el esperado y puede que desee reemplazarlo.  
 
-En este artículo se describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para establecer la marca ***SkipOutOfScopeDeletions** _ que controla el procesamiento de las cuentas que quedan fuera del ámbito. _ Si ***SkipOutOfScopeDeletions** _ se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino.
-_ Si ***SkipOutOfScopeDeletions** _ se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la _aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
+En este artículo se describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para establecer la marca ***SkipOutOfScopeDeletions*** que controla el procesamiento de las cuentas que quedan fuera del ámbito. 
+* Si ***SkipOutOfScopeDeletions*** se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino.
+* Si ***SkipOutOfScopeDeletions** _ se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la _aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
 
 Como esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los pasos siguientes incluyen capturas de pantallas de la aplicación Workday. Sin embargo, la configuración también se puede usar con *todas las demás aplicaciones*, como ServiceNow, Salesforce y Dropbox.
 
@@ -68,9 +69,9 @@ Este es el bloque JSON que se agrega a la asignación.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Paso 4: Actualizar el punto de conexión de secretos con la marca SkipOutOfScopeDeletions
 
-En Graph Explorer, ejecute el siguiente comando para actualizar el punto de conexión de secretos con la marca **_SkipOutOfScopeDeletions_* _. 
+En Graph Explorer, ejecute el siguiente comando para actualizar el punto de conexión de secretos con la marca ***SkipOutOfScopeDeletions***. 
 
-En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de _ *ServicePrincipalId** extraído del [paso 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+En la dirección URL siguiente, reemplace [servicePrincipalId] por el valor de **ServicePrincipalId** extraído del [paso 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

@@ -3,13 +3,13 @@ title: Administración de copias de seguridad con el control de acceso basado en
 description: Use el control de acceso basado en roles de Azure para administrar el acceso a las operaciones de administración de copia de seguridad en el almacén de Recovery Services.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090886"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613449"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles de Azure para administrar puntos de recuperación de Azure Backup
 
@@ -28,26 +28,29 @@ Si quiere definir sus propios roles para tener un mayor control, consulte cómo 
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Requisitos de rol mínimos para la copia de seguridad de máquinas virtuales de Azure
+
 En la tabla siguiente se capturan acciones de administración de Backup y el rol de Azure mínimo correspondiente necesario para realizar esa operación.
 
-| Operación de administración | Rol de Azure mínimo necesario | Ámbito requerido |
-| --- | --- | --- |
-| Crear almacén de Recovery Services | Colaborador de copias de seguridad | Grupo de recursos que contiene el almacén |
-| Habilitar la copia de seguridad de VM de Azure | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |
-| | Colaborador de la máquina virtual | Recurso de máquina virtual |
-| Copia de seguridad a petición de VM | Operador de copias de seguridad | Almacén de Recovery Services |
-| Restaurar VM | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador | Grupo de recursos en el que se implementará la máquina virtual |
-| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
+| Operación de administración | Rol de Azure mínimo necesario | Ámbito requerido | Alternativa |
+| --- | --- | --- | --- |
+| Crear almacén de Recovery Services | Colaborador de copias de seguridad | Grupo de recursos que contiene el almacén |   |
+| Habilitar la copia de seguridad de VM de Azure | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |   |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual |  Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| Copia de seguridad a petición de VM | Operador de copias de seguridad | Almacén de Recovery Services |   |
+| Restaurar VM | Operador de copias de seguridad | Almacén de Recovery Services |   |
+| | Colaborador | Grupo de recursos en el que se implementará la máquina virtual |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write, Microsoft.Compute/virtualMachines/write  Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/join/action |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
 | Restaurar la copia de seguridad de la máquina virtual de discos no administrados | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
-| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento donde se van a restaurar los discos |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad | Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| | Colaborador de la cuenta de almacenamiento | Recurso de la cuenta de almacenamiento donde se van a restaurar los discos |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Storage/storageAccounts/write. |
 | Restaurar discos administrados de la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
-| | Colaborador de la cuenta de almacenamiento | Cuenta de almacenamiento temporal seleccionada como parte de la restauración para contener datos del almacén antes de convertirlos a discos administrados |
-| | Colaborador | Grupo de recursos en el cual se restaurarán los discos administrados |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |    Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| | Colaborador de la cuenta de almacenamiento | Cuenta de almacenamiento temporal seleccionada como parte de la restauración para contener datos del almacén antes de convertirlos a discos administrados |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Storage/storageAccounts/write. |
+| | Colaborador | Grupo de recursos en el cual se restaurarán los discos administrados | Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write.|
 | Restaurar archivos individuales desde la copia de seguridad de la máquina virtual | Operador de copias de seguridad | Almacén de Recovery Services |
-| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad | Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| Restauración entre regiones | Operador de copias de seguridad | Suscripción del almacén de Recovery Services | Además de los permisos de restauración mencionados anteriormente. Específicamente para CRR, en lugar de un rol integrado, puede considerar un rol personalizado que tenga los permisos siguientes: "Microsoft.RecoveryServices/locations/backupAadProperties/read" "Microsoft.RecoveryServices/locations/backupCrrJobs/action"         "Microsoft.RecoveryServices/locations/backupCrrJob/action" "Microsoft.RecoveryServices/locations/backupCrossRegionRestore/action"          "Microsoft.RecoveryServices/locations/backupCrrOperationResults/read" "Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read" |
 | Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
 | Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
 | Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
@@ -58,7 +61,25 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 > [!IMPORTANT]
 > Si especifica el rol de colaborador de VM en un ámbito de recursos de VM y hace clic en **Copia de seguridad** como parte de la configuración de VM, se abrirá la pantalla **Habilitar copia de seguridad** aunque ya se haya realizado una copia de seguridad de la VM. Esto se debe a que la llamada para comprobar el estado de copia de seguridad solo funciona en el nivel de suscripción. Para evitarlo, vaya al almacén y abra la vista de elementos de copia de seguridad de la VM o especifique un rol de colaborador de VM en un nivel de suscripción.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos de rol mínimos para la copia de seguridad de recursos compartidos de archivos de Azure
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Requisitos mínimos de rol para las copias de seguridad de cargas de trabajo de Azure (copias de seguridad de SQL y HANA DB)
+
+En la tabla siguiente se capturan acciones de administración de Backup y el rol de Azure mínimo correspondiente necesario para realizar esa operación.
+
+| Operación de administración | Rol de Azure mínimo necesario | Ámbito requerido | Alternativa |
+| --- | --- | --- | --- |
+| Crear almacén de Recovery Services | Colaborador de copias de seguridad | Grupo de recursos que contiene el almacén |   |
+| Habilitar la copia de seguridad de bases de datos SQL o HANA | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |   |
+| | Colaborador de la máquina virtual | Recurso de máquina virtual en el que está instalada la base de datos |  Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| Copia de seguridad a petición de base de datos | Operador de copias de seguridad | Almacén de Recovery Services |   |
+| Restaurar base de datos o restaurar como archivos | Operador de copias de seguridad | Almacén de Recovery Services |   |
+| | Colaborador de la máquina virtual | Máquina virtual de origen de la que se hizo una copia de seguridad |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| | Colaborador de la máquina virtual | Máquina virtual de destino en la que se restaurará la base de datos o se crearán los archivos |   Como alternativa, en lugar de un rol integrado, puede considerar el uso de un rol personalizado que tenga los permisos siguientes: Microsoft.Compute/virtualMachines/write. |
+| Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
+| Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
+| Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copias de seguridad | Almacén de Recovery Services |
+| Detener copia de seguridad (con retención de datos o eliminación de datos) en copia de seguridad de VM | Colaborador de copias de seguridad | Almacén de Recovery Services |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos de rol mínimos para la copia de seguridad de recursos compartidos de archivos de Azure
 
 En la tabla siguiente se capturan las acciones de administración de Backup y el rol correspondiente necesario para realizar la operación de recursos compartidos de archivos de Azure.
 

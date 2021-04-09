@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382402"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581650"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Escalado de una instancia de Azure Cache for Redis
 Azure Cache for Redis tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la memoria caché. En el caso de una caché básica, estándar o prémium, puede cambiar su tamaño y nivel después de crearla para que se ajuste a las necesidades de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -45,7 +45,7 @@ Puede escalar a un plan de tarifa diferente con las siguientes restricciones:
   * No puede cambiar de una memoria caché **Estándar** a una memoria caché **Básica**.
 * Puede cambiar de una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 * No puede escalar de una memoria caché **Básica** directamente a una memoria caché **Premium**. En primer lugar, escale desde **Básica** a **Estándar** en una operación de escalado y, después, desde **Estándar** a **Premium** en una operación de escalado posterior.
-* No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** .
+* No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)** . Sin embargo, puede reducir verticalmente a cualquier otro tamaño dentro del mismo plan de tarifa. Por ejemplo, puede reducir verticalmente del estándar C5 al estándar C1.
  
 Durante la operación de escalado de la memoria caché al nuevo plan de tarifa, se muestra el estado **Escalando** en la hoja **Azure Cache for Redis** .
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183206"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047358"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configuración de la ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ La ventana de mantenimiento *Predeterminada del sistema* es cada día de 17:00 a
 La capacidad de cambiar a otra ventana de mantenimiento no está disponible para todos los niveles de servicio ni en todas las regiones. Para obtener más información sobre la disponibilidad, consulte [Disponibilidad de las ventanas de mantenimiento](maintenance-window.md#availability).
 
 > [!Important]
-> La configuración de la ventana de mantenimiento es una operación asincrónica de larga duración, similar a la modificación del nivel de servicio del recurso de Azure SQL. El recurso está disponible durante la operación, excepto una breve conmutación por error que se produce al final de la operación y que normalmente dura hasta 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la conmutación por error, debe realizar la operación fuera de las horas punta.
+> La configuración de la ventana de mantenimiento es una operación asincrónica de larga duración, similar a la modificación del nivel de servicio del recurso de Azure SQL. El recurso está disponible durante la operación, excepto una breve reconfiguración que se produce al final de la operación y que normalmente dura hasta 8 segundos, incluso en el caso de transacciones de larga duración interrumpidas. Para minimizar el impacto de la reconfiguración, debe realizar la operación fuera de las horas punta.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configuración de la ventana de mantenimiento durante la creación de la base de datos 
 
@@ -257,7 +257,7 @@ En el ejemplo siguiente se crea una nueva instancia administrada y se establece 
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Configuración de la ventana de mantenimiento para las bases de datos existentes
 
 
-Al aplicar una selección de la ventana de mantenimiento a una base de datos, se puede producir una breve conmutación por error (de varios segundos) en algunos casos, mientras Azure aplica los cambios necesarios.
+Al aplicar una selección de ventana de mantenimiento a una base de datos, en algunos casos se puede experimentar una breve reconfiguración (varios segundos) a medida que Azure aplica los cambios necesarios.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
