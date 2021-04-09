@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 57024d6cb23ab273aa69bf59f4ec436a6f873a05
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193374"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593652"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Referencia a los metadatos de desencadenador en las ejecuciones de canalización
 
@@ -22,7 +22,7 @@ En este artículo se describe cómo se pueden usar los metadatos de desencadenad
 
 A veces, la canalización debe comprender y leer los metadatos del desencadenador que la invoca. Por ejemplo, con la ejecución de un desencadenador periódico, la canalización procesará segmentos o carpetas de datos diferentes, en función de la hora de inicio y de finalización de la ventana. En Azure Data Factory, se usa la parametrización y la [variable del sistema](control-flow-system-variables.md) para pasar metadatos de un desencadenador a una canalización.
 
-Este patrón es especialmente útil para el [desencadenador periódico](how-to-create-tumbling-window-trigger.md), donde el desencadenador proporciona la hora de inicio y de finalización de la ventana.
+Este patrón es especialmente útil para el [desencadenador periódico](how-to-create-tumbling-window-trigger.md), donde el desencadenador proporciona la hora de inicio y de finalización de la ventana, y el [desencadenador de evento personalizado](how-to-create-custom-event-trigger.md), donde el desencadenador analiza y procesa los valores en el [campo de _datos_ definido por el usuario](../event-grid/event-schema.md).
 
 > [!NOTE]
 > Un tipo de desencadenador diferente proporciona información de metadatos diferente. Para más información, consulte [Variable del sistema](control-flow-system-variables.md).

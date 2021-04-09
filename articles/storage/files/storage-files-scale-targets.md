@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6ef255d78d3dd3ff6fcc5eba7aad522018185299
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518902"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593159"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -126,10 +126,21 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Rendimiento de descarga de espacio de nombres | 400 objetos por segundo |
 
 ### <a name="initial-one-time-provisioning"></a>Aprovisionamiento inicial que se realiza una sola vez
+
 **Enumeración inicial de cambios de nube**: Cuando se crea un nuevo grupo de sincronización, la enumeración inicial de cambios en la nube es el primer paso que se ejecutará. En este proceso, el sistema enumerará todos los elementos del recurso compartido de archivos de Azure. Durante este proceso, no habrá ninguna actividad de sincronización; es decir, no se descargará ningún elemento del punto de conexión de la nube al punto de conexión del servidor, y no se cargará ningún elemento desde el punto de conexión del servidor al punto de conexión en la nube. La actividad de sincronización se reanudará una vez que se complete la enumeración inicial de cambios en la nube.
 La tasa de rendimiento es de 20 objetos por segundo. Para calcular el tiempo que se tarda en completar la enumeración inicial de cambios en la nube, los clientes pueden calcular el número de elementos del recurso compartido de nube y usar la siguiente fórmula para obtener el tiempo en días. 
 
    **Tiempo (en días) para la enumeración inicial en la nube = (número de objetos en el punto de conexión de nube)/(20*60*60*24)**
+
+**Sincronización inicial de datos de Windows Server con un recurso compartido de archivos de Azure**: muchas implementaciones de Azure File Sync comienzan con un recurso compartido de archivos de Azure vacío porque todos los datos están en el servidor de Windows. En estos casos, la enumeración inicial de cambios en la nube es rápida y la mayor parte del tiempo se dedica a sincronizar los cambios de Windows Server con los recursos compartidos de archivos de Azure. 
+
+Mientras la sincronización carga los datos en el recurso compartido de archivos de Azure, no hay tiempo de inactividad en el servidor de archivos local y los administradores pueden [configurar los límites de red](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) para restringir la cantidad de ancho de banda que se usa para la carga de datos en segundo plano.
+
+La sincronización inicial suele estar limitada por la velocidad de carga inicial de 20 archivos por segundo/por grupo de sincronización. Los clientes pueden calcular el tiempo de carga de todos sus datos en Azure con las siguientes fórmulas para obtener el tiempo en días:  
+
+   **Tiempo (en días) para la carga de archivos en un grupo de sincronización = (número de objetos en el punto de conexión del servidor)/(20*60*60*24)**
+
+Dividir los datos en varios puntos de conexión de servidor y grupos de sincronización puede acelerar esta carga de datos inicial, ya que la operación puede realizarse en paralelo con varios grupos de sincronización a una velocidad de 20 elementos por segundo. Por lo tanto, se ejecutarían dos grupos de sincronización con una tasa combinada de 40 elementos por segundo. El tiempo total para terminar la operación sería el tiempo estimado del grupo de sincronización con el mayor número de archivos que se van a sincronizar.
 
 **Rendimiento de descarga de espacio de nombres** Cuando se agrega un nuevo punto de conexión de servidor a un grupo de sincronización existente, el agente de Azure File Sync no descarga ningún contenido de archivo del punto de conexión en la nube. En primer lugar sincroniza el espacio de nombres completo y, después, desencadena la recuperación en segundo plano para descargar los archivos, ya sea en su totalidad o, si está habilitada la organización en niveles en la nube, la directiva de niveles en la nube establecida en el punto de conexión del servidor.
 

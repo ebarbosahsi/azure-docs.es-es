@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 17511778f63a2d7270178042c4bb414cdd6630c3
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470241"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955472"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -74,7 +74,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Inglés (Sudáfrica)             | `en-ZA` | Texto                                   |                           |
 | Inglés (Tanzania)                 | `en-TZ` | Texto                                   |                           |
 | Inglés (Reino Unido)           | `en-GB` | Audio (20201019)<br>Texto<br>Pronunciación| Sí                          |
-| Spanish (Traditional Sort) - Spain            | `en-US` | Audio (20201019)<br>Texto<br>Pronunciación| Sí                          |
+| Spanish (Traditional Sort) - Spain            | `en-US` | Audio (20201019, 20210223)<br>Texto<br>Pronunciación| Sí                          |
 | Estonio (Estonia)                  | `et-EE` | Texto                                   |                           |
 | Filipino (Filipinas)             | `fil-PH`| Texto                                   |                           |
 | Finés (Finlandia)                  | `fi-FI` | Texto                                   |     Sí                      |

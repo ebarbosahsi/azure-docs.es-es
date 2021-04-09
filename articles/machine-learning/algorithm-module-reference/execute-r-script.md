@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
 ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98119034"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
@@ -147,7 +147,7 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
 
     > [!NOTE]
-    > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
     
     Para ayudarle a empezar, el cuadro de texto **Script de R** se muestra rellenado previamente con el código de ejemplo, que puede editar o reemplazar.
     

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: peshultz
 ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100385071"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
@@ -32,7 +32,7 @@ En [Azure Portal](https://portal.azure.com/), al crear cuentas de Batch, selecci
 
 ![Captura de pantalla de una nueva cuenta de Batch con el tipo de identidad asignada por el sistema.](./media/batch-customer-managed-key/create-batch-account.png)
 
-Una vez creada la cuenta, puede encontrar un GUID único en el campo **"Identity principal id"** (Id. de entidad de seguridad de identidad") en la sección **Propiedades**. En **Tipo de identidad** se mostrará `System assigned`.
+Una vez creada la cuenta, puede encontrar un GUID único en el campo **"Identity principal id&quot;** (Id. de entidad de seguridad de identidad") en la sección **Propiedades**. En **Tipo de identidad** se mostrará `System assigned`.
 
 ![Captura de pantalla que muestra un GUID único en el campo "Identity principal Id" (Id. de entidad de seguridad de identidad).](./media/batch-customer-managed-key/linked-batch-principal.png)
 

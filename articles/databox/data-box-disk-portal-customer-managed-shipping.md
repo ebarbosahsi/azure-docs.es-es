@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
 ms.openlocfilehash: f512b4415f4a83e779a8f9bf790ba2806e3b05c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99526337"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
 En este artículo se describen las tareas de envío autoadministradas para pedir, recoger y entregar un dispositivo Azure Data Box Disk. Puede administrar Data Box Disk mediante Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 El envío autoadministrado está disponible como opción cuando [realiza un pedido de Azure Data Box Disk](data-box-disk-deploy-ordered.md). Solo está disponible en las siguientes regiones:
 

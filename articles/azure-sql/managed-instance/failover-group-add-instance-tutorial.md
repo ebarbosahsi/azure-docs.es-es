@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: sashan
 ms.date: 08/27/2019
 ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99525728"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
@@ -35,7 +35,7 @@ Agregue instancias administradas de Azure SQL Managed Instance a un grupo de con
   > - Las instancias administradas que participan en un grupo de conmutación por error requieren [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), emparejamiento de red virtual global o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 

@@ -12,22 +12,18 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traducción de voz
-ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015212"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954968"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-En esta introducción, descubrirá las ventajas y funcionalidades del servicio de traducción de voz, un servicio que le permite agregar a las secuencias de audio traducciones de voz a voz y de voz a texto en varios idiomas y en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. A medida que se detecta la voz, se van devolviendo resultados provisionales de transcripción y traducción. Asimismo, los resultados finales pueden convertirse en voz sintetizada.
-
-El motor de traducción de Microsoft usa tecnología de dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). SMT usa análisis estadísticos avanzados para estimar las mejores traducciones posibles dado el contexto de unas pocas palabras. Con NMT, las redes neuronales se utilizan para proporcionar traducciones más precisas y naturales mediante el contexto completo de las oraciones para traducir palabras.
-
-En la actualidad, Microsoft utiliza NMT para la traducción a los idiomas más populares. Todos los [idiomas disponibles para la traducción de voz a voz](language-support.md#speech-translation) cuentan con la tecnología de NMT. La traducción de voz a texto puede utilizar SMT o NMT, según el par de idiomas. Si el idioma de destino admite NMT, la traducción completa se realiza con NMT. Si el idioma de destino no admite NMT, la traducción es un híbrido de NMT y SMT, con el idioma inglés como "enlace" entre los dos idiomas.
+En esta introducción, descubrirá las ventajas y funcionalidades del servicio de traducción de voz, un servicio que le permite agregar a las secuencias de audio traducciones de voz a voz y [de voz a texto en varios idiomas](language-support.md#speech-translation) y en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. A medida que se detecta la voz, se van devolviendo resultados provisionales de transcripción y traducción. Asimismo, los resultados finales pueden convertirse en voz sintetizada.
 
 ## <a name="core-features"></a>Características principales
 
