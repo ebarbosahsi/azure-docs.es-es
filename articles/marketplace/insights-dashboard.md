@@ -4,15 +4,15 @@ description: Acceda a un resumen de análisis web de marketplace en el Centro de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553942"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953279"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Panel Información de marketplace de los análisis de marketplace comercial
 
@@ -115,7 +115,9 @@ En esta tabla se proporciona una vista de lista de las visitas a la página y la
 | Ponerse en contacto conmigo | Ponerse en contacto conmigo | Número de clics en la llamada a la acción "Ponerse en contacto conmigo" de la página de la oferta para una fecha determinada. | ContactMe |
 | Versión de prueba | Versión de prueba | Número de clics en la llamada a la acción "Versión de prueba" de la página de la oferta para una fecha determinada. | TestDrive |
 | Versión de prueba gratuita | Versión de prueba gratuita | Número de clics en la llamada a la acción "Versión de prueba gratuita" de la página de la oferta para una fecha determinada. | FreeTrial |
-|||||
+| Campaña | El nombre de la campaña. | Capacidad de comprender la telemetría web (visita de páginas y clics de llamadas a la acción) con el nombre de la campaña. | Campaña |
+| N/D | Sitio | El nombre del escaparate desde el que se produjo la visita a la página o el clic en la llamada a la acción. Los valores posibles son:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Sitio |
+|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,18 +3,18 @@ title: Ampliación de Azure IoT Central con análisis personalizados | Microsoft
 description: Como desarrollador de soluciones, configure una aplicación de IoT Central para realizar análisis y visualizaciones personalizados. Esta solución utiliza Azure Databricks.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0cee343e6769c815ecfb4b9c791783bd246caaac
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551324"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953908"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Ampliación de Azure IoT Central con análisis personalizados mediante Azure Databricks
 
@@ -59,7 +59,7 @@ Use [Azure Portal para crear un grupo de recursos](https://portal.azure.com/#cre
 
 Use [Azure Portal para crear un espacio de nombres de Event Hubs](https://portal.azure.com/#create/Microsoft.EventHub) con la siguiente configuración:
 
-| Configuración | Valor |
+| Configuración | Value |
 | ------- | ----- |
 | Nombre    | Elija el nombre del espacio de nombres |
 | Plan de tarifa | Básica |
@@ -82,14 +82,14 @@ Use [Azure Portal para crear un servicio de Azure Databricks](https://portal.azu
 
 Cuando haya creado los recursos necesarios, el grupo de recursos **IoTCentralAnalysis** se parecerá al de la captura de pantalla siguiente:
 
-![Grupo de recursos IoTCentralAnalysis](media/howto-create-custom-analytics/resource-group.png)
+:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="imagen del grupo de recursos de análisis de IoT Central.":::
 
 ## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Puede configurar una aplicación de IoT Central para la exportación continua de datos de telemetría a un centro de eventos. En esta sección, creará un centro de eventos para recibir datos de telemetría de la aplicación de IoT Central. El centro de eventos entrega los datos de telemetría al trabajo de Stream Analytics para su procesamiento.
 
 1. En Azure Portal, vaya al espacio de nombres de Event Hubs y seleccione **+ Centro de eventos**.
-1. Asigne al centro de eventos el nombre **centralexport** y seleccione **Crear**.
+1. Ponga al centro de eventos el nombre **centralexport**.
 1. En la lista de centros de eventos del espacio de nombres, seleccione **centralexport**. A continuación, elija **Directivas de acceso compartido**.
 1. Seleccione **+Agregar**. Cree una directiva denominada **Listen** con la notificación **Listen**.
 1. Cuando la directiva esté preparada, selecciónela en la lista y, a continuación, copie el valor de **Cadena de conexión: clave principal**.
@@ -97,26 +97,42 @@ Puede configurar una aplicación de IoT Central para la exportación continua de
 
 El espacio de nombres de Event Hubs se parece a la captura de pantalla siguiente:
 
-![Espacio de nombres de Event Hubs](media/howto-create-custom-analytics/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="imagen del espacio de nombres de Event Hubs.":::
 
-## <a name="configure-export-in-iot-central"></a>Configuración de la exportación en IoT Central
+## <a name="configure-export-in-iot-central-and-create-a-new-destination"></a>Configuración de la exportación en IoT Central y creación de un nuevo destino
 
 En el sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral), vaya a la aplicación IOT Central que creó a partir de la plantilla de Contoso. En esta sección va a configurar la aplicación para que haga streaming de los datos de telemetría desde sus dispositivos simulados al centro de eventos. Para configurar la exportación:
 
-1. Vaya a la página **Exportación de datos**, seleccione **+ Nuevo** y, después, **Azure Event Hubs**.
-1. Utilice los siguientes valores para configurar la exportación y, luego, seleccione **Guardar**:
+1. Vaya a la página **Exportación de datos** y seleccione **+Nueva exportación**.
+1. Antes de finalizar la primera ventana, seleccione **Crear un destino**.
 
-    | Configuración | Valor |
+La ventana tendrá un aspecto como el siguiente.  
+
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="imagen de la configuración de destino de Exportación de datos.":::
+
+3. Escriba los siguientes valores:
+
+| Configuración | Value |
+| ------- | ----- |
+| Nombre del destino | El nombre del destino. |
+| Tipo de destino | Azure Event Hubs |
+| Connection String| La centro de eventos del centro de eventos que anotó previamente. | 
+| Centro de eventos| El nombre del centro de eventos|
+
+4. Haga clic en **Crear** para finalizar.
+
+5. Para configurar la exportación, use los siguientes valores:
+
+    | Configuración | Value |
     | ------- | ----- |
-    | Display Name (Nombre para mostrar) | Exportar a Event Hubs |
+    | Escriba un nombre para la exportación. | eventhubexport |
     | habilitado | Por |
-    | Espacio de nombres de Event Hubs | El nombre de su espacio de nombres de Event Hubs |
-    | Centro de eventos | centralexport |
-    | Medidas | Por |
-    | Dispositivos | Off |
-    | Plantillas de dispositivo | Off |
+    | data| Seleccione la telemetría. | 
+    | Destinations| Cree un destino, como se muestra a continuación, para la exportación y, a continuación, selecciónelo en el menú desplegable de destino. |
 
-![Configuración de la exportación de datos](media/howto-create-custom-analytics/cde-configuration.png)
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Captura de pantalla de la configuración de destino de Exportación de datos.":::
+
+6. Cuando termine, seleccione **Guardar**.
 
 Espere hasta que el estado de la exportación sea **En ejecución** antes de continuar.
 
@@ -164,7 +180,7 @@ En los pasos siguientes se indica cómo importar la biblioteca que necesita el e
 
 1. El estado de la biblioteca es ahora **Instalada**:
 
-    ![Biblioteca instalada](media/howto-create-custom-analytics/cluster-libraries.png)
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Captura de pantalla de la biblioteca instalada.":::
 
 ### <a name="import-a-databricks-notebook"></a>Importación de un cuaderno de Databricks
 
@@ -178,9 +194,9 @@ Use los pasos siguientes para importar un cuaderno de Databricks que contiene el
 
 1. Seleccione el **área de trabajo** para ver el cuaderno importado:
 
-    ![Cuaderno importado](media/howto-create-custom-analytics/import-notebook.png)
+:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Captura de pantalla del cuaderno importado.":::
 
-1. Edite el código en la primera celda de Python para agregar la cadena de conexión de Event Hubs que guardó anteriormente:
+5. Edite el código en la primera celda de Python para agregar la cadena de conexión de Event Hubs que guardó anteriormente:
 
     ```python
     from pyspark.sql.functions import *
@@ -206,7 +222,7 @@ Puede ver un error en la última celda. Si es así, compruebe que las celdas ant
 
 En el cuaderno, desplácese hacia abajo hasta la celda 14 para ver un trazado con la humedad media acumulada por tipo de dispositivo. Este trazado se actualiza continuamente a medida que llegan los datos de telemetría por streaming:
 
-![Trazado de datos de telemetría suavizados](media/howto-create-custom-analytics/telemetry-plot.png)
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Captura de pantalla del trazado de datos de telemetría suavizados.":::
 
 Puede cambiar el tamaño del gráfico en el cuaderno.
 
@@ -214,7 +230,7 @@ Puede cambiar el tamaño del gráfico en el cuaderno.
 
 En el cuaderno, desplácese hacia abajo hasta la celda 20 para ver los [diagramas de cajas](https://en.wikipedia.org/wiki/Box_plot). Los diagramas de cajas se basan en datos estáticos. Por ello, para actualizarlos debe volver a ejecutar la celda:
 
-![Diagramas de cajas](media/howto-create-custom-analytics/box-plots.png)
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Captura de pantalla de los diagramas de cajas.":::
 
 Puede cambiar el tamaño de los trazados en el cuaderno.
 

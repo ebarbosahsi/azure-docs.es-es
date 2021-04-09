@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050556"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675832"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario con plantillas HTML en Azure Active Directory B2C
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 Aquí encontrará plantillas de ejemplo de personalización de interfaz de usuario:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 El proyecto contiene las plantillas siguientes:
-- [Azul océano](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Gris pizarra](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Azul océano](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Gris pizarra](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Clásico](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Recursos de plantilla](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Para usar el ejemplo:
 
-1. Clone el repositorio en la máquina local. Seleccione una carpeta de plantilla, `/ocean_blue` o `/slate_gray`.
-1. Cargue todos los archivos de la carpeta de plantilla y la carpeta `/assets` en Blob Storage, como se describe en las secciones anteriores.
-1. A continuación, abra cada archivo `\*.html` en la raíz de `/ocean_blue` o `/slate_gray` y reemplace todas las instancias de direcciones URL relativas con las direcciones URL de los archivos css, de imágenes y de fuentes que cargó en el paso 2. Por ejemplo:
+1. Clone el repositorio en la máquina local. Seleccione una carpeta de plantilla, `/AzureBlue`, `/MSA` o `/classic`.
+1. Cargue todos los archivos de la carpeta de plantilla y la carpeta `/src` en Blob Storage, como se describe en las secciones anteriores.
+1. A continuación, abra cada archivo `\*.html` en la carpeta de plantillas. A continuación, reemplace todas las instancias de direcciones URL `https://login.microsoftonline.com` por la dirección URL que cargó en el paso 2. Por ejemplo:
+    
+    De:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    Objetivo
+    A:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Guarde los archivos `\*.html` y cárguelos en Blob Storage.
 1. Ahora modifique la directiva, que apunta al archivo HTML, como se mencionó anteriormente.
 1. Si ve que faltan las fuentes, imágenes o CSS, compruebe las referencias en la directiva de extensiones y los archivos \*.html.

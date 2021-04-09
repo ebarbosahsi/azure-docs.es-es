@@ -5,12 +5,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 48df2cb6ac103d1f03d2d64fce0d10a8f2f128e2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97106519"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043417"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante Python API
 
@@ -30,7 +30,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Python 2.7 o 3.3, o cualquier versión posterior](https://www.python.org/downloads/)
+* [Python, versión 2.7 o 3.6 y posteriores](https://www.python.org/downloads/)
 
 * Administrador de paquetes [pip](https://pip.pypa.io/en/stable/installing/)
 

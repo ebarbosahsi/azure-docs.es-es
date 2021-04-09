@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586342"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reglas de recopilación de datos en Azure Monitor (versión preliminar)
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
@@ -81,6 +81,10 @@ La siguiente regla de recopilación de datos de ejemplo es para las máquinas vi
   - Recopila eventos de alerta, críticos y de emergencia desde la utilidad syslog.
 - Destinations
   - Envía todos los datos a un área de trabajo de Log Analytics denominada centralWorkspace.
+
+> [!NOTE]
+> Para ver una explicación de las consultas de XPath que se usan para especificar la recopilación de eventos en las reglas de recopilación de datos, consulte la sección sobre los [límites en la recopilación de datos con consultas XPath personalizadas](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
+
 
 ```json
 {

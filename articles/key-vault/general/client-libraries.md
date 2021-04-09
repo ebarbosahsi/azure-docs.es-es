@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
 ms.openlocfilehash: c5b07c1059e146aaf3c3c2a26038514eb614a3cc
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102505926"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Bibliotecas cliente para Azure Key Vault

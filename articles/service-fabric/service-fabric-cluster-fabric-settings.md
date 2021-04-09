@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183410"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103232059"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -349,6 +349,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DisableContainers|bool, el valor predeterminado es FALSE|estática|Configuración para deshabilitar contenedores, se usa en lugar de la configuración en desuso DisableContainerServiceStartOnContainerActivatorOpen |
 |DisableDockerRequestRetry|bool, el valor predeterminado es FALSE |Dinámica| De forma predeterminada SF se comunica con DD (docker daemon) con un tiempo de espera de "DockerRequestTimeout" para cada solicitud http que se le envía. Si DD no responde dentro de este período de tiempo, SF vuelve a enviar la solicitud si a la operación de nivel superior le queda todavía tiempo.  Con el contenedor de Hyper-v, a veces a DD le lleva mucho más tiempo mostrar el contenedor o desactivarlo. En estos casos la solicitud de DD agota el tiempo de espera desde la perspectiva de SF y SF vuelve a intentar la operación. A veces esto añade más presión a DD. Esta configuración permite deshabilitar este reintento y esperar a que DD responda. |
 |DnsServerListTwoIps | Bool, el valor predeterminado es FALSE | estática | Este marcador agrega dos veces el servidor DNS local para ayudar a mitigar los problemas de resolución intermitentes. |
+| DockerTerminateOnLastHandleClosed | bool, el valor predeterminado es FALSE | estática | De forma predeterminada, si FabricHost administra "dockerd" (en función de SkipDockerProcessManagement = = false), esta configuración define qué sucede al bloquear FabricHost o dockerd. Cuando se establece en `true`, si alguno de los procesos se bloquea, HCS finalizará forzosamente todos los contenedores en ejecución. Si se establece en `false`, los contenedores seguirán ejecutándose. Nota: Antes de la versión 8.0, este comportamiento era involuntariamente equivalente a `false`. La configuración predeterminada de `true` aquí es lo que esperamos que suceda de forma predeterminada para que nuestra lógica de limpieza sea efectiva en el reinicio de estos procesos. |
 | DoNotInjectLocalDnsServer | bool, el valor predeterminado es FALSE | estática | Impide que el entorno de ejecución inserte la dirección IP local como servidor DNS para contenedores. |
 |EnableActivateNoWindow| bool, el valor predeterminado es FALSE|Dinámica| El proceso de activación se crea en segundo plano sin ninguna consola. |
 |EnableContainerServiceDebugMode|bool, el valor predeterminado es TRUE|estática|Habilite o deshabilite el registro para contenedores de Docker.  Solo Windows.|

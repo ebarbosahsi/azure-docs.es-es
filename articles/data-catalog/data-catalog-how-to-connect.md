@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674978"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Conexión a orígenes de datos
@@ -41,7 +41,7 @@ Si se usa el menú "Abrir en…" en los orígenes de datos del portal de Azure D
 | Excel |.odc |Excel 2010 o posterior |
 | Excel (primeros 1000) |.odc |Excel 2010 o posterior |
 | Power Query |.xlsx |Excel 2016 o Excel 2010 o Excel 2013 con el complemento de Power Query para Excel instalado |
-| Power BI Desktop |.pbix |Power BI Desktop de julio de 2016 o posterior |
+| Power BI Desktop |.pbix |Power BI Desktop de julio de 2016 o posterior |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 o posterior con las herramientas de SQL Server instaladas |
 | Administrador de informes |http:// |Consulte los [requisitos del explorador para SQL Server Reporting Services](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
@@ -62,5 +62,5 @@ Con el objetivo de simplificar las cosas para los usuarios que detecten un orige
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con **Azure Data Catalog**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catalog. Una vez que se registra y detecta un origen de datos, los usuarios pueden conectarse al origen de datos desde el menú "Abrir en…" del portal de **Azure Data Catalog** o con las herramientas de datos que prefieran.
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.

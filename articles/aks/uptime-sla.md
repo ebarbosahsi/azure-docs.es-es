@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176338"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952922"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Acuerdo de nivel de servicio de tiempo de actividad de Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,6 @@ El acuerdo de nivel de servicio de tiempo de actividad es una característica de
 * Instale la versión 2.8.0 de la [CLI de Azure](/cli/azure/install-azure-cli), o cualquier versión posterior.
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Creación de un clúster con un Acuerdo de Nivel de Servicio de tiempo de actividad
-
-> [!NOTE]
-> Actualmente, si habilita el Acuerdo de Nivel de Servicio de tiempo de actividad, no hay forma de quitarlo de un clúster.
 
 Para crear un nuevo clúster con el acuerdo de nivel de servicio de tiempo de actividad, use la CLI de Azure.
 
@@ -106,6 +103,15 @@ Use el comando [`az aks update`][az-aks-update] para actualizar el clúster exis
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>Exclusión del Acuerdo de Nivel de Servicio de tiempo de actividad
+
+Puede actualizar el clúster para cambiar al nivel gratis y excluirse del Acuerdo de Nivel de Servicio de tiempo de actividad.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>Limpieza
 

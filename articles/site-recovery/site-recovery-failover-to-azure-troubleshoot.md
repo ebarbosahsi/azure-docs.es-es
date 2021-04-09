@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371994"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043910"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -78,9 +78,9 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error debido a que el botón Conectar de la máquina virtual no está disponible.
 
-Para obtener instrucciones detalladas para la solución de problemas de RDP, consulte la documentación que encontrará [aquí](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Para obtener instrucciones detalladas para la solución de problemas de RDP, consulte la documentación que encontrará [aquí](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
-Para obtener instrucciones detalladas para la solución de problemas de SSH, consulte la documentación que encontrará [aquí](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+Para obtener instrucciones detalladas para la solución de problemas de SSH, consulte la documentación que encontrará [aquí](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
 
@@ -94,7 +94,7 @@ Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>No se puede conectar/RDP/botón de conexión SSH con la máquina virtual disponible
 
-Si el botón **Conectar** de la máquina virtual conmutada por error de Azure está disponible, compruebe **Diagnósticos de arranque** en su máquina virtual, así como los errores enumerados en [este artículo](../virtual-machines/troubleshooting/boot-diagnostics.md).
+Si el botón **Conectar** de la máquina virtual conmutada por error de Azure está disponible, compruebe **Diagnósticos de arranque** en su máquina virtual, así como los errores enumerados en [este artículo](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. Si la máquina virtual no se ha iniciado, realice la conmutación por error a un punto de recuperación anterior.
 2. Si la aplicación dentro de la máquina virtual no aparece, realice la conmutación por error a un punto de recuperación coherente con la aplicación.
@@ -182,7 +182,7 @@ Para resolver el problema:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Solucionar problemas de [conexión RDP con una máquina virtual Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
-- Solucionar problemas de [conexión SSH a una máquina virtual Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas de [conexión RDP con una máquina virtual Windows](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Solucionar problemas de [conexión SSH a una máquina virtual Linux](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
 Si necesita más ayuda, publique la consulta en la [página de preguntas y respuestas de Microsoft para Site Recovery](/answers/topics/azure-site-recovery.html) o deje un comentario al final de este documento. Tenemos una comunidad activa que debería poder ayudarle.

@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/16/2020
+ms.date: 03/25/2021
 ms.author: victorh
-ms.openlocfilehash: b9733eeb0d9941f6e23dcc9c0fa4dba60f4e4d30
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 35bede052f06c0fcffe46460a376d10690fd4417
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94561036"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559642"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -42,11 +42,9 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Para que Azure se comunique entre los recursos, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, creará una red virtual. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
+1. Seleccione **Crear un recurso** en el menú de la izquierda de Azure Portal. Aparece la ventana **Nuevo**.
 
-Seleccione **Crear un recurso** en el menú de la izquierda de Azure Portal. Aparece la ventana **Nuevo**.
-
-Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
+2. Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
 
 ### <a name="basics-tab"></a>Pestaña Aspectos básicos
 
@@ -82,7 +80,7 @@ Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
    > [!NOTE]
    > Para la SKU de Application Gateway v2, solo puede elegir la configuración IP de front-end **pública**. La configuración de IP de front-end privada no está habilitada actualmente para este SKU v2.
 
-2. Elija **Crear nuevo** para la **Dirección IP pública** y escriba *myAGPublicIPAddress* para el nombre de dirección IP pública y seleccione **Aceptar**. 
+2. En **Dirección IP pública**, seleccione **Agregar nueva** y escriba *myAGPublicIPAddress* como nombre de la dirección IP pública y, luego, elija **Aceptar**. 
 
      ![Crear una nueva puerta de enlace de aplicaciones: front-end](../media/application-gateway-web-application-firewall-portal/application-gateway-create-frontends.png)
 
@@ -92,7 +90,7 @@ Seleccione **Redes** y **Application Gateway** en la lista **Destacados**.
 
 El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end, que atienden la solicitud. Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. En este ejemplo, creará un grupo de back-end vacío con la puerta de enlace de aplicaciones y, luego, agregará destinos de back-end al grupo de back-end.
 
-1. En la pestaña **Back-end**, seleccione **+Agregar un grupo de back-end**.
+1. En la pestaña **Back-end**, seleccione **Agregar un grupo de back-end**.
 
 2. En la ventana **Agregar un grupo de back-end**, escriba los valores siguientes para crear un grupo de back-end vacío:
 
@@ -109,7 +107,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 
 En la pestaña **Configuración**, conecte el grupo de front-end y back-end que ha creado con una regla de enrutamiento.
 
-1. Seleccione **Agregar una regla** en la columna **Reglas de enrutamiento**.
+1. Seleccione **Agregar una regla de enrutamiento** en la columna **Reglas de enrutamiento**.
 
 2. En la ventana **Agregar una regla de enrutamiento** que se abre, escriba *myRoutingRule* para el **Nombre de regla**.
 
@@ -124,7 +122,7 @@ En la pestaña **Configuración**, conecte el grupo de front-end y back-end que 
 
 4. En la pestaña **Destinos de back-end**, seleccione **myBackendPool** para el **Destino de back-end**.
 
-5. Para la **Configuración de HTTP**, seleccione **Crear nueva** para crear una nueva configuración de HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración de HTTP** que se abre, escriba *myHTTPSetting* en el **Nombre de configuración de HTTP**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
+5. Para la **Configuración de HTTP**, seleccione **Agregar nueva** para crear una nueva configuración de HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración de HTTP** que se abre, escriba *myHTTPSetting* en el **Nombre de configuración de HTTP**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
 
      ![Crear una nueva puerta de enlace de aplicaciones: Configuración de HTTP](../media/application-gateway-web-application-firewall-portal/application-gateway-create-httpsetting.png)
 
@@ -158,12 +156,12 @@ Para ello, necesitará lo siguiente:
 
     - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
     - **Nombre de la máquina virtual**: Especifique *myVM* como nombre de la máquina virtual.
-    - **Nombre de usuario**: Escriba *azureuser* como nombre del usuario administrador.
-    - **Contraseña**: Escriba *Azure123456!* como la contraseña de administrador.
+    - **Nombre de usuario**: Escriba un nombre de usuario para el administrador.
+    - **Contraseña**: Escriba una contraseña para el administrador.
 4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
 5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
 6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP.
-7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
+7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Deshabilitar**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
 8. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
 9. Espere a que se complete la creación de la máquina virtual antes de continuar.
 
@@ -175,7 +173,7 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
     ![Instalación de la extensión personalizada](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
+2. Cambie el valor de ubicación del entorno y, a continuación, ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -199,48 +197,49 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
 3. Seleccione **MyBackendPool**.
 
-4. En **Destinos**, seleccione **Máquina virtual** de la lista desplegable.
+4. En **Tipo de destino**, seleccione **Máquina virtual** de la lista desplegable.
 
-5. En **MÁQUINA VIRTUAL** e **INTERFACES DE RED**, seleccione las máquinas virtuales **myVM** y **myVM2**, y sus interfaces de red asociadas de las listas desplegables.
+5. En **Destino**, seleccione la interfaz de red de **myVM** en la lista desplegable.
+1. Repita la operación con **myVM2**.
 
-    ![Incorporación de servidores back-end](../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
+   :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-backend.png" alt-text="Incorporación de servidores back-end":::
+
 
 6. Seleccione **Guardar**.
 
 7. Espere a que la implementación se complete antes de continuar con el paso siguiente.
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos
-
-### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-
-En este artículo, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar los registros de Azure Monitor o una instancia de Event Hubs para registrar los datos.
-
-1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-1. Seleccione **Almacenamiento** y, luego, **Cuenta de almacenamiento**.
-1. En *Grupo de recursos*, seleccione **myResourceGroupAG**.
-1. Escriba *myagstore1* como el nombre de la cuenta de almacenamiento.
-1. Acepte los valores predeterminados de las demás opciones y seleccione **Revisar y crear**.
-1. Revise la configuración y, a continuación, seleccione **Crear**.
-
-### <a name="configure-diagnostics"></a>Configuración de diagnóstico
-
-Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog.
-
-1. En el menú izquierdo, seleccione **Todos los recursos** y, luego, *myAppGateway*.
-2. En Supervisión, seleccione **Configuración de diagnóstico**.
-3. Seleccione **Agregar configuración de diagnóstico**.
-4. Escriba *myDiagnosticsSettings* como el nombre de la configuración de diagnóstico.
-5. Seleccione **Archivar en una cuenta de almacenamiento** y, luego, seleccione **Configurar** para seleccionar la cuenta de almacenamiento *myagstore1* que creó anteriormente. Finalmente, seleccione **Aceptar**.
-6. Seleccione los registros de la puerta de enlace de aplicaciones que se van a recopilar y conservar.
-7. Seleccione **Guardar**.
-
-    ![Configuración de diagnóstico](../media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
-
+   
 ## <a name="create-and-link-a-web-application-firewall-policy"></a>Creación y vinculación de una directiva de firewall de aplicaciones web
 
-Todas las personalizaciones y configuraciones de la WAF se encuentran en un objeto independiente denominado Directiva de WAF. La directiva tiene que estar asociada a su instancia de Application Gateway. Para crear una Directiva de WAF, consulte [Creación de una Directiva de WAF](create-waf-policy-ag.md). Una vez creada, puede asociar la directiva a su WAF (o a un cliente de escucha individual) desde la Directiva WAF en la pestaña **Puertas de enlace de aplicaciones asociadas**. 
+Todas las personalizaciones y configuraciones de la WAF se encuentran en un objeto independiente denominado Directiva de WAF. La directiva tiene que estar asociada a su instancia de Application Gateway. 
 
-![Puertas de enlace de aplicaciones](../media/application-gateway-web-application-firewall-portal/associated-application-gateways.png)
+Cree una directiva básica WAF con un conjunto de reglas predeterminado (DRS) administrado.
+
+1. En la parte superior izquierda del portal, seleccione **Crear un recurso**. Busque **WAF**, seleccione **Firewall de aplicaciones web**, después seleccione **Crear**.
+2. En página de **Crear directiva de WAF**, pestaña **Basics**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, luego, seleccione **Revisar + crear**:
+
+   |Configuración  |Value  |
+   |---------|---------|
+   |Directiva de     |WAF regional (Application Gateway)|
+   |Subscription     |Seleccione el nombre de la suscripción|
+   |Resource group     |Seleccione **myResourceGroupAG**.|
+   |Nombre de la directiva     |Escriba un nombre único para la directiva WAF.|
+1. Seleccione **Siguiente: Configuración de directivas**
+1. Acepte los valores predeterminados y haga clic en **Siguiente: Reglas administradas**.
+1. Acepte los valores predeterminados y seleccione **Siguiente: Reglas personalizadas**.
+1. Seleccione **Siguiente: Asociación**.
+1. Seleccione **Agregar asociación** y, después, **Application Gateway**.
+1. Active la casilla para **aplicar la configuración de Web Application Firewall aunque sea diferente de la actual**.
+1. Seleccione **Agregar**.
+1. En la pestaña **Asociación**, seleccione **Agregar asociación** y **Application Gateway**.
+
+   > [!NOTE]
+   > Si asigna una directiva a su Application Gateway (o agente de escucha) que ya tiene una directiva, la directiva original se sobrescribe y se reemplaza por la nueva directiva.
+4. Seleccione **Revisar y crear** y, luego, **Crear**.
+1. Seleccione **Siguiente: Etiquetas**.
+1. Seleccione **Revisar + crear**.
+1. Seleccione **Crear**.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: ab7d20a83c4cb8cb7a36c4603a5b0b2e69b0662f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102560674"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043485"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Ejecución de scripts en una máquina virtual Windows
 
@@ -58,7 +58,7 @@ La característica [Comando Ejecutar](run-command.md) habilita la administració
 
 ## <a name="serial-console"></a>Consola de serie
 
-La [consola serie](../troubleshooting/serial-console-windows.md) brinda acceso directo a una máquina virtual, igual que si tuviera un teclado conectado a la máquina virtual.
+La [consola serie](/troubleshoot/azure/virtual-machines/serial-console-windows) brinda acceso directo a una máquina virtual, igual que si tuviera un teclado conectado a la máquina virtual.
 
 * Ejecute comandos en máquinas virtuales de Azure.
 * Se puede ejecutar mediante una consola basada en texto en la máquina en Azure Portal.
@@ -72,4 +72,4 @@ Más información sobre las distintas características disponibles para ejecutar
 * [Extensión Custom Script](../extensions/custom-script-windows.md)
 * [Comando Ejecutar](run-command.md)
 * [Trabajo híbrido de runbook](../../automation/automation-hybrid-runbook-worker.md)
-* [Consola serie](../troubleshooting/serial-console-windows.md)
+* [Consola serie](/troubleshoot/azure/virtual-machines/serial-console-windows)

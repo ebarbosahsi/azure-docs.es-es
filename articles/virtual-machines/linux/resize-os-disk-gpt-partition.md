@@ -16,10 +16,10 @@ ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
 ms.openlocfilehash: 46b6ceff74dd3a296d26cc018b380c1c3f76664c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552956"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Cambio del tamaño de un disco de SO con una partición GPT
@@ -472,7 +472,7 @@ Una vez reiniciada la VM, siga los pasos que se describen a continuación:
    ```
     ![Partición raíz y partición de arranque](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
 
-1. Presione "d" para eliminar la partición y seleccionar el número de partición asignado al arranque (en este ejemplo, es "3").
+1. Presione "d&quot; para eliminar la partición y seleccionar el número de partición asignado al arranque (en este ejemplo, es &quot;3").
    ```
    d
    3

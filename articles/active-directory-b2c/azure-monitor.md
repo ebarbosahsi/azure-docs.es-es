@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580188"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106694"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -46,7 +46,7 @@ En el siguiente diagrama se muestran los componentes que se configurarán en los
 
 ![Proyección del grupo de recursos](./media/azure-monitor/resource-group-projection.png)
 
-Durante esta implementación, configurará el inquilino de Azure AD B2C y el de Azure AD donde se hospedará el área de trabajo de Log Analytics. Se debe asignar el rol [Administrador global](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) a la cuenta de Azure AD B2C en el inquilino de Azure AD B2C. La cuenta de Azure AD utilizada para ejecutar la implementación debe tener asignado el rol [Propietario](../role-based-access-control/built-in-roles.md#owner) en la suscripción de Azure AD. También es importante asegurarse de haber iniciado sesión en el directorio correcto a medida que completa cada paso según lo descrito.
+Durante esta implementación, configurará el inquilino de Azure AD B2C y el de Azure AD donde se hospedará el área de trabajo de Log Analytics. Se debe asignar el rol [Administrador global](../active-directory/roles/permissions-reference.md#global-administrator) a la cuenta de Azure AD B2C en el inquilino de Azure AD B2C. La cuenta de Azure AD utilizada para ejecutar la implementación debe tener asignado el rol [Propietario](../role-based-access-control/built-in-roles.md#owner) en la suscripción de Azure AD. También es importante asegurarse de haber iniciado sesión en el directorio correcto a medida que completa cada paso según lo descrito.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. Crear o elegir un grupo de recursos
 
