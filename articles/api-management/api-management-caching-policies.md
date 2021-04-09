@@ -4,21 +4,16 @@ description: Aprenda sobre las directivas de almacenamiento en caché disponible
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688049"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103233473"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -29,8 +24,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Directivas de almacenamiento en caché
 
 - Directivas de almacenamiento en caché de respuesta
-    - [Get from cache](api-management-caching-policies.md#GetFromCache): realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando está disponible.
-    - [Store to cache](api-management-caching-policies.md#StoreToCache) (Almacenar en la caché): almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
+    - [Get from cache](#GetFromCache): realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando está disponible.
+    - [Store to cache](#StoreToCache) (Almacenar en la caché): almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
 - Directivas de almacenamiento en caché de valores
     - [Obtener valor de caché](#GetFromCacheByKey) : recupere un elemento almacenado en caché por clave.
     - [Almacenar valor en caché](#StoreToCacheByKey) : almacene un elemento en la memoria caché por clave.
@@ -40,7 +35,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 Use la directiva `cache-lookup` para realizar una consulta en la caché y devolver una respuesta en caché válida cuando esté disponible. Esta directiva se puede aplicar en aquellos casos en los que el contenido de respuesta permanezca estático durante un período de tiempo. El almacenamiento en caché de respuesta reduce el ancho de banda y los requisitos de procesamiento impuestos sobre el servidor web de back-end y disminuye la latencia percibida por los consumidores de API.
 
 > [!NOTE]
-> Esta directiva debe tener una directiva [Store to cache](api-management-caching-policies.md#StoreToCache) (Almacenar en la caché) correspondiente.
+> Esta directiva debe tener una directiva [Store to cache](#StoreToCache) (Almacenar en la caché) correspondiente.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -135,7 +130,7 @@ La directiva `cache-store` almacena en caché las respuestas según la configura
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### <a name="examples"></a>Ejemplos
@@ -190,7 +185,8 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 
 | Nombre             | Descripción                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Período de vida de las entradas almacenadas en caché, especificado en segundos.                                                                                                                                                                                                                                                                                                   | Sí      | N/D               |
+| duration         | Período de vida de las entradas almacenadas en caché, especificado en segundos.     | Sí      | N/D               |
+| cache-response         | Establézcalo en "true" para almacenar en caché la respuesta HTTP actual. Si el atributo se omite o se establece en "false", solo se almacenan en caché las respuestas HTTP con el código de estado `200 OK`.                           | No      | false               |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

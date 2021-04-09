@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93091368"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager
@@ -187,9 +187,9 @@ Salida:
 
 ```console
 listening on port 80
-::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
+::1 - - [02/Jul/2020:23:17:54 +0000] "HEAD / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;curl/7.54.0"
 ```
 
 Para ver los registros para el contenedor sidecar, ejecute un comando similar en el que se especifique el contenedor `aci-tutorial-sidecar`.

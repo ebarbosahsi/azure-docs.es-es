@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94359164"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
@@ -137,9 +137,9 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-* **Recibe varios errores de certificados** : Inicie sesión en Azure AD y quite los distintos certificados disponibles en la aplicación. Asegúrese de que haya solo un certificado.
+* **Recibe varios errores de certificados**: Inicie sesión en Azure AD y quite los distintos certificados disponibles en la aplicación. Asegúrese de que haya solo un certificado.
 
-* **Un certificado está a punto de expirar en Azure AD** : Los complementos se encargan de sustituir automáticamente el certificado. Cuando hay un certificado a punto de expirar, se debe marcar como activo un certificado nuevo y se deben eliminar los certificados sin usar. Cuando un usuario intenta iniciar sesión en Jira en este escenario, el complemento captura el certificado nuevo y lo guarda.
+* **Un certificado está a punto de expirar en Azure AD**: Los complementos se encargan de sustituir automáticamente el certificado. Cuando hay un certificado a punto de expirar, se debe marcar como activo un certificado nuevo y se deben eliminar los certificados sin usar. Cuando un usuario intenta iniciar sesión en Jira en este escenario, el complemento captura el certificado nuevo y lo guarda.
 
 * **Desea deshabilitar WebSudo (deshabilitar la sesión segura del administrador)** :
 
@@ -147,19 +147,19 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
   * En Confluence, siga los pasos del [sitio de soporte técnico de Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
-* **Los campos que se supone que deberían rellenarse con la dirección URL de metadatos no se están rellenando** :
+* **Los campos que se supone que deberían rellenarse con la dirección URL de metadatos no se están rellenando**:
 
   * Compruebe que la dirección URL sea la correcta. Revise si asignó el inquilino y el identificador de aplicación correctos.
 
   * Escriba la dirección URL en el explorador y vea si recibe el archivo XML de metadatos de federación.
 
-* **Hay un error interno del servidor** : Revise los registros en el directorio de registro de la instalación. Si recibe el error cuando el usuario intenta iniciar sesión mediante el SSO de Azure AD, puede compartir los registros con el equipo de soporte técnico.
+* **Hay un error interno del servidor**: Revise los registros en el directorio de registro de la instalación. Si recibe el error cuando el usuario intenta iniciar sesión mediante el SSO de Azure AD, puede compartir los registros con el equipo de soporte técnico.
 
-* **Hay un error "User ID not found" cuando el usuario intenta iniciar sesión** : Cree el identificador de usuario en Jira o Confluence.
+* **Hay un error "User ID not found" cuando el usuario intenta iniciar sesión**: Cree el identificador de usuario en Jira o Confluence.
 
-* **Hay un error "App not found" en Azure AD** : Vea si la dirección URL correspondiente está asignada a la aplicación en Azure AD.
+* **Hay un error "App not found" en Azure AD**: Vea si la dirección URL correspondiente está asignada a la aplicación en Azure AD.
 
-* **Necesita soporte técnico** : Escriba al [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). El equipo responde en un plazo de entre 24 y 48 horas laborales.
+* **Necesita soporte técnico**: Escriba al [equipo de integración de SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). El equipo responde en un plazo de entre 24 y 48 horas laborales.
 
   También puede generar una incidencia de soporte técnico con Microsoft a través del canal de Azure Portal.
 

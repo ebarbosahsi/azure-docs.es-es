@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
 ms.openlocfilehash: ef861cdf394716a70d85e43ce9c60f46af2cc2e4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93040206"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Transformación Anular dinamización en el flujo de datos de asignación
@@ -48,9 +48,9 @@ Por ejemplo, SumCost es el nombre de columna que se eligió en el ejemplo compar
 
 ![Imagen que muestra las columnas PO, Vendor y Fruit antes y después de una transformación de tipo unipivot que usa la columna Fruit como clave unipivot.](media/data-flow/unpivot3.png)
 
-Al establecer la organización de la columna en "Normal", se agruparán todas las nuevas columnas no dinamizadas a partir de un único valor. Al establecer la organización de las columnas en "Lateral", se agruparán las nuevas columnas no dinamizadas generadas a partir de una columna existente.
+Al establecer la organización de la columna en "Normal&quot;, se agruparán todas las nuevas columnas no dinamizadas a partir de un único valor. Al establecer la organización de las columnas en &quot;Lateral&quot;, se agruparán las nuevas columnas no dinamizadas generadas a partir de una columna existente.
 
-![Captura de pantalla que muestra el resultado de la transformación.](media/data-flow//unpivot7.png "Opciones de anulación de dinamización 5")
+![Captura de pantalla que muestra el resultado de la transformación.](media/data-flow//unpivot7.png &quot;Opciones de anulación de dinamización 5")
 
 El conjunto de resultados final de los datos con dinamización anulada muestra los totales de columna ahora sin dinamizar en valores de fila independientes.
 

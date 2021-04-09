@@ -4,17 +4,17 @@ description: Rehidrate los blobs de Archive Storage para poder acceder a los dat
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/08/2021
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165678"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225088"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo
 
@@ -29,6 +29,10 @@ Mientras un blob se encuentra en el nivel de acceso de archivo, se considera sin
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### <a name="lifecycle-management"></a>Administración del ciclo de vida
+
+Rehidratar un blob no cambia su hora `Last-Modified`. El uso de la característica de [administración del ciclo de vida](storage-lifecycle-management-concepts.md) puede crear un escenario en el que se rehidrata un blob y, a continuación, una directiva de administración del ciclo de vida vuelve a archivarlo en el archivo porque la hora `Last-Modified` supera el umbral establecido para la directiva. Para evitar este escenario, use el método *[Copia de un blob archivado en un nivel en línea](#copy-an-archived-blob-to-an-online-tier)* . El método de copia crea una nueva instancia del blob con una hora `Last-Modified` actualizada y no desencadena la directiva de administración del ciclo de vida.
+
 ## <a name="monitor-rehydration-progress"></a>Supervisión del progreso de la rehidratación
 
 Durante la rehidratación, use la operación de obtención de propiedades del blob para comprobar el atributo **Archive Status** y confirmar cuándo ha finalizado el cambio de nivel. El estado indica "rehydrate-pending-to-hot" (rehidratación pendiente para acceso frecuente) o "rehydrate-pending-to-cool" (rehidratación pendiente para acceso esporádico), según el nivel de destino. Al finalizar, se quita la propiedad de blob archive status y la propiedad de blob **Access Tier** refleja el nuevo nivel de acceso frecuente o esporádico.
@@ -42,7 +46,7 @@ La copia de un BLOB desde el archivo puede tardar horas en completarse, en funci
 > [!IMPORTANT]
 > No elimine el blob de origen hasta que la copia se complete correctamente en el destino. Si se elimina el blob de origen, es posible que el blob de destino no finalice la copia y quedará vacío. Puede comprobar el elemento *x-ms-copy-status* para determinar el estado de la operación de copia.
 
-Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo. En la tabla siguiente se indican las funcionalidades de CopyBlob.
+Los blobs de archivo solo se pueden copiar en los niveles de destino en línea dentro de la misma cuenta de almacenamiento. No se admite la copia de un blob de archivo en otro blob de archivo. En la tabla siguiente se muestran las funcionalidades de una operación **Copiar blob**.
 
 |                                           | **Origen de nivel de acceso frecuente**   | **Origen de nivel de acceso esporádico** | **Origen de nivel de archivo**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |
