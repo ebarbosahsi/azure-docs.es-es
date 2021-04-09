@@ -3,13 +3,13 @@ title: Creación de una solicitud de soporte técnico de Azure
 description: Los clientes que necesiten asistencia pueden usar Azure Portal para buscar soluciones de autoservicio y para crear y administrar solicitudes de soporte técnico.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652401"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774885"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -42,7 +42,7 @@ Para crear una solicitud de soporte técnico, debe ser un [propietario](../../ro
 
 Para iniciar una solicitud de soporte técnico desde cualquier lugar de Azure Portal:
 
-1. Seleccione el signo **?** en el encabezado global. Luego seleccione **Ayuda y soporte técnico**.
+1. Seleccione el signo **?** en el encabezado global, seleccione **Ayuda y soporte técnico**.
 
    ![Ayuda y soporte técnico](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 

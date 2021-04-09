@@ -1,15 +1,15 @@
 ---
 title: Uso de un icono de Markdown en los paneles de Azure
 description: Aprenda a agregar un icono de Markdown a un panel de Azure para mostrar contenido estático
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745764"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774463"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado
 
@@ -21,7 +21,7 @@ Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido
 
    ![Captura de pantalla que muestra la barra lateral del portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Si ha creado algún panel personalizado, en la vista del panel, seleccione el panel donde debe aparecer el icono de Markdown personalizado de la lista desplegable. Seleccione el icono de edición para abrir la **Galería de iconos**.
+1. En la vista panel, seleccione el panel en el que debe aparecer el icono de Markdown personalizado y, después, seleccione **Editar**.
 
    ![Captura de pantalla de la vista de edición del panel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,9 +52,9 @@ Puede agregar un icono de Markdown a los paneles de Azure para mostrar contenido
 
 En el icono de Markdown puede usar cualquier combinación de texto sin formato, la sintaxis de Markdown y contenido HTML. Azure Portal usa una biblioteca de código abierto denominada _marked_ para transformar el contenido en HTML que se muestra en el icono. El código HTML generado por _marked_ se procesa previamente en el portal antes de representarse. Este paso ayuda a garantizar que la personalización no afecta a la seguridad o al diseño del portal. Durante ese procesamiento previo, se quita cualquier parte del código HTML que suponga una posible amenaza. En el portal no se permiten los siguientes tipos de contenido:
 
-* JavaScript: las etiquetas `<script>` se quitarán, así como las evaluaciones de JavaScript insertadas.
-* iframes: las etiquetas `<iframe>` se quitarán.
-* Style: las etiquetas `<style>` se quitarán. Oficialmente no se admiten los atributos de estilo insertados en los elementos HTML. Quizá algunos elementos insertados le pudieran ser de ayuda, pero si afectan al diseño del portal, dejarían de funcionar en cualquier momento. El icono de Markdown está pensado para contenido estático básico que usa los estilos predeterminados del portal.
+* JavaScript: `<script>`se quitan las etiquetas y las evaluaciones de JavaScript insertadas.
+* iframes: `<iframe>` se quitan las etiquetas.
+* `<style>`Se quitan las etiquetas de estilo. Oficialmente no se admiten los atributos de estilo insertados en los elementos HTML. Quizá algunos elementos insertados le pudieran ser de ayuda, pero si afectan al diseño del portal, dejarían de funcionar en cualquier momento. El icono de Markdown está pensado para contenido estático básico que usa los estilos predeterminados del portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

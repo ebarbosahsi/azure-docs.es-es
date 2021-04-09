@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2b61c791390200beac4a18422a4de58dd94fa711
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103492904"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante PowerShell
@@ -97,7 +97,7 @@ Para administrar un clúster de Kubernetes, use [kubectl][kubectl], el cliente d
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-3. Para comprobar la conexión al clúster, ejecute el comando [kubectl get][kubectl-get]. Este comando devuelve una lista de los nodos de clúster.
+3. Para comprobar la conexión al clúster, ejecute el comando [kubectl get][kubectl-get]. Este comando devuelve una lista de los nodos del clúster.
 
     ```azurepowershell-interactive
     .\kubectl get nodes
@@ -112,7 +112,7 @@ Para administrar un clúster de Kubernetes, use [kubectl][kubectl], el cliente d
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un [archivo de manifiesto de Kubernetes][kubernetes-deployment] define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. 
+Un [archivo de manifiesto de Kubernetes][kubernetes-deployment] define el estado deseado del clúster, por ejemplo, qué imágenes de contenedor se van a ejecutar. 
 
 En este inicio rápido se usa un manifiesto para crear todos los objetos necesarios para ejecutar la [aplicación Azure Vote][azure-vote-app]. Este manifiesto incluye dos [implementaciones de Kubernetes][kubernetes-deployment]:
 * Las aplicaciones de Python de ejemplo de Azure Vote.
@@ -277,7 +277,7 @@ En este inicio rápido, se han usado imágenes de un contenedor creado previamen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha implementado un clúster de Kubernetes y una aplicación de varios contenedores en él. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster de AKS.
+En este inicio rápido, ha implementado un clúster de Kubernetes y luego ha implementado en él una aplicación de varios contenedores. [Acceda al panel web de Kubernetes][kubernetes-dashboard] del clúster de AKS.
 
 Para obtener más información sobre AKS y un ejemplo completo desde el código hasta la implementación, continúe con el tutorial del clúster de Kubernetes.
 

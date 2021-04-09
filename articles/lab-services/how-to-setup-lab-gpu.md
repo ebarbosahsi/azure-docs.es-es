@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96452383"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configuración de un laboratorio con máquinas virtuales de GPU
@@ -107,7 +107,7 @@ En esta sección se describe cómo validar que los controladores de GPU están i
        ![Captura de pantalla que muestra la pestaña Rendimiento de la GPU del Administrador de tareas](./media/how-to-setup-gpu/task-manager-gpu.png) 
 
       > [!IMPORTANT]
-      > Solo se puede tener acceso a la configuración del panel de control de NVIDIA para las GPU de *visualización*.  Si intenta abrir el panel de control de NVIDIA para una GPU de proceso, obtendrá el error siguiente: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU". ("La configuración de la pantalla de NVIDIA no está disponible. Actualmente no usa ninguna pantalla conectada a una GPU de NVIDIA").  Del mismo modo, la información de rendimiento de la GPU en el Administrador de tareas solo se proporciona para la GPU de visualización.
+      > Solo se puede tener acceso a la configuración del panel de control de NVIDIA para las GPU de *visualización*.  Si intenta abrir el panel de control de NVIDIA para una GPU de proceso, obtendrá el error siguiente: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU&quot;. (&quot;La configuración de la pantalla de NVIDIA no está disponible. Actualmente no usa ninguna pantalla conectada a una GPU de NVIDIA").  Del mismo modo, la información de rendimiento de la GPU en el Administrador de tareas solo se proporciona para la GPU de visualización.
 
 #### <a name="linux-images"></a>Imágenes de Linux
 Siga las instrucciones que aparecen en la sección de comprobación de la instalación de los controladores de [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).

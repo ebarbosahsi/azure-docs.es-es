@@ -11,10 +11,10 @@ ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 12d425cfbb093d19efec19dfa02af5ff264c1bae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94696700"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Ejemplo de script de la CLI de Azure: Equilibrio de carga entre varios sitios web

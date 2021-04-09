@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611885"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -212,11 +212,13 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 | setting.enableRememberMe <sup>2</sup>| No| Muestra la casilla [Mantener la sesión iniciada](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). Valores posibles: `true` o `false` (valor predeterminado). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Mejora la experiencia del usuario, ya que espera a que el usuario deje de escribir y, a continuación, valida el valor. El valor predeterminado es 2000 milisegundos. |
 | IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false` (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+|forgotPasswordLinkOverride <sup>4</sup>| No | Intercambio de solicitudes de restablecimiento de contraseña que se va a ejecutar. Para más información, consulte [Autoservicio de restablecimiento de contraseña](add-password-reset-policy.md). |
 
 Notas:
 1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`.
 1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`. [Versión de diseño de página](page-layout.md) 1.1.0 y versiones posteriores.
 1. Disponible para la [versión de diseño de página](page-layout.md) 1.2.0 y versiones posteriores.
+1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp`. [Versión de diseño de página](page-layout.md) 2.1.2 y versiones posteriores.
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
