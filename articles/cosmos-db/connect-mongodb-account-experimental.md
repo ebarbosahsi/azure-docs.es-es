@@ -10,10 +10,10 @@ ms.date: 02/08/2021
 ms.reviewer: sngun
 robots: noindex
 ms.openlocfilehash: bd244b0bb0aa5c5b2377b5a5675466645da3256c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99982071"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
@@ -26,7 +26,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 - [El método de inicio rápido](#get-the-mongodb-connection-string-by-using-the-quick-start), para su uso con controladores de .NET, Node.js, MongoDB Shell, Java y Python.
 - [El método de la cadena de conexión personalizada](#get-the-mongodb-connection-string-to-customize), para su uso con otros controladores.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 - Una cuenta de Cosmos. Para obtener instrucciones, consulte [Compilación de una aplicación web con la API de Azure Cosmos DB para MongoDB y .NET SDK](create-mongodb-dotnet.md).
