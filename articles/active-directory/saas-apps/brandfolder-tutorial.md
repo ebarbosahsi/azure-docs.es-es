@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 5004b433189700bc2fbaf5efe65e4556d40521cb
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97672094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutorial: Integración de Azure Active Directory con Brandfolder
@@ -75,10 +75,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Brandfolder, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Brandfolder](#configure-brandfolder-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Brandfolder](#configure-brandfolder-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Brandfolder](#create-brandfolder-test-user)** : para tener un homólogo de Britta Simon en Brandfolder que esté vinculado a su representación en Azure AD.
+5. **[Creación de un usuario de prueba en Brandfolder](#create-brandfolder-test-user)**: para tener un homólogo de Britta Simon en Brandfolder que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD

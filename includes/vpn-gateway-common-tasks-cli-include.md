@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 923620c1c9719d857cc848507a4c5507f528d34e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95560948"
 ---
 ### <a name="to-view-local-network-gateways"></a>Para ver las puertas de enlace de la red local
@@ -36,7 +36,7 @@ az network vpn-connection shared-key show --connection-name VNet1toSite2 --resou
 ```
 ### <a name="to-view-the-vpn-gateway-public-ip-address"></a>Para ver la dirección IP pública de la puerta de enlace de VPN
 
-Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip). Para facilitar la lectura, la salida de este ejemplo tiene el formato preciso para mostrar la lista de direcciones IP públicas en formato de tabla.
+ Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el comando [az network public-ip list](/cli/azure/network/public-ip). Para facilitar la lectura, la salida de este ejemplo tiene el formato preciso para mostrar la lista de direcciones IP públicas en formato de tabla.
 
 ```azurecli
 az network public-ip list --resource-group TestRG1 --output table

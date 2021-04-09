@@ -11,10 +11,10 @@ ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631190"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
@@ -95,7 +95,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Mensajes de error al iniciar sesión o registrarse
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La contraseña es incorrecta. |
 | **UserMessageIfPasswordExpired**| La contraseña expiró.|
@@ -184,7 +184,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensajes de error en las páginas autoafirmadas y de registro
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Ya existe un usuario con el identificador especificado. Elija otro. |
 | **UserMessageIfClaimNotVerified** | Reclamación no comprobada: {0} |
@@ -505,7 +505,7 @@ Estos son los identificadores de los mensajes de error de un [perfil técnico de
 
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
-| id | Valor predeterminado |
+| ID | Valor predeterminado |
 | -- | ------------- |
 |UserMessageIfMaxRetryAttempted |La comprobación proporcionada de la contraseña única ha superado el número máximo de intentos. |
 |UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
@@ -531,7 +531,7 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 
 Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
 
-| id | Transformación de notificaciones | Valor predeterminado |
+| ID | Transformación de notificaciones | Valor predeterminado |
 | -- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|

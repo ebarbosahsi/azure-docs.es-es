@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: twooley
 ms.openlocfilehash: 4ac2bbb21fd1a987d544a536d0f52628824e0bf4
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97723837"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Storage Gen1
@@ -64,7 +64,7 @@ La siguiente pregunta que puede tener es cómo se determina el valor que se prop
 
     `PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads`
 
-* **Paso 3: Cálculo de ConcurrentFilecount**: use el número total de subprocesos y PerFileThreadCount para calcular ConcurrentFileCount en función de la siguiente ecuación:
+* **Paso 3: Cálculo de ConcurrentFilecount**: use el número total de subprocesos y PerFileThreadCount para calcular ConcurrentFileCount basado en la siguiente ecuación:
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
@@ -90,9 +90,9 @@ Puede continuar ajustando esta configuración aumentando o reduciendo **PerFileT
 
 * **El número de archivos es menor que ConcurrentFileCount**: si el número de archivos que va a cargar es menor que el valor de **ConcurrentFileCount** que ha calculado, debería reducir **ConcurrentFileCount** para que sea igual al número de archivos. También puede utilizar los subprocesos restantes para aumentar **PerFileThreadCount**.
 
-* **Demasiados subprocesos**: si aumenta demasiado el número de subprocesos sin aumentar a su vez el tamaño del clúster, corre el riesgo de reducir el rendimiento. Puede haber problemas de contención al cambiar de contexto en la CPU.
+* **Demasiados subprocesos**: si aumenta demasiado el número de subprocesos sin aumentar el tamaño del clúster, corre el riesgo de degradar el rendimiento. Puede haber problemas de contención al cambiar de contexto en la CPU.
 
-* **Simultaneidad insuficiente**: si la simultaneidad no es suficiente, es posible que el clúster sea demasiado pequeño. Puede aumentar el número de nodos en el clúster, lo que proporciona más simultaneidad.
+* **Simultaneidad insuficiente**: si la simultaneidad no es suficiente, el clúster puede ser demasiado pequeño. Puede aumentar el número de nodos en el clúster, lo que proporciona más simultaneidad.
 
 * **Errores de limitación**: es posible que vea errores de limitación si la simultaneidad es demasiado alta. Si ve errores de limitación, reduzca la simultaneidad o póngase en contacto con nosotros.
 
