@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 29127a9dff42c0f733e3721d1ea5fea7350e774e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547371"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103149671"
 ---
 # <a name="troubleshooting-message-routing"></a>Solución de problemas de enrutamiento de mensajes
 
@@ -41,7 +41,7 @@ Todas las [métricas de IoT Hub relacionadas con el enrutamiento](monitor-iot-h
 
 #### <a name="the-resource-logs-for-any-operational-issues"></a>Registros de recursos para cualquier problema operativo
 
-Observe los [registros de recursos de las **rutas**](monitor-iot-hub-reference.md#routes) para obtener más información sobre las [operaciones](#operation-names) de enrutamiento y de punto de conexión o identificar los errores y el [código de error](#common-error-codes) correspondiente para comprender mejor el problema. Por ejemplo, el nombre de la operación **RouteEvaluationError** en el registro indica que no se pudo evaluar la ruta debido a un problema con el formato de mensaje. Use las sugerencias proporcionadas para los [nombres de operaciones](#operation-names) específicos para mitigar el problema. Cuando se registra un evento como un error, el registro también proporcionará más información sobre el motivo del error en la evaluación. Por ejemplo, si el nombre de la operación es **EndpointUnhealthy** , un [código de error](#common-error-codes) 403004 indica que el punto de conexión se ha quedado sin espacio.
+Observe los [registros de recursos de las **rutas**](monitor-iot-hub-reference.md#routes) para obtener más información sobre las [operaciones](#operation-names) de enrutamiento y de punto de conexión o identificar los errores y el [código de error](#common-error-codes) correspondiente para comprender mejor el problema. Por ejemplo, el nombre de la operación **RouteEvaluationError** en el registro indica que no se pudo evaluar la ruta debido a un problema con el formato de mensaje. Use las sugerencias proporcionadas para los [nombres de operaciones](#operation-names) específicos para mitigar el problema. Cuando se registra un evento como un error, el registro también proporcionará más información sobre el motivo del error en la evaluación. Por ejemplo, si el nombre de la operación es **EndpointUnhealthy**, un [código de error](#common-error-codes) 403004 indica que el punto de conexión se ha quedado sin espacio.
 
 #### <a name="the-health-of-the-endpoint"></a>Mantenimiento del punto de conexión
 
@@ -82,4 +82,4 @@ A continuación, se muestran los nombres de las operaciones y los códigos de er
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si necesita más ayuda, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+Si necesita más ayuda, puede ponerse en contacto con los expertos de Azure en los [foros de Q&A o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 07fbc7b1137d7eaf8a73a806c6a3714fab274df0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 01f43ceab36b519f3aafbbdc711df15c80481398
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597443"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
 
@@ -384,6 +384,7 @@ Para copiar datos en Azure SQL Database, se admiten las siguientes propiedades e
 | writeBatchSize | Número de filas que se va a insertar en la tabla SQL *por lote*.<br/> El valor que se permite es un **entero** (número de filas). De forma predeterminada, Azure Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila. | No |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/> El valor permitido es **intervalo de tiempo**. Un ejemplo es "00:30:00" (30 minutos). | No |
 | disableMetricsCollection | Data Factory recopila métricas, como las DTU de Azure SQL Database, para la optimización del rendimiento de copia y la obtención de recomendaciones, lo que proporciona acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo 1: Anexión de datos**
 
@@ -643,7 +644,12 @@ La configuración específica de Azure SQL Database está disponible en la pesta
 
 **Consultar** Si selecciona Consulta en el campo de entrada, escriba una consulta SQL para el origen. Esta configuración invalidará cualquier tabla que haya elegido en el conjunto de datos. Las cláusulas **Ordenar por** no se admiten aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definidas por el usuario. **select * from udfGetData()** es un UDF in SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en el flujo de datos. El uso de consultas también es una excelente manera de reducir las filas para pruebas o búsquedas.
 
+**Procedimiento almacenado**: elija esta opción si desea generar una proyección y datos de origen a partir de un procedimiento almacenado que se ejecuta desde la base de datos de origen. Puede escribir el esquema, el nombre del procedimiento y los parámetros, o bien hacer clic en Actualizar para pedir a ADF que detecte los esquemas y los nombres de los procedimientos. Después, puede hacer clic en Importar para importar todos los parámetros de procedimiento mediante el formulario ``@paraName``.
+
+![Procedimiento almacenado](media/data-flow/stored-procedure-2.png "Procedimiento almacenado")
+
 - Ejemplo de SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Ejemplo de SQL con parámetros: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Tamaño del lote**: escriba un tamaño de lote para fragmentar datos grandes en lecturas.
 
@@ -772,7 +778,7 @@ Más concretamente:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Para usar la **autenticación de Identidad administrada de Data Factory**: 
+    - Si ejecuta el entorno de ejecución de integración autohospedado en una máquina virtual de Azure, puede usar la **autenticación de identidad administrada** con la identidad de la máquina virtual de Azure:
 
         1. siga los mismos [requisitos previos](#managed-identity) para crear el usuario de base de datos de la identidad administrada y conceder el rol adecuado en la base de datos.
         2. En el servicio vinculado, especifique la cadena de conexión de ODBC como se muestra a continuación y seleccione autenticación **Anónima** como indica la propia cadena de conexión`Authentication=ActiveDirectoryMsi`.

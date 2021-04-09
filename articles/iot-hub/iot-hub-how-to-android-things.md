@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 6008ca1549629bcbb582f38de2ab1b453cd73a99
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94843764"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desarrollo para la plataforma Android Things con SDK de Azure IoT
@@ -20,7 +20,7 @@ Los [SDK de Azure IoT Hub](./iot-hub-devguide-sdks.md) proporcionan compatibilid
 
 En este tutorial se describen los pasos para crear una aplicación de dispositivo en Android Things mediante el SDK de Java de Azure IoT.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Hardware compatible con Android Things con sistema operativo Android Things.  Puede seguir la [documentación de Android Things](https://developer.android.com/things/get-started/kits#flash-at) sobre cómo instalar la imagen del sistema operativo Android Things.  Asegúrese de que el dispositivo Android Things esté conectado a Internet con periféricos esenciales, como un teclado, una pantalla y un mouse.  En este tutorial se usa Raspberry Pi 3.
 
@@ -40,9 +40,9 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para agregar la extensión de la CLI de IoT Hub y para crear la identidad del dispositivo.
 
-   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName**: reemplace este marcador de posición por el nombre que eligió para su centro de IoT.
 
-   **MyAndroidThingsDevice**: nombre que se da al dispositivo registrado. Use MyAndroidDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyAndroidThingsDevice**: es el nombre que se da al dispositivo registrado. Use MyAndroidDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az extension add --name azure-iot

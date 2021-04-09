@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8dc9bff86a07f3d4a0ec6fd224de6d5633165a6d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: d903f04055d1607ee782bd502d99a8fd9cde87ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582848"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578454"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicación de demonio que llama a las API web: paso a producción
 
@@ -54,18 +54,43 @@ Deberá explicar a sus clientes cómo realizar estas operaciones. Para más info
 
     ![Topología](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+# <a name="java"></a>[Java](#tab/java)
+
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](quickstart-v2-java-daemon.md).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+- Para más información, consulte:
+  - Descripción de la [configuración](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
+  - Creación de instancias de [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
+  - [P+F](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/faq.md)
+- Otros ejemplos y tutoriales:
+  - [Ejemplo de demonio de consola de MSAL Node](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console)
+
+# <a name="python"></a>[Python](#tab/python)
+
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola en Python mediante la identidad de la aplicación](quickstart-v2-python-daemon.md).
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Estos son algunos vínculos para ayudarle a obtener más información:
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola en Python mediante la identidad de la aplicación](./quickstart-v2-python-daemon.md).
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de .NET Core mediante la identidad de la aplicación](quickstart-v2-netcore-daemon.md).
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](./quickstart-v2-java-daemon.md).
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Java mediante la identidad de la aplicación](quickstart-v2-java-daemon.md).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Node.js mediante la identidad de la aplicación](quickstart-v2-nodejs-console.md).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Pruebe la guía de inicio rápido [Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola en Python mediante la identidad de la aplicación](quickstart-v2-python-daemon.md).
 
 ---

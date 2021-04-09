@@ -4,10 +4,10 @@ description: Obtenga información sobre los pasos necesarios para actualizar un 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584256"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migración a recursos de Application Insights basados en áreas de trabajo

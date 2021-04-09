@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 148f67fb87072a8ffd25f0fe1dfdb444be052173
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431064"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771624"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -59,6 +59,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Service Bus|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Cifrado del registro con claves administradas por el cliente](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Application Gateway |[Usar certificados de Key Vault para los clientes de escucha habilitados para HTTPS](../../application-gateway/key-vault-certs.md)
 
 > [!NOTE]
 > Debe configurar las directivas de acceso pertinentes de Key Vault para permitir que los servicios correspondientes obtengan acceso a Key Vault.

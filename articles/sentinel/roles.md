@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 69f78f6e70fa4f0b04ca7527751085ec0265363a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048223"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772559"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -42,6 +42,8 @@ Hay tres roles de Azure Sentinel integrados dedicados.
 
 - El rol [Colaborador de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) puede, además de lo anterior, crear y editar libros, reglas de análisis y otros recursos de Azure Sentinel.
 
+- [Colaborador de automatización de Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) permite que Azure Sentinel agregue cuadernos de estrategias a las reglas de automatización. No está diseñado para las cuentas de usuario.
+
 > [!NOTE]
 >
 > - Para obtener los mejores resultados, estos roles deben asignarse en el **grupo de recursos** que contiene el área de trabajo de Azure Sentinel. De esta manera, los roles se aplicarán a todos los recursos implementados para dar soporte a Azure Sentinel, ya que esos recursos también deben colocarse en ese mismo grupo de recursos.
@@ -54,7 +56,7 @@ Es posible que sea necesario asignar roles adicionales o permisos específicos a
 
 - Trabajar con cuadernos de estrategias para automatizar respuestas a amenazas
 
-    Azure Sentinel usa **cuadernos de estrategias** para una respuesta automatizada ante amenazas. Los cuadernos de estrategias se basan en **Azure Logic Apps** y son recursos independientes de Azure. Es posible que desee asignar a miembros específicos del equipo de operaciones de seguridad la posibilidad de usar Logic Apps para las operaciones de orquestación de seguridad, automatización y respuesta (SOAR). Puede usar el rol de [Colaborador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-contributor) o el de [Operador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-operator) para asignar permisos explícitos para el uso de cuadernos de estrategias.
+    Azure Sentinel usa **cuadernos de estrategias** para una respuesta automatizada ante amenazas. Los cuadernos de estrategias se basan en **Azure Logic Apps** y son recursos independientes de Azure. Es posible que desee asignar a miembros específicos del equipo de operaciones de seguridad la posibilidad de usar Logic Apps para las operaciones de orquestación de seguridad, automatización y respuesta (SOAR). Puede usar el rol de [Colaborador de Logic App](../role-based-access-control/built-in-roles.md#logic-app-contributor) para asignar permisos explícitos para el uso de cuadernos de estrategias.
 
 - Conexión de orígenes de datos a Azure Sentinel
 

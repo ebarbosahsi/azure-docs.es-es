@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98729997"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -57,7 +57,7 @@ Si se realizaron cambios en las reglas de sincronización originales, estas volv
 
 Durante la actualización en contexto, puede que se hayan introducido cambios que requieran que se ejecuten actividades específicas de sincronización (incluidos los pasos de importación completa y sincronización completa) una vez completada la actualización. Para aplazar estas actividades, consulte la sección [Aplazamiento de la sincronización completa después de la actualización](#how-to-defer-full-synchronization-after-upgrade).
 
-Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
+Si utiliza Azure AD Connect con un conector no estándar (por ejemplo, el conector LDAP genérico y el conector SQL genérico), debe actualizar la configuración del conector correspondiente en [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) después de la actualización local. Para obtener información sobre cómo actualizar la configuración del conector, consulte la sección del artículo [Historial de versiones de conectores: Solución de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Si no actualiza la configuración, los pasos de ejecución de importación y exportación no funcionarán correctamente para el conector. Recibirá el siguiente error en el registro de eventos de la aplicación con el mensaje *"Assembly version in AAD Connector configuration (&quot;X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"* (La versión de ensamblado en la configuración de AAD Connector ["X.X.XXX.X"] es anterior que la versión real ["X.X.XXX.X"] de "C:\Archivos de programa\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll).
 
 ## <a name="swing-migration"></a>Migración oscilante
 Si tiene una implementación compleja o muchos objetos, puede que no resulte práctico realizar una actualización local en el sistema activo. En el caso de algunos clientes, este proceso podría tardar varios días y durante este tiempo no se procesará ningún cambio delta. Este método también se puede utilizar cuando se planea realizar cambios sustanciales en la configuración y se desea probarlos antes de insertarlos en la nube.

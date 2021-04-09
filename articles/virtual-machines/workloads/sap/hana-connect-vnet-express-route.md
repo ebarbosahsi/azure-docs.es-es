@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 218862b2df959fc0a39baa3c2934fc05f252af32
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 540247752be27af268a0485ea9eb68d121a25240
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672983"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775312"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Conexión de una red virtual a instancias grandes de HANA
 
@@ -47,7 +47,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
+$myGWSku = "UltraPerformance" # Supported values for HANA large instances are: UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -63,10 +63,7 @@ New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Loc
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-En este ejemplo, se usó la SKU de puerta de enlace HighPerformance. Puede elegir HighPerformance o UltraPerformance, las únicas SKU de puerta de enlace que son compatibles con SAP HANA en Azure (instancias grandes).
-
-> [!IMPORTANT]
-> Para las instancias grandes de HANA de las SKU de la clase Tipo II, debe usar la SKU de puerta de enlace UltraPerformance.
+La única SKU de puerta de enlace compatible para SAP HANA en Azure (instancias grandes) es **UltraPerformance**.
 
 ## <a name="link-virtual-networks"></a>Vinculación de redes virtuales
 

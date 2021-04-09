@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4faa7837a75bab6dfab651862754cd92394c5137
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91be2f8641a061d009962cdcd03a8d56048594da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594512"
 ---
 # <a name="how-to-create-alerts-for-change-tracking-and-inventory"></a>Creación de alertas para Seguimiento de cambios e inventario
 
@@ -50,11 +50,11 @@ Una vez que haya configurado las alertas, puede configurar un grupo de acciones 
 
 3. En **Acciones**, escriba un nombre para especificar la acción (por ejemplo, **Notificación por correo electrónico**).
 
-4. En **Tipo de acción**, seleccione el tipo adecuado (por ejemplo, **Correo electrónico, SMS, Push o Voz**).
+4. En **Tipo de acción**, seleccione el tipo adecuado (por ejemplo, **correo electrónico, SMS, push o voz**).
 
-5. Seleccione **Editar detalles**.
+5. Seleccione el icono de lápiz para editar los detalles de la acción.
 
-6. Escriba el tipo de acción en el panel. Por ejemplo, si usa la opción **Correo electrónico, SMS, Push o Voz**, escriba un nombre de acción, seleccione la casilla **Correo electrónico**, escriba una dirección de correo electrónico válida y, por último, haga clic en **Aceptar**.
+6. Escriba el tipo de acción en el panel. Por ejemplo, si usa la opción **Email/SMS message/Push/Voice** (Correo electrónico/mensaje SMS/notificación push/mensaje de voz), escriba un nombre de acción, seleccione la casilla **Email** (Correo electrónico), escriba una dirección de correo electrónico válida y seleccione **OK** (Aceptar).
 
     ![Configuración de un grupo de acciones de correo electrónico](./media/configure-alerts/configure-email-action-group.png)
 

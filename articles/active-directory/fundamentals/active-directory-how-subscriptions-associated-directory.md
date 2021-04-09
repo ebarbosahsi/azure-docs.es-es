@@ -1,6 +1,6 @@
 ---
 title: 'Incorporación de una suscripción de Azure existente al inquilino: Azure AD'
-description: Instrucciones sobre cómo agregar una suscripción de Azure existente al inquilino de Azure Active Directory.
+description: Instrucciones sobre cómo agregar una suscripción de Azure existente al inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594638"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -43,10 +43,10 @@ Antes de poder asociar o agregar la suscripción, realice las siguientes tareas:
 
 - Revise la siguiente lista de cambios que se producirán después de asociar o agregar su suscripción e infórmese sobre cómo podría verse afectado:
 
-  - Los usuarios que tienen roles asignados mediante Azure RBAC perderán el acceso.
-  - El administrador y los coadministradores del servicio perderán el acceso.
-  - Si tiene almacenes de claves, no se podrá acceder a ellos y tendrá que corregirlos después de la asociación.
-  - Si tiene identidades administradas para recursos, como Virtual Machines o Logic Apps, debe volver a habilitarlas o crearlas después de la asociación.
+  - Los usuarios a los que se haya asignado roles mediante Azure RBAC perderán el acceso.
+  - Tanto el administrador como los coadministradores del servicio perderán el acceso.
+  - Si tiene almacenes de claves, no se podrá acceder a ellos y tendrá que repararlos después de la asociación.
+  - Si tiene identidades administradas para recursos, como Virtual Machines o Logic Apps, debe volver a habilitarlas o a crearlas después de la asociación.
   - Si tiene una instancia de Azure Stack registrada, tendrá que volver a registrarla después de la asociación.
   - Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
@@ -55,7 +55,7 @@ Antes de poder asociar o agregar la suscripción, realice las siguientes tareas:
   - Tiene una asignación de rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción. Para más información sobre la asignación del rol Propietario, consulte [Asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
   - Exista en el directorio actual y en el nuevo directorio. El directorio actual está asociado a la suscripción. Va a asociar el nuevo directorio a la suscripción. Para más información sobre cómo obtener acceso a otro directorio, consulte [Adición de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../external-identities/add-users-administrator.md).
 
-- Asegúrese de que no usa una suscripción de proveedores de servicios en la nube de Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una suscripción interna de Microsoft (MS-AZR-0015P) o una suscripción a Microsoft Imagine (MS-AZR-0144P).
+- Asegúrese de que no usa una suscripción de proveedores de servicios en la nube de Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una suscripción interna de Microsoft (MS-AZR-0015P) ni una suscripción a Microsoft Azure for Students Starter (MS-AZR-0144P).
 
 ## <a name="associate-a-subscription-to-a-directory"></a>Asociación de una suscripción a un directorio<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Para asociar una suscripción existente al directorio de Azure AD, siga estos p
 
 1. Seleccione **Cambiar directorio**.
 
-   ![Página de suscripciones, con la opción Cambiar directorio resaltada](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Captura de pantalla que muestra la página Suscripciones, con la opción Cambiar directorio resaltada.":::
 
 1. Revise las advertencias que aparecen y, a continuación, seleccione **Cambiar**.
 
-   ![Página de cambio de directorio que muestra el directorio al que se va a cambiar](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Captura de pantalla que muestra la página Cambiar el directorio con un directorio de ejemplo y el botón Cambiar resaltado.":::
 
    Una vez que se cambie el directorio para la suscripción, se mostrará un mensaje de confirmación.
 
 1. Seleccione **Cambiar directorios** en la página suscripción para ir al nuevo directorio.
 
-   ![Página del conmutador de directorios con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Captura de pantalla que muestra la página del conmutador de directorio con información de ejemplo.":::
 
    Puede tardar varias horas hasta que todo se muestre correctamente. Si parece que tarda demasiado tiempo, compruebe el **filtro de suscripción global**. Asegúrese de que la suscripción que se ha trasladado no esté oculta. Es posible que tenga que cerrar la sesión de Azure Portal y volver a iniciarla para ver el directorio nuevo.
 
@@ -89,7 +89,7 @@ Después de asociar una suscripción a un directorio diferente, puede que tenga 
 
 - Si usaba identidades administradas asignadas por el sistema para los recursos, debe volver a habilitar estas identidades. Si usaba identidades administradas asignadas por el usuario, debe volver a crear estas identidades. Después de volver a habilitar o crear las identidades administradas, debe volver a restablecer los permisos asignados a esas identidades. Para más información, consulte [¿Qué es Managed Identities for Azure Resources?](../managed-identities-azure-resources/overview.md)
 
-- Si ha registrado una instancia de Azure Stack que usa esta suscripción, debe volver a registrarla. Para obtener más información, consulte [Registro de Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
+- Si ha registrado una instancia de Azure Stack que usa esta suscripción, debe volver a registrarla. Para más información, consulte [Registro de Azure Stack Hub con Azure](/azure-stack/operator/azure-stack-registration).
 
 - Para más información, consulte [Transferencia de una suscripción de Azure a otro directorio de Azure AD](../../role-based-access-control/transfer-subscription.md).
 
