@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: cfd676092bcaede58909a3ec1eefeabb4c80f86b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930235"
 ---
 # <a name="feature-management-overview"></a>Introducción a la administración de características
@@ -22,17 +22,17 @@ La administración de características es una práctica moderna de desarrollo de
 
 La administración de características ayuda a los desarrolladores a abordar los siguientes problemas:
 
-* **Administración de la rama de código**: Use las marcas de características para ajustar la nueva funcionalidad de la aplicación que actualmente está en fase de desarrollo. Esta funcionalidad se "oculta" de forma predeterminada. La característica se puede enviar de forma segura, aunque esté sin terminar, y permanecer inactiva en producción. Este enfoque, denominado *implementación oscura*, puede liberar todo el código al final de cada ciclo de desarrollo. Ya no es necesario mantener las ramas de código en varios ciclos de desarrollo, ya que una característica determinada requiere más de un ciclo para completarse.
-* **Realice pruebas en producción**: Use las marcas de características para conceder acceso anticipado a la nueva funcionalidad en producción. Por ejemplo, puede limitar el acceso a los miembros del equipo o evaluadores beta internos. Estos usuarios obtendrán una experiencia de producción de fidelidad total, en lugar de una experiencia simulada o parcial en un entorno de prueba.
+* **Administración de la rama de códigos**: Use las marcas de características para ajustar la nueva funcionalidad de la aplicación que actualmente está en fase de desarrollo. Esta funcionalidad se "oculta" de forma predeterminada. La característica se puede enviar de forma segura, aunque esté sin terminar, y permanecer inactiva en producción. Este enfoque, denominado *implementación oscura*, puede liberar todo el código al final de cada ciclo de desarrollo. Ya no es necesario mantener las ramas de código en varios ciclos de desarrollo, ya que una característica determinada requiere más de un ciclo para completarse.
+* **Prueba de producción**: Use las marcas de características para conceder acceso anticipado a la nueva funcionalidad en producción. Por ejemplo, puede limitar el acceso a los miembros del equipo o evaluadores beta internos. Estos usuarios obtendrán una experiencia de producción de fidelidad total, en lugar de una experiencia simulada o parcial en un entorno de prueba.
 * **Lanzamiento como paquete piloto**: Use las marcas de características para implementar una nueva funcionalidad en los usuarios finales de manera incremental. Puede centrarse en un pequeño porcentaje de la población de usuarios en primer lugar y aumentar ese porcentaje gradualmente con el tiempo.
-* **Conmutador de eliminación instantánea**: Las marcas de características proporcionan una red de seguridad inherente para liberar la nueva funcionalidad. Puede activar y desactivar las características de la aplicación sin tener que volver a implementar ningún código. Si es necesario, puede deshabilitar rápidamente una característica sin volver a generar e implementar la aplicación.
-* **Activación selectiva**: Use las marcas de características para segmentar los usuarios y ofrecer un conjunto específico de características a cada grupo. Puede tener una característica que funcione solo en un determinado explorador web. Puede definir una marca de características para que solo los usuarios de ese explorador puedan ver y usar la característica. Con este enfoque, puede ampliar fácilmente la lista de exploradores admitidos más adelante sin tener que cambiar ningún código.
+* **Interruptor de apagado instantáneo**: Las marcas de características proporcionan una red de seguridad inherente para liberar la nueva funcionalidad. Puede activar y desactivar las características de la aplicación sin tener que volver a implementar ningún código. Si es necesario, puede deshabilitar rápidamente una característica sin volver a generar e implementar la aplicación.
+* **Activación selectiva**: Se pueden usar para segmentar los usuarios y ofrecer un conjunto específico de características a cada grupo. Puede tener una característica que funcione solo en un determinado explorador web. Puede definir una marca de características para que solo los usuarios de ese explorador puedan ver y usar la característica. Con este enfoque, puede ampliar fácilmente la lista de exploradores admitidos más adelante sin tener que cambiar ningún código.
 
 ## <a name="basic-concepts"></a>Conceptos básicos
 
 Estos son varios términos nuevos relacionados con la administración de características:
 
-* **Marca de características**: una marca de características es una variable con un estado binario de *activado* o *desactivado*. La marca de características también tiene un bloque de código asociado. El estado de la marca de características se desencadena si el bloque de código se ejecuta.
+* **Marca de característica**: una marca de características es una variable con un estado binario de *activado* o *desactivado*. La marca de características también tiene un bloque de código asociado. El estado de la marca de características se desencadena si el bloque de código se ejecuta.
 * **Administrador de características**: Un administrador de características es un paquete de aplicación que controla el ciclo de vida de todas las marcas de características en una aplicación. El administrador de características también proporciona funcionalidad adicional, incluyendo el almacenamiento en caché de las marcas de características y la actualización de sus estados.
 * **Filtro**: Un filtro es una regla para evaluar el estado de una marca de características. Los filtros posibles incluyen grupos de usuarios, tipos de dispositivos o de exploradores, ubicaciones geográficas y ventanas de tiempo.
 

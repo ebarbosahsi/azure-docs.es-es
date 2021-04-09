@@ -9,23 +9,23 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899242"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Conexión desde una red local a CloudSimple mediante ExpressRoute
 
 Si ya tiene una conexión de Azure ExpressRoute desde una ubicación externa (por ejemplo, local) a Azure, puede conectarla a su entorno de CloudSimple. Puede hacerlo a través de una característica de Azure que permite que dos circuitos ExpressRoute se conecten entre sí. Este método establece entre los dos entornos una conexión segura, privada, de ancho de banda alto y baja latencia.
 
-[![Conexión de ExpressRoute local: Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+[![Conexión de ExpressRoute local - Global Reach](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Se requiere un bloque de direcciones de red **/29** para establecer la conexión de Global Reach desde el entorno local.  El espacio de direcciones /29 se usa para la red de tránsito entre circuitos de ExpressRoute.  La red de tránsito no debe superponerse con ninguna de las redes virtuales de Azure, redes locales o redes de nube privada de CloudSimple.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Se requiere un circuito Azure ExpressRoute para poder establecer la conexión entre el circuito y las redes de nube privada de CloudSimple.
 * Se requiere un usuario con privilegios para crear claves de autorización en un circuito ExpressRoute.
@@ -64,11 +64,11 @@ Para establecer la conexión de ExpressRoute, debe crear una autorización en el
     > El **identificador de recurso** debe copiarse de la interfaz de usuario y debe tener el formato ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` cuando se proporcione al servicio de soporte técnico.
 
 6. Abra una incidencia de <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">soporte técnico</a> para la conexión que se va a crear.
-    * Tipo de problema: **Técnico**
-    * Suscripción: **Suscripción en la que se implementa el servicio CloudSimple**
+    * Tipo de problema: **técnico**
+    * Suscripción: **la suscripción en la que se implementa CloudSimple**
     * Servicio: **VMware Solution by CloudSimple**
-    * Tipo de problema: **Solicitud de servicio**
-    * Subtipo de problema: **Creación de una conexión de ExpressRoute a local**
+    * Tipo de problema: **solicitud de servicio**
+    * Subtipo de problema: **Creación de una conexión de ExpressRoute en un entorno local**
     * Proporcione el identificador de recurso y la clave de autorización que copió y guardó en el panel de detalles.
     * Proporcione un espacio de direcciones de red /29 para la red de tránsito.
     * ¿Está enviando la ruta predeterminada a través de ExpressRoute?

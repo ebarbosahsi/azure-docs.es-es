@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090518"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conexión con Cassandra API de Azure Cosmos DB desde Spark
@@ -20,7 +20,7 @@ ms.locfileid: "93090518"
 
 Este artículo es uno de los que se encuentra entre la serie de artículos sobre la integración de Cassandra API de Azure Cosmos DB desde Spark. En los artículos se explica la conectividad, las operaciones de lenguaje de definición de datos (DDL), las operaciones básicas de lenguaje de manipulación de datos (DML) y la integración avanzada de Cassandra API de Azure Cosmos DB desde Spark. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * [Aprovisionar una cuenta de Cassandra API de Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account).
 
 * Aprovisionar la elección del entorno de Spark [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) | [Spark de Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Otros].
@@ -35,7 +35,7 @@ Este artículo es uno de los que se encuentra entre la serie de artículos sobre
   > [!NOTE] 
   > La directiva de reintentos solo puede proteger los trabajos de Spark frente a picos momentáneos. Si no ha configurado suficientes RU necesarias para ejecutar la carga de trabajo, la directiva de reintentos no es aplicable y la clase de directiva de reintentos vuelve a producir la excepción.
 
-* **Detalles de conexión de la cuenta de Azure Cosmos DB:** El nombre de cuenta de Azure Cassandra API, el punto de conexión de la cuenta y la clave.
+* **Detalles de conexión de la cuenta de Azure Cosmos DB:** nombre de la cuenta, punto de conexión de la cuenta y clave de Cassandra API de Azure.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Parámetros de configuración de rendimiento del conector de Spark
 
@@ -118,9 +118,9 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 
 En los artículos siguientes se muestra la integración de Spark con Cassandra API de Azure Cosmos DB. 
  
-* [Operaciones DDL](cassandra-spark-ddl-ops.md)
+* [operaciones DDL](cassandra-spark-ddl-ops.md)
 * [Create/insert operations](cassandra-spark-create-ops.md) (Operaciones de creación e inserción)
-* [Read operations](cassandra-spark-read-ops.md) (Operaciones de lectura)
+* [Lee operaciones.](cassandra-spark-read-ops.md)
 * [Upsert operations](cassandra-spark-upsert-ops.md) (Operaciones de upsert)
 * [Delete operations](cassandra-spark-delete-ops.md) (Operaciones de eliminación)
 * [Aggregation operations](cassandra-spark-aggregation-ops.md) (Operaciones de agregación)

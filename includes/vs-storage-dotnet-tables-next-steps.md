@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: d587a69e6d9ead7802b76965d61d31b4d4d9f8a8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95545788"
 ---
 Ahora que está familiarizado con los aspectos básicos de Almacenamiento de tablas de Azure, use estos vínculos para obtener más información sobre tareas de almacenamiento más complejas.

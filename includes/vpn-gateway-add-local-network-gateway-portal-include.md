@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5358bbbca716f5152a943c90cb7a5f735ae12047
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92479609"
 ---
 1. En [Azure Portal](https://portal.azure.com), en **Buscar recursos, servicios y documentos (G+/)** escriba **puerta de enlace de red local**. Busque la **puerta de enlace de red local** en **Marketplace**, en los resultados de la búsqueda y selecciónela. Se abre la página **Crear puerta de enlace de red local**.
