@@ -3,12 +3,12 @@ title: Expiración de mensajes de Azure Service Bus
 description: En este artículo se explica la expiración y período de vida de los mensajes de Azure Service Bus. Después de una fecha límite de este tipo, ya no se entrega el mensaje.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042834"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952327"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 La carga de un mensaje, o un comando o una consulta que transmite un mensaje a un receptor, casi siempre está sujeta a alguna forma de fecha límite de expiración de nivel de aplicación. Después de esta fecha límite, el contenido ya no se entrega o la operación solicitada ya no se ejecuta.
@@ -46,7 +46,7 @@ Las colas, los temas y las suscripciones de Service Bus se pueden crear como ent
  
 La limpieza automática resulta útil en escenarios de desarrollo y pruebas en los que las entidades se crean dinámicamente y no se limpian tras su uso debido a alguna interrupción de la ejecución de la depuración o prueba. También es útil cuando una aplicación crea entidades dinámicas, como una cola de respuestas, para volver a recibir respuestas en un proceso de servidor web, o en otro objeto de duración relativamente corta donde resulta difícil limpiar esas entidades de forma confiable cuando la instancia del objeto desaparece.
 
-La característica se habilita mediante la propiedad **auto delete on idle** del espacio de nombres. Esta propiedad se establece en el período durante el cual una entidad debe estar inactiva (sin usar) antes de que se elimine automáticamente. El valor mínimo para esta propiedad es de 5.
+La característica se habilita mediante la propiedad **auto delete on idle** del espacio de nombres. Esta propiedad se establece en el período durante el cual una entidad debe estar inactiva (sin usar) antes de que se elimine automáticamente. El valor mínimo para esta propiedad es de 5 minutos.
  
 ## <a name="idleness"></a>Inactividad
 

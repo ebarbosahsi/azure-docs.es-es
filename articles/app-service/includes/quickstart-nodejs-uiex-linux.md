@@ -7,10 +7,10 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102109142"
 ---
 <!-- default for linux -->
@@ -30,7 +30,7 @@ ms.locfileid: "102109142"
     <details>
     <summary>Solución de problemas de inicio de sesión en Azure</summary>
     
-    Si ve el error **"Cannot find subscription with name [subscription ID]"** ("No se encuentra la suscripción con el nombre [identificador de suscripción]"), puede que sea debido a que esté detrás de un proxy y no se pueda establecer la conexión con la API de Azure. Configure las variables de entorno `HTTP_PROXY` y `HTTPS_PROXY` con su información de proxy en el terminal mediante `export`.
+    Si ve el error **"Cannot find subscription with name [subscription ID]&quot;** (&quot;No se encuentra la suscripción con el nombre [identificador de suscripción]"), puede que sea debido a que esté detrás de un proxy y no se pueda establecer la conexión con la API de Azure. Configure las variables de entorno `HTTP_PROXY` y `HTTPS_PROXY` con su información de proxy en el terminal mediante `export`.
     
     ```bash
     export HTTPS_PROXY=https://username:password@proxy:8080

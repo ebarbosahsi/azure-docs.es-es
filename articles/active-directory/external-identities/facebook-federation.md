@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bcacfc8cede0ab91241fd431aace10cbbfbea916
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101648628"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709691"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Incorporación de Facebook como proveedor de identidades para identidades externas
 
@@ -82,7 +82,7 @@ Ahora podrá establecer el identificador y el secreto de cliente de Facebook, ya
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Use el identificador y secreto de cliente de la aplicación que creó anteriormente en la consola para desarrolladores de Facebook. Para más información, consulte el artículo sobre [New AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Use el identificador y secreto de cliente de la aplicación que creó anteriormente en la consola para desarrolladores de Facebook. Para más información, consulte el artículo sobre [New AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>¿Cómo se quita una federación de Facebook?
 La configuración de la federación de Facebook se puede eliminar. Si lo hace, los usuarios que se hayan registrado a través de flujos de usuario con sus cuentas de Facebook ya no podrán iniciar sesión. 
@@ -103,7 +103,7 @@ La configuración de la federación de Facebook se puede eliminar. Si lo hace, l
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > Para más información, consulte [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Para más información, consulte [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

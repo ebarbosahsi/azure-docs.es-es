@@ -3,12 +3,12 @@ title: Implementación de una aplicación de clúster administrado de Service Fa
 description: Implemente una aplicación en un clúster administrado de Azure Service Fabric (versión preliminar) mediante una plantilla de Azure Resource Manager.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b2d73180de61f44850b9c52a7ac24b0c23c36db2
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100641010"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728018"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>Implementación de una aplicación de clúster administrado de Service Fabric (versión preliminar) mediante una plantilla de ARM
 
@@ -94,7 +94,7 @@ La aplicación de ejemplo contiene [plantillas de Azure Resource Manager](https:
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nombre del clúster en el cual se realiza la implementación | sf-cluster123                                                |                                                              |
 | application            | Nombre de la aplicación                 | Voting (Votación)                                                       |
-| version    | El identificador de recurso, el tipo de aplicación y la versión de la aplicación.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Debe coincidir con ApplicationManifest.xml                 |              |
+| version    | El identificador de recurso, el tipo de aplicación y la versión de la aplicación.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Debe coincidir con ApplicationManifest.xml                 |
 | serviceName            | El nombre del servicio         | VotingWeb                                             | Debe tener el formato ServiceType.            |
 | serviceTypeName        | Nombre del tipo del servicio                | VotingWebType                                                    | Debe coincidir con ServiceManifest.xml                 |
 | appPackageUrl          | Dirección URL del almacén de blobs de la aplicación     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | Dirección URL del paquete de aplicación en el almacén de blobs (el procedimiento para establecerla se describirá más adelante en este mismo artículo) |

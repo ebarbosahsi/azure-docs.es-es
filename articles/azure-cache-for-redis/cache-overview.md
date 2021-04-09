@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 5a0389b1074737728bd0ffa5d6db90d077a9f45f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49a697e6c3a6a6c931f2bb9c545647e2d6f1322d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652181"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056664"
 ---
 # <a name="about-azure-cache-for-redis"></a>Acerca de Azure Cache for Redis
 Azure Cache for Redis proporciona un almacén de datos en memoria basado en el software de [Redis](https://redis.io/). Redis mejora el rendimiento y la escalabilidad de una aplicación que use en gran medida los almacenes de datos de back-end. Es capaz de procesar grandes volúmenes de solicitudes de aplicación al mantener los datos a los que se accede con frecuencia en la memoria del servidor en la que se puede escribir y leer rápidamente. Redis incorpora una solución crítica de almacenamiento de datos de baja latencia y alto rendimiento en las aplicaciones modernas.

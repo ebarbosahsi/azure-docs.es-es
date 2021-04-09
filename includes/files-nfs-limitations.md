@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620957"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103439187"
 ---
 Mientras se encuentra en versión preliminar, NFS tiene las siguientes limitaciones:
 
@@ -25,6 +25,7 @@ Mientras se encuentra en versión preliminar, NFS tiene las siguientes limitacio
 - Solo están disponibles para el nivel prémium.
 - Los recursos compartidos NFS solo aceptan UID/GID numéricos. Para evitar que los clientes envíen UID/GID alfanuméricos, debe deshabilitar la asignación de identificadores.
 - Los recursos compartidos solo se pueden montar desde una cuenta de almacenamiento en una máquina virtual individual cuando se usan vínculos privados. Se producirá un error al intentar montar recursos compartidos de otras cuentas de almacenamiento.
+- Es mejor opción depender en los permisos asignados al grupo principal. A veces, los permisos asignados al grupo no principal del usuario pueden dar lugar a que se deniegue el acceso debido a un error conocido.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Características de Azure Storage que aún no son compatibles
 

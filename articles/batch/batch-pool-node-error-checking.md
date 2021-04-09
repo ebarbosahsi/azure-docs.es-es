@@ -3,14 +3,14 @@ title: Comprobación de errores de grupo y de nodo
 description: En este artículo se tratan las operaciones en segundo plano que se pueden producir, junto con los errores que deben buscarse y cómo evitarlos al crear grupos y nodos.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576319"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720158"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
@@ -62,6 +62,13 @@ Cuando se elimina un grupo que contiene nodos, Batch elimina los nodos en primer
 
 Batch establece el [estado del grupo](/rest/api/batchservice/pool/get#poolstate) en **deleting** durante el proceso de eliminación. La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades **state** y **stateTransitionTime**.
 
+Si el grupo está tardando más de lo esperado, Batch volverá a intentarlo periódicamente hasta que el grupo se pueda eliminar correctamente. En algunos casos, el retraso se debe a una interrupción del servicio de Azure u otros problemas temporales. Otros factores que pueden impedir que un grupo se elimine correctamente pueden requerir la toma medidas para corregir el problema. Entre estos factores figuran los siguientes:
+
+- Los bloqueos de recursos se han colocado en recursos creados por Batch o en recursos de red usados por Batch.
+- Los recursos que ha creado tienen una dependencia de un recurso creado por Batch. Por ejemplo, si [crea un grupo en una red virtual](batch-virtual-network.md), Batch crea un grupo de seguridad de red (NSG), una dirección IP pública y un equilibrador de carga. Si usa estos recursos fuera del grupo, el grupo no se puede eliminar hasta que se quite la dependencia.
+- Se anuló el registro del proveedor de recursos de Microsoft.Batch de la suscripción que contiene el grupo.
+- "Microsoft Azure Batch" ya no tiene el [rol de colaborador o propietario](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) en la suscripción que contiene el grupo (para las cuentas de Batch del modo de suscripción de usuario).
+
 ## <a name="node-errors"></a>Errores de nodos
 
 Aun cuando Batch asigne correctamente los nodos de un grupo, distintos problemas pueden provocar que algunos de los nodos sean incorrectos y no puedan ejecutar tareas. Estos nodos siguen incurriendo en cargos, por lo que es importante detectar los problemas para evitar pagar por los nodos que no se pueden usar. Además de los errores comunes de nodo, conocer el [estado actual del trabajo](/rest/api/batchservice/job/get#jobstate) es útil para solucionar problemas.
@@ -105,15 +112,10 @@ Si Batch puede determinar la causa, la propiedad [errors](/rest/api/batchservice
 Otros ejemplos de causas de nodos **unusable** incluyen:
 
 - Una imagen de máquina virtual personalizada no es válida. Por ejemplo, una imagen que no está preparada correctamente.
-
 - Se mueve una máquina virtual debido a un error de infraestructura o una actualización de bajo nivel. Batch recupera el nodo.
-
 - Se ha implementado una imagen de máquina virtual en hardware no compatible. Por ejemplo, se intenta ejecutar una imagen de HPC de CentOS en una VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
-
 - Las VM están en una [red virtual de Azure](batch-virtual-network.md), y se ha bloqueado el tráfico a los puertos claves.
-
 - Las máquinas virtuales están en una red virtual, pero el tráfico saliente hacia el almacenamiento de Azure está bloqueado.
-
 - Las máquinas virtuales están en una red virtual con una configuración de DNS de cliente y el servidor DNS no puede resolver el almacenamiento de Azure.
 
 ### <a name="node-agent-log-files"></a>Archivos de registro del agente de nodo
@@ -134,14 +136,16 @@ Algunos de estos archivos solo se escriben una vez cuando se crean los nodos de 
 
 Otros archivos se escriben para cada tarea que se ejecuta en un nodo, como stdout y stderr. Si un gran número de tareas se ejecutan en el mismo nodo o los archivos de tareas son demasiado grandes, podrían llenar la unidad temporal.
 
-El tamaño de la unidad temporal depende del tamaño de la máquina virtual. Una consideración que se debe tener en cuenta al seleccionar un tamaño de máquina virtual es asegurarse de que la unidad temporal tenga espacio suficiente.
+Además, una vez que se inicia el nodo, se necesita una pequeña cantidad de espacio en el disco del sistema operativo para crear los usuarios.
+
+El tamaño de la unidad temporal depende del tamaño de la máquina virtual. Una consideración que se debe tener en cuenta al seleccionar un tamaño de máquina virtual es asegurarse de que la unidad temporal tenga espacio suficiente para la carga de trabajo planeada.
 
 - En el Azure Portal al agregar un grupo, se puede mostrar la lista completa de tamaños de máquina virtual y hay una columna de "Tamaño de disco de recursos".
 - Los artículos que describen todos los tamaños de máquina virtual tienen tablas con una columna de "Almacenamiento temporal"; por ejemplo [Tamaños de máquinas virtuales optimizadas para proceso](../virtual-machines/sizes-compute.md)
 
 En el caso de los archivos escritos por cada tarea, se puede especificar un tiempo de retención para cada tarea que determine durante cuánto tiempo se conservan los archivos de tareas antes de que se limpien automáticamente. Se puede reducir el tiempo de retención para reducir los requisitos de almacenamiento.
 
-Si el disco temporal se queda sin espacio (o está muy cerca de quedarse sin espacio), el nodo pasará al estado [No utilizable](/rest/api/batchservice/computenode/get#computenodestate) y se notificará un error de nodo que indica que el disco está lleno.
+Si el disco temporal o de sistema operativo se queda sin espacio (o está muy cerca de quedarse sin espacio), el nodo pasará al estado [No utilizable](/rest/api/batchservice/computenode/get#computenodestate) y se notificará un error de nodo que indica que el disco está lleno.
 
 Si no está seguro de qué ocupa espacio en el nodo, intente comunicarse remotamente con el nodo e investigue manualmente qué ha ocurrido con el espacio. También puede usar [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) para examinar archivos de carpetas administradas por lotes (por ejemplo, salidas de tareas). Tenga en cuenta que esta API solo enumera los archivos de los directorios administrados por Batch. Si las tareas crearon archivos en otro lugar, no los verá.
 

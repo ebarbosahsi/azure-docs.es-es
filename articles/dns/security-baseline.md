@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b870a0325646b01ae3a72bdd28d3ae33cba45b09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 64a93cfea9d470ba45e59a56d4855e374f7fb704
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733132"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559934"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Línea de referencia de seguridad de Azure para Azure DNS
 
@@ -34,7 +34,7 @@ Recopile registros mediante Azure Monitor para agregar datos de seguridad genera
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Responsabilidad**: Customer
 
@@ -52,9 +52,9 @@ Recopile registros mediante Azure Monitor para agregar datos de seguridad genera
 
 **Guía**: En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos y a largo plazo.
 
-- [Cambio del período de retención de datos en Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Configuración de la directiva de retención para los registros de la cuenta de Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsabilidad**: Customer
 
@@ -68,9 +68,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introducción a las consultas de Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidad**: Customer
 
@@ -86,7 +86,7 @@ Como alternativa, puede habilitar e incorporar datos a Azure Sentinel.
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alertas sobre datos de registro de Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidad**: Customer
 
@@ -102,11 +102,11 @@ Como alternativa, puede habilitar e incorporar datos a Azure Sentinel.
 
 En Azure DNS, existe el rol Colaborador de zona DNS, así como un RBAC de Azure de nivel de zona y de nivel de conjunto de registros. También es posible crear roles de Azure de cliente propios, para proporcionar un control más detallado. Tenga en cuenta que los recursos de la zona DNS privado usan un nombre de rol diferente, Colaborador de zona DNS privado.
 
-- [Obtención de un rol de directorio en Azure Active Directory (Azure AD) con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de un rol de directorio en Azure Active Directory (Azure AD) con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [Descripción de RBAC de Azure en Azure DNS](https://docs.microsoft.com/azure/dns/dns-protect-zones-recordsets#azure-role-based-access-control)
+- [Descripción de RBAC de Azure en Azure DNS](./dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Responsabilidad**: Customer
 
@@ -131,7 +131,7 @@ Además, para ayudarlo a realizar un seguimiento de las cuentas administrativas 
 
 También puede habilitar el acceso Just-in-Time a cuentas administrativas mediante Azure Active Directory (Azure AD) Privileged Identity Management y Azure Resource Manager.
 
-- [Más información acerca de Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Más información acerca de Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Uso de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -213,7 +213,7 @@ También puede habilitar el acceso Just-in-Time a cuentas administrativas median
 
 **Instrucciones**: Azure Active Directory (Azure AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso e identidades de Azure AD para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -227,7 +227,7 @@ También puede habilitar el acceso Just-in-Time a cuentas administrativas median
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas deseadas en el área de trabajo de Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidad**: Customer
 
@@ -271,7 +271,7 @@ También es posible crear roles de Azure de cliente propios, para proporcionar u
 
 - [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
-- [Descripción de RBAC de Azure en Azure DNS](https://docs.microsoft.com/azure/dns/dns-protect-zones-recordsets#azure-role-based-access-control)
+- [Descripción de RBAC de Azure en Azure DNS](./dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Descripción de RBAC de Azure en Azure DNS privado](dns-protect-private-zones-recordsets.md)
 
@@ -283,7 +283,7 @@ También es posible crear roles de Azure de cliente propios, para proporcionar u
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas cuando se produzcan cambios en Azure DNS, así como en otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -301,7 +301,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Res
 
 - [Creación de consultas con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -368,7 +368,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de las suscri
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidad**: Customer
 
@@ -392,7 +392,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de las suscri
 
 **Guía**: Defina e implemente configuraciones de seguridad estándar para Azure DNS con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los almacenes de Recovery Services.
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -422,9 +422,9 @@ Además, Azure Resource Manager admite otro tipo de control de seguridad: la pos
 
 **Guía**: Si usa definiciones personalizadas de Azure Policy, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentación de Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilidad**: Customer
 
@@ -566,5 +566,5 @@ Adicionalmente, marque las suscripciones con etiquetas y cree un sistema de nome
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [Información general sobre Azure Security Benchmark V2](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

@@ -2,13 +2,13 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652489"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951970"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -53,6 +53,12 @@ Para usar la CLI de Azure para eliminar un bloqueo, ejecute los siguientes coman
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Permisos necesarios
+
+Las eliminaciones se solicitan bajo la identidad del usuario que ha implementado la plantilla. Para eliminar las implementaciones, el usuario debe tener acceso a la acción **Microsoft.Resources/deployments/delete**. Si el usuario no tiene los permisos necesarios, las implementaciones no se eliminan del historial.
+
+Si el usuario actual no tiene los permisos necesarios, se volverá a intentar la eliminación automática durante la siguiente implementación.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rechazo de eliminaciones automáticas
 

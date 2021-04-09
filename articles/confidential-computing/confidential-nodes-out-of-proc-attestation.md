@@ -2,16 +2,17 @@
 title: Compatibilidad de la atestación fuera del proceso con el DaemonSet auxiliar de cita de Intel SGX en Azure (versión preliminar)
 description: DaemonSet para generar citas fuera del proceso de la aplicación de SGX. En este artículo se explica cómo se proporciona la utilidad de atestación fuera del proceso para cargas de trabajo confidenciales que se ejecutan dentro de un contenedor.
 ms.service: container-service
+ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553262"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932642"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Administración del software de la plataforma con el controlador DaemonSet auxiliar de cita de SGX (versión preliminar)
 

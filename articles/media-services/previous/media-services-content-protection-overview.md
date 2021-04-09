@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2922586d586dbbb98ae85fb86f3f76889a75aa6b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016770"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067408"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -36,7 +36,7 @@ En la siguiente imagen se ilustra el flujo de trabajo de protección de contenid
 
 En este artículo se explican los conceptos y terminología pertinentes para conocer la protección de contenido con Media Services. En el artículo también se proporcionan vínculos a artículos donde se indica cómo proteger el contenido. 
 
-## <a name="dynamic-encryption"></a>Cifrado dinámico
+## <a name="dynamic-encryption&quot;></a>Cifrado dinámico
 
 Puede usar Media Services para entregar el contenido cifrado de forma dinámica con la clave sin cifrado AES o el cifrado DRM mediante PlayReady, Widevine o FairPlay. Si el contenido está cifrado con una clave sin cifrado AES y se envía a través de HTTPS, no será claro hasta que llegue al cliente. 
 
@@ -55,8 +55,8 @@ También necesita configurar la directiva de entrega del recurso. Si desea trans
 
 Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante la clave sin cifrado de AES o el cifrado DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves de Media Services. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Clave sin cifrado AES-128 frente a DRM
-Los clientes suelen preguntarse si deben usar el cifrado de AES o un sistema de DRM. La diferencia principal entre los dos sistemas es que, con el cifrado de AES, la clave de contenido se transmite al cliente en un formato sin cifrar ("fuera de peligro"). Como resultado, la clave usada para cifrar el contenido se puede ver en un seguimiento de la red en el cliente en texto sin formato. La clave sin cifrado AES-128 es adecuada para los casos de uso en los que el destinatario es una entidad de confianza (p. ej., cifrado de vídeos corporativos distribuidos dentro de una empresa para su visualización por parte de los empleados).
+## <a name=&quot;aes-128-clear-key-vs-drm&quot;></a>Clave sin cifrado AES-128 frente a DRM
+Los clientes suelen preguntarse si deben usar el cifrado de AES o un sistema de DRM. La diferencia principal entre los dos sistemas es que, con el cifrado de AES, la clave de contenido se transmite al cliente en un formato sin cifrar (&quot;fuera de peligro"). Como resultado, la clave usada para cifrar el contenido se puede ver en un seguimiento de la red en el cliente en texto sin formato. La clave sin cifrado AES-128 es adecuada para los casos de uso en los que el destinatario es una entidad de confianza (p. ej., cifrado de vídeos corporativos distribuidos dentro de una empresa para su visualización por parte de los empleados).
 
 PlayReady, Widevine y FairPlay proporcionan un nivel de cifrado más alto en comparación con el cifrado de clave sin cifrado AES-128. La clave de contenido se transmite en un formato cifrado. Además, el descifrado se controla en un entorno seguro en el nivel de sistema operativo donde a un usuario malintencionado le resulta más difícil atacar. DRM se recomienda para los casos de uso en los que es posible que el destinatario no sea una entidad de confianza y usted requiere el nivel de seguridad más alto.
 
@@ -117,7 +117,7 @@ Se aplican las siguientes consideraciones:
 En los próximos artículos se describen los siguientes pasos para empezar con la protección de contenido:
 
 * [Protección con el cifrado de almacenamiento](media-services-rest-storage-encryption.md)
-* [Protección con el cifrado AES](media-services-protect-with-aes128.md)
+* [Protección con el cifrado AES](media-services-playready-license-template-overview.md)
 * [Protección con PlayReady y/o Widevine](media-services-protect-with-playready-widevine.md)
 * [Protección con FairPlay](media-services-protect-hls-with-FairPlay.md)
 

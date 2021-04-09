@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-python, devx-track-js
 ms.openlocfilehash: a8a6d09819aaa65645da3d4d697866609c226723
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103461154"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo e implementación de un módulo de Node.js de IoT Edge con contenedores de Linux
@@ -35,7 +35,7 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se muestra cómo desarrollar un módulo en **Node.js** mediante **Visual Studio Code** y cómo implementarlo en un dispositivo IoT Edge.
 

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594233"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802971"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ También puede personalizar el comportamiento de la preparación con una o ambas
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: ruta de acceso para hacer ping y así preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Un ejemplo es `/statuscheck`. El valor predeterminado es `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Un ejemplo sería `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.
+- `WEBSITE_WARMUP_PATH`: una ruta de acceso relativa en el sitio al que se debe hacer ping cada vez que se reinicie (no solo durante los intercambios de ranura). Los valores del ejemplo incluyen `/statuscheck` o la ruta de acceso raíz, `/`.
 
 > [!NOTE]
 > El elemento de configuración `<applicationInitialization>` forma parte de cada inicio de la aplicación, mientras que los dos valores de aplicación de comportamiento de preparación solo se aplican a los intercambios de ranura.
