@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4e7421cb8ea4b0c14e4f4b59a688cdb1afe7d462
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367714"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Uso de Azure Data Factory para migrar datos del lago de datos y el almacenamiento de datos a Azure
@@ -33,7 +33,7 @@ Azure Data Factory puede mover petabytes de datos para la migración del lago de
   - Azure Data Factory usa un método de pago por uso, de modo que solo se paga por el tiempo que se usa realmente para ejecutar la migración de datos a Azure.  
 - Azure Data Factory puede realizar una carga histórica única, así como una carga incremental programada.
 - Azure Data Factory usa Azure Integration Runtime (IR) para mover datos entre los puntos de conexión de acceso público del lago de datos y el almacenamiento de datos. También puede usar IR autohospedado para mover datos entre los puntos de conexión del lago de datos y el almacenamiento situados dentro de una red virtual de Azure o detrás de un firewall.
-- Azure Data Factory tiene seguridad de nivel empresarial: Puede usar Windows Installer (MSI) o la identidad de servicio para la integración de servicio a servicio protegida, o bien usar Azure Key Vault para la administración de credenciales.
+- Azure Data Factory tiene seguridad de nivel empresarial: puede usar Windows Installer (MSI) o la identidad de servicio para una integración de servicio a servicio protegida, o bien aprovechar las ventajas de Azure Key Vault para la administración de credenciales.
 - Azure Data Factory proporciona una experiencia de creación sin código y un completo panel de supervisión integrado.  
 
 ## <a name="online-vs-offline-data-migration"></a>Migración de datos en línea frente a sin conexión

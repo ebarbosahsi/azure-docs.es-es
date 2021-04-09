@@ -1,19 +1,19 @@
 ---
 title: 'Serie H: Azure Virtual Machines'
 description: Especificaciones de las máquinas virtuales de la serie H.
-author: ju-shim
+author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 7a5ff47bb5de6d54564a86c0700ad69aa450887d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b3e3beb51256bbf22d29d74b51c52ca3a6bee0c4
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566148"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774786"
 ---
 # <a name="h-series"></a>Serie H
 
@@ -40,10 +40,21 @@ Las máquinas virtuales de la serie H están optimizadas para aplicaciones basad
 
 <sup>1</sup> Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada por la red InfiniBand FDR.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 > [!NOTE]
 > Entre las [máquinas virtuales compatibles con RDMA](sizes-hpc.md#rdma-capable-instances), la serie H no está habilitada para SR-IOV. Por lo tanto, las imágenes de máquina virtual [admitidas](./workloads/hpc/configure.md#vm-images), los requisitos del [controlador de InfiniBand](./workloads/hpc/enable-infiniband.md) y las [bibliotecas MPI](./workloads/hpc/setup-mpi.md) admitidas son diferentes de las máquinas virtuales habilitadas para SR-IOV.
+
+## <a name="software-specifications"></a>Especificaciones de software
+
+| Especificaciones de software     |Máquina virtual de la serie HC           |
+|-----------------------------|-----------------------|
+| Tamaño de trabajo de MPI máximo            | 4800 núcleos (300 máquinas virtuales en un solo conjunto de escalado de máquinas virtuales con singlePlacementGroup=true)  |
+| Compatibilidad con MPI                 | Intel MPI 5.x, MS-MPI  |
+| Soporte técnico de SO para RDMA no SRIOV   | CentOS/RHEL 6.5 - 7.4, SLES 12 SP4+, WinServer 2012 - 2016  |
+| Compatibilidad con Orchestrator        | CycleCloud, Batch, AKS  |
+
+[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Otros tamaños
 
@@ -56,7 +67,6 @@ Las máquinas virtuales de la serie H están optimizadas para aplicaciones basad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [configuración de VM](./workloads/hpc/configure.md), la [habilitación de InfiniBand](./workloads/hpc/enable-infiniband.md), la [configuración de MPI](./workloads/hpc/setup-mpi.md) y la optimización de las aplicaciones HPC para Azure en [cargas de trabajo de HPC](./workloads/hpc/overview.md).
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).
 - Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

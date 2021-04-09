@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185944"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775752"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminación TLS con certificados de Key Vault
 
@@ -47,10 +47,19 @@ La integración de Application Gateway con Key Vault requiere un proceso de conf
 
 1. **Configuración del almacén de claves**
 
-   A continuación, importe un certificado existente o cree uno nuevo en el almacén de claves. Las aplicaciones que se ejecutan a través de Application Gateway usarán el certificado. En este paso, también puede usar un secreto de almacén de claves que se almacena como archivo PFX codificado en Base 64 sin contraseña. Se recomienda usar un tipo de certificado debido a la capacidad de renovación automática que está disponible con los objetos de tipo certificado en el almacén de claves. Después de crear un certificado o un secreto, debe definir directivas de acceso en el almacén de claves para permitir que la identidad que se debe conceder *obtenga* acceso al secreto.
+   A continuación, importe un certificado existente o cree uno nuevo en el almacén de claves. Las aplicaciones que se ejecutan a través de Application Gateway usarán el certificado. En este paso, también puede usar un secreto de almacén de claves que también permite el almacenamiento como archivo PFX codificado en Base 64 sin contraseña. Se recomienda usar un tipo de certificado debido a la capacidad de renovación automática que está disponible con estos objetos de tipo en el almacén de claves. Después de crear un Certificado o un Secreto, debe definir directivas de acceso en Key Vault para permitir que la identidad que se debe conceder obtenga acceso al secreto.
    
    > [!IMPORTANT]
-   > Actualmente, Application Gateway necesita Key Vault para permitir el acceso desde todas las redes a fin de aprovechar la integración. No admite la integración de Key Vault cuando Key Vault está establecido para permitir solo puntos de conexión privados y el acceso de determinadas redes. La compatibilidad con determinadas redes y redes privadas se está preparando para la integración completa de Key Vault con Application Gateway. 
+   > A partir del 15 de marzo de 2021, Key Vault reconoce a Azure Application Gateway como uno de los servicios de confianza, lo que le permite crear un límite de red seguro en Azure. Esto le ofrece la posibilidad de denegar el acceso al tráfico desde todas las redes (incluido el tráfico de Internet) a Key Vault pero seguir haciendo que sea accesible para el recurso de Application Gateway en la suscripción. 
+
+   > Puede configurar Application Gateway en una red restringida de Key Vault de la siguiente manera. <br />
+   > a) En la hoja redes de Key Vault <br />
+   > b) Elegir el punto de conexión privado y las redes seleccionadas en la pestaña "Firewall y redes virtuales" <br/>
+   > c) Mediante el uso de redes virtuales, agregue la red virtual y la subred de la Application Gateway. Durante el proceso, configure también el punto de conexión de servicio "Microsoft. KeyVault" activando la casilla correspondiente. <br/>
+   > d) Finalmente, seleccione "sí" para permitir que los servicios de confianza omitan el firewall de Key Vault. <br/>
+   > 
+   > ![Firewall de Key Vault](media/key-vault-certs/key-vault-firewall.png)
+
 
    > [!NOTE]
    > Si implementa la puerta de enlace de aplicaciones mediante una plantilla de ARM, ya sea mediante la CLI de Azure o PowerShell o mediante una aplicación de Azure implementada desde Azure Portal, el certificado SSL se almacena en el almacén de claves como un archivo PFX con codificación base 64. Debe completar los pasos descritos en [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md). 

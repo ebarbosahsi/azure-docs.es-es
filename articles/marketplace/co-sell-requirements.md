@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.reviewer: stmummer
+ms.date: 3/17/2021
+ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120137"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593397"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venta conjunta
 
-En este artículo se proporcionan los requisitos para los distintos niveles de estado de la venta conjunta. Para obtener la lista más reciente de tipos de oferta que admiten la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md). Para obtener información general sobre la venta conjunta, consulte [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](marketplace-co-sell.md).
+En este artículo se proporcionan los requisitos para los distintos niveles de estado de la venta conjunta. Para obtener la lista más reciente de tipos de oferta que admiten la venta conjunta, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](co-sell-configure.md). Para obtener información general sobre la venta conjunta, consulte [Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados](co-sell-overview.md).
 
 En esta tabla se muestran todos los posibles estados de la venta conjunta:
 
@@ -24,8 +25,8 @@ En esta tabla se muestran todos los posibles estados de la venta conjunta:
 | ------------ | ------------- |
 | No listo para la venta conjunta | No se cumplen los [requisitos mínimos para el estado Listo para la venta conjunta](#requirements-for-co-sell-ready-status). |
 | Listo para la venta conjunta | Se cumplen todos los [requisitos para el estado Listo para la venta conjunta](#requirements-for-co-sell-ready-status). |
-| Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](#requirements-for-ip-co-sell-incentivized-status). |
-| Estímulo Premium de la conexión ISV de BIZ apps  | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps e indica que se cumplen todos los [requisitos de este estado](#requirements-for-biz-apps-isv-connect-premium-incentive-status). |
+| Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](#requirements-for-azure-ip-co-sell-incentivized-status). |
+| Venta conjunta con incentivos de Business Applications | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps del [Programa Connect para ISV de Microsoft Business Applications](business-applications-isv-program.md) e indica que se cumplen todos los [requisitos de este estado](#requirements-for-business-applications-co-sell-incentivized-status). |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Requisitos del estado Listo para la venta conjunta
@@ -35,17 +36,17 @@ Para que una oferta obtenga el estado Listo para la venta conjunta, debe cumplir
 **Todos los partners**:
 
 - Deben tener un identificador de MPN y una [cuenta de marketplace comercial activa en el centro de Partners](./partner-center-portal/create-account.md).
-- Asegúrese de que tiene un [perfil de negocio](/partner-center/create-a-marketing-profile.md) completo en el Centro de partners. Como partner de Microsoft calificado, puede crear un perfil de negocio para presentar su negocio a los clientes que buscan sus soluciones únicas y la experiencia para satisfacer sus necesidades empresariales, lo cual luego dará como resultado la obtención de [referencias](/partner-center/referrals.md) para su negocio.
+- Asegúrese de que tiene un [perfil de negocio](/partner-center/create-a-marketing-profile) completo en el Centro de partners. Como partner de Microsoft calificado, puede crear un perfil de negocio para presentar su negocio a los clientes que buscan sus soluciones únicas y la experiencia para satisfacer sus necesidades empresariales, lo cual luego dará como resultado la obtención de [referencias](/partner-center/referrals) para su negocio.
 - Complete la pestaña **Venta conjunta con Microsoft** y publique la oferta en el marketplace comercial.
-- Proporcione un contacto de ventas para cada geografía que cumpla los requisitos de venta conjunta y la lista de materiales necesaria.
+- Proporcione un contacto de ventas para cada zona geográfica que cumpla los requisitos de venta conjunta y la lista de materiales necesaria.
 
 **Partners de servicios**:
 
 - En el caso de las ofertas del tipo _Solución de servicio_, debe tener una competencia Gold activa en cualquier área de competencias.
- 
+
 **Fabricantes independientes de software para aplicaciones empresariales**:
 
-- Dynamics 365 Customer Engagement & PowerApps y Dynamics 365 Finance & OPS (excepto Dynamics 365 Business Central) y las soluciones de PowerApps requieren la inscripción de ISV Connect.
+- Las soluciones Dynamics 365 & PowerApps (excepto Dynamics 365 Business Central) requieren la inscripción a Connect para ISV.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Completar la pestaña Venta conjunta con Microsoft
 
@@ -60,7 +61,7 @@ Se proporcionan plantillas para ayudarle a crear estos documentos. Si desea cono
 
 Para participar en el estado Listo para la venta conjunta, su oferta o solución debe publicarse en directo al menos en una de las tiendas de marketplace comercial en línea: Azure Marketplace o Microsoft AppSource. Para más información sobre la publicación de ofertas en el marketplace comercial, consulte la [Guía de publicación por tipo de oferta](publisher-guide-by-offer-type.md). Si no ha publicado anteriormente ninguna oferta en el marketplace comercial, asegúrese de que tiene una [cuenta en el marketplace comercial](./partner-center-portal/create-account.md).
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Requisitos del estado Venta conjunta incentivada
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisitos del estado de incentivos de venta conjunta de direcciones IP de Azure
 
 El estado Venta conjunta incentivada de Azure IP se aplica a los siguientes tipos de ofertas:
 
@@ -82,13 +83,9 @@ Requisito 2: aprobar la validación técnica de Microsoft para una solución bas
 Requisito 3: proporcionar un diagrama de la arquitectura de referencia:
 - Cargue un diagrama de la arquitectura de referencia con los documentos sobre venta conjunta en el Centro de partners para su revisión. Para obtener instrucciones sobre cómo crear este diagrama, consulte [Diagrama de arquitectura de referencia](reference-architecture-diagram.md). Para más información sobre cómo cargar el diagrama, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](commercial-marketplace-co-sell.md).
 
-## <a name="requirements-for-biz-apps-isv-connect-premium-incentive-status"></a>Requisitos del estado de incentivo ISV Connect Premium de aplicaciones empresariales
+## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Requisitos para el estado incentivado de venta conjunta para Business Applications
 
-Este estado se aplica a las soluciones basadas en IP, las aplicaciones y los servicios creados en Dynamics 365 o Power Apps.
-
-No es necesario que obtenga el estado Listo para la venta conjunta (mencionado anteriormente) para lograr el incentivo ISV Connect Standard de aplicaciones empresariales. Sin embargo, después de que una aplicación alcanza el estado Listo para la venta conjunta, se puede considerar para el estado de incentivo de ISV Connect Premium de aplicaciones empresariales en función de los últimos 12 meses de ingresos compartidos y de los resultados y umbrales de la venta conjunta.
-
-Requisito: debe tener una inscripción activa en el nivel Premium de [ISV Connect](business-applications-isv-program.md).
+Este estado se aplica a las soluciones basadas en IP integradas en Dynamics 365 o Power Apps (excepto Dynamics 365 Business Central) que están inscritas en el programa Connect para ISV. Sin embargo, las ofertas también deben completar los requisitos para el estado de preparación para la venta conjunta (descrito anteriormente) para que los vendedores de Microsoft puedan vender la oferta con usted.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

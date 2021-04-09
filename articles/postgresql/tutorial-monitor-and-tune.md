@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336986"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste de Azure Database for PostgreSQL: servidor único
 
 Azure Database for PostgreSQL tiene características que le ayudarán a comprender y mejorar el rendimiento del servidor. En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -27,12 +27,12 @@ Azure Database for PostgreSQL tiene características que le ayudarán a comprend
 Necesita un servidor de Azure Database for PostgreSQL con PostgreSQL versión 9.6 o 10. Puede seguir los pasos del [tutorial de creación](tutorial-design-database-using-azure-portal.md) para crear un servidor.
 
 > [!IMPORTANT]
-> **Almacén de consultas** , **Información de rendimiento de consultas** y **Recomendaciones de rendimiento** están en la versión preliminar pública.
+> **Almacén de consultas**, **Información de rendimiento de consultas** y **Recomendaciones de rendimiento** están en la versión preliminar pública.
 
 ## <a name="enabling-data-collection"></a>Habilitación de la recopilación de datos
 El [Almacén de consultas](concepts-query-store.md) captura un historial de las consultas y las estadísticas de espera en el servidor y lo almacena en la base de datos **azure_sys** en el servidor. Es una característica opcional. Para habilitarla:
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 
 2. Seleccione su servidor de Azure Database for PostgreSQL.
 
@@ -48,7 +48,7 @@ El [Almacén de consultas](concepts-query-store.md) captura un historial de las 
 ## <a name="performance-insights"></a>Información detallada del rendimiento
 La vista [Query Performance Insight](concepts-query-performance-insight.md) en Azure Portal detectará visualizaciones en la información de clave del Almacén de consultas. 
 
-1. En la página del portal del servidor Azure Database for PostgreSQL, seleccione **Información de rendimiento de consultas** , en la sección **Soporte técnico y solución de problemas** del menú de la izquierda.
+1. En la página del portal del servidor Azure Database for PostgreSQL, seleccione **Información de rendimiento de consultas**, en la sección **Soporte técnico y solución de problemas** del menú de la izquierda.
 
 2. La pestaña **Consultas de larga ejecución** muestra las 5 principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. 
    
@@ -83,7 +83,7 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 4. La ventana **Recomendaciones de rendimiento** mostrará una lista de recomendaciones, si se detecta alguna. 
 
-5. Una recomendación mostrará información sobre la **Base de datos** , la **Tabla** , la **Columna** y el **Tamaño del índice** correspondientes.
+5. Una recomendación mostrará información sobre la **Base de datos**, la **Tabla**, la **Columna** y el **Tamaño del índice** correspondientes.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultado de Recomendaciones de rendimiento":::
 

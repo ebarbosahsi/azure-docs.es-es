@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 221f63ab9a7eb3f71a4c730a11565dda64c9edc9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96353593"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configuración de myPolicies para el aprovisionamiento automático de usuarios
@@ -27,7 +27,7 @@ El objetivo de este tutorial es mostrar los pasos que se deben realizar en myPol
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 

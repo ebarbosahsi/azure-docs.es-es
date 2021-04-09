@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027450"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774497"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalización de modelos de aprendizaje automático creados con Spark
 
@@ -266,7 +266,8 @@ Tiempo empleado en ejecutar la celda anterior: 5,37 segundos
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Creación de objetos RDD con matrices de características para su entrada en los modelos
 Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un objeto RDD y cómo codificarlos como “uno de n” para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos basados en árboles. Los datos indexados se almacenan en objetos de [conjunto de datos distribuido resistente (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Los RDD son la abstracción básica en Spark. Un objeto RDD representa una colección inmutable con particiones de los elementos con los que se puede trabajar en paralelo con Spark.
 
-También contiene código que muestra cómo escalar datos con el elemento `StandardScalar` que proporciona MLlib para usarse en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de modelos de aprendizaje automático. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) se usa para escalar las características a la varianza de la unidad. El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. 
+También contiene código que muestra cómo escalar datos con el elemento `StandardScalar` que proporciona MLlib para usarse en la regresión lineal con descenso de gradiente estocástico (SGD), un popular algoritmo para entrenar una amplia variedad de modelos de aprendizaje automático. [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.tree.RandomForest.html#pyspark.mllib.tree.RandomForest
+) se usa para escalar las características a la varianza de la unidad. El ajuste de la escala de las características, también conocido como normalización de los datos, garantiza que características con valores situados muy en los extremos no tengan un peso excesivo en la función objetivo. 
 
 ```python
 # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
@@ -545,7 +546,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información sobre Livy, consulte: [Envío remoto de trabajos de Spark mediante Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en **_wasb:///example/python/ConsumeGBNYCReg.py_**.   
 
 > [!NOTE]
 > Las claves de acceso que necesita se encuentran en el portal de la cuenta de almacenamiento asociada con el clúster de Spark. 
