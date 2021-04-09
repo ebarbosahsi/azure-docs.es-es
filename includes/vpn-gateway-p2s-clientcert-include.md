@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34986ac80a309bcfd495e5782496ba560f84c5f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93041514"
 ---
 Cada equipo cliente que se conecta a una red virtual con una conexión de punto a sitio debe tener instalado un certificado de cliente. Se genera desde el certificado raíz y se instala en cada equipo cliente. Si no instala ningún certificado de cliente válido, la autenticación no podrá realizarse cuando el cliente trate de conectarse a la red virtual.
@@ -26,7 +26,7 @@ Para generar certificados de cliente, use los métodos siguientes:
 
   * Asegúrese de que el certificado de cliente se base en la plantilla de certificado de usuario que tenga *Autenticación de cliente* como primer elemento de la lista de usuarios. Para comprobar el certificado, haga doble clic en él y vea **Uso mejorado de clave** en la pestaña **Detalles**.
 
-* **Certificado raíz autofirmado** : siga los pasos de alguno de los siguientes artículos de certificados de P2S para que los certificados de cliente que cree sean compatibles con las conexiones de P2S.
+* **Certificado raíz autofirmado**: siga los pasos de alguno de los siguientes artículos de certificados de P2S para que los certificados de cliente que cree sean compatibles con las conexiones de P2S.
 
   Si genera un certificado de cliente desde un certificado raíz autofirmado, este se instala automáticamente en el equipo que utilizó para generarlo. Si desea instalar un certificado de cliente en otro equipo cliente, expórtelo como un archivo .pfx junto con toda la cadena de certificados. De esta forma, creará un archivo .pfx que contiene la información del certificado raíz necesaria para que el cliente se autentique.
 

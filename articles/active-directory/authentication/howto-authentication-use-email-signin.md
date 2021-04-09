@@ -11,10 +11,10 @@ author: justinha
 manager: daveba
 ms.reviewer: calui
 ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255974"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
@@ -250,7 +250,7 @@ Necesita permiso de *administrador de inquilinos* para completar los siguientes 
 6. Agregue el grupo a la directiva de lanzamiento preconfigurado, tal como se muestra en el ejemplo siguiente. Reemplace el valor del parámetro *-Id* por el valor devuelto de identificador de directiva en el paso 4 y reemplace el valor del parámetro *-RefObjectId* por el valor de *Id* anotado en el paso 5. Puede pasar hasta 1 hora antes de que los usuarios del grupo puedan usar sus direcciones de proxy para iniciar sesión.
 
    ```powershell
-   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -RefObjectId &quot;GROUP_OBJECT_ID"
    ```
    
 En el caso de los nuevos miembros agregados al grupo, pueden transcurrir hasta 24 horas antes de que puedan usar sus direcciones de proxy para iniciar sesión.
@@ -260,7 +260,7 @@ En el caso de los nuevos miembros agregados al grupo, pueden transcurrir hasta 2
 Para quitar un grupo de una directiva de lanzamiento preconfigurado, ejecute el siguiente comando:
 
 ```powershell
-Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID&quot; -ObjectId &quot;GROUP_OBJECT_ID" 
 ```
 
 ### <a name="removing-policies"></a>Eliminación de directivas

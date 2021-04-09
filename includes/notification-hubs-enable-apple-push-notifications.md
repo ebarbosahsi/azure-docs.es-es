@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95562606"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generación del archivo de solicitud de firma de certificado
@@ -131,7 +131,7 @@ El enfoque más reciente tiene varias ventajas (en comparación con el uso de ce
 1. Anote los siguientes datos:
 
     - **App ID Prefix** (Prefijo de identificador de aplicación) (es un **identificador de equipo**)
-    - **Bundle ID** (Identificador de lote)
+    - **Identificador de lote**
     
 2. De vuelta en **Certificates, Identifiers & Profiles** (Certificados, identificadores y perfiles), haga clic en **Keys** (Claves).
 

@@ -4,12 +4,12 @@ description: Aprenda a usar los servidores habilitados para Azure Arc para admi
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175981"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023340"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -23,7 +23,7 @@ Al conectar una máquina a los servidores habilitados para Azure Arc, se habili
 
 - Asigne [configuraciones de invitado de Azure Policy](../../governance/policy/concepts/guest-configuration.md) de la misma manera que en la asignación de directivas para máquinas virtuales de Azure. En la actualidad, la mayoría de las directivas de configuración de invitado no aplican configuraciones, solo auditan la configuración dentro de la máquina. Para comprender el costo de usar las directivas de configuración de Azure Policy con servidores habilitados para Arc, consulte la [guía de precios](https://azure.microsoft.com/pricing/details/azure-policy/) de Azure Policy.
 
-- Informe de los cambios de configuración del software instalado, los servicios de Microsoft, el Registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md) de Azure Automation y [Supervisión de la integridad de los archivos de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), en servidores habilitados con [Azure Defender para servidores](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
+- Informe de los cambios de configuración del software instalado, los servicios de Microsoft, el Registro y los archivos de Windows y los demonios de Linux en los servidores supervisados mediante [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md) de Azure Automation y [Supervisión de la integridad de los archivos de Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md), en servidores habilitados con [Azure Defender para servidores](../../security-center/defender-for-servers-introduction.md).
 
 - Supervise el rendimiento del sistema operativo invitado de la máquina conectada y descubra los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos con los que la aplicación se comunica mediante [Azure Monitor para VM](../../azure-monitor/vm/vminsights-overview.md).
 

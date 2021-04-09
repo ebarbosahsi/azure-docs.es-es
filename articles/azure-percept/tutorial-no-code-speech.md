@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 76333e11916641be71c72ce6142cd59b496a17e9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098033"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023170"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Creación de un asistente para voz con Azure Percept DK y Azure Percept Audio
 
 En este tutorial, creará un asistente para voz a partir de una plantilla para usarlo con Azure Percept DK y Azure Percept Audio. La demostración del asistente para voz se ejecuta en [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) y contiene una selección de objetos virtuales controlados por voz. Para controlar un objeto, diga la palabra clave, que es una palabra o frase corta que reactiva el dispositivo, seguido de un comando. Cada plantilla responde a un conjunto de comandos específicos.
 
-Esta guía le mostrará el proceso de configuración de los dispositivos, la creación de un asistente para voz y los recursos necesarios de los [servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), la prueba del asistente, la configuración de la palabra clave y la creación de palabras clave personalizadas.
+Esta guía le mostrará el proceso de configuración de los dispositivos, la creación de un asistente para voz y los recursos necesarios de los [servicios de voz](../cognitive-services/speech-service/overview.md), la prueba del asistente, la configuración de la palabra clave y la creación de palabras clave personalizadas.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -172,7 +172,7 @@ Una vez que haya creado un comando personalizado, debe ir a [Speech Studio](http
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Captura de pantalla de la pantalla principal de Speech Studio.":::
 
-Para obtener más información sobre el desarrollo de comandos personalizados, consulte la [documentación del servicio Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands).
+Para obtener más información sobre el desarrollo de comandos personalizados, consulte la [documentación del servicio Voz](../cognitive-services/speech-service/custom-commands.md).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

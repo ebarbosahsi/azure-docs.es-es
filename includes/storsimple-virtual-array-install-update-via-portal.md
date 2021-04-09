@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: df572b88cf8a67163b28ec87154dcea01646b9a2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95554840"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar actualizaciones mediante Azure Portal
@@ -35,7 +35,7 @@ ms.locfileid: "95554840"
 
 5. En la hoja **Nuevas actualizaciones**, revise la información y, una vez descargadas las actualizaciones, debe confirmar la instalación. Haga clic en **OK**.
 
-    ![En el panel Actualizaciones nuevas se indica "Una vez descargadas las actualizaciones, deberá confirmar la instalación". El botón Aceptar está resaltado.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
+    ![En el panel Actualizaciones nuevas se indica "After the updates are downloaded, you will need to confirm the installation" (Una vez descargadas las actualizaciones, deberá confirmar la instalación). El botón Aceptar está resaltado.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 
 6. Se le notificará cuando se inicie la carga y se complete correctamente.
 
@@ -47,7 +47,7 @@ ms.locfileid: "95554840"
 
 6. En la hoja **Nuevas actualizaciones**, se le advertirá de que la actualización puede ser perjudicial. Puesto que la matriz virtual es un dispositivo de un solo nodo, el dispositivo se reiniciará una vez actualizado. Se interrumpirá cualquier E/S en curso. Haga clic en **Aceptar** para instalar las actualizaciones. 
 
-    ![El mensaje en el panel Nuevas actualizaciones indica que "El dispositivo tendrá un tiempo de inactividad cuando se instalen estas actualizaciones". El botón Aceptar está resaltado.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
+    ![El mensaje del panel Nuevas actualizaciones es "Your device will have a downtime when these updates are installed" (Durante la instalación de estas actualizaciones, el dispositivo estará sin actividad). El botón Aceptar está resaltado.](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
 
 7. Se le notificará cuando se inicie el trabajo de instalación. 
 

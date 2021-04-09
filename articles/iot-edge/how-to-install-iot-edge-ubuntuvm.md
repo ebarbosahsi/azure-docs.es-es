@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e044e8102308fce4145d4aa6c887cefaa99be34
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629969"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103201085"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ejecución de Azure IoT Edge en máquinas virtuales Ubuntu
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo en un dispositivo IoT Edge. El entorno de ejecución se puede implementar en dispositivos tan pequeños como un Raspberry Pi o tan grandes como un servidor industrial. Una vez que un dispositivo está configurado con el entorno de ejecución de IoT Edge, puede empezar a implementar lógica de negocios en él desde la nube.
 
@@ -26,7 +28,10 @@ Para más información acerca de cómo funciona el entorno de ejecución de IoT 
 En este artículo se indica cómo implementar una máquina virtual de Ubuntu 18.04 LTS con el tiempo de ejecución de Azure IoT Edge instalado y configurado usando una cadena de conexión de dispositivo suministrada previamente. La implementación se efectúa a través de una [plantilla de Azure Resource Manager](../azure-resource-manager/templates/overview.md) basada en [cloud-init](../virtual-machines/linux/using-cloud-init.md
 ) que se conserva en el repositorio [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) del proyecto.
 
-En el primer arranque, la máquina virtual de Ubuntu 18.04 LTS [instala la versión más reciente del entorno de ejecución de Azure IoT Edge vía cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). También establece una cadena de conexión proporcionada antes de que se inicie el tiempo de ejecución, lo que permite configurar y conectar fácilmente el dispositivo IoT Edge sin necesidad de iniciar una sesión de SSH o de escritorio remoto. 
+En el primer arranque, la máquina virtual de Ubuntu 18.04 LTS [instala la versión más reciente del entorno de ejecución de Azure IoT Edge vía cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). También establece una cadena de conexión proporcionada antes de que se inicie el tiempo de ejecución, lo que permite configurar y conectar fácilmente el dispositivo IoT Edge sin necesidad de iniciar una sesión de SSH o de escritorio remoto.
+
+>[!NOTE]
+>La plantilla que se usa en este artículo instala IoT Edge, versión 1.1.
 
 ## <a name="deploy-using-deploy-to-azure-button"></a>Implementación con el botón Implementar en Azure
 

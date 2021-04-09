@@ -15,10 +15,10 @@ ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74769feba1d717a2f1a72d311f85bdfbeac7b7db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103574780"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Inicios de sesión de AD FS en Azure AD con Connect Health (versión preliminar)
@@ -27,7 +27,7 @@ Los inicios de sesión de AD FS ahora se pueden integrar en el informe de inici
 
 El agente de Connect Health para AD FS correlaciona varios identificadores de evento de AD FS según la versión del servidor con el fin de proporcionar información sobre la solicitud y los detalles del error si se produce un error en la solicitud. Esta información se correlaciona con el esquema del informe de inicios de sesión Azure AD y se muestra en la experiencia de usuario del informe de inicios de sesión de Azure AD. Junto con el informe, se proporciona una nueva secuencia de Log Analytics con los datos de AD FS y una nueva plantilla de libro de Azure Monitor. La plantilla se puede usar y modificar para hacer un análisis exhaustivo de escenarios como bloqueos de cuenta de AD FS, intentos con contraseñas incorrectas o picos de intentos inesperados de inicio de sesión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 * Tener Azure AD Connect Health para AD FS instalado y actualizado con la versión más reciente.
 * Rol de administrador global o lector de informes para ver los inicios de sesión Azure AD.
 

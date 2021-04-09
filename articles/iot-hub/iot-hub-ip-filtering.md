@@ -5,14 +5,14 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/22/2021
 ms.author: jlian
-ms.openlocfilehash: 2a76cede4bc72da9f30564f98ab9bb84028680f7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf9d58926c5a0fdc7c305e1d9daebfa1c8c9cf63
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581497"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023612"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -32,11 +32,11 @@ De forma predeterminada, la cuadrícula de **filtro IP** del portal para un cent
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Incorporación o edición de una regla de filtro IP
 
-Para agregar una regla de filtro IP, seleccione **+ Agregar regla de filtro IP**.
+Para agregar una regla de filtro IP, seleccione **+ Agregar regla de filtro IP**. Para agregar rápidamente la dirección IP del equipo, haga clic en **Agregar la dirección IP del cliente**. 
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Incorporación de una regla de filtro IP a una instancia de IoT Hub":::
 
-Después de seleccionar **Agregar regla de filtro IP**, rellene los campos.
+Después de seleccionar **Agregar regla de filtro IP**, rellene los campos. Estos campos se rellenan automáticamente si ha elegido agregar la dirección IP del cliente.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Después de seleccionar Agregar regla de filtro IP":::
 
@@ -85,6 +85,10 @@ Cualquier intento de conexión desde una dirección IP no permitida de forma exp
 Las reglas de filtro IP son de tipo *permitir* y se aplican sin ordenación. Solo las direcciones IP que se agregan pueden conectarse a IoT Hub. 
 
 Por ejemplo, si quiere aceptar direcciones del intervalo `192.168.100.0/22` y rechazar todo lo demás, solo tiene que agregar una regla a la cuadrícula con el intervalo de direcciones `192.168.100.0/22`.
+
+### <a name="azure-portal"></a>Azure Portal 
+
+También se aplican las reglas de filtro IP al utilizar IoT Hub a través de Azure Portal. Esto se debe a que las llamadas API al servicio IoT Hub se realizan directamente mediante el explorador con sus credenciales, lo cual es similar a lo que ocurre con otros servicios de Azure. Para obtener acceso a IoT Hub mediante Azure Portal cuando está habilitado el filtro IP, agregue la dirección IP del equipo a la lista de permitidos. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperación y actualización de los filtros IP mediante la CLI de Azure
 

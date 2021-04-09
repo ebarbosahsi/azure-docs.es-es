@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259243"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
@@ -33,8 +33,8 @@ Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar 
 1. Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
 1. En el panel **Azure Active Directory** -  **_nombreDelDirectorio_ *_ (es decir, el panel de Azure AD del directorio que está administrando), seleccione _* Aplicaciones empresariales**.
 1. En el panel **Aplicaciones empresariales - Todas las aplicaciones**, verá una lista de las aplicaciones que puede administrar. Seleccione una aplicación.
-1. En el panel **_nombreDeLaAplicación_ *_ (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione _* Propiedades**.
-1. En el panel **_nombreDeLaAplicación_ *_ - _* Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?** , seleccione **No**.
+1. En el panel **appname** _pane (es decir, el panel con el nombre de la aplicación seleccionada en el título), seleccione _*Propiedades**.
+1. En el panel ***appname** _ - _ *Propiedades*, en **¿Habilitado para que los usuarios inicien sesión?** , seleccione **No**.
 1. Haga clic en el comando **Guardar** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Uso de Azure AD PowerShell para deshabilitar una aplicación que no está en la lista
