@@ -3,12 +3,12 @@ title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934179"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -599,7 +599,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
-> | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, de subrayado, paréntesis, guiones, puntos y caracteres Unicode que coincidan con la [documentación de regex](/rest/api/resources/resourcegroups/createorupdate).<br><br>No puede terminar con un punto. |
+> | resourcegroups | subscription | 1-90 | Caracteres alfanuméricos, de subrayado, paréntesis, guiones, puntos y caracteres Unicode que coincidan con la [documentación de regex](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>No puede terminar con un punto. |
 > | tagNames | resource | 1-512 | No puede usar:<br>`<>%&\?/` |
 > | tagNames/tagValues | nombre de etiqueta | 1-256 | Todos los caracteres. |
 > | templateSpecs | resource group | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |

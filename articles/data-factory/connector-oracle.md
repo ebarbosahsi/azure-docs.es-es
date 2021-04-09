@@ -4,14 +4,14 @@ description: Aprenda a copiar datos desde almacenes de origen compatibles a una 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e6be88af13d5dd7ddceba32ec08cab54ca5e3a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703310"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587294"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 
@@ -263,6 +263,7 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de `writeBatchSize`.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | No |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 

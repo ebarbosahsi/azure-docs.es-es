@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8e51f99496514e40d6c3f85000384a14baf84946
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929118"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865373"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
 
@@ -21,7 +21,7 @@ Después de completar los pasos descritos en este documento, puede implementar l
 > [!NOTE]  
 > Hay una versión completa de los ejemplos de topología de Storm creada en este documento disponible en [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
@@ -113,7 +113,7 @@ A continuación, agregue el siguiente código XML después de la línea `<url>ht
 </repositories>
 ```
 
-## <a name="add-properties"></a>Agregar propiedades
+## <a name="add-properties"></a>Adición de propiedades
 
 Maven permite definir los valores de nivel de proyecto llamados propiedades. En `pom.xml`, agregue el siguiente texto después de la línea `</repositories>`:
 
@@ -216,7 +216,7 @@ Esta sección se usa para agregar complementos, recursos y otras opciones de con
 
 ### <a name="configure-resources"></a>Configure resources
 
-Gracias a la sección de recursos, podrá incluir recursos no basados en códigos, como los archivos de configuración que necesitan los componentes de la topología. En este ejemplo, agregue el texto siguiente en la sección `<resources>` del archivo `pom.xml`. Guarde y cierre el archivo.
+Gracias a la sección de recursos, podrá incluir recursos no basados en códigos, como los archivos de configuración que necesitan los componentes de la topología. En este ejemplo, agregue el texto siguiente en la sección `<resources>` del archivo `pom.xml`. Luego, guarde y cierre el archivo.
 
 ```xml
 <resource>
@@ -238,7 +238,7 @@ Una topología de Apache Storm basada en Java consta de tres componentes que deb
 
 * **Bolts**: realiza el procesamiento en flujos que emite spouts u otros bolts, y emite uno o varios flujos.
 
-* **Topología**: define cómo se organizan los spouts y bolts, y proporciona el punto de entrada de la topología.
+* **Topology**: define cómo se organizan los spouts y bolts, y proporciona el punto de entrada de la topología.
 
 ### <a name="create-the-spout"></a>Creación del spout
 
@@ -317,7 +317,7 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]  
 > Para ver un ejemplo de un spout que lee desde un origen de datos externos, consulte uno de los siguientes ejemplos:
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): un spout de ejemplo que lee desde Twitter.
+> * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): un spout de ejemplo que lee desde Twitter.
 > * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): un spout que lee desde Kafka.
 
 ### <a name="create-the-bolts"></a>Creación de los bolts
@@ -482,7 +482,7 @@ La topología une los spouts y los bolts en un grafo. El grafo define cómo los 
 
 La siguiente imagen es un diagrama básico del gráfico de componentes para esta topología.
 
-![diagrama que muestra la disposición de los spouts y bolts](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-java-topology/word-count-topology1.png" alt-text="diagrama que muestra la disposición de los spouts y bolts" border="false":::
 
 Para implementar la topología, escriba el comando siguiente para crear y abrir un nuevo archivo `WordCountTopology.java`:
 

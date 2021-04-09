@@ -12,10 +12,10 @@ ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
 ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503596"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
@@ -61,7 +61,7 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Recurso compartido de archivos de Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL

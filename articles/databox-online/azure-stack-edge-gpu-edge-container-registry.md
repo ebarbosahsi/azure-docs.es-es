@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437543"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560342"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de un registro de contenedor de Edge en un dispositivo de Azure Stack Edge Pro con GPU
 
@@ -294,4 +294,4 @@ Después de eliminar las imágenes no utilizadas, un proceso que se ejecuta cada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementación de una aplicación sin estado en Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implementación de una aplicación sin estado en Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c6645bc605dbd60d331ac0de002c36384b2bbbc4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941040"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864761"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Uso de las características extendidas del Servidor de historial de Apache Spark para depurar y diagnosticar aplicaciones Spark
 
@@ -25,7 +25,7 @@ El Servidor de historial de Spark es la interfaz de usuario web para aplicacione
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster de Spark. Para obtener más información, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. En **Paneles de clúster**, seleccione **Servidor de historial de Spark**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
-    ![Inicio del Servidor de historial de Spark desde Azure Portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Servidor de historial de Spark")
+    :::image type="content" source="./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png " alt-text="Inicie el servidor de historial de Spark desde Azure Portal." border="true":::Azure Portal". border="true":::
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Apertura de la interfaz de usuario web del Servidor de historial de Spark mediante dirección URL
 
@@ -33,7 +33,7 @@ Abra el Servidor de historial de Spark; para ello, vaya a `https://CLUSTERNAME.a
 
 La interfaz de usuario web del Servidor de historial de Spark puede tener un aspecto similar al de esta imagen:
 
-![Página del servidor de historial de Spark.](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png" alt-text="Página del servidor de historial de Spark." border="true":::
 
 ## <a name="use-the-data-tab-in-the-spark-history-server"></a>Uso de la pestaña Datos del Servidor de historial de Spark
 
@@ -41,57 +41,57 @@ Seleccione el identificador del trabajo y, a continuación, seleccione **Data** 
 
 + Revise por separado las pestañas **Inputs** (Entradas), **Outputs** (Salidas) y **Table Operations** (Operaciones de tablas).
 
-    ![Pestañas de datos en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-tabs.png" alt-text="Pestañas de datos en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Seleccione el botón **Copy** (Copiar) para copiar todas las filas.
 
-    ![Página de copia de datos de la aplicación Spark.](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-copy.png" alt-text="Página de copia de datos de la aplicación Spark." border="true":::
 
 + Guarde todos los datos como archivo .CSV; para ello, seleccione el botón **CSV**.
 
-    ![Guardado de datos como archivo .CSV desde la página de datos de la aplicación Spark.](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-save.png" alt-text="Guardado de datos como archivo .CSV desde la página de datos de la aplicación Spark." border="true":::
 
 + Busque los datos escribiendo palabras clave en el campo **Search** (Buscar). Los resultados de la búsqueda se mostrarán inmediatamente.
 
-    ![Búsqueda de datos en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-search.png" alt-text="Búsqueda de datos en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Seleccione el encabezado de columna para ordenar la tabla. Seleccione el signo más para expandir una fila y mostrar más detalles. Seleccione el signo menos para contraer una fila.
 
-    ![Tabla de datos en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-table.png" alt-text="Tabla de datos en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Descargue un solo archivo; para ello, seleccione el botón **Partial Download** (Descarga parcial) de la derecha. El archivo seleccionado se descargará localmente. Si el archivo ya no existe, se abrirá una nueva pestaña para mostrar los mensajes de error.
 
-    ![Fila de descarga de datos en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-download-row.png" alt-text="Fila de descarga de datos en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Copie una ruta de acceso completa o una ruta de acceso relativa; para ello, seleccione la opción **Copy Full Path** (Copiar ruta de acceso completa) o **Copy Relative Path** (Copiar ruta de acceso relativa) que se expande desde el menú de descarga. Para los archivos de Azure Data Lake Storage, seleccione **Open in Azure Storage Explorer** (Abrir en Explorador de Azure Storage) para iniciar el Explorador de Azure Storage y buscar la carpeta después del inicio de sesión.
 
-    ![Opciones para la copia de la ruta de acceso completa y la copia de la ruta de acceso relativa en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-copy-path.png" alt-text="Opciones para la copia de la ruta de acceso completa y la copia de la ruta de acceso relativa en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Si hay demasiadas filas para mostrar en una sola página, seleccione los números de página en la parte inferior de la tabla para explorarla.
 
-    ![Números de página en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-data-page.png" alt-text="Números de página en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 + Para más información, seleccione o mantenga el ratón sobre el signo de interrogación junto a **Data for Spark Application** (Datos de la aplicación Spark) para mostrar la información sobre herramientas.
 
-    ![Obtener información adicional en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-data-more-info.png" alt-text="Obtener información adicional en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 +  Para enviar comentarios sobre problemas, seleccione **Provide us feedback** (Envíenos sus comentarios).
 
-    ![Enviar comentarios en la página Data for Spark Application (Datos de la aplicación Spark).](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Enviar comentarios en la página Data for Spark Application (Datos de la aplicación Spark)." border="true":::
 
 ## <a name="use-the-graph-tab-in-the-spark-history-server"></a>Uso de la pestaña Gráfico del Servidor de historial de Spark
 
 + Seleccione el identificador del trabajo y, a continuación, seleccione **Graph** (Gráfico) en el menú de herramientas para obtener el gráfico del trabajo. De forma predeterminada, el gráfico mostrará todos los trabajos. Filtre los resultados mediante el menú desplegable **Job ID** (Identificador del trabajo).
 
-    ![Menú desplegable Job ID (Identificador del trabajo) en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png" alt-text="Menú desplegable Id. del trabajo en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 + La opción **Progress** (Progreso) está seleccionada de forma predeterminada. Compruebe el flujo de datos; para ello, seleccione **Read** (Leído) o **Written** (Escrito) en la lista desplegable **Display** (Mostrar).
 
-    ![Comprobación del flujo de datos en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-display.png" alt-text="Comprobación del flujo de datos en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 + El color de fondo de cada tarea corresponde a un mapa térmico.
 
-   ![Mapa térmico en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
+   :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png" alt-text="Mapa térmico en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 
     |Color |Descripción |
@@ -102,29 +102,29 @@ Seleccione el identificador del trabajo y, a continuación, seleccione **Data** 
     |Blanco|la tarea está esperando para ejecutarse o la fase se ha omitido.|
     |Rojo|error en la tarea.|
 
-     ![Ejecución de una tarea en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
+     :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-running.png" alt-text="Ejecución de una tarea en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
      Las fases omitidas se muestran en blanco.
-    ![Tarea omitida en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png" alt-text="Tarea omitida en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo)." border="true":::
 
-    ![Tarea omitida en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png" alt-text="Tarea omitida en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
      > [!NOTE]  
      > La reproducción está disponible para los trabajos completados. Seleccione el botón **Playback** (Reproducción) para volver a reproducir el trabajo. Puede detener el trabajo en cualquier momento; para ello, seleccione el botón de detención. Cuando se reproduce un trabajo, cada tarea mostrará su estado por color. No se admite la reproducción en trabajos incompletos.
 
 + Desplácese para acercar o alejar el gráfico del trabajo o seleccione **Zoom to fit** (Ampliar para ajustar) para ajustarlo a la pantalla.
 
-    ![Selección de Zoom to fit (Ampliar para ajustar) en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png" alt-text="Selección de Ampliar para ajustar en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 + Cuando se produzca un error en las tareas, mantenga el ratón sobre el nodo del gráfico para ver la información sobre herramientas y, a continuación, seleccione la fase para abrirla en una nueva página.
 
-    ![Información sobre herramientas en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png" alt-text="Información sobre herramientas en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 + En la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo), las fases mostrarán información sobre herramientas e iconos pequeños si las tareas cumplen estas condiciones:
   + Asimetría de datos: Tamaño de lectura de datos > tamaño promedio de lectura de datos de todas las tareas de esta fase * 2 *y* tamaño de lectura de datos > 10 MB.
   + Desfase horario: Tiempo de ejecución > tiempo promedio de ejecución de todas las tareas de esta fase * 2 *y* tiempo de ejecución > 2 minutos.
 
-    ![Icono de tarea con desfase en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png" alt-text="Icono de tarea con desfase en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 + El nodo del gráfico del trabajo mostrará la siguiente información de cada fase:
   + ID
@@ -144,7 +144,7 @@ Seleccione el identificador del trabajo y, a continuación, seleccione **Data** 
 
 + Seleccione **Provide us feedback** (Envíenos sus comentarios) para enviar comentarios sobre problemas.
 
-    ![Opción de comentarios en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo).](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Opción de comentarios en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Uso de la pestaña Diagnóstico del Servidor de historial de Spark
 
@@ -152,7 +152,7 @@ Seleccione el identificador del trabajo y luego **Diagnosis** (Diagnóstico) en 
 
 + Seleccione las pestañas correspondientes para revisar la **Asimetría de datos**, el **Desfase horario** y el **Análisis de uso del ejecutor**.
 
-    ![Pestaña Data Skew (Asimetría de datos) dentro de la pestaña Diagnosis (Diagnóstico).](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png" alt-text="Pestaña Data Skew (Asimetría de datos) dentro de la pestaña Diagnosis (Diagnóstico)." border="true":::
 
 ### <a name="data-skew"></a>Asimetría de datos
 
@@ -166,13 +166,13 @@ La sección **Specify Parameters** (Especificar parámetros) muestra los paráme
 
 La sección **Skewed Stage** (Fase sesgada) muestra las fases que tienen tareas con desfase que cumplen los criterios especificados. Si hay más de una tarea con desfase en una fase, la sección **Skewed Stage** (Fase sesgada) muestra solo la tarea más sesgada (es decir, los datos más grandes con asimetría de datos).
 
-![Vista ampliada de la pestaña Data Skew (Asimetría de datos) dentro de la pestaña Diagnosis (Diagnóstico).](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png" alt-text="Vista ampliada de la pestaña Data Skew (Asimetría de datos) dentro de la pestaña Diagnosis (Diagnóstico)." border="true":::
 
 ##### <a name="skew-chart"></a>Gráfico de sesgo
 
 Cuando se selecciona una fila de la tabla **Skew Stage** (Fase sesgada), **Skew Chart** (Gráfico de sesgo) muestra más detalles de distribuciones de tareas en función de la lectura de datos y el tiempo de ejecución. Las tareas sesgadas se marcan en rojo y las tareas normales se marcan en azul. Por motivos de rendimiento, el gráfico muestra hasta 100 tareas de ejemplo. Los detalles de la tarea se muestran en el panel inferior derecho.
 
-![Gráfico de sesgo de la fase 10 en la interfaz de usuario de Spark.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png" alt-text="Gráfico de sesgo de la fase 10 en la interfaz de usuario de Spark." border="true":::
 
 ### <a name="time-skew"></a>Desfase horario
 
@@ -184,7 +184,7 @@ La sección **Specify Parameters** (Especificar parámetros) muestra los paráme
 
 Al seleccionar **Time Skew** (Desfase horario), los resultados filtrados se muestran en la sección **Skewed Stage** (Fase sesgada) según los parámetros establecidos en la sección **Specify Parameters** (Especificar parámetros). Al seleccionar un elemento de la sección **Skewed Stage** (Fase sesgada), se muestra el gráfico correspondiente en la tercera sección y los detalles de la tarea en el panel inferior derecho.
 
-![Pestaña Time Skew (Desfase horario) dentro de la pestaña Diagnosis (Diagnóstico).](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png" alt-text="Pestaña Time Skew (Desfase horario) dentro de la pestaña Diagnosis (Diagnóstico)." border="true":::
 
 ### <a name="executor-usage-analysis-graphs"></a>Gráficos de análisis de uso del ejecutor
 
@@ -192,11 +192,11 @@ Al seleccionar **Time Skew** (Desfase horario), los resultados filtrados se mues
 
 Al seleccionar **Executor Usage Analysis** (Análisis de uso del ejecutor), se trazan cuatro curvas diferentes sobre el uso del ejecutor: **Allocated Executors** (Ejecutores asignados), **Running Executors** (Ejecutores en ejecución), **idle Executors** (Ejecutores inactivos) y **Max Executor Instances** (Número máximo de instancias del ejecutor). Cada evento **Ejecutor agregado** o **Ejecutor eliminado** aumentará o disminuirá los ejecutores asignados. Puede comprobar la **escala de tiempo del evento** en la pestaña **Jobs** (Trabajos) para comparaciones adicionales.
 
-![Pestaña Executor Usage Analysis (Análisis de uso del ejecutor) en la pestaña Diagnosis (Diagnóstico).](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+:::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png" alt-text="Pestaña Executor Usage Analysis (Análisis de uso del ejecutor) en la pestaña Diagnosis (Diagnóstico)." border="true":::
 
 Seleccione el icono de color para seleccionar o anular la selección del contenido correspondiente en todos los borradores.
 
- ![Seleccione el gráfico en la pestaña Executor Usage Analysis (Análisis de uso del ejecutor).](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
+ :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png" alt-text="Seleccione el gráfico en la pestaña Executor Usage Analysis (Análisis de uso del ejecutor)." border="true":::
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -212,15 +212,15 @@ Para revertir a la versión de la comunidad, realice los pasos siguientes.
 1. La propiedad se establece ahora en **false**.
 1. Para guardar la configuración, seleccione **Guardar**.
 
-    ![Desactivar una característica de Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-turn-off.png" alt-text="Desactivar una característica de Apache Ambari." border="true":::
 
 1. En el panel izquierdo, seleccione **Spark2**. A continuación, en la pestaña **Summary** (Resumen), seleccione **Spark2 History Server**.
 
-    ![Vista de resumen en Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-restart1.png" alt-text="Vista de resumen en Apache Ambari." border="true":::
 
 1. Para reiniciar el Servidor de historial de Spark, seleccione el botón **Started** (Iniciado) a la derecha de **Spark2 History Server** y, a continuación, seleccione **Restart** (Reiniciar) en el menú desplegable.
 
-    ![Reiniciar el Servidor de historial de Spark en Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-restart2.png" alt-text="Reiniciar el Servidor de historial de Spark en Apache Ambari." border="true":::  
 
 1. Actualice la interfaz de usuario web del Servidor de historial de Spark. Se revertirá a la versión de la comunidad.
 
@@ -230,15 +230,15 @@ Si se produce un error en el Servidor de historial de Spark, realice los pasos s
 
 1. Seleccione **Download** (Descargar) en la interfaz de usuario web del Servidor de historial de Spark para descargar el evento.
 
-    ![Descargar el evento en la interfaz de usuario del Servidor de historial de Spark.](./media/apache-azure-spark-history-server/sparkui-download-event.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-download-event.png" alt-text="Descargar el evento en la interfaz de usuario del Servidor de historial de Spark." border="true":::
 
 2. Seleccione **Provide us feedback** (Envíenos sus comentarios) en la página **Spark Application & Job Graph** (Gráfico de la aplicación Spark y el trabajo).
 
-    ![Proporcionar comentarios en la página Spark Application & Job Graph (Gráfico de la aplicación Spark y el trabajo)](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Envío de comentarios en la página Gráfico de la aplicación Spark y del trabajo." border="true":::
 
 3. Proporcione el título y una descripción del error. A continuación, arrastre el archivo .zip al campo de edición y seleccione **Submit new issue** (Enviar nuevo comentario).
 
-    ![Cargar y enviar un nuevo problema.](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
+    :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-file-issue.png" alt-text="Cargar y enviar un nuevo problema." border="true":::
 
 ### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>¿Cómo puedo actualizar un archivo .jar en un escenario de revisión?
 
@@ -312,7 +312,7 @@ Si desea actualizar con una revisión, use el siguiente script, que actualizará
     |Tipos de nodo|Principal, trabajo|
     |Parámetros|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
-     ![Envío de acción de script en Azure Portal](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
+     :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-upload1.png" alt-text="Envío de acción de script en Azure Portal" border="true":::
 
 ## <a name="known-issues"></a>Problemas conocidos
 

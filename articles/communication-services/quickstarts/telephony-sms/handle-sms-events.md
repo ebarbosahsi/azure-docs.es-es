@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Control de eventos SMS'
+title: 'Inicio rápido: Control de eventos SMS para informes de entrega y mensajes entrantes'
 titleSuffix: An Azure Communication Services quickstart
 description: Obtenga información acerca de cómo controlar eventos SMS mediante Azure Communication Services.
 author: mikben
@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655995"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728596"
 ---
-# <a name="quickstart-handle-sms-events"></a>Inicio rápido: Control de eventos SMS
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Inicio rápido: Control de eventos SMS para informes de entrega y mensajes entrantes
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -117,6 +114,7 @@ En este tutorial, ha aprendido a utilizar eventos SMS. Puede recibir mensajes SM
 > [Envío de SMS](../telephony-sms/send.md)
 
 Puede que también le interese:
+
 
  - [Más información sobre los conceptos de control de eventos](../../../event-grid/event-schema-communication-services.md)
  - [Información sobre Event Grid](../../../event-grid/overview.md)

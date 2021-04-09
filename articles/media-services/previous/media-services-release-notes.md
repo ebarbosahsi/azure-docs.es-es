@@ -3,7 +3,7 @@ title: Notas de la versión de Azure Media Services | Microsoft Docs
 description: En este artículo se habla sobre las notas de la versión de Microsoft Azure Media Services v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1700489b4f3ee37d95b87b1bf026d47c9f1de4d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694911"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067289"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -48,6 +48,26 @@ Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solu
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
+
+## <a name="february-2021"></a>Febrero de 2021
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Anuncio de desuso de los SDK y Azure Media Services v2 API
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Actualice los SDK y la API REST de Azure Media Services a la versión 3 antes del 29 de febrero de 2024
+
+Dado que la versión 3 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java ofrece más funcionalidades que la versión 2, se va a retirar la versión 2 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java. Es aconsejable que realice el cambio lo antes posible para aprovechar las ventajas de la versión 3 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java.
+La versión 3 proporciona:
+ 
+- Compatibilidad ininterrumpida con eventos en directo
+- API de REST de ARM y SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
+- Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados y [mucho más](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>Acción requerida:
+
+Para minimizar la interrupción de las cargas de trabajo, consulte la [guía de migración](../latest/migrate-v-2-v-3-migration-introduction.md) para pasar el código de la API y los SDK de la versión 2 a la API y el SDK de la versión 3 antes del 29 de febrero de 2024.
+**A partir del 29 de febrero de 2024**, Azure Media Services dejará de aceptar el tráfico en la versión 2 de la API REST, la versión 2015-10-01 de la API de administración de cuentas de ARM o de los SDK de cliente de .NET de la versión 2. Esto incluye los SDK de cliente de código abierto de terceros que puedan llamar a la versión 2 de la API.  
+
+Vea el [anuncio oficial de las actualizaciones de Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
@@ -232,7 +252,7 @@ El equipo del SDK de Azure publicó una nueva versión del paquete [SDK de Azure
 Para más información, consulte:
 
 * Los siguientes [ejemplos de código](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) le ayudan a empezar a trabajar rápidamente:
-  * **vodworkflow_aes.php**: Se trata de un archivo PHP que muestra cómo usar el cifrado dinámico AES-128 y el servicio de entrega de claves. Se basa en el ejemplo de .NET que se explica en [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: Se trata de un archivo PHP que muestra cómo usar el cifrado dinámico AES-128 y el servicio de entrega de claves. Se basa en el ejemplo de .NET que se explica en [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-playready-license-template-overview.md).
   * **vodworkflow_aes.php**: Se trata de un archivo PHP que muestra cómo usar el cifrado dinámico de PlayReady y el servicio de entrega de licencias. Se basa en el ejemplo de .NET que se explica en [Uso del cifrado dinámico común de PlayReady y Widevine](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php**: Se trata de un archivo PHP que muestra cómo escalar las unidades reservadas de codificación.
 
