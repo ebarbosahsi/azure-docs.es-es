@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
 ms.openlocfilehash: 27cd3aff859fd46679679ac12d3acc03fa6da158
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929449"
 ---
-# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Escenario: Error 404 "No encontrado" del servidor de Jupyter debido a "Cross Origin Blocking API" en Azure HDInsight
+# <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Escenario: Error 404 "No encontrado" del servidor de Jupyter debido al bloqueo de la API entre orígenes en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar componentes de Apache Spark en clústeres de Azure HDInsight.
 
@@ -44,7 +44,7 @@ Este error puede deberse a un par de cosas:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Busque la línea que dice: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` Y cámbiela a: `NotebookApp.allow_origin='\"*\"'`.
+1. Busque la línea que dice `NotebookApp.allow_origin='\"https://{2}.{3}\"'` y cámbiela por `NotebookApp.allow_origin='\"*\"'`.
 
 1. Reinicie el servicio de Jupyter desde Ambari.
 

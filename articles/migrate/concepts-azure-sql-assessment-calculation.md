@@ -5,19 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054223"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778328"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Información general sobre la evaluación (migración a Azure SQL)
 
 En este artículo se proporciona información general sobre las evaluaciones para migrar las instancias locales de SQL Server desde un entorno de VMware a bases de datos o instancias administradas de Azure SQL mediante la [herramienta de detección y evaluación de Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
-
-> [!Note]
-> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 ## <a name="whats-an-assessment"></a>¿Qué es una evaluación?
 Una evaluación con la herramienta de detección y evaluación es una instantánea en un momento dado de los datos, mide la preparación y estima el efecto de la migración de servidores locales a Azure.
@@ -28,9 +25,9 @@ Existen tres tipos de evaluaciones que puede crear con la herramienta de detecci
 
 **Tipo de evaluación** | **Detalles**
 --- | --- 
-**MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
+**MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. <br/><br/> Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
 **SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance.
-**Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Una evaluación de Azure SQL proporciona un criterio de dimensionamiento:
 
@@ -76,34 +73,34 @@ En las propiedades de evaluación de Azure SQL se incluye lo siguiente:
 **Propiedad** | **Detalles**
 --- | ---
 **Ubicación de destino** | La región de Azure a la que quiere realizar la migración. La configuración de Azure SQL y los costos recomendados dependen de la ubicación que especifique.
-**Tipo de implementación de destino** | El tipo de implementación de destino en la que quiere ejecutar la evaluación. Seleccione **Opción recomendada** si desea que Azure Migrate evalúe el grado de idoneidad de las instancias de SQL Server para su migración a Azure SQL MI y Azure SQL DB, y recomiende la opción de implementación de destino, el nivel de destino, la configuración de Azure SQL y las estimaciones mensuales que sean los más adecuados. Seleccione **Azure SQL DB** si quiere evaluar las instancias de SQL Server para la migración exclusivamente a instancias de Azure SQL Database y revisar el nivel de destino, la configuración de Azure SQL DB y las estimaciones mensuales. Seleccione **Azure SQL MI** si quiere evaluar las instancias de SQL Server para la migración exclusivamente a instancias de Azure SQL Database y revisar el nivel de destino, la configuración de Azure SQL MI y las estimaciones mensuales.
-**Capacidad reservada** | Especifica la capacidad reservada para que se tengan en cuenta las estimaciones de los costos en la evaluación. Si selecciona una opción de capacidad reservada, no podrá especificar "Descuento (%)".
-**Criterio de tamaño** | Esta propiedad se usa para ajustar el tamaño correcto de la configuración de Azure SQL. Su valor predeterminado es **Basado en el rendimiento**, lo que significa que la evaluación recopilará las métricas de rendimiento de las instancias y bases de datos de SQL Server para recomendar el tamaño óptimo de Azure SQL Managed Instance o para una recomendación de configuración o de nivel de Azure SQL Database.
+**Tipo de implementación de destino** | El tipo de implementación de destino en el que desea ejecutar la evaluación: <br/><br/> Seleccione **Opción recomendada** si desea que Azure Migrate evalúe el grado de preparación de los servidores de SQL para su migración a Azure SQL MI y Azure SQL DB, y recomiende la opción de implementación de destino, el nivel de destino, la configuración de Azure SQL y las estimaciones mensuales que mejor se ajusten.<br/><br/>Seleccione **Azure SQL DB** si quiere evaluar las instancias de SQL Server para la migración exclusivamente a instancias de Azure SQL Database y revisar el nivel de destino, la configuración de Azure SQL DB y las estimaciones mensuales.<br/><br/>Seleccione **Azure SQL MI** si quiere evaluar las instancias de SQL Server para la migración exclusivamente a instancias de Azure SQL Database y revisar el nivel de destino, la configuración de Azure SQL MI y las estimaciones mensuales.
+**Capacidad reservada** | Especifica la capacidad reservada para que se tengan en cuenta las estimaciones de los costos en la evaluación.<br/><br/> Si selecciona una opción de capacidad reservada, no podrá especificar "Descuento (%)".
+**Criterio de tamaño** | Esta propiedad se usa para ajustar el tamaño correcto de la configuración de Azure SQL. <br/><br/> Su valor predeterminado es **Basado en el rendimiento**, lo que significa que la evaluación recopilará las métricas de rendimiento de las instancias y bases de datos de SQL Server para recomendar el tamaño óptimo de Azure SQL Managed Instance o para una recomendación de configuración o de nivel de Azure SQL Database.
 **Historial de rendimiento** | El historial de rendimiento especifica la duración que se usa cuando se evalúan los datos de rendimiento.
 **Uso de percentil** | El uso de percentil especifica el valor de percentil de la muestra de rendimiento que se usa para elegir el tamaño adecuado.
-**Factor de confort** | Búfer usado durante la evaluación. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro. Por ejemplo, una instancia de 10 núcleos con un uso del 20 % normalmente genera una instancia de dos núcleos. Con un factor de confort de 2.0, el resultado es una instancia de cuatro núcleos.
+**Factor de confort** | Búfer usado durante la evaluación. Tiene en cuenta problemas como el uso estacional, el historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una instancia de 10 núcleos con un uso del 20 % normalmente genera una instancia de dos núcleos. Con un factor de confort de 2.0, el resultado es una instancia de cuatro núcleos.
 **Programa de ofertas o licencias** | La [oferta de Azure](https://azure.microsoft.com/support/legal/offer-details/) en la que está inscrito. En la actualidad, solo puede elegir entre Pago por uso y Desarrollo/pruebas - Pago por uso. Tenga en cuenta que puede beneficiarse de descuentos adicionales combinando capacidad reservada y la Ventaja híbrida de Azure con la oferta de pago por uso.
-**Nivel de servicio** | La opción de nivel de servicio más adecuada para adaptarse a las necesidades empresariales de la migración a Azure SQL Database o a Azure SQL Managed Instance: seleccione **Recomendado** si desea que Azure Migrate recomiende el nivel de servicio más adecuado para los servidores. Puede ser Uso general o Crucial para la empresa. Seleccione **Uso general** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo en las que hay presupuestos implicados. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) Seleccione **Crucial para la empresa** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo de baja latencia con alta resistencia a errores y conmutaciones por error rápidas. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Nivel de servicio** | La opción de nivel de servicio más adecuada para satisfacer sus necesidades de negocio y realizar la migración a Azure SQL Database o a Azure SQL Managed Instance:<br/><br/>**Opción recomendada** si desea que Azure Migrate recomiende el nivel de servicio que se ajuste mejor a los servidores. Puede ser Uso general o Crucial para la empresa. <br/><br/> **De uso general** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo orientadas al presupuestos. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Crítico para la empresa** si desea utilizar una configuración de Azure SQL diseñada para cargas de trabajo de baja latencia con alta resistencia a errores y conmutaciones por error rápidas. [Más información](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
 **Moneda** | Moneda de facturación de la cuenta.
 **Descuento (%)** | Cualquier descuento específico de la suscripción que recibe además de la oferta de Azure. La configuración predeterminada es 0 %.
-**Ventaja híbrida de Azure** | Especifica si ya tiene una licencia de SQL Server. Si la tiene y está incluida en las suscripciones activas de Software Assurance para SQL Server, podrá solicitar la Ventaja híbrida de Azure cuando traiga sus licencias a Azure.
+**Ventaja híbrida de Azure** | Especifica si ya tiene una licencia de SQL Server. <br/><br/> Si la tiene y está incluida en las suscripciones activas de Software Assurance para SQL Server, podrá solicitar la Ventaja híbrida de Azure cuando traiga sus licencias a Azure.
 
 [Revise los procedimientos recomendados](best-practices-assessment.md) para crear una evaluación con Azure Migrate.
 
 ## <a name="calculate-readiness"></a>Cálculo de la preparación
 
 > [!NOTE]
-> Esta evaluación solo incluye las bases de datos que están en estado en línea. En caso de que la base de datos esté en cualquier otro estado, la evaluación omite el cálculo de la preparación, el tamaño y el costo de esas bases de datos. En caso de que desee evaluar estas bases de datos, cambie el estado de la base de datos y vuelva a calcular la evaluación en algún momento.
+Esta evaluación solo incluye las bases de datos que están en estado en línea. En caso de que la base de datos esté en cualquier otro estado, la evaluación omite el cálculo de la preparación, el tamaño y el costo de esas bases de datos. En caso de que desee evaluar estas bases de datos, cambie el estado de la base de datos y vuelva a calcular la evaluación en algún momento.
 
 ### <a name="azure-sql-readiness"></a>Preparación para Azure SQL
 
 La preparación para Azure SQL de instancias y bases de datos de SQL se basa en una comprobación de la compatibilidad de las características con Azure SQL Database y Azure SQL Managed Instance:
-- La evaluación de Azure SQL tiene en cuenta las características de la instancia de SQL Server que las cargas de trabajo de SQL Server de origen (trabajos del Agente SQL, servidores vinculados, etc.) y los esquemas de las bases de datos de usuario (tablas, vistas, desencadenadores, procedimientos almacenados, etc.) usan actualmente para identificar problemas de compatibilidad.
-- Si no se encuentra ningún problema de compatibilidad, la preparación se marca como **Preparado** para el tipo de implementación de destino (Azure SQL Database o Azure SQL Managed Instance).
-- Si hay problemas de compatibilidad que no son críticos, como características degradadas o no compatibles que no bloquean la migración a un tipo de implementación de destino específico, la preparación se marca como **Preparado** (icono de información azul y con hipervínculo) con los detalles de **advertencia** y la guía de corrección recomendada.
-- Si hay algún problema de compatibilidad que puede bloquear la migración a un tipo de implementación de destino específico, la preparación se marca como **No preparado** con los detalles del **problema** y la guía de corrección recomendada.
+1. La evaluación de Azure SQL tiene en cuenta las características de la instancia de SQL Server que las cargas de trabajo de SQL Server de origen (trabajos del Agente SQL, servidores vinculados, etc.) y los esquemas de las bases de datos de usuario (tablas, vistas, desencadenadores, procedimientos almacenados, etc.) usan actualmente para identificar problemas de compatibilidad.
+1. Si no se encuentra ningún problema de compatibilidad, la preparación se marca como **Preparado** para el tipo de implementación de destino (Azure SQL Database o Azure SQL Managed Instance).
+1. Si hay problemas de compatibilidad que no son críticos, como características degradadas o no compatibles que no bloquean la migración a un tipo de implementación de destino específico, la preparación se marca como **Preparado** (icono de información azul y con hipervínculo) con los detalles de **advertencia** y la guía de corrección recomendada.
+1. Si hay algún problema de compatibilidad que puede bloquear la migración a un tipo de implementación de destino específico, la preparación se marca como **No preparado** con los detalles del **problema** y la guía de corrección recomendada.
     - Incluso si hay una sola base de datos en una instancia de SQL que no está preparada para un tipo de implementación de destino determinado, la instancia se marca como **No preparado** para ese tipo de implementación.
-- Si la detección aún está en curso o si hay problemas de detección para una instancia o base de datos de SQL, la preparación se marca como **Desconocido**, ya que la evaluación no pudo calcular la preparación de esa instancia de SQL.
+1. Si la detección aún está en curso o si hay problemas de detección para una instancia o base de datos de SQL, la preparación se marca como **Desconocido**, ya que la evaluación no pudo calcular la preparación de esa instancia de SQL.
 
 ### <a name="recommended-deployment-type"></a>Tipo de implementación recomendado
 
@@ -113,11 +110,11 @@ Si selecciona el tipo de implementación de destino como **Recomendado** en las 
 
  **Preparación para Azure SQL DB** | **Preparación para Azure SQL MI** | **Tipo de implementación recomendado** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
  --- | --- | --- | --- |
- Ready | Ready | Azure SQL DB o Azure SQL MI | Sí
- Ready | No preparado o Desconocido | Azure SQL DB | Sí
- No preparado o Desconocido | Ready | Azure SQL MI  | Sí
+ Ready | Ready | Azure SQL DB o <br/>Azure SQL MI  | Sí
+ Ready | No está listo o<br/> Unknown | Azure SQL DB | Sí
+ No está listo o<br/>Unknown | Ready | Azure SQL MI  | Sí
  No está listo | No está listo | Potencialmente listo para VM de Azure | No
- No preparado o Desconocido | No preparado o Desconocido | Unknown | No
+ No está listo o<br/>Unknown | No está listo o<br/>Desconocido | Desconocido | No
 
 > [!NOTE]
 > Si el tipo de implementación recomendado se selecciona como **Recomendado** en las propiedades de evaluación y si la instancia SQL Server de origen es adecuada para la base de datos única de Azure SQL DB y Azure SQL Managed Instance, la evaluación recomienda una opción específica que optimice el costo y se ajuste a los límites de tamaño y rendimiento.

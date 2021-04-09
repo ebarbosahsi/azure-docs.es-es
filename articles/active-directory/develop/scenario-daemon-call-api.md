@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bd0d53049c68843a6fd2cb6128c473d7c4f8d639
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f4b223c9195168b445b7eb81c2709a61807fddac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582798"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578403"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicación de demonio que llama a las API web: llamada a una API web desde la aplicación
 
@@ -30,16 +30,6 @@ Aquí se muestra cómo usar el token para llamar a una API:
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
-
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-endpoint = "url to the API"
-http_headers = {'Authorization': 'Bearer ' + result['access_token'],
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'}
-data = requests.get(endpoint, headers=http_headers, stream=False).json()
-```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -60,6 +50,43 @@ if(responseCode != HttpURLConnection.HTTP_OK) {
 JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Con un cliente HTTP como [Axios](https://www.npmjs.com/package/axios), llame al URI del punto de conexión de la API con un token de acceso como *portador de autorización*.
+
+```JavaScript
+const axios = require('axios');
+
+async function callApi(endpoint, accessToken) {
+
+    const options = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    };
+
+    console.log('request made to web API at: ' + new Date().toString());
+
+    try {
+        const response = await axios.default.get(endpoint, options);
+        return response.data;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+};
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
 ---
 
 ## <a name="calling-several-apis"></a>Llamada a varias API
@@ -72,12 +99,16 @@ Para las aplicaciones de demonio, las API web a las que llame deben estar aproba
 
 Avance al siguiente artículo de este escenario, [Paso a producción](./scenario-daemon-production.md?tabs=dotnet).
 
-# <a name="python"></a>[Python](#tab/python)
-
-Avance al siguiente artículo de este escenario, [Paso a producción](./scenario-daemon-production.md?tabs=python).
-
 # <a name="java"></a>[Java](#tab/java)
 
 Avance al siguiente artículo de este escenario, [Paso a producción](./scenario-daemon-production.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Avance al siguiente artículo de este escenario, [Paso a producción](./scenario-daemon-production.md?tabs=nodejs).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Avance al siguiente artículo de este escenario, [Paso a producción](./scenario-daemon-production.md?tabs=python).
 
 ---

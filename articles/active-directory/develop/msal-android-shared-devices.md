@@ -1,7 +1,7 @@
 ---
 title: Modo de dispositivo compartido para dispositivos Android
 titleSuffix: Microsoft identity platform | Azure
-description: Obtenga información acerca de cómo habilitar el modo de dispositivo compartido para permitir que los trabajadores de primera línea compartan un dispositivo Android.
+description: Aprenda a habilitar el modo de dispositivo compartido para que los trabajadores de primera línea compartan un dispositivo de Android
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491565"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578828"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 
-Los trabajadores de primera línea, como los asociados comerciales, los miembros de la tripulación de vuelos y los trabajadores de servicio de campo, suelen usar un dispositivo móvil compartido para realizar su trabajo. Esto resulta problemático cuando comienzan a compartir las contraseñas o los números PIN para acceder a los datos de clientes y empresas en el dispositivo compartido.
+Los trabajadores de primera línea, como los asociados comerciales, los miembros de la tripulación de los aviones y los trabajadores de servicio en el campo, suelen usar un dispositivo móvil compartido para realizar su trabajo. Esto resulta problemático cuando comienzan a compartir las contraseñas o los números PIN para acceder a los datos de clientes y empresas en el dispositivo compartido.
 
 El modo de dispositivo compartido le permite configurar un dispositivo Android para que varios empleados puedan compartirlo fácilmente. Los empleados pueden iniciar sesión y acceder a la información de los clientes rápidamente. Cuando terminan su turno o tarea, pueden cerrar sesión en el dispositivo y estará inmediatamente listo para que lo use el siguiente empleado.
 
@@ -85,7 +85,7 @@ Las siguientes diferencias se aplican en función de si la aplicación se ejecut
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>¿Por qué es posible que desee admitir solo el modo de una sola cuenta?
 
-Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea mediante un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye a la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. Solo admitir el modo de una sola cuenta simplifica el desarrollo porque no necesitará implementar las características adicionales que forman parte de las aplicaciones de varias cuentas.
+Si va a escribir una aplicación que solo van a usar los trabajadores de primera línea mediante un dispositivo compartido, es aconsejable que lo haga de tal forma que solo admita el modo de una sola cuenta. Esto incluye a la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. Solo admitir el modo de una sola cuenta simplifica el desarrollo porque no necesitará implementar las características adicionales que forman parte de las aplicaciones de varias cuentas.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>¿Qué ocurre cuando el modo del dispositivo cambia?
 
@@ -103,4 +103,4 @@ En el diagrama siguiente se muestra el ciclo de vida de la aplicación general y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe el tutorial [Uso del modo de dispositivo compartido en la aplicación Android](tutorial-v2-shared-device-mode.md), en el que se muestra cómo ejecutar una aplicación de trabajo de primera línea en un dispositivo Android en modo compartido.
+Pruebe el tutorial [Uso del modo de dispositivo compartido en la aplicación Android](tutorial-v2-shared-device-mode.md), en el que se muestra cómo ejecutar una aplicación para trabajadores de primera línea en un dispositivo Android en modo compartido.
