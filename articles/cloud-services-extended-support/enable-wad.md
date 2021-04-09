@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ad2a27d1e41ba8e589aa98542c4a0cb3d92afbea
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 14b1661792ca5276bd6ebfa4cee1c4b46f94764d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430872"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780453"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Aplicación de la extensión de Windows Azure Diagnostics en Cloud Services (soporte extendido) 
 Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión Microsoft.Azure.Diagnostics aplicada a un rol, este último puede recopilar puntos de datos adicionales. Para obtener más información, consulte [Introducción a las extensiones](extensions.md).
@@ -25,8 +25,11 @@ La extensión de Windows Azure Diagnostics se puede habilitar para Cloud Service
 ```powershell
 # Create WAD extension object
 $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
-$configFile = "<WAD public configuration file path>"
-$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
+$configFilePath = "<Insert WAD public configuration file path>"
+$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFilePath -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
+
+# Add <privateConfig> settings
+$wadExtension.ProtectedSetting = "<Insert WAD Private Configuration as raw string here>"
 
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -36,6 +39,56 @@ $cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extens
 
 # Update Cloud Service
 $cloudService | Update-AzCloudService
+```
+Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:
+
+```powershell
+(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'PublicWadConfig.xsd'
+```
+Este es un ejemplo del archivo XML de configuración pública
+```
+<?xml version="1.0" encoding="utf-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <WadCfg>
+    <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+      <PerformanceCounters scheduledTransferPeriod="PT1M">
+        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+      </PerformanceCounters>
+      <EtwProviders>
+        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+          <Event id="1" eventDestination="EnumsTable"/>
+          <DefaultEvents eventDestination="DefaultTable" />
+        </EtwEventSourceProviderConfiguration>
+      </EtwProviders>
+    </DiagnosticMonitorConfiguration>
+  </WadCfg>
+</PublicConfig>
+```
+Descargue la definición del esquema del archivo de configuración privada ejecutando el comando de PowerShell siguiente:
+
+```powershell
+(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PrivateConfigurationSchema | Out-File -Encoding utf8 -FilePath 'PrivateWadConfig.xsd'
+```
+Este es un ejemplo del archivo XML de configuración privada
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <StorageAccount name="string" key="string" />
+  <AzureMonitorAccount>
+    <ServicePrincipalMeta>
+      <PrincipalId>string</PrincipalId>
+      <Secret>string</Secret>
+    </ServicePrincipalMeta>
+  </AzureMonitorAccount>
+  <SecondaryStorageAccounts>
+    <StorageAccount name="string" />
+  </SecondaryStorageAccounts>
+  <SecondaryEventHubs>
+    <EventHub Url="string" SharedAccessKeyName="string" SharedAccessKey="string" />
+  </SecondaryEventHubs>
+</PrivateConfig>
 ```
 
 ## <a name="apply-windows-azure-diagnostics-extension-using-arm-template"></a>Aplicación de la extensión de Windows Azure Diagnostics mediante la plantilla de ARM
@@ -61,7 +114,8 @@ $cloudService | Update-AzCloudService
 
 ```
 
+
 ## <a name="next-steps"></a>Pasos siguientes 
-- Revise los [requisitos previos de implementación](deploy-prerequisite.md) para Cloud Services (soporte extendido).
-- Consulte las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
+- Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
+- Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
 - Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

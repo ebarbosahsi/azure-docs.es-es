@@ -3,14 +3,14 @@ title: Inicio de un runbook de Azure Automation en un webhook
 description: En este artículo se indica cómo usar un webhook para iniciar un runbook en Azure Automation desde una llamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894769"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775789"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Inicio de un runbook desde un webhook
 
@@ -101,8 +101,8 @@ Use el procedimiento siguiente para crear un nuevo Webhook vinculado a un Runboo
 4. Rellene los campos **Nombre** y **Fecha de expiración** del webhook y especifique si debe habilitarse. Para más información sobre las propiedades del webhook, consulte [Propiedades de un webhook](#webhook-properties).
 5. Haga clic en el icono de copiar y presione Ctrl+C para copiar la dirección URL del webhook. A continuación, guárdela en un lugar seguro. 
 
-    > [!NOTE]
-    > Una vez creado el webhook, ya no puede volver a recuperar la dirección URL.
+    > [!IMPORTANT]
+    > Una vez creado el webhook, ya no puede volver a recuperar la dirección URL. Asegúrese de copiarlo y grabarlo como se indicó anteriormente.
 
    ![Dirección URL de Webhook](media/automation-webhooks/copy-webhook-url.png)
 
@@ -134,6 +134,111 @@ Si la solicitud es correcta, la respuesta del webhook contiene el identificador 
 ```
 
 El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede conseguir esta información si usa el identificador de trabajo con otro mecanismo, como [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
+
+### <a name="use-a-webhook-from-an-arm-template"></a>Uso de un webhook de una plantilla de ARM
+
+Los webhooks de Automation también se pueden invocar mediante [plantillas de Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview). La plantilla ARM emite una solicitud `POST` y recibe un código de retorno como cualquier otro cliente. Consulte [Uso de webhooks](#use-a-webhook).
+
+   > [!NOTE]
+   > Por motivos de seguridad, el URI solo se devuelve la primera vez que se implementa una plantilla.
+
+Esta plantilla de ejemplo crea un entorno de prueba y devuelve el URI del webhook que crea.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccountName": {
+            "type": "String",
+            "metadata": {
+                "description": "Automation account name"
+            }
+        },
+        "webhookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Name"
+            }
+        },
+        "runbookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Runbook Name for which webhook will be created"
+            }
+        },
+        "WebhookExpiryTime": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Expiry time"
+            }
+        },
+        "_artifactsLocation": {
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+            "type": "String",
+            "metadata": {
+                "description": "URI to artifacts location"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2020-01-13-preview",
+            "name": "[parameters('automationAccountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "Free"
+                }
+            },
+            "resources": [
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('runbookName')]",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]"
+                    ],
+                    "properties": {
+                        "runbookType": "Python2",
+                        "logProgress": "false",
+                        "logVerbose": "false",
+                        "description": "Sample Runbook",
+                        "publishContentLink": {
+                            "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                },
+                {
+                    "type": "webhooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('webhookName')]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]",
+                        "[parameters('runbookName')]"
+                    ],
+                    "properties": {
+                        "isEnabled": true,
+                        "expiryTime": "[parameters('WebhookExpiryTime')]",
+                        "runbook": {
+                            "name": "[parameters('runbookName')]"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "webhookUri": {
+            "type": "String",
+            "value": "[reference(parameters('webhookName')).uri]"
+        }
+    }
+}
+```
 
 ## <a name="renew-a-webhook"></a>Renovación de webhooks
 

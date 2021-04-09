@@ -6,12 +6,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a800f78df26ce76144994bb9da2cac6271323eb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031130"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419429"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos en Azure Data Explorer mediante Azure Monitor
 Azure Monitor admite las consultas entre los servicios Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) y [Log Analytics](../logs/data-platform-logs.md). Después puede consultar el clúster de Azure Data Explorer mediante las herramientas de Log Analytics o Application Insights y hacer referencia al mismo en una consulta entre servicios. En el artículo se muestra cómo realizar una consulta entre servicios.
@@ -37,6 +37,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* Los nombres de las bases de datos distinguen mayúsculas de minúsculas.
 >* No se admite la consulta entre recursos como una alerta.
+>* No se admite la identificación de la columna Marca de tiempo en el clúster. La API de consulta de Log Analytics no se pasará con el filtro de tiempo.
 
 ## <a name="combine-azure-data-explorer-cluster-tables-with-a-log-analytics-workspace"></a>Combinación de tablas de clúster de Azure Data Explorer con un área de trabajo de Log Analytics
 

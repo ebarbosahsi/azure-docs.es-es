@@ -4,12 +4,12 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 1f9204534fcdfbf7c393eaafdbae62c4c4321f2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 264d6d4b0b397a29b5dc1db4bb299297c1e30584
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573875"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419242"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](../agents/diagnostics-extension-overview.md) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -52,9 +52,8 @@ La telemetría de la aplicación se almacena, analiza y muestra en un recurso de
 Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../../azure-resource-manager/templates/deploy-powershell.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-Le recomendamos que cree un recurso independiente para cada componente de la aplicación. Es decir, crear un recurso para cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero crear un [panel](./overview-dashboard.md) que reúna los gráficos de clave de todos los componentes, de modo que pueda compararlos y supervisarlos conjuntamente de un solo vistazo. 
 
-Un enfoque alternativo consiste en enviar la telemetría de más de un rol al mismo recurso, pero [agregar una propiedad de dimensión para cada elemento de telemetría](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique su rol de origen. En este enfoque, los gráficos de métricas, como las excepciones, normalmente muestran una agregación de las cuentas de diferentes roles, pero puede segmentar el gráfico por el identificador de rol cuando sea necesario. También se pueden filtrar las búsquedas por la misma dimensión. Esta alternativa hace un poco más fácil el poder ver todo al mismo tiempo, pero también puede causar confusión entre los roles.
+Se recomienda [agregar una propiedad de dimensión a cada elemento de telemetría](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) que identifique su rol de origen. En este enfoque, los gráficos de métricas, como las excepciones, normalmente muestran una agregación de las cuentas de diferentes roles, pero puede segmentar el gráfico por el identificador de rol cuando sea necesario. También se pueden filtrar las búsquedas por la misma dimensión. Esta alternativa hace un poco más fácil el poder ver todo al mismo tiempo, pero también puede causar confusión entre los roles.
 
 La telemetría del explorador suele incluirse en el mismo recurso que su rol web de lado servidor.
 

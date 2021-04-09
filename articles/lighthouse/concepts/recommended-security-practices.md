@@ -1,14 +1,14 @@
 ---
 title: Procedimientos de seguridad recomendados
 description: Al usar Azure Lighthouse, es importante tener en cuenta la seguridad y el control de acceso.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843730"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419310"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
@@ -47,5 +47,6 @@ Tenga en cuenta que al [incorporar clientes a través de una oferta pública de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Revise la [información de la línea de base de seguridad](../security-baseline.md) para comprender cómo se aplica la guía de Azure Security Benchmark a Azure Lighthouse.
 - [Implemente Multi-Factor Authentication de Azure AD](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Más información sobre las [experiencias de administración entre inquilinos](cross-tenant-management-experience.md).

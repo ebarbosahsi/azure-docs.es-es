@@ -8,19 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736650"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598905"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
+
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="general-api-updates"></a>Actualizaciones de API generales
+* Versión de la nueva API v3.1-preview.4 que incluye 
+   * Cambios en el cuerpo de respuesta JSON de minería de opiniones: 
+      * `aspects` ahora es `targets` y `opinions` ahora es `assessments`. 
+   * Cambios en el cuerpo de respuesta JSON de la API web hospedada de Text Analytics for Health: 
+      * El nombre booleano `isNegated` de un objeto de entidad detectado para la negación está en desuso y se ha reemplazado por la detección de aserciones.
+      * Una nueva propiedad denominada `role` ahora forma parte de la relación extraída entre un atributo y una entidad, así como de la relación entre las entidades.  Agrega especificidad al tipo de relación detectado.
+   * La vinculación de entidades ahora está disponible como tarea asincrónica en el punto de conexión `/analyze`.
+   * Un nuevo parámetro `pii-categories` ahora está disponible en el punto de conexión `/pii`.
+      * Este parámetro le permite especificar determinadas entidades de información de identificación personal, así como las que no se admiten de forma predeterminada para el idioma de entrada.
+* Bibliotecas cliente actualizadas, que incluye operaciones asíncrónicas de Analyze y Text Analytics for Health. Puede encontrar ejemplos en GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [Más información sobre Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### <a name="text-analytics-for-health-updates"></a>Actualizaciones de Text Analytics for Health
+
+* Nueva versión del modelo `2021-03-01` para el punto de conexión `/health` y el contenedor local que proporciona
+    * Cambio de nombre del tipo de entidad `Gene` a `GeneOrProtein`.
+    * Nuevo tipo de entidad `Date`.
+    * Detección de aserciones que reemplaza la detección de negaciones (solo disponible en la API v3.1-preview.4).
+    * Nueva propiedad `name` preferida para las entidades vinculadas que se ha normalizado a partir de varias ontologías y varios sistemas de codificación (solo disponible en la API v3.1-preview.4). 
+* Se ha publicado una nueva imagen de contenedor con la etiqueta `3.0.015370001-onprem-amd64` y la nueva versión de modelo `2021-03-01` en el repositorio de vista previa de contenedores. 
+* La imagen de contenedor de Text Analytics for Health se trasladará a un nuevo repositorio el próximo mes.  Busque una comunicación de correo electrónico sobre dónde se encuentra su nueva ubicación.
+> [!div class="nextstepaction"]
+> [Más información sobre Text Analytics para el estado](how-tos/text-analytics-for-health.md)
+>
+
+### <a name="text-analytics-resource-portal-update"></a>Actualización del portal de recursos de Text Analytics
+* Los **registros de texto procesados** ahora están disponibles como una métrica en la sección **Supervisión** del recurso de Text Analytics en Azure Portal.  
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -46,7 +84,7 @@ Estas versiones del modelo no están disponibles actualmente en la región Este 
 
 ## <a name="december-2020"></a>Diciembre de 2020
 
-* Detalles de los [precios actualizados](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) detalles de Text Analytics API
+* Se han [actualizado los precios](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) de Text Analytics API.
 
 ## <a name="november-2020"></a>Noviembre de 2020
 
@@ -59,8 +97,7 @@ Estas versiones del modelo no están disponibles actualmente en la región Este 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [Más información sobre Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 

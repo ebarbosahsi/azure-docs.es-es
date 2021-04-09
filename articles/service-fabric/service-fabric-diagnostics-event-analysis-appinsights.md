@@ -1,16 +1,14 @@
 ---
 title: Análisis de eventos de Azure Service Fabric con Application Insights
 description: Obtenga información sobre cómo visualizar y analizar eventos con Application Insights para la supervisión y el diagnóstico de clústeres de Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: f4d77cc3b2f2182b02d47f047070b819daa5f3c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0e84c3c1ab542dc4541ebdcfbc49f45e02458d9c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100589015"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626221"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 

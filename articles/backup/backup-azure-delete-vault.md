@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520466"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864965"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -48,6 +48,7 @@ Para eliminar correctamente un almacén, debe seguir los pasos en este orden:
   - **Servidores de administración MABS o DPM**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores de administración de copia de seguridad**. Si tiene DPM o Azure Backup Server (MABS), todos los elementos que se enumeran aquí se deben eliminar junto con sus datos de copia de seguridad (o debe anularse su registro). [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores de administración.
 
 - **Paso 4**: Debe asegurarse de que se han eliminado todas las cuentas de almacenamiento registradas. Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Cuentas de almacenamiento**. Si aparecen cuentas de almacenamiento, debe anular el registro de todas ellas. Para aprender a anular el registro de la cuenta, consulte [Anulación del registro de una cuenta de almacenamiento](manage-afs-backup.md#unregister-a-storage-account).
+- **Paso 5**: asegúrese de que no haya ningún punto de conexión privado creado para el almacén. Para ello, vaya al menú del panel del almacén > **Conexiones de punto de conexión privado** y a "Configuración" > Si el almacén ya tiene creada una conexión de punto de conexión privado o una que se va a crear, asegúrese de que la quita antes de continuar con la eliminación del almacén. 
 
 Después de completar estos pasos, puede continuar y [eliminar el almacén](#delete-the-recovery-services-vault).
 
@@ -73,6 +74,7 @@ Para detener la protección y eliminar los datos de copia de seguridad, siga est
 
          ![El panel Eliminar datos de copia de seguridad.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   Esta opción elimina las copias de seguridad programadas, además de eliminar las copias de seguridad a petición.
 3. Active el icono **Notificación**: ![El icono de notificación.](./media/backup-azure-delete-vault/messages.png) Una vez finalizado el proceso, el servicio muestra el siguiente mensaje: *Deteniendo copia de seguridad y eliminando datos de copia de seguridad para "* elemento de copia de seguridad *"* . *La operación se completó correctamente*.
 4. Seleccione **Actualizar** en el menú **Elementos de copia de seguridad** para comprobar si se ha eliminado el elemento de copia de seguridad.
 

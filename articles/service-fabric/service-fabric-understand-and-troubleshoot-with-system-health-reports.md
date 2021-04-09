@@ -1,16 +1,14 @@
 ---
 title: Solución de problemas con informes de estado del sistema
 description: Describe los informes de mantenimiento enviados que envían componentes de Azure Service Fabric y su uso para solucionar problemas de los clústeres o las aplicaciones.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 483483746b2cce66588e9481bca7e0de391070b8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96000664"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625898"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.

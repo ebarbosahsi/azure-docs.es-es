@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666678"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
@@ -63,11 +63,11 @@ Cada servidor aprovisionado viene preconfigurado con conjuntos de interfaces Eth
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nodo a nodo|
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Nodo a nodo|
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
@@ -135,11 +135,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -170,11 +170,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -210,11 +210,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -251,11 +251,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -306,11 +306,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usado para STONITH |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usado para STONITH |
@@ -352,11 +352,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usado para STONITH |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usado para STONITH |
@@ -406,21 +406,21 @@ Esta topología admite dos nodos en una configuración de conmutación por error
 
 ![Conmutación por error automática de host (1+1)](media/hana-supported-scenario/scaleup-with-standby.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -433,9 +433,9 @@ Los puntos de montaje siguientes están preconfigurados:
 
 
 
-### <a name="key-considerations"></a>Consideraciones clave
+### <a name=&quot;key-considerations&quot;></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En espera: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA en la unidad en espera.
+- En espera: los volúmenes y los puntos de montaje están configurados (marcados como &quot;obligatorios para la instalación de HANA") para la instalación de instancias de HANA en la unidad en espera.
  
 
 ## <a name="scale-out-with-standby"></a>Escalabilidad horizontal con espera
@@ -452,11 +452,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -488,11 +488,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -522,21 +522,21 @@ Esta topología es compatible con varios nodos en una configuración de escalabi
 ![Escalabilidad horizontal con recuperación ante desastres mediante replicación de almacenamiento](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -552,9 +552,9 @@ Los puntos de montaje siguientes están preconfigurados:
 |/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
 
 
-### <a name="key-considerations"></a>Consideraciones clave
+### <a name=&quot;key-considerations&quot;></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
--  En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad de HLI de recuperación ante desastres. 
+-  En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como &quot;obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad de HLI de recuperación ante desastres. 
 - En el sitio de recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante la conmutación por error. Para más información, consulte [Procedimiento de conmutación por error de recuperación ante desastres](./hana-overview-high-availability-disaster-recovery.md). 
 - El volumen de arranque de *clase SKU tipo I* se replica en el nodo de recuperación ante desastres.
 
@@ -572,11 +572,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -613,11 +613,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
@@ -658,21 +658,21 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ![Alta disponibilidad y recuperación ante desastres con HSR](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -689,9 +689,9 @@ Los puntos de montaje siguientes están preconfigurados:
 |/hana/logbackups/SID | Registros de rehacer para el SID de producción |
 
 
-### <a name="key-considerations"></a>Consideraciones clave
+### <a name=&quot;key-considerations&quot;></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como &quot;Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
 - El sitio primario se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema de HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre las redes regionales.
 
@@ -703,21 +703,21 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ![Alta disponibilidad y recuperación ante desastres con HSR (optimizado para costo)](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
-### <a name="ethernet"></a>Ethernet
+### <a name="ethernet&quot;></a>Ethernet
 Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name=&quot;storage&quot;></a>Storage
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -737,9 +737,9 @@ Los puntos de montaje siguientes están preconfigurados:
 |/hana/log/QA-SID/mnt00001 | Instalación de archivos de registro para el SID de QA |
 |/hana/logbackups/QA-SID | Registros de rehacer para el SID de QA |
 
-### <a name="key-considerations"></a>Consideraciones clave
+### <a name=&quot;key-considerations&quot;></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- En el sitio de recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como &quot;Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
 - En el sitio de recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El sitio primario se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema de HANA. 
 - [Global Reach](../../../expressroute/expressroute-global-reach.md) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre las redes regionales.
@@ -759,11 +759,11 @@ Las siguientes interfaces de red están preconfiguradas:
 
 | Interfaz lógica de NIC | Tipo de SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
 | --- | --- | --- | --- | --- |
-| Un | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| A | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
 | B | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Un | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| A | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
 | B | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
 | C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
 | D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
