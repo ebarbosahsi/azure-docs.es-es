@@ -2,19 +2,20 @@
 title: Interacción con Azure Cosmos DB mediante Apache Spark en Azure Synapse Link
 description: Cómo interactuar con Azure Cosmos DB mediante Apache Spark en Azure Synapse Link
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 09/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: 32e8ad5028920cefd717cdaa5429786c83367f6d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.custom: cosmos-db
+ms.openlocfilehash: 4a8367ea41ea96d8a412af965346684737d190fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671273"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627581"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interacción con Azure Cosmos DB mediante Apache Spark en Azure Synapse Link
 
@@ -28,6 +29,10 @@ Al interactuar con Azure Cosmos DB, se admiten las siguientes funcionalidades:
 * Apache Spark de Synapse también admite Spark Structured Streaming con Azure Cosmos DB como origen y receptor. 
 
 Las secciones siguientes le guiarán por la sintaxis de las funcionalidades anteriores. Los gestos en el área de trabajo de Azure Synapse Analytics están diseñados para proporcionarle una experiencia de introducción fácil de usar. Los gestos se muestran al hacer clic con el botón derecho en un contenedor de Azure Cosmos DB en la pestaña **Datos** del área de trabajo de Synapse. Con ellos, puede generar código rápidamente y adaptarlo a sus necesidades. También son ideales para detectar datos con un solo clic.
+
+> [!IMPORTANT]
+> Debe tener en cuenta algunas restricciones en el esquema analítico que podrían provocar un comportamiento inesperado en las operaciones de carga de datos.
+> Por ejemplo, en el esquema analítico solo están disponibles las mil primeras propiedades del esquema transaccional, las propiedades con espacios no lo están, etc. Si aparecen resultados inesperados, consulte las [restricciones del esquema del almacén analítico](../../cosmos-db/analytical-store-introduction.md#schema-constraints) para obtener más información.
 
 ## <a name="query-azure-cosmos-db-analytical-store"></a>Consulta al almacén analítico de Azure Cosmos DB
 

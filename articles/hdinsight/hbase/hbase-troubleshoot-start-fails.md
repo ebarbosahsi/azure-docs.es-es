@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: c30077d0d8f359e93745b53755f9dae998073d4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936893"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) no se inicia en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 
-## <a name="scenario-atomic-renaming-failure"></a>Escenario: Error de cambio de nombre atómico
+## <a name="scenario-atomic-renaming-failure"></a>Escenario: error del cambio de nombre atómico
 
 ### <a name="issue"></a>Problema
 
@@ -37,7 +37,7 @@ Una vez que haya ejecutado estos comandos, HMaster debería iniciarse de inmedia
 
 ---
 
-## <a name="scenario-no-server-address-listed"></a>Escenario: No se muestra ninguna dirección de servidor
+## <a name="scenario-no-server-address-listed"></a>Escenario: no se enumera ninguna dirección de servidor
 
 ### <a name="issue"></a>Problema
 
@@ -68,7 +68,7 @@ No se pudo inicializar HMaster después de reiniciar HBase.
 
 ---
 
-## <a name="scenario-javaioioexception-timedout"></a>Escenario: java.io.IOException: Timedout
+## <a name="scenario-javaioioexception-timedout"></a>Escenario: java.io.IOException: tiempo de expiración agotado
 
 ### <a name="issue"></a>Problema
 
@@ -90,7 +90,7 @@ Este problema puede aparecer si hay muchas tablas y regiones que no se han vacia
 
 ---
 
-## <a name="scenario-frequent-region-server-restarts"></a>Escenario: Reinicios frecuentes del servidor de regiones
+## <a name="scenario-frequent-region-server-restarts"></a>Escenario: reinicios frecuentes del servidor de regiones
 
 ### <a name="issue"></a>Problema
 
@@ -112,7 +112,7 @@ Cambie el tiempo de espera de sesión de Zookeeper; no solo es necesario cambiar
 
 1. Acceda a la interfaz de usuario de Ambari, vaya a **HBase -> Configs -> Settings** (HBase -> Configuraciones -> Configuración) y, en la sección, Timeouts (Tiempos de espera), cambie el valor del tiempo de espera de la sesión de Zookeeper.
 
-1. Acceda a la interfaz de usuario de Ambari UI, vaya a **Zookeeper -> Configs -> Custom** (Zookeeper -> Configuraciones -> Personalizar) `zoo.cfg` y agregue o cambie el siguiente valor. Asegúrese de que el valor sea el mismo que `zookeeper.session.timeout` de HBase.
+1. Acceda a la interfaz de usuario de Ambari UI, vaya a **Zookeeper -> Configs -> Custom (Zookeeper -> Configuraciones -> Personalizar)** `zoo.cfg` y agregue o cambie el siguiente valor. Asegúrese de que el valor sea el mismo que `zookeeper.session.timeout` de HBase.
 
     ```
     Key: maxSessionTimeout Value: 120000  
@@ -122,7 +122,7 @@ Cambie el tiempo de espera de sesión de Zookeeper; no solo es necesario cambiar
 
 ---
 
-## <a name="scenario-log-splitting-failure"></a>Escenario: Error de división de registro
+## <a name="scenario-log-splitting-failure"></a>Escenario: error de división del registro
 
 ### <a name="issue"></a>Problema
 

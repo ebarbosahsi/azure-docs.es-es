@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800115"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558013"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Generación de un URI de SAS para una imagen de máquina virtual
 
 > [!NOTE]
-> Para publicar la máquina virtual, no necesita un URI de SAS. Simplemente puede compartir una imagen en el Centro de partners. Consulte [Procedimiento para crear una máquina virtual con una base aprobada](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) o [Procedimiento para crear una máquina virtual mediante su propia imagen](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image).
+> Para publicar la máquina virtual, no necesita un URI de SAS. Simplemente puede compartir una imagen en el Centro de partners. Consulte [Procedimiento para crear una máquina virtual con una base aprobada](./azure-vm-create-using-approved-base.md) o [Procedimiento para crear una máquina virtual mediante su propia imagen](./azure-vm-create-using-own-image.md).
 
 La generación de los identificadores URI de SAS para los discos duros virtuales debe cumplir los requisitos siguientes:
 

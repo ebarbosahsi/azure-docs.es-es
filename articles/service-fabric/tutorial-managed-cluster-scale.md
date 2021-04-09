@@ -4,10 +4,10 @@ description: En este tutorial aprenderá a escalar horizontalmente un tipo de no
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785437"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>Tutorial: Escalado horizontal de un clúster administrado de Service Fabric (versión preliminar)

@@ -4,16 +4,16 @@ description: Introducción a las vistas de base de datos SQL de Azure Blockchain
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c7fba590c9c8951e1862c28cb24dbde52c8da8d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003328"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625541"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Vistas de base de datos de Azure Blockchain Workbench
 
-Azure Blockchain Workbench (versión preliminar) entrega datos de libros de contabilidad distribuida a una base de datos SQL *fuera de la cadena*. La base de datos fuera de la cadena hace posible usar SQL y las herramientas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interactuar con los datos de la cadena de bloques.
+Azure Blockchain Workbench (versión preliminar) entrega datos de libros de contabilidad distribuida a una base de datos SQL *fuera de la cadena*. La base de datos fuera de la cadena hace posible usar SQL y las herramientas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), para interactuar con los datos de la cadena de bloques.
 
 Azure Blockchain Workbench proporciona un conjunto de vistas de base de datos que dan acceso a los datos y que le resultarán útiles al realizar las consultas. Estas vistas están muy desnormalizadas lo cual facilita los primeros pasos para generar rápidamente informes, análisis y, en caso contrario, consumir los datos de la cadena de bloques con las herramientas existentes y sin tener que volver a entrenar al personal de la base de datos.
 
@@ -298,7 +298,7 @@ Esta vista proporciona detalles sobre los miembros del consorcio que se han apro
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Esta vista representa los principales metadatos del flujo de trabajo así como las funciones y parámetros de este. Diseñada para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo. Para cada flujo de trabajo, esta vista contiene los datos siguientes:
+Esta vista representa los principales metadatos del flujo de trabajo, así como las funciones y parámetros de este. Diseñada para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo. Para cada flujo de trabajo, esta vista contiene los datos siguientes:
 
 -   Definición de aplicación asociada
 -   Definición de flujo de trabajo asociada
@@ -325,7 +325,7 @@ Esta vista representa los principales metadatos del flujo de trabajo así como l
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Esta vista representa los principales metadatos del flujo de trabajo así como las funciones y parámetros de este. Diseñada para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo. Para cada función del flujo de trabajo, esta vista contiene los datos siguientes:
+Esta vista representa los principales metadatos del flujo de trabajo, así como las funciones y parámetros de este. Diseñada para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo. Para cada función del flujo de trabajo, esta vista contiene los datos siguientes:
 
 -   Definición de aplicación asociada
 -   Definición de flujo de trabajo asociada

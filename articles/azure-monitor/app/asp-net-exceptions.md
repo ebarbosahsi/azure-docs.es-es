@@ -4,12 +4,12 @@ description: Capture las excepciones de las aplicaciones ASP.NET junto con la te
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 926516075c7d43e6e800403a69ff3ab8f1233fcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88936510"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726998"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](./app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.
@@ -215,7 +215,7 @@ Las excepciones no controladas que se originan en los controladores dan lugar no
 ### <a name="prior-versions-support"></a>Compatibilidad con versiones anteriores
 Si usa MVC 4 (y anterior) del SDK web de Application Insights 2.5 (y anterior), consulte los siguientes ejemplos para realizar el seguimiento de las excepciones.
 
-Si la configuración de [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) es `Off`, entonces habrá excepciones disponibles para que las recopile el [módulo HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)). Sin embargo, si es `RemoteOnly` (valor predeterminado), o `On`, la excepción se desactivará y no estará disponible para que Application Insights la recopile automáticamente. Para corregir este problema, invalide la [clase System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute?view=aspnet-mvc-5.2) y aplique la clase invalidada como se muestra a continuación para las diferentes versiones de MVC ([origen de GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Si la configuración de [CustomErrors](/previous-versions/dotnet/netframework-4.0/h0hfz6fc(v=vs.100)) es `Off`, entonces habrá excepciones disponibles para que las recopile el [módulo HTTP](/previous-versions/dotnet/netframework-3.0/ms178468(v=vs.85)). Sin embargo, si es `RemoteOnly` (valor predeterminado), o `On`, la excepción se desactivará y no estará disponible para que Application Insights la recopile automáticamente. Para corregir este problema, invalide la [clase System.Web.Mvc.HandleErrorAttribute](/dotnet/api/system.web.mvc.handleerrorattribute) y aplique la clase invalidada como se muestra a continuación para las diferentes versiones de MVC ([origen de GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;

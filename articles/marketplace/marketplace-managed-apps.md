@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433548"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103232263"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guía de publicación de aplicaciones administradas de Azure
 
@@ -33,8 +33,8 @@ Use el tipo de oferta de aplicación administrada con las siguientes condiciones
 |Requisitos |Detalles  |
 |---------|---------|
 |Una suscripción de Azure | Las aplicaciones administradas se deben implementar en la suscripción del cliente, pero las puede administrar un tercero. |
-|Facturación y medición    |  Los recursos se proporcionan en la suscripción de Azure de un cliente. Las transacciones de VM que usan el modelo de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción de Azure del cliente. <br><br> En el caso de las VM con el modelo "traiga su propia licencia", Microsoft factura los costos de infraestructura derivados en la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente.        |
-|Un disco duro virtual (VHD) compatible con Azure    |   Las máquinas virtuales deben estar basadas en Windows o Linux.<br><br>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para más información sobre la creación de un disco duro virtual de Windows, consulte [Creación de una oferta de aplicación de Azure](./create-new-azure-apps-offer.md). |
+|Facturación y medición    |  Los recursos se proporcionan en la suscripción de Azure de un cliente. Los recursos de Azure que usan el modelo de pago por uso se realizan con el cliente mediante Microsoft y se facturan con la suscripción a Azure del cliente. <br><br> En el caso de los recursos de Azure de traiga su propia licencia, Microsoft factura los costos de infraestructura derivados de la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente.        |
+|Un paquete de aplicación administrado por Azure    |   La plantilla de Azure Resource Manager configurada y la definición de la interfaz de usuario que se usarán para implementar la aplicación en la suscripción del cliente.<br><br>Para obtener más información sobre cómo crear una aplicación administrada, consulte [Información general sobre las aplicaciones administradas](../azure-resource-manager/managed-applications/publish-service-catalog-app.md).|
 
 ---
 

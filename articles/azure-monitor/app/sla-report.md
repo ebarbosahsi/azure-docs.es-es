@@ -4,10 +4,10 @@ description: Calcule e informe sobre el Acuerdo de Nivel de Servicio para la pru
 ms.topic: conceptual
 ms.date: 02/8/2021
 ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101714058"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Libro sobre tiempo de inactividad, Acuerdo de Nivel de Servicio e interrupciones

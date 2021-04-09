@@ -2,25 +2,20 @@
 title: Elección de los tamaños y las imágenes de máquina virtual de los grupos
 description: Cómo elegir uno de los tamaños de máquina virtual y una de las versiones de sistema operativo disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800489"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027387"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño y una imagen de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
 Cuando seleccione un tamaño de nodo para un grupo de Azure Batch, puede elegir entre casi todas las familias y tamaños de máquinas virtuales disponibles en Azure. Azure ofrece una variedad de tamaños para máquinas virtuales Windows y Linux para diferentes cargas de trabajo.
 
 ## <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
-
-A la hora de elegir un tamaño de máquina virtual para el grupo de Batch, hay algunas excepciones y limitaciones:
-
-- Algunas series o tamaños de máquina virtual no se admiten en Batch.
-- Algunos tamaños de máquina virtual están restringidos y tienen que habilitarse específicamente antes de poder asignarlos.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Grupos en la configuración de máquina virtual
 
@@ -32,16 +27,14 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | A | Todos los tamaños, *excepto* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Todos los tamaños |
 | B | No compatible |
-| DC | No compatible |
+| DCsv2 | Todos los tamaños |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
-| Dav4 | Todos los tamaños |
-| Dasv4 | Todos los tamaños |
+| Dav4, Dasv4 | Todos los tamaños |
 | Ddv4, Ddsv4 |  Todos los tamaños |
 | Dv4, Dsv4 | No compatible |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
-| Eav4 | Todos los tamaños |
-| Easv4 | Todos los tamaños |
+| Eav4, Easv4 | Todos los tamaños |
 | Edv4, Edsv4 |  Todos los tamaños |
 | Ev4, Esv4 | No compatible |
 | F, Fs | Todos los tamaños |
@@ -50,6 +43,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | H | Todos los tamaños |
 | HB | Todos los tamaños |
 | HBv2 | Todos los tamaños |
+| HBv3 | Standard_HB120rs_v3 (otros tamaños todavía no están disponibles) |
 | HC | Todos los tamaños |
 | LS | Todos los tamaños |
 | Lsv2 | Todos los tamaños |
@@ -58,7 +52,7 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NC | Todos los tamaños |
 | NCv2 | Todos los tamaños |
 | NCv3 | Todos los tamaños |
-| NCasT4_v3 | Ninguno: no disponible todavía |
+| NCasT4_v3 | Todos los tamaños |
 | ND | Todos los tamaños |
 | NDv2 | Ninguno: no disponible todavía |
 | NV | Todos los tamaños |
