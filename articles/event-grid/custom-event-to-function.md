@@ -4,10 +4,10 @@ description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure o el portal
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791751"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a una instancia de Azure Functions con Event Grid
