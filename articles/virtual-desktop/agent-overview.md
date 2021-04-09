@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601245"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601897"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introducción al agente de Windows Virtual Desktop
 
@@ -32,7 +32,10 @@ El agente de Windows Virtual Desktop se instala inicialmente de una de dos maner
 
 ## <a name="agent-update-process"></a>Proceso de actualización del agente
 
-El servicio Windows Virtual Desktop actualiza automáticamente el agente cada vez que hay disponible una actualización. Las actualizaciones del agente pueden incluir nuevas funcionalidades o corregir problemas anteriores. Una vez instalada la versión inicial del agente de Windows Virtual Desktop, el agente consulta periódicamente el servicio Windows Virtual Desktop para establecer si hay disponible una versión más reciente del agente y de sus componentes. Si hay una nueva versión, el cargador de arranque del agente descarga automáticamente la versión más reciente del agente, la pila en paralelo y el agente de Geneva Monitoring.
+El servicio Windows Virtual Desktop actualiza el agente cada vez que hay disponible una actualización. Las actualizaciones del agente pueden incluir nuevas funcionalidades o correcciones de problemas anteriores. Una vez instalada la versión inicial del agente de Windows Virtual Desktop, el agente consulta periódicamente el servicio Windows Virtual Desktop para establecer si hay disponible una versión más reciente del agente, la pila o el componente de supervisión. Si ya se ha implementado una versión más reciente de cualquiera de los componentes, el componente actualizado se instalará automáticamente.
+
+Las nuevas versiones del agente se implementan periódicamente en períodos de una semana en todas las suscripciones de Azure. Estos períodos de actualización se denominan "pilotos". Cuando se produce un piloto, es posible que observe que las máquinas virtuales del grupo de hosts reciben la actualización del agente en momentos diferentes. Todos los agentes de máquina virtual de todas las suscripciones se actualizarán al final del período de implementación. El sistema de distribución de paquetes piloto de Windows Virtual Desktop mejora la confiabilidad del servicio al garantizar la estabilidad y la calidad de la actualización del agente.
+
 
 >[!NOTE]
 >- Cuando el agente de Geneva Monitoring se actualiza a la versión más reciente, se busca la antigua tarea GenevaTask y se deshabilita antes de crear una nueva tarea para el nuevo agente de supervisión. La versión anterior del agente de supervisión no se elimina en caso de que la versión más reciente del agente de supervisión tenga un problema que requiera revertir a la versión anterior para corregirlo. Si la versión más reciente tiene un problema, el agente de supervisión anterior se volverá a habilitar para continuar con la entrega de datos de supervisión. Todas las versiones de supervisión anteriores a la última que instaló antes de la actualización se eliminarán de la VM.

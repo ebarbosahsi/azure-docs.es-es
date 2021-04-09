@@ -1,46 +1,46 @@
 ---
 title: Configurar un dispositivo de Azure Migrate para VMware
-description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
+description: Aprenda a configurar un dispositivo de Azure Migrate para evaluar y migrar servidores en el entorno de VMware.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: bac82b2939e5b6a674c75be2cd330dd0fa4b8487
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035805"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865237"
 ---
-# <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
+# <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configuración de un dispositivo para servidores en el entorno de VMware
 
-Siga este artículo para configurar el dispositivo de Azure Migrate para su evaluación con la herramienta [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) y para la migración sin agente mediante la herramienta [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Siga este artículo para configurar el dispositivo de Azure Migrate para la evaluación con la herramienta [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) y para la migración sin agente mediante la herramienta [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que Azure Migrate: evaluación de servidores y migración de servidores usan para detectar los servidores que se ejecutan en vCenter Server, enviar los metadatos de configuración y rendimiento del servidor a Azure y para la replicación de servidores con la migración sin agente.
+El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que Azure Migrate: Discovery and assessment y Server Migration emplean para detectar los servidores que se ejecutan en vCenter Server, enviar los metadatos de configuración y rendimiento del servidor a Azure y para la replicación de servidores mediante la migración sin agente.
 
 Puede implementar el dispositivo mediante un par de métodos:
 
 - Cree un servidor en vCenter Server mediante una plantilla OVA descargada. Este es el método que se describe en este artículo.
 - Configure el dispositivo en un servidor existente mediante un script de instalador de PowerShell. [Este método](deploy-appliance-script.md) se debe usar si no se puede emplear una plantilla OVA o si trabaja en Azure Government.
 
-Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate: evaluación de servidores, regístrela en el proyecto de Azure Migrate y configure el dispositivo para iniciar la detección.
+Una vez creado el dispositivo, compruebe que se puede conectar a Azure Migrate: Discovery and assessment, regístrelo en el proyecto y configúrelo para iniciar la detección.
 
 ## <a name="deploy-with-ova"></a>Implementación con OVA
 
 Para configurar el dispositivo mediante una plantilla de OVA:
-1. Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
+1. Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
 1. Descargue una plantilla OVA e impórtela en vCenter Server. Compruebe que la plantilla OVA sea segura.
 1. Cree la máquina virtual del dispositivo desde el archivo OVA, y compruebe que se puede conectar a Azure Migrate.
-1. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto de Azure Migrate.
+1. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Generación de la clave del proyecto de Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Generación de la clave del proyecto
 
-1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
-2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Sí, con VMware vSphere Hypervisor**.
-3. En **1: Generación de la clave del proyecto de Azure Migrate**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de servidores en el entorno de VMware. El nombre debe ser alfanumérico con 14 caracteres como máximo.
+1. En **Migration Goals** > **Servers** >  **Azure Migrate: Discovery and assessment** (Objetivos de migración > Servidores > Azure Migrate: Discovery and assessment), seleccione **Discover** (Detectar).
+2. En **Discover servers** > **Are your servers virtualized?** (Detectar servidores > ¿Están virtualizados sus servidores?), seleccione **Sí, con VMware vSphere Hypervisor**.
+3. En **1:Generate project key** (1: Generar la clave de proyecto), escriba el nombre del dispositivo de Azure Migrate que va a configurar para detectar los servidores del entorno de VMware. El nombre debe ser alfanumérico y tener 14 caracteres como máximo.
 1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar durante la creación de recursos.
-1. Después de la creación correcta de los recursos de Azure, se genera una **clave del proyecto Azure Migrate**.
+1. Después de que se han creado correctamente los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
 ### <a name="2-download-the-ova-template"></a>2. Descarga de la plantilla OVA
@@ -95,7 +95,7 @@ Configure el dispositivo por primera vez.
 
 1. En la consola de cliente de vSphere, haga clic con el botón derecho en el servidor y, luego, seleccione **Open Console** (Abrir consola).
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.
-3. Abra un explorador en cualquier equipo que pueda conectarse al servidor del dispositivo y abra la dirección URL del administrador de configuración del dispositivo: `https://appliance name or IP address: 44368`.
+3. Inicie un explorador en cualquier servidor que pueda conectarse al servidor de dispositivo y abra la dirección URL del administrador de configuración del dispositivo: `https://appliance name or IP address: 44368`.
 
    También puede abrir el administrador de configuración desde el escritorio del servidor del dispositivo mediante la selección de su acceso directo.
 1. Acepte los **términos de licencia** y lea la información de terceros.
@@ -117,7 +117,7 @@ Configure el dispositivo por primera vez.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Pegue la **clave del proyecto de Azure Migrate** copiada desde el portal. Si no tiene la clave, vaya a **Server Assessment > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Pegue la **clave de proyecto** copiada desde el portal. Si no tiene la clave, vaya a **Discovery and assessment (Detección y evaluación) > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal que muestra el código del dispositivo":::
@@ -141,7 +141,7 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 
 1. En **Step 1: Provide vCenter Server credentials** (Paso 1: Proporcionar las credenciales de vCenter Server), haga clic en **Agregar credenciales** para especificar un nombre descriptivo para las credenciales, agregue un **Nombre de usuario** y una **Contraseña** para la cuenta de vCenter Server que el dispositivo usará para detectar los servidores que se ejecutan en vCenter Server.
     - Debe haber configurado una cuenta con los permisos necesarios, como se explica en este artículo.
-    - Si desea limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta usada por Azure Migrate.
+    - Si quiere limitar el ámbito de la detección a objetos específicos de VMware (centros de datos de vCenter Server, clústeres, una carpeta de clústeres, hosts, una carpeta de hosts o máquinas virtuales individuales), consulte las instrucciones de [este artículo](set-discovery-scope.md) para restringir la cuenta que usa Azure Migrate.
 1. En **Paso 2: Proporcionar los detalles de vCenter Server**, haga clic en **Agregar origen de detección** para seleccionar el nombre descriptivo de las credenciales en la lista desplegable, especifique la **Dirección IP/FQDN** de vCenter Server. Puede dejar el **puerto** en el valor predeterminado (443) o especificar un puerto personalizado en el que vCenter Server escuche y hacer clic en **Guardar**.
 1. Al hacer clic en **Guardar**, el dispositivo intentará validar la conexión a vCenter Server con las credenciales proporcionadas y mostrará el **Estado de validación** en la tabla con la Dirección IP/FQDN de vCenter Server.
 1. Puede **volver a validar** la conectividad a vCenter Server en cualquier momento antes de iniciar la detección.
@@ -154,8 +154,6 @@ En **Step 3: Provide server credentials to perform software inventory, agentless
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 del administrador de configuración de dispositivos para obtener los detalles del servidor":::
 
-> [!Note]
-> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 Si quiere aprovechar estas características, puede proporcionar las credenciales del servidor siguiendo los pasos que se indican a continuación. El dispositivo intentará asignar automáticamente las credenciales a los servidores para ejecutar las características de detección.
 

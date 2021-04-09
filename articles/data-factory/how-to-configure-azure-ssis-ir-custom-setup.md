@@ -8,10 +8,10 @@ ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
 ms.openlocfilehash: b1b3a34ac495936ed92e29353a41efb8c462768f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387740"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalización de la instalación en una instancia de Azure-SSIS Integration Runtime
@@ -43,7 +43,7 @@ Las siguientes limitaciones solo se aplican a instalaciones personalizadas está
 
 - El controlador ODBC de IBM iSeries Access no se admite en Azure-SSIS IR. Puede que vea errores de instalación durante la instalación personalizada. Si este es el caso, póngase en contacto con el servicio de soporte técnico de IBM para obtener ayuda.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387366"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
@@ -66,7 +66,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree conjuntos de datos con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una canalización con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
+Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. El ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage muestra las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de DB2.
 
@@ -105,7 +105,7 @@ En el caso de la actividad de copia, si el origen es de tipo **RelationalSource*
 > [!NOTE]
 > Los nombres de esquema y tabla distinguen mayúsculas de minúsculas. En la instrucción de consulta, escriba los nombres de propiedades entre "" (comillas dobles).
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Ejemplo JSON: Copiar datos de DB2 a Azure Blob Storage
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage
 Este ejemplo proporciona definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En el ejemplo se muestra cómo copiar datos desde una base de datos DB2 a Blob Storage. Sin embargo, es posible copiar los datos a [cualquier tipo de receptor de almacén de datos compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
 
 El ejemplo consta de las siguientes entidades de Data Factory:

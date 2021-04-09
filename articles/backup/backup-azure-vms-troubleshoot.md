@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97831557"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559373"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -139,7 +139,7 @@ Para comprobarlo, vaya a los ***registros de aplicaciones del sistema y del Viso
 
 Solución:
 
-* Considere la posibilidad de distribuir la carga entre los discos de la máquina virtual. Esto reducirá la carga en los discos individuales. Para [comprobar la limitación de IOPS, puede habilitar las métricas de diagnóstico en el nivel de almacenamiento](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Considere la posibilidad de distribuir la carga entre los discos de la máquina virtual. Esto reducirá la carga en los discos individuales. Para [comprobar la limitación de IOPS, puede habilitar las métricas de diagnóstico en el nivel de almacenamiento](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Cambie la directiva de copia de seguridad para hacer copias de seguridad durante las horas de menor actividad, cuando la carga en la máquina virtual se encuentre en el nivel más bajo.
 * Actualice los discos de Azure para que admitan más IOPS. [Más información aquí](../virtual-machines/disks-types.md).
 
@@ -371,12 +371,12 @@ Normalmente, el agente de la máquina virtual ya está presente en las máquinas
 #### <a name="windows-vms---set-up-the-agent"></a>Máquinas virtuales Windows: configuración del agente
 
 * Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
-* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
+* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
 
 #### <a name="linux-vms---set-up-the-agent"></a>Máquinas virtuales Linux: configuración del agente
 
 * Instale la versión más reciente del agente desde el repositorio de distribución. Para obtener más información sobre el nombre del paquete, consulte el [repositorio del agente de Linux](https://github.com/Azure/WALinuxAgent).
-* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) y asegúrese de que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
+* En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) y asegúrese de que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Actualización del agente de máquina virtual
 

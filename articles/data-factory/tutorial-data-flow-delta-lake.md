@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100416793"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformación de datos en Delta Lake mediante flujos de datos de asignación
@@ -68,11 +68,11 @@ En este paso, creará una canalización que contiene una actividad de flujo de d
 
     ![Captura de pantalla que muestra la ubicación donde se asigna nombre al flujo de datos al crear uno nuevo.](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Generación de la lógica de transformación en el lienzo de flujo de datos
+## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Generación de la lógica de transformación en el lienzo de flujo de datos
 
 En este tutorial se generarán dos flujos de datos. El primer flujo de datos es un origen simple de receptor para generar una nueva instancia de Delta Lake a partir del archivo CSV de películas anterior. Por último, creará el diseño de flujo siguiente para actualizar los datos en Delta Lake.
 
-![Flujo final](media/data-flow/data-flow-tutorial-6.png "Flujo final")
+![Flujo final](media/data-flow/data-flow-tutorial-6.png &quot;Flujo final")
 
 ### <a name="tutorial-objectives"></a>Objetivos del tutorial
 

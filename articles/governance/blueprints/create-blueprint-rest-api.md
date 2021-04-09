@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915648"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558982"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -329,7 +329,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 - `{YourMG}`: reemplácelo por el identificador del grupo de administración
 - `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
-1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), que tiene una autorización diferente.
+1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist), que tiene una autorización diferente.
 
    - URI DE LA API REST
 
@@ -337,7 +337,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el **cuerpo de la solicitud** para sus propios usuarios, grupos o entidades de servicio.
+1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para recopilar los elementos objectId que se utilizarán en el **cuerpo de la solicitud** para sus propios usuarios, grupos o entidades de servicio.
 
    - URI DE LA API REST
 

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: b2ca78d30659fce6e4246c81216cae94b404955e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100520024"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning Studio (clásico)
@@ -138,8 +138,8 @@ Figura 8. Validación cruzada de un modelo de clasificación binaria.
 
 Figura 9. Resultados de la validación cruzada de un clasificador binario.
 
-## <a name="evaluating-a-multiclass-classification-model"></a>Evaluación de un modelo de clasificación multiclase
-En este experimento se usará el conocido conjunto de datos [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay cuatro valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][import-data].
+## <a name="evaluating-a-multiclass-classification-model&quot;></a>Evaluación de un modelo de clasificación multiclase
+En este experimento se usará el conocido conjunto de datos [Iris](https://archive.ics.uci.edu/ml/datasets/Iris &quot;Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay cuatro valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][import-data].
 
 ### <a name="creating-the-experiment"></a>Creación del experimento
 Agregue los módulos siguientes al área de trabajo en Azure Machine Learning Studio (clásico):

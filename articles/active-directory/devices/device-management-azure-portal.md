@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688916"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023442"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -33,6 +33,7 @@ La página **Todos los dispositivos** le permite:
 - Configurar los valores de la identidad del dispositivo.
 - Habilitar o deshabilitar Enterprise State Roaming.
 - Consultar los registros de auditoría relacionados con el dispositivo
+- Descargar dispositivos (versión preliminar)
 
 [![Vista Todos los dispositivos en Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -145,6 +146,14 @@ Para habilitar la funcionalidad de filtrado de versión preliminar en la vista *
 
 Ahora podrá **agregar filtros** a la vista **Todos los dispositivos**.
 
+### <a name="download-devices-preview"></a>Descargar dispositivos (versión preliminar)
+
+Los administradores de dispositivos en la nube, los administradores de Intune y los administradores globales pueden usar la opción **Descargar dispositivos (versión preliminar)** para exportar un archivo CSV de los dispositivos en función de los filtros aplicados. Si no se aplica ningún filtro a la lista, se exportarán todos los dispositivos. Una exportación puede ejecutarse durante un período máximo de una hora, en función de 
+
+La lista exportada incluye los siguientes atributos de identidad del dispositivo:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
+
 ## <a name="configure-device-settings"></a>Configuración de dispositivo
 
 Para administrar las identidades de los dispositivos en el portal de Azure AD, los dispositivos deben estar [registrados o unidos](overview.md) a Azure AD. Como administrador, puede controlar el proceso de registro y unión de dispositivos mediante la configuración de los siguientes valores del dispositivo.
@@ -170,7 +179,11 @@ Debe tener asignado uno de los roles siguientes para ver o administrar la config
 > [!NOTE]
 > La opción **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Exigir Multi-Factor Authentication para los dispositivos que se van a unir a Azure AD o a registrar en Azure AD) se aplica a los dispositivos que están unidos a Azure AD (con algunas excepciones) o registrados en Azure AD. Esta configuración no se aplica a los dispositivos unidos a Azure AD híbrido, a las [máquinas virtuales unidas a Azure AD en Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) ni a dispositivos unidos a Azure AD mediante el [modo de autoimplementación de Windows Autopilot](/mem/autopilot/self-deploying).
 
-- **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**.
+> [!IMPORTANT]
+> - Se recomienda usar la [acción del usuario "Registrar o unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) en el acceso condicional para exigir la autenticación multifactor para la unión o registro de un dispositivo. 
+> - Debe establecer esta opción en **No** si usa la directiva de acceso condicional para exigir la autenticación multifactor. 
+
+- **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**. Puede aumentar el valor hasta 100 y, si escribe un valor mayor que 100, Azure AD lo establecerá en 100. También puede usar un valor ilimitado para no aplicar otros límites aparte de los de cuota existentes.
 
 > [!NOTE]
 > La configuración del **número máximo de dispositivos** se aplica a los dispositivos que están unidos a Azure AD o registrados en Azure AD. Este parámetro no se aplica a los dispositivos unidos a Azure AD híbrido.
