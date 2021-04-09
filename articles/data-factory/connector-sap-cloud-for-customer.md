@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 4590129b8d0d7a63ef4291a023ea4d980c89368c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: b86559422b6efeed666a3ae35022563a66d9c7e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386652"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104597337"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copia de datos desde SAP Cloud for Customer (C4C) mediante Azure Data Factory
 
@@ -162,6 +162,7 @@ Para copiar datos de SAP Cloud for Customer, establezca el tipo de receptor en l
 | type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**  | Sí |
 | writeBehavior | El comportamiento de escritura de la operación. Puede ser "Insert" o "Update". | No. El valor predeterminado es "Insert". |
 | writeBatchSize | Tamaño de lote de la operación de escritura. El tamaño de lote para obtener un rendimiento óptimo puede ser diferente para otra tabla o servidor. | No. El valor predeterminado es 10. |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 

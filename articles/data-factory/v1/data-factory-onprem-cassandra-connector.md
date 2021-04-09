@@ -8,10 +8,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387417"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Movimiento de datos desde una base de datos de Cassandra local con Azure Data Factory
@@ -331,7 +331,7 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 #### <a name="table-exampletable_vt_stringset"></a>Tabla "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Un |
+| 1 |A |
 | 1 |B |
 | 1 |C |
 | 3 |Un |
