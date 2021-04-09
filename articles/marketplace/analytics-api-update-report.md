@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 38680eb291417ded4c2f93539e8d1ae091b1d560
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583548"
 ---
 # <a name="update-report-api"></a>Actualización de la API de informe
@@ -29,7 +29,7 @@ Esta API ayuda a modificar un parámetro de informe.
 
 | Encabezado | Tipo | Descripción |
 | ------------ | ------------- | ------------- |
-| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
+| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 ||||
 
@@ -79,9 +79,9 @@ Ninguno
 
 **Respuesta**
 
-La carga útil de respuesta tiene la estructura siguiente:
+La carga de respuesta tiene la estructura siguiente:
 
-Código de respuesta: 200, 400, 401, 403, 404, 500.
+Código de respuesta: 200, 400, 401, 403, 404, 500
 
 Carga de respuesta:
 
@@ -117,16 +117,16 @@ Carga de respuesta:
 | ------------ | ------------- |
 | `ReportId` | Identificador único universal (UUID) del informe que se actualiza |
 | `ReportName` | Nombre dado al informe en la carga útil de solicitud |
-| `Description` | Descripción proporcionada durante la creación del informe |
-| `QueryId` | Identificador de consulta pasado en el momento en que se creó el informe |
-| `Query` | Texto de la consulta que se ejecutará para este informe |
+| `Description` | Descripción proporcionada durante la creación del informe. |
+| `QueryId` | Id. de consulta pasado en el momento en que se creó el informe. |
+| `Query` | Texto de la consulta que se ejecutará para este informe. |
 | `User` | Identificador de usuario usado para crear el informe |
-| `CreatedTime` | Hora de creación del informe. El formato de hora es aaaa-MM-ddTHH:mm:ssZ. |
-| `ModifiedTime` | Hora en que se modificó el informe por última vez. El formato de hora es aaaa-MM-ddTHH:mm:ssZ. |
-| `StartTime` | Hora a la que se iniciará la ejecución del informe. El formato de hora es aaaa-MM-ddTHH:mm:ssZ. |
+| `CreatedTime` | Hora de creación del informe. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
+| `ModifiedTime` | Hora en que se modificó el informe por última vez. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
+| `StartTime` | Hora a la que se iniciará la ejecución del informe. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
 | `ReportStatus` | Estado de la ejecución del informe. Los valores posibles son en pausa, activo e inactivo. |
-| `RecurrenceInterval` | Intervalo de periodicidad proporcionado durante la creación del informe |
-| `RecurrenceCount` | Recuento de periodicidad proporcionado durante la creación del informe |
-| `CallbackUrl` | Dirección URL de devolución de llamada proporcionada en la solicitud |
-| `Format` | Formato de los archivos de informe |
+| `RecurrenceInterval` | Intervalo de periodicidad proporcionado durante la creación del informe. |
+| `RecurrenceCount` | Recuento de periodicidad proporcionado durante la creación del informe. |
+| `CallbackUrl` | Dirección URL de devolución de llamada proporcionada en la solicitud. |
+| `Format` | Formato de los archivos de informe. |
 |||

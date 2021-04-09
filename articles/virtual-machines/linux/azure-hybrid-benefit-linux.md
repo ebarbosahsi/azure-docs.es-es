@@ -4,7 +4,7 @@ description: Descubra cómo la Ventaja híbrida de Azure le permite ahorrar dine
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
+manager: rochakm
 ms.service: virtual-machines
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101695488"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543419"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Aplicación de la Ventaja híbrida de Azure en máquinas virtuales Linux
 
@@ -39,7 +39,7 @@ También puede optar por convertir una VM que tenga habilitada la ventaja nuevam
 
 La Ventaja híbrida de Azure está disponible para todas las imágenes PAYG de RHEL y SLES de Azure Marketplace. La ventaja aún no está disponible para las imágenes BYOS de RHEL o SLES ni para imágenes personalizadas de Azure Marketplace.
 
-Las instancias reservadas, las instancias de Azure Dedicated Host y las ventajas híbridas de SQL no son válidas para la Ventaja híbrida de Azure si ya usa la ventaja con VM Linux.
+Las instancias de Azure Dedicated Host y las ventajas híbridas de SQL no son válidas para la Ventaja híbrida de Azure si ya usa la ventaja con VM de Linux.
 
 ## <a name="get-started"></a>Primeros pasos
 
@@ -90,11 +90,8 @@ Para habilitar la ventaja en las VM existentes, visite la opción **Configuraci�
 1. Vaya a la opción **Configuración** de la izquierda. Verá la sección Licencias. Para habilitar la conversión de AHB, active el botón de radio "Sí" y la casilla Confirmación.
 ![Hoja de configuración de AHB después de la operación de creación](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-
 >[!NOTE]
 > Si ha creado una **Instantánea personalizada** o una **Imagen compartida (SIG)** de una imagen de Marketplace de PAYG de RHEL o SLES, solo puede usar la CLI de Azure para habilitar Ventaja híbrida de Azure. Esta es una limitación conocida y actualmente no hay ninguna escala de tiempo para proporcionar esta funcionalidad también en Azure Portal.
-
-
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Habilitación y deshabilitación de la ventaja en la CLI de Azure
 
@@ -179,6 +176,15 @@ Para más información sobre el cumplimiento de las suscripciones de Red Hat, la
 
 A fin de usar Ventaja híbrida de Azure para las máquinas virtuales de SLES y para obtener información sobre cómo cambiar de PAYG de SLES a BYOS, o bien pasar de BYOS de SLES a PAYG, vea [SUSE Linux Enterprise y Ventaja híbrida de Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
+## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>La Ventaja híbrida de Azure en las instancias reservadas está en versión preliminar
+
+Las reservas de Azure (Azure Reserved Virtual Machine Instances) le permitirán ahorrar dinero, ya que se compromete a planes de uno o tres años para varios productos. Obtenga más información sobre las [Instancias reservadas aquí](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). La Ventaja híbrida de Azure está disponible en versión preliminar para la [Instancia reservada de máquina virtual (RIs)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Esto significa que, si ha adquirido costos de proceso con una tarifa de descuento mediante RI, puede aplicar el beneficio de AHB en los costos de licencia de RHEL y SUSE. Los pasos para aplicar la ventaja AHB para una instancia de RI son exactamente iguales que los de una máquina virtual normal.
+![AHB para RIs](./media/azure-hybrid-benefit/reserved-instances.png)
+
+>[!NOTE]
+>Si ya ha adquirido reservas para el software RHEL o SUSE PAYG en Azure Marketplace, espere a que finalice el tiempo de reserva antes de usar la Ventaja híbrida de Azure.
+
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 *P: ¿Puedo usar un tipo de licencia de `RHEL_BYOS` con una imagen de SLES o viceversa?*
 
@@ -206,11 +212,11 @@ R: Sí, puede hacerlo. Puede usar el tipo de licencia `RHEL_BYOS` para las máqu
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES?*
 
-A. No, no puede. Actualmente, los conjuntos de escalado de máquinas virtuales no están en el ámbito de Ventaja híbrida de Azure para RHEL y SLES.
+A: Sí, la Ventaja híbrida de Azure en conjuntos de escalado de máquinas virtuales para RHEL y SLES está en versión preliminar. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss). 
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en instancias reservadas para RHEL y SLES?*
 
-A. No, no puede. Actualmente, las instancias reservadas no están en el ámbito de Ventaja híbrida de Azure para RHEL y SLES.
+A: Sí, la Ventaja híbrida de Azure en la instancia reservada para RHEL y SLES está en versión preliminar. Puede obtener [más información sobre esta ventaja y cómo usarla aquí](#azure-hybrid-benefit-on-reserved-instances-is-in-preview).
 
 *P: ¿Puedo usar la Ventaja híbrida de Azure en una máquina virtual implementada para SQL Server en imágenes de RHEL?*
 

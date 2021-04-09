@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737326"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configuración de Azure Functions para los proveedores personalizados de Azure
@@ -79,4 +79,4 @@ El siguiente elemento XML es un archivo del proyecto de C# de ejemplo:
 
 En este tutorial, va a configurar una aplicación de funciones de Azure para que funcione como un punto de conexión de proveedor personalizado de Azure.
 
-Para aprender a crear un punto de conexión del proveedor personalizado de RESTful, consulte [Tutorial: Creación de un punto de conexión de proveedor personalizado de RESTful](./tutorial-custom-providers-function-authoring.md).
+Para aprender a crear un punto de conexión de proveedor personalizado de RESTful, consulte [Tutorial: Creación de un punto de conexión de proveedor personalizado de RESTful](./tutorial-custom-providers-function-authoring.md).

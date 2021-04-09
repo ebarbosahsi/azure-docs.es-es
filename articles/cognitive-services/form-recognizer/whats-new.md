@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47e145c5d96ba54b02f5453ff97d16dec302eabd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 81115f5a9ed802f1d07c45ec928dc4b84ea2917b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493516"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048755"
 ---
 <!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>Novedades en Form Recognizer
@@ -35,7 +35,7 @@ El servicio Form Recognizer se actualiza de forma continuada. Use este artículo
 
    [Más información sobre el modelo de factura precompilado](concept-invoices.md)
 
-- **Etiquetado y entrenamiento de tablas supervisados, etiquetado de valores vacíos**: además de [las funciones de aprendizaje profundo para la extracción de tablas automáticamente ](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)de Form Recognizer, ahora permite que los clientes etiqueten y entrenen tablas. Esta nueva versión incluye la posibilidad de etiquetar y entrenar en elementos de línea y tablas (dinámicas y fijas) y entrenar un modelo personalizado para extraer pares clave-valor y elementos de línea. Una vez que se entrena un modelo, este extrae los elementos de línea como parte de la salida JSON en la sección documentResults.
+- **Etiquetado y entrenamiento de tablas supervisados, etiquetado de valores vacíos**: además de [las funciones de aprendizaje profundo para la extracción de tablas automáticamente](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)de Form Recognizer, ahora permite que los clientes etiqueten y entrenen tablas. Esta nueva versión incluye la posibilidad de etiquetar y entrenar en elementos de línea y tablas (dinámicas y fijas) y entrenar un modelo personalizado para extraer pares clave-valor y elementos de línea. Una vez que se entrena un modelo, este extrae los elementos de línea como parte de la salida JSON en la sección documentResults.
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Etiquetado de tabla" lightbox="./media/table-labeling.png":::
 
@@ -117,7 +117,7 @@ Hay **nuevos ejemplos** disponibles en GitHub.
 * **Compatibilidad de divisas**: detección y extracción de símbolos de moneda globales.
 * **Azure Gov**: Form Recognizer ya está disponible también en Azure Gov.
 * **Características de seguridad mejoradas**: 
-  * **Bring Your Own Key**: Form Recognizer cifra automáticamente los datos cuando se guardan en la nube para protegerlos y para ayudarle a satisfacer los compromisos de cumplimiento y de seguridad de la organización. De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. Ahora también puede administrar la suscripción con sus propias claves de cifrado. Las [claves administradas por el cliente (CMK), que también se conocen como Bring Your Own Key](./form-recognizer-encryption-of-data-at-rest.md), ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.  
+  * **Bring Your Own Key**: Form Recognizer cifra automáticamente los datos cuando se guardan en la nube para protegerlos y para ayudarle a satisfacer los compromisos de cumplimiento y de seguridad de la organización. De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. Ahora también puede administrar la suscripción con sus propias claves de cifrado. Las [claves administradas por el cliente (CMK), que también se conocen como Bring Your Own Key](./encrypt-data-at-rest.md), ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.  
   * **Puntos de conexión privados**: le permiten [acceder de forma segura a los datos a través de Private Link](../../private-link/private-link-overview.md) en una red virtual (VNet).
 
 ## <a name="june-2020"></a>Junio de 2020

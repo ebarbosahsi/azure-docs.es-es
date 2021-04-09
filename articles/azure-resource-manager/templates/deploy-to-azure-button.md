@@ -2,13 +2,13 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028750"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543792"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Ya tiene la dirección URL completa del vínculo.
 
-Normalmente, la plantilla se hospeda en un repositorio público. Si usa un repositorio privado, debe incluir un token para tener acceso al contenido sin procesar de la plantilla. El token generado por GitHub solo es válido durante un breve período de tiempo. Deberá actualizar el vínculo a menudo.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Si usa [Git con Azure Repos](/azure/devops/repos/git/) en lugar de un repositorio de GitHub, puede seguir usando el botón **Implementar en Azure**. Asegúrese de que el repositorio es público. Use la [operación Elementos](/rest/api/azure/devops/git/items/get) para obtener la plantilla. La solicitud debería tener el siguiente formato:
 

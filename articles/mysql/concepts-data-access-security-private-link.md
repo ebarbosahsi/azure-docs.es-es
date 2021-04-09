@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242864"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863571"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para Azure Database for MySQL
 
@@ -84,7 +84,7 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casos de uso de Private Link para Azure Database for MySQL
 
-Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
+Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una [red virtual emparejada](../virtual-network/virtual-network-peering-overview.md) de la misma región o a través de una conexión entre [redes virtuales de distintas regiones](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Información general sobre la selección del punto de conexión privado":::
 
@@ -113,9 +113,9 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 ## <a name="deny-public-access-for-azure-database-for-mysql"></a>Denegación del acceso público para Azure Database for MySQL
 
-Si quiere depender únicamente de puntos de conexión privados para acceder a su instancia de Azure Database for MySQL, puede deshabilitar la configuración de todos los puntos de conexión públicos ( [reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
+Si quiere depender únicamente de puntos de conexión privados para acceder a su instancia de Azure Database for MySQL, puede deshabilitar la configuración de todos los puntos de conexión públicos ([reglas de firewall](concepts-firewall-rules.md) y [puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md)). Para ello, configure **Deny Public Network Access** (Denegar el acceso a la red pública) en el servidor de bases de datos. 
 
-Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for MySQL mediante puntos de conexión privados. Si esta opción está establecida en *NO* , los clientes pueden conectarse a su instancia de Azure Database for MySQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
+Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for MySQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MySQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
 
 > [!Note]
 > Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.

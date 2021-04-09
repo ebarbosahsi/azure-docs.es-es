@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 3f825e247aff5c8fc53eb8610f33bd8e0b7fce3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
@@ -189,14 +189,14 @@ En esta sección va a permitir que B.Simon acceda a Zscaler One mediante el inic
 
     b. Haga clic en **Activar**.
 
-## <a name="configuring-proxy-settings"></a>Configuración de los valores de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir la configuración de proxy en Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Configuración de los valores de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Para definir la configuración de proxy en Internet Explorer
 
 1. Inicie **Internet Explorer**.
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el diálogo **Opciones de Internet**.   
 
-    ![Opciones de Internet](./media/zscaler-one-tutorial/ic769492.png "Opciones de Internet")
+    ![Opciones de Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Opciones de Internet")
 
 3. Haga clic en la pestaña **Conexiones** .   
 

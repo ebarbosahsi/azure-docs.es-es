@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608604"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048670"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creación de un recurso del Lector inmersivo y configuración de la autenticación de Azure Active Directory
 
@@ -198,7 +198,7 @@ El script está diseñado para ser flexible. En primer lugar, buscará los recur
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte el [inicio rápido de Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
-* Vea el [tutorial de Android](./tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android
-* Vea el [tutorial de iOS](./tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS
-* Vea el [tutorial para Python](./tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
+* Vea el [tutorial de Android](./how-to-launch-immersive-reader.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android
+* Vea el [tutorial de iOS](./how-to-launch-immersive-reader.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS
+* Vea el [tutorial para Python](./how-to-launch-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](./reference.md)
