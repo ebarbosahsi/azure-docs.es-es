@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558285"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ En el caso de los mensajes de error de que se ha deshabilitado la administració
 - El Almacén de consultas dejó de ejecutarse porque usaba el espacio de almacenamiento asignado.
 
 Se pueden tener en cuenta los siguientes pasos para corregir este problema:
-- Limpie el Almacén de consultas o modifique el período de retención de datos a "auto" mediante T-SQL. Consulte cómo [configurar la directiva de captura y retención recomendadas para el Almacén de consultas](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Limpie el Almacén de consultas o modifique el período de retención de datos a "auto" mediante T-SQL. Consulte cómo [configurar la directiva de captura y retención recomendadas para el Almacén de consultas](./query-performance-insight-use.md#recommended-retention-and-capture-policy).
 - Use SQL Server Management Studio (SSMS) y siga estos pasos:
   - Conéctese a Azure SQL Database.
   - Haga clic con el botón secundario en la base de datos.

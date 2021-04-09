@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 50aaae9e71ac9de366ee4db1981e633491094946
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2ea671a6d44d12b3b37d5d06fa9405b7c589cdf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199975"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559424"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de la conectividad en Azure Database for MariaDB
 En este artículo se explica la arquitectura de la conectividad de Azure Database for MariaDB y cómo se dirige el tráfico a la instancia de Azure Database for MariaDB desde los clientes de dentro y de fuera de Azure.
@@ -111,7 +111,7 @@ Solo se retirarán los nodos de puerta de enlace. Cuando los usuarios se conecta
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>¿Cómo puede validar si las conexiones van a los nodos de puerta de enlace antiguos o a los nuevos nodos de puerta de enlace?
 Haga ping al FQDN del servidor, por ejemplo, ``ping xxx.mariadb.database.azure.com``. Si la dirección IP devuelta es una de las que aparecen en la lista de direcciones IP de puerta de enlace (que se retiran) en el documento anterior, significa que la conexión pasa a través de la puerta de enlace antigua. De lo contrario, si la dirección IP devuelta es una de las que aparecen en las direcciones IP de puerta de enlace, significa que la conexión pasa a través de la nueva puerta de enlace.
 
-También puede probar de hacer [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) o TCPPing en el servidor de base de datos desde la aplicación cliente con el puerto 3306 y asegurarse de que la dirección IP devuelta no sea una de las direcciones IP de retiradas.
+También puede probar de hacer [PSPing](/sysinternals/downloads/psping) o TCPPing en el servidor de base de datos desde la aplicación cliente con el puerto 3306 y asegurarse de que la dirección IP devuelta no sea una de las direcciones IP de retiradas.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>¿Cómo puedo saber cuándo ha finalizado el mantenimiento? ¿Recibiré otra notificación cuando se retiren las direcciones IP antiguas?
 Recibirá un correo electrónico en el que se le informará de cuándo se iniciará el trabajo de mantenimiento. El mantenimiento puede tardar hasta un mes, en función del número de servidores que se necesiten migrar en todas las regiones. Prepare el cliente para que establezca conexión con el servidor de base de datos mediante el FQDN o con la nueva dirección IP de la tabla anterior. 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673948"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721399"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Uso de máquinas virtuales de acceso puntual de Azure 
 
@@ -58,9 +58,9 @@ Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cual
 
 Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
 
--   Contrato Enterprise
--   Código de oferta de pago por uso 003P
--   Patrocinados
+-   Contrato Enterprise 
+-   Código de oferta de pago por uso (003P)
+-   Patrocinado (0036P y 0136P)
 - Para obtener un proveedor de servicios en la nube (CSP), póngase en contacto con su asociado.
 
 

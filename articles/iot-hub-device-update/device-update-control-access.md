@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 07310a5b6f275d4a35a3649c22aeea68045dde8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca55b1df347b47a6eb82557658d59a3de666b703
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101660505"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558404"
 ---
 # <a name="azure-role-based-access-control-rbac-and-device-update"></a>Control de acceso basado en rol (RBAC) de Azure y actualización de dispositivos
 
@@ -39,7 +39,7 @@ Device Update también utiliza Azure AD como mecanismo de autenticación para p
 
 ### <a name="create-client-azure-ad-app"></a>Creación de una aplicación cliente de Azure AD
 
-Para integrar una aplicación o un servicio con Azure AD, [debe registrar primero](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) una aplicación con Azure AD. La configuración de la aplicación cliente variará en función del flujo de autorización utilizado.  La configuración siguiente es un ejemplo orientativo para los casos en los que se utilizan las API REST de Device Update.
+Para integrar una aplicación o un servicio con Azure AD, [debe registrar primero](../active-directory/develop/quickstart-register-app.md) una aplicación con Azure AD. La configuración de la aplicación cliente variará en función del flujo de autorización utilizado.  La configuración siguiente es un ejemplo orientativo para los casos en los que se utilizan las API REST de Device Update.
 
 * Configure la autenticación del cliente: "redirect URIs for native or web client" ("redirigir URI de cliente nativo o cliente web").
 * Configure los permisos de las API - Device Update para IoT Hub expone:

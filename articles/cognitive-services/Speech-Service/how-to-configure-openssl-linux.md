@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683160"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577451"
 ---
 # <a name="configure-openssl-for-linux"></a>Configuración de OpenSSL para Linux
 
@@ -50,6 +51,97 @@ Establezca la variable de entorno `SSL_CERT_FILE` para que apunte a ese archivo 
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+
+## <a name="certificate-revocation-checks"></a>Comprobaciones de revocación de certificados
+Al conectarse al servicio Voz, el SDK de Voz comprobará que el certificado TLS usado por dicho servicio no se ha revocado. Para realizar esta comprobación, el SDK de Voz necesitará acceso a los puntos de distribución de CRL para las entidades de certificación que utiliza Azure. En [este documento](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)se puede encontrar una lista de las posibles ubicaciones de descarga de CRL. Si un certificado se ha revocado o no se puede descargar la lista CRL, el SDK de Voz anulará la conexión y generará el evento Cancelado.
+
+Si la red donde se usa el SDK de Voz está configurada para impedir el acceso a las ubicaciones de descarga de CRL, la comprobación de CRL puede deshabilitarse o establecerse para que no genere errores si no se puede recuperar la lista CRL. Esta configuración se realiza a través del objeto de configuración utilizado para crear un objeto de reconocedor.
+
+Para continuar con la conexión cuando no se pueda recuperar una CRL, establezca la propiedad OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"];
+```
+
+::: zone-end
+Si se establece en "true", se intenta recuperar la CRL y, si la recuperación se realiza correctamente, se comprueba la revocación del certificado. Si se produce un error en la recuperación, la conexión podrá continuar.
+
+Para deshabilitar completamente las comprobaciones de revocación de certificados, establezca la propiedad OPENSSL_DISABLE_CRL_CHECK en "true".
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_DISABLE_CRL_CHECK"];
+```
+
+::: zone-end
+
+
 > [!NOTE]
 > También merece la pena mencionar que algunas distribuciones de Linux no tienen definida una variable de entorno TMP o TMPDIR. Como consecuencia, el SDK de Voz descargará la lista de revocación de certificados (CRL) cada vez, en lugar de almacenarla en caché en el disco para reutilizarla hasta que expire. Para mejorar el rendimiento inicial de la conexión, puede [crear una variable de entorno denominada TMPDIR y establecerla en la ruta de acceso del directorio temporal elegido](https://help.ubuntu.com/community/EnvironmentVariables).
 

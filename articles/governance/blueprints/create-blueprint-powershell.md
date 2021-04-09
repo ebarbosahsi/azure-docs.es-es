@@ -3,12 +3,12 @@ title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918286"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559050"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
@@ -307,7 +307,7 @@ El valor de `{BlueprintVersion}` es una cadena de letras, números y guiones (si
 
 Cuando se ha publicado un plano técnico con PowerShell, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El parámetro **Blueprint** especifica el plano técnico que se va a asignar. Para proporcionar los parámetros de nombre, ubicación, identidad, bloqueo y plano técnico, use los parámetros de PowerShell coincidentes en el cmdlet `New-AzBlueprintAssignment` o del archivo JSON del parámetro **AssignmentFile**.
 
-1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el **AssignmentFile** para sus propios usuarios, grupos o entidades de servicio.
+1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para recopilar los elementos objectId que se utilizarán en el **AssignmentFile** para sus propios usuarios, grupos o entidades de servicio.
 
    - Archivo JSON: blueprintAssignment.json
 

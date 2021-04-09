@@ -4,14 +4,14 @@ description: Aprenda a copiar datos desde un origen REST local o en la nube haci
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369890"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951851"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 | type | La propiedad **type** debe establecerse en **RestService**. | Sí |
 | url | La dirección URL base del servicio REST. | Sí |
 | enableServerCertificateValidation | Si se debe validar el certificado TLS/SSL del lado servidor al conectarse al punto de conexión. | No<br /> (El valor predeterminado es: **true**) |
-| authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
+| authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. No se admiten usuarios basados en OAuth. Además, puede configurar encabezados de autenticación en la propiedad `authHeader`. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente.| Sí |
+| authHeaders | Encabezados de solicitud HTTP adicionales para la autenticación.<br/> Por ejemplo, para usar la autenticación de clave de API, puede seleccionar el tipo de autenticación "Anónima" y especificar la clave de API en el encabezado. | No |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, esta propiedad se usará Azure Integration Runtime. |No |
 
 ### <a name="use-basic-authentication"></a>Uso de la autenticación básica
@@ -150,6 +151,35 @@ Establezca la propiedad **authenticationType** en **ManagedServiceIdentity**. Ad
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-authentication-headers"></a>Uso de los encabezados de autenticación
+
+Además, puede configurar los encabezados de solicitud para realizar la autenticación junto con los tipos de autenticación integrados.
+
+**Ejemplo: uso de la autenticación mediante la clave de API**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -464,7 +494,7 @@ La plantilla define dos parámetros:
 5. Seleccione la actividad **web**. En **Configuración**, especifique la **URL**, **Método**, **Encabezados** y **Cuerpo** correspondientes para recuperar el token de portador OAuth de la API de inicio de sesión del servicio desde el que quiere copiar los datos. El marcador de posición de la plantilla muestra un ejemplo de OAuth de Azure Active Directory (AAD). Nota: la autenticación de AAD es compatible de forma nativa con el conector REST; este es solo un ejemplo de flujo de OAuth. 
 
     | Propiedad | Descripción |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Especifique la dirección URL de la que se recuperará el token de portador OAuth. p. ej., en este ejemplo es https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | Método HTTP. Los valores permitidos son **POST** y **GET**. | 
     | encabezados | El usuario define el encabezado, que hace referencia a un nombre de encabezado en la solicitud HTTP. | 
@@ -475,7 +505,7 @@ La plantilla define dos parámetros:
 6. En la actividad **Copiar datos**, seleccione la pestaña *Origen* y verá que el token de portador (access_token) recuperado del paso anterior se pasará a la actividad de copia de datos como **autorización** en los encabezados adicionales. Confirme la configuración de las siguientes propiedades antes de iniciar una ejecución de canalización.
 
     | Propiedad | Descripción |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Método de solicitud | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | 
     | Encabezados adicionales | Encabezados de solicitud HTTP adicionales.| 
 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 9ec217cefb05929ed6f5c7395df5e68891e823ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95d0e1ceb9e05ce58f388c3f88dc98b2cf6a0cc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739787"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559594"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Recuperación de metadatos del equilibrador de carga mediante Azure Instance Metadata Service (IMDS)
 
@@ -30,7 +30,7 @@ ms.locfileid: "101739787"
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
 > [!NOTE]
-> El parámetro -NoProxy se incorporó en PowerShell 6.0. Si usa una versión anterior de PowerShell, quite -NoProxy del cuerpo de la solicitud y asegúrese de que no está usando un proxy al recuperar la información de IMDS. Obtenga más información [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
+> El parámetro -NoProxy se incorporó en PowerShell 6.0. Si usa una versión anterior de PowerShell, quite -NoProxy del cuerpo de la solicitud y asegúrese de que no está usando un proxy al recuperar la información de IMDS. Obtenga más información [aquí](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
 > 
 ### <a name="linux"></a>[Linux](#tab/linux/)
 
@@ -89,4 +89,3 @@ Más información sobre [Azure Instance Metadata Service](../virtual-machines/wi
 [Recuperación de todos los metadatos para una instancia](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [Implementación de un equilibrador de carga estándar](quickstart-load-balancer-standard-public-portal.md)
-

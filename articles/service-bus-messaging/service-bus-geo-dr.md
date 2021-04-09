@@ -3,12 +3,12 @@ title: Recuperación ante desastres con localización geográfica de Azure Servi
 description: Procedimientos para usar regiones geográficas para realizar conmutaciones por error y recuperaciones ante desastres en Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035401"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933762"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -156,7 +156,7 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto. Las suscripciones y reglas también cuentan como entidades.
 
-### <a name="availability-zones"></a>Zonas de disponibilidad
+## <a name="availability-zones"></a>Zonas de disponibilidad
 
 La SKU de Service Bus Premium es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de la misma región de Azure. Service Bus administra tres copias del almacén de mensajería (una principal y dos secundarias). Service Bus mantiene las tres copias sincronizadas para operaciones de datos y administración. Si se produce un error en la copia principal, una de las copias secundarias se promueve a principal sin tiempo de inactividad perceptible. Si las aplicaciones experimentan desconexiones transitorias de Service Bus, la lógica de reintento en el SDK volverá a establecer la conexión con Service Bus automáticamente. 
 

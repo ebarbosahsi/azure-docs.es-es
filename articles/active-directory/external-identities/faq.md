@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365521"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952633"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -83,6 +83,7 @@ Sí. Tanto la autenticación multifactor como las cuentas de correo electrónico
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>¿Va a admitir el restablecimiento de contraseñas con los usuarios de la colaboración B2B de Azure AD?
 Si el inquilino de Azure AD es el directorio principal de un usuario, puede [restablecer la contraseña del usuario](../fundamentals/active-directory-users-reset-password-azure-portal.md) en Azure Portal. Sin embargo, no puede restablecer directamente la contraseña de los usuarios invitados que inician sesión con una cuenta administrada por otro proveedor de identidades externo o por otro directorio de Azure AD. En ese caso, solo podrá restablecer la contraseña el usuario invitado o un administrador del directorio principal del usuario. A continuación, se incluyen algunos ejemplos de cómo funciona el restablecimiento de contraseñas con los usuarios invitados:
  
+* Los usuarios invitados de un inquilino de Azure AD que estén marcados como "invitado" (UserType==Invitado) no se pueden registrar para SSPR mediante [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Este tipo de usuario invitado solo puede realizar SSPR mediante [https://aka.ms/sspr](https://aka.ms/sspr). 
 * Los usuarios invitados que inicien sesión con una cuenta Microsoft (por ejemplo guestuser@live.com) podrán restablecer sus propias contraseñas con el autoservicio de restablecimiento de contraseñas (SSPR) de la cuenta Microsoft. Consulte [Cómo restablecer la contraseña de tu cuenta Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Los usuarios invitados que inicien sesión con una cuenta de Google u otro proveedor de identidades externo podrán restablecer sus propias contraseñas mediante el método de SSPR de su proveedor de identidades. Por ejemplo, un usuario invitado con la cuenta de Google guestuser@gmail.com puede restablecer su contraseña siguiendo las instrucciones acerca de [cómo cambiar o restablecer la contraseña](https://support.google.com/accounts/answer/41078).
 * Si el inquilino de la identidad es un inquilino Just-In-Time (JIT) o un inquilino "viral" (es decir, un inquilino de Azure que es independiente y no está administrado), solamente el usuario invitado podrá restablecer su contraseña. A veces, una organización [asumirá la administración de los inquilinos virales](../enterprise-users/domains-admin-takeover.md) que se crean cuando los empleados usan sus direcciones de correo electrónico del trabajo para registrarse en los servicios. Después de que la organización se haga cargo de un inquilino viral, solo un administrador de dicha organización puede restablecer la contraseña del usuario o habilitar SSPR. Si es necesario, como la organización que invita, puede quitar la cuenta del usuario invitado del directorio y volver a enviar una invitación.

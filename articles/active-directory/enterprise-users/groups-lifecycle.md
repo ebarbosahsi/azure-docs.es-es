@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a2a69b5013ab8e1bc4637f21ce484a132d37834
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455719"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709521"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configuración de la directiva de expiración de grupos de Microsoft 365
 
@@ -172,7 +172,7 @@ Estos son ejemplos de cómo puede usar cmdlets de PowerShell para configurar los
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-Los siguientes cmdlets se pueden usar para configurar la directiva con más detalle. Para más información, consulte la [documentación de PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
+Los siguientes cmdlets se pueden usar para configurar la directiva con más detalle. Para más información, consulte la [documentación de PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551661"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577695"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -99,7 +99,7 @@ La auditoría de Azure SQL Database y Azure Synapse almacena 4000 caracteres d
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
   > [!NOTE]
-  > - No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - No es posible habilitar la auditoría en un grupo de SQL dedicado en pausa. Para habilitar la auditoría, quite la pausa del grupo de SQL dedicado. Más información sobre el [grupo de SQL dedicado](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
   > - Cuando la auditoría se configura para un área de trabajo de Log Analytics o para un destino del Centro de eventos a través del cmdlet de PowerShell o Azure Portal, se crea una [configuración de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) con la categoría "SQLSecurityAuditEvents" habilitada.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
@@ -134,16 +134,16 @@ AzureDiagnostics
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoría para el destino de almacenamiento
 
-Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. A continuación, haga clic en **Aceptar**. Los registros anteriores al período de retención se eliminarán.
+Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** cuando llegue a la sección **Auditoría**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, abra **Propiedades avanzadas** y seleccione el período de retención. A continuación, haga clic en **Save**(Guardar). Los registros anteriores al período de retención se eliminarán.
 
-- El valor predeterminado para el período de retención es 0 (retención ilimitada). Puede cambiar este valor moviendo el control deslizante **Retención (días)** de **Configuración de almacenamiento** al configurar la cuenta de almacenamiento para la auditoría.
+- El valor predeterminado para el período de retención es 0 (retención ilimitada). Para cambiar este valor, mueva el control deslizante **Retención (días)** de **Propiedades avanzadas** al configurar la cuenta de almacenamiento para la auditoría.
   - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención).
 
   ![Cuenta de almacenamiento](./media/auditing-overview/auditing_select_storage.png)
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoría para el destino de Log Analytics
   
-Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
+Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics** y abra **Detalles de Log Analytics**. Seleccione el área de trabajo de Log Analytics donde se escribirán los registros y, a continuación, haga clic en **Aceptar**. Si no ha creado un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -151,7 +151,7 @@ Para obtener información más detallada sobre las áreas de trabajo de Log Anal
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
 
-Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
+Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, a continuación, haga clic en **Guardar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -191,13 +191,12 @@ Si eligió escribir los registros de auditoría en una cuenta de almacenamiento 
 
 - Usar [Azure Portal](https://portal.azure.com).  Abra la base de datos pertinente. En la parte superior de la página **Auditoría** de la base de datos, haga clic en **Ver registros de auditoría**.
 
-    ![Captura de pantalla que muestra el botón para ver los registros de auditoría resaltado en la página de auditoría de base de datos.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![ver registros de auditoría](./media/auditing-overview/auditing-view-audit-logs.png)
 
     Se abre la hoja **Registros de auditoría**, desde la que podrá ver los registros.
 
   - Puede elegir ver fechas específicas si hace clic en **Filtrar** en la parte superior de la página **Registros de auditoría**.
   - Puede cambiar entre los registros de auditoría que se crearon con la *directiva de auditoría de servidor* y la *directiva de auditoría de base de datos* alternando **Origen de auditoría**.
-  - Para ver solo los registros de auditoría relacionados con la inyección de código SQL, puede activar la casilla **Mostrar solo los registros de auditoría de inyección de código SQL**.
 
        ![Captura de pantalla que muestra las opciones para ver los registros de auditoría.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
@@ -242,7 +241,7 @@ Con bases de datos con replicación geográfica, cuando se habilita la auditorí
 
 En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Al escribir registros de auditoría en Azure Storage, debe volver a guardar la directiva de auditoría cuando se actualicen las claves. El proceso es el siguiente:
 
-1. Abra **Detalles de almacenamiento**. En el cuadro **Clave de acceso de almacenamiento**, seleccione **Secundaria** y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
+1. Abra **Propiedades avanzadas** en **Almacenamiento**. En el cuadro **Clave de acceso de almacenamiento**, seleccione **Secundaria**. Después, haga clic en **Guardar** en la parte superior de la página de configuración de auditoría.
 
     ![Captura de pantalla que muestra el proceso para seleccionar una clave de acceso de almacenamiento secundaria.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Vaya al panel de configuración de almacenamiento y vuelva a generar la clave de acceso principal.

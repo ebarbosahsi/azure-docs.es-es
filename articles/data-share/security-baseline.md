@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d423a8aaf3ace78ccb4b2eb1d8424c6a1dfb61bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6a804b6d6840b25993ad6e249305f531a818be32
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705983"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559458"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Línea base de seguridad de Azure para Azure Data Share
 
@@ -34,7 +34,7 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -48,11 +48,11 @@ También puede habilitar e incorporar los datos en Azure Sentinel o en una herra
 
 Habilite los registros de diagnóstico para Azure Data Share, específicamente los registros de diagnóstico de MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. Estos registros le permitirán capturar información clave, como la hora de inicio de la sincronización, la hora de finalización, el estado y otros detalles. Estos registros pueden ser críticos para la investigación posterior de incidentes de seguridad y la realización de ejercicios forenses.
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Descripción del registro y de los distintos tipos de registro de Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Descripción del registro y de los distintos tipos de registro de Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/activity-log)
+- [Configuración de las opciones de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -62,9 +62,9 @@ Habilite los registros de diagnóstico para Azure Data Share, específicamente l
 
 **Guía**: Asegúrese de que todas las cuentas de almacenamiento o las áreas de trabajo de Log Analytics que se usan para almacenar registros de Azure Data Share tengan el período de retención de registros configurado de acuerdo a la normativa de cumplimiento de la organización.
 
-- [Configuración del período de retención del área de trabajo de Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Configuración del período de retención del área de trabajo de Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [Almacenamiento de registros de recursos en una cuenta de Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Responsabilidad**: Customer
 
@@ -78,9 +78,9 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introducción a las consultas de Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidad**: Customer
 
@@ -94,7 +94,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Alertas sobre datos de registro de Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Alertas sobre datos de registro de Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidad**: Customer
 
@@ -144,7 +144,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 - [Procedimiento para crear y configurar una instancia de Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Azure Data Share funciona con roles generales integrados de Azure ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure Data Share funciona con roles generales integrados de Azure ](../role-based-access-control/built-in-roles.md#general)
 
 **Responsabilidad**: Customer
 
@@ -154,11 +154,11 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 **Guía**: Azure AD proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso e identidades de Azure AD para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Procedimiento para usar las revisiones de acceso e identidades de Azure AD](../active-directory/governance/access-reviews-overview.md) 
 
-- [Azure Data Share funciona con roles generales integrados de Azure ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure Data Share funciona con roles generales integrados de Azure ](../role-based-access-control/built-in-roles.md#general)
 
 **Responsabilidad**: Customer
 
@@ -170,7 +170,7 @@ También puede habilitar e incorporar datos en Azure Sentinel o en una herramien
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas deseadas en el área de trabajo de Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidad**: Customer
 
@@ -208,7 +208,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas de Azure Monitor para cuando se produzcan cambios en los recursos críticos de Azure.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -291,7 +291,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 **Guía**: Quite recursos de Azure cuando ya no sean necesarios; para ello, utilice Azure Portal, PowerShell o la CLI.
 
-- [Eliminación de grupos de recursos y recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Eliminación de grupos de recursos y recursos de Azure](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones de software de terceros en sus recursos.
 
@@ -305,7 +305,7 @@ Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidad**: Customer
 
@@ -343,7 +343,7 @@ Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Uso de alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Uso de alias](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilidad**: Customer
 
@@ -361,5 +361,5 @@ Azure Data Share no expone el sistema operativo ni permite instalar aplicaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [Información general sobre Azure Security Benchmark V2](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

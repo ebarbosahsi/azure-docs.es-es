@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219205"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105042873"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solución de problemas de conectividad entre máquinas virtuales de Azure
 
@@ -49,7 +49,7 @@ Siga estos pasos para solucionar el problema. Después de completar cada paso, c
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Paso 1: Compruebe si la NIC está mal configurada
 
-Siga los pasos descritos en [Restablecimiento de la interfaz de red para VM de Microsoft Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
+Siga los pasos descritos en [Restablecimiento de la interfaz de red para VM de Microsoft Azure](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 Si el problema se produce después de modificar la interfaz de red (NIC), siga estos pasos:
 
@@ -62,8 +62,8 @@ Para más información, consulte [Incorporación de interfaces de red a máquina
 
 **Máquina virtual con una única NIC** 
 
-- [Nueva implementación de la máquina virtual en Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Nueva implementación de la máquina virtual de Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Nueva implementación de la máquina virtual en Windows](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Nueva implementación de la máquina virtual de Linux](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Paso 2: Compruebe si un NSG o una UDR bloquea el tráfico de red
 
@@ -107,7 +107,7 @@ Todas las máquinas virtuales que se crean en Azure con el modelo de implementac
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Paso 8: Intente conectarse a un recurso compartido de red de una máquina virtual
 
-Si no se puede conectar a un recurso compartido de red de máquina virtual, el problema puede deberse a que la NIC no está disponible en la máquina virtual. Para eliminar las NIC no disponibles, consulte [Eliminación de las NIC no disponibles](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Si no se puede conectar a un recurso compartido de red de máquina virtual, el problema puede deberse a que la NIC no está disponible en la máquina virtual. Para eliminar las NIC no disponibles, consulte [Eliminación de las NIC no disponibles](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Paso 9: Compruebe la conectividad entre redes virtuales
 

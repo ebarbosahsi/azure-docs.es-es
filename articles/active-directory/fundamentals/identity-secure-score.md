@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: tilarso
+ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705493"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952274"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>¿Qué es la puntuación segura de identidad en Azure Active Directory?
 
@@ -24,7 +24,7 @@ ms.locfileid: "90705493"
 
 ## <a name="what-is-an-identity-secure-score"></a>¿Qué es una puntuación segura de identidad?
 
-La puntuación segura de identidad es un número entre 1 y 223 que funciona como indicador del grado de cumplimiento de las recomendaciones del procedimiento recomendado de Microsoft relativo a la seguridad. Cada acción de mejora de la puntuación segura de identidad se adapta a la configuración específica.  
+La puntuación segura de identidad es un porcentaje que funciona como indicador del grado de cumplimiento de las recomendaciones del procedimiento de Microsoft relativo a la seguridad. Cada acción de mejora de la puntuación segura de identidad se adapta a la configuración específica.  
 
 ![Puntuación segura](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -78,7 +78,7 @@ La puntuación segura de identidad pueden usarla los roles siguientes:
 
 ### <a name="how-are-controls-scored"></a>¿Cómo se puntúan los controles?
 
-Los controles se pueden puntuar de dos maneras. Algunos se puntúan en forma binaria: obtiene el 100 % de la puntuación si tiene la característica o la opción configurada según nuestra recomendación. Otras puntuaciones se calculan como un porcentaje de la configuración total. Por ejemplo, si la recomendación de mejora indica que obtendrá 30 puntos si protege a todos los usuarios con MFA y solo tiene protegidos 5 usuarios de un total de 100, se le otorgará una puntuación parcial de aproximadamente 2 puntos (5 protegidos/100 totales * 30 puntos máximos = 2 puntos de puntuación parcial).
+Los controles se pueden puntuar de dos maneras. Algunos se puntúan en forma binaria: obtiene el 100 % de la puntuación si tiene la característica o la opción configurada según nuestra recomendación. Otras puntuaciones se calculan como un porcentaje de la configuración total. Por ejemplo, si la recomendación de mejora indica que obtendrá un 10,71 % como máximo si protege a todos los usuarios con MFA y solo tiene protegidos 5 usuarios de un total de 100, se le otorgaría una puntuación parcial de aproximadamente un 0,53 % (5 protegidos/100 totales * 10,71 % como máximo = 0,53 % de puntuación parcial).
 
 ### <a name="what-does-not-scored-mean"></a>¿Qué significa [Not Scored]?
 
@@ -98,7 +98,7 @@ En pocas palabras, no. La puntuación segura no expresa una medida absoluta de l
 
 ### <a name="how-should-i-interpret-my-score"></a>¿Cómo debo interpretar la puntuación?
 
-Se le dan puntos por configurar las características de seguridad recomendadas o por realizar tareas relacionadas con la seguridad (como la lectura de informes). Se puntúan algunas acciones por la finalización parcial, como por ejemplo, habilitar la autenticación multifactor (MFA) para los usuarios. Su puntuación segura representa directamente los servicios de seguridad de Microsoft que usa. Recuerde que debe existir un equilibrio entre seguridad y facilidad de uso. Todos los controles de seguridad tienen un componente de impacto en el usuario. Los controles que tienen un impacto bajo en el usuario deben tener poco o ningún efecto en las operaciones diarias de los usuarios.
+La puntuación mejora por configurar las características de seguridad recomendadas o por realizar tareas relacionadas con la seguridad (como la lectura de informes). Se puntúan algunas acciones por la finalización parcial, como por ejemplo, habilitar la autenticación multifactor (MFA) para los usuarios. Su puntuación segura representa directamente los servicios de seguridad de Microsoft que usa. Recuerde que debe existir un equilibrio entre seguridad y facilidad de uso. Todos los controles de seguridad tienen un componente de impacto en el usuario. Los controles que tienen un impacto bajo en el usuario deben tener poco o ningún efecto en las operaciones diarias de los usuarios.
 
 Para ver el historial de puntuación, diríjase al [Centro de seguridad de Microsoft 365](https://security.microsoft.com/) y revise su puntuación segura de Microsoft. Puede revisar los cambios de su puntuación segura general haciendo clic en Vista de historial. Elija una fecha concreta para ver los controles que se han habilitado para ese día y los puntos que ha logrado por cada uno de ellos.
 
