@@ -4,15 +4,15 @@ description: 'Servicios de comercialización: en esta sección se describen los 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246254"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631084"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
@@ -38,7 +38,7 @@ Obtendrá ayuda para entender los recursos que tiene disponibles y en la impleme
 
 Puede encontrar descripciones detalladas de todas las ventajas del programa en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 
-Comenzar es fácil:
+## <a name="getting-started-is-easy"></a>Comenzar es fácil:
 
 1. Publique una oferta en Microsoft AppSource o en Azure Marketplace.
 2. Vaya a [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) en el Centro de Partners y seleccione **Enroll in Marketplace Rewards Program** (Inscribirse en el programa Marketplace Rewards).
@@ -49,19 +49,17 @@ Comenzar es fácil:
     1. Proporcione el teléfono de contacto y el idioma preferido para este contacto de marketing. Cuando termine de escribir esta información, seleccione **Asignar usuario**.
     1. Una vez que haya actualizado el contacto de marketing, seleccione **Activar** para la ventaja que desea empezar a usar. Una vez que active una ventaja, un miembro del equipo de Rewards se comunicará con el contacto de marketing en el plazo de una semana.
 
-### <a name="technical-benefits"></a>Ventajas técnicas
-
-1. Puede usar sus ventajas técnicas para solicitar asistencia técnica durante las fases de preventa, diseño, implementación y desarrollo de aplicaciones de sus soluciones híbridas y en la nube. Para solicitar asistencia, rellene el formulario de solicitud y, a continuación, seleccione **Enviar solicitud**.
-2. El uso de las ventajas de patrocinio de Azure se compartirá a través de un correo electrónico a medida que desbloquee estas ventajas.
-
->[!NOTE]
->Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes.<br><br>Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
+> [!NOTE]
+> Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, mirando en el Centro de partners. Deberían tener la comunicación y los pasos siguientes.<br><br>Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, genere una incidencia de soporte técnico en [Ayuda y soporte técnico](https://aka.ms/marketplacepublishersupport).
 
 El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en el marketplace comercial. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Ventajas de lista, prueba y consultoría
 
-Si publica un taller, una implementación o una prueba de concepto de prueba o consultoría, se le asignará un administrador de involucración durante tres meses, que lo guiará por un plan de comercialización adecuado. Puede repetir esta involucración de tres meses cada vez que publique una oferta nueva, para que cada una de las ofertas nuevas se inicie correctamente.
+Cada vez que publique en Microsoft AppSource o Azure Marketplace, tendrá acceso a un nuevo conjunto de ventajas. Una vez que la oferta esté activa, vaya al [Centro de partners](https://partner.microsoft.com/dashboard) para activar las ventajas de marketing, ventas y técnicas a las que puede acceder.
+
+> [!IMPORTANT]
+> Todas las ventajas de evaluación y consultoría expiran una vez transcurridos tres meses.
 
 En la tabla siguiente se resumen los requisitos de elegibilidad para las ofertas de lista, prueba y consultoría:
 
@@ -80,13 +78,19 @@ Estas ventajas están diseñadas para ayudarlo en actividades de marketing, de v
 
 Todos los partners que tienen una oferta publicada trabajan con un administrador de involucración dedicado para elegir las actividades de mayor valor para su cartera de ofertas del marketplace comercial. Esta involucración es permanente para cada oferta, lo que significa que puede elegir las actividades y el tiempo de estas actividades para alinearse con el tiempo de las estrategias de ventas y marketing más amplias de su empresa.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Ventajas de marketing para las ofertas de transacciones
+
 ![Ventajas de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Ventajas de ventas para las ofertas de transacciones
 
 ![Ventajas de ventas](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Ventajas técnicas para las ofertas de transacciones
+
 ![Ventajas técnicas](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2021.
+ El umbral de puestos vendidos se aplica solo a las aplicaciones de Microsoft 365 (las aplicaciones SaaS que tienen integraciones con Microsoft Teams, Office, Outlook o SharePoint) y las ventajas deben completarse antes del 30 de junio de 2021.
 
 Puede encontrar descripciones detalladas de todas estas ventajas en la [presentación del programa Recompensas de Marketplace](https://aka.ms/marketplacerewards).
 

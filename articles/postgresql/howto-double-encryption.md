@@ -1,17 +1,17 @@
 ---
 title: 'Cifrado doble de infraestructura: Azure Portal: Azure Database for PostgreSQL'
 description: Obtenga información sobre cómo configurar y administrar el cifrado doble de infraestructura para Azure Database for PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242235"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104771658"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Cifrado doble de infraestructura para Azure Database for PostgreSQL
 
@@ -23,7 +23,7 @@ Obtenga información sobre cómo configurar y administrar el cifrado doble de in
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Creación de un servidor de Azure Database for PostgreSQL con el cifrado doble de infraestructura: portal
 
-Siga estos pasos para crear un servidor de Azure Database for MySQL con el cifrado doble de infraestructura desde Azure Portal:
+Siga estos pasos para crear un servidor de Azure Database for PostgreSQL con el cifrado doble de infraestructura desde Azure Portal:
 
 1. En la esquina superior izquierda del portal, seleccione **Crear un recurso** (+).
 
@@ -45,7 +45,7 @@ Siga estos pasos para crear un servidor de Azure Database for MySQL con el cifra
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Creación de un servidor de Azure Database for PostgreSQL con el cifrado doble de infraestructura: CLI
 
-Siga estos pasos para crear un servidor de Azure Database for MySQL con el cifrado doble de infraestructura desde la CLI:
+Siga estos pasos para crear un servidor de Azure Database for PostgreSQL con el cifrado doble de infraestructura desde la CLI:
 
 En este ejemplo se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
 

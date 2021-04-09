@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389253"
 ---
 # <a name="data-access-strategies"></a>Estrategias de acceso a datos
@@ -47,7 +47,7 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
 
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos | Private Link     | Servicio de confianza     | Rango de direcciones IP estáticas | Etiquetas de servicio | Permitir servicios de Azure |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                     | Sí              | -                   | Sí             | -            | Sí                  |
     |                              | Explorador de datos de Azure                                 | -                | -                   | Sí*            | Sí*         | -                    |
     |                              | Azure Data Lake Gen1                                | -                | -                   | Sí             | -            | Sí                  |
     |                              | Azure Database for MariaDB, MySQL y PostgreSQL       | -                | -                   | Sí             | -            | Sí                  |
@@ -65,7 +65,7 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
     
     | Almacenes de datos                  | Mecanismo de seguridad de red compatible con almacenes de datos         | IP estática | Servicios de confianza  |
     |--------------------------------|---------------------------------------------------------------|-----------|---------------------|
-    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
+    | Almacenes de datos PaaS de Azure       | Azure Cosmos DB                                               | Sí       | -                   |
     |                                | Explorador de datos de Azure                                           | -         | -                   |
     |                                | Azure Data Lake Gen1                                          | Sí       | -                   |
     |                                | Azure Database for MariaDB, MySQL y PostgreSQL               | Sí       | -                   |

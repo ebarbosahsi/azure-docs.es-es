@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175114"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579746"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configuración del comportamiento de la sesión en Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Puede configurar el comportamiento de la sesión de Azure AD B2C, entre otras c
   - **Inquilino**: esta es la configuración predeterminada. Esta configuración permite que varias aplicaciones y flujos de usuario del inquilino B2C compartan la misma sesión de usuario. Por ejemplo, una vez que un usuario inicia sesión en una aplicación, puede también iniciar sesión perfectamente en otra simplemente al acceder a ella.
   - **Aplicación**: este valor permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, puede usar esta opción si quiere que el usuario inicie sesión en Contoso Pharmacy, independientemente de si ya inició sesión en Contoso Groceries.
   - **Directiva**: este valor permite mantener una sesión de usuario exclusivamente para un flujo de usuario, independientemente de las aplicaciones que lo usen. Por ejemplo, si el usuario ya ha iniciado sesión y ha realizado un paso de autenticación multifactor (MFA), se le puede dar acceso a zonas de mayor seguridad en varias aplicaciones mientras no expire la sesión asociada al flujo de usuario.
-  - **Deshabilitado**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva.
+  - **Suprimido**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva.
 - **Mantener la sesión iniciada**: amplía la duración de la sesión mediante el uso de una cookie persistente. Si esta característica está habilitada y el usuario la selecciona, la sesión permanece activa incluso después de que el usuario cierre y vuelva a abrir el explorador. La sesión solo se revoca cuando el usuario cierra la sesión. Mantener la sesión iniciada solo se aplica en el inicio de sesión con cuentas locales. Esta característica tiene prioridad sobre la duración de la sesión.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ Después de una solicitud de cierre de sesión, Azure AD B2C hará lo siguient
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Tratar de cerrar la sesión de los proveedores de identidades federados:
-   - OpenID Connect: si el punto de conexión de configuración conocido del proveedor de identidades especifica una ubicación `end_session_endpoint`.
+   - OpenID Connect: si el punto de conexión de configuración conocido del proveedor de identidades especifica una ubicación `end_session_endpoint`. La solicitud de cierre de sesión no pasa el parámetro `id_token_hint`. Si el proveedor de identidades federado requiere este parámetro, se producirá un error en la solicitud de cierre de sesión.
    - OAuth2: si los [metadatos del proveedor de identidades](oauth2-technical-profile.md#metadata) contienen la ubicación `end_session_endpoint`.
    - SAML: si los [metadatos del proveedor de identidades](identity-provider-generic-saml.md) contienen la ubicación `SingleLogoutService`.
 4. También puede cerrar la sesión de otras aplicaciones. Para obtener más información, consulte la sección [Cierre de sesión único](#single-sign-out).

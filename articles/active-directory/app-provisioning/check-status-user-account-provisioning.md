@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256684"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579491"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -36,7 +36,7 @@ Los conectores de aprovisionamiento se configuran mediante [Azure Portal](https:
 En este artículo se utilizan los términos que se definen a continuación:
 
 * **Sistema de origen**: el repositorio de usuarios desde el que se sincroniza el servicio de aprovisionamiento de Azure AD. Azure Active Directory es el sistema de origen para la mayoría de los conectores de aprovisionamiento integrados previamente, sin embargo, hay algunas excepciones (ejemplo: Sincronización de entrada de Workday).
-* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Esto suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, G Suite, Dropbox Business), pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday a Active Directory).
+* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, G Suite, Dropbox para Empresas) pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday con Active Directory).
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtención de informes de aprovisionamiento desde Azure Portal
 
@@ -48,7 +48,7 @@ Desde aquí, puede acceder a la barra de progreso de aprovisionamiento y a los r
 
 ## <a name="provisioning-progress-bar"></a>Barra de progreso de aprovisionamiento
 
-La [barra de progreso de aprovisionamiento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) está visible en la **pestaña Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Estado actual** bajo **Configuración**, y muestra el estado del ciclo inicial o incremental actual. En esta sección también se muestra lo siguiente:
+La [barra de progreso de aprovisionamiento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) está visible en la pestaña **Aprovisionamiento** de la aplicación específica. Se encuentra en la sección **Estado actual** y muestra el estado del ciclo inicial o incremental actual. En esta sección también se muestra lo siguiente:
 
 * El número total de usuarios y grupos que se han sincronizado y están actualmente en el ámbito para el aprovisionamiento entre el sistema de origen y el sistema de destino.
 * La última vez que se ejecutó la sincronización. Las sincronizaciones suelen producirse cada 20-40 minutos, una vez que haya finalizado un [ciclo inicial](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
@@ -61,7 +61,7 @@ El **Estado actual** debe ser el primer lugar en el que busquen los administrado
 
 ## <a name="provisioning-logs-preview"></a>Registros de aprovisionamiento (versión preliminar)
 
-Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Los tipos de eventos de actividades registradas incluyen:
+Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de Azure AD. Para acceder a los registros de aprovisionamiento en Azure Portal, seleccione **Azure Active Directory** &gt; **Aplicaciones empresariales** &gt; **Registros de aprovisionamiento (versión preliminar)** en la sección **Actividad**. Puede buscar los datos de aprovisionamiento por el nombre del usuario o el identificador en el sistema de origen o en el sistema de destino. Para más información, consulte [Registros de aprovisionamiento (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Los tipos de eventos de actividades registradas incluyen:
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

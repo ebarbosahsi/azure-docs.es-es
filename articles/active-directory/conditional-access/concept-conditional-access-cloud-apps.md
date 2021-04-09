@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307770"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579151"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -98,7 +98,7 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365:
 
 La aplicación de administración de Microsoft Azure incluye varios servicios subyacentes. 
 
-   - Azure portal
+   - Azure Portal
    - Proveedor de Azure Resource Manager
    - API del modelo de implementación clásica
    - Azure PowerShell
@@ -125,8 +125,14 @@ Además de las aplicaciones de Microsoft, los administradores pueden agregar cua
 
 ## <a name="user-actions"></a>Acciones del usuario
 
-Las acciones del usuario son tareas que un usuario puede realizar. La única acción admitida actualmente es **Registro de la información de seguridad** , lo que permite que la directiva de acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
+Las acciones del usuario son tareas que un usuario puede realizar. Actualmente, el Acceso condicional admite dos acciones del usuario: 
 
+- **Registro de la información de seguridad**: esta acción del usuario permite que la directiva de Acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
+
+- **Registro o unión de dispositivos (versión preliminar)** : esta acción del usuario permite a los administradores aplicar la directiva de Acceso condicional cuando los usuarios [registran](../devices/concept-azure-ad-register.md) o [unen](../devices/concept-azure-ad-join.md) dispositivos a Azure AD. Existen dos consideraciones clave con esta acción del usuario: 
+   - `Require multi-factor authentication` es el único control de acceso disponible con esta acción del usuario y todos los demás están deshabilitados. Esta restricción evita conflictos con controles de acceso que dependen del registro de dispositivos de Azure AD o que no se pueden aplicar al registro de dispositivos de Azure AD. 
+   - Cuando se habilita una directiva de Acceso condicional con esta acción del usuario, debe establecer **Azure Active Directory** > **Dispositivos** > **Configuración del dispositivo** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` en **No**. De lo contrario, la directiva de Acceso condicional no se aplica correctamente con esta acción del usuario. Puede encontrar más información sobre esta configuración de dispositivo en [Configuración de las opciones de dispositivo](../devices/device-management-azure-portal.md#configure-device-settings). Esta acción del usuario proporciona flexibilidad para requerir la autenticación multifactor a fin de registrar o unir dispositivos a usuarios y grupos específicos, en lugar de tener una directiva para todo el inquilino en la configuración del dispositivo. 
+   
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Acceso condicional: Condiciones](concept-conditional-access-conditions.md)

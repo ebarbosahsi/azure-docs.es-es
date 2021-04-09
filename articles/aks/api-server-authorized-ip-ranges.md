@@ -4,12 +4,12 @@ description: Aprenda a proteger el clúster mediante un intervalo de direcciones
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890650"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104771930"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Protección del acceso al servidor de API con intervalos de direcciones IP autorizadas en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Es preciso que esté instalada y configurada la versión 2.0.76 de la CLI de A
 
 La característica de intervalos IP autorizados por el servidor de la API tiene las siguientes limitaciones:
 - En los clústeres creados después de que los intervalos de direcciones IP autorizados por el servidor de API se hayan pasado de la versión preliminar en octubre de 2019, los intervalos de direcciones IP autorizados del servidor de API solo se admiten en el equilibrador de carga de SKU *Estándar*. Los clústeres existentes con la SKU *Básica* del equilibrador de carga y los intervalos IP autorizados del servidor de API seguirán funcionando tal cual, pero no se podrán migrar a un equilibrador de carga de SKU *Estándar*. Los clústeres existentes también seguirán funcionando si se actualiza la versión de Kubernetes o el plano de control. Los intervalos de direcciones IP autorizados del servidor de API no se admiten para los clústeres privados.
-- Esta característica no es compatible con los clústeres que usan la [característica en versión preliminar de grupos de nodos de IP pública por nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+- Esta característica no es compatible con los clústeres que usan la [dirección IP pública por nodo](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Información general sobre los intervalos de direcciones IP autorizadas por el servidor de API
 

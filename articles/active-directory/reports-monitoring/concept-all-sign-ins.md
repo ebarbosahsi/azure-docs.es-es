@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319769"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574567"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Informes de actividad de inicio de sesión de Azure Active Directory: versión preliminar
 
@@ -30,7 +30,7 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
 
 - **Actividad** 
     - **Inicios de sesión**: información sobre cuándo los usuarios, las aplicaciones y los recursos administrados inician sesión en Azure AD y acceden a los recursos.
-    - **Registros de auditoría** - [: los ](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
+    - **Registros de auditoría** - [: los](concept-audit-logs.md)registros de auditoría proporcionan información de la actividad del sistema sobre la administración de usuarios y grupos, aplicaciones administradas y actividades de directorio.
 - **Seguridad** 
     - **Inicios de sesión de riesgo**: un [inicio de sesión de riesgo](../identity-protection/overview-identity-protection.md) es un indicador de un intento de inicio de sesión de alguien que no es el propietario legítimo de una cuenta de usuario.
     - **Usuarios marcados en riesgo**: un [usuario en riesgo](../identity-protection/overview-identity-protection.md) es un indicador de una cuenta de usuario que puede haber estado en peligro.
@@ -102,7 +102,7 @@ En la hoja del informe de inicios de sesión, puede cambiar entre:
 
 
 
-## <a name="user-sign-ins"></a>Inicios de sesión de usuario
+## <a name="user-sign-ins&quot;></a>Inicios de sesión de usuario
 
 Cada pestaña de la hoja de inicios de sesión muestra las columnas predeterminadas que aparecen a continuación. Algunas pestañas tienen columnas adicionales:
 
@@ -120,12 +120,17 @@ Cada pestaña de la hoja de inicios de sesión muestra las columnas predetermina
 
 
 
-### <a name="interactive-user-sign-ins"></a>Inicios de sesión de usuario interactivos
+### <a name=&quot;interactive-user-sign-ins&quot;></a>Inicios de sesión de usuario interactivos
 
 
 Los inicios de sesión de usuario interactivos son inicios de sesión en los que un usuario proporciona un factor de autenticación para Azure AD o interactúa directamente con Azure AD o una aplicación auxiliar, como la aplicación Microsoft Authenticator. Los factores que los usuarios proporcionan incluyen las contraseñas, las respuestas a los desafíos de MFA, los factores biométricos o los códigos QR que un usuario proporciona a Azure AD o a una aplicación auxiliar.
 
-Este informe también incluye los inicios de sesión federados de proveedores de identidades que están federados con Azure AD.  
+> [!NOTE]
+> Este informe también incluye los inicios de sesión federados de proveedores de identidades que están federados con Azure AD.  
+
+
+
+Nota: El informe de inicios de sesión de usuario interactivo se usa para incluir algunos inicios de sesión no interactivos de los clientes de Microsoft Exchange. Aunque esos inicios de sesión no son interactivos, se han incluido en el informe de inicios de sesión de usuarios interactivos para obtener mayor visibilidad. Una vez que el informe de inicios de sesión de usuarios no interactivos se introdujo en la versión preliminar pública en noviembre de 2020, los registros de eventos de inicio de sesión no interactivos se movieron al informe de inicio de sesión de usuario no interactivo para aumentar la precisión. 
 
 
 **Tamaño del informe:** pequeño <br> 
@@ -150,7 +155,7 @@ Además de los campos predeterminados, el informe de inicios de sesión interact
 
 Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de herramientas.
 
-![Columnas de inicio de sesión de usuario interactivo](./media/concept-all-sign-ins/columns-interactive.png "Columnas del inicio de sesión de usuario interactivo")
+![Columnas de inicio de sesión de usuario interactivo](./media/concept-all-sign-ins/columns-interactive.png &quot;Columnas del inicio de sesión de usuario interactivo")
 
 
 

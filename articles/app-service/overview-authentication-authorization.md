@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 83758f63b7e60d08a31f1da9da4a6eec6ba7d4a4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095243"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632074"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
-Azure App Service incluye compatibilidad con autenticación y autorización para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código o directamente sin código en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación.
+Azure App Service incluye compatibilidad integrada con la autenticación y la autorización (lo que a veces se denomina "Easy Auth") para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código (o directamente sin código) en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación.
 
 Para proteger la autenticación y la autorización es necesario entender perfectamente la seguridad, incluida la federación, el cifrado, la administración de [JSON Web Token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), los [tipos de concesión](https://oauth.net/2/grant-types/), etc. App Service proporciona estas utilidades para que pueda dedicar más tiempo y energía a proporcionar un valor empresarial a su cliente.
 
@@ -24,9 +24,6 @@ Para proteger la autenticación y la autorización es necesario entender perfect
 >
 > Las versiones ASP.NET Core 2.1 y posteriores hospedadas por App Service ya se han revisado para este cambio importante y administran los exploradores Chrome 80 y anteriores adecuadamente. Además, la misma revisión para ASP.NET Framework 4.7.2 se han implementado en las instancias de App Service en enero de 2020. Para obtener más información, consulte [Actualización de cookies de SameSite en Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
-
-> [!NOTE]
-> La característica de autenticación y autorización también se conoce a veces como "Easy Auth".
 
 > [!NOTE]
 > La habilitación de esta característica hará que **todas** las solicitudes HTTP no seguras a la aplicación se redirijan automáticamente a HTTPS, con independencia del valor de configuración de App Service para [aplicar HTTPS](configure-ssl-bindings.md#enforce-https). Si es necesario, puede deshabilitarlo mediante la opción `requireHttps` del [archivo de configuración de auth](app-service-authentication-how-to.md#configuration-file-reference), pero debe tener cuidado de asegurarse de que ningún token de seguridad se transmita a través de conexiones HTTP no seguras.

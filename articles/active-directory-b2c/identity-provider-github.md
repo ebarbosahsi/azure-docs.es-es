@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 0c0507f9206ebe69662090d7a00da6d5c9d0b90a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448377"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580018"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de GitHub mediante Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Para permitir el inicio de sesión con una cuenta de GitHub en Azure Active Dire
 1. Inicie sesión en el portal para [desarrolladores de GitHub](https://github.com/settings/developers) con sus credenciales de GitHub.
 1. Seleccione **OAuth Apps** (Aplicaciones OAuth) y elija **New OAuth App** (Nueva aplicación OAuth).
 1. Escriba un **nombre de aplicación** y la **dirección URL de la página principal**.
-1. Escriba la información de `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en **Authorization callback URL** (Dirección URL de devolución de llamada de autorización). Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
+1. Como **URL de devolución de llamada de autorización** escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-domain-name` por el dominio personalizado, y `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
 1. Haga clic en **Register application** (Registrar aplicación).
 1. Copie los valores de **Client ID** y **Client Secret**. Necesitará los dos para agregar el proveedor de identidades a su inquilino.
 
@@ -61,6 +61,9 @@ Para permitir el inicio de sesión con una cuenta de GitHub en Azure Active Dire
 1. Seleccione **Guardar**.
 
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de GitHub a un flujo de usuario 
+
+En este momento, el proveedor de identidades de GitHub ya se ha configurado, pero no está disponible en ninguna de las pantallas de inicio de sesión. Para agregar el proveedor de identidades de GitHub a un flujo de usuario:
+
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario al que quiera agregar el proveedor de identidades de GitHub.

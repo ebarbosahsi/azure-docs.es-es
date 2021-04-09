@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 03/10/2021
 ms.author: justinha
-ms.openlocfilehash: 76af477af8290634d2658c58574b8f96cff7b1fb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620348"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631394"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure Active Directory Domain Services
 
@@ -80,7 +80,7 @@ En Azure AD DS, el rendimiento y las características disponibles dependen de 
 
 | Nombre de SKU   | Número máximo de objetos | Frecuencia de copia de seguridad | Número máximo de relaciones de confianza entre bosques de salida |
 |------------|----------------------|------------------|----|
-| Estándar   | Sin límite            | Cada 7 días     | 0  |
+| Estándar   | Sin límite            | Cada 5 días     | 0  |
 | Enterprise | Sin límite            | Cada 3 días     | 5  |
 | Premium    | Sin límite            | Diario            | 10 |
 
