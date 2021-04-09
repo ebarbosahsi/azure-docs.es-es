@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175318"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557962"
 ---
 # <a name="authentication-methods-activity"></a>Actividad de los métodos de autenticación 
 
@@ -107,7 +107,7 @@ Mediante los controles de la parte superior de la lista, puede buscar un usuario
 El informe de detalles de registro muestra la siguiente información para cada usuario:
 
 - Nombre principal de usuario
-- nombre
+- Nombre
 - Capacidad MFA (con capacidad, sin capacidad)
 - Capacidad sin contraseña (con capacidad, sin capacidad)
 - SSPR registrado (registrado, no registrado)
@@ -135,6 +135,7 @@ El informe de detalles de registro muestra la siguiente información para cada u
 
 - Los datos del informe no se actualizan en tiempo real y pueden reflejar una latencia de hasta unas cuantas horas.
 - Los registros de Pase de acceso temporal (TAP) no se reflejan en la pestaña de registro del informe porque solo son válidos durante un breve período de tiempo.
+- Los métodos **PhoneAppNotification** o **PhoneAppOTP** que un usuario podría haber configurado no se muestran en el panel. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

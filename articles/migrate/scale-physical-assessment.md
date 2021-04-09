@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753695"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780317"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Evaluación de grandes cantidades de servidores físicos para la migración a Azure
 
-En este artículo se describe cómo evaluar grandes cantidades de servidores físicos locales para su migración a Azure mediante la herramienta Server Assessment de Azure Migrate.
+En este artículo se describe cómo evaluar grandes cantidades de servidores físicos locales para su migración a Azure mediante Azure Migrate y la herramienta de detección y evaluación.
 
 [Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
 
@@ -36,7 +36,7 @@ En este artículo aprenderá a:
 Al planear la evaluación de un gran número de servidores físicos, hay un par de cosas que hay que tener en cuenta:
 
 - **Planeación de proyectos de Azure Migrate**: Averigüe cómo implementar proyectos de Azure Migrate. Por ejemplo, si los centros de datos están en zonas geográficas diferentes, o si necesita almacenar metadatos relacionados con la detección, la evaluación o la migración en una zona geográfica diferente, es posible que necesite varios proyectos.
-- **Planear dispositivos**: Azure Migrate usa un dispositivo de Azure Migrate local, implementado en una máquina Windows, para detectar continuamente servidores para la evaluación y migración. El dispositivo supervisa los cambios de entorno, como la incorporación de VM, discos o adaptadores de red. También envía metadatos y datos de rendimiento acerca de ellos a Azure. Debe averiguar el número de dispositivos que se van a implementar.
+- **Planear dispositivos**: Azure Migrate usa un dispositivo de Azure Migrate local, implementado en un servidor de Windows, para detectar continuamente servidores para la evaluación y migración. El dispositivo supervisa los cambios de entorno, como la incorporación de servidores, discos o adaptadores de red. También envía metadatos y datos de rendimiento acerca de ellos a Azure. Debe averiguar el número de dispositivos que se van a implementar.
 
 
 ## <a name="planning-limits"></a>Límites de planeación
@@ -57,7 +57,7 @@ Use los límites resumidos en esta tabla para la planeación.
 
 ## <a name="prepare-for-assessment"></a>Preparación para la evaluación
 
-Prepare Azure y los servidores físicos para la evaluación de servidores. 
+Preparación de Azure y de los servidores físicos para la herramienta de detección y evaluación:  
 
 1. Compruebe [los requisitos y las limitaciones de compatibilidad de los servidores físicos](migrate-support-matrix-physical.md).
 2. Configure los permisos de la cuenta de Azure para interactuar con Azure Migrate.
@@ -70,7 +70,7 @@ Siga las instrucciones de [este tutorial](./tutorial-discover-physical.md) para 
 Según los requisitos de planeación, haga lo siguiente:
 
 1. Cree un proyecto de Azure Migrate.
-2. Agregue la herramienta de evaluación del servidor de Azure Migrate a los proyectos.
+2. Agregue a los proyectos el Azure Migrate y la herramienta de detección y evaluación.
 
 [Más información](./create-manage-projects.md)
 

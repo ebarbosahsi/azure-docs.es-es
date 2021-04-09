@@ -4,10 +4,10 @@ description: Pasos para conectar ExpressRoute a la puerta de enlace de red virtu
 ms.topic: include
 ms.date: 12/08/2020
 ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103494377"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
@@ -22,7 +22,7 @@ ms.locfileid: "103494377"
 
 1. En la página **Agregar conexión**, proporcione valores para los campos y seleccione **Aceptar**. 
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | **Nombre**  | Escriba un nombre para la conexión.  |
    | **Tipo de conexión**  | seleccione **ExpressRoute**.  |

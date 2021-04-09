@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.openlocfilehash: 92edfa148268db5a5458b2af4000bc9ffd9ecc83
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101659960"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Conexión de una aplicación Go a la API de Azure Cosmos DB para MongoDB
@@ -31,7 +31,7 @@ Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y 
 
 La aplicación de ejemplo es una herramienta de administración `todo` de línea de comandos escrita en Go. La API de Azure Cosmos DB para MongoDB es [compatible con el protocolo de conexión de MongoDB](./mongodb-introduction.md#wire-protocol-compatibility), lo que permite que cualquier controlador cliente de MongoDB se conecte a ella. Esta aplicación usa el [controlador de Go para MongoDB](https://github.com/mongodb/mongo-go-driver) de una manera transparente, de forma que sabe que los datos se almacenan en una base de datos de Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free). O bien, [pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure. También puede usar el [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la cadena de conexión `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - Instalación de [Go](https://golang.org/) en el equipo y conocimientos de cómo funciona.
 - [Git](https://git-scm.com/downloads).

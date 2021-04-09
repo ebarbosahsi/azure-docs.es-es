@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102498904"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048874"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cómo configurar la indexación de SharePoint Online en Cognitive Search (versión preliminar)
 
@@ -147,7 +147,7 @@ api-key: [admin key]
 
 ```
 
-Para más información, consulte [Creación de un índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para más información, consulte [Creación de un índice (API REST)](/rest/api/searchservice/create-index).
 
 ### <a name="step-5-create-an-indexer"></a>Paso 5: Creación de un indexador
 Un indexador conecta un origen de datos con un índice de búsqueda de destino y proporciona una programación para automatizar la actualización de datos. Una vez creados el índice y el origen de datos, ya puede crear el indexador:
@@ -226,7 +226,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-Puede encontrar más información sobre el estado del indexador aquí: [Obtención del estado del indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Puede encontrar más información sobre el estado del indexador aquí: [Obtención del estado del indexador](/rest/api/searchservice/get-indexer-status).
 
 ## <a name="updating-the-data-source"></a>Actualización del origen de datos
 Si no hay ninguna actualización del objeto de origen de datos, el indexador se puede ejecutar según una programación sin interacción del usuario. Sin embargo, cada vez que se actualice el objeto de origen de datos de Azure Cognitive Search, deberá volver a iniciar sesión para que se ejecute el indexador. Por ejemplo, si cambia la consulta del origen de datos, tendrá que iniciar sesión de nuevo con `https://microsoft.com/devicelogin` y un nuevo código.
@@ -241,7 +241,7 @@ Una vez actualizado el origen de datos, siga estos pasos:
     api-key: [admin key]
     ```
 
-    Puede encontrar más información sobre la solicitud de ejecución del indexador aquí: [Ejecución del indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    Puede encontrar más información sobre la solicitud de ejecución del indexador aquí: [Ejecución del indexador](/rest/api/searchservice/run-indexer).
 
 1.  Compruebe el estado del indexador. Si la última ejecución del indexador muestra un error que le indica que vaya a `https://microsoft.com/devicelogin`, hágalo y proporcione el nuevo código. 
 
@@ -251,7 +251,7 @@ Una vez actualizado el origen de datos, siga estos pasos:
     api-key: [admin key]
     ```
 
-    Puede encontrar más información sobre el estado del indexador aquí: [Obtención del estado del indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    Puede encontrar más información sobre el estado del indexador aquí: [Obtención del estado del indexador](/rest/api/searchservice/get-indexer-status).
 
 1.  Inicio de sesión
 
@@ -359,7 +359,7 @@ Con algunos documentos, Azure Cognitive Search no puede determinar el tipo de co
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search limita el tamaño de los documentos que se indexan. Estos límites se documentan en [Límites de servicio en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Los documentos de gran tamaño se tratan como errores de forma predeterminada. Sin embargo, puede indexar los metadatos de almacenamiento de documentos demasiado grandes si establece el parámetro de configuración `indexStorageMetadataOnlyForOversizedDocuments` en true:
+Azure Cognitive Search limita el tamaño de los documentos que se indexan. Estos límites se documentan en [Límites de servicio en Azure Cognitive Search](./search-limits-quotas-capacity.md). Los documentos de gran tamaño se tratan como errores de forma predeterminada. Sin embargo, puede indexar los metadatos de almacenamiento de documentos demasiado grandes si establece el parámetro de configuración `indexStorageMetadataOnlyForOversizedDocuments` en true:
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }

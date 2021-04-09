@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487192"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726369"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo renovar los certificados de Azure Key Vault.
 Para recibir notificaciones sobre los eventos de vida de un certificado, deberá agregar el contacto del certificado. Los contactos de certificados contienen información de contacto para enviar notificaciones desencadenadas por los eventos de vigencia del certificado. La información de los contactos es compartida por todos los certificados del almacén de claves. Se envía una notificación a todos los contactos especificados para un evento de cualquier certificado del almacén de claves.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Pasos para establecer notificaciones de certificado:
-En primer lugar, agregue un contacto del certificado al almacén de claves. Para ello, puede usar Azure Portal o el cmdlet de PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+En primer lugar, agregue un contacto del certificado al almacén de claves. Para ello, puede usar Azure Portal o el cmdlet de PowerShell [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact).
 
 En segundo lugar, configure cuándo desea recibir una notificación sobre la expiración del certificado. Para configurar los atributos del ciclo de vida del certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
@@ -41,9 +41,9 @@ Si se establece la directiva de un certificado para la renovación automática, 
   Si se establece una directiva de certificado en renovación manual (solo correo electrónico), cuando llega el momento de renovar el certificado se envía una notificación.  
 
 En Key Vault, hay tres categorías de certificados:
--   Certificados que se crean con una entidad de certificación integrada, como DigiCert o GlobalSign
--   Certificados que se crean con una entidad de certificación no integrada
--   Certificados autofirmados
+-    Certificados que se crean con una entidad de certificación integrada, como DigiCert o GlobalSign
+-    Certificados que se crean con una entidad de certificación no integrada
+-    Certificados autofirmados
 
 ## <a name="renew-an-integrated-ca-certificate"></a>Renovación del certificado de una entidad de certificación integrada 
 Azure Key Vault se encarga del mantenimiento integral de los certificados que emiten las entidades de certificación de confianza de Microsoft; es decir, DigiCert y GlobalSign. Aprenda a [integrar una entidad de certificación de confianza con Key Vault](./how-to-integrate-certificate-authority.md).
@@ -89,5 +89,5 @@ Cree un certificado con una validez de **1 mes** y, a continuación, establezca 
 Sí, las etiquetas se replican después de la renovación automática.
 
 ## <a name="next-steps"></a>Pasos siguientes
-*   [Integración de Key Vault con la entidad de certificación DigiCert](how-to-integrate-certificate-authority.md)
-*   [Tutorial: Configuración de la rotación automática de certificados en Key Vault](tutorial-rotate-certificates.md)
+*    [Integración de Key Vault con la entidad de certificación DigiCert](how-to-integrate-certificate-authority.md)
+*    [Tutorial: Configuración de la rotación automática de certificados en Key Vault](tutorial-rotate-certificates.md)

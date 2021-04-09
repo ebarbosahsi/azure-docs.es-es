@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387689"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584428"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -168,7 +168,7 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
   - Considere la posibilidad de ajustar gradualmente las [copias en paralelo](copy-activity-performance-features.md); tenga en cuenta que demasiadas copias en paralelo pueden perjudicar el rendimiento.
 
 
-## <a name="connector-and-ir-performance"></a>Rendimiento del conector e IR
+## <a name="connector-and-ir-performance"></a>Rendimiento del conector e IR 
 
 En esta sección se exploran algunas guías de solución de problemas de rendimiento para un tipo de conector o entorno de ejecución de integración concretos.
 
@@ -176,9 +176,11 @@ En esta sección se exploran algunas guías de solución de problemas de rendimi
 
 El tiempo de ejecución de la actividad varía cuando el conjunto de datos se basa en diferentes entornos de ejecución de integración.
 
-- **Síntomas**: El simple cambio de la lista desplegable Servicio vinculado en el conjunto de datos realiza las mismas actividades de canalización, pero tiene tiempos de ejecución radicalmente diferentes. Cuando el conjunto de datos se basa en el entorno de ejecución de integración de la red virtual administrada, tarda más de dos minutos por término medio en completarse la ejecución, pero unos 20 segundos cuando se basa en el entorno de ejecución de integración predeterminado.
+- **Síntomas**: El simple cambio de la lista desplegable Servicio vinculado en el conjunto de datos realiza las mismas actividades de canalización, pero tiene tiempos de ejecución radicalmente diferentes. Cuando el conjunto de datos se basa en el entorno de ejecución de integración de la red virtual administrada, tarda más tiempo promedio que la ejecución basada en el entorno de ejecución de integración predeterminado.  
 
-- **Causa**: Al comprobar los detalles de las ejecuciones de canalización, puede observar que la canalización lenta se ejecuta en el entorno de ejecución de integración de la VNET administrada (Virtual Network), mientras que la normal se ejecuta en Azure IR. Por diseño, el entorno de ejecución de integración de la VNET administrada se lleva más tiempo en la cola que Azure IR, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación en torno a dos minutos para que se inicie cada actividad de copia y se produce principalmente en la unión a una red virtual y no en Azure IR.
+- **Causa**: Al comprobar los detalles de las ejecuciones de canalización, puede observar que la canalización lenta se ejecuta en el entorno de ejecución de integración de la VNET administrada (Virtual Network), mientras que la normal se ejecuta en Azure IR. Por diseño, el entorno de ejecución de integración de la red virtual administrada lleva más tiempo en la cola que Azure IR, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación para que se inicie cada actividad de copia y se produce principalmente en la unión a una red virtual y no en Azure IR. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Bajo rendimiento al cargar datos en Azure SQL Database

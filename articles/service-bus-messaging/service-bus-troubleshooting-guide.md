@@ -3,12 +3,12 @@ title: Guía para la solución de problemas de Azure Service Bus | Microsoft Doc
 description: Conozca las sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179704"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031297"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guía para la solución de problemas de Azure Service Bus
 En este artículo se proporcionan sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus. 
@@ -98,6 +98,25 @@ Existe un límite en el número de tokens que se usan para enviar y recibir mens
 
 ### <a name="resolution"></a>Resolución
 Abra una nueva conexión con el espacio de nombres de Service Bus para enviar más mensajes.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>No se puede agregar una regla de red virtual mediante PowerShell
+
+### <a name="symptoms"></a>Síntomas
+Ha configurado dos subredes a partir de una única red virtual en una regla de red virtual. Al intentar quitar una subred con el cmdlet [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule), dicha subred no se quita de la regla de red virtual. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Causa
+Es posible que el identificador de Azure Resource Manager que especificó para la subred no sea válido. Esto puede ocurrir cuando la red virtual se encuentra en un grupo de recursos diferente del que tiene el espacio de nombres de Service Bus. Si no especifica explícitamente el grupo de recursos de la red virtual, el comando de la CLI crea el identificador de Azure Resource Manager con el grupo de recursos del espacio de nombres de Service Bus. Por lo tanto, no puede quitar la subred de la regla de red. 
+
+### <a name="resolution"></a>Solución
+Especifique el identificador de Azure Resource Manager completo de la subred que incluye el nombre del grupo de recursos que contiene la red virtual. Por ejemplo:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 

@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589542"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
@@ -449,13 +449,13 @@ El muestreo de ingesta no funciona mientras el muestreo adaptable o el de frecue
 > [!WARNING]
 > El valor que se muestra en el icono del portal indica el valor que ha establecido para el muestreo de ingesta. Si un muestreo del SDK está en funcionamiento (muestreo adaptable o de frecuencia fija), no representa la frecuencia real de muestreo.
 
-## <a name="when-to-use-sampling"></a>¿Cuándo usar el muestreo?
+## <a name="when-to-use-sampling&quot;></a>¿Cuándo usar el muestreo?
 
 En general, para la mayoría de las aplicaciones pequeñas y medianas no es necesario realizar muestreos. La información de diagnóstico más útil y las estadísticas más precisas se obtienen mediante la recopilación de datos en todas las actividades del usuario. 
 
 Las principales ventajas del muestreo son:
 
-* El servicio de Application Insights descarta ("limita") puntos de datos cuando la aplicación envía un número muy elevado de datos de telemetría en un intervalo de tiempo corto. El muestreo reduce la probabilidad de que se produzca una limitación en la aplicación.
+* El servicio de Application Insights descarta (&quot;limita") puntos de datos cuando la aplicación envía un número muy elevado de datos de telemetría en un intervalo de tiempo corto. El muestreo reduce la probabilidad de que se produzca una limitación en la aplicación.
 * Para mantenerse dentro de la [cuota](pricing.md) de puntos de datos de su plan de tarifa. 
 * Para reducir el tráfico de red de la recopilación de telemetría. 
 

@@ -5,14 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732316"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628533"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure PowerShell
 
@@ -21,7 +21,7 @@ Comience a trabajar con Azure Private Link usando un punto de conexión privado 
 En este inicio rápido, creará un punto de conexión privado para Azure Attestation e implementará una máquina virtual para probar la conexión privada.  
 
 > [!NOTE]
-> La implementación actual solo incluye la opción de aprobación automática. La suscripción debe autorizarse para poder continuar con la creación de un punto de conexión privado. Póngase en contacto con el equipo de servicio o envíe una solicitud de soporte técnico de Azure en la [Página de soporte técnico de Azure](https://azure.microsoft.com/support/options/) antes de continuar con los pasos siguientes.
+> La implementación actual solo incluye la opción de aprobación automática. Se debe agregar la suscripción a una lista de suscripciones permitidas para poder continuar con la creación de un punto de conexión privado. Póngase en contacto con el equipo de servicio o envíe una solicitud de soporte técnico de Azure en la [Página de soporte técnico de Azure](https://azure.microsoft.com/support/options/) antes de continuar con los pasos siguientes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
