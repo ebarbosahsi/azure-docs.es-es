@@ -4,10 +4,10 @@ description: En este tutorial se explica cómo conectar una función a una red v
 ms.topic: article
 ms.date: 2/22/2021
 ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630476"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
@@ -326,7 +326,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. La implementación inicial debería tardar unos minutos. Cuando la aplicación se implementa correctamente, en la pestaña **Registros**, verá un mensaje de estado **correcto (activo)** . Si es necesario, actualice la página.
 
-¡Enhorabuena! Implementó correctamente la aplicación de funciones de ejemplo.
+Felicidades. Implementó correctamente la aplicación de funciones de ejemplo.
 
 ## <a name="lock-down-your-function-app"></a>Bloqueo de la aplicación de funciones
 
@@ -344,11 +344,11 @@ Para más información, consulte la [documentación sobre los puntos de conexió
 
 1. En el panel que se abre, use la configuración de punto de conexión privado siguiente:
 
-    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Captura de pantalla sobre cómo crear un punto de conexión privado de la aplicación de funciones. El nombre es functionapp-endpoint. La suscripción es &quot;Private Test Sub CACHHAI&quot;. La red virtual es MyVirtualNet-tutorial. La subred es el valor predeterminado.":::
+    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Captura de pantalla sobre cómo crear un punto de conexión privado de la aplicación de funciones. El nombre es functionapp-endpoint. La suscripción es &quot;Private Test Sub CACHHAI&quot;. La red virtual es MyVirtualNet-tutorial. La subred es la predeterminada.":::
 
 1. Seleccione **Aceptar** para agregar el punto de conexión privado. 
  
-¡Enhorabuena! Protegió correctamente la aplicación de funciones, el bus de servicio y la cuenta de almacenamiento al agregar puntos de conexión privados.
+Felicidades. Protegió correctamente la aplicación de funciones, el bus de servicio y la cuenta de almacenamiento al agregar puntos de conexión privados.
 
 ### <a name="test-your-locked-down-function-app"></a>Prueba de la aplicación de funciones bloqueada
 
@@ -382,7 +382,7 @@ A continuación, se muestra una forma alternativa de supervisar la función medi
 
     :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Captura de pantalla sobre cómo ver mensajes mediante Live Metrics para las aplicaciones de funciones.":::
 
-¡Enhorabuena! Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
+Felicidades. Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
 
 ## <a name="understand-private-dns-zones"></a>Descripción de las zonas DNS privadas
 Usó un punto de conexión privado para conectarse a los recursos de Azure. Está estableciendo una conexión a una dirección IP privada en lugar del punto de conexión público. Los servicios de Azure existentes están configurados para usar un DNS existente para conectarse al punto de conexión público. Debe reemplazar la configuración de DNS para conectarse al punto de conexión privado.
