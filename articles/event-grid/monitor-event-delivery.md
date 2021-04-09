@@ -2,36 +2,19 @@
 title: Visualización de las métricas de Azure Event Grid y configuración de alertas
 description: En este artículo se describe cómo usar Azure Portal para ver las métricas de temas y suscripciones de Azure Event Grid, y cómo crear alertas en ellas.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f6c119c16452246ec6eeb57ab392b29608938a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598565"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 En este artículo se describe cómo usar el portal para ver las métricas de temas y suscripciones de Event Grid, y cómo crear alertas en ellas. 
 
-## <a name="metrics"></a>Métricas
-
-El portal muestra las métricas para el estado de la entrega de mensajes de eventos.
-
-En el caso de los temas, estas son algunas de las métricas:
-
-* **Publicación correcta**: el evento se envió correctamente al tema y se procesó con una respuesta 2xx.
-* **Error al publicar**: el evento se envió al tema, pero se rechazó con un código de error.
-* **Sin coincidencia**: el evento se publicó correctamente en el tema, pero no coincide con ninguna suscripción a eventos. Se descartó el evento.
-
-En el caso de las suscripciones, estas son algunas de las métricas:
-
-* **Entrega realizada**: el evento se entregó correctamente al punto de conexión de la suscripción y se recibió una respuesta 2xx.
-* **Entrega no realizada**: Cada vez que el servicio intenta entregar y el controlador de eventos no devuelve un código de error 2xx, se incrementa el contador de **error de entrega**. Si intentamos entregar el mismo evento varias veces y se produce un error, se incrementa el contador de **error de entrega** por cada error.
-* **Eventos expirados**: no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
-* **Eventos coincidentes**: la suscripción a eventos coincide con el evento del tema.
-
-    > [!NOTE]
-    > Para obtener la lista completa de las métricas, consulte [Métricas compatibles con Azure Event Grid](metrics.md).
+> [!IMPORTANT]
+> Para ver la lista de métricas que admite Azure Event Grid, consulte [Métricas](metrics.md).
 
 ## <a name="view-custom-topic-metrics"></a>Ver métricas de temas personalizados
 
@@ -48,15 +31,13 @@ Si ha publicado un tema personalizado, puede consultar sus métricas.
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Visualización de las métricas de eventos":::
 
-Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
+    Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temas: página de métricas":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temas: página de métricas":::
 
-Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
+    Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicados**.
 
-Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicados**.
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrica de eventos publicados":::
 
 
 ## <a name="view-subscription-metrics"></a>Visualización de las métricas de suscripción
@@ -70,7 +51,7 @@ Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicad
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Seleccionar suscripción de eventos desde la página de suscripciones de Event Grid":::        
 
     Para los temas personalizados, seleccione **Temas de Event Grid** como **Tipo de temas**. Para los temas del sistema, seleccione el tipo de recurso de Azure, por ejemplo **Cuentas de almacenamiento (Blob, GPv2)** . 
-3. Vea las métricas de la suscripción en la Página principal de la suscripción en un gráfico. Puede ver las métricas de **General**, **Error**, **Latencia** y **Mensajes no enviados** durante la hora, 6 horas, 12 horas, 1 día, 7 días o 30 días anteriores. 
+3. Vea las métricas de la suscripción en la Página principal de la suscripción en un gráfico. Puede ver las métricas **General**, **Error** y **Latencia** de la hora, 6 horas, 12 horas, 1 día, 7 días o 30 días anteriores. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Métricas en la página principal de la suscripción":::    
 
@@ -87,12 +68,12 @@ Por ejemplo, vea el gráfico de métricas para la métrica de **Eventos publicad
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Ver las métricas de los temas del sistema en la página información general":::
 
-Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
+    Puede crear gráficos con métricas compatibles mediante la pestaña de **Métricas** de la página de **Temas de Event Grid**.
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temas del sistema: página de métricas":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temas del sistema: página de métricas":::
 
-Para obtener más información sobre las métricas, consulte [Métricas en Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
-
+    > [!IMPORTANT]
+    > Para ver la lista de métricas que admite Azure Event Grid, consulte [Métricas](metrics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes:

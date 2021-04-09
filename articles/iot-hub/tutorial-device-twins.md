@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733306"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ La siguiente captura de pantalla muestra el resultado de la aplicación back-end
 
 ![Captura de pantalla que muestra el resultado de la aplicación back-end y resalta cómo envía una actualización.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>Recepción de la información de estado
+## <a name="receive-state-information&quot;></a>Recepción de la información de estado
 
 La aplicación back-end recibe información de estado de un dispositivo como propiedades notificadas. Un dispositivo establece las propiedades notificadas y las envía al centro. Una aplicación back-end puede leer los valores actuales de las propiedades notificadas desde el dispositivo gemelo almacenado en el centro.
 
-### <a name="send-reported-properties-from-a-device"></a>Envío de propiedades notificadas desde un dispositivo
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>Envío de propiedades notificadas desde un dispositivo
 
 Puede enviar actualizaciones a valores de propiedad notificada tales como una revisión. El siguiente fragmento muestra una plantilla para la revisión que envía el dispositivo simulado. El dispositivo simulado actualiza los campos de la revisión antes de enviarla al centro:
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 El dispositivo simulado utiliza la siguiente función para enviar la revisión que contiene las propiedades notificadas al centro:
 

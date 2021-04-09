@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/08/2021
-ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/17/2021
+ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447459"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597394"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service/Microsoft Dataverse) o Dynamics CRM mediante Azure Data Factory
 
@@ -323,6 +323,7 @@ Para copiar datos a Dynamics, la sección **sink** de la actividad de copia admi
 | alternateKeyName | Nombre de clave alternativo definido en la entidad para realizar una operación de actualización e inserción. | No. |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No. El valor predeterminado es 10. |
 | ignoreNullValues | Si durante la operación de escritura se omiten los valores nulos de los datos de entrada excepto los campos de clave.<br/><br/>Los valores válidos son **TRUE** y **FALSE**:<ul><li>**TRUE**: deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.</li><li>**FALSE**: actualice los datos del objeto de destino a un valor NULL cuando realice una operación de actualización e inserción, o bien de actualización. Inserte un valor NULL al realizar una operación de inserción.</li></ul> | No. El valor predeterminado es **FALSE**. |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 >[!NOTE]
 >El valor predeterminado tanto del receptor **writeBatchSize** como de la actividad de copia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** del receptor de Dynamics es 10. Por lo tanto, se envían 100 registros simultáneamente de forma predeterminada a Dynamics.

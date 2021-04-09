@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651364"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
@@ -98,7 +98,7 @@ Realice los pasos siguientes para instalar el rol en la máquina Windows mediant
 
 1. Descargue el script **New-OnPremiseHybridWorker.ps1** de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Una vez descargado el script, cópielo o ejecútelo en la máquina de destino. El script **New-OnPremiseHybridWorker.ps1** usa los siguientes parámetros durante la ejecución.
 
-    | Parámetro | Status | Descripción |
+    | Parámetro | Estado | Descripción |
     | --------- | ------ | ----------- |
     | `AAResourceGroupName` | Mandatory | el nombre del grupo de recursos que está asociado a su cuenta de Automation. |
     | `AutomationAccountName` | Mandatory | el nombre de la cuenta de Automation.

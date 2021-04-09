@@ -4,10 +4,10 @@ description: Aprenda a realizar copias de seguridad y a restaurar controladores 
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733560"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Copia de seguridad y restauración de controladores de dominio de Active Directory

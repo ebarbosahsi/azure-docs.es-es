@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/06/2021
 ms.author: jafreebe
 ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443784"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service como origen de Event Grid
@@ -44,7 +44,7 @@ Azure App Service emite los siguientes tipos de eventos:
 Cuando se desencadena un evento, el servicio Event Grid envía datos sobre ese evento al punto de conexión correspondiente.
 Esta sección contiene un ejemplo del aspecto que deben tener los datos para cada evento. Cada evento tiene los siguientes datos de nivel superior:
 
-|     Propiedad          |     Tipo     |     Description                                                                                                                                |
+|     Propiedad          |     Tipo     |     Descripción                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `topic`              |    string    |    Ruta de acceso completa al origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor.                                      |
 |    `subject`            |    string    |    Ruta de acceso al asunto del evento definido por el anunciante.                                                                                              |
@@ -60,7 +60,7 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
 Cuando se desencadena un evento, el servicio Event Grid envía datos sobre ese evento al punto de conexión correspondiente.
 Esta sección contiene un ejemplo del aspecto que deben tener los datos para cada evento. Cada evento tiene los siguientes datos de nivel superior:
 
-|     Propiedad          |     Tipo     |     Description                                                                                                                                |
+|     Propiedad          |     Tipo     |     Descripción                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `source`              |    string    |    Ruta de acceso completa al origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor.                                      |
 |    `subject`            |    string    |    Ruta de acceso al asunto del evento definido por el anunciante.                                                                                              |
