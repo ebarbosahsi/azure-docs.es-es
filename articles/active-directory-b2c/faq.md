@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 722f3158c8eca4cec4dbf23658f9d8d4cb68c3ed
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d84c5fff41a7f00405c29ab4b4921ed2e28bdfde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517997"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580103"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes
 
@@ -103,7 +103,7 @@ No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Conside
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>¿Mi aplicación puede abrir páginas de Azure AD B2C dentro de un iFrame?
 
-No, por motivos de seguridad, las páginas de Azure AD B2C no se pueden abrir dentro de un iFrame. Nuestro servicio se comunica con el explorador para prohibir iFrames. La comunidad de seguridad en general y la especificación OAUTH2 recomiendan no usar iFrames para experiencias de identidad debido al riesgo de secuestro de clics, también conocido como "clickjacking".
+Esta característica está en versión preliminar pública. Para obtener más información, consulte [Experiencia de inicio de sesión insertada](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>¿Funciona Azure AD B2C con sistemas CRM, como Microsoft Dynamics?
 
@@ -131,7 +131,7 @@ Si, consulte [personalización de idioma](language-customization.md). Se ofrecen
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>¿Puedo usar mis propias direcciones URL en las páginas de registro y de inicio que proporciona Azure AD B2C? Por ejemplo, ¿puedo cambiar la URL de contoso.b2clogin.com a login.contoso.com?
 
-Actualmente, no. Esta característica está en nuestro mapa de ruta. Comprobar el dominio en la pestaña **Dominios** de Azure Portal no logra este objetivo. Sin embargo, con b2clogin.com, ofrecemos un [dominio de nivel superior neutro](b2clogin.md) y, por lo tanto, la apariencia externa se puede implementar sin tener que mencionar Microsoft.
+Esta característica está disponible en versión preliminar pública. Para obtener más información, consulte [Dominios personalizados de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>¿Cómo puedo eliminar al inquilino de Azure AD B2C?
 

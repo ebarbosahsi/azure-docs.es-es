@@ -8,14 +8,16 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f59e2ca06f4ec435522cd06815b22d706a2d894c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045996"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772423"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 En este artículo se proporcionan detalles sobre qué sistemas y componentes son compatibles con IoT Edge, ya sea oficialmente o en versión preliminar.
 
@@ -23,7 +25,7 @@ En este artículo se proporcionan detalles sobre qué sistemas y componentes son
 
 Si tiene problemas al usar el servicio Azure IoT Edge, hay varias maneras de buscar soporte técnico. Pruebe uno de los siguientes canales para obtener soporte técnico:
 
-**Notificación de errores**: la mayor parte del desarrollo que conlleva el producto de Azure IoT Edge se produce en el proyecto de código abierto de IoT Edge. Los errores se pueden notificar en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto. Las correcciones pasan pronto del proyecto a las actualizaciones de producto.
+**Notificación de errores**: la mayor parte del desarrollo que lleva el producto de Azure IoT Edge se produce en el proyecto de código abierto de IoT Edge. Los errores se pueden notificar en la [página de problemas](https://github.com/azure/iotedge/issues) del proyecto. Los errores relacionados con Azure IoT Edge para Linux en Windows se pueden indicar en la [Página de problemas iotedge-eflow](https://github.com/azure/iotedge-eflow/issues). Las correcciones pasan pronto de los proyectos a las actualizaciones de producto.
 
 **Equipo de soporte técnico al cliente de Microsoft**: los usuarios que dispongan de un [plan de soporte técnico](https://azure.microsoft.com/support/plans/) pueden ponerse en contacto con este equipo creando una incidencia de soporte técnico directamente en [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -126,15 +128,15 @@ Los componentes de IoT Edge se pueden instalar o actualizar individualmente y so
 
 | Release | Demonio de seguridad | Centro de Microsoft Edge<br>Agente de Edge | Libiothsm | Moby |
 |--|--|--|--|--|
-| **1.1.0 LTS**<sup>1</sup> | 1.1.0 | 1.1.0 | 1.1.0 |   |
+| **1.1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
-| **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
-| **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
-| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
-| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
+| **1.0.9** | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 |  |
+| **1.0.8** | 1.0.8 | 1.0.8<br>1.0.8.1<br>1.0.8.2<br>1.0.8.3<br>1.0.8.4<br>1.0.8.5 | 1.0.8 | 3.0.6 |
+| **1.0.7** | 1.0.7<br>1.0.7.1 | 1.0.7<br>1.0.7.1 | 1.0.7<br>1.0.7.1 | 3.0.4 (ARMv7hl, CentOS)<br>3.0.5 |
+| **1.0.6** | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 | 1.0.6<br>1.0.6.1 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-<sup>1</sup>IoT Edge 1.1 es el primer canal de versión con soporte técnico a largo plazo (LTS). Aunque esta versión no presenta nuevas características, recibirá correcciones de errores y revisiones de seguridad. IoT Edge 1.1 LTS usa .NET Core 3.1 y recibirá soporte técnico hasta el 3 de diciembre de 2022 para que coincida con el [ciclo de vida de versión de .NET Core y .NET 5](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+<sup>1</sup>IoT Edge 1.1 es el primer canal de versión con soporte técnico a largo plazo (LTS). Esta versión no presentó nuevas características, pero recibirá actualizaciones de seguridad y correcciones de las regresiones. IoT Edge 1.1 LTS usa .NET Core 3.1 y recibirá soporte técnico hasta el 3 de diciembre de 2022 para que coincida con el [ciclo de vida de versión de .NET Core y .NET 5](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 >[!IMPORTANT]
 >Con el lanzamiento de un canal de soporte técnico a largo plazo, se recomienda que todos los clientes actuales que ejecuten la versión 1.0.x actualicen sus dispositivos a 1.1.x para recibir soporte técnico continuado.
@@ -143,7 +145,7 @@ IoT Edge usa el SDK de Microsoft.Azure.Devices.Client. Para más información, c
 
 | Versión de IoT Edge | Versión del SDK de Microsoft.Azure.Devices.Client |
 |------------------|--------------------------------------------|
-| 1.1.0 (LTS)      | 1.28.0                                     |
+| 1.1 (LTS)      | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |

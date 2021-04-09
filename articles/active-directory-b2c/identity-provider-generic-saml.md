@@ -13,16 +13,16 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448411"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580052"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configuración del registro y del inicio de sesión con un proveedor de identidades de SAML mediante Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) admite la Federación con proveedores de identidades de SAML 2.0. En este artículo se muestra cómo habilitar el inicio de sesión con una cuenta de usuario del proveedor de identidades de SAML, lo que permite a los usuarios iniciar sesión con sus identidades empresariales o de redes sociales existentes, como [ADFS](identity-provider-adfs2016-custom.md) y [Salesforce](identity-provider-salesforce-saml.md).
+Azure Active Directory B2C (Azure AD B2C) admite la Federación con proveedores de identidades de SAML 2.0. En este artículo se muestra cómo habilitar el inicio de sesión con una cuenta de usuario del proveedor de identidades de SAML, lo que permite a los usuarios iniciar sesión con sus identidades empresariales o de redes sociales existentes, como [ADFS](./identity-provider-adfs.md) y [Salesforce](identity-provider-salesforce-saml.md).
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -205,9 +205,16 @@ En el ejemplo siguiente se muestra una dirección URL para los metadatos de SAML
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+Cuando use un [dominio personalizado](custom-domain.md), use el siguiente formato:
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Reemplace los siguientes valores:
 
-- **your-tenant** por el nombre del inquilino, como inquilino.onmicrosoft.com.
+- **your-tenant-name** por el nombre del inquilino, como inquilino.onmicrosoft.com.
+- **your-tenant-name** por el nombre del dominio personalizado, como login.contoso.com.
 - **your-policy** por el nombre de la directiva. Por ejemplo, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** con el nombre de su perfil técnico del proveedor de identidades de SAML. Por ejemplo, Contoso-SAML2.
 

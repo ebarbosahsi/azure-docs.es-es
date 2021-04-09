@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490337"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772355"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. 
@@ -149,7 +149,7 @@ Si no recibe notificaciones en la *dirección correo electrónico principal*, in
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Función
-Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md).
+Llama a un punto de conexión del desencadenador HTTP existente en [Azure Functions](../../azure-functions/functions-get-started.md). Para controlar una solicitud, el punto de conexión debe controlar el verbo HTTP POST.
 
 En un grupo de acciones puede tener un número limitado de acciones de función.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: dfddc024255d90e8a89f49454e42eb5e94df083a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448275"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579984"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de LinkedIn mediante Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de LinkedIn
 1. Escriba lo que corresponda en **App name** (Nombre de la aplicación), **LinkedIn Page** (Página de LinkedIn), **Privacy policy URL** (Dirección URL de la directiva de privacidad) y **App logo** (Logotipo de la aplicación).
 1. Acepte las **condiciones de uso de API** de LinkedIn y haga clic en **Create app** (Crear aplicación).
 1. Seleccione la pestaña **Autenticación**. En **Authentication Keys** (Claves de autenticación), copie los valores de **Client ID** (Id. de cliente) y **Client Secret** (Secreto de cliente). Necesitará ambos para configurar LinkedIn como proveedor de identidades de su inquilino. **secreto de cliente** es una credencial de seguridad importante.
-1. Seleccione el lápiz de edición situado junta a **Authorized redirect URLs for your app** (Direcciones URL de redireccionamiento autorizadas para la aplicación) y, después, seleccione **Add redirect URL** (Agregar dirección URL de redireccionamiento). Escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` y reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C. Seleccione **Actualizar**.
-2. De forma predeterminada, la aplicación de LinkedIn no está aprobada para los ámbitos relacionados con el inicio de sesión. Para solicitar una revisión, seleccione la pestaña **Products** (Productos) y, a continuación, seleccione **Sign In with LinkedIn** (Iniciar sesión con LinkedIn). Una vez completada la revisión, los ámbitos requeridos se agregarán a la aplicación.
+1. Seleccione el lápiz de edición situado junta a **Authorized redirect URLs for your app** (Direcciones URL de redireccionamiento autorizadas para la aplicación) y, después, seleccione **Add redirect URL** (Agregar dirección URL de redireccionamiento). Escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino, y `your-domain-name` por el dominio personalizado. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C. Seleccione **Actualizar**.
+1. De forma predeterminada, la aplicación de LinkedIn no está aprobada para los ámbitos relacionados con el inicio de sesión. Para solicitar una revisión, seleccione la pestaña **Products** (Productos) y, a continuación, seleccione **Sign In with LinkedIn** (Iniciar sesión con LinkedIn). Una vez completada la revisión, los ámbitos requeridos se agregarán a la aplicación.
    > [!NOTE]
    > Puede ver los ámbitos permitidos actualmente para su aplicación en la pestaña **Auth** de la sección **OAuth 2.0 scopes** (Ámbitos de OAuth 2.0).
 
@@ -62,6 +62,8 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de LinkedIn
 1. Seleccione **Guardar**.
 
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Agregación del proveedor de identidades de LinkedIn a un flujo de usuario 
+
+En este momento, el proveedor de identidades de LinkedIn ya se ha configurado, pero no está disponible en ninguna de las pantallas de inicio de sesión. Para agregar el proveedor de identidades de LinkedIn a un flujo de usuario:
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario donde quiera agregar el proveedor de identidades de LinkedIn.

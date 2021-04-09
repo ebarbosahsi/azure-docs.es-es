@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5b33f10a0cb969d5fc0118eee0be371929f918a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98117649"
 ---
 # <a name="data-warehouse-units-dwus-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Unidades de almacenamiento de datos (DWU) para el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics
@@ -121,7 +121,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>Cambiar unidades de almacenamiento de datos
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure portal
 
 Para cambiar DWU:
 

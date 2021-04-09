@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486665"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773052"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introducción a la traducción de documentos (versión preliminar)
 
@@ -20,7 +20,10 @@ ms.locfileid: "102486665"
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!NOTE]
-> Por lo general, cuando se crea un recurso de Cognitive Services en Azure Portal, tiene la opción de crear una clave de suscripción de varios servicios o una clave de suscripción de un solo servicio. Sin embargo, la traducción de documentos se admite actualmente solo en el recurso de Translator (servicio único) y **no** se incluye en el recurso de Cognitive Services (multiservicio).
+>
+> 1. Por lo general, cuando se crea un recurso de Cognitive Services en Azure Portal, tiene la opción de crear una clave de suscripción de varios servicios o una clave de suscripción de un solo servicio. Sin embargo, la traducción de documentos se admite actualmente solo en el recurso de Translator (servicio único) y **no** se incluye en el recurso de Cognitive Services (multiservicio).
+> 2. La traducción de documentos está disponible actualmente en el **Plan de servicio estándar S1**. _Consulte_ [los precios de Cognitive Services precios: Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 Para empezar, necesitará lo siguiente:
 
@@ -29,8 +32,6 @@ Para empezar, necesitará lo siguiente:
 * Un recurso del servicio [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**no** un recurso de Cognitive Services).
 
 * Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento.
-
-* Un [**formulario de traducción de documentos (versión preliminar)** ](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) completado para permitir que la suscripción de Azure use la nueva característica de traducción de documentos.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Obtención del nombre de dominio personalizado y la clave de suscripción
 

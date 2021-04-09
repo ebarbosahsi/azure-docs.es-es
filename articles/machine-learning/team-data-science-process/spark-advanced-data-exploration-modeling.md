@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b84b7387411e7df8e092a2e810591697319f9554
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321331"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774684"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploración y modelado avanzados de datos con Spark
 
@@ -35,7 +35,8 @@ Una forma habitual de realizar la optimización de hiperparámetros usada aquí 
 
 Los modelos que usamos incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
 
-* [regresión lineal con SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) es un modelo de regresión lineal que usa un método de descenso de gradiente estocástico (SGD) para la optimización y el ajuste de la escala de las características para predecir las propinas. 
+* [regresión lineal con SGD](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.regression.LinearRegressionWithSGD.html#pyspark.mllib.regression.LinearRegressionWithSGD
+) es un modelo de regresión lineal que usa un método de descenso de gradiente estocástico (SGD) para la optimización y el ajuste de la escala de las características para predecir las propinas. 
 * [regresión logística con LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) , o regresión "logit", es un modelo de regresión que puede usarse cuando la variable dependiente es de categorías para realizar la clasificación de los datos. LBFGS es un algoritmo de optimización cuasi Newton que aproxima el algoritmo Broyden–Fletcher Goldfarb–Shanno (BFGS) usando una cantidad limitada de memoria de proceso, y que se usa ampliamente en el aprendizaje automático.
 * [bosques aleatorios](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) son conjuntos de árboles de decisión.  Combinan varios árboles de decisión para reducir el riesgo de sobreajuste. Los bosques aleatorios se usan para clasificación y regresión, y pueden controlar características categóricas, amplían la configuración de clasificación multiclase; no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. Los bosques aleatorios son uno de los modelos de aprendizaje automático de más éxito para clasificación y regresión.
 * Los [árboles impulsados por gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) son conjuntos de árboles de decisión. Los GBT entrenan árboles de decisión de forma iterativa para minimizar una función de pérdida. Los GBT se usan para clasificación y regresión, y pueden controlar características categóricas, no requieren ajustar la escala de las características y pueden capturar errores de alineación e interacciones de las características. También se pueden usar en una configuración de clasificación multiclase.
@@ -49,7 +50,7 @@ Se muestran ejemplos donde se usan la VC y el barrido de hiperparámetros para e
 
 <!-- -->
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Configuración: Clústeres y cuadernos de Spark
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuración: clústeres y cuadernos de Spark
 Los pasos de instalación y el código proporcionado en este tutorial son para HDInsight Spark 1.6. Sin embargo, Jupyter Notebooks se proporciona para clústeres de HDInsight Spark 1.6 y Spark 2.0. Se proporciona una descripción de los cuadernos y de los vínculos a estos en el archivo [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) del repositorio de GitHub que los contiene. No obstante, este código y los cuadernos vinculados son genéricos y deberían funcionar en cualquier clúster de Spark. Los pasos de configuración y administración del clúster pueden ser ligeramente diferentes de los que se muestran aquí si no está usando Spark en HDInsight. Para mayor comodidad, estos son los vínculos a los cuadernos de Jupyter para Spark 1.6 y 2.0 para ejecutarse en el kernel pyspark del servidor de Jupyter Notebooks:
 
 ### <a name="spark-16-notebooks"></a>Cuadernos de Spark 1.6
@@ -58,7 +59,7 @@ Los pasos de instalación y el código proporcionado en este tutorial son para H
 
 ### <a name="spark-20-notebooks"></a>Cuadernos de Spark 2.0
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): En este archivo se proporciona información sobre cómo realizar una exploración, un modelado y una puntuación de datos en clústeres de Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): proporciona información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -118,7 +119,7 @@ Los kernels de PySpark que se proporcionan con cuadernos de Jupyter Notebook tie
 
 El kernel PySpark proporciona algunas “instrucciones mágicas” predefinidas, que son comandos especiales que se pueden llamar con %%. Hay dos comandos de este tipo que se utilizan en estos ejemplos de código.
 
-* **%%local** : especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
+* **%%local**: especifica que el código de las líneas siguientes se ejecutará localmente. El código debe ser un código de Python válido.
 * **%%sql -o \<variable name>** Ejecuta una consulta de Hive en sqlContext. Si se pasa el parámetro -o, el resultado de la consulta se conserva en el contexto %%local de Python como trama de datos de Pandas.
 
 Para obtener más información sobre los kernels de cuadernos de Jupyter Notebook y las instrucciones mágicas predefinidas llamadas con %% (por ejemplo, %%local) que proporcionan, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres de Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -193,7 +194,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 276,62 segundos
+Time taken to execute above cell: 276.62 seconds
 
 ## <a name="data-exploration--visualization"></a>Visualización y exploración de datos
 Una vez incorporados los datos en Spark, el siguiente paso del proceso de la ciencia de los datos es conocer mejor los datos mediante la exploración y la visualización. En esta sección, examinaremos los datos de taxi mediante consultas SQL y trazaremos las variables de destino y las posibles características para su inspección visual. En concreto, trazaremos la frecuencia de los recuentos de pasajeros en las carreras de taxi, la frecuencia de los importes de las propinas y cómo varían las propinas según el tipo y el importe del pago.
@@ -403,7 +404,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 3,14 segundos
+Time taken to execute above cell: 3.14 seconds
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Creación de objetos de punto con etiqueta para la entrada en funciones de aprendizaje automático
 Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un tipo de datos de punto con etiqueta, y cómo codificarlos. Esta transformación prepara los datos de texto para usarlos para entrenar y probar la regresión logística de MLlib y otros modelos de clasificación. Los objetos de punto con etiqueta son conjuntos de datos distribuidos resistentes (RDD) con el formato de datos de entrada que necesita la mayoría de los algoritmos de aprendizaje automático de MLlib. Un [punto con etiqueta](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) es un vector local, denso o disperso, asociado con una etiqueta o respuesta.
@@ -543,7 +544,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 11,67 segundos
+Time taken to execute above cell: 11.67 seconds
 
 ### <a name="cache-objects-in-memory"></a>Almacenamiento de objetos en caché
 Para reducir el tiempo necesario para entrenar y probar los algoritmos de aprendizaje automático, puede almacenar en caché los objetos de trama de datos de entrada usados para clasificación, regresión y características con ajuste de la escala.
@@ -760,11 +761,11 @@ Recall = 0.984174341679
 
 F1 Score = 0.984174341679
 
-Tiempo empleado en ejecutar la celda anterior: 2,67 segundos
+Time taken to execute above cell: 2.67 seconds
 
 **Trazado de la curva ROC.**
 
-*predictionAndLabelsDF* está registrado como una tabla, *tmp_results* , en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
+*predictionAndLabelsDF* está registrado como una tabla, *tmp_results*, en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
 
 ```python
 # QUERY RESULTS                              
@@ -831,7 +832,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 34,57 segundos
+Time taken to execute above cell: 34.57 seconds
 
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Uso de la función de canalización CrossValidator de MLlib con el modelo de regresión logística (regresión elástica)
 El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo de regresión logística con [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) , que predice si se dio propina o no en una carrera, en el conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York. El modelo se entrena mediante la validación cruzada (VC) y el barrido de hiperparámetros, implementados con la función de canalización CrossValidator de MLlib para la VC con barrido de parámetros.   
@@ -891,11 +892,11 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 107,98 segundos
+Time taken to execute above cell: 107.98 seconds
 
 **Trazado de la curva ROC.**
 
-*predictionAndLabelsDF* está registrado como una tabla, *tmp_results* , en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
+*predictionAndLabelsDF* está registrado como una tabla, *tmp_results*, en la celda anterior. *tmp_results* puede utilizarse para hacer consultas y mostrar los resultados en la trama de datos de sqlResults para el trazado. Este es el código.
 
 ```python
 # QUERY RESULTS
@@ -982,7 +983,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 Area under ROC = 0.985336538462
 
-Tiempo empleado en ejecutar la celda anterior: 26,72 segundos
+Time taken to execute above cell: 26.72 seconds
 
 ### <a name="gradient-boosting-trees-classification"></a>Clasificación de árboles impulsados por gradiente
 El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo de árboles impulsados por gradiente que predice si se dio propina o no en una carrera, en el conjunto de datos de carreras de taxi y tarifas de Nueva York.
@@ -1028,7 +1029,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 Area under ROC = 0.985336538462
 
-Tiempo empleado en ejecutar la celda anterior: 28,13 segundos
+Time taken to execute above cell: 28.13 seconds
 
 ## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>Predicción de propinas con modelos de regresión (sin VC)
 Esta sección muestra cómo usar tres modelos para la tarea de regresión para predecir el importe de la propina para una carrera de taxi en función de otras características de propina. Los modelos que se presentan son:
@@ -1115,7 +1116,7 @@ RMSE = 1.23485131376
 
 R-sqr = 0.597963951127
 
-Tiempo empleado en ejecutar la celda anterior: 38,62 segundos
+Time taken to execute above cell: 38.62 seconds
 
 ### <a name="random-forest-regression"></a>Regresión con bosque aleatorio
 El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo de bosque aleatorio que predice el importe de las propinas en los datos de carreras de taxi de Nueva York.   
@@ -1175,7 +1176,7 @@ RMSE = 0.931981967875
 
 R-sqr = 0.733445485802
 
-Tiempo empleado en ejecutar la celda anterior: 25,98 segundos
+Time taken to execute above cell: 25.98 seconds
 
 ### <a name="gradient-boosting-trees-regression"></a>Regresión con árboles impulsados por gradiente
 El código de esta sección muestra cómo entrenar, evaluar y guardar un modelo de árboles impulsados por gradiente que predice el importe de las propinas en los datos de carreras de taxi de Nueva York.
@@ -1227,7 +1228,7 @@ RMSE = 0.928172197114
 
 R-sqr = 0.732680354389
 
-Tiempo empleado en ejecutar la celda anterior: 20,9 segundos
+Time taken to execute above cell: 20.9 seconds
 
 **Trazado**
 
@@ -1324,7 +1325,7 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT**
 
-Tiempo empleado en ejecutar la celda anterior: 161,21 segundos
+Time taken to execute above cell: 161.21 seconds
 
 **Evaluación con métrica R-SQR**
 
@@ -1443,7 +1444,7 @@ RMSE = 0.906972198262
 
 R-sqr = 0.740751197012
 
-Tiempo empleado en ejecutar la celda anterior: 69,17 segundos
+Time taken to execute above cell: 69.17 seconds
 
 ### <a name="clean-up-objects-from-memory-and-print-model-locations"></a>Limpieza de objetos de la memoria e impresión de las ubicaciones de los modelos
 Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
@@ -1476,7 +1477,7 @@ oneHotTESTregScaled.unpersist()
 
 **OUTPUT**
 
-PythonRDD[122] at RDD at PythonRDD.scala: 43
+PythonRDD[122] at RDD at PythonRDD.scala:43
 
 ** Genere la ruta de acceso a los archivos de modelo que se usarán en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el Notebook de consumo.
 

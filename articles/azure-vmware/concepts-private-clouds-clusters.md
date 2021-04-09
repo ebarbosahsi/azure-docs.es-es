@@ -2,13 +2,13 @@
 title: Conceptos sobre nubes privadas y clústeres
 description: Obtenga información sobre las funcionalidades clave de los centros de datos definidos por software de Azure VMware Solution y los clústeres de vSphere.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/13/2021
+ms.openlocfilehash: aff66e01ae4b056eb082d2000611718b1a5cf66a
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391395"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773934"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceptos de nubes privadas y clústeres de Azure VMware Solution
 
@@ -20,8 +20,6 @@ En este artículo se describen todos estos conceptos.
 
 ![Imagen de dos nubes privadas en la suscripción de un cliente](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->Dadas las reducidas necesidades potenciales de un entorno de desarrollo, se usan clústeres más pequeños con hosts de menor capacidad. 
 
 ## <a name="private-clouds"></a>Nubes privadas
 
@@ -30,7 +28,7 @@ Las nubes privadas contienen clústeres vSAN que se han creado con hosts dedicad
 Al igual que con otros recursos, las nubes privadas se instalan y administran desde una suscripción a Azure. El número de nubes privadas dentro de una suscripción es escalable. Inicialmente, hay un límite de una nube privada por suscripción.
 
 ## <a name="clusters"></a>Clústeres
-De manera predeterminada, hay un clúster vSAN para cada nube privada que se crea. Puede agregar, eliminar y escalar clústeres mediante Azure Portal o a través de la API.  Todos los clústeres tienen un tamaño predeterminado de tres hosts y se pueden escalar hasta 16 hosts.  Los hosts que se usan en un clúster debe ser del mismo tipo de host.
+De manera predeterminada, hay un clúster vSAN para cada nube privada que se crea. Puede agregar, eliminar y escalar clústeres mediante Azure Portal o a través de la API.  Todos los clústeres tienen un tamaño predeterminado de tres hosts y se pueden escalar hasta 16 hosts. Puede tener hasta cuatro clústeres por cada nube privada.
 
 Los clústeres de prueba están disponibles para su evaluación y están limitados a tres hosts. Hay un solo clúster de prueba por cada nube privada. Puede escalar un clúster de prueba en un solo host durante el período de evaluación.
 
@@ -38,11 +36,11 @@ Se usa vSphere y NSX-T Manager para administrar la mayoría de los otros aspecto
 
 ## <a name="hosts"></a>Hosts
 
-Los clústeres de nube privada de Azure VMware Solution usan hosts de infraestructura hiperconvergidos sin sistema operativo. En la tabla siguiente se muestran las capacidades de RAM, CPU y disco del host. 
+Los clústeres de Azure VMware Solution se basan en la infraestructura de reconstrucción completa e hiperconvergida. En la tabla siguiente se muestran las capacidades de RAM, CPU y disco del host.
 
 | Tipo de host              |             CPU             |   RAM (GB)   |  Nivel de caché NVMe de vSAN (TB, sin procesar)  |  Nivel de capacidad SSD de vSAN (TB, sin procesar)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-End (HE)          |  Intel doble de 18 núcleos, 2,3 GHz  |     576      |                3.2               |                15,20               |
+| AVS36          |  Intel doble de 18 núcleos, 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Los hosts que se usan para crear o escalar clústeres provienen de un grupo de hosts aislado. Esos hosts han superado las pruebas de hardware, y se han eliminado todos los datos de manera segura. 
 
@@ -50,15 +48,15 @@ Los hosts que se usan para crear o escalar clústeres provienen de un grupo de h
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
+## <a name="update-frequency"></a>Frecuencia de actualización
+
+[!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Mantenimiento y administración del ciclo de vida de hosts
 
 El mantenimiento y la administración del ciclo de vida no afectan la capacidad ni el rendimiento de los clústeres de la nube privada.  Entre los ejemplos de mantenimiento automatizado de los hosts se incluyen las actualizaciones de firmware y la reparación o sustitución de hardware.
 
-Microsoft es responsable de la administración del ciclo de vida de los dispositivos NSX-T, como NSX-T Manager y NSX-T Edge. También se encarga de la configuración de la red de arranque, como la creación de la puerta de enlace de nivel 0 y la habilitación del enrutamiento vertical de arriba abajo. Usted es responsable de la configuración de NSX-T SDN. Por ejemplo, segmentos de red, reglas de firewall distribuidas, puertas de enlace de nivel 1 y equilibradores de carga.
-
-> [!IMPORTANT]
-> No modifique la configuración de las puertas de enlace de NSX-T Edge o de nivel 0, ya que esto puede dar lugar a una pérdida de servicio.
+Microsoft es responsable de la administración del ciclo de vida de los dispositivos NSX-T, como NSX-T Manager y NSX-T Edge. Microsoft se encarga de la configuración de la red de arranque, como la creación de la puerta de enlace de nivel 0 y la habilitación del enrutamiento vertical de arriba abajo. Usted es responsable de la configuración de NSX-T SDN. Por ejemplo, segmentos de red, reglas de firewall distribuidas, puertas de enlace de nivel 1 y equilibradores de carga.
 
 ## <a name="backup-and-restoration"></a>Copia de seguridad y restauración
 

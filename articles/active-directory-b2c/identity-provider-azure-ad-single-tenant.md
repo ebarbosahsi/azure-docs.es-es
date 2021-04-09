@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc824c7e4caa2a634a60f7d8a69870ddd961998c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 490880e4a37711a92b44a0ffe01315edfa6ddb26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448479"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580137"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
@@ -53,6 +53,8 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure A
     ```
 
     Por ejemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-domain-name` por el dominio personalizado, y `your-tenant-name` por el nombre del inquilino.
 
 1. Seleccione **Registrar**. Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 1. Seleccione **Certificados y secretos** y luego seleccione **Nuevo secreto de cliente**.
@@ -104,6 +106,8 @@ Si quiere obtener las notificaciones `family_name` y `given_name` de Azure AD, 
 1. Seleccione **Guardar**.
 
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de Azure AD a un flujo de usuario 
+
+En este momento ya está configurado el proveedor de identidades de Azure AD, pero no está disponible en ninguna de las páginas de inicio de sesión. Para agregar el proveedor de identidades de Azure AD a un flujo de usuario:
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario donde quiera agregar el proveedor de identidades de Azure AD.
