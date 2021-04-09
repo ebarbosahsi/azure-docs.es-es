@@ -4,10 +4,10 @@ description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584168"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
@@ -65,7 +65,7 @@ Recibirá mensajes de correo electrónico cuando la métrica esté por encima y 
 
 Algunos puntos que se deben tener en cuenta:
 
-* Una alerta tiene dos estados ("alerta" y "correcto"). El estado se evalúa solo cuando se recibe una métrica.
+* Una alerta tiene dos estados ("alerta&quot; y &quot;correcto"). El estado se evalúa solo cuando se recibe una métrica.
 * Un mensaje de correo electrónico solo se envía cuando cambia el estado. Este es el motivo por el que tiene que enviar métricas tanto de valores altos como bajos.
 * Para evaluar la alerta, la media se toma de los valores recibidos durante el período anterior. Esto se produce cada vez que se recibe una métrica, por lo que los mensajes de correo electrónico se pueden enviar con mayor frecuencia que el período definido.
 * Puesto que los correos electrónicos se envían tanto en los estados "alerta" como "correcto", es posible que considere volver a pensar en su evento monoestable como en una condición de dos estados. Por ejemplo, en lugar de un evento de "trabajo completado", tiene una condición de "trabajo en curso", donde recibe correos electrónicos al principio y al final de un trabajo.

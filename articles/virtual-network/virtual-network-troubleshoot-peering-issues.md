@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518171"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103200525"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solución de problemas de emparejamiento de redes virtuales
 
@@ -44,7 +44,7 @@ Para configurar el emparejamiento de red virtual para las redes virtuales que es
 >
 > * Máquinas virtuales (VM) detrás de la SKU básica del equilibrador de carga interno (ILB)
 > * Redis Cache (usa la SKU básica del ILB)
-> * Application Gateway (usa la SKU básica de ILB)
+> * Application Gateway v1 (usa la SKU básica de ILB)
 > * Conjuntos de escalado de máquinas virtuales (usa la SKU básica de ILB)
 > * Clústeres de Azure Service Fabric (usa la SKU básica de ILB)
 > * Grupos de disponibilidad AlwaysOn de SQL Server (usa la SKU básica de ILB)

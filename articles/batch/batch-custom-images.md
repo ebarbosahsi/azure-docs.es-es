@@ -3,12 +3,12 @@ title: Uso de una imagen administrada para crear un grupo de imágenes personali
 description: Cree un grupo de imágenes personalizadas de Batch a partir de una imagen administrada para aprovisionar nodos de ejecución con el software y los datos para su aplicación.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94916583"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023884"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Uso de una imagen administrada para crear un grupo de imágenes personalizadas
 
@@ -43,7 +43,7 @@ Para escalar grupos de Batch de forma confiable con una imagen administrada se r
 Si va a crear una máquina virtual para la imagen, use una imagen propia de Azure Marketplace admitida por Batch como imagen base para la imagen administrada. Solo pueden usarse imágenes propias como imagen base. Para ver una lista completa de las referencias de imagen de Azure Marketplace compatibles con Azure Batch, consulte la operación [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para más información sobre estas imágenes de Azure Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para más información acerca de estas imágenes de Azure Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) o [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 - Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
 - No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.

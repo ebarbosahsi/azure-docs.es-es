@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Managed Instance: Análisis de rendimiento'
+title: Análisis de rendimiento de SQL Server a Azure SQL Managed Instance
 description: Aprenda a crear y comparar una base de referencia de rendimiento al migrar las bases de datos de SQL Server a Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564446"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023680"
 ---
-# <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Rendimiento de la migración: Análisis de rendimiento de la migración de SQL Server a SQL Managed Instance
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Rendimiento de la migración: análisis de rendimiento de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Cree una base de referencia de rendimiento para comparar el rendimiento de su carga de trabajo en SQL Managed Instance con la carga de trabajo original que se ejecuta en SQL Server. 

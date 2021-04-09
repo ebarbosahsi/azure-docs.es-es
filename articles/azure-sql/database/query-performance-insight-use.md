@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222350"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Información de rendimiento de consultas para Azure SQL Database
@@ -186,7 +186,7 @@ Para identificar consultas de larga ejecución:
    > Se recomienda usar el gráfico de DTU personalizado para compararlo con el gráfico de rendimiento de consultas.
    >
 
-## <a name="review-top-queries-per-execution-count"></a>Revisión de las principales consultas por recuento de ejecuciones
+## <a name="review-top-queries-per-execution-count&quot;></a>Revisión de las principales consultas por recuento de ejecuciones
 
 Una aplicación de usuario que usa la base de datos podría ralentizarse, incluso aunque puede que un elevado número de ejecuciones no afecte a la base de datos propiamente dicha y el uso de recursos sea bajo.
 
@@ -194,7 +194,7 @@ En algunos casos, un recuento de ejecuciones alto puede provocar más recorridos
 
 Por ejemplo, muchos sitios web controlados por datos tienen acceso en gran medida a la base de datos para cada solicitud de usuario. Aunque la agrupación de conexiones ayuda, el mayor tráfico de red y el procesamiento de la carga en el servidor pueden ralentizar el rendimiento. En general, reduzca los recorridos de ida y vuelta al mínimo.
 
-Para identificar las consultas que se ejecutan con frecuencia ("fragmentadas"):
+Para identificar las consultas que se ejecutan con frecuencia (&quot;fragmentadas"):
 
 1. Abra la pestaña **Custom** (Personalizado) en Información de rendimiento de consultas para la base de datos seleccionada.
 2. Cambiar las métricas a **recuento de ejecuciones**.

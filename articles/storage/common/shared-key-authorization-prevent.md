@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215585"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103199912"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
 
@@ -143,28 +143,15 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para denegar la autorización de clave compartida para una cuenta de almacenamiento con la CLI de Azure, instale la CLI de Azure, versión 2.9.1 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). A continuación, configure la propiedad **allowSharedKeyAccess** para una cuenta de almacenamiento nueva o existente.
+Para denegar la autorización de clave compartida para una cuenta de almacenamiento con la CLI de Azure, instale la CLI de Azure, versión 2.20.0 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). A continuación, configure la propiedad **allowSharedKeyAccess** para una cuenta de almacenamiento nueva o existente.
 
 En el ejemplo siguiente se muestra cómo denegar el acceso con clave compartida en una cuenta de almacenamiento existente con la CLI de Azure. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
 ```azurecli-interactive
-$storage_account_id=$(az resource show \
+az storage account update \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
-
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowSharedKeyAccess=false
-
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowSharedKeyAccess \
-    --output tsv
+    --allow-shared-key-access false
 ```
 
 ---
@@ -179,7 +166,7 @@ Para verificar que la autorización con clave compartida ya no se permite, puede
 az storage container create \
     --account-name <storage-account> \
     --name sample-container \
-    --account-key <key>
+    --account-key <key> \
     --auth-mode key
 ```
 

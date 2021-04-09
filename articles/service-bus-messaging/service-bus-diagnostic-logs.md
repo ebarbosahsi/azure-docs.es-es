@@ -4,10 +4,10 @@ description: En este artículo encontrará información general de todos los reg
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100585260"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar registros de diagnóstico para Service Bus
@@ -33,7 +33,7 @@ Las cadenas JSON de registros operativos incluyen elementos enumerados en esta t
 | SubscriptionId | Id. de suscripción |
 | EventTimeString | Hora de la operación |
 | EventProperties | Propiedades de la operación |
-| Status | Estado de la operación |
+| Estado | Estado de la operación |
 | Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client) |
 | Category | OperationalLogs |
 

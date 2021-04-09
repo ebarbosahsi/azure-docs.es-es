@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050671"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103199897"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
 
 El agente de Azure Log Analytics recopila la telemetría de las máquinas virtuales Windows y Linux en cualquier nube, en máquinas locales y en aquellas supervisadas por [System Center Operations Manager](/system-center/scom/) y envía los datos recopilados al área de trabajo de Log Analytics en Azure Monitor. El agente de Log Analytics también admite Insights y otros servicios de Azure Monitor, como [VM Insights](../vm/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) y [Azure Automation](../../automation/automation-intro.md). En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los métodos de implementación.
 
 > [!NOTE]
-> Debe saber que el agente de Log Analytics también se denomina a veces Microsoft Monitoring Agent (MMA) o agente de OMS para Linux.
+> Es posible que sepa que el agente de Log Analytics a veces también se denomina Microsoft Monitoring Agent (MMA).
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Comparación con Azure Diagnostics Extension
 El agente [Azure Diagnostics Extension](./diagnostics-extension-overview.md) de Azure Monitor también puede utilizarse para recopilar datos de supervisión del sistema operativo invitado de las máquinas virtuales de Azure. Puede optar por usar uno o ambos, según sus necesidades. Consulte [Introducción a los agentes de Azure Monitor](../agents/agents-overview.md) para ver una comparación detallada entre los agentes de Azure Monitor. 

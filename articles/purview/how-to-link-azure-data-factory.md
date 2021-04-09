@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449618"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026630"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Cómo conectar Azure Data Factory y Azure Purview
 
@@ -147,6 +147,11 @@ Actualmente, si usa las siguientes características de la actividad de copia, el
 - Opción de detección de partición de origen para almacenes basados en archivos.
 - Copia de datos en un receptor basado en archivos con la configuración de número máximo de filas por archivo.
 - Adición de más columnas durante la copia.
+
+Además del linaje, se indica el esquema de recursos de datos (que se muestra en la pestaña Recurso -> Esquema) para los siguientes conectores:
+
+- Archivos CSV y Parquet en Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2 y Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Compatibilidad de Data Flow de Data Factory
 

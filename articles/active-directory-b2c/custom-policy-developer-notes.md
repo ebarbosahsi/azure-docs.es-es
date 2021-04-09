@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c175a6d225be268f27854b9ab63886892cf029fb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095806"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557282"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Las funcionalidades de las directivas personalizadas se encuentran en constante 
 | [Código de autorización OAuth2](authorization-code-flow.md) |  |  | X |  |
 | Código de autorización OAuth2 con PKCE |  |  | X | [Clientes públicos y aplicaciones de una sola página](authorization-code-flow.md)  |
 | [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
-| [Credenciales de contraseña del propietario del recurso OAuth2](ropc-custom.md) |  | X |  |  |
+| [Credenciales de contraseña del propietario del recurso OAuth2](add-ropc-policy.md) |  | X |  |  |
 | [Conexión OIDC](openid-connect.md) |  |  | X |  |
 | [SAML2](saml-service-provider.md)  |  |  |X  | Enlaces POST y de redirección. |
 | OAuth1 |  |  |  | No compatible. |

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48eb3cf81384446a07fea69572ac16e0b80cee38
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211947"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025635"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Habilitación de Snapshot Debugger para aplicaciones .NET y .NET Core en Azure Functions
 
@@ -126,7 +126,7 @@ Archivo de host
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>Habilitación de Snapshot Debugger para otras nubes
 
-Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) y [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Actualmente, las únicas regiones que requieren modificaciones de punto de conexión son [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) y [Azure China](/azure/china/resources-developer-guide).
 
 A continuación se muestra un ejemplo de `host.json` actualizado con el punto de conexión del agente en la nube del Gobierno de EE. UU.:
 ```json

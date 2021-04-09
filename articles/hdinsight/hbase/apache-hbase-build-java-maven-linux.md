@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942970"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
@@ -18,7 +18,7 @@ Aprenda a crear una aplicación [HBase de Apache](https://hbase.apache.org/) en 
 
 En los pasos descritos en este documento se usa [Apache Maven](https://maven.apache.org/) para crear y compilar el proyecto. Maven es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -56,7 +56,7 @@ cd C:\HDI
 
     Este comando crea un directorio denominado `hbaseapp` en la ubicación actual, que contiene un proyecto de Maven básico. El segundo comando cambia el directorio de trabajo a `hbaseapp`. El tercer comando crea un directorio, `conf`, que se usará más adelante. El directorio `hbaseapp` contiene los siguientes elementos:
 
-    * `pom.xml`:  el modelo de objetos de proyectos ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene la información y los detalles de configuración usados para compilar el proyecto.
+    * `pom.xml`: El modelo de objetos de proyectos ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene la información y los detalles de configuración usados para compilar el proyecto.
     * `src\main\java\com\microsoft\examples`: Contiene el código de la aplicación.
     * `src\test\java\com\microsoft\examples`: Contiene pruebas para la aplicación.
 

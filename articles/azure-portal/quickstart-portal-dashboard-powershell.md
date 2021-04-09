@@ -3,13 +3,13 @@ title: Creación de un panel en Azure Portal con PowerShell
 description: Aprenda a crear un panel en Azure Portal mediante Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/25/2021
+ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745747"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557452"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Inicio rápido: Creación de un panel en Azure Portal con PowerShell
 
@@ -104,7 +104,7 @@ Como los paneles de Azure son recursos, se pueden representar como JSON. El cód
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -146,19 +146,7 @@ Compruebe que el panel se ha creado correctamente.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Compruebe que puede ver los datos de la máquina virtual desde Azure Portal.
-
-1. En Azure Portal, seleccione **Panel**.
-
-   ![Navegación al panel en Azure Portal](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. En la página del panel, seleccione **Simple VM Dashboard**.
-
-   ![Navegación al panel Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Examine el panel. Puede ver que una parte de su contenido es estático, pero que también hay gráficos que muestran el rendimiento de la máquina virtual.
-
-   ![Revisión del panel Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -170,6 +158,7 @@ Para quitar la máquina virtual y el panel asociado, elimine el grupo de recurso
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

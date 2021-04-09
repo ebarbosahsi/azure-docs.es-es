@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378713"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864047"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del control de mapa de Azure Maps
 
@@ -200,9 +200,9 @@ Puede insertar un mapa en una página web mediante la biblioteca de JavaScript d
 
    ![Imagen de mapa que muestra el resultado representado](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localización del mapa
+## <a name="localizing-the-map&quot;></a>Localización del mapa
 
-Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa representado. La primera opción es agregar esta información al espacio de nombres `atlas` global, lo que provocará que estos valores son los predeterminados en todas las instancias de control de mapa de la aplicación. El código siguiente establece el idioma en francés ("fr-FR") y la vista regional en "auto":
+Azure Maps proporciona dos formas diferentes de establecer el idioma y la vista regional del mapa representado. La primera opción es agregar esta información al espacio de nombres `atlas` global, lo que provocará que estos valores son los predeterminados en todas las instancias de control de mapa de la aplicación. El código siguiente establece el idioma en francés (&quot;fr-FR") y la vista regional en "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -258,10 +258,10 @@ Si tiene acceso directo a los servicios REST de Azure Maps, cambie el dominio de
 
 Si desarrolla aplicaciones en un entorno JavaScript, puede que uno de los siguientes proyectos de código abierto resulte útil:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): contenedor de Angular 10 para Azure Maps.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): un componente Blazor de Azure Maps.
-- [Componente React de Azure Maps](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps): un componente de Azure Maps para la aplicación Vue.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): contenedor de Angular 10 para Azure Maps.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): un componente Blazor de Azure Maps.
+* [Componente React de Azure Maps](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps): un componente de Azure Maps para la aplicación Vue.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -275,10 +275,10 @@ Obtenga información sobre cómo aplicar estilos en un mapa:
 > [!div class="nextstepaction"]
 > [Elección de un estilo de mapa](choose-map-style.md)
 
-Para agregar más datos al mapa:
+Obtenga información sobre los procedimientos recomendados y vea ejemplos:
 
 > [!div class="nextstepaction"]
-> [Creación de un mapa](map-create.md)
+> [procedimientos recomendados](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Ejemplos de código](/samples/browse/?products=azure-maps)

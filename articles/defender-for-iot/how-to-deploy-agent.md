@@ -1,24 +1,14 @@
 ---
 title: Selección e implementación de agentes de seguridad
 description: Aprenda a seleccionar e implementar agentes de seguridad de Defender for IoT en dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447272"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104778855"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seleccionar e implementar un agente de seguridad en el dispositivo IoT
 
@@ -51,7 +41,7 @@ El agente de seguridad basado en C tiene una superficie de memoria menor y es la
 | **[Autenticación](concept-security-agent-authentication-methods.md) en IoT Hub** | Sí | Sí |
 | **[Recopilación](how-to-agent-configuration.md#supported-security-events) de datos de seguridad** | Sí | Sí |
 | **Agregación de eventos** | Sí | Sí |
-| **Configuración remota por medio de [módulo gemelo de seguridad](concept-security-module.md)** | Sí | Sí |
+| **Configuración remota mediante el [módulo de gemelo Defender-IoT-micro-agent](concept-security-module.md)** | Sí | Sí |
 
 ## <a name="security-agent-installation-guidelines"></a>Directrices de instalación del agente de seguridad
 

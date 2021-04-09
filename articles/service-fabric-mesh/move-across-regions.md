@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99626094"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Traslado de una aplicación de Service Fabric Mesh a otra región de Azure
@@ -24,7 +24,7 @@ En este artículo se describe cómo mover una aplicación de Service Fabric Mesh
 
  [Service Fabric Mesh no admite](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) la capacidad para mover directamente los recursos entre regiones de Azure. Sin embargo, los recursos se pueden mover indirectamente. Para ello, es preciso implementar una copia de la plantilla de Azure Resource Manager actual en la nueva región de destino y después redireccionar el tráfico de entrada y las dependencias a la aplicación de Service Fabric Mesh recién creada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un controlador de entrada (como [Application Gateway](../application-gateway/index.yml)) que sirva como intermediario para enrutar el tráfico entre clientes y la aplicación de Service Fabric Mesh
 * Disponibilidad de Service Fabric Mesh (versión preliminar) en la región de Azure de destino (`westus`, `eastus` o `westeurope`)

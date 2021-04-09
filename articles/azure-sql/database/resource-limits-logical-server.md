@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691236"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543523"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Límites de recursos para los servidores de Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-En este artículo se proporciona información general sobre los límites de recursos para los servidores lógicos que usan Azure SQL Database y Azure Synapse Analytics. Proporciona información sobre lo que ocurre cuando esos límites de recursos se alcanzan o se superan y se describen los mecanismos de gobernanza de recursos usados para aplicar estos límites.
+En este artículo se proporciona información general sobre los límites de recursos para los [servidores lógicos](logical-servers.md) que usan Azure SQL Database y Azure Synapse Analytics. Proporciona información sobre lo que ocurre cuando esos límites de recursos se alcanzan o se superan y se describen los mecanismos de gobernanza de recursos usados para aplicar estos límites.
 
 > [!NOTE]
-> Para conocer los límites de Instancia administrada de Azure SQL, consulte [Límites de recursos de SQL Database para instancias administradas](../managed-instance/resource-limits.md).
+> Para conocer los límites de Azure SQL Managed Instance, consulte [Límites de recursos para instancias administradas](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Límites de recursos máximos
 
-| Resource | Límite |
+| Recurso | Límite |
 | :--- | :--- |
-| Bases de datos por servidor | 5000 |
-| Número predeterminado de servidores por suscripción en cualquier región | 20 |
-| Número máximo de servidores por suscripción en cualquier región | 200 |  
-| Cuota de DTU o eDTU por servidor | 54 000 |  
-| Cuota de núcleo virtual por servidor/instancia | 540 |
-| Número máximo de grupos por servidor | Limitado por el número de DTU o núcleos virtuales. Por ejemplo, si cada grupo tiene 1000 DTU, un servidor puede admitir 54 grupos.|
+| Bases de datos por servidor lógico | 5000 |
+| Número predeterminado de servidores lógicos por suscripción en una región | 20 |
+| Número máximo de servidores lógicos por suscripción en una región | 200 |  
+| Cuota de DTU o eDTU por servidor lógico | 54 000 |  
+| Cuota de núcleo virtual por servidor lógico | 540 |
+| Número máximo de grupos por servidor lógico | Limitado por el número de DTU o núcleos virtuales. Por ejemplo, si cada grupo tiene 1000 DTU, un servidor puede admitir 54 grupos.|
 |||
 
 > [!IMPORTANT]
-> A medida que el número de bases de datos se aproxima al límite por servidor, puede ocurrir lo siguiente:
+> Cuando el número de bases de datos se aproxima al límite por servidor lógico, puede ocurrir lo siguiente:
 >
-> - Aumento de la latencia de las consultas en ejecución en la base de datos maestra.  Incluye vistas de las estadísticas del uso de los recursos como sys.resource_stats.
+> - Aumento de la latencia de las consultas en ejecución en la base de datos maestra.  Esto incluye las vistas de las estadísticas del uso de los recursos como `sys.resource_stats`.
 > - Aumento de la latencia en las operaciones de administración y presentación de las perspectivas del portal que implican enumerar las bases de datos del servidor.
 
 > [!NOTE]
-> Para obtener más cuota de DTU/eDTU, cuota de núcleo virtual o más servidores que la cantidad predeterminada, envíe una nueva solicitud de soporte técnico en Azure Portal. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md).
+> Para obtener más cuota de DTU o eDTU, cuota de núcleo virtual o más servidores lógicos que la cantidad predeterminada, envíe una nueva solicitud de soporte técnico en Azure Portal. Para más información, consulte [Solicitud de aumentos de cuota para Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
 

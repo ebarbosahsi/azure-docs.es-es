@@ -1,18 +1,18 @@
 ---
-title: Planeamiento de una implementación a escala de servidores habilitados para Azure Arc
+title: Planeación e implementación de servidores habilitados para Azure Arc
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc para simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
-ms.date: 02/23/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032235"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023289"
 ---
-# <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planeamiento de una implementación a escala de servidores habilitados para Azure Arc
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planeación e implementación de servidores habilitados para Arc
 
-La implementación de un servicio de infraestructura de TI o de una aplicación empresarial es un reto para cualquier empresa. Para llevarla a cabo correctamente y evitar sorpresas imprevistas y costos no planeados, debe planearla minuciosamente para asegurarse de que está lo más preparado posible. Para planear la implementación de servidores habilitados para Azure Arc a escala, debe abarcar los criterios de diseño e implementación que deben cumplirse para completar correctamente las tareas de apoyo a una implementación a escala.
+La implementación de un servicio de infraestructura de TI o de una aplicación empresarial es un reto para cualquier empresa. Para llevarla a cabo correctamente y evitar sorpresas imprevistas y costos no planeados, debe planearla minuciosamente para asegurarse de que está lo más preparado posible. Para planear la implementación de servidores habilitados para Azure Arc a cualquier escala, debe abarcar los criterios de diseño e implementación que deben cumplirse para completar correctamente las tareas.
 
 Para que la implementación se lleve a cabo sin problemas, el plan debe incluir una comprensión clara de los siguientes aspectos:
 
@@ -57,7 +57,7 @@ En esta fase, los ingenieros de sistemas o los administradores habilitan las car
 |Tarea |Detail |Duration |
 |-----|-------|---------|
 | [Cree un grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Un grupo de recursos dedicado para incluir solo servidores habilitados para Arc y centralizar la administración y supervisión de estos recursos. | Una hora |
-| Aplique [etiquetas](../../azure-resource-manager/management/tag-resources.md) para ayudar a organizar las máquinas. | Evalúe y desarrolle una [estrategia de etiquetado](/cloud-adoption-framework/decision-guides/resource-tagging/) alineada con el equipo de TI que pueda ayudar a reducir la complejidad de la administración de los servidores habilitados para Arc y a simplificar la toma de decisiones de administración. | Un día |
+| Aplique [etiquetas](../../azure-resource-manager/management/tag-resources.md) para ayudar a organizar las máquinas. | Evalúe y desarrolle una [estrategia de etiquetado](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alineada con el equipo de TI que pueda ayudar a reducir la complejidad de la administración de los servidores habilitados para Arc y a simplificar la toma de decisiones de administración. | Un día |
 | Diseño e implementación de [registros de Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) | Evalúe las [consideraciones de diseño e implementación](../../azure-monitor/logs/design-logs-deployment.md) para determinar si su organización debe usar un área de trabajo de Log Analytics existente o implementar otro para almacenar los datos de registro recopilados de máquinas y servidores híbridos.<sup>1</sup> | Un día |
 | Desarrollo de un plan de gobernanza de [Azure Policy](../../governance/policy/overview.md) | Determine cómo implementará la gobernanza de las máquinas y los servidores híbridos en el ámbito de la suscripción o del grupo de recursos con Azure Policy. | Un día |
 | Configuración del [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) | Desarrolle un plan de acceso para controlar quién tiene acceso a la administración de los servidores habilitados para Arc y la capacidad de ver sus datos desde otros servicios y soluciones de Azure. | Un día |
@@ -67,17 +67,17 @@ En esta fase, los ingenieros de sistemas o los administradores habilitan las car
 
 ## <a name="phase-2-deploy-arc-enabled-servers"></a>Fase 2: Implementación de servidores habilitados para Arc
 
-A continuación, completamos la base establecida en la fase 1 preparando la implementación y realizando la instalación del agente.
+A continuación, utilizaremos la base establecida en la fase 1 para preparar e implementar los servidores habilitados para Arc con el agente de Connected Machine.
 
 |Tarea |Detail |Duration |
 |-----|-------|---------|
-| Descarga del script de instalación predefinido | Revise y personalice el script de instalación predefinido para la implementación a escala del agente de Connected Machine para admitir los requisitos de implementación automatizada.<br><br> Ejemplos de recursos de incorporación a escala:<br><br> <ul><li> [Script de implementación básica a escala](onboard-service-principal.md)</ul></li> <ul><li>[Máquinas virtuales de Windows Server de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Máquinas virtuales de Linux de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Instancias EC2 de AWS de incorporación a escala mediante Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implementación a escala con comunicación remota de PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (solo Windows)</ul></li>| Uno o varios días en función de los requisitos, los procesos de la organización (por ejemplo, administración de versiones y de cambios) y el método de automatización que se usan. |
+| Descarga del script de instalación predefinido | Revise y personalice el script de instalación predefinido para la implementación a escala del agente de Connected Machine para admitir los requisitos de implementación automatizada.<br><br> Ejemplos de recursos de incorporación a escala:<br><br> <ul><li> [Script de implementación básica a escala](onboard-service-principal.md)</ul></li> <ul><li>[Máquinas virtuales de Windows Server de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Máquinas virtuales de Linux de VMware vSphere de incorporación a escala](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Instancias EC2 de AWS de incorporación a escala mediante Ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Implementación a escala con comunicación remota de PowerShell](./onboard-powershell.md) (solo Windows)</ul></li>| Uno o varios días en función de los requisitos, los procesos de la organización (por ejemplo, administración de versiones y de cambios) y el método de automatización que se usan. |
 | [Creación de una entidad de servicio](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Cree una entidad de servicio para conectar máquinas de forma no interactiva mediante Azure PowerShell o desde el portal.| Una hora |
 | Implementación del agente de Connected Machine en los equipos y servidores de destino |Use la herramienta de automatización para implementar los scripts en los servidores y conectarlos a Azure.| Uno o varios días según el plan de lanzamiento y si sigue una implementación por fases. |
 
 ## <a name="phase-3-manage-and-operate"></a>Fase 3: Administración y funcionamiento
 
-En la fase 3, los administradores o ingenieros de sistemas permiten la automatización de las tareas manuales para administrar el agente de Connected Machine y la máquina durante su ciclo de vida y operar con ellos.
+En la fase 3, los administradores o ingenieros de sistemas permiten la automatización de las tareas manuales para administrar el agente de Connected Machine y la máquina durante su ciclo de vida y trabajar con ellos.
 
 |Tarea |Detail |Duration |
 |-----|-------|---------|

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361775"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024275"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -26,12 +26,6 @@ Nuestra red de asociados ISV amplía las capacidades de la solución para ayudar
 >El [sitio de la comunidad de Azure Active Directory B2C en GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) también proporciona directivas personalizadas de ejemplo de la comunidad.
 
 ## <a name="identity-verification-and-proofing"></a>Verificación y revisión de identidades
-
-Con los asociados de Azure AD B2C, los clientes pueden habilitar la verificación y revisión de identidades de sus usuarios finales antes de permitir el registro de la cuenta o el acceso a esta. En la verificación y revisión de identidades se puede comprobar la información y ejecución de documentos basadas en el conocimiento.
-
-Un diagrama de arquitectura de alto nivel explica el flujo.
-
-![Diagrama que muestra el flujo de revisión de identidades](./media/partner-gallery/third-party-identity-proofing.png)
 
 Para las tareas de verificación y revisión de identidades, Microsoft se asocia con los siguientes ISV.
 
