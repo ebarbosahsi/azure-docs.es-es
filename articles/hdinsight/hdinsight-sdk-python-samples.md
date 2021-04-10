@@ -1,18 +1,18 @@
 ---
-title: 'Azure HDInsight: Ejemplos de Python'
+title: 'Azure HDInsight: ejemplos de Python'
 description: Busque ejemplos de Python en GitHub de tareas comunes mediante el SDK de HDInsight para Python.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 1a15a8d343398dce7a049622b53ca5e2b2c217eb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931885"
 ---
-# <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Ejemplos de Python
+# <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: ejemplos de Python
 
 > [!div class="op_single_selector"]
 > * [Ejemplos de Python](hdinsight-sdk-python-samples.md)
@@ -23,7 +23,7 @@ ms.locfileid: "98931885"
 > [!Important]
 > Python 2.7 quedará en desuso el 1 de enero de 2020. Si todavía usa Python 2.7, actualice a la versión 3.7 para poder usar el SDK de Python para HDInsight.  
 
-Este artículo ofrece:
+En este artículo se proporciona:
 
 * Vínculos a ejemplos de tareas de creación de clústeres.
 * Vínculos a contenido de referencia de otras tareas de administración.

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98933981"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
@@ -49,7 +49,7 @@ Sí. A través de Azure Marketplace es posible implementar una [aplicación virt
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>¿Qué herramientas debo usar para crear una red virtual?
 Para crear o configurar una red virtual se pueden usar las siguientes herramientas:
 
-* Azure Portal
+* Portal de Azure
 * PowerShell
 * Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file).
@@ -420,7 +420,7 @@ No hay límite en el número total de puntos de conexión de servicio de la red 
 |Azure SQL| 128|
 |Azure Synapse Analytics|   128|
 |Azure KeyVault|    127|
-|Azure Cosmos DB|   64|
+|Azure Cosmos DB|   64|
 |Centro de eventos de Azure|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|

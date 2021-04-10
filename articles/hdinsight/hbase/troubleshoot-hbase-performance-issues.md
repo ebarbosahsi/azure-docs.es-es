@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942898"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solución de problemas de rendimiento de Apache HBase en Azure HDInsight
@@ -76,29 +76,29 @@ A continuación se muestran algunos de los otros parámetros específicos que se
 
 - Para controlar los vaciados, utilice la siguiente configuración:
 
-    - `Hbase.regionserver.maxlogs`: **140** (evita vaciados debido a los límites de WAL)
+    - `Hbase.regionserver.maxlogs`: **140** (evita vaciados provocados por los límites de WAL)
 
-    - `Hbase.regionserver.global.memstore.lowerLimit`: **0.55**
+    - `Hbase.regionserver.global.memstore.lowerLimit`: **0,55**
 
-    - `Hbase.regionserver.global.memstore.upperLimit`: **0.60**
+    - `Hbase.regionserver.global.memstore.upperLimit`: **0,60**
 
 - Configuraciones específicas de Phoenix para el ajuste de grupos de subprocesos:
 
-    - `Phoenix.query.queuesize`: **10000**
+    - `Phoenix.query.queuesize`: **10 000**
 
-    - `Phoenix.query.threadpoolsize`: **512**
+    - `Phoenix.query.threadpoolsize`: **512**
 
 - Otras configuraciones específicas de Phoenix:
 
-    - `Phoenix.rpc.index.handler.count`: **50** (si hay muchas búsquedas de índice o son grandes)
+    - `Phoenix.rpc.index.handler.count`: **50** (si hay muchas búsquedas de índice o las que hay son grandes)
 
-    - `Phoenix.stats.updateFrequency`: **1 hora**
+    - `Phoenix.stats.updateFrequency`: **1 hora**
 
-    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 hora**
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 hora**
 
-    - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
+    - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 
-- Tiempos de espera de RPC: **3 minutos**
+- Tiempos de espera de RPC: **3 minutos**
 
    - Los tiempos de espera de RPC incluyen el tiempo de espera de RPC de HBase, el tiempo de espera del examen de cliente de HBase y el tiempo de espera de consulta de Phoenix. 
    - Asegúrese de que el parámetro `hbase.client.scanner.caching` está establecido en el mismo valor en el servidor y en el cliente. Si no son iguales, esta configuración conduce a errores de cliente que están relacionados con `OutOfOrderScannerException`. Esta opción debe establecerse en un valor bajo para exámenes grandes. Establecemos este valor en **100**.

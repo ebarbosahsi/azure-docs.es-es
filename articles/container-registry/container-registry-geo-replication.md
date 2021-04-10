@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705173"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632397"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -22,6 +22,7 @@ Un registro con replicación geográfica le proporciona las siguientes ventajas:
 * Mejora el rendimiento y la confiabilidad de las implementaciones regionales con acceso al registro de cierre de red.
 * Reduce los costos de transferencia de datos mediante la extracción de capas de imagen de un registro local y replicado en la misma región del host de contenedor, o en una región cercana.
 * Administración única de un registro en varias regiones.
+* Resistencia del registro si se produce una interrupción regional
 
 > [!NOTE]
 > Si necesita mantener copias de las imágenes de contenedor en más de un registro de contenedor de Azure, Azure Container Registry también admite la [importación de imágenes](container-registry-import-images.md). Por ejemplo, en un flujo de trabajo de DevOps, puede importar una imagen desde un registro de desarrollo a un registro de producción, sin necesidad de usar comandos de Docker.
@@ -59,6 +60,7 @@ Al usar la característica de replicación geográfica de Azure Container Regist
 * Podrá administrar una única configuración de las implementaciones de imagen, ya que todas las regiones usan la misma dirección URL de imagen: `contoso.azurecr.io/public/products/web:1.2`.
 * Mientras ACR administra la replicación geográfica, realice la inserción en un único registro. ACR solo replica capas únicas, lo que reduce la transferencia de datos entre regiones. 
 * Configure [webhooks](container-registry-webhook.md) regionales para recibir notificaciones sobre los eventos de réplicas específicas.
+* Proporcione un registro de alta disponibilidad que sea resistente a las interrupciones regionales.
 
 Azure Container Registry también admite [zonas de disponibilidad](zone-redundancy.md) para crear un registro de contenedor de Azure de alta disponibilidad y resistente en una región de Azure. La combinación de zonas de disponibilidad para la redundancia dentro de una región y la replicación geográfica en varias regiones mejora la confiabilidad y el rendimiento de un registro.
 

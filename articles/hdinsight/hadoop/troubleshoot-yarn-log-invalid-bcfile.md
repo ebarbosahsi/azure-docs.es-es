@@ -1,17 +1,17 @@
 ---
 title: No se pueden leer los registros de Apache Yarn en Azure HDInsight
-description: Pasos de solución de problemas y soluciones posibles para problemas que se producen al interactuar con clústeres de Azure HDInsight.
+description: Pasos de solución de problemas y soluciones posibles para los problemas que se producen al interactuar con clústeres de Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
 ms.openlocfilehash: 02a79de8aee169f5f702d5fae67194c62363e8c4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943050"
 ---
-# <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Escenario: No se pueden leer los registros de Apache Yarn en Azure HDInsight
+# <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Escenario: no se pueden leer los registros de Apache Yarn en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 
@@ -33,9 +33,9 @@ El registro de Apache Yarn se ha agregado en formato `IndexFile`, que no es comp
 
 1. En la interfaz de usuario de Ambari, vaya a **YARN** > **Configs** > **Advanced** > **Advanced yarn-site** (YARN > Configuraciones > Avanzado > Yarn-site avanzado).
 
-1. Para el almacenamiento en Azure Storage Blob: El valor predeterminado de `yarn.log-aggregation.file-formats` es `IndexedFormat,TFile`. Cambie el valor a `TFile`.
+1. Para el almacenamiento de WASB: el valor predeterminado de `yarn.log-aggregation.file-formats` es `IndexedFormat,TFile`. Cambie el valor a `TFile`.
 
-1. Para Azure Data Lake Storage: El valor predeterminado de `yarn.nodemanager.log-aggregation.compression-type` es `gz`. Cambie el valor a `none`.
+1. Para el almacenamiento de ADLS: el valor predeterminado de `yarn.nodemanager.log-aggregation.compression-type` es `gz`. Cambie el valor a `none`.
 
 1. Guarde los cambios y reinicie todos los servicios afectados.
 

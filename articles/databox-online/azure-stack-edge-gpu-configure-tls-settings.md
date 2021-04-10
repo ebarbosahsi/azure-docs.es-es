@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4a159f7fa384a6899fb3cbb4db3bba9e0ed02d52
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 47a6d3bbebdf3b2b14b1c40d7ea8fc93b4d19c6f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102637420"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565340"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configuración de TLS 1.2 en los clientes de Windows que acceden a un dispositivo Azure Stack Edge Pro
 
@@ -74,4 +74,4 @@ Si desea establecer TLS 1.2 en todo el sistema para su entorno, siga las instru
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Conexión a Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)
+[Conexión a Azure Resource Manager](./azure-stack-edge-gpu-connect-resource-manager.md)

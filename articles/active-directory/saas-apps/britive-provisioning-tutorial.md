@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/05/2021
 ms.author: Zhchia
 ms.openlocfilehash: 8bebcb49bc7bf31614a161c08d33d5910679b614
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103225671"
 ---
 # <a name="tutorial-configure-britive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Brivite para aprovisionar usuarios automáticamente

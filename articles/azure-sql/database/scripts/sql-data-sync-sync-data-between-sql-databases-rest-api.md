@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: ef2823b870f76922dd0dc157341aea9b502fb4bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d3ff8114c11b224a0bdbb0bd2d0e5686a7e57b55
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564568"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565918"
 ---
 # <a name="use-rest-api-to-sync-data-between-multiple-databases"></a>Uso de la API REST para sincronizar datos entre varias bases de datos 
 
@@ -31,7 +31,7 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 ## <a name="create-sync-group"></a>Creación de un grupo de sincronización
 
-Use la plantilla [crear o actualizar](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) para crear un grupo de sincronización.
+Use la plantilla [crear o actualizar](/rest/api/sql/syncgroups/createorupdate) para crear un grupo de sincronización.
  
 Al crear un grupo de sincronización, no pase el esquema de sincronización (table\column) ni masterSyncMemberName porque, en este momento, el grupo de sincronización aún no tiene información de table\column.
 
@@ -91,7 +91,7 @@ Código de estado: 201
 
 ## <a name="create-sync-member"></a>Creación de un miembro de sincronización
 
-Use la plantilla [crear o actualizar](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) para crear un miembro de sincronización.
+Use la plantilla [crear o actualizar](/rest/api/sql/syncmembers/createorupdate) para crear un miembro de sincronización.
 
 Solicitud de ejemplo para crear un miembro de sincronización:
 
@@ -151,7 +151,7 @@ Código de estado: 201
 
 Una vez creado correctamente el grupo de sincronización, actualice el esquema mediante las siguientes plantillas.
 
-Use la plantilla [actualizar esquema central](https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema) para actualizar el esquema de la base de datos central. 
+Use la plantilla [actualizar esquema central](/rest/api/sql/syncgroups/refreshhubschema) para actualizar el esquema de la base de datos central. 
 
 Solicitud de ejemplo para actualizar el esquema de la base de datos central: 
 
@@ -165,17 +165,17 @@ Código de estado: 200
 
 Código de estado: 202
 
-Use la plantilla de [lista de esquemas centrales](https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas) para mostrar el esquema de la base de datos central. 
+Use la plantilla de [lista de esquemas centrales](/rest/api/sql/syncgroups/listhubschemas) para mostrar el esquema de la base de datos central. 
 
-Use la plantilla [actualizar esquema de miembro](https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema) para actualizar el esquema de la base de datos miembro. 
+Use la plantilla [actualizar esquema de miembro](/rest/api/sql/syncmembers/refreshmemberschema) para actualizar el esquema de la base de datos miembro. 
 
-Use la plantilla de [lista de esquemas de miembro](https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas) para mostrar el esquema de la base de datos miembro. 
+Use la plantilla de [lista de esquemas de miembro](/rest/api/sql/syncmembers/listmemberschemas) para mostrar el esquema de la base de datos miembro. 
 
 Continúe con el paso siguiente cuando el esquema se actualice correctamente. 
 
 ## <a name="update-sync-group"></a>Actualización de un grupo de sincronización 
 
-Use la plantilla [crear o actualizar](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) para actualizar el grupo de sincronización.
+Use la plantilla [crear o actualizar](/rest/api/sql/syncgroups/createorupdate) para actualizar el grupo de sincronización.
 
 Especifique el esquema de sincronización para actualizar el grupo de sincronización. Incluya el esquema y masterSyncMemberName, que es el nombre que contiene el esquema que quiere usar. 
 
@@ -232,7 +232,7 @@ Respuesta de ejemplo para actualizar el grupo de sincronización:
 ```
 ## <a name="update-sync-member"></a>Actualización de un miembro de sincronización
 
-Use la plantilla [crear o actualizar](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) para actualizar el miembro de sincronización.
+Use la plantilla [crear o actualizar](/rest/api/sql/syncmembers/createorupdate) para actualizar el miembro de sincronización.
 
 Solicitud de ejemplo para actualizar un miembro de sincronización: 
 
@@ -291,7 +291,7 @@ Código de estado: 201
 
 ## <a name="trigger-sync"></a>Desencadenamiento de la sincronización
 
-Use la plantilla [desencadenar sincronización](https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync) para desencadenar una operación de sincronización.
+Use la plantilla [desencadenar sincronización](/rest/api/sql/syncgroups/triggersync) para desencadenar una operación de sincronización.
 
 Solicitud de ejemplo para la operación de desencadenamiento de la sincronización: 
 
