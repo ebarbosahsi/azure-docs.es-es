@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047461"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025363"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso de cuentas de almacenamiento administradas por el cliente en Log Analytics de Azure Monitor
 
@@ -50,7 +50,7 @@ Para que la cuenta de almacenamiento se conecte correctamente a su vínculo priv
 * Permitir que Azure Monitor tenga acceso a la cuenta de almacenamiento. Si decide permitir que solo las redes seleccionadas tengan acceso a la cuenta de almacenamiento, debe seleccionar la excepción: "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento".
 ![Imagen de servicios de MS de confianza de la cuenta de almacenamiento](./media/private-storage/storage-trust.png)
 * Si el área de trabajo también controla el tráfico de otras redes, debe configurar la cuenta de almacenamiento para permitir el tráfico entrante procedente de las redes pertinentes o Internet.
-* Coordine la versión de TLS entre los agentes y la cuenta de almacenamiento; se recomienda que envíe datos a Log Analytics mediante TLS 1.2 o superior. Revise la [guía específica de la plataforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12) y, si es necesario, [configure los agentes para que usen TLS 1.2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Si por alguna razón no es posible, configure la cuenta de almacenamiento para que acepte TLS 1.0.
+* Coordine la versión de TLS entre los agentes y la cuenta de almacenamiento; se recomienda que envíe datos a Log Analytics mediante TLS 1.2 o superior. Revise la [guía específica de la plataforma](./data-security.md#sending-data-securely-using-tls-12) y, si es necesario, [configure los agentes para que usen TLS 1.2](../agents/agent-windows.md#configure-agent-to-use-tls-12). Si por alguna razón no es posible, configure la cuenta de almacenamiento para que acepte TLS 1.0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Uso de una cuenta de almacenamiento administrada por el cliente para el cifrado de datos de CMK
 Azure Storage cifra todos los datos en reposo de una cuenta de almacenamiento. De forma predeterminada, usa claves administradas por Microsoft (MMK) para cifrar los datos; sin embargo, Azure Storage también le permite usar CMK desde Azure Key Vault para cifrar los datos de almacenamiento. Puede importar sus propias claves a Azure Key Vault, o puede usar las API de Azure Key Vault para generarlas.

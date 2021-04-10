@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577585"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582126"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Roles integrados de Windows Virtual Desktop
 
@@ -146,7 +146,7 @@ En la lista siguiente se describen los permisos a los que puede acceder este rol
 
 ## <a name="session-host-operator"></a>Operador de host de sesión
 
-El rol Colaborador de host de sesión le permite ver y quitar hosts de sesión, así como cambiar el modo de purga. No pueden agregar hosts de sesión mediante Azure Portal porque no tienen permiso de escritura en los objetos del grupo de hosts. Si el token de registro es válido (es decir, se ha generado y no ha expirado), puede usar este rol para agregar hosts de sesión al grupo de hosts fuera de Azure Portal si el administrador tiene permisos de proceso mediante el rol Colaborador de la máquina virtual.
+El rol Operador del host de sesión permite ver y quitar hosts de sesión, así como cambiar el modo de purga. No pueden agregar hosts de sesión mediante Azure Portal porque no tienen permiso de escritura en los objetos del grupo de hosts. Si el token de registro es válido (es decir, se ha generado y no ha expirado), puede usar este rol para agregar hosts de sesión al grupo de hosts fuera de Azure Portal si el administrador tiene permisos de proceso mediante el rol Colaborador de la máquina virtual.
 
 En la lista siguiente se describen los permisos a los que puede acceder este rol:
 

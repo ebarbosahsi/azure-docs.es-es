@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 831bc737fbd54685cdc8358642bc37e7b2df2c42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5f3c6526139389da3bfdbc3c43cf8b6d2a1dbccf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98953723"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567974"
 ---
 # <a name="api-access-differences-between-azure-media-services-v2-to-v3-api"></a>Diferencias de acceso de API entre Azure Media Services V2 y la API v3
 
@@ -36,6 +36,8 @@ Puede seguir usando cuentas existentes si no combina las API V2 y V3 y, después
 
 El acceso a la API V2 estará disponible hasta que se retire en 2024.
 
+## <a name="create-a-v3-account"></a>Creación de una cuenta de V3
+
 Mientras realiza la migración, puede crear una cuenta de V3 que siga teniendo acceso a V2.  La creación de la cuenta se puede realizar con:
 
 - la API de REST y una versión anterior
@@ -48,7 +50,3 @@ Mientras realiza la migración, puede crear una cuenta de V3 que siga teniendo a
 
 > [!NOTE]
 > Las nuevas cuentas creadas con la API 2020-05-01 no pueden usar las API V2.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

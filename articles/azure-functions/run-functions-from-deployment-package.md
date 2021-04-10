@@ -3,12 +3,12 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639892"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581599"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
@@ -63,6 +63,7 @@ La [implementación de archivos ZIP][Zip deployment for Azure Functions] es una 
 
 - La ejecución desde el paquete hace que `wwwroot` sea de solo lectura, por lo que recibirá un error al escribir archivos en este directorio.
 - No se admiten los formatos de archivo tar y gzip.
+- El archivo ZIP puede tener un máximo de 1 GB.
 - Esta característica no se crea con caché local.
 - Para mejorar el rendimiento del arranque en frío, utilice la opción de archivo zip local (`WEBSITE_RUN_FROM_PACKAGE` = 1).
 - La ejecución desde paquete es incompatible con la opción de personalización de implementación (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`); el paso de compilación se omitirá durante la implementación.

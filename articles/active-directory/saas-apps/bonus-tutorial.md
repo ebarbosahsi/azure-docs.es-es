@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integración de Azure Active Directory con Bonusly
@@ -124,13 +124,13 @@ Para configurar el inicio de sesión único de Azure AD con Bonusly, realice lo
 
     c. URL de cierre de sesión
 
-### <a name="configure-bonusly-single-sign-on"></a>Configuración del inicio de sesión único de Bonusly
+### <a name="configure-bonusly-single-sign-on&quot;></a>Configuración del inicio de sesión único de Bonusly
 
 1. En una ventana del explorador diferente, inicie sesión en su inquilino de **Bonusly**.
 
 1. En la barra de herramientas de la parte superior, haga clic en **Configuración** y seleccione **Integraciones y aplicaciones**.
 
-    ![Sección Bonusly Social](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Sección Bonusly Social](./media/bonus-tutorial/ic773686.png &quot;Bonusly")
 1. En **Inicio de sesión único**, seleccione **SAML**.
 
 1. En la página de diálogo **SAML** , realice los pasos siguientes:
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-bonusly-test-user"></a>Creación de un usuario de prueba de Bonusly
+### <a name="create-bonusly-test-user&quot;></a>Creación de un usuario de prueba de Bonusly
 
 Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen que aprovisionarse en Bonusly. En el caso de Bonusly, el aprovisionamiento es una tarea manual.
 
@@ -210,7 +210,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen q
 
 1. Haga clic en **Configuración**.
 
-    ![Configuración](./media/bonus-tutorial/ic781041.png "Configuración")
+    ![Configuración](./media/bonus-tutorial/ic781041.png &quot;Configuración")
 
 1. Haga clic en la pestaña **Usuarios y bonificaciones** .
 

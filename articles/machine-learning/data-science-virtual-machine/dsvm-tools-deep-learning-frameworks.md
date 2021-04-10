@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 43a8004b6cdfe2e074304569b83360101784a87e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175675"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568008"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Marcos de aprendizaje profundo e inteligencia artificial para Azure Data Science VM
 La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
@@ -27,7 +27,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | Versiones compatibles | |
 | Ediciones de DSVM admitidas      | Ubuntu 16.04    |
 | ¿Cómo se configura/instala en DSVM?  | Caffe se instala en `/opt/caffe`.   Se pueden encontrar ejemplos en `/opt/caffe/examples`.|
-| Cómo ejecutarlo      | use X2Go para iniciar sesión en la máquina virtual y, a continuación, inicie un nuevo terminal y escriba lo siguiente:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Se abre una nueva ventana del explorador con blocs de notas de ejemplo. Los binarios se instalan en /opt/caffe/build/install/bin.<br/><br/>La versión instalada de Caffe requiere Python 2.7 y no funcionará con Python 3.5, que está activado de forma predeterminada. Para cambiar a Python 2.7, ejecute `source activate root` para cambiar al entorno de Anaconda.|    
+| Cómo ejecutarlo      | use X2Go para iniciar sesión en la máquina virtual y, a continuación, inicie un nuevo terminal y escriba lo siguiente:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Se abre una nueva ventana del explorador con blocs de notas de ejemplo. Los binarios se instalan en /opt/caffe/build/install/bin.<br/><br/>La versión instalada de Caffe requiere Python 2.7 y no funcionará con Python 3.6, que está activado de forma predeterminada. Para cambiar a Python 2.7, ejecute `source activate root` para cambiar al entorno de Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -129,14 +129,14 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | ¿Cómo se configura/instala en DSVM?  | Se instala en Python 3.5 en [Linux](dsvm-tools-languages.md#python-linux-edition) y en Python 3.6 en [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Cómo ejecutarlo      | Terminal: active el entorno correcto y ejecute Python. <br/> *Jupyter: conéctese a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine) y abra el directorio TensorFlow para acceder a los ejemplos.   |
 
-## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.12 |
 | Ediciones de DSVM admitidas      | Ubuntu 16.04 |
 | ¿Cómo se configura/instala en DSVM?  | tensorflow_model_server está disponible en el terminal. |
-| Cómo ejecutarlo      |  Otros ejemplos están disponibles [en línea](https://www.tensorflow.org/serving/).   |
+| Cómo ejecutarlo      |  Otros ejemplos están disponibles [en línea](https://www.tensorflow.org/tfx/guide/serving).   |
 
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)

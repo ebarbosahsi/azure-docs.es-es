@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar la limitación con las sol
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563133"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024632"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -58,7 +58,7 @@ El proveedor de recursos Microsoft.Network aplica los siguientes límites de reg
 
 ### <a name="compute-throttling"></a>Regulación de proceso
 
-Para obtener información sobre los límites de regulación para las operaciones de proceso, consulte [Solución de errores de limitación de API - Proceso](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Para obtener información sobre los límites de regulación para las operaciones de proceso, consulte [Solución de errores de limitación de API - Proceso](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Para comprobar las instancias de máquina virtual dentro de un conjunto de escalado de máquinas virtuales, use las [operaciones de conjuntos de escalado de máquinas virtuales](/rest/api/compute/virtualmachinescalesetvms). Por ejemplo, use las [máquinas virtuales del conjunto de escalado de máquinas virtuales: lista](/rest/api/compute/virtualmachinescalesetvms/list) con parámetros para comprobar el estado de energía de las instancias de máquina virtual. Esta API reduce el número de solicitudes.
 
@@ -98,7 +98,7 @@ Puede determinar el número de solicitudes restantes examinando los encabezados 
 | x-ms-ratelimit-Remaining-tenant-Resource-Requests |Solicitudes de tipos de recurso restantes del ámbito del inquilino<br /><br />Este encabezado solo se agrega para las solicitudes en el nivel del inquilino, y solo si un servicio ha invalidado el límite predeterminado. Resource Manager agrega este valor en lugar de las lecturas o escrituras del inquilino. |
 | x-ms-ratelimit-Remaining-tenant-Resource-Entities-Read |Solicitudes de colección de tipos de recursos restantes del ámbito del inquilino<br /><br />Este encabezado solo se agrega para las solicitudes en el nivel del inquilino, y solo si un servicio ha invalidado el límite predeterminado. |
 
-El proveedor de recursos también puede devolver encabezados de respuesta con información sobre las solicitudes restantes. Para obtener información sobre los encabezados de respuesta devueltos por el proveedor de recursos de proceso, vea [Encabezados de respuesta que informan sobre la frecuencia de llamadas](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+El proveedor de recursos también puede devolver encabezados de respuesta con información sobre las solicitudes restantes. Para obtener información sobre los encabezados de respuesta devueltos por el proveedor de recursos de proceso, vea [Encabezados de respuesta que informan sobre la frecuencia de llamadas](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Recuperación de los valores de encabezado
 

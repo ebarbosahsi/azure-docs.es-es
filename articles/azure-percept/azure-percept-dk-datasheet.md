@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 5b8a84b77fbde41748a2d9ef99a92cb6af1bbea6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0c9f848827db452710b4bca355aae0db99a2c95c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097591"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027370"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Ficha técnica de Azure Percept DK
 
@@ -24,7 +24,7 @@ ms.locfileid: "102097591"
 |Incluido en la caja                 |1 placa base de Azure Percept DK  <br> 1 [Azure Percept Vision](./azure-percept-vision-datasheet.md) <br> 1 sensor RGB (cámara) <br> 1 cable de tipo C USB 3.0 <br> 1 cable de alimentación CC <br> 1 convertidor de CA/CC <br> 2 antenas Wi-Fi  |
 |SO                              |[CBL-Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |Plano de control de administración        |Azure Device Update (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)          |
-|Software y servicios compatibles |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) y [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [SO Mariner de Azure con conectividad](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
+|Software y servicios compatibles |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) y [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [SO Mariner de Azure con conectividad](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure Device Provisioning Service (DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |Procesador general               |NXP iMX8m (placa base de Azure Percept DK)        |
 |Aceleración de IA                 |1 ISP integrado Intel Movidius Myriad X (Azure Percept Vision) |
 |Sensores e indicadores visuales   |Sensor de cámara IMX219 de Sony con lente 6P<br>Resolución: 8 MP a 30 FPS, distancia: de 50 cm a infinito<br>Campo de visión: 120 grados diagonal, Color: amplio rango dinámico, obturador gradual de foco fijo|

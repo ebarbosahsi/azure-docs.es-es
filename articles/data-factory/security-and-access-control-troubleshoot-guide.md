@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706192"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568049"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solución de problemas de seguridad y control de acceso de Azure Data Factory
 
@@ -182,7 +182,7 @@ Por ejemplo: en el receptor de Azure Blob Storage se usaba Azure IR (red virtua
 
 #### <a name="cause"></a>Causa
 
-ADF todavía puede usar IR de red virtual administrada, pero podría encontrar este error porque el punto de conexión público para Azure Blob Storage en la red virtual administrada no es confiable según el resultado de la prueba, y no se admiten Azure Blob Storage ni Azure Data Lake Gen2 para conectarse mediante un punto de conexión público de la red virtual administrada de ADF, de acuerdo a [Red virtual administrada y puntos de conexión privados administrados](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+ADF todavía puede usar IR de red virtual administrada, pero podría encontrar este error porque el punto de conexión público para Azure Blob Storage en la red virtual administrada no es confiable según el resultado de la prueba, y no se admiten Azure Blob Storage ni Azure Data Lake Gen2 para conectarse mediante un punto de conexión público de la red virtual administrada de ADF, de acuerdo a [Red virtual administrada y puntos de conexión privados administrados](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### <a name="solution"></a>Solución
 

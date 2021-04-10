@@ -4,17 +4,16 @@ description: Implemente puertas de enlace de VPN y ExpressRoute en Azure Availab
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2030469262baf406635fd170af384e154fec6ae6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2d0e6464e81c0b0d04b9a0f483bcd14f075fa399
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89401119"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065169"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones
 

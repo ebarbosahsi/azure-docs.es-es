@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
 ms.openlocfilehash: ba5a329d12735fbddc86ff2e3725a1e7de6d9d89
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546472"
 ---
 # <a name="what-is-azure-notification-hubs"></a>¿Qué es Azure Notification Hubs?
@@ -93,13 +93,13 @@ Notification Hubs es un motor de inserción listo para usar que presenta las sig
   - En la nube o local.
   - .NET, Node.js, Java, Python, etc.
 - **Conjunto completo de patrones de entrega**
-  - Difusión para una o más plataformas: puede difundir al instante a millones de dispositivos entre plataformas con una sola llamada API.
+  - Retransmisión a una o más plataformas: puede retransmitir al instante a millones de dispositivos entre plataformas con una sola llamada API.
   - Inserción en dispositivo: puede destinar las notificaciones a dispositivos individuales.
   - Inserción en usuario: las etiquetas y plantillas le ayudan a llegar a todos los dispositivos multiplataforma de un usuario.
-  - Inserción en segmento con etiquetas dinámicas: la característica de etiquetas le ayuda a segmentar dispositivos e insertar en ellos en función de sus necesidades, tanto si va a realizar un envío a un segmento o a una expresión de segmentos (por ejemplo: activo AND reside en Seattle NOT usuario nuevo). En lugar de limitarse a la publicación-suscripción, puede actualizar las etiquetas de dispositivo en cualquier lugar y en cualquier momento.
+  - Inserción en segmento con etiquetas dinámicas: las características de etiquetas le ayudan a segmentar dispositivos e insertar en ellos en función de sus necesidades, tanto si va a enviar a un segmento como si lo envía a una expresión de segmentos (por ejemplo: AND activo reside en Seattle NO es un usuario nuevo). En lugar de limitarse a la publicación-suscripción, puede actualizar las etiquetas de dispositivo en cualquier lugar y en cualquier momento.
   - Inserción localizada: la característica de plantillas le ayuda a obtener la localización sin alterar el código de back-end.
   - Inserción silenciosa: puede habilitar el modelo de inserción a extracción enviando notificaciones silenciosas a dispositivos y desencadenándolos para que realicen ciertas extracciones o acciones.
-  - Inserción programada: puede programar que las notificaciones se envíen en cualquier momento.
+  - Inserción programada: Puede programar que las notificaciones se envíen en cualquier momento.
   - Inserción directa: puede omitir el registro de dispositivos con el servicio Notification Hubs y procesar por lotes directamente las inserciones a una lista de identificadores de dispositivo.
   - Inserción personalizada: las variables de inserción de dispositivo le ayudan a enviar notificaciones push personalizadas específicas de dispositivo con pares de clave-valor personalizados.
 - **Telemetría enriquecida**
@@ -113,7 +113,7 @@ Notification Hubs es un motor de inserción listo para usar que presenta las sig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca la información para la creación y el uso de un centro de notificaciones en [Tutorial: Envío de notificaciones push a aplicaciones móviles](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Conozca la información para la creación y el uso de un centro de notificaciones en la [Introducción a Azure Notification Hubs para aplicaciones Android y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png

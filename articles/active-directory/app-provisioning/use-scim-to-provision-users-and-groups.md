@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652103"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022949"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM
 
@@ -198,6 +198,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.in
 |El filtro [excludedAttributes=members](#get-group) al consultar el recurso de grupo|sección 3.4.2.5|
 |Aceptar un token de portador único para la autenticación y autorización de AAD en la aplicación||
 |Eliminación temporal de un usuario `active=false` y restauración del usuario `active=true`|El objeto de usuario se debe devolver en una solicitud tanto si el usuario está activo como si no. La única vez que no se debe devolver el usuario es cuando se elimina de forma permanente de la aplicación.|
+|Compatibilidad con el punto de conexión /Schemas|[sección 7](https://tools.ietf.org/html/rfc7643#page-30) El punto de conexión de detección de esquemas se usa para detectar atributos adicionales.|
 
 Al implementar un punto de conexión de SCIM para garantizar la compatibilidad con AAD, siga estas directrices generales:
 
@@ -210,7 +211,12 @@ Al implementar un punto de conexión de SCIM para garantizar la compatibilidad c
 * Microsoft AAD realiza solicitudes para recuperar un usuario y un grupo al azar para tener la seguridad de que el punto de conexión y las credenciales sean válidas. También las realiza como parte del flujo de **Probar conexión** de [Azure Portal](https://portal.azure.com). 
 * El atributo en el que se pueden consultar los recursos debe establecerse como un atributo coincidente en la aplicación en [Azure Portal](https://portal.azure.com). Consulte [Personalización de las asignaciones de atributos de aprovisionamiento de usuarios](customize-application-attributes.md).
 * Admitir HTTPS en el punto de conexión de SCIM
-
+* [Detección de esquemas](#schema-discovery)
+  * La detección de esquemas no se admite actualmente en la aplicación personalizada, pero se usa en determinadas aplicaciones de la galería. En el futuro, la detección de esquemas se usará como método principal para agregar atributos adicionales a un conector. 
+  * Si un valor no está presente, no envíe valores NULL.
+  * Los valores de propiedad deben tener mayúsculas y minúsculas (por ejemplo, readWrite).
+  * Debe devolver una respuesta de lista.
+  
 ### <a name="user-provisioning-and-deprovisioning"></a>Aprovisionamiento y desaprovisionamiento de usuarios
 
 En la siguiente ilustración se muestran los mensajes que AAD envía a un servicio SCIM para administrar el ciclo de vida de un usuario en su almacén de identidades de la aplicación.  
@@ -252,6 +258,9 @@ En esta sección se proporcionan solicitudes SCIM de ejemplo emitidas por el cli
   - [Actualizar grupo [Agregar miembros]](#update-group-add-members) ([Solicitud](#request-11) / [Respuesta](#response-11))
   - [Actualizar grupo [Quitar miembros]](#update-group-remove-members) ([Solicitud](#request-12) / [Respuesta](#response-12))
   - [Eliminar grupo](#delete-group) ([Solicitud](#request-13) / [Respuesta](#response-13))
+
+[Detección de esquemas](#schema-discovery)
+  - [Detección de esquemas](#discover-schema) ([Solicitud](#request-15) / [Respuesta](#response-15))
 
 ### <a name="user-operations"></a>Operaciones de usuario
 
@@ -749,6 +758,105 @@ En esta sección se proporcionan solicitudes SCIM de ejemplo emitidas por el cli
 ##### <a name="response"></a><a name="response-13"></a>Respuesta
 
 *HTTP/1.1 204 No Content*
+
+### <a name="schema-discovery"></a>Detección de esquemas
+#### <a name="discover-schema"></a>Detección de esquema
+
+##### <a name="request"></a><a name="request-15"></a>Solicitud
+*GET /Schemas* 
+##### <a name="response"></a><a name="response-15"></a>Respuesta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
 
 ### <a name="security-requirements"></a>Requisitos de seguridad
 **Versiones del protocolo SSL**
