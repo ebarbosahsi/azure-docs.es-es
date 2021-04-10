@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579151"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605083"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -31,7 +31,7 @@ Las aplicaciones o acciones en la nube son una señal esencial en una directiva 
 
 En la lista de aplicaciones que se pueden seleccionar están muchas de las aplicaciones en la nube de Microsoft existentes. 
 
-Los administradores pueden asignar una directiva de acceso condicional a las siguientes aplicaciones en la nube de Microsoft. Algunas aplicaciones, como Office 365 y la Administración de Microsoft Azure, incluyen varios servicios o aplicaciones secundarios relacionados. La lista siguiente no es exhaustiva y está sujeta a cambios.
+Los administradores pueden asignar una directiva de acceso condicional a las siguientes aplicaciones en la nube de Microsoft. Algunas aplicaciones, como Office 365 y la Administración de Microsoft Azure, incluyen varios servicios o aplicaciones secundarios relacionados. Agregamos continuamente más aplicaciones, por lo que la lista siguiente no es exhaustiva y está sujeta a cambios.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +66,8 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - Skype Empresarial Online
 - Red privada virtual (VPN)
 - ATP de Windows Defender
+
+Las aplicaciones que están disponibles para el acceso condicional han pasado por un proceso de incorporación y validación. Esto no incluye todas las aplicaciones de Microsoft, ya que muchas son servicios back-end y no están diseñadas para que se les aplique la directiva directamente. Si está buscando una aplicación que falta, puede ponerse en contacto con el equipo de la aplicación específica o hacer una solicitud en [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 

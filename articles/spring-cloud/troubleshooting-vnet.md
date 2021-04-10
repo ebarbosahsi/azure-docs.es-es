@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2369a6380c7b74302d32366d0604fca616fc3ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a84ed5a6f80b038ced2077fe3c038bd9801ca033
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877675"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732948"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Solución de problemas de Azure Spring Cloud en redes virtuales
 
@@ -38,7 +38,6 @@ Para configurar la instancia de servicio de Azure Spring Cloud mediante la plant
 | Mensaje de error | Solución |
 |------|------|
 | Resources created by Azure Spring Cloud were disallowed by policy (La directiva no permitió los recursos creados por Azure Spring Cloud). | Los recursos de red se crearán al implementar Azure Spring Cloud en su propia red virtual. Compruebe si se ha definido [Azure Policy](../governance/policy/overview.md) para bloquear esa creación. Los recursos que no se pudieron crear se encuentran en el mensaje de error. |
-| Provided subnets have associated with route tables, please disassociate them (Las subredes proporcionadas están asociadas a tablas de rutas, debe desasociarlas). | Actualmente no se admite la implementación de Azure Spring Cloud en una subred asociada a tablas de rutas existentes, debe desasociarlas e intentarlo de nuevo. |
 | Required traffic is not allowlisted (El tráfico necesario no está en la lista de permitidos). | Vea [Responsabilidades del cliente para ejecutar Azure Spring Cloud en una red virtual](spring-cloud-vnet-customer-responsibilities.md) para asegurarse de que el tráfico necesario esté en la lista de permitidos. |
 
 ## <a name="my-application-cant-be-registered"></a>No se puede registrar mi aplicación

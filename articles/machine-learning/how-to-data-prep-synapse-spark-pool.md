@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 96917b805640f0cfe38f28ba263e2e7ce55bce7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956220"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066167"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Conexión de grupos de Apache Spark (con tecnología de Azure Synapse Analytics) para la limpieza y transformación de datos (versión preliminar)
 
-En este artículo aprenderá a conectar e iniciar un grupo de Apache Spark con tecnología de [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) para la limpieza y transformación de datos a gran escala. 
+En este artículo aprenderá a conectar e iniciar un grupo de Apache Spark con tecnología de [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) para la limpieza y transformación de datos a gran escala. 
 
 Este artículo contiene instrucciones para realizar tareas de limpieza y transformación de datos de forma interactiva en una sesión de Synapse dedicada en un cuaderno de Jupyter Notebook. Si prefiere usar canalizaciones de Azure Machine Learning, consulte [Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)](how-to-use-synapsesparkstep.md).
 
@@ -310,7 +310,7 @@ input1 = train_ds.as_mount()
 
 ## <a name="example-notebook"></a>Cuaderno de ejemplo
 
-Consulte en este [cuaderno completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) un ejemplo de código detallado sobre cómo realizar la preparación de datos y el entrenamiento del modelo desde un solo cuaderno con Azure Synapse Analytics y Azure Machine Learning.
+Consulte en este [cuaderno completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) un ejemplo de código detallado sobre cómo realizar la preparación de datos y el entrenamiento del modelo desde un solo cuaderno con Azure Synapse Analytics y Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

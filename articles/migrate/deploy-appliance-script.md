@@ -2,51 +2,51 @@
 title: Configuración de un dispositivo de Azure Migrate con un script
 description: Aprenda a configurar un dispositivo de Azure Migrate con un script
 ms.topic: how-to
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.date: 04/16/2020
-ms.openlocfilehash: abf34a5ea83e74b0bd2a074108c5ef1014941093
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: c78778f9152fd4c07fb9e550e562cfef858333c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041338"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786743"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configuración de un dispositivo con un script
 
-Siga este artículo para crear una [aplicación de Azure Migrate](./migrate-appliance-architecture.md) para evaluar o migrar máquinas virtuales de VMware y máquinas virtuales de Hyper-V. Ejecute un script para crear una aplicación y compruebe que se puede conectar a Azure. 
+Siga este artículo para crear una [aplicación de Azure Migrate](./migrate-appliance-architecture.md) para evaluar o migrar servidores de VMware y de Hyper-V. Ejecute un script para crear una aplicación y compruebe que se puede conectar a Azure. 
 
-Puede implementar la aplicación para máquinas virtuales de Hyper-V y VMware mediante un script o mediante una plantilla que se descarga de Azure Portal. El uso de un script es útil si no se puede crear una máquina virtual mediante la plantilla descargada.
+Puede implementar la aplicación para servidores de Hyper-V y VMware mediante un script o mediante una plantilla que se descarga de Azure Portal. El uso de un script es útil si no se puede crear una aplicación mediante la plantilla descargada.
 
 - Para usar una plantilla, siga los tutoriales de [VMware](./tutorial-discover-vmware.md) o [Hyper-V](./tutorial-discover-hyper-v.md).
 - Para configurar una aplicación para servidores físicos, solo puede usar un script. Siga [este artículo](how-to-set-up-appliance-physical.md).
 - Para configurar una aplicación en una nube de Azure Government, siga [este artículo](deploy-appliance-script-government.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-El script configura el dispositivo de Azure Migrate en un equipo físico o máquina virtual existente.
+El script configura el dispositivo de Azure Migrate en un servidor existente.
 
-- El equipo que actuará como dispositivo debe cumplir los siguientes requisitos de hardware y sistema operativo:
+- El servidor que actuará como dispositivo debe cumplir los siguientes requisitos de hardware y sistema operativo:
 
 Escenario | Requisitos
 --- | ---
 VMware | Windows Server 2016, con 32 GB de memoria, ocho vCPU, alrededor de 80 GB de almacenamiento en disco
 Hyper-V | Windows Server 2016, con 16 GB de memoria, ocho vCPU, alrededor de 80 GB de almacenamiento en disco
-- El equipo también necesita un conmutador virtual externo. Requiere una dirección IP estática o dinámica y acceso a Internet.
-- Antes de implementar el dispositivo, consulte los requisitos detallados del dispositivo para las [máquinas virtuales de VMware](migrate-appliance.md#appliance---vmware) y las [máquinas virtuales de Hyper-V](migrate-appliance.md#appliance---hyper-v).
+
+- El servidor también necesita un conmutador virtual externo. Requiere una dirección IP estática o dinámica y acceso a Internet.
+- Antes de implementar el dispositivo, consulte los requisitos detallados del dispositivo para los [servidores en VMware](migrate-appliance.md#appliance---vmware) y [en Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - No ejecute el script en un dispositivo de Azure Migrate existente.
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Instalación de la aplicación para VMware
 
-Para configurar el dispositivo para VMware, descargue el archivo comprimido denominado AzureMigrateInstaller-Server-Public.zip desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334) y extraiga el contenido. Ejecute el script de PowerShell para iniciar la aplicación web de la aplicación. Instale la aplicación y configúrela por primera vez. Después, registre la aplicación en el proyecto de Azure Migrate.
-
+Para configurar el dispositivo para VMware, descargue el archivo comprimido denominado AzureMigrateInstaller-Server-Public.zip desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334) y extraiga el contenido. Ejecute el script de PowerShell para iniciar la aplicación web de la aplicación. Instale la aplicación y configúrela por primera vez. Después, registre la aplicación con el proyecto.
 
 ### <a name="verify-file-security"></a>Comprobación de la seguridad del archivo
 
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
-1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
+1. En el servidor en el que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-Public.zip SHA256```
@@ -55,8 +55,6 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     **Algoritmo** | **Descargar** | **SHA256**
     --- | --- | ---
     VMware (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee43412386141808d82147916330e6669df94c7969fe1b3d0fe72
-
-
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
@@ -72,13 +70,13 @@ Funcionamiento del script:
 
 Para ejecutar el script:
 
-1. Extraiga el archivo comprimido en una carpeta del equipo que vaya a hospedar el dispositivo. No ejecute el script en una máquina en un dispositivo de Azure Migrate existente.
-2. Inicie PowerShell en el equipo con privilegios de administrador (elevados).
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo. No ejecute el script en una aplicación de Azure Migrate existente.
+2. Inicie PowerShell en el servidor con privilegios de administrador (elevados).
 3. Cambie el directorio de PowerShell a la carpeta que contiene el contenido extraído del archivo comprimido descargado.
 4. Ejecute el script **AzureMigrateInstaller.ps1** como se indica a continuación:
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario VMware ```
-   
+  
 5. Una vez que el script se haya ejecutado correctamente, inicia la aplicación web del dispositivo para que pueda configurarlo. Si detecta algún problema, consulte los registros del script en C:\Archivos de programa\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
 ### <a name="verify-access"></a>Comprobación del acceso
@@ -87,14 +85,14 @@ Asegúrese de que la aplicación puede conectarse a las direcciones URL de Azure
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configure la aplicación para Hyper-V
 
-Para configurar el dispositivo para Hyper-V, descargue el archivo comprimido denominado AzureMigrateInstaller-Server-Public.zip desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2105112) y extraiga el contenido. Ejecute el script de PowerShell para iniciar la aplicación web de la aplicación. Instale la aplicación y configúrela por primera vez. Después, registre la aplicación en el proyecto de Azure Migrate.
+Para configurar el dispositivo para Hyper-V, descargue el archivo comprimido denominado AzureMigrateInstaller-Server-Public.zip desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2105112) y extraiga el contenido. Ejecute el script de PowerShell para iniciar la aplicación web de la aplicación. Instale la aplicación y configúrela por primera vez. Después, registre la aplicación con el proyecto.
 
 
 ### <a name="verify-file-security"></a>Comprobación de la seguridad del archivo
 
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
-1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
+1. En el servidor en el que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-HyperV.zip SHA256```
@@ -119,10 +117,10 @@ Funcionamiento del script:
 
 Para ejecutar el script:
 
-1. Extraiga el archivo comprimido en una carpeta del equipo que vaya a hospedar el dispositivo. No ejecute el script en una máquina en un dispositivo de Azure Migrate existente.
-2. Inicie PowerShell en el equipo con privilegios de administrador (elevados).
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo. No ejecute el script en una aplicación de Azure Migrate existente.
+2. Inicie PowerShell en el servidor con privilegios de administrador (elevados).
 3. Cambie el directorio de PowerShell a la carpeta que contiene el contenido extraído del archivo comprimido descargado.
-4. Ejecute el script **AzureMigrateInstaller.ps1** como se indica a continuación: 
+4. Ejecute el script **AzureMigrateInstaller.ps1** como se indica a continuación:
 
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
@@ -134,7 +132,7 @@ Asegúrese de que la aplicación puede conectarse a las direcciones URL de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de implementar la aplicación, es preciso que la configure y la registre en el proyecto de Azure Migrate.
+Después de implementar la aplicación, es preciso que la configure y la registre en el proyecto.
 
 - Configure el dispositivo para [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Configure el dispositivo para [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).

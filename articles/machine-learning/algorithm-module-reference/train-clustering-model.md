@@ -1,5 +1,5 @@
 ---
-title: 'Entrenamiento del modelo de agrupación en clústeres: referencia para los módulos'
+title: Referencia del módulo de entrenamiento del modelo de agrupación en clústeres
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo Entrenamiento del modelo de agrupación en clústeres en Azure Machine Learning para entrenar un modelo de clasificación o regresión.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898183"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654737"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
@@ -52,6 +52,9 @@ Una vez completado el entrenamiento:
 + Para guardar una instantánea del modelo entrenado, seleccione la pestaña **Outputs** (Salidas) en el panel derecho del módulo **Train model** (Entrenar modelo). Seleccione el icono **Register dataset** (Registrar conjunto de datos) para guardar el modelo como un módulo reutilizable.
 
 + Para generar puntuaciones a partir del modelo, utilice [Asignación de datos a clústeres](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Si necesita implementar el modelo entrenado en el diseñador, asegúrese de que esté conectado el módulo [Asignación de datos a clústeres](assign-data-to-clusters.md) en lugar de **Puntuación del modelo** a la entrada del [módulo de salida del servicio web](web-service-input-output.md) en la canalización de inferencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

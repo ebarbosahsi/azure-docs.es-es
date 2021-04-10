@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587855"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604709"
 ---
 # <a name="securing-service-principals"></a>Protección de entidades de servicio
 
@@ -96,6 +96,7 @@ Para obtener más información, consulte [Get-AzureADServicePrincipal](/powershe
 Para evaluar la seguridad de las entidades de servicio, asegúrese de evaluar los privilegios y el almacenamiento de credenciales.
 
 Mitigue los posibles desafíos con la siguiente información.
+
 |Desafíos | Mitigaciones|
 | - | - |
 | Detección del usuario que ha dado su consentimiento a una aplicación multiinquilino y detección de las concesiones de consentimiento ilícitas a una aplicación multiinquilino | Ejecute el siguiente PowerShell para buscar aplicaciones multiinquilino.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Deshabilite el consentimiento del usuario. <br>Permiso para el consentimiento del usuario de los editores verificados, para los permisos seleccionados (recomendado) <br> Use el acceso condicional para bloquear las entidades de servicio de ubicaciones que no son de confianza. Configúrelas en el contexto del usuario, y sus tokens deben usarse para activar la entidad de servicio.|
