@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562491"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
@@ -306,7 +306,7 @@ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que s
 | Atributo | Descripción                                                                                        | Obligatorio | Valor predeterminado |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | N/D     |
-| número máximo | Entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | No aplicable     |
+| número máximo | Entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -725,7 +725,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | Dirección URL del proxy en forma de http://host:port.             | Sí      | N/D     |
 | username="string" | Nombre de usuario que se usará para la autenticación con el servidor proxy. | No       | N/D     |
-| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
+| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -830,7 +830,7 @@ En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autor
 | Atributo       | Descripción                                                | Obligatorio | Valor predeterminado |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="entero"  | Código de estado HTTP que se devuelve.                            | Sí      | N/D     |
-| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | No aplicable     |
+| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -956,7 +956,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 | source    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje.                                   | Sí      | N/D     |
 | severity  | Especifica el nivel de gravedad del seguimiento. Los valores permitidos son `verbose`, `information` y `error` (de menor a mayor). | No       | Verbose |
 | name      | Nombre de la propiedad.                                                                                                     | Sí      | N/D     |
-| value     | Valor de la propiedad.                                                                                                    | Sí      | No aplicable     |
+| value     | Valor de la propiedad.                                                                                                    | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 

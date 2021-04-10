@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104674534"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559135"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Complemento Microsoft Enterprise SSO para dispositivos Apple (versión preliminar)
 
@@ -52,14 +52,14 @@ Para usar el complemento Microsoft Enterprise SSO en dispositivos Apple:
 - El dispositivo debe *inscribirse en MDM*, por ejemplo, por medio de Microsoft Intune.
 - Se debe *insertar en el dispositivo* la configuración para habilitar el complemento Enterprise SSO. Apple requiere esta restricción de seguridad.
 
-Requisitos de iOS:
-- En el dispositivo debe estar instalado iOS 13.0 o una versión posterior.
-- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. Durante la versión preliminar pública, se trata de la [aplicación Microsoft Authenticator](/intune/user-help/user-help-auth-app-overview.md).
+### <a name="ios-requirements"></a>Requisitos de iOS:
+- iOS 13.0 o posterior debe estar instalado en el dispositivo.
+- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones se refieren a la [aplicación Microsoft Authenticator](/azure/active-directory/user-help/user-help-auth-app-overview).
 
 
-Requisitos de macOS:
-- En el dispositivo debe estar instalado macOS 10.15 o una versión posterior. 
-- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. Durante la versión preliminar pública, se trata de la [aplicación Portal de empresa de Intune](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
+### <a name="macos-requirements"></a>Requisitos de macOS:
+- macOS 10.15 o una versión posterior debe estar instalado en el dispositivo. 
+- Debe instalarse una aplicación de Microsoft que proporcione el complemento Microsoft Enterprise SSO para dispositivos de Apple en el dispositivo. En el caso de la versión preliminar pública, estas aplicaciones incluyen la [aplicación Portal de empresa de Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
 ## <a name="enable-the-sso-plug-in"></a>Habilitación del complemento de SSO
 

@@ -4,10 +4,10 @@ description: Mejore su posición de seguridad y el cumplimiento de las medidas d
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.openlocfilehash: 574d1fe7415bf655c94d4076659e90c203cff1ba
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784550"
 ---
 # <a name="security-posture--cis-benchmark"></a>Posición de seguridad: punto de referencia de CIS 

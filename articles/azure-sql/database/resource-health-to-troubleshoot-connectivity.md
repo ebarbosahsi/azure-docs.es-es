@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
-ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472001"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107795"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,5 +76,5 @@ Las reconfiguraciones se consideran condiciones transitorias y se espera que se 
 - Obtener más información sobre la [lógica de reintento para errores transitorios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Cómo solucionar problemas, diagnosticar y evitar errores de conexión de SQL y errores transitorios de SQL Database](troubleshoot-common-connectivity-issues.md).
 - Más información sobre la [configuración de alertas de Resource Health](../../service-health/resource-health-alert-arm-template-guide.md).
-- Obtener una introducción a [Resource Health](../../application-gateway/resource-health-overview.md).
+- Obtener una introducción a [Resource Health](../../service-health/resource-health-overview.md).
 - Revisar [P+F sobre Resource Health](../../service-health/resource-health-faq.md).

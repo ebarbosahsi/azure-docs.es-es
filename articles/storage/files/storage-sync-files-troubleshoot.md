@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453281"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491306"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -113,7 +113,7 @@ Este error se produce si el recurso compartido de Azure Files ya está en uso po
 Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo utilizado actualmente por un punto de conexión de nube, complete los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de archivos de Azure:
 
 > [!Warning]  
-> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
+> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. Si después usa este recurso compartido de archivos para la sincronización en otro grupo de sincronización, es casi seguro que se producirá la pérdida de datos de los archivos del grupo de sincronización anterior.
 
 1. Vaya al recurso compartido de archivos de Azure en Azure Portal.  
 2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos**.
@@ -329,7 +329,7 @@ Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.p
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
 **Registro de ItemResults: errores de sincronización por elemento**  
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | No se puede acceder al archivo en niveles en el servidor. Este problema se produce si no se ha recuperado el archivo en niveles antes de eliminar un punto de conexión de servidor. | Para resolver este problema, consulte [No se puede acceder a los archivos en niveles en el servidor después de eliminar un punto de conexión de servidor](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | El cambio de archivo o de directorio no se puede sincronizar todavía porque una carpeta dependiente aún no se ha sincronizado. Este elemento se sincronizará después de sincronizar los cambios dependientes. | No es necesaria ninguna acción. Si el error persiste durante varios días, use el script de PowerShell FileSyncErrorsReport.ps1 para determinar por qué la carpeta dependiente todavía no se ha sincronizado. |
@@ -1128,7 +1128,7 @@ Si no se pueden apilar archivos en Azure Files:
 
 ### <a name="tiering-errors-and-remediation"></a>Establecimiento en capas de errores y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | El archivo se pudo organizar en niveles debido a que la carga inicial está en curso. | No es necesaria ninguna acción. El archivo se almacenarán en capas una vez que se complete la carga inicial. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | No se pudo establecer en capas el archivo porque está en uso. | No es necesaria ninguna acción. El archivo se establecerá en capas cuando ya no esté en uso. |
@@ -1171,7 +1171,7 @@ Si no se pueden recuperar archivos:
 
 ### <a name="recall-errors-and-remediation"></a>Errores de coincidencia y corrección
 
-| HRESULT | HRESULT (decimal) | Cadena de error | Incidencia | Corrección |
+| HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | El archivo no se recuperó debido a un tiempo de expiración de E/S. Este problema puede aparecer por varias razones: las restricciones de recursos del servidor, una conectividad de red deficiente o un problema de Azure Storage (por ejemplo, la limitación). | No es necesaria ninguna acción. Si el error persiste durante varias horas, abra una incidencia de soporte técnico. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | El archivo no se recuperó debido a una incidencia en la red.  | Si el error no desaparece, compruebe la conectividad de red con el recurso compartido de archivos de Azure. |

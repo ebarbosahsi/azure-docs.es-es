@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9356da9516ea17243be8e0e5519ec4b19e06db8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5beb3c750f99b8fe314fabbc2ff6109bfa6bc67c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200871"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166605"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de un dispositivo IoT Edge con un TPM en Linux
 
@@ -34,7 +34,7 @@ Las tareas son las siguientes:
 1. Instale el entorno de ejecución de IoT Edge y conecte el dispositivo a IoT Hub.
 
 > [!TIP]
-> En este artículo se describe cómo probar el aprovisionamiento de DPS con un simulador de TPM, pero en gran medida se aplica tanto al hardware físico de TPM como al [TPM Infineon OPTIGA&trade;](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified for IoT.
+> En este artículo se describe cómo probar el aprovisionamiento de DPS con un simulador de TPM, pero en gran medida se aplica tanto al hardware físico de TPM como al [TPM Infineon OPTIGA&trade;](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e), un dispositivo Azure Certified for IoT.
 >
 > Si usa un dispositivo físico, puede ir directamente a la sección [Recuperación de la información de aprovisionamiento de un dispositivo físico](#retrieve-provisioning-information-from-a-physical-device) de este artículo.
 

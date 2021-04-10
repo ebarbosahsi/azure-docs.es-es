@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: cfbbc1f11a24379561df26e2fb8d9da20b249317
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 46a22b78ade3d137f25b14e5cbdaff3264208228
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942748"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868399"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 
@@ -23,11 +23,11 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 |Application |Tipos de clúster | Descripción |
 |---|---|---|
 |[Plataforma de inteligencia AtScale](https://aws.amazon.com/marketplace/pp/AtScale-AtScale-Intelligence-Platform/B07BWWHH18) |Hadoop |AtScale convierte el clúster de HDInsight en un servidor OLAP de escalabilidad horizontal, lo que permite consultar miles de millones de filas de datos de forma interactiva mediante las herramientas de inteligencia empresarial que ya conoce, posee y prefiere: desde Microsoft Excel, Power BI o Tableau Software hasta QlikView. |
-|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP es la primera plataforma de integración unificada para macrodatos que acelera la rentabilidad de Hadoop y permite a TI proporcionar datos de autoservicio. De código abierto y extensible, CDAP elimina las barreras para la innovación. Requisitos: 4 nodos de región, mín. D3 v2. |
+|[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP es la primera plataforma de integración unificada para macrodatos que acelera la rentabilidad de Hadoop y permite a TI proporcionar datos de autoservicio. De código abierto y extensible, CDAP elimina las barreras para la innovación. Requisitos: nodos de 4 regiones, mínimo D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |La plataforma escalable de autoservicio de Datameer para preparar, explorar y administrar los datos para el análisis acelera la conversión de datos complejos de varios orígenes en información empresarial valiosa, con una entrega más rápida e inteligente de información detallada a escala empresarial. |
 |[Dataiku DSS en HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS en una plataforma de ciencia de datos empresariales que permite a científicos y analistas de datos colaborar para diseñar y ejecutar nuevos servicios y productos de datos de forma más eficaz, con el fin de convertir los datos sin procesar en predicciones de gran impacto. |
 |[WANdisco Fusion HDI App](https://community.wandisco.com/s/article/Use-WANdisco-Fusion-for-parallel-operation-of-ADLS-Gen1-and-Gen2) |Hadoop, Spark, HBase, Storm, Kafka |El mantenimiento de la coherencia de los datos en un entorno distribuido es un desafío de las operaciones de datos masivos. WANdisco Fusion, una plataforma de software de nivel empresarial, soluciona este problema mediante la habilitación de la coherencia de datos no estructurados en cualquier entorno. |
-|[H2O SparklingWater para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water es compatible con los siguientes algoritmos distribuidos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, redes neurales profundas, aprendizaje profundo, K-means, PCA, Generalized Low Rank Models, Detección de anomalías y Autoencoders. |
+|[H2O SparklingWater para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water admite los siguientes algoritmos distribuidos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, Autoencoders. |
 |[Striim para la integración de datos en tiempo real en HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim es una plataforma de inteligencia e integración de datos de streaming de un extremo a otro que permite la ingesta continua, el procesamiento y el análisis de flujos de datos dispares. |
 |[Jumbune Enterprise: aceleración de análisis de macrodatos](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |A nivel general, Jumbune ayuda a las empresas mediante, 1. la aceleración del rendimiento de cargas de trabajo Hive, Java, Scala basadas en Tez, MapReduce y el motor de Spark; 2. la supervisión proactiva de clústeres de Hadoop; y 3. el establecimiento de administración de calidad de los datos en sistemas de archivos distribuidos. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Con tecnología Apache Kylin, Kyligence Enterprise permite la inteligencia empresarial sobre macrodatos. Como un motor OLAP empresarial en Hadoop, Kyligence Enterprise permite a los analistas empresariales diseñar una arquitectura de inteligencia empresarial en Hadoop con metodologías de inteligencia empresarial y almacenamiento de datos estándar del sector. |
@@ -53,10 +53,10 @@ En el siguiente procedimiento, se muestra cómo instalar aplicaciones de HDInsig
 3. Seleccione un clúster de HDInsight de la lista.  Si no tiene ninguno, debe crearlo primero.  Consulte [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. En la categoría **Configuración**, seleccione **Aplicaciones**. Puede ver una lista de las aplicaciones instaladas en la ventana principal. 
    
-    ![Menú del portal de aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="Menú del portal de aplicaciones de HDInsight":::
 5. Seleccione **+Agregar** en el menú. Verá una lista de las aplicaciones disponibles.  Si **+Agregar** está atenuado, significa que no hay aplicaciones para esta versión del clúster de HDInsight.
    
-    ![Aplicaciones disponibles para aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="Aplicaciones disponibles para aplicaciones de HDInsight":::
 6. Seleccione una de las aplicaciones disponibles y siga las instrucciones para aceptar los términos legales.
 
 En las notificaciones del portal puede ver el estado de la instalación (seleccione el icono de campana de la parte superior del portal). Una vez instalada la aplicación, aparece en la lista Aplicaciones instaladas.
@@ -65,7 +65,7 @@ En las notificaciones del portal puede ver el estado de la instalación (selecci
 
 Tiene la opción de instalar aplicaciones de HDInsight al crear un clúster. Durante el proceso, se instalan aplicaciones de HDInsight una vez que se haya creado el clúster y se encuentre en ejecución. Para instalar aplicaciones durante la creación del clúster mediante Azure Portal, en la pestaña **Configuración y precios**, seleccione **+ Agregar aplicación**.
 
-![Aplicaciones de configuración de clústeres de Azure Portal](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Aplicaciones de configuración de clústeres de Azure Portal":::
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Lista de las aplicaciones de HDInsight instaladas y sus propiedades
 El portal muestra una lista de las aplicaciones de HDInsight instaladas para un clúster y las propiedades de cada una.
@@ -77,13 +77,13 @@ El portal muestra una lista de las aplicaciones de HDInsight instaladas para un 
 3. Seleccione un clúster de HDInsight de la lista.
 4. En la categoría **Configuración**, seleccione **Aplicaciones**. Puede ver una lista de las aplicaciones instaladas en la ventana principal. 
    
-    ![Aplicaciones instaladas en aplicaciones de HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="Aplicaciones instaladas en aplicaciones de HDInsight":::
 5. Seleccione una de las aplicaciones instaladas para mostrar la propiedad. En la propiedad se indican los siguientes elementos:
 
     |Propiedad | Descripción |
     |---|---|
     |Nombre de la aplicación |Nombre de la aplicación. |
-    |Status |Estado de la aplicación. |
+    |Estado |Estado de la aplicación. |
     |Página web |la dirección URL de la aplicación web que ha implementado en el nodo perimetral. La credencial coincide con las credenciales de usuario HTTP que ha configurado para el clúster. |
     |Punto de conexión SSH |puede usar SSH para conectarse al nodo perimetral. Las credenciales de SSH coinciden con las credenciales de usuario SSH que ha configurado para el clúster. Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
     |Descripción | Descripción de la aplicación. |

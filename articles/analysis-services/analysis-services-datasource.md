@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: b51ceb97d607f3082e1e7cc4c94083c9215b2db8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981500"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731486"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -22,11 +22,11 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 
 |Origen de datos  |En memoria  |DirectQuery  |Notas |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Sí      |    Sí      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
+|Azure SQL Database      |   Sí      |    Sí      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Sí       |    No      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Sí       |    No      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Sí        |  No        |<sup>[1](#tab1400a)</sup> |
+|Azure Cosmos DB     |  Sí        |  No        |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen1      |   Sí       |    No      |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Sí       |    No      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
 |Azure HDInsight HDFS    |     Sí     |   No       |<sup>[1](#tab1400a)</sup> |

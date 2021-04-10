@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 76862800e88b41a70449cff4a4ffad072c755272
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98797797"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108047"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 
@@ -36,7 +36,7 @@ Una vez que empiece a usar Video Indexer, todos los datos almacenados y el conte
 
 ### <a name="supported-file-formats-for-video-indexer"></a>Formatos de archivo admitidos para Video Indexer
 
-Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para una lista de los formatos de archivo que puede usar con Video Indexer.
+Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/encode-media-encoder-standard-formats-reference.md) para una lista de los formatos de archivo que puede usar con Video Indexer.
 
 ### <a name="upload-a-video"></a>Carga de un vídeo
 

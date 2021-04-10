@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e6a58a1f404228564e4e1ac6d77051a747debaa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e22014380d568b12e1e3bec751a75180d0760ab7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438170"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568439"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Implementación de un módulo IoT habilitado para GPU desde Azure Marketplace en un dispositivo Azure Stack Edge Pro con GPU
 
@@ -113,4 +113,4 @@ Antes de comenzar, asegúrese de que tiene:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo [configurar la GPU para usar un módulo](azure-stack-edge-j-series-configure-gpu-modules.md).
+- Obtenga más información sobre cómo [configurar la GPU para usar un módulo](./azure-stack-edge-gpu-configure-gpu-modules.md).

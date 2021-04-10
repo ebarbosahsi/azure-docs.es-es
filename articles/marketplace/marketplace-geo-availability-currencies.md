@@ -6,19 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
-ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/08/2021
+ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879771"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103493040"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas del marketplace comercial
 
 ## <a name="supported-geographic-locations"></a>Ubicaciones geográficas admitidas
 
 Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, tal como se define mediante la dirección de facturación del cliente, y las transacciones se pueden completar en 17 divisas. En la tabla siguiente se enumeran las ubicaciones geográficas admitidas, su [código alfa ISO 3166 de dos dígitos](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) y la moneda asignada.
+
+Un CSP puede adquirir una oferta en el Centro de partners con la moneda del cliente final para que pueda facturarse en esa misma moneda. Para obtener información adicional al respecto, consulte [estas preguntas frecuentes](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Nombre del país o región               |   ISO-2   |   Moneda</br>(Todo tipo de ofertas)  |    Moneda</br>(Solo ofertas de servicio de consultoría)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
