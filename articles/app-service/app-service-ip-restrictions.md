@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502695"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731311"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configuración de las restricciones de acceso de Azure App Service
 
@@ -97,26 +97,25 @@ Con puntos de conexión de servicio, la aplicación se puede configurar con puer
 > [!NOTE]
 > - Actualmente no se admiten puntos de conexión de servicio para las aplicaciones web que usan IP virtual (VIP) con Capa de sockets seguros (SSL) de IP.
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Establecimiento de una regla basada en una etiqueta de servicio (versión preliminar)
+#### <a name="set-a-service-tag-based-rule"></a>Establecimiento de una regla basada en una etiqueta de servicio
 
-* En el paso 4, en la lista desplegable **Tipo**, seleccione **Etiqueta de servicio (versión preliminar)** .
+* En el paso 4, en la lista desplegable **Tipo**, seleccione **Etiqueta de servicio**.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Captura de pantalla del panel &quot;Agregar restricción&quot; con el tipo Etiqueta de servicio seleccionado.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Captura de pantalla del panel &quot;Agregar restricción&quot; con el tipo Etiqueta de servicio seleccionado.":::
 
 Cada etiqueta de servicio representa una lista de intervalos IP de servicios de Azure. Puede encontrar una lista de estos servicios y vínculos a los intervalos específicos en la [documentación de la etiqueta de servicio][servicetags].
 
-En la fase de versión preliminar, se admite la siguiente lista de etiquetas de servicio en las reglas de restricción de acceso:
+Todas las etiquetas de servicio disponibles se admiten en las reglas de restricción de acceso. Para simplificar, solo hay disponible una lista de las etiquetas más comunes a través de Azure Portal. Use plantillas de Azure Resource Manager o scripting para configurar reglas más avanzadas, como las reglas de ámbito regional. Estas son las etiquetas disponibles en Azure Portal:
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Edición de una regla
 
@@ -137,6 +136,31 @@ Para eliminar una regla, en la página **Restricciones de acceso**, seleccione l
 
 ## <a name="access-restriction-advanced-scenarios"></a>Escenarios avanzados de restricción de acceso
 En las secciones siguientes se describen algunos escenarios avanzados que usan restricciones de acceso.
+
+### <a name="filter-by-http-header"></a>Filtrar por encabezado http
+
+Como parte de cualquier regla, puede agregar filtros de encabezados HTTP adicionales. Se admiten los siguientes nombres de encabezados http:
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Para cada nombre de encabezado, puede agregar hasta 8 valores separados por comas. Los filtros de encabezados http se evalúan después de la propia regla y deben cumplirse las dos condiciones para que se aplique la regla.
+
+### <a name="multi-source-rules"></a>Reglas de varios orígenes
+
+Las reglas de varios orígenes permiten combinar hasta 8 intervalos IP u 8 etiquetas de servicio en una sola regla. Puede utilizarlo si tiene más de 512 intervalos IP o si desea crear reglas lógicas en las que varios intervalos IP se combinen con un solo filtro de encabezado http.
+
+Las reglas de varios orígenes se definen de la misma manera que se definen las reglas de un solo origen, pero con cada intervalo separado por una coma.
+
+Ejemplo de PowerShell:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Bloqueo de una dirección IP única
 
 Al agregar la primera regla de restricción de acceso, el servicio agrega una regla *Denegar todo* explícita con una prioridad de 2147483647. En la práctica, la regla explícita *Denegar todo* es la última regla que se ejecuta, y bloquea el acceso a cualquier dirección IP que no esté expresamente permitida mediante una regla *Permitir*.
@@ -151,17 +175,20 @@ Aparte de controlar el acceso a la aplicación, también puede restringir el acc
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Captura de pantalla de la página &quot;Restricciones de acceso&quot; de Azure Portal que muestra que no hay restricciones de acceso establecidas para la aplicación o el sitio de SCM.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Restricción del acceso a una instancia específica de Azure Front Door (versión preliminar)
-El tráfico de Azure Front Door a la aplicación se origina en un conjunto conocido de intervalos IP definidos en la etiqueta de servicio AzureFrontDoor.Backend. Con una regla de restricción de etiquetas de servicio, puede restringir el tráfico al que se origina en Azure Front Door. Para asegurarse de que el tráfico se origina únicamente en la instancia específica, tiene que filtrar aún más las solicitudes entrantes en función del encabezado HTTP único que envía Azure Front-Door. Durante la versión preliminar, puede hacerlo con PowerShell o REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Restricción del acceso a una instancia específica de Azure Front Door
+El tráfico de Azure Front Door a la aplicación se origina en un conjunto conocido de intervalos IP definidos en la etiqueta de servicio AzureFrontDoor.Backend. Con una regla de restricción de etiquetas de servicio, puede restringir el tráfico al que se origina en Azure Front Door. Para asegurarse de que el tráfico se origina únicamente en la instancia específica, tiene que filtrar aún más las solicitudes entrantes en función del encabezado HTTP único que envía Azure Front-Door.
 
-* Ejemplo de PowerShell (el identificador de Front Door puede encontrarse en Azure Portal):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Captura de pantalla de la página &quot;Restricciones de acceso&quot; de Azure Portal, en la que se muestra cómo agregar una restricción de Azure Front Door.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Ejemplo de PowerShell:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Administración de reglas de restricción de acceso mediante programación
 
 Puede agregar restricciones de acceso mediante programación si realiza alguna de las siguientes acciones: 
@@ -181,7 +208,7 @@ Puede agregar restricciones de acceso mediante programación si realiza alguna d
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Para trabajar con etiquetas de servicio, encabezados HTTP o reglas de varios orígenes se requiere al menos la versión 5.1.0. Para comprobar la versión del módulo instalado, escriba: **Get-InstalledModule -Name Az**
+   > Para trabajar con etiquetas de servicio, encabezados HTTP o reglas de varios orígenes se requiere al menos la versión 5.7.0. Para comprobar la versión del módulo instalado, escriba: **Get-InstalledModule -Name Az**
 
 También puede establecer los valores manualmente mediante una de las siguientes acciones:
 

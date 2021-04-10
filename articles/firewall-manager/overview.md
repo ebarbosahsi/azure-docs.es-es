@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/16/2021
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573462"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732931"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -66,7 +66,7 @@ Enrute fácilmente el tráfico al centro de conectividad seguro para filtrar y r
 
 Esta característica solo está disponible en implementaciones de centros virtuales protegidos.
 
-Puede usar proveedores de terceros para el filtrado de tráfico de rama a Internet (B2I), en paralelo con Azure Firewall para rama a red virtual (B2V), red virtual a red virtual (V2V) y red virtual a Internet (V2I). También puede usar proveedores de terceros para el filtrado del tráfico V2I, siempre que Azure Firewall no sea necesario para B2V o V2V. 
+Puede usar proveedores de terceros para el filtrado de tráfico de rama a Internet (B2I), en paralelo con Azure Firewall para rama a red virtual (B2V), red virtual a red virtual (V2V) y red virtual a Internet (V2I). 
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 

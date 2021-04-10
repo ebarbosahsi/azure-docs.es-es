@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124115"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654380"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca de FastPath de ExpressRoute
 
@@ -42,7 +42,7 @@ Para configurar FastPath, la puerta de enlace de red virtual debe ser una de las
 
 Aunque FastPath admite la mayoría de las configuraciones, no es compatible con las siguientes características:
 
-* UDR en la subred de puerta de enlace: si aplica un UDR a la subred de puerta de enlace de la red virtual, el tráfico de la red local se seguirá enviando a la puerta de enlace de red virtual.
+* UDR en la subred de puerta de enlace: este UDR no tiene ningún impacto en el tráfico de red que FastPath envía directamente desde la red local a las máquinas virtuales de la red virtual de Azure. 
 
 * Emparejamiento de redes virtuales: si tiene otras redes virtuales emparejadas con la que está conectada a ExpressRoute, el tráfico de la red local a las otras redes virtuales (es decir, las llamadas redes virtuales de "radio") se seguirá enviado a la puerta de enlace de red virtual. La solución es conectar todas las redes virtuales directamente al circuito de ExpressRoute.
 

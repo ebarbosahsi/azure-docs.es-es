@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: texto a voz
-ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 653f9fcd9d3d8d6347d961603acc6eb481ee7f41
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599540"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869181"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -40,6 +40,11 @@ En esta introducción, encontrará información sobre las ventajas y las funcion
 * Voces neuronales: las redes neuronales profundas se usan para superar los límites de la síntesis de voz tradicional con respecto al acento y la entonación del lenguaje hablado. La predicción de la prosodia y la síntesis de voz se realizan simultáneamente, lo que resulta en una voz más fluida y natural. Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes de voz sean más naturales y atractivas, para convertir textos digitales (por ejemplo, los libros electrónicos) en audiolibros y para mejorar los sistemas de navegación de los automóviles. Gracias a su prosodia natural similar a la humana y a la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga al escucharlas que suele aparecer cuando los usuarios interactúan con sistemas de inteligencia artificial. Hay una lista completa de voces neuronales en [Idiomas admitidos](language-support.md#text-to-speech).
 
 * Ajuste de estilos de habla con SSML: Lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que se usa para personalizar las salidas de voz a texto. Con SSML, puede ajustar el tono, agregar pausas, mejorar la pronunciación, acelerar o ralentizar la velocidad del habla, subir o bajar el volumen y atribuir varias voces a un solo documento. Consulte el [procedimiento](speech-synthesis-markup.md) para ajustar estilos de habla.
+
+* Visemas: [Visemas](how-to-speech-synthesis-viseme.md) son los principales planteamientos de la voz observada, incluida la posición de los labios, mandíbula y lengua al producir un fonema determinado. Las visemas tienen una correlación fuerte con las voces y fonemas. Mediante el uso de eventos de visema en Speech SDK, puede generar datos de animaciones faciales, que se pueden usar para animar caras en la comunicación de lectura de LIP, educación, entretenimiento y servicio de atención al cliente.
+
+> [!NOTE]
+> Visema solo funciona para `en-US-AriaNeural` la voz en la región oeste de EE. UU. (`westus`) y estará disponible para todas `en-US` las voces a finales de abril de 2021.
 
 ## <a name="get-started"></a>Introducción
 

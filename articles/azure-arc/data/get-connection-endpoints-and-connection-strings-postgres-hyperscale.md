@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331019"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670348"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtención de puntos de conexión y cadenas de conexión de formularios para el grupo de servidores de hiperescala de PostgreSQL habilitado para Arc
 
@@ -43,22 +43,23 @@ Ejecute el siguiente comando:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Devuelve un resultado como el siguiente:
+Por ejemplo:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+Muestra la lista de puntos de conexión: el punto de conexión de PostgreSQL que se usa para conectar la aplicación y usar la base de datos, los puntos de conexión Kibana y Grafana para análisis de registros y supervisión. Por ejemplo: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Use estos puntos de conexión para:
 - Formar las cadenas de conexión y conectarse con las aplicaciones o herramientas de cliente
@@ -66,7 +67,7 @@ Use estos puntos de conexión para:
 
 Por ejemplo, puede usar el punto final denominado _Instancia de PostgreSQL_ para conectarse con psql al grupo de servidores. Por ejemplo:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -86,11 +87,11 @@ postgres=#
 ## <a name="from-cli-with-kubectl"></a>Desde la CLI con kubectl
 - Si el grupo de servidores es de la versión 12 de Postgres (valor predeterminado), el siguiente comando:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - Si el grupo de servidores es de la versión 11 de Postgres, el siguiente comando:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Estos comandos producirán una salida como la siguiente. Puede usar esa información para formar las cadenas de conexión:
@@ -151,14 +152,8 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
 ```
 
-### <a name="web-app"></a>Aplicación web
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-postgresql-hyperscale-server-group.md) del grupo de servidores
-- Obtenga información sobre [cómo escalar o reducir verticalmente (aumentar o reducir la memoria o los núcleos virtuales)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) el grupo de servidores
+- Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-postgresql-hyperscale-server-group.md) del grupo de servidores.
+- Obtenga información sobre [cómo escalar o reducir verticalmente (aumentar o reducir la memoria o los núcleos virtuales)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) el grupo de servidores.
 
 

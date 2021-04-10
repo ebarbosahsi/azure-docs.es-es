@@ -3,12 +3,12 @@ title: 'Tutorial: Emparejamiento de entornos locales con una nube privada'
 description: Aprenda a crear el emparejamiento de Global Reach de ExpressRoute y una nube privada en Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103494189"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564507"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparejamiento de entornos locales con una nube privada
 
@@ -37,7 +37,7 @@ Antes de habilitar la conectividad entre dos circuitos ExpressRoute mediante Glo
 >[!IMPORTANT]
 >En el contexto de estos requisitos previos, su circuito ExpressRoute local es _circuit 1_, y su circuito ExpressRoute de nube privada está en otra suscripción y se denomina _circuit 2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito local
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>Creación de una clave de autorización de ExpressRoute en el circuito de ExpressRoute de la nube privada
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
@@ -71,7 +71,7 @@ Ahora que ha creado una clave de autorización para el circuito ExpressRoute de 
 Hemos ampliado los [comandos de la CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) para incluir detalles y ejemplos específicos que le ayudarán a configurar el emparejamiento de Global Reach de ExpressRoute entre entornos locales y una nube privada de Azure VMware Solution.
 
 >[!TIP]
->Para una salida más breve del comando de la CLI de Azure, estas instrucciones pueden usar un argumento [`–query`](https://docs.microsoft.com/cli/azure/query-azure-cli) para ejecutar una consulta JMESPath y que se muestren solo los resultados necesarios.
+>Para una salida más breve del comando de la CLI de Azure, estas instrucciones pueden usar un argumento [`–query`](/cli/azure/query-azure-cli) para ejecutar una consulta JMESPath y que se muestren solo los resultados necesarios.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante la misma suscripción que el circuito ExpressRoute local. 
 

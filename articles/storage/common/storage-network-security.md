@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600486"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -244,24 +244,31 @@ Puede administrar las reglas de red virtual para las cuentas de almacenamiento a
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concesión de acceso desde un intervalo IP de Internet
 
-Puede configurar las cuentas de almacenamiento para permitir el acceso desde intervalos específicos de direcciones IP de Internet público. Esta configuración concede acceso a los servicios específicos basados en Internet y redes locales, y bloquea el tráfico de Internet general.
+Puede usar las reglas de red IP para permitir el acceso desde intervalos específicos de direcciones IP de la red pública de Internet mediante la creación de reglas de red IP. Cada cuenta de almacenamiento admite hasta 200 reglas. Estas reglas conceden acceso a servicios específicos basados en Internet y redes locales, y bloquean el tráfico de Internet general.
 
-Proporcione los intervalos de dirección de Internet mediante la [notación CIDR](https://tools.ietf.org/html/rfc4632) en el formulario *16.17.18.0/24* o como direcciones IP individuales como *16.17.18.19*.
+Las restricciones siguientes se aplican a los intervalos de direcciones IP.
 
-   > [!NOTE]
-   > Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
+- Las reglas de red IP solo se permiten para direcciones IP de la **red pública de Internet**. 
 
-Las reglas de red IP solo se permiten para direcciones IP de **Internet público**. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por _10.*_ , _172.16.*_  - _172.31.*_ y _192.168.*_ .
+  No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) en las reglas de IP. Las redes privadas incluyen direcciones que comienzan por _10.*_ , _172.16.*_  - _172.31.*_ y _192.168.*_ .
 
-   > [!NOTE]
-   > Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región.
+- Debe proporcionar los intervalos de dirección de Internet permitidos mediante la [notación CIDR](https://tools.ietf.org/html/rfc4632) en formato *16.17.18.0/24* o como direcciones IP individuales en formato *16.17.18.19*. 
 
-  > [!NOTE]
-  > Los servicios implementados en la misma región que la cuenta de almacenamiento usan direcciones IP privadas de Azure para la comunicación. Por lo tanto, no puede restringir el acceso a servicios específicos de Azure en función de su intervalo de direcciones IP salientes públicas.
+- Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales. 
 
-Solo se admiten direcciones IPV4 para la configuración de reglas de firewall de almacenamiento.
+- Solo se admiten direcciones IPV4 para la configuración de reglas de firewall de almacenamiento.
 
-Cada cuenta de almacenamiento admite hasta 200 reglas de red IP.
+Las reglas de red IP no se pueden usar en los siguientes casos:
+
+- Para restringir el acceso a los clientes de la misma región de Azure que la cuenta de almacenamiento.
+  
+  Las reglas de red IP no tienen ningún efecto en las solicitudes que proceden de la misma región de Azure que la cuenta de almacenamiento. Use [reglas de red virtual](#grant-access-from-a-virtual-network) para permitir solicitudes de la misma región. 
+
+- Para restringir el acceso a los clientes de una [región emparejada](../../best-practices-availability-paired-regions.md) que se encuentran en una red virtual que tiene un punto de conexión de servicio.
+
+- Para restringir el acceso a los servicios de Azure implementados en la misma región que la cuenta de almacenamiento.
+
+  Los servicios implementados en la misma región que la cuenta de almacenamiento usan direcciones IP privadas de Azure para la comunicación. Por lo tanto, no puede restringir el acceso a servicios específicos de Azure en función de su intervalo de direcciones IP salientes públicas.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configuración del acceso desde redes locales
 

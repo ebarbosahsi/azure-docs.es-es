@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 33408c65fdc09972807aaa8afdf123f1c39cfff5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0530baf5c198b5d82527cfb02c66765ec885bd94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700275"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566717"
 ---
 # <a name="azure-security-baseline-for-azure-backup"></a>Línea base de seguridad de Azure para Azure Backup
 
@@ -30,7 +30,7 @@ Para ver cómo Azure Backup se adapta por completo a Azure Security Benchmark, c
 
 **Guía**: Microsoft administra todos los puntos de conexión utilizados por Azure Backup (incluido el agente de Microsoft Azure Recovery Services). El usuario es el responsable de los controles adicionales que desee implementar en sus sistemas locales.
 
-- [Descripción de la compatibilidad de redes y acceso para el agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [Descripción de la compatibilidad de redes y acceso para el agente de MARS](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **Responsabilidad**: Customer
 
@@ -58,9 +58,9 @@ Para ver cómo Azure Backup se adapta por completo a Azure Security Benchmark, c
 
 **Guía**: Si usa el agente de MARS en una máquina virtual de Azure que se protege mediante un grupo de seguridad de red o Azure Firewall, use el registro de actividad de Azure para supervisar la configuración del grupo de seguridad de red o el firewall. Puede crear alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -76,7 +76,7 @@ Para ver cómo Azure Backup se adapta por completo a Azure Security Benchmark, c
 
 Además, ingiera registros a través de Azure Monitor para agregar datos de seguridad generados por Azure Backup. En Azure Monitor, use áreas de trabajo de Log Analytics para realizar consultas y análisis, y use cuentas de almacenamiento para el almacenamiento de archivos a largo plazo. Como alternativa, puede incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/activity-log)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Uso de la configuración de diagnósticos para almacenes de Recovery Services](backup-azure-diagnostic-events.md)
 
@@ -92,7 +92,7 @@ Además, ingiera registros a través de Azure Monitor para agregar datos de segu
 
 Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y usar para elaborar análisis, alertas e informes. Puede usar Azure Portal para configurar los valores de diagnóstico de los almacenes de Recovery Services. Puede enviar uno o varios eventos de diagnóstico a una cuenta de almacenamiento, un centro de eventos o un área de trabajo de Log Analytics.
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/activity-log)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Uso de la configuración de diagnósticos para almacenes de Recovery Services](backup-azure-diagnostic-events.md)
 
@@ -104,7 +104,7 @@ Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y u
 
 **Guía**: En Azure Monitor, establezca el período de retención de registro para las áreas de trabajo de Log Analytics asociadas a los almacenes de Azure Recovery Services según las normativas de cumplimiento de su organización.
 
-- [Cómo establecer parámetros de retención de registros](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Cómo establecer parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidad**: Customer
 
@@ -118,9 +118,9 @@ Habilite la configuración de diagnóstico en el registro de actividad de Azure 
 
 - [Supervisión de cargas de trabajo de Azure Backup](backup-azure-monitoring-built-in-monitor.md)
 
-- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](/azure/azure-monitor/platform/activity-log)
+- [Cómo habilitar la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](/azure/azure-monitor/platform/activity-log)
+- [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -138,7 +138,7 @@ También puede incorporar el área de trabajo de Log Analytics a Azure Sentinel,
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](/azure/azure-monitor/platform/alerts-log)
+- [Creación, visualización y administración de alertas de registro mediante Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Responsabilidad**: Customer
 
@@ -196,7 +196,7 @@ Información adicional disponible en los vínculos indicados.
 
 - [Llamada a las API REST de Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-- [Registro de la aplicación cliente (entidad de servicio) con Azure Active Directory (Azure AD)](/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [Registro de la aplicación cliente (entidad de servicio) con Azure Active Directory (Azure AD)](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
 - [Información de API de Azure Recovery Services](/rest/api/recoveryservices/)
 
@@ -268,7 +268,7 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 **Guía**: Azure Active Directory (Azure AD) proporciona registros para ayudarle a descubrir cuentas obsoletas. Además, use las revisiones de acceso de Azure AD para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se debe revisar de forma periódica para asegurarse de que solo los usuarios adecuados tengan acceso continuado.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Utilización de las revisiones acceso de Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -284,7 +284,7 @@ Tiene acceso a los orígenes de registro de eventos de actividad de inicio de se
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas de registro deseadas en Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -310,7 +310,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Actualmente no disponible; la Caja de seguridad del cliente todavía no se admite en Azure Backup.
 
-- [Lista de servicios admitidos por la Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de servicios admitidos por la Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidad**: Customer
 
@@ -402,7 +402,7 @@ Cuando se realiza una copia de seguridad con el agente de MARS o mediante un alm
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure a fin de crear alertas para cuando se produzcan cambios en los almacenes de Azure Recovery Services y otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -418,7 +418,7 @@ Cuando se realiza una copia de seguridad con el agente de MARS o mediante un alm
 
 Plataforma subyacente examinada y revisada por Microsoft. Revise los controles de seguridad disponibles para Azure Backup para reducir las vulnerabilidades relacionadas con la configuración del servicio.
 
-- [Descripción de los controles de seguridad disponibles para Azure Backup](/azure/backup/backup-security-controls)
+- [Descripción de los controles de seguridad disponibles para Azure Backup]()
 
 **Responsabilidad**: Customer
 
@@ -446,7 +446,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -520,7 +520,7 @@ Información adicional disponible en los vínculos indicados.
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidad**: Customer
 
@@ -544,7 +544,7 @@ Información adicional disponible en los vínculos indicados.
 
 **Instrucciones**: Defina e implemente configuraciones de seguridad estándar para el almacén de Recovery Services con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.RecoveryServices" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de los almacenes de Recovery Services.
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -656,7 +656,7 @@ Realice una copia de seguridad de las claves administradas por el cliente en Azu
 
 **Responsabilidad**: Customer
 
-**Supervisión de Azure Security Center**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) es la iniciativa de directiva predeterminada de Security Center y es la base de [sus recomendaciones](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Security Center habilita automáticamente las definiciones de Azure Policy relacionadas con este control. Puede que las alertas relacionadas con este control requieran un plan de [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para los servicios relacionados.
+**Supervisión de Azure Security Center**: [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) es la iniciativa de directiva predeterminada de Security Center y es la base de sus [recomendaciones](/azure/security-center/security-center-recommendations). Security Center habilita automáticamente las definiciones de Azure Policy relacionadas con este control. Puede que las alertas relacionadas con este control requieran un plan de [Azure Defender](/azure/security-center/azure-defender) para los servicios relacionados.
 
 **Definiciones integradas de Azure Policy: Microsoft.RecoveryServices**:
 
@@ -676,7 +676,7 @@ Realice una copia de seguridad de las claves administradas por el cliente en Azu
 
 **Guía**: Para la copia de seguridad local, el cifrado en reposo se proporciona con la frase de contraseña que proporcione durante la copia de seguridad en Azure. Para máquinas virtuales de Azure, los datos están cifrados en reposo con Storage Service Encryption (SSE). Puede habilitar la eliminación temporal en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
-- [Habilitación de la eliminación temporal en Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilidad**: Customer
 
@@ -772,5 +772,5 @@ Además, marque las suscripciones de forma clara y cree un sistema de nomenclatu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [Información general sobre Azure Security Benchmark V2](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

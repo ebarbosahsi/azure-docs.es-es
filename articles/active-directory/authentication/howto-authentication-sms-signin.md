@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693543"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491624"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configuración y habilitación de los usuarios para la autenticación basada en SMS mediante Azure Active Directory 
 
@@ -34,9 +34,9 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Necesita privilegios de *administrador global* en el inquilino de Azure AD para permitir la autenticación basada en SMS.
 * Cada usuario que esté habilitado en la directiva de métodos de autenticación de mensaje de texto debe tener licencia, aunque no la usen. Cada usuario habilitado debe tener una de las siguientes licencias de Azure AD, EMS o Microsoft 365:
-    * [Azure AD Premium P1 o P2][azuread-licensing]
     * [Microsoft 365 (M365) F1 o F3][m365-firstline-workers-licensing]
     * [Enterprise Mobility + Security (EMS) E3 o E5][ems-licensing] o [Microsoft 365 (M365) E3 o E5][m365-licensing]
+    * [Office 365 F3][o365-f3]
 
 ## <a name="limitations"></a>Limitaciones
 

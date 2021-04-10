@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714483"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871204"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -57,11 +57,15 @@ Además de configurar las opciones de la comprobación de estado, también puede
 
 La comprobación de estado se integra con las características de autenticación y autorización de App Service. No se requiere ninguna configuración adicional si estas características de seguridad están habilitadas. Sin embargo, si usa un sistema de autenticación propio, la ruta de acceso de la comprobación de estado debe permitir el acceso anónimo. Si el sitio tiene habilitado Solo HTTP **S**, la solicitud de comprobación de estado se enviará a través de HTTP **S**.
 
-A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los requisitos de seguridad para las API expuestas. Para proteger el punto de conexión de la comprobación de estado, primero debe usar características como [restricciones de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule) o una red virtual para restringir el acceso a la aplicación. Puede proteger el punto de conexión de la comprobación de estado requiriendo que `User-Agent` de la solicitud entrante coincida con `ReadyForRequest/1.0`. El agente de usuario no se puede suplantar porque la solicitud ya estaría protegida por las características de seguridad anteriores.
+A menudo, los equipos de desarrollo de grandes empresas necesitan cumplir los requisitos de seguridad para las API expuestas. Para proteger el punto de conexión de la comprobación de estado, primero debe usar características como [restricciones de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule) o una red virtual para restringir el acceso a la aplicación. Puede proteger el punto de conexión de la comprobación de estado requiriendo que `User-Agent` de la solicitud entrante coincida con `HealthCheck/1.0`. El agente de usuario no se puede suplantar porque la solicitud ya estaría protegida por las características de seguridad anteriores.
 
 ## <a name="monitoring"></a>Supervisión
 
 Después de proporcionar la ruta de acceso de la comprobación de estado de la aplicación, puede supervisar el estado del sitio mediante Azure Monitor. En la hoja **Comprobación de estado** del portal, haga clic en **Métricas** en la barra de herramientas superior. Se abre una nueva hoja donde puede ver el estado de mantenimiento histórico del sitio y crear una regla de alerta. Para obtener más información sobre la supervisión de sitios, [vea la guía sobre Azure Monitor](web-sites-monitor.md).
+
+## <a name="limitations"></a>Limitaciones
+
+No se debe habilitar la comprobación de estado en los sitios de funciones prémium. Debido al rápido escalado de las funciones prémium, las solicitudes de comprobación de estado pueden provocar fluctuaciones innecesarias en el tráfico HTTP. Las funciones prémium tienen sus propios sondeos de estado internos que se usan para informar sobre las decisiones de escalado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

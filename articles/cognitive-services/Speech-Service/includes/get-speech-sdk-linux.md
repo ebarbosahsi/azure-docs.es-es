@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135483"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612364"
 ---
 :::row:::
     :::column span="3":::
-        El SDK de voz solo admite **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** y **CentOS 7/8** en las siguientes arquitecturas de destino cuando se usa con Linux:
+        El SDK de voz solo admite **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8** y **CentOS 7/8** en las siguientes arquitecturas de destino cuando se usa con Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -30,6 +30,9 @@ ms.locfileid: "93135483"
 
 > [!IMPORTANT]
 > Para C# en Linux ARM64, se requiere .NET Core 3.x (paquete dotnet-sdk-3.x).
+
+> [!NOTE]
+> Para usar el SDK de voz en Alpine Linux, cree un entorno chroot en Debian como se documenta en la wiki de Alpine Linux en los [programas glibc en ejecución](https://wiki.alpinelinux.org/wiki/Running_glibc_programs) y después siga las instrucciones de Debian aquí.
 
 ### <a name="system-requirements"></a>Requisitos del sistema
 

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4cbb7b96610a56f3b6049038bb5c9c6bc0870b57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944620"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871370"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Uso de Pig con Apache Hadoop en HDInsight
 
@@ -27,11 +27,11 @@ Pig permite definir los procesos como una serie de transformaciones por la que f
 
 El lenguaje de Pig Latin le permite describir el flujo de datos desde entrada sin formato, a través de una o varias transformaciones, para producir el resultado deseado. Los programas de Pig Latin siguen este patrón general:
 
-* **Carga**: Lectura de los datos que se van a manipular desde el sistema de archivos.
+* **Carga**: lectura de los datos que se van a manipular desde el sistema de archivos.
 
-* **Transformación**: Manipulación de los datos.
+* **Transformación**: manipulación de los datos.
 
-* **Volcado o almacén**: Generación de los datos en la pantalla o almacenamiento para su posterior procesamiento.
+* **Volcado o almacén**: generación de datos en la pantalla o almacenamiento para su procesamiento.
 
 ### <a name="user-defined-functions"></a>Funciones definidas por el usuario
 
@@ -70,7 +70,7 @@ DUMP RESULT;
 
 En la siguiente imagen se muestra un resumen de lo que hace cada transformación a los datos.
 
-![Representación gráfica de las transformaciones][image-hdi-pig-data-transformation]
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Representación gráfica de las transformaciones" border="false":::
 
 ## <a name="run-the-pig-latin-job"></a><a id="run"></a>Ejecutar el trabajo de Pig Latin
 
@@ -113,4 +113,3 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/use-pig/hdi-data-transformation.gif
