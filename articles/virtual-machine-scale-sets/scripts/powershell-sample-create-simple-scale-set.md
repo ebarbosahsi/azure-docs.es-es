@@ -5,16 +5,15 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 021719751d1f1cc93d1ad841429c2e025a902c8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 05aa5e2ae70df7b517ad1d8cc592141bed66b7ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89078901"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935744"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales básico con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016. Después de ejecutar el script, puede acceder a las instancias de máquina virtual mediante RDP.

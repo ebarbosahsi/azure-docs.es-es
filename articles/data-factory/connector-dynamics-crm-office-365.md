@@ -7,12 +7,12 @@ ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597394"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565986"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service/Microsoft Dataverse) o Dynamics CRM mediante Azure Data Factory
 
@@ -370,7 +370,7 @@ La combinación óptima de **writeBatchSize** y **parallelCopies** depende del e
 
 Para recuperar datos de las vistas de Dynamics, debe obtener la consulta guardada de la vista y usar la consulta para obtener los datos.
 
-Hay dos entidades que almacenan distintos tipos de vista: "consulta guardada" almacena la vista del sistema "consulta de usuario" almacena la vista del usuario. Para obtener información de las vistas, consulte la siguiente consulta FetchXML y reemplace "TARGETENTITY" por `savedquery` o `userquery`. Cada tipo de entidad tiene más atributos disponibles que puede agregar a la consulta en función de sus necesidades. Obtenga más información sobre la [entidad savedquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) y la [entidad userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+Hay dos entidades que almacenan distintos tipos de vista: "consulta guardada" almacena la vista del sistema "consulta de usuario" almacena la vista del usuario. Para obtener información de las vistas, consulte la siguiente consulta FetchXML y reemplace "TARGETENTITY" por `savedquery` o `userquery`. Cada tipo de entidad tiene más atributos disponibles que puede agregar a la consulta en función de sus necesidades. Obtenga más información sobre la [entidad savedquery](/dynamics365/customer-engagement/web-api/savedquery) y la [entidad userquery](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >

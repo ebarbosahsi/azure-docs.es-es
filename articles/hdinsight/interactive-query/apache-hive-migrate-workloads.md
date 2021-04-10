@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: b13e8e088eff95071247a53ad1a4a18879f94053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742201"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566077"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -71,7 +71,7 @@ En este paso se usa [`Hive Schema Tool`](https://cwiki.apache.org/confluence/dis
     > [!NOTE]
     > Esta utilidad usa `beeline` del cliente para ejecutar scripts de SQL en `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
     >
-    > La sintaxis de SQL de estos scripts no es necesariamente compatible con otras herramientas de cliente. Por ejemplo, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y el [editor de consultas de Azure Portal](../../azure-sql/database/connect-query-portal.md) requieren la palabra clave `GO` después de cada comando.
+    > La sintaxis de SQL de estos scripts no es necesariamente compatible con otras herramientas de cliente. Por ejemplo, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) y el [editor de consultas de Azure Portal](../../azure-sql/database/connect-query-portal.md) requieren la palabra clave `GO` después de cada comando.
     >
     > Si se produce un error en algún script debido a la capacidad de los recursos o a los tiempos de espera de las transacciones, escale verticalmente SQL Database.
 
@@ -131,7 +131,7 @@ Opcionalmente, HDInsight se integra con Azure Active Directory mediante Enterpri
 
 Consulte el [anuncio de HDInsight 4.0](../hdinsight-version-release.md) para otros cambios.
 
-## <a name="further-reading"></a>Lecturas adicionales
+## <a name="further-reading"></a>Información adicional
 
 * [Anuncio de HDInsight 4.0](../hdinsight-version-release.md)
 * [Análisis a fondo de HDInsight 4.0](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

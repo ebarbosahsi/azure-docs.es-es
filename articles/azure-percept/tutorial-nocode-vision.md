@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608204"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023136"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Creación de una solución de visión sin código en Azure Percept Studio
 
@@ -106,7 +106,7 @@ Antes de entrenar el modelo, agregue etiquetas a las imágenes.
 
 1. En el lado izquierdo de la página **Custom Vision**, haga clic en **Untagged** (Sin etiquetas) en **Tags** (Etiquetas) para ver las imágenes que acaba de recopilar en el paso anterior. Seleccione una o varias de las imágenes sin etiquetar.
 
-1. En la ventana **Image Detail** (Detalles de la imagen), haga clic en la imagen para comenzar el etiquetado. Si ha seleccionado la detección de objetos como tipo de proyecto, también debe dibujar un [rectángulo de selección](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) alrededor de los objetos específicos que desea etiquetar. Ajuste el rectángulo de selección según sea necesario. Escriba la etiqueta de objeto y haga clic en **+** para aplicar la etiqueta. Por ejemplo, para crear una solución de visión que le notificara cuando una estantería de una tienda necesita reabastecerse, agregue la etiqueta "Estantería vacía" a las imágenes de estanterías vacías y agregue la etiqueta "Estantería llena" a las imágenes de estanterías llenas. Repita el procedimiento con todas las imágenes sin etiquetar.
+1. En la ventana **Image Detail** (Detalles de la imagen), haga clic en la imagen para comenzar el etiquetado. Si ha seleccionado la detección de objetos como tipo de proyecto, también debe dibujar un [rectángulo de selección](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) alrededor de los objetos específicos que desea etiquetar. Ajuste el rectángulo de selección según sea necesario. Escriba la etiqueta de objeto y haga clic en **+** para aplicar la etiqueta. Por ejemplo, para crear una solución de visión que le notificara cuando una estantería de una tienda necesita reabastecerse, agregue la etiqueta "Estantería vacía" a las imágenes de estanterías vacías y agregue la etiqueta "Estantería llena" a las imágenes de estanterías llenas. Repita el procedimiento con todas las imágenes sin etiquetar.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Pantalla de etiquetado de imágenes de Custom Vision.":::
 
@@ -116,7 +116,7 @@ Antes de entrenar el modelo, agregue etiquetas a las imágenes.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Selección de imágenes de entrenamiento con el botón Entrenar resaltado.":::
 
-1. Cuando se haya completado el entrenamiento, la pantalla mostrará el rendimiento del modelo. Para más información sobre la evaluación de estos resultados, consulte la [documentación sobre evaluación de modelos](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). Después del entrenamiento, puede que también desee [probar el modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) en imágenes adicionales y volver a entrenar según sea necesario. Cada vez que entrena el modelo, se guardará como una nueva iteración. Consulte la [documentación de Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) para más información sobre cómo mejorar el rendimiento del modelo.
+1. Cuando se haya completado el entrenamiento, la pantalla mostrará el rendimiento del modelo. Para más información sobre la evaluación de estos resultados, consulte la [documentación sobre evaluación de modelos](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). Después del entrenamiento, puede que también desee [probar el modelo](../cognitive-services/custom-vision-service/test-your-model.md) en imágenes adicionales y volver a entrenar según sea necesario. Cada vez que entrena el modelo, se guardará como una nueva iteración. Consulte la [documentación de Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) para más información sobre cómo mejorar el rendimiento del modelo.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Resultados del entrenamiento del modelo.":::
 
@@ -143,7 +143,7 @@ Después de cerrar esta ventana, puede volver atrás y editar el proyecto de vis
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Mejora del modelo mediante la configuración del nuevo entrenamiento
 
-Una vez que haya entrenado el modelo y lo haya implementado en el dispositivo, puede mejorar el rendimiento del modelo si configura los parámetros de repetición del entrenamiento para capturar más datos de entrenamiento. Esta característica se usa para mejorar el rendimiento de un modelo entrenado, ya que ofrece la posibilidad de capturar imágenes en función de un intervalo de probabilidad. Por ejemplo, puede configurar el dispositivo para que solo capture imágenes de entrenamiento cuando la probabilidad sea baja. A continuación se ofrecen algunas [instrucciones adicionales](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sobre cómo agregar más imágenes y equilibrar los datos de entrenamiento.
+Una vez que haya entrenado el modelo y lo haya implementado en el dispositivo, puede mejorar el rendimiento del modelo si configura los parámetros de repetición del entrenamiento para capturar más datos de entrenamiento. Esta característica se usa para mejorar el rendimiento de un modelo entrenado, ya que ofrece la posibilidad de capturar imágenes en función de un intervalo de probabilidad. Por ejemplo, puede configurar el dispositivo para que solo capture imágenes de entrenamiento cuando la probabilidad sea baja. A continuación se ofrecen algunas [instrucciones adicionales](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) sobre cómo agregar más imágenes y equilibrar los datos de entrenamiento.
 
 1. Para configurar la repetición del entrenamiento, vuelva al **Proyecto** y, a continuación, a **Resumen del proyecto**
 1. En la pestaña **Captura de imágenes**, seleccione **Captura de imágenes automática** y **Configurar el nuevo entrenamiento**.

@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 2744d51b6d68ed494050be10a9f0e4d1f59cdc49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a426ee39ba3c0f50b9a6c1fb9c7de1ef8e7291b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204072"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566360"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres (BCDR) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102204072"
 
 Azure SQL Database o Instancia administrada, y SQL Server Integration Services (SSIS) en Azure Data Factory (ADF) se pueden combinar como la solución de todas las plataformas como servicio (PaaS) recomendada para realizar la migración de SQL Server. Puede implementar los proyectos de SSIS en la base de datos de catálogo de SSIS (SSISDB) hospedada por Azure SQL Database o Instancia administrada, y ejecutar los paquetes SSIS en Azure SSIS Integration Runtime (IR) en ADF.
 
-Para la continuidad empresarial y la recuperación ante desastres (BCDR), Azure SQL Database o Instancia administrada se pueden configurar con un [grupo de replicación geográfica o conmutación por error](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), donde SSISDB en una región principal de Azure con acceso de lectura y escritura (rol principal) se replicará de manera continuada en una región secundaria con acceso de solo lectura (rol secundario). Cuando se produce un desastre en la región principal, se desencadena una conmutación por error, donde las SSISDB principal y secundaria intercambiarán los roles.
+Para la continuidad empresarial y la recuperación ante desastres (BCDR), Azure SQL Database o Instancia administrada se pueden configurar con un [grupo de replicación geográfica o conmutación por error](../azure-sql/database/auto-failover-group-overview.md), donde SSISDB en una región principal de Azure con acceso de lectura y escritura (rol principal) se replicará de manera continuada en una región secundaria con acceso de solo lectura (rol secundario). Cuando se produce un desastre en la región principal, se desencadena una conmutación por error, donde las SSISDB principal y secundaria intercambiarán los roles.
 
 Para BCDR, también puede configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con el grupo de conmutación por error de Azure SQL Database o Instancia administrada. Esto le permite tener un par de Azure-SSIS IR en ejecución que, en un momento dado, solo uno puede acceder a la SSISDB principal para capturar y ejecutar paquetes, así como escribir registros de ejecución de paquetes (rol principal), mientras que el otro solo puede hacer lo mismo para los paquetes implementados en otro lugar, por ejemplo en Azure Files (rol secundario). Cuando se produce la conmutación por error de SSISDB, los Azure-SSIS IR principal y secundario también intercambiarán los roles y, si los dos están en ejecución, el tiempo de inactividad será prácticamente nulo.
 
@@ -39,7 +39,7 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
    Al [seleccionar usar SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) en la página **Configuración de la implementación** del panel **Configuración de Integration Runtime**, active también la casilla **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** (Usar el par de Azure-SSIS Integration Runtime en modo de espera dual con conmutación por error de SSISDB). En **Dual standby pair name** (Nombre de par en espera dual), escriba un nombre para identificar el par de Azure-SSIS IR principal y secundario. Al completar la creación de la instancia de Azure-SSIS IR principal, se iniciará y adjuntará a una SSISDB principal que se creará en su nombre con acceso de lectura y escritura. Si lo acaba de volver a configurar, tendrá que reiniciarlo.
 
-1. Con Azure Portal, puede comprobar si se ha creado la SSISDB principal en la página **Información general** del servidor de Azure SQL Database principal. Una vez que se haya creado, puede [crear un grupo de conmutación por error para los servidores de Azure SQL Database principal y secundario, y agregarle la SSISDB](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) en la página **Grupos de conmutación por error**. Después de crear el grupo de conmutación por error, puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** del servidor de Azure SQL Database secundario.
+1. Con Azure Portal, puede comprobar si se ha creado la SSISDB principal en la página **Información general** del servidor de Azure SQL Database principal. Una vez que se haya creado, puede [crear un grupo de conmutación por error para los servidores de Azure SQL Database principal y secundario, y agregarle la SSISDB](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#2---create-the-failover-group) en la página **Grupos de conmutación por error**. Después de crear el grupo de conmutación por error, puede comprobar si la SSISDB principal se ha replicado en una secundaria con acceso de solo lectura en la página **Información general** del servidor de Azure SQL Database secundario.
 
 1. Con la interfaz de usuario de ADF o Azure Portal puede crear otra instancia de Azure-SSIS IR con el servidor de Azure SQL Database secundario para hospedar SSISDB en la región secundaria. Esta será la instancia de Azure-SSIS IR secundaria. Para operaciones completas de BCDR, asegúrese de que todos los recursos de los que depende también se crean en la región secundaria, por ejemplo Azure Storage para almacenar scripts o archivos de configuración personalizados, ADF para la orquestación o programación de ejecuciones de paquetes, etc.
 
@@ -51,13 +51,13 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
 1. Si [usa ADF para la orquestación o programación de ejecuciones de paquetes](./how-to-invoke-ssis-package-ssis-activity.md), asegúrese de que todas las canalizaciones de ADF adecuadas con actividades de Ejecución de paquetes SSIS y los desencadenadores asociados se copian en el ADF secundario con los desencadenadores deshabilitados inicialmente. Cuando se produce la conmutación por error de SSISDB, tendrá que habilitarlos.
 
-1. Puede [probar el grupo de conmutación por error de Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
+1. Puede [probar el grupo de conmutación por error de Azure SQL Database](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#3---test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
 
 ## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Configuración de un par de Azure-SSIS IR en espera dual con un grupo de conmutación por error de Azure SQL Managed Instance
 
 Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincronización con un grupo de conmutación por error de Azure SQL Managed Instance, complete los pasos siguientes.
 
-1. Con Azure Portal, puede [crear un grupo de conmutación por error para las instancias administradas de Azure SQL principal y secundaria](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) en la página **Grupos de conmutación por error** de la instancia administrada de Azure SQL principal.
+1. Con Azure Portal, puede [crear un grupo de conmutación por error para las instancias administradas de Azure SQL principal y secundaria](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal) en la página **Grupos de conmutación por error** de la instancia administrada de Azure SQL principal.
 
 1. Con la interfaz de usuario de ADF o Azure Portal puede crear una instancia de Azure-SSIS IR con la instancia administrada de Azure SQL principal para hospedar SSISDB en la región primaria. Si tiene una instancia de Azure-SSIS IR existente que ya está conectada a la SSIDB que hospeda la instancia administrada de Azure SQL principal y sigue en ejecución, debe detenerla primero para volver a configurarla. Esta será la instancia de Azure-SSIS IR principal.
 
@@ -112,7 +112,7 @@ Para configurar un par de Azure-SSIS IR en espera dual que funcione en sincroni
 
 1. Si [usa ADF para la orquestación o programación de ejecuciones de paquetes](./how-to-invoke-ssis-package-ssis-activity.md), asegúrese de que todas las canalizaciones de ADF adecuadas con actividades de Ejecución de paquetes SSIS y los desencadenadores asociados se copian en el ADF secundario con los desencadenadores deshabilitados inicialmente. Cuando se produce la conmutación por error de SSISDB, tendrá que habilitarlos.
 
-1. Puede [probar el grupo de conmutación por error de Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
+1. Puede [probar el grupo de conmutación por error de Azure SQL Managed Instance](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal#test-failover) y comprobar en la [página de supervisión de Azure-SSIS IR en el portal de ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si las instancias principal y secundaria de Azure-SSIS IR tienen roles intercambiados. 
 
 ## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Asociación de una instancia nueva de Azure-SSIS IR a una SSISDB existente hospedada por Azure SQL Database o Instancia administrada
 

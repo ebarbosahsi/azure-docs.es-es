@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583380"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025618"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análisis de retención de usuarios para aplicaciones web con Application Insights
 
@@ -36,7 +36,7 @@ Si aún no ve los datos en la herramienta Retención del portal de Application I
 
 Los usuarios pueden mantener el puntero sobre las celdas de la herramienta Retención para acceder al botón de análisis y a la información que explica lo que significa cada celda. El botón Análisis conduce al usuario a la herramienta Análisis con una consulta rellenada previamente para generar usuarios desde la celda. 
 
-## <a name="use-business-events-to-track-retention"></a>Uso de eventos empresariales para realizar un seguimiento de la retención
+## <a name="use-business-events-to-track-retention&quot;></a>Uso de eventos empresariales para realizar un seguimiento de la retención
 
 Para obtener el análisis de retención más útil, mida los eventos que representan actividades empresariales importantes. 
 
@@ -45,7 +45,7 @@ Por ejemplo, muchos usuarios podrían abrir una página de la aplicación sin ju
 Se recomienda codificar los eventos personalizados que representan las acciones clave del negocio y usarlos para realizar el análisis de retención. Para obtener el resultado del juego, tiene que escribir una línea de código con el fin enviar un evento personalizado a Application Insights. Si se escribe en el código de la página web o en Node.JS, se vería similar a esto:
 
 ```JavaScript
-    appinsights.trackEvent("won game");
+    appinsights.trackEvent(&quot;won game");
 ```
 
 O en el código del servidor ASP.NET:
@@ -64,5 +64,4 @@ O en el código del servidor ASP.NET:
     - [Embudos](usage-funnels.md)
     - [Flujos de usuario](usage-flows.md)
     - [Libros](../visualize/workbooks-overview.md)
-    - [Adición de contexto de usuario](usage-send-user-context.md)
-
+    - [Adición de contexto de usuario](./usage-overview.md)

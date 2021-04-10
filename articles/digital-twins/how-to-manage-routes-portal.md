@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715724"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779943"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (portal)
 
@@ -151,6 +151,9 @@ Se pueden restringir los tipos de eventos que se envían mediante la definición
 Para agregar un filtro de evento mientras se crea una ruta de evento, use la sección _Add an event route filter_ (Agregar un filtro de ruta de evento) de la página *Create an event route* (Crear una ruta de evento). 
 
 Puede seleccionar entre algunas opciones básicas de filtros comunes o usar las opciones avanzadas de filtro para escribir sus propios filtros personalizados.
+
+>[!NOTE]
+> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir en el caso de carga útil (que puede no coincidir necesariamente con el caso del modelo).
 
 #### <a name="use-the-basic-filters"></a>Uso de los filtros básicos
 

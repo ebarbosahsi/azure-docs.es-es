@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503834"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956220"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Conexión de grupos de Apache Spark (con tecnología de Azure Synapse Analytics) para la limpieza y transformación de datos (versión preliminar)
 
@@ -127,6 +127,21 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## <a name="launch-synapse-spark-pool-for-data-preparation-tasks"></a>Inicio del grupo de Spark de Synapse para tareas de preparación de datos
 
+Para comenzar la preparación de datos con el grupo de Apache Spark, especifique el nombre del grupo de Apache Spark:
+
+> [!IMPORTANT]
+> Para seguir usando el grupo de Apache Spark, debe indicar qué recurso de proceso se va a utilizar en las tareas de limpieza y transformación de datos, con `%synapse` para líneas de código únicas y `%%synapse` para varias líneas. 
+
+```python
+%synapse start -c SynapseSparkPoolAlias
+```
+
+Una vez iniciada la sesión, puede comprobar sus metadatos.
+
+```python
+%synapse meta
+```
+
 Puede especificar un [entorno de Azure Machine Learning](concept-environments.md) para usarlo durante la sesión de Apache Spark. Solo se aplicarán las dependencias de Conda especificadas en el entorno. No se admite la imagen de Docker.
 
 >[!WARNING]
@@ -146,21 +161,11 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-Para comenzar la preparación de datos con el grupo de Spark de Apache Spark, especifique el nombre de este grupo y proporcione el identificador de la suscripción, el grupo de recursos del área de trabajo de Machine Learning, el nombre del área de trabajo de Machine Learning y el entorno que se usará durante la sesión de Apache Spark. 
-
-> [!IMPORTANT]
-> Para seguir usando el grupo de Apache Spark, debe indicar qué recurso de proceso se va a utilizar en las tareas de limpieza y transformación de datos, con `%synapse` para líneas de código únicas y `%%synapse` para varias líneas. 
+Para comenzar la preparación de datos con el grupo de Apache Spark y su entorno personalizado, especifique el nombre del grupo de Apache Spark y qué entorno utilizar durante la sesión de Apache Spark. Además, puede proporcionar el identificador de la suscripción, el grupo de recursos del área de trabajo de aprendizaje automático y el nombre del área de trabajo de aprendizaje automático.
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
+%synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
-
-Una vez iniciada la sesión, puede comprobar sus metadatos.
-
-```python
-%synapse meta
-```
-
 ## <a name="load-data-from-storage"></a>Carga de datos desde el almacenamiento
 
 Una vez que se inicia la sesión de Apache Spark, lea los datos que quiera preparar. La carga de datos es compatible con Azure Blob Storage y Azure Data Lake Storage Generation 1 y Generation 2.
@@ -226,14 +231,22 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 ### <a name="read-in-data-from-registered-datasets"></a>Lectura de datos de conjuntos de datos registrados
 
-También puede obtener un conjunto de datos registrado existente en el área de trabajo y realizar la preparación de datos convirtiéndolo en una trama de datos de Spark.  
+También puede obtener un conjunto de datos registrado existente en el área de trabajo y realizar la preparación de datos convirtiéndolo en una trama de datos de Spark.
 
-En el ejemplo siguiente se obtiene un objeto TabularDataset registrado, `blob_dset`, que hace referencia a los archivos del almacenamiento de blobs y lo convierte en una trama de datos de Spark. Al convertir los conjuntos de datos en una trama de datos de Spark, puede aprovechar las bibliotecas de preparación y exploración de datos `pyspark`.  
+En el ejemplo siguiente autentifica el área de trabajo, se obtiene un objeto TabularDataset registrado, `blob_dset`, que hace referencia a los archivos del almacenamiento de blobs y lo convierte en una trama de datos de Spark. Al convertir los conjuntos de datos en una trama de datos de Spark, puede aprovechar las bibliotecas de preparación y exploración de datos `pyspark`.  
 
 ``` python
 
 %%synapse
 from azureml.core import Workspace, Dataset
+
+subscription_id = "<enter your subscription ID>"
+resource_group = "<enter your resource group>"
+workspace_name = "<enter your workspace name>"
+
+ws = Workspace(workspace_name = workspace_name,
+               subscription_id = subscription_id,
+               resource_group = resource_group)
 
 dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()
@@ -294,6 +307,10 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
+## <a name="example-notebook"></a>Cuaderno de ejemplo
+
+Consulte en este [cuaderno completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) un ejemplo de código detallado sobre cómo realizar la preparación de datos y el entrenamiento del modelo desde un solo cuaderno con Azure Synapse Analytics y Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

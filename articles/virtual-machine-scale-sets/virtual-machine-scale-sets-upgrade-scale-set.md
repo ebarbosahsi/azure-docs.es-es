@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684600"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023935"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -350,7 +350,7 @@ Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actu
 
 - **singlePlacementGroup**: si singlePlacementGroup es true, se puede cambiar a false. Sin embargo, si singlePlacementGroup es false, **no se puede** cambiar a true.
 - **subnet**: la subred de un conjunto de escalado se puede modificar siempre y cuando la subred original y la nueva subred estén en la misma red virtual.
-- **imageReferenceSku**: la SKU de la imagen de referencia se puede actualizar para las [distribuciones de Linux](../virtual-machines/linux/endorsed-distros.md) reconocidas, las imágenes de servidor o cliente de Windows y las imágenes sin [información de planeamiento](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku**: la SKU de la imagen de referencia se puede actualizar para las [distribuciones de Linux](../virtual-machines/linux/endorsed-distros.md) reconocidas, las imágenes de servidor o cliente de Windows y las imágenes sin [información de planeamiento](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propiedades que requieren desasignación para poder cambiar
 Algunas propiedades solo pueden cambiar a ciertos valores si se desasignan las máquinas virtuales del conjunto de escalado. Estas propiedades incluyen:
@@ -417,7 +417,7 @@ Como alternativa, puede cambiar la imagen que se usa el conjunto de escalado. Po
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Actualización del equilibrador de carga en el conjunto de escalado
 Supongamos que tiene un conjunto de escalado con una instancia de Azure Load Balancer y quiere reemplazar Azure Load Balancer por una instancia de Azure Application Gateway. Las propiedades de Load Balancer y Application Gateway de un conjunto de escalado son parte de una lista, así que puede usar los comandos para quitar o agregar elementos de la lista en lugar de modificar las propiedades directamente:
 
-- Azure PowerShell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

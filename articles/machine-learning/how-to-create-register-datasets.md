@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417644"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642151"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -52,7 +52,7 @@ Para crear y trabajar con conjuntos de datos, necesita:
     * Trabaje en su propio cuaderno de Jupyter Notebook e instale el SDK con [estas instrucciones](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](/python/api/azureml-dataprep/), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7). Si usa distribuciones no compatibles, siga [esta guía](/dotnet/core/install/linux) para instalar .NET Core 2.1 para continuar. 
+> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7). Si usa distribuciones no compatibles, siga [esta guía](/dotnet/core/install/linux) para instalar .NET Core 2.1 para continuar. 
 
 ## <a name="compute-size-guidance"></a>Orientación sobre el tamaño de proceso
 

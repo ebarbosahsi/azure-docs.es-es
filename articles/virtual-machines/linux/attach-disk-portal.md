@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556832"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601844"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md). 
@@ -81,7 +81,7 @@ En este ejemplo, el disco que agregué es `sdc`. Es un LUN 0 y es de 4 GB.
 
 Para obtener un ejemplo más complejo, este es el aspecto de varios discos de datos en el portal:
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Revisión de la configuración de disco.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Captura de pantalla de varios discos mostrados en el portal.":::
 
 En la imagen, puede ver que hay 3 discos de datos: 4 GB en LUN 0, 16 GB en LUN 1 y 32 GB en LUN 2.
 
@@ -227,6 +227,6 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información y ayudar a solucionar problemas de discos, consulte [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+Para obtener más información y ayudar a solucionar problemas de discos, consulte [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 También puede [conectar un disco de datos](add-disk.md) mediante la CLI de Azure.

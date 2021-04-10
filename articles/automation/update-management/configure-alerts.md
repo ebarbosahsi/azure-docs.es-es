@@ -3,14 +3,14 @@ title: Cómo crear alertas para Azure Automation Update Management
 description: En este artículo se explica cómo configurar alertas de Azure para notificar el estado de las implementaciones o evaluaciones de las actualizaciones.
 services: automation
 ms.subservice: update-management
-ms.date: 10/19/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 224a7b5457a099fd763ac657349fc5497824ab76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579706"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601430"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Cómo crear alertas para Update Management
 
@@ -38,51 +38,37 @@ Realice los pasos siguientes para configurar alertas que le permitan saber el es
 
 1. En la cuenta de Automation, seleccione **Alertas** en la opción de **supervisión** y, a continuación, seleccione **Nueva regla de alerta**.
 
-2. En la página de **creación de reglas de alertas**, su cuenta de Automation aparece seleccionada como recurso. Si quiere cambiar esto, seleccione la opción para **editar recursos**.
+1. En la página de **creación de reglas de alertas**, su cuenta de Automation aparece seleccionada como recurso. Si quiere cambiar esto, seleccione la opción para **editar recursos**.
 
-3. En la página para seleccionar un recurso, elija **Cuentas de Automation** en la lista desplegable **Filtrar por tipo de recurso**.
+1. En la página para seleccionar un recurso, elija **Cuentas de Automation** en la lista desplegable **Filtrar por tipo de recurso**.
 
-4. Seleccione la cuenta de Automation que quiera usar y, a continuación, haga clic en **Listo**.
+1. Seleccione la cuenta de Automation que quiera usar y, a continuación, haga clic en **Listo**.
 
-5. Seleccione **Agregar condición** para elegir la señal adecuada para sus requisitos.
+1. Seleccione **Agregar condición** para elegir la señal adecuada para sus requisitos.
 
-6. En el caso de las dimensiones, seleccione un valor válido de la lista. Si el valor que quiere usar no está en la lista, seleccione el signo **\+** situado junto a la dimensión y escriba el nombre personalizado. A continuación, seleccione el valor que quiere buscar. Si quiere seleccionar todos los valores de una dimensión, haga clic en el botón **Seleccionar \*** . Si no elige ningún valor para una dimensión, Update Management no tendrá en cuenta esa dimensión.
+1. En el caso de las dimensiones, seleccione un valor válido de la lista. Si el valor que quiere usar no está en la lista, seleccione el signo **\+** situado junto a la dimensión y escriba el nombre personalizado. A continuación, seleccione el valor que quiere buscar. Si quiere seleccionar todos los valores de una dimensión, haga clic en el botón **Seleccionar \*** . Si no elige ningún valor para una dimensión, Update Management no tendrá en cuenta esa dimensión.
 
     ![Configuración de la lógica de señal](./media/manage-updates-for-vm/signal-logic.png)
 
-7. En **Lógica de alerta**, escriba los valores en los campos **Agregación de tiempo** y **Umbral**, y seleccione **Listo**.
+1. En **Lógica de alerta**, escriba los valores en los campos **Agregación de tiempo** y **Umbral**, y seleccione **Listo**.
 
-8. En el siguiente panel, escriba un nombre y una descripción para la alerta.
+1. En el siguiente panel, escriba un nombre y una descripción para la alerta.
 
-9. En el campo **Gravedad**, seleccione **Información (gravedad 2)** para una ejecución correcta, o bien **Información (gravedad 1)** para una ejecución con errores.
+1. En el campo **Gravedad**, seleccione **Información (gravedad 2)** para una ejecución correcta, o bien **Información (gravedad 1)** para una ejecución con errores.
 
     ![Captura de pantalla que muestra la sección Definir detalles de la alerta con los campos Nombre de la regla de alertas, Descripción y Gravedad resaltados.](./media/manage-updates-for-vm/define-alert-details.png)
 
-10. Seleccione **Sí** para habilitar la regla de alerta.
+1. Seleccione **Sí** para habilitar la regla de alerta.
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Configuración de grupos de acciones para las alertas
 
 Una vez que haya configurado las alertas, puede configurar un grupo de acciones para usarlas con varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y mucho más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../../azure-monitor/alerts/action-groups.md).
 
-1. Seleccione una alerta y, a continuación, **Crear nueva** en **Grupos de acciones**.
+1. Seleccione una alerta y, a continuación, seleccione **Add action groups** (Agregar grupos de acciones) en **Acciones**. Esto hará que aparezca el panel **Seleccionar un grupo de acciones para asociar a esta regla de alerta**.
 
-2. Escriba un nombre completo y un nombre corto para el grupo de acciones. Update Management usa el nombre corto en lugar del nombre completo para enviar notificaciones mediante el grupo especificado.
+   :::image type="content" source="./media/manage-updates-for-vm/select-an-action-group.png" alt-text="Uso y costos estimados.":::
 
-3. En **Acciones**, escriba un nombre para especificar la acción (por ejemplo, **Notificación por correo electrónico**).
-
-4. En **Tipo de acción**, seleccione el tipo adecuado (por ejemplo, **Correo electrónico, SMS, Push o Voz**).
-
-5. Seleccione **Editar detalles**.
-
-6. Escriba el tipo de acción en el panel. Por ejemplo, si usa la opción **Correo electrónico, SMS, Push o Voz**, escriba un nombre de acción, seleccione la casilla **Correo electrónico**, escriba una dirección de correo electrónico válida y, por último, haga clic en **Aceptar**.
-
-    ![Configuración de un grupo de acciones de correo electrónico](./media/manage-updates-for-vm/configure-email-action-group.png)
-
-7. En el panel Agregar grupo de acciones, seleccione **Aceptar**.
-
-8. Para un correo electrónico de alerta, puede personalizar el asunto. Seleccione **Personalizar acciones** en **Crear regla** y, a continuación, seleccione **Asunto del correo electrónico**.
-
-9. Cuando finalice, seleccione **Crear regla de alertas**.
+1. Active la casilla correspondiente al grupo de acciones que desea adjuntar y presione Seleccionar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
