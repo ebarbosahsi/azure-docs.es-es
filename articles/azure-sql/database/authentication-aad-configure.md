@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201213"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643424"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -115,7 +115,7 @@ Para conceder a la Instancia administrada de SQL permiso de lectura de Azure AD
 
     El proceso de cambio del el administrador puede tardar varios minutos. El nuevo administrador aparecerá después en el cuadro Administrador de Active Directory.
 
-Después de aprovisionar un administrador de Azure AD para la Instancia administrada de SQL, puede empezar a crear entidades de seguridad de servidor de Azure AD (inicios de sesión) con la sintaxis <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Para obtener más información, consulte [Información general sobre la Instancia administrada de SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Después de aprovisionar un administrador de Azure AD para la Instancia administrada de SQL, puede empezar a crear entidades de seguridad de servidor de Azure AD (inicios de sesión) con la sintaxis [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Para obtener más información, consulte [Información general sobre la Instancia administrada de SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Si más adelante desea quitar un administrador, en la parte superior de la página Administrador de Active Directory, seleccione **Quitar administrador** y después **Guardar**.
@@ -345,8 +345,8 @@ En todas las máquinas cliente, desde las que las aplicaciones o los usuarios se
 - .NET Framework 4.6 o posterior desde [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers).
 - Biblioteca de autenticación de Azure Active Directory para SQL Server (*ADAL.DLL*). A continuación se muestran los vínculos de descarga para instalar la versión más reciente del controlador SSMS, ODBC y OLE DB que contiene la biblioteca *ADAL.DLL*.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [Controlador ODBC 17 para SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [Controlador OLE DB 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [Controlador ODBC 17 para SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [Controlador OLE DB 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 Puede cumplir estos requisitos mediante:
 
@@ -357,7 +357,7 @@ Puede cumplir estos requisitos mediante:
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Creación de usuarios independientes asignados a identidades de Azure AD
 
-Dado que la Instancia administrada de SQL admite entidades de seguridad de servidor de Azure AD (inicios de sesión), no es necesario utilizar usuarios de bases de datos independientes. Las entidades de seguridad de servidor de Azure AD (inicios de sesión) le permiten crear inicios de sesión de usuarios, grupos o aplicaciones de Azure AD. Esto significa que puede autenticarse con su Instancia administrada de SQL mediante el inicio de sesión de servidor de Azure AD en lugar de un usuario de base de datos independiente. Para obtener más información, consulte [Información general sobre la Instancia administrada de SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Dado que la Instancia administrada de SQL admite entidades de seguridad de servidor de Azure AD (inicios de sesión), no es necesario utilizar usuarios de bases de datos independientes. Las entidades de seguridad de servidor de Azure AD (inicios de sesión) le permiten crear inicios de sesión de usuarios, grupos o aplicaciones de Azure AD. Esto significa que puede autenticarse con su Instancia administrada de SQL mediante el inicio de sesión de servidor de Azure AD en lugar de un usuario de base de datos independiente. Para obtener más información, consulte [Información general sobre la Instancia administrada de SQL](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 Sin embargo, el uso de la autenticación de Azure Active Directory con SQL Database y Azure Synapse requiere la utilización de usuarios de bases de datos independientes basados en una identidad de Azure AD. Un usuario de base de datos independiente no cuenta con ningún inicio de sesión en la base de datos maestra, y se asigna a una identidad en Azure AD que esta asociada a la base de datos. La identidad de Azure AD puede ser una cuenta de usuario individual o un grupo. Para más información sobre los usuarios de bases de datos independientes, vea [Usuarios de bases de datos independientes: cómo hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

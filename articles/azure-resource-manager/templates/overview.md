@@ -2,13 +2,13 @@
 title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455742"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103419990"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -19,6 +19,10 @@ Para cumplir estos desafíos, puede automatizar las implementaciones y usar la p
 Para implementar la infraestructura como código para las soluciones de Azure, use las plantillas de Azure Resource Manager (plantillas de ARM). La plantilla es un archivo de notación de objetos JavaScript (JSON) que contiene la infraestructura y la configuración del proyecto. La plantilla usa sintaxis declarativa, lo que permite establecer lo que pretende implementar sin tener que escribir la secuencia de comandos de programación para crearla. En la plantilla se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
 Hemos incorporado un nuevo lenguaje para desarrollar plantillas de ARM. El lenguaje se denomina Bicep y se encuentra actualmente en versión preliminar. Bicep y las plantillas en formato JSON ofrecen las mismas funcionalidades. Puede convertir la plantilla entre los dos lenguajes. Bicep proporciona una sintaxis que es más fácil de usar para crear plantillas. Para más información, consulte [¿Qué es Bicep (versión preliminar)?](bicep-overview.md).
+
+Para obtener información sobre cómo puede empezar a trabajar con las plantillas de ARM, consulte el vídeo siguiente.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>¿Por qué elegir plantillas de Resource Manager?
 

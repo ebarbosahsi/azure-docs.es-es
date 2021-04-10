@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95025000"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643252"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>¿Qué es la transcripción de conversaciones en reuniones (versión preliminar)?
+# <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
 
 La transcripción de conversaciones es una solución de [conversión de voz a texto](speech-to-text.md) que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como _diarización_) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones distingue a los hablantes de una conversación para determinar quién dijo qué y cuándo, y facilita a los desarrolladores la tarea de agregar conversión de voz a texto a sus aplicaciones que realizan la diarización de varios hablantes.
 

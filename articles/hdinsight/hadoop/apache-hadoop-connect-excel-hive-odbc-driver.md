@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c7125e25c9716a9934c97f9f8f85666d264d5f89
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946803"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866954"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Apache Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
@@ -20,7 +20,7 @@ La solución de macrodatos de Microsoft integra componentes de inteligencia empr
 
 Puede conectar los datos asociados a un clúster de HDInsight desde Excel con el complemento Microsoft Power Query para Excel. Para más información, consulte [Conexión de Excel a HDInsight con Power Query](./apache-hadoop-connect-excel-power-query.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este artículo, debe tener los siguientes elementos:
 
@@ -37,7 +37,7 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
 
 1. En Windows, vaya a **Inicio > Herramientas administrativas de Windows > Orígenes de datos ODBC (32 bits)/(64 bits)** .  Esta acción abre la ventana **Administrador de orígenes de datos ODBC**.
 
-    ![Administrador de orígenes de datos OBDC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configuración de un DSN mediante el Administrador de orígenes de datos ODBC")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="Administrador de orígenes de datos OBDC" border="true":::
 
 1. Desde la pestaña **DSN del usuario**, seleccione **Agregar** para abrir la ventana **Crear nuevo origen de datos**.
 
@@ -63,7 +63,7 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |
    |  Default string column length, Binary column length, Decimal column scale |La longitud y precisión del tipo de datos pueden afectar a la forma en que se devuelven los datos. Pueden dar lugar a que se devuelva información incorrecta debido a la pérdida de precisión o al truncamiento. |
 
-    ![Opciones de configuración avanzada de DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opciones de configuración avanzada de DSN")
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Opciones de configuración avanzada de DSN" border="true":::
 
 1. Seleccione **Probar** para probar el origen de datos. Cuando el origen de datos esté configurado correctamente, el resultado de la prueba mostrará **SUCCESS** (Correcto).
 
@@ -81,7 +81,7 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 
 2. Desde la pestaña **Datos**, vaya a **Obtener datos** > **Desde otros orígenes** > **Desde ODBC** para iniciar la ventana **Desde ODBC**.
 
-    ![Open Excel data connection wizard](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Open Excel data connection wizard (Abrir el Asistente para la conexión de datos de Excel)") (Abrir el Asistente para la conexión de datos de Excel)
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Open Excel data connection wizard" border="true"::: (Abrir el Asistente para la conexión de datos de Excel)
 
 3. De la lista desplegable, seleccione el nombre del origen de datos que creó en la sección anterior y luego seleccione **Aceptar**.
 
@@ -89,7 +89,7 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 
 5. Desde **Navegador**, vaya a **HIVE** > **default** > **hivesampletable** y, luego, seleccione **Cargar**. La importación de los datos a Excel tarda un momento.
 
-    ![HDInsight Excel Hive ODBC navigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC navigator (Navegador de Hive ODBC en Excel para HDInsight)") (Navegador de Hive ODBC en Excel para HDInsight)
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="HDInsight Excel Hive ODBC navigator" border="true"::: (Navegador de Hive ODBC en Excel para HDInsight)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

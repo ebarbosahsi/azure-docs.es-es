@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 11/19/2020
 ms.author: crtreasu
-ms.openlocfilehash: 7aa4e244b88b3793f1b480aeb21bfec69d52591d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c740fa294fe2b3de9687a76b90d90a021d4efdbc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044803"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105470"
 ---
 # <a name="web-download"></a>[Descarga con explorador web](#tab/unity-package-web-ui)
 
@@ -21,12 +21,12 @@ Siga las instrucciones que se indican <a href="https://docs.unity3d.com/Manual/u
 
 # <a name="mixed-reality-feature-tool-beta"></a>[Herramienta de características de Mixed Reality (versión preliminar)](#tab/unity-package-mixed-reality-feature-tool)
 
-Este paso requiere que la <a href="https://aka.ms/MRFeatureToolDocs" target="_blank">herramienta de características de Mixed Reality</a> esté descargada y disponible.
+Este paso requiere que la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> esté descargada y disponible.
 
 > [!NOTE]
-> Actualmente, la <a a href="https://aka.ms/MRFeatureToolDocs" target="_blank">herramienta de características de Mixed Reality</a> solo es compatible con Windows.
+> Actualmente, la <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> solo es compatible con Windows.
 
-1. Consulte la documentación de la <a href="https://aka.ms/MRFeatureToolDocs" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
+1. Consulte la documentación de la <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">herramienta de características de Mixed Reality</a> para configurar la herramienta y aprender a usarla.
 2. Instale el paquete de características "Microsoft Azure Object Anchors" en la carpeta de proyectos de Unity.
 
 ---

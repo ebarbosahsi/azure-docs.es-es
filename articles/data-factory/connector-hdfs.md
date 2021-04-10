@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo copiar datos desde un origen HDFS 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588909"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
 
@@ -172,7 +172,7 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 | modifiedDatetimeEnd      | Igual que el anterior.  
 | enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
 | partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
-| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
+| maxConcurrentConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No                                            |
 | ***Configuración de DistCp*** |  | |
 | distcpSettings | Grupo de propiedades que se va a usar al utilizar HDFS DistCp. | No |
 | resourceManagerEndpoint | Punto de conexión de YARN (Yet Another Resource Negotiator) | Sí, si se utiliza DistCp |
@@ -533,7 +533,7 @@ Para más información sobre las propiedades de la actividad de eliminación, co
 | resourceManagerEndpoint | Punto de conexión de Resource Manager de YARN | Sí, si se utiliza DistCp |
 | tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
 | distcpOptions | Se proporcionan opciones adicionales para el comando DistCp. | No |
-| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No |
+| maxConcurrentConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo: Origen HDFS de la actividad de copia mediante DistCp**
 

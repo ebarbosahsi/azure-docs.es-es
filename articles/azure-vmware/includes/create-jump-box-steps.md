@@ -4,10 +4,10 @@ description: Pasos para crear el jumpbox de Azure VMware Solution.
 ms.topic: include
 ms.date: 03/13/2021
 ms.openlocfilehash: f746e11763e1df1686f3134960dea167bf1c9908
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103462272"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
@@ -20,7 +20,7 @@ ms.locfileid: "103462272"
 
    Para más información sobre los campos, consulte la tabla siguiente.
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | **Suscripción** | El valor se rellena previamente con la suscripción a la que pertenece el grupo de recursos. |
    | **Grupos de recursos** | El valor se rellena previamente para el grupo de recursos actual que creó en el tutorial anterior.  |

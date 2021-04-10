@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098781"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586648"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas de Python para Apache Spark en Azure Synapse Analytics
 
@@ -68,13 +68,13 @@ En este ejemplo se especifican los canales y las dependencias de Conda y PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Para obtener más información, consulte [cómo crear un entorno desde un archivo environment.yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Para agregar paquetes de área de trabajo:
 
 ![Captura de pantalla en la que se resaltan los paquetes de área de trabajo.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Visualización de paquetes de área de trabajo")
 
+>[!WARNING]
+>- En Azure Synapse, un grupo de Apache Spark puede aprovechar las bibliotecas personalizadas que se cargan como paquetes de área de trabajo o que se cargan en una ruta de acceso conocida de Azure Data Lake Storage. Sin embargo, estas dos opciones no se pueden usar simultáneamente en el mismo grupo de Apache Spark. Si se proporcionan paquetes usando ambos métodos, solo se instalarán los archivos wheel especificados en la lista de paquetes de área de trabajo. 
+>
+>- Cuando se usan paquetes de área de trabajo (versión preliminar) para instalar paquetes en un determinado grupo de Apache Spark, existe una limitación que impide seguir especificando paquetes mediante la ruta de acceso de la cuenta de almacenamiento en el mismo grupo.  
+
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Los paquetes wheel de compilación personalizada se pueden instalar en el grupo de Apache Spark mediante la carga de todos los archivos wheel en la cuenta de Azure Data Lake Storage (Gen2) que está vinculada al área de trabajo de Synapse. 
 
@@ -149,13 +154,12 @@ Los archivos se deben cargar en la siguiente ruta de acceso en el contenedor pre
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Es posible que tenga que agregar la carpeta ```python``` dentro de la carpeta ```libraries``` si aún no existe.
+>[!WARNING]
+> En algunos casos, es posible que deba crear la ruta de acceso del archivo según la estructura anterior si aún no existe. Por ejemplo, es posible que tenga que agregar la carpeta ```python``` dentro de la carpeta ```libraries``` si aún no existe.
 
 > [!IMPORTANT]
 > Para instalar bibliotecas personalizadas mediante el método de Azure Data Lake Storage, debe tener los permisos **Colaborador de datos de Storage Blob** o **Propietario de datos de Storage Blob** en la cuenta principal de Storage Gen2 que está vinculada con el área de trabajo de Azure Synapse Analytics.
 
->[!WARNING]
-> A la hora de proporcionar archivos wheel personalizados, los usuarios solo pueden proporcionar archivos wheel en la cuenta de almacenamiento o en la interfaz de la biblioteca del área de trabajo. Si se proporcionan en ambas, solo se instalarán los archivos wheel especificados en la lista de paquetes del área de trabajo. 
 
 ## <a name="session-scoped-packages-preview"></a>Paquetes de ámbito de sesión (versión preliminar)
 Además de los paquetes de nivel de grupo, también puede especificar bibliotecas de ámbito de sesión al comienzo de una sesión del cuaderno.  Las bibliotecas de ámbito de sesión permiten especificar y usar entornos de Python personalizados en una sesión de cuaderno. 

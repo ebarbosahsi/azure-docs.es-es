@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ff77a407dfa87e408170573249876bbefee0abe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97360091"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558589"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ No querrá que los atacantes adivinen fácilmente los nombres de las cuentas o l
 
 - Cree una cuenta de administrador local única que no se llame **Administrador**.
 
-- Use contraseñas seguras complejas para todas sus cuentas. Para más información sobre cómo crear una contraseña segura, vea el artículo [Crear una contraseña segura](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
+- Use contraseñas seguras complejas para todas sus cuentas. Para más información sobre cómo crear una contraseña segura, vea el artículo [Crear una contraseña segura](https://support.microsoft.com/account-billing/how-to-create-a-strong-password-for-your-microsoft-account-f67e4ddd-0dbe-cd75-cebe-0cfda3cf7386).
 
 - De forma predeterminada, Azure selecciona la Autenticación de Windows durante la instalación de la máquina virtual de SQL Server. Por lo tanto, el inicio de sesión de **SA** está deshabilitado y el programa de instalación asigna una contraseña. Se recomienda no usar ni habilitar el inicio de sesión de **SA**. Si debe tener un inicio de sesión de SQL, use una de las estrategias siguientes:
 

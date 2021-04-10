@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510660"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103464956"
 ---
 Azure Instance Metadata Service (IMDS) le proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente. Puede usarlo para administrar y configurar las máquinas virtuales.
 Esta información incluye las SKU, almacenamiento, configuraciones de red y próximos eventos de mantenimiento. Para ver una lista completa de los datos disponibles, consulte el [resumen de categorías de los puntos de conexión](#endpoint-categories).
@@ -1140,174 +1140,168 @@ Si no se encuentra un elemento de datos o hay una solicitud con formato incorrec
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**Obtengo el error `400 Bad Request, Required metadata header not specified`. ¿Qué significa?**
+- Obtengo el error `400 Bad Request, Required metadata header not specified`. ¿Qué significa?
+  - IMDS requiere que el encabezado `Metadata: true` se transmita en la solicitud. Transmitir este encabezado en la llamada de REST le permite obtener acceso a IMDS.
 
-IMDS requiere que el encabezado `Metadata: true` se transmita en la solicitud. Transmitir este encabezado en la llamada de REST le permite obtener acceso a IMDS.
+- ¿Por qué no recibo información de proceso de mi máquina virtual?
+  - Actualmente IMDS solo admite instancias creadas con Azure Resource Manager.
 
-**¿Por qué no recibo información de proceso de mi máquina virtual?**
+- He creado mi VM mediante Azure Resource Manager hace algún tiempo. ¿Por qué no veo la información de metadatos de proceso?
+  - Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.
 
-Actualmente IMDS solo admite instancias creadas con Azure Resource Manager.
+- ¿Por qué no veo todos los datos rellenados para una nueva versión?
+  - Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.
 
-**He creado mi VM mediante Azure Resource Manager hace algún tiempo. ¿Por qué no veo la información de metadatos del proceso?**
+- ¿Por qué recibo el error `500 Internal Server Error` o `410 Resource Gone`?
+  - Vuelva a intentar la solicitud. Para obtener más información, consulte [Administración de errores transitorios](/azure/architecture/best-practices/transient-faults). Si el problema persiste, cree un problema de soporte técnico en Azure Portal para la VM.
 
-Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.
+- ¿Esto funciona en las instancias del conjunto de escalado de máquinas virtuales?
+  - Sí, IMDS está disponible para las instancias del conjunto de escalado de máquinas virtuales.
 
-**¿Por qué no veo todos los datos rellenados para una nueva versión?**
+- Actualicé mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las VM de instancia única. ¿Estoy haciendo algo mal?
+  - Actualmente, las etiquetas para los conjuntos de escalado de máquinas virtuales solo se muestran a la VM durante el reinicio, el restablecimiento de una imagen o el cambio de un disco en la instancia.
 
-Si creó la VM después de septiembre del 2016, agregue una [etiqueta](../articles/azure-resource-manager/management/tag-resources.md) para empezar a ver los metadatos del proceso. Si creó la VM antes de septiembre de 2016, agregue extensiones o discos de datos en la instancia de VM (o quítelos) para actualizar los metadatos.
+- ¿Por qué no veo la información de la SKU de la máquina virtual en los detalles de `instance/compute`?
+  - En el caso de las imágenes personalizadas creadas desde Azure Marketplace, la plataforma de Azure no conserva la información de la SKU para la imagen personalizada y los detalles de las máquinas virtuales creadas a partir de la imagen personalizada. Esto es así por diseño y, por lo tanto, no se muestra en los detalles de la máquina virtual `instance/compute`.
 
-**¿Por qué recibo el error `500 Internal Server Error` o `410 Resource Gone`?**
+- ¿Por qué se agotó el tiempo de espera de la solicitud de mi llamada al servicio?
+  - Las llamadas de metadatos se deben hacer desde la dirección IP principal asignada a la tarjeta de red principal de la máquina virtual. Además, si ha cambiado las rutas, debe haber una ruta para la dirección 169.254.169.254/32 en la tabla de rutas local de la VM.
 
-Vuelva a intentar la solicitud. Para obtener más información, consulte [Administración de errores transitorios](/azure/architecture/best-practices/transient-faults). Si el problema persiste, cree un problema de soporte técnico en Azure Portal para la VM.
+    ### <a name="windows"></a>[Windows](#tab/windows/)
 
-**¿Esto funciona en las instancias del conjunto de escalado de máquinas virtuales?**
+    1. Vuelque la tabla de rutas local y busque la entrada de IMDS. Por ejemplo:
+        ```console
+        > route print
+        IPv4 Route Table
+        ===========================================================================
+        Active Routes:
+        Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+            168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+        ... (continues) ...
+        ```
+    1. compruebe que existe una ruta para `169.254.169.254` y anote la interfaz de red correspondiente (por ejemplo, `172.16.69.7`).
+    1. Vuelque la configuración de la interfaz, busque aquella interfaz que se corresponda con la que se menciona en la tabla de rutas y anote la dirección MAC (física).
+        ```console
+        > ipconfig /all
+        ... (continues) ...
+        Ethernet adapter Ethernet:
 
-Sí, IMDS está disponible para las instancias del conjunto de escalado de máquinas virtuales.
+        Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+        Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+        Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+        DHCP Enabled. . . . . . . . . . . : Yes
+        Autoconfiguration Enabled . . . . : Yes
+        Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+        IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        ... (continues) ...
+        ```
+    1. Confirme que la interfaz corresponde a la NIC principal y la dirección IP principal de la máquina virtual. Para encontrar la NIC y la dirección IP principales, consulte la configuración de red en Azure Portal o búsquela con la CLI de Azure. Anote las direcciones IP privadas (y la dirección MAC, si usa la CLI). Aquí tiene un ejemplo de la CLI de PowerShell:
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: wintest767 True 00-0D-3A-E5-1C-C0
+        ```
+    1. Si no coinciden, actualice la tabla de rutas para que la NIC y la dirección IP principales estén dirigidas.
 
-**Actualicé mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las VM de instancia única. ¿Estoy haciendo algo mal?**
+    ### <a name="linux"></a>[Linux](#tab/linux/)
 
-Actualmente, las etiquetas para los conjuntos de escalado de máquinas virtuales solo se muestran a la VM durante el reinicio, el restablecimiento de una imagen o el cambio de un disco en la instancia.
+    1. Vuelque la tabla de rutas local con un comando como `netstat -r` y busque la entrada IMDS (por ejemplo):
+        ```console
+        ~$ netstat -r
+        Kernel IP routing table
+        Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+        default         _gateway        0.0.0.0         UG        0 0          0 eth0
+        168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+        169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+        172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+        ```
+    1. Compruebe que existe una ruta para `169.254.169.254` y anote la interfaz de red correspondiente (por ejemplo, `eth0`).
+    1. Vuelque la configuración de la interfaz para la interfaz correspondiente en la tabla de rutas (tenga en cuenta que el nombre exacto del archivo de configuración puede variar).
+        ```console
+        ~$ cat /etc/netplan/50-cloud-init.yaml
+        network:
+        ethernets:
+            eth0:
+                dhcp4: true
+                dhcp4-overrides:
+                    route-metric: 100
+                dhcp6: false
+                match:
+                    macaddress: 00:0d:3a:e4:c7:2e
+                set-name: eth0
+        version: 2
+        ```
+    1. Si usa una dirección IP dinámica, anote la dirección MAC. Si usa una dirección IP estática, puede anotar las direcciones IP o la dirección MAC que aparecen.
+    1. Confirme que la interfaz corresponde a la NIC principal y la dirección IP principal de la máquina virtual. Para encontrar la NIC y la dirección IP principales, consulte la configuración de red en Azure Portal o búsquela con la CLI de Azure. Anote las direcciones IP privadas (y la dirección MAC, si usa la CLI). Aquí tiene un ejemplo de la CLI de PowerShell:
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+        ```
+    1. Si no coinciden, actualice la tabla de rutas para que la NIC/dirección IP principal estén dirigidas.
 
-**¿Por qué se agotó el tiempo de espera de la solicitud de mi llamada al servicio?**
+    ---
 
-Las llamadas de metadatos se deben hacer desde la dirección IP principal asignada a la tarjeta de red principal de la máquina virtual. Además, si ha cambiado las rutas, debe haber una ruta para la dirección 169.254.169.254/32 en la tabla de rutas local de la VM.
+- Clústeres de conmutación por error de Windows Server
+  - Cuando se consulta IMDS con los clústeres de conmutación por error, a veces es necesario agregar una ruta a la tabla de rutas. A continuación, se indica cómo puede hacerlo.
 
-#### <a name="windows"></a>[Windows](#tab/windows/)
+    1. Abra un símbolo del sistema con privilegios de administrador.
 
-1. Vuelque la tabla de rutas local y busque la entrada de IMDS. Por ejemplo:
-    ```console
-    > route print
+    1. Ejecute el siguiente comando y anote la dirección de la interfaz de red de destino (`0.0.0.0`) en la tabla de rutas IPv4.
+
+    ```bat
+    route print
+    ```
+
+    > [!NOTE]
+    > La salida de ejemplo siguiente es de una VM de Windows Server que tiene un clúster de conmutación por error habilitado. Para simplificar las cosas, la salida solo contiene la tabla de rutas IPv4.
+
+    ```
     IPv4 Route Table
     ===========================================================================
     Active Routes:
     Network Destination        Netmask          Gateway       Interface  Metric
-              0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+            0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+            10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+            10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
             127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
             127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-        168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-      169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-    ... (continues) ...
+    127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+        169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+    169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+            224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+            224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+    255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
     ```
-1. compruebe que existe una ruta para `169.254.169.254` y anote la interfaz de red correspondiente (por ejemplo, `172.16.69.7`).
-1. Vuelque la configuración de la interfaz, busque aquella interfaz que se corresponda con la que se menciona en la tabla de rutas y anote la dirección MAC (física).
-    ```console
-    > ipconfig /all
-    ... (continues) ...
-    Ethernet adapter Ethernet:
 
-       Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-       Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-       DHCP Enabled. . . . . . . . . . . : Yes
-       Autoconfiguration Enabled . . . . : Yes
-       Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-       IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-       Subnet Mask . . . . . . . . . . . : 255.255.255.0
-    ... (continues) ...
+    Ejecute el siguiente comando y use la dirección de la interfaz de red de destino (`0.0.0.0`) que es (`10.0.1.10`) en el ejemplo.
+
+    ```bat
+    route add 169.254.169.254/32 10.0.1.10 metric 1 -p
     ```
-1. Confirme que la interfaz corresponde a la NIC principal y la dirección IP principal de la máquina virtual. Para encontrar la NIC y la dirección IP principales, consulte la configuración de red en Azure Portal o búsquela con la CLI de Azure. Anote las direcciones IP privadas (y la dirección MAC, si usa la CLI). Aquí tiene un ejemplo de la CLI de PowerShell:
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: wintest767 True 00-0D-3A-E5-1C-C0
-    ```
-1. Si no coinciden, actualice la tabla de rutas para que la NIC y la dirección IP principales estén dirigidas.
-
-#### <a name="linux"></a>[Linux](#tab/linux/)
-
- 1. Vuelque la tabla de rutas local con un comando como `netstat -r` y busque la entrada IMDS (por ejemplo):
-    ```console
-    ~$ netstat -r
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-    default         _gateway        0.0.0.0         UG        0 0          0 eth0
-    168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
-    169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
-    172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
-    ```
-1. Compruebe que existe una ruta para `169.254.169.254` y anote la interfaz de red correspondiente (por ejemplo, `eth0`).
-1. Vuelque la configuración de la interfaz para la interfaz correspondiente en la tabla de rutas (tenga en cuenta que el nombre exacto del archivo de configuración puede variar).
-    ```console
-    ~$ cat /etc/netplan/50-cloud-init.yaml
-    network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp4-overrides:
-                route-metric: 100
-            dhcp6: false
-            match:
-                macaddress: 00:0d:3a:e4:c7:2e
-            set-name: eth0
-    version: 2
-    ```
-1. Si usa una dirección IP dinámica, anote la dirección MAC. Si usa una dirección IP estática, puede anotar las direcciones IP o la dirección MAC que aparecen.
-1. Confirme que la interfaz corresponde a la NIC principal y la dirección IP principal de la máquina virtual. Para encontrar la NIC y la dirección IP principales, consulte la configuración de red en Azure Portal o búsquela con la CLI de Azure. Anote las direcciones IP privadas (y la dirección MAC, si usa la CLI). Aquí tiene un ejemplo de la CLI de PowerShell:
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: ipexample606 True 00-0D-3A-E4-C7-2E
-    ```
-1. Si no coinciden, actualice la tabla de rutas para que la NIC/dirección IP principal estén dirigidas.
-
----
-
-**Clústeres de conmutación por error de Windows Server**
-
-Cuando se consulta IMDS con los clústeres de conmutación por error, a veces es necesario agregar una ruta a la tabla de rutas. A continuación, se indica cómo puede hacerlo.
-
-1. Abra un símbolo del sistema con privilegios de administrador.
-
-1. Ejecute el siguiente comando y anote la dirección de la interfaz de red de destino (`0.0.0.0`) en la tabla de rutas IPv4.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> La salida de ejemplo siguiente es de una VM de Windows Server que tiene un clúster de conmutación por error habilitado. Para simplificar las cosas, la salida solo contiene la tabla de rutas IPv4.
-
-```
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-Ejecute el siguiente comando y use la dirección de la interfaz de red de destino (`0.0.0.0`) que es (`10.0.1.10`) en el ejemplo.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
 
 ## <a name="support"></a>Soporte técnico
 
@@ -1315,12 +1309,12 @@ Si no puede obtener una respuesta de metadatos después de varios intentos, pued
 
 ## <a name="product-feedback"></a>Comentarios sobre el producto
 
-Puede proporcionar comentarios sobre el producto e ideas en nuestro canal de comentarios de los usuarios en Virtual Machines > Instance Metadata Service aquí: https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627.
+Puede proporcionar comentarios sobre el producto e ideas en nuestro canal de la fuente de usuario en Virtual Machines > Instance Metadata Service [aquí](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtener un token de acceso para la VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [Obtener un token de acceso para la VM](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-[Eventos programados para Linux](../articles/virtual-machines/linux/scheduled-events.md)
+- [Eventos programados para Linux](../articles/virtual-machines/linux/scheduled-events.md)
 
-[Eventos programados para Windows](../articles/virtual-machines/windows/scheduled-events.md)
+- [Eventos programados para Windows](../articles/virtual-machines/windows/scheduled-events.md)
