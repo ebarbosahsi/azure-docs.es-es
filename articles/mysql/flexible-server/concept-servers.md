@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a7978410dbe28a5da5dae81cb380d118fe13a159
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034666"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869385"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos del servidor: Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -55,7 +55,14 @@ Durante el tiempo en que el servidor está detenido, no se pueden realizar opera
 
 ## <a name="how-do-i-manage-a-server"></a>¿Cómo se administra un servidor?
 
-El servidor flexible de Azure Database for MySQL se puede administrar mediante [Azure Portal](./quickstart-create-server-portal.md) o la [CLI de Azure](./quickstart-create-server-cli.md).
+Puede administrar la creación, la eliminación, la configuración de parámetros del servidor (my.cnf), el escalado, la red, la seguridad, la alta disponibilidad, la copia de seguridad y la restauración, y la supervisión del servidor flexible de Azure Database for MySQL desde [Azure Portal](./quickstart-create-server-portal.md) o la [CLI de Azure](./quickstart-create-server-cli.md). Además, los siguientes procedimientos almacenados están disponibles en Azure Database for MySQL para realizar determinadas tareas de administración de bases de datos necesarias, ya que no se admite el privilegio de superusuario en el servidor.
+
+|**Nombre del procedimiento almacenado**|**Parámetros de entrada**|**Parámetros de salida**|**Nota sobre el uso**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/D|Equivalente al comando [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Finalizará la conexión asociada con el processlist_id proporcionado después de finalizar cualquier instrucción que la conexión esté ejecutando.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivalente al comando [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Finalizará la instrucción que la conexión está ejecutando actualmente. Deja la propia conexión activa.|
+|*mysql.az_load_timezone*|N/D|N/D|Carga las [tablas de zona horaria](../howto-server-parameters.md#working-with-the-time-zone-parameter) para permitir que el parámetro `time_zone` se establezca en valores con nombre (por ejemplo, "US/Pacific").|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

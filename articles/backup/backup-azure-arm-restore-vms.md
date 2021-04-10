@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722694"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568756"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -181,7 +181,7 @@ Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-p
 
 Se pueden restaurar las [máquinas virtuales ancladas de la zona de Azure](../virtual-machines/windows/create-portal-availability-zone.md) en cualquier [zona de disponibilidad](../availability-zones/az-overview.md) de la misma región.
 
-En el proceso de restauración, verá la opción **Zona de disponibilidad.** Verá la zona predeterminada en primer lugar. Para elegir otra zona, elija el número de la zona de su elección. Si la zona anclada no está disponible, no podrá restaurar los datos en otra zona porque los datos de copia de seguridad no se replican de forma zonal.
+En el proceso de restauración, verá la opción **Zona de disponibilidad.** Verá la zona predeterminada en primer lugar. Para elegir otra zona, elija el número de la zona de su elección. Si la zona anclada no está disponible, no podrá restaurar los datos en otra zona porque los datos de copia de seguridad no se replican de forma zonal. La restauración en zonas de disponibilidad es posible desde puntos de recuperación solo en el nivel de almacén.
 
 ![Elección de zona de disponibilidad](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
@@ -249,10 +249,10 @@ Se deben tener en cuenta varios aspectos después de restaurar una máquina virt
 - Las extensiones existentes durante la configuración de copia de seguridad están instaladas, pero no habilitadas. Si ve un problema, vuelva a instalar las extensiones.
 - Si la máquina virtual de copia de seguridad tenía una dirección IP estática, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos. Puede [agregar una dirección IP estática a la máquina virtual restaurada](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - Una máquina virtual restaurada no tiene un conjunto de disponibilidad. Si usa la opción del disco de restauración, puede [especificar un conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md) al crear una máquina virtual desde el disco con la plantilla proporcionada o mediante PowerShell.
-- Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por motivos de seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/troubleshooting/reset-password.md). Se recomienda usar claves SSH en estas distribuciones, por lo que no es necesario restablecer la contraseña después de la restauración.
+- Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por motivos de seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](/troubleshoot/azure/virtual-machines/reset-password). Se recomienda usar claves SSH en estas distribuciones, por lo que no es necesario restablecer la contraseña después de la restauración.
 - Si no puede acceder a la VM una vez restaurada ya que se ha interrumpido la relación de la VM con el controlador de dominio, siga los pasos que se describen a continuación para devolver la VM:
   - Conecte un disco del sistema operativo como disco de datos a una máquina virtual recuperada.
-  - Si se detecta que el agente de Azure no responde, instale manualmente el agente de máquina virtual, para lo que puede seguir este [vínculo](../virtual-machines/troubleshooting/install-vm-agent-offline.md).
+  - Si se detecta que el agente de Azure no responde, instale manualmente el agente de máquina virtual, para lo que puede seguir este [vínculo](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Habilite el acceso de la consola serie en la máquina virtual para que la línea de comandos pueda acceder a la máquina virtual.
 
   ```cmd

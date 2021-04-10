@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225554"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564473"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -40,7 +40,7 @@ En esta tabla se describen las características de los almacenes de Recovery Ser
 **Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el movimiento de datos con copia de seguridad realizada entre almacenes.
 **Modify vault storage type** (Modificación del tipo de almacenamiento de almacén) | Puede modificar el tipo de replicación de almacenamiento (almacenamiento con redundancia geográfica o almacenamiento con redundancia local) para un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
 **Almacenamiento con redundancia de zona (ZRS)** | Disponible en las regiones Sur de Reino Unido (UKS) y Sudeste Asiático (SEA).
-**Puntos de conexión privados** | Consulte [esta sección](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) para conocer los requisitos para crear puntos de conexión privados para un almacén de Recovery Services.  
+**Puntos de conexión privados** | Consulte [esta sección](./private-endpoints.md#before-you-start) para conocer los requisitos para crear puntos de conexión privados para un almacén de Recovery Services.  
 
 ## <a name="on-premises-backup-support"></a>Compatibilidad con las copias de seguridad locales
 

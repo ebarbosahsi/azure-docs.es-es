@@ -3,12 +3,12 @@ title: Administración de la infraestructura híbrida a gran escala con Azure A
 description: Aprenda a administrar de forma eficaz los equipos de sus clientes y los clústeres de Kubernetes fuera de Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419343"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563606"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Administración de la infraestructura híbrida a gran escala con Azure Arc
 
@@ -35,11 +35,11 @@ Por ejemplo, puede [asegurarse de que se aplica el mismo conjunto de directivas 
 
 ## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Administración de clústeres híbridos de Kubernetes a gran escala con Kubernetes habilitado para Azure Arc
 
-Puede administrar clústeres de Kubernetes que se han [conectado a la suscripción de un cliente con Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), como si se estuvieran ejecutando en Azure.
+Puede administrar clústeres de Kubernetes que se han [conectado a la suscripción de un cliente con Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), como si se estuvieran ejecutando en Azure.
 
 Si el cliente ha creado una [cuenta de entidad de servicio para incorporar clústeres de Kubernetes a Azure Arc](../../azure-arc/kubernetes/create-onboarding-service-principal.md), puede acceder a esta cuenta de entidad de servicio para incorporar y administrar clústeres. Esto lo pueden realizar los usuarios del inquilino de administración a los que se concedió el rol integrado de Azure "Clúster de Kubernetes: incorporación de Azure Arc", cuando la suscripción que contiene la cuenta de entidad de servicio se [incorporó a Azure Lighthouse](onboard-customer.md).
 
-Puede implementar [configuraciones](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) y [gráficos de Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) con GitOps para clústeres conectados.
+Puede implementar [configuraciones](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) y [gráficos de Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) con GitOps para clústeres conectados.
 
 También puede supervisar los clústeres conectados con Azure Monitor y [usar Azure Policy para aplicar configuraciones de clúster a gran escala](../../azure-arc/kubernetes/use-azure-policy.md).
 

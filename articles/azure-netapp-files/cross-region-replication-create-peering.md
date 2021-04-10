@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 412724a072bfc03a67bf1005173702f757c6fdf4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2a3c788ce50ccc1d537fd2903fe05acffd079b0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249944"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591017"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
@@ -67,7 +67,7 @@ También puede seleccionar una cuenta de NetApp existente en otra región.
     * Grupo de capacidad
     * Cuota de volumen
         > [!NOTE] 
-        > Se recomienda que el tamaño de la cuota de volumen coincida con el del volumen de origen.
+        > La cuota de volumen (tamaño) del volumen de destino debe reflejar la del volumen de origen. Si especifica un tamaño menor que el volumen de origen, el tamaño del volumen de destino cambia automáticamente al tamaño del volumen de origen. 
     * Virtual network 
     * Subnet
 

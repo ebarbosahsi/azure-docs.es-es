@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/16/2021
-ms.openlocfilehash: e9031dc77054a2bbac8015bbbdd7b9ed2a35e84f
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.date: 03/26/2021
+ms.openlocfilehash: 59847f745037acec47415489cdf61d119a7807af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043349"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936281"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acceso a Azure API for FHIR con Postman
 
@@ -24,12 +24,13 @@ Una aplicación cliente puede tener acceso a la API de Azure para FHIR a través
 
 - Un punto de conexión de FHIR en Azure. 
 
-   Para implementar la API de Azure para FHIR (un servicio administrado), puede usar el [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md)o [CLI de Azure](fhir-paas-cli-quickstart.md).
+  Para implementar la API de Azure para FHIR (un servicio administrado), puede usar el [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md)o [CLI de Azure](fhir-paas-cli-quickstart.md).
+
 - Una [aplicación cliente confidencial](register-confidential-azure-ad-client-app.md) registrada para tener acceso al servicio FHIR.
 - Ha concedido permisos a la aplicación cliente confidencial, por ejemplo, "FHIR Data Contributor", para tener acceso al servicio FHIR. Para obtener más información, consulte [configuración de RBAC de Azure para FHIR](./configure-azure-rbac.md).
 - Postman instalado. 
     
-    Para obtener más información acerca de Postman, consulte Introducción [a Postman](https://www.getpostman.com).
+  Para obtener más información acerca de Postman, consulte Introducción [a Postman](https://www.getpostman.com).
 
 ## <a name="fhir-server-and-authentication-details"></a>Detalles de autenticación y servidor de FHIR
 
@@ -62,6 +63,8 @@ Si intenta obtener acceso a recursos restringidos, se produce una respuesta de "
 ![Error de autenticación](media/tutorial-postman/postman-authentication-failed.png)
 
 ## <a name="obtaining-an-access-token"></a>Obtención de un token de acceso
+Seleccione **Obtener token de acceso nuevo**.
+
 Para obtener un token de acceso válido, seleccione **autorización** y seleccione **OAuth 2,0** en el menú desplegable **tipo** .
 
 ![Establecimiento de OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
@@ -76,13 +79,13 @@ En el cuadro de diálogo **obtener nuevo token de acceso** , escriba los detalle
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Nombre del token            | MYTOKEN                                                                                                         | Un nombre que elija          |
 | Tipo de concesión            | Código de autorización                                                                                              |                            |
-| Dirección URL de devolución de llamadas          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
+| Dirección URL de devolución de llamadas          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
 | Dirección URL de autenticación              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | El valor`audience` es `https://MYACCOUNT.azurehealthcareapis.com` para Azure API for FHIR |
-| Dirección URL del token de acceso      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Id. de cliente             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Identificador de aplicación             |
-| Secreto del cliente         | `XXXXXXXX`                                                                                                        | Clave de cliente secreta          |
-| Ámbito | `<Leave Blank>` |
-| State                |  `1234`                                                                                                           |                            |
+| Dirección URL del token de acceso      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
+| Id. de cliente             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Identificador de aplicación             |
+| Secreto del cliente         | `XXXXXXXX`                                                                                                      | Clave de cliente secreta          |
+| Ámbito | `<Leave Blank>` | No se utiliza el ámbito; por lo tanto, puede dejarse en blanco.  
+| State                 | `1234`     | El [Estado](https://learning.postman.com/docs/sending-requests/authorization/) es un valor opaco para evitar la falsificación de solicitudes entre sitios. Es opcional y puede tomar un valor arbitrario como ' 1234 '.                           |
 | Autenticación de clientes | Enviar credenciales de cliente en el cuerpo                                                                                 |                 
 
 Seleccione el **token de solicitud** que se guiará a través del flujo de autenticación de Azure Active Directory y se devolverá un token a Postman. Si se produce un error de autenticación, consulte la consola de Postman para obtener más detalles. **Nota**: en la cinta de opciones, seleccione **Ver** y, a continuación, seleccione **Mostrar consola de Postman**. El método abreviado de teclado para la consola de Postman es **Alt-Ctrl + C**.
@@ -133,7 +136,7 @@ Seleccione **Enviar** para determinar que el paciente se ha creado correctamente
 
 ![Captura de pantalla que muestra que el paciente se ha creado correctamente.](media/tutorial-postman/postman-patient-created.png)
 
-Si repite la búsqueda de pacientes, ahora debería ver el registro del paciente:
+Si repite la búsqueda de pacientes, ahora debería ver el registro del paciente.
 
 ![Paciente creado](media/tutorial-postman/postman-patient-found.png)
 

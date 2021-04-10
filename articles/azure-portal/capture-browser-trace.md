@@ -1,14 +1,14 @@
 ---
 title: Captura de un seguimiento del explorador para solucionar problemas
 description: Capture la información de red desde un seguimiento del explorador para ayudar a solucionar problemas con Azure Portal.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96746002"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563501"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Captura de un seguimiento del explorador para solucionar problemas
 
@@ -190,13 +190,13 @@ En los pasos siguientes se muestra cómo usar las herramientas de desarrollo en 
 
     ![Captura de pantalla de los resultados de seguimiento del explorador](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Exportar/Importar HAR** y, a continuación, **Guardar todo como HAR**.
+1. Una vez que haya reproducido el comportamiento inesperado del portal, seleccione **Guardar todo como HAR**.
 
     ![Captura de pantalla de "Exportar HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Detenga la grabadora de acciones en Windows o la grabación de pantalla en Mac y guarde la grabación.
 
-1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho en uno de los mensajes y, a continuación, seleccione **Exportar mensaje visible a** y guarde la salida de la consola en un archivo de texto.
+1. En el panel de herramientas de desarrollo del explorador, seleccione la pestaña **Consola**. Haga clic con el botón derecho en uno de los mensajes y, a continuación, seleccione **Exportar mensajes visibles a** y guarde la salida de la consola en un archivo de texto.
 
     ![Captura de pantalla del resultado de la consola](media/capture-browser-trace/firefox-console-select.png)
 

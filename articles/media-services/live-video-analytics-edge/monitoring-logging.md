@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730253"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564490"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -312,7 +312,7 @@ Siga estos pasos para habilitar la recopilación de métricas de Live Video Anal
    En este caso, en Azure Portal, vaya al centro de IoT y seleccione **Métricas** en el panel izquierdo. Allí debería ver las métricas.
 
 ### <a name="log-analytics-metrics-collection"></a>Recopilación de métricas de Log Analytics
-Si usa un [punto de conexión de Prometheus](https://prometheus.io/docs/practices/naming/) junto con [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), puede generar y [supervisar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), como el porcentaje de CPU usado, el porcentaje usado de memoria, etc.   
+Si usa un [punto de conexión de Prometheus](https://prometheus.io/docs/practices/naming/) junto con [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), puede generar y [supervisar métricas](../../azure-monitor/essentials/metrics-supported.md), como el porcentaje de CPU usado, el porcentaje usado de memoria, etc.   
 
 > [!NOTE]
 > La configuración siguiente no recopila registros, **solo métricas**. Es factible ampliar el módulo recopilador para que también recopile y cargue registros.
