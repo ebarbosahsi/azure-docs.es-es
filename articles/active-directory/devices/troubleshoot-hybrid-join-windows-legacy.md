@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365810"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578046"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -39,7 +39,7 @@ En este artículo se proporcionan instrucciones sobre cómo resolver problemas p
 **Qué debería saber:** 
 
 - Unión de Azure AD híbrido para dispositivos Windows de bajo nivel funciona de forma ligeramente diferente que en Windows 10. Muchos clientes no se dan cuenta de que necesitan AD FS (para dominios federados) o SSO de conexión directa configurado (para dominios administrados).
-- La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
+- La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el explorador se ejecuta en modo de protección mejorada o si la configuración de seguridad mejorada está habilitada.
 - Para los clientes con dominios federados, si el punto de conexión de servicio (SCP) se configuró de manera que apunte al nombre de dominio administrado (por ejemplo, contoso.onmicrosoft.com, en lugar de contoso.com), Unión a Azure AD híbrido para dispositivos Windows de bajo nivel no funcionará.
 - El mismo dispositivo físico aparece varias veces en Azure AD cuando varios usuarios de dominio inician sesión en los dispositivos unidos a Azure AD híbrido de bajo nivel.  Por ejemplo, si *jdoe* y *jharnett* inician sesión en un dispositivo, se crea un registro independiente (identificador de dispositivo) para cada uno de estos usuarios en la pestaña de información de **USUARIO**. 
 - Puede que reciba también varias entradas para un dispositivo en la pestaña de información del usuario debido a la reinstalación del sistema operativo o a un nuevo registro manual.

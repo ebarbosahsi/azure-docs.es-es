@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937837"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578250"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -95,6 +95,16 @@ En el inicio rápido de Java, el botón de inicio de sesión se encuentra en el 
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+En el inicio rápido de Node.js, no hay ningún botón de inicio de sesión. El código subyacente solicita al usuario de forma automática que inicie sesión al alcanzar la raíz de la aplicación web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 En el inicio rápido de Python, no hay ningún botón de inicio de sesión. El código subyacente solicita al usuario de forma automática que inicie sesión al alcanzar la raíz de la aplicación web. Consulte [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+A diferencia de otras plataformas, MSAL Node se encarga en este caso de permitir al usuario iniciar sesión desde la página de inicio de sesión.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Durante el registro de la aplicación, registrará una dirección URL de cierre 
 Durante el registro de la aplicación, no es necesario registrar una dirección URL de cierre de sesión de canal frontal. Se volverá a llamar a la aplicación en su dirección URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+En el registro de la aplicación no se necesita una dirección URL de cierre de sesión del canal frontal.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 En el registro de la aplicación no se necesita una dirección URL de cierre de sesión del canal frontal.
 
@@ -305,6 +356,10 @@ En el inicio rápido de Java, el botón de cierre de sesión se encuentra en el 
 ...
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicación de ejemplo no implementa el cierre de sesión.
+
 # <a name="python"></a>[Python](#tab/python)
 
 En el inicio rápido de Python, el botón de cierre de sesión se encuentra en el archivo [templates/index.html#L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10).
@@ -377,6 +432,10 @@ En Java, el cierre de sesión se controla llamando directamente al punto de cone
     }
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicación de ejemplo no implementa el cierre de sesión.
+
 # <a name="python"></a>[Python](#tab/python)
 
 El código que cierra la sesión del usuario está en [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 En el inicio rápido de Java, el URI de redireccionamiento posterior al cierre de sesión solo muestra la página index.html.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Esta aplicación de ejemplo no implementa el cierre de sesión.
 
 # <a name="python"></a>[Python](#tab/python)
 
