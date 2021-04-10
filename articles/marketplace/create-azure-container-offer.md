@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96459570"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creación de una oferta de contenedor de Azure en Azure Marketplace
@@ -237,7 +237,7 @@ Muestra los resultados de la búsqueda en Azure Portal:
 
 :::image type="content" source="./partner-center-portal/media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Muestra los resultados de la búsqueda en Azure Portal.":::
 
-## <a name="preview"></a>Versión preliminar
+## <a name="preview"></a>Vista previa
 
 En la pestaña Versión preliminar puede elegir un **público preliminar** limitado para validar la oferta antes de su publicación.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98757583"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
@@ -33,8 +33,8 @@ El escenario de Site Recovery para la replicación entre los centros de datos f�
 Los asociados existentes pueden incorporar nuevos clientes al escenario hasta que finalice el soporte técnico.
 - Durante la 2018 y 2019, se lanzarán dos actualizaciones:
 
-    - Actualización 7: Corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
-    - Actualización de 8: Agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12
+    - Actualización 7: corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
+    - Actualización 8: agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12.
     - Después de la actualizaciones 8, no se publicarán más actualizaciones. Habrá soporte técnico de revisiones limitadas para los sistemas operativos agregados en la actualización 8 y correcciones de errores basadas en el mejor esfuerzo.
 
 ## <a name="host-servers"></a>Servidores host

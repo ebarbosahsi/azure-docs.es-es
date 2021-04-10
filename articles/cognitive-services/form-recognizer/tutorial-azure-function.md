@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8c72a018f03b5284d3fc53be02d9eb526cdfcf28
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf455d9401593b5c09fa295e492368a2a5bee240
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722249"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048699"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutorial: Uso de una instancia de Azure Functions para procesar documentos almacenados
 
@@ -40,9 +40,9 @@ En este tutorial, aprenderá a:
 * Un documento PDF local que analizará. Puede descargar y usar este [documento de ejemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf).
 * [Python 3.8.x](https://www.python.org/downloads/) instalado.
 * [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) instalado.
-* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) instalado.
+* [Azure Functions Core Tools](../../azure-functions/functions-run-local.md?tabs=windows%2ccsharp%2cbash#install-the-azure-functions-core-tools) instalado.
 * Visual Studio Code con las siguientes extensiones instaladas:
-  * [Extensión de Azure Functions](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
+  * [Extensión de Azure Functions](/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Extensión de Python](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage

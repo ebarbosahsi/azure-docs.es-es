@@ -1,15 +1,15 @@
 ---
 title: Almacenamiento de imágenes de contenedor
 description: Información detallada sobre cómo se almacenan las imágenes de contenedor y otros artefactos en Azure Container Registry, incluida la seguridad, la redundancia y la capacidad.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183274"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047752"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Almacenamiento de imágenes en Azure Container Registry
 
@@ -21,11 +21,9 @@ Todas las imágenes de contenedor y otros artefactos del registro se cifran en r
 
 ## <a name="regional-storage"></a>Almacenamiento regional
 
-Azure Container Registry almacena los datos en la región en la que se crea el registro para ayudar a los clientes a satisfacer los requisitos de residencia y cumplimiento de los datos.
+Azure Container Registry almacena los datos en la región en la que se crea el registro para ayudar a los clientes a satisfacer los requisitos de residencia y cumplimiento de los datos. En todas las regiones excepto el Sur de Brasil y el Sudeste Asiático, Azure también puede almacenar los datos del registro en una región emparejada en la misma geografía. En las regiones del Sur de Brasil y del Sudeste Asiático, los datos del registro siempre se limitan a la región, para adaptarse a los requisitos de residencia de datos para esas regiones.
 
-Para ayudar a protegerse frente a interrupciones del centro de datos, algunas regiones ofrecen [redundancia de zona](zone-redundancy.md), donde los datos se replican entre varios centros de datos en una región determinada.
-
-Los clientes que quieran tener sus datos almacenados en varias regiones para conseguir un mejor rendimiento en distintas zonas geográficas o que quieran tener resistencia en caso de una interrupción regional deben habilitar la [replicación geográfica](container-registry-geo-replication.md).
+Si se produce una interrupción regional, los datos del registro pueden dejar de estar disponibles y no se recuperan automáticamente. Los clientes que quieran tener sus datos de registro almacenados en varias regiones para conseguir un mejor rendimiento en distintas zonas geográficas o que quieran tener resistencia en caso de una interrupción regional deben habilitar la [replicación geográfica](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replicación geográfica
 
@@ -33,7 +31,7 @@ En escenarios que requieren una garantía de alta disponibilidad, considere el u
 
 ## <a name="zone-redundancy"></a>Redundancia de zona
 
-Para crear un registro de contenedor de Azure resistente y de alta disponibilidad, tiene la opción de habilitar la [redundancia de zona](zone-redundancy.md) en regiones de Azure seleccionadas. Una característica del nivel de servicio prémium, la redundancia de zona, usa [zonas de disponibilidad](../availability-zones/az-overview.md) de Azure para replicar el registro en tres zonas independientes como mínimo en cada región habilitada. Combine la replicación geográfica y la redundancia de zona para mejorar la confiabilidad y el rendimiento de un registro. 
+Para ayudar a crear un registro de contenedor de Azure resistente y de alta disponibilidad, tiene la opción de habilitar la [redundancia de zona](zone-redundancy.md) en regiones de Azure seleccionadas. Una característica del nivel de servicio prémium, la redundancia de zona, usa [zonas de disponibilidad](../availability-zones/az-overview.md) de Azure para replicar el registro en tres zonas independientes como mínimo en cada región habilitada. Combine la replicación geográfica y la redundancia de zona para mejorar la confiabilidad y el rendimiento de un registro. 
 
 ## <a name="scalable-storage"></a>Almacenamiento escalable
 

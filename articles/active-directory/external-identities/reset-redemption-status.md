@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556322"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780436"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Restablecimiento del estado de canje para un usuario invitado
 
@@ -28,9 +28,20 @@ Una vez que un usuario invitado ha canjeado su invitación para la colaboración
 
 Para administrar estos escenarios, anteriormente tenía que eliminar manualmente la cuenta del usuario invitado de su directorio y volver a invitar al usuario. Ahora puede usar PowerShell o la API de invitación de Microsoft Graph para restablecer el estado de canje del usuario y volver a invitarlo, a la vez que conserva el identificador de objeto del usuario, las pertenencias a grupos y las asignaciones de aplicaciones. Cuando el usuario canjea la invitación nueva, el UPN del usuario no cambia, aunque su nombre de inicio de sesión se cambia al nuevo correo electrónico. Posteriormente, el usuario puede iniciar sesión con el nuevo correo electrónico o con un correo electrónico que se haya agregado a la propiedad `otherMails` del objeto de usuario.
 
+## <a name="reset-the-email-address-used-for-sign-in"></a>Restablecer la dirección de correo electrónico utilizada para el inicio de sesión
+
+Si un usuario quiere iniciar sesión con otro correo electrónico:
+
+1. Asegúrese de que la nueva dirección de correo electrónico se agrega a la propiedad del objeto de usuario`mail` o `otherMails`. 
+2.  Reemplace la dirección de correo electrónico en la propiedad `InvitedUserEmailAddress` por la nueva dirección de correo electrónico.
+3. Use uno de los métodos siguientes para restablecer el estado de canje del usuario.
+
+> [!NOTE]
+>Durante la versión preliminar pública, cuando se restablece la dirección de correo electrónico del usuario, se recomienda establecer la propiedad `mail` en la nueva dirección de correo electrónico. De este modo, el usuario puede canjear la invitación iniciando sesión en el directorio, además de usar el vínculo de canje en la invitación.
+>
 ## <a name="use-powershell-to-reset-redemption-status"></a>Uso de PowerShell para restablecer el estado de canje
 
-Instale el módulo AzureADPreview de PowerShell más reciente y cree una nueva invitación con `InvitedUserEMailAddress` establecido en la nueva dirección de correo electrónico, y `ResetRedemption` establecido en `true`.
+Instale el módulo AzureADPreview de PowerShell más reciente y cree una nueva invitación con `InvitedUserEmailAddress` establecido en la nueva dirección de correo electrónico, y `ResetRedemption` establecido en `true`.
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -43,7 +54,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Uso de Microsoft Graph API para restablecer el estado de canje
 
-Con la [API de invitación de Microsoft Graph](/graph/api/resources/invitation), establezca la propiedad `resetRedemption` en `true` y especifique la nueva dirección de correo electrónico en la propiedad `invitedUserEmailAddress`.
+Con la [API de invitación de Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), establezca la propiedad `resetRedemption` en `true` y especifique la nueva dirección de correo electrónico en la propiedad `invitedUserEmailAddress`.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

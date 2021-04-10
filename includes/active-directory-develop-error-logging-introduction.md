@@ -6,10 +6,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.openlocfilehash: 53198c663d318a2eb47bcb3207939bbcb1fdd59c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98763300"
 ---
 Las aplicaciones de la biblioteca de autenticación de Microsoft (MSAL) generan mensajes de registro que pueden ayudar a diagnosticar problemas. Una aplicación puede configurar el registro con unas cuentas líneas de código y tener un control personalizado sobre el nivel de detalle y si se registran o no datos de la organización y personales. Se recomienda establecer una devolución de llamada del registro de MSAL y proporcionar una forma de que los usuarios envíen registros cuando tengan problemas de autenticación.

@@ -1,24 +1,14 @@
 ---
 title: Configuraciones local del agente de seguridad (C)
 description: Obtenga información sobre Defender para las configuraciones locales del agente de C.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4ea30080711633e52f966b89a16f7246a30673
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851261"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104779416"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Información acerca del archivo LocalConfiguration.json: agente de C
 
@@ -39,7 +29,7 @@ Los cambios en el archivo de configuración tienen lugar cuando se reinicia el a
 | TriggerdEventsInterval | Cadena ISO8601 | Intervalo del programador para la recopilación de eventos desencadenados |
 | ConnectionTimeout | Cadena ISO8601 | Período de tiempo antes de que se agote el tiempo de espera de la conexión a IoThub |
 | Authentication | JsonObject | Configuración de autenticación. Este objeto contiene toda la información necesaria para la autenticación en IoTHub |
-| Identidad | "DPS", "SecurityModule", "Device" | Identidad de autenticación: DPS si la autenticación se realiza con DPS, SecurityModule si la autenticación se realiza mediante las credenciales del módulo de seguridad, o Device si la autenticación se realiza con las credenciales del dispositivo |
+| Identidad | "DPS", "SecurityModule", "Device" | Identidad de autenticación: DPS si la autenticación se realiza con DPS, SecurityModule si la autenticación se realiza mediante Defender-IoT-micro-agentcredentials, o Device si la autenticación se realiza con las credenciales del dispositivo. |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | El secreto de usuario para la autenticación: elija SasToken si el secreto utilizado es una clave simétrica, seleccione SelfSignedCertificate si el secreto es un certificado autofirmado.  |
 | FilePath | Ruta de acceso al archivo (cadena) | Ruta de acceso al archivo que contiene el secreto de autenticación |
 | HostName | string | Nombre del host de la instancia de Azure IoT Hub. Normalmente, <my-hub>.azure-devices.net |
