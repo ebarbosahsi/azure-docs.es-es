@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4c3308ff9b1ffeb0f14c5808e0d4cdd71dabf335
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 63183eb6a77b3a7aecfb6f3e8a7c9ee7c2544de2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780130"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543914"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configuración de la suscripción y del inicio de sesión con un id. de Apple mediante Azure Active Directory B2C (versión preliminar)
 
@@ -195,7 +195,7 @@ Puede definir un identificador de Apple como proveedor de notificaciones; para e
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>

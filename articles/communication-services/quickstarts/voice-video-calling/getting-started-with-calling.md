@@ -8,19 +8,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0886e3955ba58a5a8edbf3cd72b1065b1000b5b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5a506d84f338b2eab1c32caa4d94bd03a33e637d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104598833"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728341"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Inicio rápido: adición de la llamada de voz a su aplicación
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de llamadas de Communication Services para agregar llamadas de voz y vídeo a la aplicación.
+Para empezar a usar Azure Communication Services, utilice el SDK de llamadas de Communication Services para agregar llamadas de voz y vídeo a la aplicación.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -45,5 +42,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte nuestro [ejemplo de elementos principales de una llamada](../../samples/calling-hero-sample.md).
-- Información sobre las [funcionalidades de la biblioteca cliente de llamadas](./calling-client-samples.md)
+- Más información sobre la [llamada a las funcionalidades de SDK](./calling-client-samples.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

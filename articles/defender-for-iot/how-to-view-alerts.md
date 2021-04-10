@@ -1,20 +1,19 @@
 ---
-title: Visualización de alertas
+title: Filtrar y administrar alertas desde la página Alertas
 description: Vea las alertas según las distintas categorías y use las características de búsqueda para buscar alertas de interés.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523675"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781592"
 ---
-# <a name="view-alerts"></a>Visualización de alertas
+# <a name="filter-and-manage-alerts-from-the-alerts-page"></a>Filtrar y administrar alertas desde la página Alertas 
 
 En este artículo se describe cómo ver las alertas desencadenadas por el sensor y administrarlas con las herramientas de alerta.
 

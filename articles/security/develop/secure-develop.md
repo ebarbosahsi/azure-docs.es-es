@@ -4,7 +4,7 @@ description: En este artículo se describen los procedimientos recomendados a te
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,14 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102548451"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782408"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
+
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
 
 En este artículo se tratan las siguientes fases del SDL:
@@ -29,6 +30,7 @@ En este artículo se tratan las siguientes fases del SDL:
 - Comprobación
 
 ## <a name="implementation"></a>Implementación
+
 El asunto principal de la fase de implementación es establecer los procedimientos recomendados para la prevención temprana y detectar y quitar los problemas de seguridad del código.
 Suponga que su aplicación se usará de maneras inesperadas. Este pensamiento le ayudará a protegerse contra el uso indebido (intencional o accidental) de la aplicación.
 
@@ -89,7 +91,7 @@ Esto significa que menos personas tienen acceso a los datos reales, lo que reduc
 
 Para defenderse contra ataques por fuerza bruta y adivinación por diccionario, debe implementar una directiva de contraseñas seguras que garantice que los usuarios crean contraseñas complejas (por ejemplo, con una longitud mínima de 12 caracteres, que requiera caracteres alfanuméricos y especiales).
 
-Puede usar un marco de identidad para crear y aplicar directivas de contraseñas. Azure Active Directory B2C le ayuda con la administración de contraseñas al incluir [directivas integradas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [autoservicio de restablecimiento de contraseñas](../../active-directory-b2c/user-flow-self-service-password-reset.md) y mucho más.
+Azure Active Directory B2C lo ayuda con la administración de contraseñas, al brindar [autoservicio de restablecimiento de contraseñas](../../active-directory-b2c/add-password-reset-policy.md), [forzar el restablecimiento de contraseñas](../../active-directory-b2c/force-password-reset.md) y más.
 
 Para defenderse contra ataques en cuentas predeterminadas, compruebe que todas las claves y contraseñas sean reemplazables y que se generen o reemplacen después de instalar recursos.
 
@@ -108,6 +110,7 @@ La protección antimalware ayuda a identificar y eliminar virus, spyware y otro 
 No almacene en la caché del explorador el contenido confidencial. Los exploradores pueden almacenar información para la memoria caché y el historial. Los archivos almacenados en caché se guardan en una carpeta, como la carpeta Archivos temporales de Internet en el caso de Internet Explorer. Si se vuelve a hacer referencia a estas páginas, el explorador las muestra desde su memoria caché. Si se muestra información confidencial al usuario (como su dirección, datos de la tarjeta de crédito, número del seguro social o nombre de usuario), es posible que quede almacenada en la memoria caché del explorador y se pueda volver a recuperar mediante un examen de la memoria caché del explorador o simplemente al presionar el botón **Atrás** del explorador.
 
 ## <a name="verification"></a>Comprobación
+
 La fase de comprobación supone un esfuerzo integral para asegurarse de que el código cumple los principios de seguridad y privacidad que se establecieron en las fases anteriores.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Búsqueda y corrección de vulnerabilidades en las dependencias de la aplicación
@@ -151,6 +154,7 @@ Asegurarse de que su aplicación es segura es tan importante como probar cualqui
 [Secure DevOps Kit para Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contiene SVT para varios servicios de la plataforma Azure. Ejecute estas SVT periódicamente para asegurarse de que su suscripción a Azure y los distintos recursos que componen la aplicación están en un estado seguro. También puede automatizar estas pruebas mediante el uso de la característica de extensiones de implementación continua e integración continua (CI/CD) de AzSK, lo que hace que las SVT estén disponibles como una extensión de Visual Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En los siguientes artículos, se recomiendan controles de seguridad y actividades que pueden ayudarle a diseñar e implementar aplicaciones seguras.
 
 - [Diseño de aplicaciones seguras](secure-design.md)

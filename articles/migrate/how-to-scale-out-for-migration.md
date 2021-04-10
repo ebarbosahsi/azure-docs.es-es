@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048019"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611980"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Escalado de la migración sin agentes de máquinas virtuales de VMware a Azure
 
-Este artículo le ayuda a entender cómo usar un dispositivo de escalabilidad horizontal para migrar un gran número de máquinas virtuales (VM) de VMware a Azure mediante la funcionalidad de migración sin agente de la herramienta Azure Migrate: Server Migration. 
+Este artículo le ayuda a entender cómo usar un dispositivo de escalabilidad horizontal para migrar un gran número de máquinas virtuales (VM) de VMware a Azure mediante el método sin agente de la herramienta de migración de servidores de Azure Migrate para la migración de VM de VMware.
 
-Con la funcionalidad de migración sin agente de máquinas virtuales de VMware incluida en la herramienta Server Migration, puede:
+Con el método de migración sin agente para máquinas virtuales de VMware, puede:
 
 - Replicar hasta 300 VM desde un solo vCenter Server simultáneamente con un dispositivo de Azure Migrate.
 - Replicar hasta 500 VM desde un único vCenter Server simultáneamente al implementar un segundo dispositivo de escalabilidad horizontal para la migración.
 
 En este artículo, aprenderá a:
 
-- Implementar un dispositivo de escalabilidad horizontal para la migración de VMware
+- Agregar un dispositivo de escalabilidad horizontal para la migración sin agente de máquinas virtuales de VMware.
 - Migrar hasta 500 VM simultáneamente con el dispositivo de escalabilidad horizontal.
 
 ##  <a name="prerequisites"></a>Prerrequisitos
@@ -37,8 +37,9 @@ Antes de comenzar, debe llevar a cabo los siguientes pasos:
 > [!IMPORTANT]
 > Deberá tener al menos una máquina virtual de replicación en el proyecto para que pueda agregar un dispositivo de escalabilidad horizontal para la migración.
 
-## <a name="deploy-a-scale-out-appliance"></a>Implementación de un dispositivo de escalabilidad horizontal
+Para obtener información sobre cómo realizar lo anterior, revise el tutorial sobre la [migración de máquinas virtuales de VMware a Azure con el método de migración sin agente](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Implementación de un dispositivo de escalabilidad horizontal
 
 Para agregar un dispositivo de escalabilidad horizontal, siga los pasos que se mencionan a continuación:
 
@@ -67,8 +68,8 @@ En **Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**. De
 > 1. Abra un símbolo del sistema como administrador.
 > 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74.
+    - Ejemplo de uso para la nube pública: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Descargue la versión más reciente del instalador del dispositivo de escalabilidad horizontal desde el portal si el código hash calculado no coincide con esta cadena: 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9.
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
 El script del instalador hace lo siguiente:
@@ -107,7 +108,7 @@ Antes de empezar, asegúrese de que se pueda acceder a [estos puntos de conexió
 - Acepte los **términos de licencia** y lea la información de terceros.
 - En administrador de configuración > **Configurar los requisitos previos**, realice las siguientes operaciones:
    - **Conectividad**: el dispositivo comprueba que el servidor tenga acceso a Internet. Si el servidor usa un proxy:
-     1. Haga clic en **Configurar el proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
+     1. Haga clic en **Configurar el proxy** para especificar la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN) y el puerto de escucha.
      2. Especifique las credenciales si el proxy requiere autenticación.
      3. Solo se admite un proxy HTTP.
      4. Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
@@ -147,10 +148,10 @@ Para completar el registro del dispositivo de escalabilidad horizontal, haga cli
 1. En la ventana emergente que se abre en el paso anterior, seleccione la ubicación del archivo ZIP de configuración copiado y haga clic en **Guardar**.
 
 Una vez que los archivos se hayan importado correctamente, se completará el registro del dispositivo de escalabilidad horizontal y se mostrará la marca de tiempo de la última importación correcta. También puede ver la información de registro si hace clic en **Ver detalles**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importación correcta":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Captura de pantalla en la que se muestra el registro del dispositivo de escalabilidad horizontal con un proyecto de Azure Migrate.":::
 
-En este momento, debe volver a validar que el dispositivo de escalabilidad horizontal puede conectarse con vCenter Server. Haga clic en **Volver a validar** para validar la conectividad de vCenter Server desde el dispositivo de escalabilidad horizontal.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importación correcta":::
+En este momento, debe volver a validar que el dispositivo de escalabilidad horizontal pueda conectarse con vCenter Server. Haga clic en **Volver a validar** para validar la conectividad de vCenter Server desde el dispositivo de escalabilidad horizontal.
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Captura de pantalla en la que se muestra la visualización de las credenciales y los orígenes de detección que se van a validar.":::
 
 > [!IMPORTANT]
 > Si modifica las credenciales de vCenter Server en el dispositivo principal, asegúrese de volver a importar los archivos de configuración en el dispositivo de escalabilidad horizontal para obtener la configuración más reciente y continuar con las replicaciones en curso.<br/> Si ya no necesita el dispositivo de escalabilidad horizontal, asegúrese de deshabilitarlo. [**Obtenga más información**](./common-questions-appliance.md) sobre cómo deshabilitar el dispositivo de escalado horizontal cuando no sea necesario.
@@ -175,4 +176,4 @@ En este artículo, ha aprendido lo siguiente:
 - Cómo replicar VM mediante un dispositivo de escalabilidad horizontal
 
 
-[Obtenga más información](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) sobre cómo migrar servidores a Azure mediante la herramienta Azure Migrate: Server Migration.
+[Obtenga más información](./tutorial-migrate-vmware.md) sobre cómo migrar servidores a Azure mediante la herramienta Azure Migrate: Server Migration.

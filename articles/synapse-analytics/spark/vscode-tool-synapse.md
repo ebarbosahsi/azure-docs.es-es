@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
 ms.openlocfilehash: e5d335ee14709ec330405419f5be8ac5fbd6ce75
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98943773"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: Creación de aplicaciones de Apache Spark con VSCode mediante un área de trabajo de Synapse
@@ -22,7 +22,7 @@ Obtenga información sobre cómo usar las herramientas Apache Spark y Apache Hiv
 
 Las herramientas Spark y Hive se pueden instalar en todas las plataformas compatibles con Visual Studio Code. Observe los siguientes requisitos previos para las distintas plataformas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 

@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: En este artículo se proporciona información general conceptual de un flujo de trabajo de CI/CD con GitOps.
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenedores, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121786"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025873"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flujo de trabajo de CI/CD con GitOps: Kubernetes habilitado para Azure Arc
 
@@ -30,7 +30,7 @@ Considere una aplicación implementada en uno o varios entornos de Kubernetes.
 ### <a name="application-repo"></a>Repositorio de aplicaciones
 El repositorio de aplicaciones contiene el código de la aplicación en el que los desarrolladores trabajan durante su bucle interno. Las plantillas de implementación de la aplicación residen en este repositorio en un formato genérico, como Helm o Kustomize. No se almacenan los valores específicos del entorno. Los cambios en este repositorio invocan una canalización de PR o CI que inicia el proceso de implementación.
 ### <a name="container-registry"></a>Container Registry
-El registro de contenedor contiene todas las imágenes propias y de terceros que se usan en los entornos de Kubernetes. Etiquete imágenes de aplicaciones propias con etiquetas en lenguaje natural y la confirmación de Git usada para compilar la imagen. Almacene en caché imágenes de terceros para la seguridad, la velocidad y la resistencia. Establezca un plan para las pruebas y la integración oportunas de las actualizaciones de seguridad. Para obtener más información, vea la guía [Consumo y mantenimiento de contenido público con Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) para obtener un ejemplo.
+El registro de contenedor contiene todas las imágenes propias y de terceros que se usan en los entornos de Kubernetes. Etiquete imágenes de aplicaciones propias con etiquetas en lenguaje natural y la confirmación de Git usada para compilar la imagen. Almacene en caché imágenes de terceros para la seguridad, la velocidad y la resistencia. Establezca un plan para las pruebas y la integración oportunas de las actualizaciones de seguridad. Para obtener más información, vea la guía [Consumo y mantenimiento de contenido público con Azure Container Registry Tasks](../../container-registry/tasks-consume-public-content.md) para obtener un ejemplo.
 ### <a name="pr-pipeline"></a>Canalización de PR
 Las solicitudes de incorporación de cambios (PR) al repositorio de la aplicación se validan con una ejecución correcta de la canalización de PR. Esta canalización ejecuta las pruebas de calidad básicas, como el proceso de linting y las pruebas unitarias en el código de la aplicación. La canalización prueba la aplicación y aplica procesos de linting en los archivos de Docker y las plantillas de Helm utilizados para realizar implementaciones en un entorno de Kubernetes. Las imágenes de Docker se deben compilar y probar, pero no se pueden insertar. Mantenga una duración de la canalización relativamente corta para permitir una iteración rápida.
 ### <a name="ci-pipeline"></a>Canalización de CI

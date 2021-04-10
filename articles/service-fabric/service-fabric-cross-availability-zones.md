@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714959"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105544390"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -35,7 +35,19 @@ La topología recomendada para el tipo de nodo principal requiere los recursos q
 >[!NOTE]
 > La propiedad de grupo de colocación única del conjunto de escalado de máquinas virtuales debe establecerse en true, ya que Service Fabric no admite un conjunto de escalado de máquinas virtuales único que se distribuya entre zonas.
 
- ![Diagrama que muestra la arquitectura de la zona de disponibilidad de Azure Service Fabric.][sf-architecture]
+Diagrama que muestra el ![diagrama de la arquitectura de la zona de disponibilidad de Azure Service Fabric, que muestra la arquitectura de la zona de disponibilidad de Azure Service Fabric.][sf-architecture]
+
+Lista de nodos de ejemplo que muestra los formatos FD/UD en las zonas de extensión de un conjunto de escalado de máquinas virtuales.
+
+ ![Lista de nodos de ejemplo que muestra los formatos FD/UD en las zonas de extensión de un conjunto de escalado de máquinas virtuales.][sf-multi-az-nodes]
+
+**Distribución de las réplicas de servicio entre zonas**: cuando se implementa un servicio en el elemento nodeTypes que es una zonas de expansión, las réplicas se colocan para asegurarse de que están en zonas independientes. Esto garantiza que los dominios de error de los nodos presentes en cada uno de estos nodeTypes se configuren con la información de zona (es decir, FD = fd:/zone1/1 etc.). Por ejemplo: para 5 réplicas o instancias de un servicio, la distribución será 2-2-1 y el tiempo de ejecución intentará asegurarse de que la distribución sea la misma en AZ.
+
+**Configuración de la réplica de servicio de usuario**: los servicios de usuario con estado implementados en la zona de disponibilidad cruzada nodeTypes deben configurarse con esta opción: recuento de réplicas con destino = 9, min = 5. Esta configuración le ayudará a garantizar que el servicio funcione incluso cuando una zona deje de funcionar, ya que las 6 réplicas seguirán activas en las otras dos zonas. Una actualización de la aplicación en este escenario también se realizará.
+
+**Elemento ReliabilityLevel del clúster**: define el número de nodos de inicialización en el clúster y también el tamaño de réplica de los servicios del sistema. Como la configuración de una zona de disponibilidad cruzada tiene un número mayor de nodos, que se reparten entre zonas para habilitar la resistencia de la zona, un valor de confiabilidad mayor garantizará que el nodo más los nodos de inicialización y las réplicas del servicio de sistema estén presentes y se distribuyan uniformemente entre zonas, de modo que, en el caso de un error de zona, el clúster y los servicios del sistema no se vean afectados. "ReliabilityLevel = Platinum" garantizará que haya 9 nodos de inicialización distribuidos entre las zonas del clúster con 3 semillas en cada zona, por lo que es el elemento recomendado para la configuración de la zona de disponibilidad cruzada.
+
+**Escenario de una zona que no funciona**: cuando una zona deja de funcionar, todos los nodos de esa zona aparecerán como inactivos. Las réplicas de servicio en estos nodos también estarán inactivas. Dado que hay réplicas en las otras zonas, el servicio sigue teniendo capacidad de respuesta con las réplicas principales que conmutan por error a las zonas que funcionan. Los servicios aparecerán en estado de advertencia, ya que el número de réplicas de destino aún no se ha logrado y el número de VM todavía es mayor que el tamaño mínimo de réplica de destino. Posteriormente, el equilibrador de carga de Service Fabric abrirá las réplicas en las zonas de trabajo para que coincidan con el recuento de réplicas de destino configurado. En este momento, los servicios aparecerán en buen estado. Cuando se realiza una copia de seguridad de la zona que estaba inactiva, el equilibrio de carga volverá a distribuir todas las réplicas de servicio uniformemente en todas las zonas.
 
 ## <a name="networking-requirements"></a>Requisitos de red
 ### <a name="public-ip-and-load-balancer-resource"></a>Recurso de IP pública y Load Balancer
@@ -336,6 +348,8 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 La solución mencionada anteriormente usa un elemento nodeType por zona de disponibilidad. La solución siguiente permitirá que los usuarios implementen 3 zonas de disponibildad en el mismo elemento nodeType.
 
+**Como esta característica se encuentra actualmente en versión preliminar, no se admite actualmente en escenarios de producción.**
+
 La plantilla de ejemplo completa se encuentra [aquí](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
 ![Arquitectura de la zona de disponibilidad de Azure Service Fabric][sf-multi-az-arch]
@@ -345,7 +359,7 @@ Para habilitar zonas en un conjunto de escalado de máquinas virtuales, debe inc
 
 * El primer valor es la propiedad **zones**, que especifica las zonas de disponibilidad presentes en el conjunto de escalado de máquinas virtuales.
 * El segundo valor es la propiedad "singlePlacementGroup", que se debe establecer en true. **El conjunto de escalado distribuido en tres zonas de disponibilidad puede escalar hasta 300 máquinas virtuales, incluso con "singlePlacementGroup = true".**
-* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta. Debe ser "true" para evitar la distribución desequilibrada de las máquinas virtuales entre zonas. Es menos probable que un clúster con una distribución desequilibrada de máquinas virtuales entre zonas sobreviva al escenario de una zona fuera de servicio. Lea sobre el [equilibrio de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta. Este valor debe ser "true". Esto garantiza que las distribuciones de VM entre zonas no estén desequilibradas, y gracias a ello, cuando una de las zonas deja de funcionar, las otras dos zonas disponen de suficientes VM para asegurarse de que el clúster sigue ejecutándose sin interrupciones. Es posible que un clúster con una distribución de VM desequilibrada no sobreviva a un escenario de zona que no funcione bien, ya que esa zona podría tener la mayoría de las VM. La distribución sin equilibrar de VM entre zonas también conducirá a problemas relacionados con la colocación del servicio o con el bloqueo de las actualizaciones de infraestructura entre otros. Lea sobre el [equilibrio de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * No es necesario que las invalidaciones FaultDomain y UpgradeDomain estén configuradas.
 
 ```json
@@ -363,7 +377,7 @@ Para habilitar zonas en un conjunto de escalado de máquinas virtuales, debe inc
 ```
 
 >[!NOTE]
-> * **Los clústeres de SF deben tener al menos un elemento nodeType principal. El valor de durabilityLevel de los elementos nodeType principales debe ser Silver o superior.**
+> * **Los clústeres de Service Fabric deben tener al menos un elemento nodeType principal. El valor de durabilityLevel de los elementos nodeType principales debe ser Silver o superior.**
 > * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales se debe configurar con al menos 3 zonas de disponibilidad, independientemente del valor de durabilityLevel.
 > * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales con durabilidad Silver (o superior) debe tener al menos 15 máquinas virtuales.
 > * La zona de disponibilidad que abarca el conjunto de escalado de máquinas virtuales con durabilidad Bronze debe tener al menos 6 máquinas virtuales.
@@ -373,13 +387,13 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 
 * El primer valor es **multipleAvailabilityZones**, que se debe establecer en true para el elemento nodeType.
 * El segundo valor es **sfZonalUpgradeMode** y es opcional. Esta propiedad no se puede modificar si ya existe un elemento NodeType con varias zonas de disponibilidad en el clúster.
-      La propiedad controla la agrupación lógica de máquinas virtuales en los dominios de actualización.
-          Si el valor se establece en "Parallel" (Paralelo): las máquinas virtuales que se encuentren bajo el elemento NodeType se agruparán en dominios de actualización y omitirán la información de la zona en cinco dominios de actualización.
-          Si el valor se omite o se establece en "Hierarchical" (Jerárquico): las máquinas virtuales se agruparán para reflejar la distribución de zonas en hasta 15 dominios de actualización. Cada una de las 3 zonas tendrá 5 dominios de actualización.
-          Esta propiedad solo define el comportamiento de actualización de la aplicación ServiceFabric y las actualizaciones de código. Las actualizaciones del conjunto de escalado de máquinas virtuales subyacente seguirán siendo paralelas en todas las zonas de disponibilidad.
-      Esta propiedad no afectará la distribución del dominio de actualización para los tipos de nodo que no tienen varias zonas habilitadas.
+  La propiedad controla la agrupación lógica de máquinas virtuales en los dominios de actualización.
+  **Si el valor se establece en "Parallel"** : las VM que se encuentren bajo el elemento NodeType se agruparán en dominios de actualización y omitirán la información de la zona en cinco dominios de actualización. Esto hará que el valor UD0 de todas las zonas se actualice al mismo tiempo. Este modo de implementación es más rápido para las actualizaciones, pero no se recomienda, ya que se trata de instrucciones SDP, que indican que las actualizaciones deben aplicarse solo a una zona cada vez.
+  **Si el valor se omite o se establece en "Hierarchical"** : las VM se agruparán para reflejar la distribución de zonas en hasta 15 dominios de actualización. Cada una de las 3 zonas tendrá 5 dominios de actualización. De este modo, se asegura de que las actualizaciones tengan en cuenta las zonas, pasando a la siguiente zona solo después de completar 5 UD en la primera zona, y aumentando lentamente a 15 UD (esto es, 5 UD en 3 zonas), que es más seguro desde la perspectiva del clúster y la aplicación de usuario.
+  Esta propiedad solo define el comportamiento de actualización de la aplicación ServiceFabric y las actualizaciones de código. Las actualizaciones del conjunto de escalado de máquinas virtuales subyacente seguirán siendo paralelas en todas las zonas de disponibilidad.
+  Esta propiedad no afectará la distribución del dominio de actualización para los tipos de nodo que no tienen varias zonas habilitadas.
 * El tercer valor es **vmssZonalUpgradeMode = Parallel**. Se trata de una propiedad *obligatoria* que se va a configurar en el clúster, si se agrega un elemento nodeType con varias zonas de disponibilidad. Esta propiedad define el modo de actualización para las actualizaciones del conjunto de escalado de máquinas virtuales que se producirán en paralelo en todas las zonas de disponibilidad de una vez.
-      Ahora mismo, esta propiedad solo se puede establecer en paralelo.
+  Ahora mismo, esta propiedad solo se puede establecer en paralelo.
 * El valor de apiVersion del recurso de clúster de Service Fabric debe ser "2020-12-01-preview" o superior.
 * La versión del código del clúster debe ser "7.2.445" o superior.
 
@@ -408,7 +422,7 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 >[!NOTE]
 > * Los recursos de Load Balancer e IP pública deben usar el SKU estándar tal como se describiró anteriormente en el artículo.
 > * La propiedad "multipleAvailabilityZones" del elemento nodeType solo se puede definir en el momento de la creación de nodeType y no se pueden modificar más adelante. Por lo tanto, los elementos nodeType no se pueden configurar con esta propiedad.
-> * Cuando "sfZonalUpgradeMode" se omite o se establece en "Jerárquico", las implementaciones de clúster y aplicación serán más lentas, porque habrá más dominios de actualización en el clúster. Es importante ajustar correctamente los tiempos de inactividad de la directiva de actualización para incorporar la duración del tiempo de actualización para 15 dominios de actualización.
+> * Cuando "sfZonalUpgradeMode" se omite o se establece en "Jerárquico", las implementaciones de clúster y aplicación serán más lentas, porque habrá más dominios de actualización en el clúster. Es importante ajustar correctamente los tiempos de inactividad de la directiva de actualización para incorporar la duración del tiempo de actualización para 15 dominios de actualización. La directiva de actualización para la aplicación y el clúster debe actualizarse para asegurarse de que la implementación no supera los tiempos de espera de implementación de Azure Resource Service de 12 horas. Esto significa que la implementación no debe tomar más de 12 horas para 15UD, es decir, no debe tomar más de 40 min/UD.
 > * Establezca la opción **reliabilityLevel = Platinum** del clúster para garantizar que el clúster sobreviva al escenario con una zona fuera de servicio.
 
 >[!NOTE]
@@ -426,3 +440,4 @@ En [este artículo](./service-fabric-scale-up-primary-node-type.md) se encuentra
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
+[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png

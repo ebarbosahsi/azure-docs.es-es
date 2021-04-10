@@ -7,10 +7,10 @@ author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
 ms.openlocfilehash: 0283779e10ac3e6070e9fd73d186af35972cad22
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104582891"
 ---
 # <a name="hdinsight-40-component-versions"></a>Versiones de componentes de HDInsight 4.0
@@ -46,7 +46,7 @@ En esta tabla se enumeran ciertos tipos de clúster de HDInsight 4.0 que se han
 | Tipo de clúster                    | Versión del marco | Fecha de expiración del soporte técnico      | Fecha de retirada |
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | 30 de junio de 2020                | 30 de junio de 2020   |
-| HDInsight 4.0 Kafka             | 1,1               | 31 de diciembre de 2020                 | 31 de diciembre de 2020    |
+| HDInsight 4.0 Kafka             | 1.1               | 31 de diciembre de 2020                 | 31 de diciembre de 2020    |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

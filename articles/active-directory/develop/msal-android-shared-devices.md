@@ -1,7 +1,7 @@
 ---
 title: Modo de dispositivo compartido para dispositivos Android
 titleSuffix: Microsoft identity platform | Azure
-description: Aprenda a habilitar el modo de dispositivo compartido para que los trabajadores de primera línea compartan un dispositivo de Android
+description: Aprenda a habilitar el modo de dispositivo compartido para que los trabajadores de primera línea compartan un dispositivo de Android.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 005f69473fa238d56cf7d582a8af4000166d6939
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578828"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612439"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartido para dispositivos Android
 

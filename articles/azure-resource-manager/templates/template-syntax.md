@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de plantillas
 description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager (plantillas de ARM) mediante la sintaxis declarativa de JSON.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 03/26/2021
+ms.openlocfilehash: 42b893e25155bb3ebe66e0deac180698446a2c9b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612184"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -193,6 +193,7 @@ Defina recursos con la siguiente estructura:
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "scope": "<target-scope-for-extension-resources>",
       "copy": {
           "name": "<name-of-copy-loop>",
           "count": <number-of-iterations>,
@@ -235,6 +236,7 @@ Defina recursos con la siguiente estructura:
 | etiquetas |No |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
 | sku | No | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
 | kind | No | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
+| scope | No | La propiedad scope solo está disponible para los [tipos de recursos de extensión](../management/extension-resource-types.md). Úsela al especificar un ámbito diferente del ámbito de implementación. Consulte [Establecimiento del ámbito de los recursos de extensión en las plantillas de Resource Manager](scope-extension-resources.md). |
 | copy |No |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para obtener más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md). |
 | plan | No | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. |
 | properties |No |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. Para determinar los valores disponibles, consulte la [referencia de plantilla](/azure/templates/). |

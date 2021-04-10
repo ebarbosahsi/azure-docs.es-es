@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653721"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563171"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso de la CLI de Azure para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
 
 - Una cuenta de almacenamiento que tenga habilitado un espacio de nombres jerárquico. Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
-- CLI de Azure versión `2.6.0` o posterior.
+- CLI de Azure versión `2.14.0` o posterior.
 
 - Uno de los siguientes permisos de seguridad:
 
@@ -137,6 +137,9 @@ En este ejemplo se establece la ACL en un archivo del usuario propietario, el gr
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> Para establecer la ACL de un grupo o usuario específico, use sus identificadores de objeto correspondientes. Por ejemplo, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 En la siguiente imagen se muestra la salida después de establecer la ACL de un archivo.
 
 ![Obtención de una salida de ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -184,6 +187,9 @@ En este ejemplo se actualiza la ACL de un **archivo**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> Para actualizar la ACL de un grupo o usuario específico, use sus identificadores de objeto correspondientes. Por ejemplo, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` o `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 También puede actualizar el usuario propietario y el grupo de un directorio o archivo estableciendo los parámetros `--owner` o `group` en el identificador de entidad o en el nombre principal de usuario (UPN) de un usuario.
 

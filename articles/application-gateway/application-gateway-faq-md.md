@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576138"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102619161"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -470,9 +470,9 @@ Por lo general, se ve un estado desconocido cuando el acceso al back-end está b
 
 Debido a limitaciones actuales de la plataforma, si tiene un NSG en la subred de Application Gateway v2 (Standard_v2, WAF_v2) y ha habilitado los registros de flujo de NSG, se observa un comportamiento no determinista y el escenario no se admite.
 
-### <a name="does-application-gateway-store-customer-data"></a>¿Almacena Application Gateway datos de clientes?
+### <a name="where-does-application-gateway-store-customer-data"></a>¿Dónde almacena Application Gateway los datos de los clientes?
 
-No, Application Gateway no almacena datos de clientes.
+Application Gateway no mueve ni almacena los datos de los clientes fuera de la región en los que se implementan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/15/2021
 ms.author: duau
 ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103573904"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Registro de Azure Front Door Estándar y Premium (versión preliminar)

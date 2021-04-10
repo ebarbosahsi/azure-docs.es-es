@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600809"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609282"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultas de Azure Cognitive Search
 
@@ -77,7 +77,7 @@ Si prevé un uso intensivo de los operadores booleanos, lo cual es más probable
 
 ## <a name="autocomplete-and-suggested-queries"></a>Autocomplete y consultas sugeridas
 
-[Autocomplete o los resultados sugeridos](search-autocomplete-tutorial.md) son alternativas a **`search`** que activan solicitudes de consulta sucesivas basadas en entradas de cadenas parciales (después de cada carácter) en una experiencia de búsqueda a medida que escribe. Puede usar los parámetros **`autocomplete`** y **`suggestions`** juntos o por separado, como se describe en [este tutorial](tutorial-csharp-type-ahead-and-suggestions.md), pero no puede usarlos con **`search`** . Los términos completados y las consultas sugeridas se derivan del contenido del índice. El motor nunca devolverá una cadena o sugerencia que no exista en el índice. Para más información, consulte [Autocomplete (API REST)](/rest/api/searchservice/autocomplete) y [Suggestions (API REST)](/rest/api/searchservice/suggestions).
+[Autocomplete o los resultados sugeridos](search-add-autocomplete-suggestions.md) son alternativas a **`search`** que activan solicitudes de consulta sucesivas basadas en entradas de cadenas parciales (después de cada carácter) en una experiencia de búsqueda a medida que escribe. Puede usar los parámetros **`autocomplete`** y **`suggestions`** juntos o por separado, como se describe en [este tutorial](tutorial-csharp-type-ahead-and-suggestions.md), pero no puede usarlos con **`search`** . Los términos completados y las consultas sugeridas se derivan del contenido del índice. El motor nunca devolverá una cadena o sugerencia que no exista en el índice. Para más información, consulte [Autocomplete (API REST)](/rest/api/searchservice/autocomplete) y [Suggestions (API REST)](/rest/api/searchservice/suggestions).
 
 ## <a name="filter-search"></a>Filtrado de las búsquedas
 

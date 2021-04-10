@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773052"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612388"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introducción a la traducción de documentos (versión preliminar)
 
@@ -37,8 +37,8 @@ Para empezar, necesitará lo siguiente:
 
 > [!IMPORTANT]
 >
-> * No utilizará el punto de conexión que se encuentra en la página _Claves y punto de conexión_ del recurso en Azure Portal, ni el punto de conexión global de Translator (`api.cognitive.microsofttranslator.com`) para realizar solicitudes HTTP de traducción de documentos.
 > * **Todas las solicitudes de API al servicio de traducción de documentos requieren un punto de conexión de dominio personalizado**.
+> * No utilizará el punto de conexión que se encuentra en la página _Claves y punto de conexión_ del recurso en Azure Portal, ni el punto de conexión global de Translator (`api.cognitive.microsofttranslator.com`) para realizar solicitudes HTTP de traducción de documentos.
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>¿Qué es el punto de conexión de dominio personalizado?
 
@@ -101,7 +101,7 @@ Los elementos `sourceUrl`, `targetUrl` y el elemento opcional `glossaryUrl` debe
 
 * Cree un proyecto de Node.js.
 * Instale la biblioteca Axios con `npm i axios`.
-* Copie y pegue el código siguiente en el proyecto.
+* Copie el código siguiente y péguelo en el proyecto.
 * Establezca los valores del punto de conexión, la clave de suscripción y la dirección URL del contenedor.
 * Ejecutar el programa
 
@@ -174,7 +174,7 @@ gradle run
 * Establezca los valores del punto de conexión, la clave de suscripción y la dirección URL del contenedor.
 * Guarde el archivo con la extensión ".go".
 * Abra un símbolo del sistema en un equipo que tenga instalado Go.
-* Compile el archivo, por ejemplo: "go build example-code.go".
+* Compile el archivo. Por ejemplo: "go build example-code.go".
 * Ejecute el archivo, por ejemplo: "example-code".
 
  ---
@@ -207,26 +207,49 @@ En cada solicitud de API de traducción de documentos se incluyen los siguientes
 ## <a name="post-a-translation-request"></a>Envío mediante POST de una solicitud de traducción
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>Envío mediante POST del cuerpo de la solicitud sin el elemento opcional glossaryURL
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>Envío mediante POST del cuerpo de una solicitud para traducir todos los documentos en un contenedor
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>Envío mediante POST del cuerpo de una solicitud para traducir un documento específico en un contenedor
+
+* Asegúrese de haber especificado "storageType": "File".
+* Asegúrese de haber creado la URL de origen y el token de SAS para el blob/documento específico (no para el contenedor). 
+* Asegúrese de haber especificado el nombre del archivo de destino como parte de la dirección URL de destino, aunque el token de SAS sigue siendo para el contenedor.
+* La solicitud de ejemplo siguiente muestra un único documento que se traduce a dos idiomas de destino.
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,40 +258,6 @@ En cada solicitud de API de traducción de documentos se incluyen los siguientes
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>Envío mediante POST del cuerpo de la solicitud con el elemento opcional glossaryURL
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>Límites del contenido
 
-En la tabla siguiente se enumeran los límites de los datos que se envían a la traducción de documentos.
+En la tabla siguiente se enumeran los límites de los datos que se envían a Traducción de documentos (versión preliminar).
 
 |Atributo | Límite|
 |---|---|

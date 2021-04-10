@@ -4,10 +4,10 @@ description: En este artículo se describe cómo asociar una galería de imágen
 ms.topic: article
 ms.date: 09/11/2020
 ms.openlocfilehash: 99b944ad85e311cd66b0a1cec4e585de37f83500
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98786408"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
