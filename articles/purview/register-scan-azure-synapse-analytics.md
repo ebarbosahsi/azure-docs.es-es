@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875016"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108615"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrar y realizar un examen de Azure Synapse Analytics
 
@@ -93,7 +93,7 @@ Asimismo, debe crear un usuario de Azure AD en Azure Synapse Analytics siguiend
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -127,7 +127,7 @@ Para registrar un nuevo servidor de Azure Synapse Analytics en el catálogo de d
 En la pantalla **Registrar orígenes (Azure Synapse Analytics)** , haga lo siguiente:
 
 1. Escriba un **nombre** con el que se mostrará el origen de datos en el catálogo.
-1. Elija cómo quiere apuntar a la cuenta de almacenamiento elegida:
+1. Elija cómo desea apuntar a su servidor SQL Server lógico deseado:
    1. Seleccione **From Azure subscription** (Desde una suscripción de Azure), seleccione la suscripción adecuada en el cuadro desplegable **Suscripción de Azure** y el servidor correspondiente en el cuadro desplegable **Nombre del servidor**.
    1. O bien, puede seleccionar **Escribir manualmente** y especificar un valor para **Nombre del servidor**.
 1. Haga clic en **Finalizar** para registrar el origen de datos.

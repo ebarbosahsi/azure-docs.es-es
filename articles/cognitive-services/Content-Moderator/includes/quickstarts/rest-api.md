@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 859c57fb6caeee730d5ba937bacf5d29a25ca173
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 747f97e54dbe10ca055281c189c805e3dd97c867
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511022"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582854"
 ---
 Introducción a Azure Content Moderator REST API. 
 
@@ -32,7 +32,7 @@ Use Content Moderator REST API para:
 * Una vez que tenga la suscripción de Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="cree un recurso de Content Moderator"  target="_blank">Creación de un recurso de Content Moderator</a> en Azure Portal para obtener la clave y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
     * Necesitará la clave y el punto de conexión del recurso que cree para conectar la aplicación a Content Moderator. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
     * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
-* [PowerShell versión 6.0, o superior,](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
+* [PowerShell versión 6.0, o superior,](/powershell/scripting/install/installing-powershell-core-on-windows) o una aplicación de la línea de comandos similar.
 
 
 ## <a name="moderate-text"></a>Moderar texto
@@ -178,4 +178,3 @@ En este inicio rápido, ha aprendido a usar Content Moderator REST API para real
 
 * [Conceptos de moderación de imágenes](../../image-moderation-api.md)
 * [Conceptos de moderación de texto](../../text-moderation-api.md)
-* [¿Qué es Azure Content Moderator?](../../overview.md)

@@ -1,32 +1,32 @@
 ---
 title: Arquitectura del dispositivo de Azure Migrate
-description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
-author: vikram1988
-ms.author: vibansa
+description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la detección, evaluación y migración del servidor.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/18/2021
+ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096197"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785247"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
-En este artículo se describen los procesos y la arquitectura del dispositivo de Azure Migrate. El dispositivo de Azure Migrate es ligero y se implementa de forma local para detectar máquinas virtuales y servidores físicos para su migración a Azure.
+En este artículo se describen los procesos y la arquitectura del dispositivo de Azure Migrate. El dispositivo de Azure Migrate es ligero y se implementa de forma local para detectar servidores para su migración a Azure.
 
 ## <a name="deployment-scenarios"></a>Escenarios de implementación
 
 El dispositivo Azure Migrate se usa en los escenarios siguientes.
 
-**Escenario** | **Herramienta** | **Se usa para** 
+**Escenario** | **Herramienta** | **Se usa para**
 --- | --- | ---
-**Detección y evaluación de servidores que se ejecutan en el entorno de VMware** | Server Assessment de Azure Migrate | Detectar servidores que se ejecutan en el entorno de VMware.<br/><br/> Realizar la detección de aplicaciones instaladas, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
+**Detección y evaluación de servidores que se ejecutan en el entorno de VMware** | Azure Migrate: Detección y evaluación | Detectar servidores que se ejecutan en el entorno de VMware.<br/><br/> Realizar la detección del inventario de software instaladas, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
 **Migración sin agente de servidores que se ejecutan en el entorno de VMware** | Server Migration de Azure Migrate | Detectar servidores que se ejecutan en el entorno de VMware.<br/><br/> Replicar servidores sin necesidad de instalar ningún agente en ellos.
-**Detección y evaluación de servidores que se ejecutan en el entorno de Hyper-V** | Server Assessment de Azure Migrate | Detectar servidores que se ejecutan en el entorno de Hyper-V.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
-**Detección y evaluación de servidores físicos o virtualizados locales** |  Server Assessment de Azure Migrate |  Detectar servidores físicos o virtualizados locales.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
+**Detección y evaluación de servidores que se ejecutan en el entorno de Hyper-V** | Azure Migrate: Detección y evaluación | Detectar servidores que se ejecutan en el entorno de Hyper-V.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
+**Detección y evaluación de servidores físicos o virtualizados locales** |  Azure Migrate: Detección y evaluación |  Detectar servidores físicos o virtualizados locales.<br/><br/> Recopilar la configuración del servidor y los metadatos de rendimiento para las evaluaciones.
 
 ## <a name="deployment-methods"></a>Métodos de implementación
 
@@ -53,7 +53,6 @@ El dispositivo tiene los servicios siguientes:
 > [!Note]
 > Los tres últimos servicios solo están disponibles en el dispositivo que se usa para la detección y evaluación de los servidores que se ejecutan en el entorno de VMware.<br/> La detección y valoración de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
-
 ## <a name="discovery-and-collection-process"></a>Proceso de detección y recopilación
 
 :::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Arquitectura del dispositivo":::
@@ -64,9 +63,9 @@ El dispositivo se comunica con los orígenes de detección mediante el siguiente
 ---|---|---|---
 **Inicio de la detección** | De forma predeterminada, el dispositivo se comunica con la instancia de vCenter Server en el puerto TCP 443. Si vCenter Server escucha en otro puerto, puede configurarlo en administrador de configuración del dispositivo. | El dispositivo se comunica con los hosts de Hyper-V en el puerto 5985 (HTTP) de WinRM. | El dispositivo se comunica con los servidores de Windows a través del puerto de WinRM 5985 (HTTP) con los servidores de Linux a través del puerto 22 (TCP).
 **Recopilación de metadatos de configuración y rendimiento** | El dispositivo recopila los metadatos de los servidores que se ejecutan en vCenter Server mediante las API de vSphere; para ello, se conecta al puerto 443 (puerto predeterminado) o a cualquier otro puerto que vCenter Server escuche. | El dispositivo recopila los metadatos de los servidores que se ejecutan en hosts de Hyper-V mediante una sesión del Modelo de información común (CIM) con hosts en el puerto 5985.| El dispositivo recopila metadatos de servidores de Windows mediante la sesión del Modelo de información común (CIM) con servidores en el puerto 5985 y desde servidores de Linux mediante la conectividad SSH en el puerto 22.
-**Enviar datos de detección** | El dispositivo envía los datos recopilados a Azure Migrate: Server Assessment y Azure Migrate: Server Migration a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft). | El dispositivo envía los datos recopilados a Azure Migrate: Server Assessment a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).| El dispositivo envía los datos recopilados a Azure Migrate: Server Assessment a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).
+**Enviar datos de detección** | El dispositivo envía los datos recopilados a Azure Migrate: Detección y evaluación y Azure Migrate: Server Migration a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft). | El dispositivo envía los datos recopilados a Azure Migrate: Detección y evaluación a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).| El dispositivo envía los datos recopilados a Azure Migrate: Detección y evaluación a través del puerto SSL 443.<br/><br/> El dispositivo puede conectarse a Azure a través de Internet o mediante ExpressRoute (se requiere el emparejamiento de Microsoft).
 **Frecuencia de recopilación de datos** | Los metadatos de configuración se recopilan y se envían cada 30 minutos. <br/><br/> Los metadatos de rendimiento se recopilan cada 20 segundos y se agregan para enviar un punto de datos a Azure cada 10 minutos. <br/><br/> Los datos de inventario de software se envían a Azure una vez cada 12 horas. <br/><br/> Los datos de dependencia sin agente se recopilan cada 5 minutos, se agregan en el dispositivo y se envían a Azure cada 6 horas. <br/><br/> Los datos de configuración de SQL Server se actualizan una vez cada 24 horas y los datos de rendimiento se capturan cada 30 segundos.| Los metadatos de configuración se recopilan y se envían cada 30 minutos. <br/><br/> Los metadatos de rendimiento se recopilan cada 30 segundos y se agregan para enviar un punto de datos a Azure cada 10 minutos.|  Los metadatos de configuración se recopilan y se envían cada 30 minutos. <br/><br/> Los metadatos de rendimiento se recopilan cada 5 minutos y se agregan para enviar un punto de datos a Azure cada 10 minutos.
-**Evaluación y migración** | Ya puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante Azure Migrate: Server Assessment.<br/><br/>Asimismo, también puede comenzar a migrar servidores que se ejecutan en el entorno de VMware mediante la herramienta Azure Migrate: Server Migration para organizar la replicación de servidores sin agente.| Puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante la herramienta Azure Migrate: Server Assessment. | Puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante la herramienta Azure Migrate: Server Assessment.
+**Evaluación y migración** | Puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante la herramienta Azure Migrate: Detección y evaluación.<br/><br/>Asimismo, también puede comenzar a migrar servidores que se ejecutan en el entorno de VMware mediante la herramienta Azure Migrate: Server Migration para organizar la replicación de servidores sin agente.| Puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante la herramienta Azure Migrate: Detección y evaluación. | Puede crear evaluaciones a partir de los metadatos que haya recopilado el dispositivo mediante la herramienta Azure Migrate: Detección y evaluación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

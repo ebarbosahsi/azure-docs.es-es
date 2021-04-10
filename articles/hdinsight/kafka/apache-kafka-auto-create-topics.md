@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: b416623d6637cfe8e2c1cd795dd62553f8c0aed4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3766d41959383d802e50aafbf59b9841d1c8d74e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933207"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870694"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Configuración de Apache Kafka en HDInsight para crear automáticamente los temas
 
@@ -25,31 +25,31 @@ Para habilitar la creación automática de temas en un clúster existente median
 
 1. Desde **Paneles de clúster**, seleccione **Inicio de Ambari**.
 
-    ![Imagen Azure Portal con el panel de clúster seleccionado](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png" alt-text="Imagen Azure Portal con el panel de clúster seleccionado" border="true":::
 
     Cuando se le solicite, realice la autenticación mediante las credenciales de inicio de sesión (administrador) del clúster. En su lugar, puede conectarse a Ambari directamente desde `https://CLUSTERNAME.azurehdinsight.net/`, donde `CLUSTERNAME` es el nombre del clúster de Kafka.
 
 1. Seleccione el servicio Kafka en la lista de la parte izquierda de la página.
 
-    ![Servicio de Apache Ambari: pestaña de lista](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-service-list.png" alt-text="Servicio de Apache Ambari: pestaña de lista" border="true":::
 
 1. Seleccione Configuraciones en el medio de la página.
 
-    ![Servicio de Apache Ambari: pestaña de configuración](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-service-config.png" alt-text="Servicio de Apache Ambari: pestaña de configuración" border="true":::
 
 1. En el campo Filtro, escriba un valor de `auto.create`.
 
-    ![Apache Ambari: campo de filtro de búsqueda](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png" alt-text="Apache Ambari: campo de filtro de búsqueda" border="true":::
 
     Esta configuración filtra la lista de propiedades y muestra el valor `auto.create.topics.enable`.
 
 1. Cambie el valor de `auto.create.topics.enable` a `true` y, luego, seleccione **Guardar**. Agregue una nota y, a continuación, seleccione de nuevo **Guardar**.
 
-    ![Imagen de la entrada de auto.create.topics.enable](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png" alt-text="Imagen de la entrada de auto.create.topics.enable" border="true":::
 
-1. Seleccione el servicio __Kafka__, seleccione __Reiniciar__ y luego seleccione Restart all affected (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
+1. Seleccione el servicio Kafka, seleccione __Reiniciar__ y luego seleccione __Restart all affected__ (Reiniciar todos los afectados). Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
 
-    !["Reinicio de todas las entradas afectadas en Apache Ambari"](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    :::image type="content" source="./media/apache-kafka-auto-create-topics/restart-all-affected.png" alt-text="&quot;Reinicio de todas las entradas afectadas en Apache Ambari&quot;" border="true":::
 
 > [!NOTE]  
 > También puede establecer valores de Ambari mediante la API de REST de Ambari. Esto suele ser más difícil, ya que tiene que hacer varias llamadas de REST para recuperar la configuración actual, modificarla, etc. Para obtener más información, consulte el documento [Manage HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) (Administrar clústeres de HDInsight con la API REST de Apache Ambari).

@@ -3,12 +3,12 @@ title: 'Tutorial de grabación de vídeo basada en eventos en la nube y reproduc
 description: En este tutorial, obtendrá información sobre cómo usar Azure Live Video Analytics en Azure IoT Edge para realizar una grabación de vídeo basada en eventos en la nube y reproducirla desde la nube.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702324"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279823"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación de vídeo basada en eventos en la nube y reproducción desde la nube
 
@@ -426,7 +426,7 @@ Puede examinar el recurso de Media Services que creó el grafo; para ello, inici
 1. En el asistente que se abre, acepte las opciones predeterminadas y seleccione **Agregar**. Para más información, consulte [Reproducción de vídeo](video-playback-concept.md).
 
     > [!TIP]
-    > Asegúrese de que el [punto de conexión de streaming está en ejecución](../latest/streaming-endpoint-concept.md).
+    > Asegúrese de que el [punto de conexión de streaming está en ejecución](../latest/stream-streaming-endpoint-concept.md).
 1. El reproductor debería cargar el vídeo. Seleccione **Reproducir** para verlo.
 
 > [!NOTE]

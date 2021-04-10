@@ -1,45 +1,47 @@
 ---
-title: Bibliotecas cliente y API REST para Azure Communication Services
+title: SDK y API de REST para Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Obtenga más información acerca de las bibliotecas cliente de Azure Communication Services y las API REST.
+description: Obtenga más información acerca de los SDK de Azure Communication Services y las API de REST.
 author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495647"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605202"
 ---
-# <a name="client-libraries-and-rest-apis"></a>Bibliotecas cliente y API REST
+# <a name="sdks-and-rest-apis"></a>SDK y API REST
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Las funcionalidades de Azure Communication Services están organizadas conceptualmente en seis áreas. La mayoría de las áreas tienen SDK de código abierto totalmente programados con las API de REST publicadas que puede usar directamente a través de Internet. El SDK de llamada usa interfaces de red propietarias y tiene actualmente formato de código cerrado. En el [repositorio de GitHub de Azure Communication Services](https://github.com/Azure/communication) hay publicados ejemplos y detalles técnicos adicionales de los SDK.
+
+## <a name="rest-apis"></a>API de REST
+Las API de Communication Services están documentadas junto con otras API REST de Azure en [docs.microsoft.com](/rest/api/azure/). Esta documentación le indicará cómo estructurar los mensajes HTTP y ofrece instrucciones para el uso de Postman. Esta documentación también se ofrece en formato Swagger en [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 
-Las funcionalidades de Azure Communication Services están organizadas conceptualmente en seis áreas. Algunas áreas tienen bibliotecas cliente de código abierto completamente. La biblioteca cliente de llamadas utiliza interfaces de red propietarias y tiene actualmente formato de código cerrado, y la biblioteca de chat incluye una dependencia de código cerrado. En el [repositorio de GitHub de Azure Communication Services](https://github.com/Azure/communication) hay publicados ejemplos y detalles técnicos adicionales de las bibliotecas cliente.
+## <a name="sdks"></a>SDK
 
-## <a name="client-libraries"></a>Bibliotecas de clientes
+| Ensamblado | Espacios de nombres| Protocolos | Funcionalidades |
+|------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
+| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Aprovisiona y administra recursos de Communication Services.|
+| Comunes | Azure.Communication.Common| REST | Proporciona tipos base para otros SDK |
+| Identidad | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Administración de usuarios y tokens de acceso|
+| Números de teléfono _(beta)_| Azure.Communication.PhoneNumbers| [REST](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| Adquisición y administración de números de teléfono |
+| Chat | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) con señalización propietaria | Incorpora chat basado en texto en tiempo real a las aplicaciones. |
+| SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Envía y recibe mensajes SMS.|
+| Llamar| Azure.Communication.Calling | Transporte propietario | Permite usar la voz, el vídeo, el uso compartido de pantalla y otras capacidades de comunicación de datos en tiempo real. |
 
-| Ensamblado               | Protocolos             |Código abierto vs. cerrado| Espacios de nombres                          | Funcionalidades                                                      |
-| ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Abrir            | Azure.ResourceManager.Communication | Aprovisiona y administra recursos de Communication Services.             |
-| Comunes                 | REST | Abrir               | Azure.Communication.Common          | Proporciona tipos base para otras bibliotecas cliente. |
-| Identidad         | REST | Abrir               | Azure.Communication.Identity  | Administración de usuarios y tokens de acceso |
-| Números de teléfono         | REST | Abrir               | Azure.Communication.PhoneNumbers  | Administración de números de teléfono |
-| Chat                   | REST con señalización propietaria | Se abre con el paquete de señalización de código cerrado.    | Azure.Communication.Chat            | Incorpora chat basado en texto en tiempo real a las aplicaciones.  |
-| SMS                    | REST | Abrir              | Azure.Communication.SMS             | Envía y recibe mensajes SMS. |
-| Llamar                | Transporte propietario | Closed |Azure.Communication.Calling         | Aprovecha la voz, el vídeo, el uso compartido de pantalla y otras capacidades de comunicación de datos en tiempo real.          |
+Tenga en cuenta que los SDK de Azure Resource Manager, de las identidades y de los SMS se centran en la integración del servicio y, en muchos casos, surgen problemas de seguridad si se integran estas funciones en aplicaciones de usuario final. Los SDK comunes y de chat son adecuados para las aplicaciones cliente y de servicio. Los SDK de llamada están diseñados para las aplicaciones cliente. Un SDK centrado en escenarios de servicio está en fase de desarrollo.
 
-Tenga en cuenta que las bibliotecas cliente de Azure Resource Manager, identidades y SMS se centran en la integración del servicio y, en muchos casos, surgen problemas de seguridad si se integran estas funciones en aplicaciones de usuario final. Las bibliotecas cliente comunes y de chat son adecuadas para aplicaciones cliente y de servicio. La biblioteca cliente que llama está diseñada para las aplicaciones cliente. Una biblioteca cliente centrada en escenarios de servicio está en fase de desarrollo.
 
 ### <a name="languages-and-publishing-locations"></a>Idiomas y ubicaciones de publicación
 
-A continuación se detallan las ubicaciones de publicación para los paquetes de biblioteca cliente individuales.
+A continuación se detallan las ubicaciones de publicación para los paquetes de SDK individuales.
 
 | Área           | JavaScript | .NET | Python | Java SE | iOS | Android | Otros                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -52,18 +54,25 @@ A continuación se detallan las ubicaciones de publicación para los paquetes de
 | Llamar        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
 | Documentación de referencia     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
-## <a name="rest-apis"></a>API de REST
 
-Las API de Communication Services están documentadas junto con otras API REST de Azure en [docs.microsoft.com](/rest/api/azure/). Esta documentación le indicará cómo estructurar los mensajes HTTP y ofrece instrucciones para el uso de Postman. Esta documentación también se ofrece en formato Swagger en [GitHub](https://github.com/Azure/azure-rest-api-specs).
+## <a name="rest-api-throttles"></a>Limitaciones de la API de REST
+Ciertas API de REST y los métodos de SDK correspondientes tienen límites que se deben tener en cuenta. Si se superan estos límites, se desencadenará una respuesta de error `429 - Too Many Requests`. Estos límites se pueden aumentar a través de [una solicitud al Soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-## <a name="additional-support-details"></a>Detalles adicionales de compatibilidad
+| API                                                                                                                          | Limitación            |
+|------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| [Todas las API de plan de número de teléfono de búsqueda](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 solicitudes/día      |
+| [Plan de número de teléfono de compra](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 compra al mes  |
+| [Envío de SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 solicitudes por minuto |
 
-### <a name="ios-and-android-support-details"></a>Detalles de compatibilidad con iOS y Android
 
-- Las bibliotecas cliente de iOS de Communication Services tienen como destino iOS versión 13+ y Xcode 11+.
-- Las bibliotecas cliente de Java para Android se dirigen al nivel de API de Android 21+ y Android Studio 4.0+.
+## <a name="sdk-platform-support-details"></a>Detalles de compatibilidad de la plataforma de SDK
 
-### <a name="net-support-details"></a>Detalles de compatibilidad de .NET
+### <a name="ios-and-android"></a>iOS y Android 
+
+- Los SDK de iOS de Communication Services tienen como destino iOS versión 13+ y Xcode 11+.
+- Los SDK de Java para Android se dirigen al nivel de API de Android 21+ y Android Studio 4.0+.
+
+### <a name="net"></a>.NET 
 
 A excepción de las llamadas, los paquetes de Communication Services tienen como destino .NET Standard 2.0, que es compatible con las plataformas que se enumeran a continuación.
 
@@ -82,48 +91,33 @@ Compatibilidad mediante .NET Core 2.0:
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
 
-## <a name="calling-client-library-timeouts"></a>Tiempos de espera en llamadas a bibliotecas cliente
-
-Los siguientes tiempos de espera se aplican a los servicios de comunicación que llaman a bibliotecas cliente:
-
-| Acción           | Tiempo de espera en segundos |
-| -------------- | ---------- |
-| Participante de reconexión/eliminación | 120 |
-| Agregar o quitar una nueva modalidad de una llamada (iniciar/detener el uso compartido de la pantalla o un vídeo) | 40 |
-| Tiempo de espera de la operación de transferencia de llamadas | 60 |
-| Tiempo de espera del establecimiento de llamadas entre dos personas | 85 |
-| Tiempo de espera del establecimiento de llamadas de grupo | 85 |
-| Tiempo de espera del establecimiento de llamadas RTC | 115 |
-| Tiempo de espera de promoción de una llamada entre dos personas para que sea una llamada de grupo | 115 |
-
-
 ## <a name="api-stability-expectations"></a>Expectativas de estabilidad de API
 
 > [!IMPORTANT]
-> En esta sección se proporcionan instrucciones sobre las API REST y las bibliotecas cliente marcadas como **estables**. Las API marcadas como versión preliminar o beta se pueden cambiar o dejar de usar **sin previo aviso**.
+> En esta sección se proporcionan instrucciones sobre las API DE REST y los SDK marcados como **estables**. Las API marcadas como versión preliminar o beta se pueden cambiar o dejar de usar **sin previo aviso**.
 
-En el futuro, es posible que retiremos las versiones de las bibliotecas cliente de Communication Services y que introduzcamos cambios importantes en nuestras API REST y bibliotecas cliente publicadas. Azure Communication Services *generalmente* sigue dos directivas de compatibilidad para retirar versiones de servicio:
+En el futuro, es posible que retiremos las versiones de los SDK de Communication Services y que introduzcamos cambios importantes en nuestras API de REST y SDK publicados. Azure Communication Services *generalmente* sigue dos directivas de compatibilidad para retirar versiones de servicio:
 
-- Se le notificará con una antelación de al menos tres años cuando sea necesario cambiar el código debido a un cambio en la interfaz de Communication Services. Todas las API REST documentadas y las API de la biblioteca cliente generalmente disfrutan de un período de al menos tres años de advertencia antes de que se retiren las interfaces.
-- Se le notificará al menos un año antes de que tenga que actualizar los ensamblados de la biblioteca cliente a la versión secundaria más reciente. Estas actualizaciones necesarias no deben requerir ningún cambio en el código porque están en la misma versión principal. Esto es especialmente pertinente en el caso de las bibliotecas de llamadas y chat que tienen componentes en tiempo real que requieren con frecuencia actualizaciones de rendimiento y seguridad. Le recomendamos encarecidamente que mantenga actualizadas sus bibliotecas cliente de Communication Services.
+- Se le notificará con una antelación de al menos tres años cuando sea necesario cambiar el código debido a un cambio en la interfaz de Communication Services. Todas las API de REST documentadas y las API de los SDK generalmente disfrutan de un período de al menos tres años de advertencia antes de que se retiren las interfaces.
+- Se le notificará al menos un año antes de que tenga que actualizar los ensamblados de los SDK a la versión secundaria más reciente. Estas actualizaciones necesarias no deben requerir ningún cambio en el código porque están en la misma versión principal. Esto es especialmente pertinente en el caso de las bibliotecas de llamadas y chat que tienen componentes en tiempo real que requieren con frecuencia actualizaciones de rendimiento y seguridad. Le recomendamos encarecidamente que mantenga actualizadas sus SDK de Communication Services.
 
-### <a name="api-and-client-library-decommissioning-examples"></a>Ejemplos de retirada de API y biblioteca cliente
+### <a name="api-and-sdk-decommissioning-examples"></a>Ejemplos de retirada de API y SDK
 
 **Ha integrado la versión 24 de la API REST de SMS en la aplicación. Publicaciones de Azure Communication Services v25.**
 
-Recibirá una advertencia 3 años antes de que estas API dejen de funcionar y sea obligatorio actualizarlas a v25. Es posible que esta actualización requiera un cambio de código.
+Recibirá una advertencia tres años antes de que estas API dejen de funcionar y sea obligatorio actualizarlas a la v25. Es posible que esta actualización requiera un cambio de código.
 
-**Ha integrado la versión v2.02 de la biblioteca cliente de llamadas en la aplicación. Publicaciones de Azure Communication Services v2.05.**
+**Ha integrado la versión v2.02 de los SDK de llamadas en la aplicación. Publicaciones de Azure Communication Services v2.05.**
 
-Es posible que se le pida que actualice a la versión v2.05 de la biblioteca cliente de llamadas en un plazo de 12 meses a partir de la publicación de la v2.05. Debe ser un reemplazo sencillo del artefacto sin necesidad de un cambio de código porque la v2.05 está en la versión principal v2 y no tiene cambios importantes.
+Es posible que se le pida que actualice a la versión v2.05 de los SDK de llamadas en un plazo de 12 meses a partir de la publicación de la v2.05. Debe ser un reemplazo sencillo del artefacto sin necesidad de un cambio de código porque la v2.05 está en la versión principal v2 y no tiene cambios importantes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte la siguiente información general sobre la biblioteca cliente:
+Para obtener más información, consulte la siguiente información general de los SDK:
 
-- [Información general de la biblioteca cliente de llamadas](../concepts/voice-video-calling/calling-sdk-features.md)
-- [Información general de la biblioteca cliente de chat](../concepts/chat/sdk-features.md)
-- [Información general de la biblioteca cliente de SMS](../concepts/telephony-sms/sdk-features.md)
+- [Información general del SDK de llamada](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Información general del SDK de chat](../concepts/chat/sdk-features.md)
+- [Información general del SDK de SMS](../concepts/telephony-sms/sdk-features.md)
 
 Para empezar a trabajar con Azure Communication Services:
 

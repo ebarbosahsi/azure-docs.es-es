@@ -3,7 +3,7 @@ title: Registros de flujo e informes de Azure DDoS Protection Estándar
 description: Aprenda a configurar informes y registros de flujo.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591884"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567685"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Visualización y configuración del registro de diagnósticos de DDoS
 
@@ -130,7 +130,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 
 Esta [plantilla](https://aka.ms/ddosdiaglogs) crea una definición de Azure Policy para habilitar automáticamente el registro de diagnóstico en todos los registros de direcciones IP públicas de un ámbito definido.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## <a name="view-log-data-in-workbooks"></a>Visualización de los datos de registro en los libros
 
@@ -144,7 +144,7 @@ Puede conectar los registros a Azure Sentinel, ver y analizar los datos en los l
 
 [Esta plantilla de Azure Resource Manager](https://aka.ms/ddosworkbook) se puede usar para implementar un libro de análisis de ataques. Este libro le permite visualizar los datos de ataques en varios paneles que se pueden filtrar para comprender fácilmente qué está en riesgo. 
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![Libro de DDoS Protection](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
