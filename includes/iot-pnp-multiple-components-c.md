@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 398f11c6e55cb62e0b29c148494cf3d590200b9d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5a8d270ffdef1f9ae68814fa023284c68216d3ff
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834211"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612167"
 ---
 En este tutorial se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo con componentes, cómo conectarla a un centro de IoT y cómo usar la herramienta Azure IoT Explorer para ver la información que envía al centro. La aplicación de ejemplo está escrita en C y se incluye en el SDK de dispositivo IoT de Azure para C. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
@@ -17,9 +17,9 @@ En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Descargue el código de ejemplo.
-> * Compilar el código de ejemplo.
-> * Ejecutar la aplicación del dispositivo de ejemplo y validar que se conecta al centro de IoT.
-> * Revisar el código fuente.
+> * Ha creado el código de ejemplo.
+> * Ha ejecutado la aplicación del dispositivo de ejemplo y confirmar que se conecta al centro de IoT.
+> * Ha revisado el código fuente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -160,7 +160,7 @@ Una vez iniciado el ejemplo de cliente de dispositivo, compruebe que funciona co
 
 ## <a name="review-the-code"></a>Revisión del código
 
-En este ejemplo se implementa un dispositivo controlador de temperatura IoT Plug and Play. En este ejemplo se implementa un modelo con [varios componentes](../articles/iot-pnp/concepts-components.md). El [archivo de modelo del lenguaje de definición de gemelos digitales (DTDL) del dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
+En este ejemplo se implementa un dispositivo controlador de temperatura IoT Plug and Play. En este ejemplo se implementa un modelo con [varios componentes](../articles/iot-pnp/concepts-modeling-guide.md). El [archivo de modelo del lenguaje de definición de gemelos digitales (DTDL) del dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define los datos de telemetría, las propiedades y los comandos que implementa el dispositivo.
 
 ### <a name="iot-plug-and-play-helper-functions"></a>Funciones auxiliares de IoT Plug and Play
 

@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632161"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869963"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Qué es la herramienta Azure Application Consistent Snapshot (versión preliminar)
 
-Azure Application Consistent Snapshot (AzAcSnap) es una herramienta de línea de comandos que permite simplificar la protección de datos para bases de datos de terceros (SAP HANA) en entornos de Linux (por ejemplo, SUSE y RHEL).  
+Azure Application Consistent Snapshot (AzAcSnap) es una herramienta de línea de comandos que permite proteger los datos de bases de datos de terceros mediante el control de la orquestación necesaria para ponerlos en un estado coherente con la aplicación antes de tomar una instantánea del almacenamiento. Después de esto se devuelven a un estado operativo.
+
+## <a name="supported-platforms-and-os"></a>Sistemas operativos y plataformas compatibles
+
+- **Bases de datos**
+  - SAP HANA (consulte la [matriz de compatibilidad](azacsnap-get-started.md#snapshot-support-matrix-from-sap) para obtener más información)
+
+- **Sistemas operativos**
+  - SUSE Linux Enterprise Server 12+
+  - Red Hat Enterprise Linux 7+
 
 ## <a name="benefits-of-using-azacsnap"></a>Ventajas del uso de AzAcSnap
 

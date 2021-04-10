@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020424"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593040"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulación de operación bursátil de alta frecuencia con Stream Analytics
 La combinación del lenguaje SQL, las funciones definidas por el usuario (UDF) de JavaScript y los agregados definidos por el usuario (UDA) en Azure Stream Analytics permite a los usuarios realizar análisis avanzados. Los análisis avanzados pueden incluir el entrenamiento y la puntuación en línea del aprendizaje automático, así como la simulación de procesos con estado. En este artículo se describe cómo realizar una regresión lineal en un trabajo de Azure Stream Analytics que realiza un entrenamiento y una puntuación continuos en un escenario de operaciones bursátiles de alta frecuencia.
@@ -349,7 +349,7 @@ El UDA de JavaScript inicializa todos los acumuladores de la función `init`, ca
 - Comprar el valor cuando se recibe una señal de venta y hay tenencia de acciones.
 - Ponerse corto si no hay tenencia de acciones. 
 
-Si existe una posición corta y se recibe una señal de compra, se compra para realizar la cobertura. En esta simulación nunca mantenemos ni usamos una posición corta de 10 acciones de un valor. La realización de cada transacción tiene una tarifa plana de 8 dólares.
+Si existe una posición corta y se recibe una señal de compra, se compra para realizar la cobertura. En esta simulación mantenemos o vendemos en corto 10 acciones de un título. La realización de cada transacción tiene una tarifa plana de 8 dólares.
 
 ```javascript
 function main() {

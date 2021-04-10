@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Conexión mediante Python al servidor flexible de Azure Database for PostgreSQL'
 description: En este inicio rápido se proporcionan ejemplos de código de Python que se pueden usar para conectarse a la opción Servidor flexible de Azure Database for PostgreSQL y consultar datos en este servicio.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90946194"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550649"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor flexible de Azure Database for PostgreSQL
 
@@ -28,7 +28,7 @@ En este artículo se da por hecho que está familiarizado con el desarrollo medi
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un servidor flexible de Azure Database for PostgreSQL. Para crear un servidor flexible, consulte [Creación de un servidor flexible de Azure Database for PostgreSQL con Azure Portal](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9+ o 3.4+.
+* [Python](https://www.python.org/downloads/) 2.7 o 3.6+.
 * Instalador de paquetes [pip](https://pip.pypa.io/en/stable/installing/) más reciente.
 
 ## <a name="preparing-your-client-workstation"></a>Preparación de la estación de trabajo de cliente

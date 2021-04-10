@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047169"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937250"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -60,7 +60,7 @@ Azure Monitor puede recopilar datos de [diversos orígenes](monitor-reference.md
 - **Datos de supervisión de la suscripción de Azure:** datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión del inquilino de Azure:** datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
-En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](essentials/platform-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](data-platform.md) indican cómo está funcionando un recurso y los recursos que consume. 
+En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](essentials/platform-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](essentials/data-platform-metrics.md) indican cómo está funcionando un recurso y los recursos que consume. 
 
 [Habilite el diagnóstico](essentials/platform-logs-overview.md) para ampliar los datos que va a recopilar con el funcionamiento interno de los recursos.  [Agregue un agente](agents/agents-overview.md) a recursos de proceso para recopilar la telemetría de los sistemas operativos invitados. 
 
@@ -144,7 +144,7 @@ Existen varias API para leer y escribir métricas y registros en Azure Monitor, 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre:
 
-* Las [métricas y registros](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) de los datos que recopila Azure Monitor.
+* Las [métricas y registros](./data-platform.md#metrics) de los datos que recopila Azure Monitor.
 * Los [orígenes de datos](agents/data-sources.md) de la forma en que los distintos componentes de la aplicación envían la telemetría.
 * Las [consultas de registros](logs/log-query-overview.md) para analizar los datos recopilados.
 * [Procedimientos recomendados](/azure/architecture/best-practices/monitoring) para supervisar los servicios y las aplicaciones en la nube.

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707530"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595012"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Límites de Azure Database for PostgreSQL con un único servidor
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
@@ -24,8 +24,8 @@ A continuación se muestran el número máximo de conexiones por plan de tarifa 
 |**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** | **Número máximo de conexiones de usuario** |
 |---|---|---|---|
 |Básico| 1| 55 | 50|
-|Básica| 2| 105 | 100|
-|De uso general| 2| 150| 145|
+|Básico| 2| 105 | 100|
+|Uso general| 2| 150| 145|
 |De uso general| 4| 250| 245|
 |De uso general| 8| 480| 475|
 |De uso general| 16| 950| 945|
@@ -71,6 +71,9 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 Si ve un error relacionado con **GSS**, es probable que use una versión de cliente o controlador más reciente que todavía no sea totalmente compatible con el servidor único de Azure Postgres. Se sabe que este error afecta a las [versiones de controlador JDBC 42.2.15 y 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
    - Tenemos previsto completar la actualización a finales de noviembre. Considere la posibilidad de usar una versión del controlador en funcionamiento mientras tanto.
    - O bien, considere la posibilidad de deshabilitar la solicitud de GSS.  Use un parámetro de conexión como `gssEncMode=disable`.
+
+### <a name="storage-size-reduction"></a>Reducción del tamaño de almacenamiento
+El tamaño de almacenamiento no se puede reducir. Tiene que crear un nuevo servidor con el tamaño de almacenamiento deseado y realizar el proceso manual de [volcado y restauración](./howto-migrate-using-dump-and-restore.md) para migrar las bases de datos al nuevo servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Comprenda lo que [hay disponible en cada plan de tarifa](concepts-pricing-tiers.md).

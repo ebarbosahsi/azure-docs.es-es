@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94835397"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564643"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configuración del grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -75,14 +75,14 @@ Puede elegir entre dos opciones de duración de asignación para cada tipo de as
 
 Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignación elegible permanente** | Los administradores de recursos pueden asignar una asignación válida permanente. |
 | **Hacer que las asignaciones elegibles expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
 
 Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignaciones activas permanentes** | Los administradores de recursos pueden asignar una asignación activa permanente. |
 | **Hacer que las asignaciones activas expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |

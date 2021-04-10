@@ -3,12 +3,12 @@ title: Configuración de la integración de Prometheus de Container Insights | M
 description: En este artículo se describe cómo puede configurar el agente de Container Insights para extraer métricas de Prometheus con el clúster de Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109648"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configuración de la extracción de métricas de Prometheus con Container Insights
 
@@ -48,7 +48,7 @@ Cuando se especifica una dirección URL, Container Insights solo extrae el punto
 |------|-----|-----------|-------|-------------|
 | En todo el clúster | | | | Especifique uno de los tres métodos siguientes para extraer los puntos de conexión para las métricas. |
 | | `urls` | String | Matriz separada por comas | Punto de conexión HTTP (dirección IP o ruta de acceso de dirección URL válida especificada). Por ejemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP es un parámetro de Container Insights específico y se puede usar en lugar de la dirección IP del nodo. Tiene que estar todo en mayúsculas). |
-| | `kubernetes_services` | String | Matriz separada por comas | Una matriz de servicios de Kubernetes para extraer las métricas de las métricas de kube-state-metrics. Por ejemplo: `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | String | Matriz separada por comas | Una matriz de servicios de Kubernetes para extraer las métricas de las métricas de kube-state-metrics. Aquí se deben usar nombres de dominio completos. Por ejemplo: `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true o false | Si se establece en `true` en la configuración de todo el clúster, el agente de Container Insights extraerá los pods de Kubernetes en todo el clúster para las siguientes anotaciones de Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true o false | Habilita la extracción del pod. `monitor_kubernetes_pods` se debe establecer en `true`. |
 | | `prometheus.io/scheme` | String | http o https | De manera predeterminada realiza la extracción mediante HTTP. Si es necesario, establézcalo en `https`. | 

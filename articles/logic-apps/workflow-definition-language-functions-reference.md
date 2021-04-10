@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/12/2021
+ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702494"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870201"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -690,10 +690,10 @@ addProperty(<object>, '<property>', <value>)
 | <*objeto-actualizado*> | Object | Objeto JSON actualizado con la propiedad especificada |
 ||||
 
-Para agregar una propiedad secundaria a una propiedad existente, use esta sintaxis:
+Para agregar una propiedad primaria a una existente, utilice la función `setProperty()`, no `addProperty()`. De lo contrario, la función devuelve solo el objeto secundario como salida.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -741,7 +741,7 @@ Este es el objeto JSON actualizado:
 En este ejemplo se agrega la propiedad secundaria `middleName` a la propiedad existente `customerName` en un objeto JSON, que se convierte de una cadena a JSON mediante la función [JSON()](#json). La función asigna el valor especificado a la nueva propiedad y devuelve el objeto actualizado:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Este es el objeto JSON actual:
@@ -4708,16 +4708,22 @@ workflow().<property>
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*propiedad*> | No | String | Nombre de la propiedad del flujo de trabajo cuyo valor desea <p>Un objeto de flujo de trabajo tiene estas propiedades: **name** (nombre), **type** (tipo), **id** (identificador), **location** (ubicación) y **run** (ejecución). El valor de la propiedad **run** también es un objeto que tiene estas propiedades: **name**, **type** e **id**. |
+| <*propiedad*> | No | String | Nombre de la propiedad del flujo de trabajo cuyo valor desea <p><p>De manera predeterminada, un objeto de flujo de trabajo tiene estas propiedades: `name`, `type`, `id`, `location`, `run` y `tags`. <p><p>- El `run` valor de propiedad es un objeto JSON que incluye estas propiedades: `name`, `type` y `id`. <p><p>- La propiedad `tags` es un objeto JSON que incluye [etiquetas que están asociadas a la aplicación lógica en Azure Logic Apps o fluyen en Power Automate](../azure-resource-manager/management/tag-resources.md) y los valores de esas etiquetas. Para obtener más información acerca de las etiquetas de los recursos de Azure, revise [los recursos de etiqueta, los grupos de recursos y las suscripciones de la organización lógica en Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Nota**: de manera predeterminada, una aplicación lógica no tiene etiquetas, pero un flujo de Power Automate tiene las etiquetas `flowDisplayName` y `environmentName`. |
 |||||
 
-*Ejemplo*
+*Ejemplo 1*
 
 Este ejemplo devuelve el nombre de la ejecución actual de un flujo de trabajo:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Ejemplo 2*
+
+Si usa Power Automate puede crear una expresión `@workflow()` que use la propiedad de salida `tags` para obtener los valores del flujo `flowDisplayName` o la propiedad `environmentName`.
+
+Por ejemplo, puede enviar notificaciones de correo electrónico personalizadas desde el flujo que vuelve a vincular al flujo. Estas notificaciones pueden incluir un vínculo HTML que contiene el nombre para mostrar del flujo en el título del correo electrónico y sigue esta sintaxis:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

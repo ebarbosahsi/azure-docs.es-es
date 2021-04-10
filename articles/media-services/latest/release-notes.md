@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562576"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596746"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -84,7 +84,7 @@ La versión 3 proporciona:
  
 - compatibilidad con eventos en directo 24x7
 - Azure Resource Manager API REST, SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
-- Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>Acción requerida
 
@@ -123,7 +123,6 @@ Actualice a los SDK de cliente más recientes en sus bases de código mediante e
 - **[Almacenamiento de confianza](concept-trusted-storage.md)** : Media Services se puede configurar para acceder a Azure Storage mediante una instancia de Managed Identity asociada a la cuenta de Media Services. Cuando se accede a las cuentas de almacenamiento mediante una instancia de Managed Identity, los clientes pueden configurar listas de control de acceso de red más restrictivas en la cuenta de almacenamiento sin bloquear los escenarios de Media Services.
 
 - **[Identidades administradas](concept-managed-identities.md)** : los clientes pueden habilitar una identidad administrada asignada por el sistema para una cuenta de Media Services para proporcionar acceso a los almacenes de claves (para las claves administradas por el cliente) y a las cuentas de almacenamiento (para el almacenamiento de confianza).
-
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Ejemplos de Typescript Node.js actualizados que usan SDK isomórfico para JavaScript
 
@@ -373,7 +372,7 @@ Ahora puede especificar una lista de filtros de recursos o cuentas, que se aplic
 
 Media Services v3 ya se admite en las nubes nacionales de Azure. Aún no todas las características están disponibles en todas las nubes. Para obtener más detalles, consulte [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
 
-El evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) se ha agregado a los esquemas de Azure Event Grid para Media Services.
+El evento [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) se ha agregado a los esquemas de Azure Event Grid para Media Services.
 
 ## <a name="january-2019"></a>Enero de 2019
 

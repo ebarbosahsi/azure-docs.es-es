@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631374"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109802"
 ---
-# <a name="common-errors"></a>Errores comunes
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Errores que se detectan normalmente durante la migración al servicio Azure Database for MySQL o después de esta
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL es un servicio totalmente administrado que usa la tecnología de la versión de comunidad de MySQL. La experiencia de MySQL en un entorno de servicio administrado puede diferir de ejecutarlo en su propio entorno. En este artículo, verá algunos de los errores habituales que pueden encontrar los usuarios la primera vez que migran al servicio Azure Database for MySQL, o que desarrollan en dicho servicio.
 
@@ -48,7 +50,7 @@ BEGIN
 END;
 ```
 
-**Solución:**  para resolver el error, establezca log_bin_trust_function_creators en 1 en la hoja [Parámetros del servidor](howto-server-parameters.md) del portal, ejecute las instrucciones de DDL o importe el esquema para crear los objetos deseados y revertir el parámetro log_bin_trust_function_creators a su valor anterior después de la creación.
+**Solución:** para resolver el error, establezca log_bin_trust_function_creators en 1 en la hoja [Parámetros del servidor](howto-server-parameters.md) del portal, ejecute las instrucciones de DDL o importe el esquema para crear los objetos deseados. Puede seguir manteniendo log_bin_trust_function_creators en 1 en el servidor para evitar el error en el futuro. Se recomienda establecer log_bin_trust_function_creators ya que el riesgo de seguridad resaltado en la [documentación de la comunidad de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) es mínimo en el servicio Azure DB for MySQL, ya que el registro de bin no está expuesto a ninguna amenaza.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERROR 1227 (42000) en la línea 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation [Acceso denegado; necesita (al menos uno de) los privilegios SUPER para esta operación]. Error en la operación, exitcode 1
 
@@ -84,6 +86,14 @@ El error anterior puede producirse al ejecutar instrucciones CREATE VIEW con DEF
 
 > [!Tip] 
 > Use sed o Perl para modificar un archivo de copia de seguridad o un script SQL para reemplazar la instrucción DEFINER=
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>ERROR 1227 (42000) en la línea 18: Access denied; you need (at least one of) the SUPER privilege(s) for this operation [Acceso denegado; necesita (al menos uno de) los privilegios SUPER para esta operación].
+
+El error anterior puede producirse si está intentando importar el archivo de volcado desde el servidor de MySQL con GTID habilitado en el servidor de destino de Azure Database for MySQL. Mysqldump agrega la instrucción SET @@SESSION.sql_log_bin=0 a un archivo de volcado de memoria desde un servidor donde GTID está en uso, lo que deshabilita el registro binario mientras se recarga el archivo de volcado de memoria.
+
+**Solución**: para resolver este error durante la importación, quite o comente las líneas siguientes del archivo mysqldump y vuelva a ejecutar la importación para asegurarse de que se ha realizado correctamente. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN; SET @@SESSION.SQL_LOG_BIN= 0; SET @@GLOBAL.GTID_PURGED=''; SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Errores de conexión comunes en el inicio de sesión de administrador de servidor
 
