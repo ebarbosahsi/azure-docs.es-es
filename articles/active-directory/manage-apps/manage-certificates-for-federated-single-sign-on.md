@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259226"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104604005"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administrar certificados para inicio de sesión único federado en Azure Active Directory
 
@@ -89,6 +89,8 @@ Azure AD enviará una notificación por correo electrónico 60, 30 y 7 días ant
 1. Repita el paso anterior para cada dirección de correo electrónico que quiere agregar.
 1. Para cada dirección de correo electrónico que quiere eliminar, seleccione el icono **Eliminar** (un cubo de basura) junto a la dirección de correo electrónico.
 1. Seleccione **Guardar**.
+
+Puede agregar hasta 5 direcciones de correo electrónico a la lista de notificaciones (incluida la dirección de correo electrónico del administrador que agregó la aplicación). Si necesita enviar notificaciones a más personas, use los mensajes de correo electrónico de la lista de distribución.
 
 Recibirá el correo electrónico de notificación de aadnotification@microsoft.com. Para evitar que el correo electrónico vaya a la ubicación de correo no deseado, agregue este correo electrónico a los contactos.
 

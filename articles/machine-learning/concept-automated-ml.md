@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502542"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643657"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -263,7 +263,7 @@ Con Azure Machine Learning, puede usar Machine Learning para generar un modelo d
 
 Consulte cómo convertir al formato ONNX [en este ejemplo de Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Aprenda cuáles [son los algoritmos que se admiten en ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
+El entorno de ejecución de ONNX también es compatible con C#, por lo que puede usar el modelo creado automáticamente en sus aplicaciones de C# sin necesidad de volver a codificar o experimentar alguna de las latencias de red que presentan los puntos de conexión REST. Obtenga más detalles sobre el [uso de un modelo AutoML de ONNX en una aplicación .NET con ML.NET](./how-to-use-automl-onnx-model-dotnet.md) y la [creación de inferencias en modelos de ONNX con la API de C# del entorno de ejecución de ONNX](https://github.com/plaidml/onnxruntime/blob/plaidml/docs/CSharp_API.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

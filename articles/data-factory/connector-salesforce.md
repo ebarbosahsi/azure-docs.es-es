@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: d820be66c70ae336361de7209722c4018ffd5077
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5b49e62330c789d6d5cbe2af2edb28a2c3e1238f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392177"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583114"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 
@@ -38,7 +38,7 @@ En concreto, este conector de Salesforce admite:
 - Ediciones de Salesforce Developer, Professional, Enterprise o Unlimited.
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
-El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma predeterminada, al copiar datos de Salesforce, el conector usa [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) y elige automáticamente entre la API de REST y Bulk API en función del tamaño de los datos: cuando el conjunto de resultados es grande, se usa Bulk API para obtener un rendimiento mayor; al escribir datos en Salesforce, el conector utiliza [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) de Bulk API. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
+El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma predeterminada, al copiar datos de Salesforce, el conector usa [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) y elige automáticamente entre las API de REST y Bulk en función del tamaño de los datos: cuando el conjunto de resultados es grande, se usa la API de Bulk para obtener un rendimiento mayor; al escribir datos en Salesforce, el conector utiliza [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) de la API de Bulk. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -241,6 +241,7 @@ Para copiar datos hacia Salesforce, establezca el tipo de receptor de la activid
 | externalIdFieldName | El nombre del campo de identificador externo para la operación de upsert. El campo especificado debe definirse como "Campo de identificador externo" en el objeto de Salesforce. No puede tener valores NULL en los datos de entrada correspondientes. | Sí para "Upsert" |
 | writeBatchSize | El recuento de filas de datos escritos en Salesforce en cada lote. | No (el valor predeterminado es 5000) |
 | ignoreNullValues | Indica si se omiten los valores NULL de los datos de entrada durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualice los datos del objeto de destino a NULL cuando realice una operación upsert o update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo: receptor de Salesforce en la actividad de copia**
 

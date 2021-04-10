@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101091302"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migración/actualización de una instancia de Azure DB para PostgreSQL: servidor único en línea que usa DMS a través de Azure Portal
@@ -259,13 +259,13 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
     ![Pantalla Resumen de la migración](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-migration-summary.png)
 
-## <a name="run-the-migration"></a>Ejecución de la migración
+## <a name="run-the-migration&quot;></a>Ejecución de la migración
 
 * Seleccione **Ejecutar migración**.
 
 Aparecerá la ventana de actividad de migración y el **estado** de la actividad debería actualizarse para mostrar **Copia de seguridad en curso**. Puede encontrar el siguiente error al actualizar desde Azure DB for PostgreSQL 9.5 o 9.6:
 
-**Un escenario ha informado de un error desconocido. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"** (no hay ninguna entrada pg_hba. conf para la conexión de replicación del host "40.121.141.121", usuario "sr").
+**Un escenario ha informado de un error desconocido. 28000: no pg_hba.conf entry for replication connection from host &quot;40.121.141.121&quot;, user &quot;sr&quot;** (no hay ninguna entrada pg_hba. conf para la conexión de replicación del host &quot;40.121.141.121&quot;, usuario &quot;sr").
 
 Esto se debe a que PostgreSQL no tiene los privilegios adecuados para crear los artefactos de replicación lógica necesarios. Para habilitar los privilegios necesarios, puede hacer lo siguiente:
 

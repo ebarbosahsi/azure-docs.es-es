@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606725"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566768"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server en Azure Blob Storage con la herramienta Copiar datos
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -87,21 +87,6 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 
 1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial.
-
-#### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial
-En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Blob Storage.
-
-1. En la ventana **Cuenta de almacenamiento**, cambie a **Información general** y, después, seleccione **Blobs**.
-
-1. En la ventana **Blobs**, seleccione **+ Contenedor**.
-
-1. En la ventana **Nuevo contenedor**, en el cuadro **Nombre**, escriba **adftutorial** y, después, seleccione **Aceptar**.
-
-1. En la lista de contenedores, seleccione **adftutorial**.
-
-
-1. Mantenga abierta la ventana **Contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
-
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 

@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7a9ac98a9566986767016720fda245712197b27f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123061"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566547"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Adición de compatibilidad con IPv6 para el emparejamiento privado mediante Azure PowerShell (versión preliminar)
 
 En este artículo se describe cómo agregar compatibilidad con IPv6 para conectarse a través de ExpressRoute a los recursos de Azure mediante Azure PowerShell.
 
 > [!Note]
-> Esta característica está disponible actualmente en versión preliminar en [regiones de Azure con Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Por lo tanto, el circuito ExpressRoute se puede crear con cualquier ubicación de emparejamiento, pero las implementaciones basadas en IPv6 a las que se conecta deben encontrarse en una región con Availability Zones.
+> Esta característica está disponible actualmente en versión preliminar en [regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Por lo tanto, el circuito ExpressRoute se puede crear con cualquier ubicación de emparejamiento, pero las implementaciones basadas en IPv6 a las que se conecta deben encontrarse en una región con Availability Zones.
 
 ## <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 
@@ -46,7 +46,7 @@ El equipo de ExpressRoute aprobará su solicitud en un plazo de 2 a 3 días labo
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>Adición de emparejamiento privado IPv6 al circuito ExpressRoute
 
-1. [Cree un circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm) o use un circuito existente. Para recuperar el circuito, ejecute el comando **Get-AzExpressRouteCircuit**:
+1. [Cree un circuito ExpressRoute](./expressroute-howto-circuit-arm.md) o use un circuito existente. Para recuperar el circuito, ejecute el comando **Get-AzExpressRouteCircuit**:
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -150,7 +150,7 @@ Siga los pasos que se indican a continuación si tiene un entorno existente de r
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. Si tiene una puerta de enlace con redundancia de zona existente, ejecute lo siguiente para habilitar la conectividad IPv6. De lo contrario, [cree la puerta de enlace de red virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ).
+4. Si tiene una puerta de enlace con redundancia de zona existente, ejecute lo siguiente para habilitar la conectividad IPv6. De lo contrario, [cree la puerta de enlace de red virtual](./expressroute-howto-add-gateway-resource-manager.md) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,13 +161,13 @@ Siga los pasos que se indican a continuación si tiene un entorno existente de r
 
 Siga los pasos que se indican a continuación si tiene previsto conectarse a un nuevo conjunto de recursos de Azure en una región con Availability Zones mediante el emparejamiento privado IPv6.
 
-1. Cree una red virtual de doble pila con espacios de direcciones IPv4 e IPv6. Para obtener más información, consulte [Creación de una red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network).
+1. Cree una red virtual de doble pila con espacios de direcciones IPv4 e IPv6. Para obtener más información, consulte [Creación de una red virtual](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-2. [Creación de la subred de puerta de enlace de doble pila](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+2. [Creación de la subred de puerta de enlace de doble pila](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. [Cree la puerta de enlace de red virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ (tenga en cuenta que esto solo está disponible para los circuitos mediante ExpressRoute Direct).
+3. [Cree la puerta de enlace de red virtual](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) mediante una SKU con redundancia de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si tiene previsto usar FastPath, use ErGw3AZ (tenga en cuenta que esto solo está disponible para los circuitos mediante ExpressRoute Direct).
 
-4. [Vincule la red virtual a su circuito ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
+4. [Vincule la red virtual a su circuito ExpressRoute](./expressroute-howto-linkvnet-arm.md).
 
 ## <a name="limitations"></a>Limitaciones
 Aunque la compatibilidad con IPv6 está disponible para las conexiones a las implementaciones en regiones con Availability Zones, no se admiten los siguientes casos de uso:
@@ -177,6 +177,7 @@ Aunque la compatibilidad con IPv6 está disponible para las conexiones a las imp
 * Conexiones Global Reach entre circuitos ExpressRoute
 * Uso de ExpressRoute con WAN virtual
 * FastPath con circuitos que no son de ExpressRoute Direct
+* FastPath con circuitos en las siguientes ubicaciones de emparejamiento: Dubái
 * Coexistencia con VPN Gateway
 
 ## <a name="next-steps"></a>Pasos siguientes

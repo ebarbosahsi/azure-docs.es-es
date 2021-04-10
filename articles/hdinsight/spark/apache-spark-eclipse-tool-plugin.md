@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: e4f19afc0edf0f43b64548ae1c93ed5ff8dfa8a1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866580"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Uso de Azure Toolkit for Eclipse para crear aplicaciones de Apache Spark para un clúster de HDInsight
@@ -92,7 +92,7 @@ Puede vincular un clúster normal mediante el nombre de usuario administrado de 
 
    > [!NOTE]  
    > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados.
-   > :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png" alt-text="Cuentas de almacenamiento de Azure Explorer" border="true":::
+   > :::image type="content" source="./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png" alt-text="Azure Explorer: cuentas de almacenamiento" border="true":::
    >
    > Para un usuario solo de teclado, cuando el foco actual está en **Clave de almacenamiento**, debe usar **Ctrl+TAB** para centrarse en el siguiente campo del cuadro de diálogo.
 
@@ -326,7 +326,7 @@ Hay dos formas de enviar los trabajos. Si se proporcionan credenciales de almace
 
 ## <a name="see-also"></a>Consulte también
 
-* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
+* [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
 

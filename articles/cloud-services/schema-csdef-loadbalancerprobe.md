@@ -3,17 +3,18 @@ title: Azure Cloud Services (clásico) - Esquema LoadBalancerProbe de definició
 description: El cliente define LoadBalancerProbe como un sondeo de estado de los puntos de conexión en las instancias de rol. Los roles web o de trabajo se combinan en un archivo de definición de servicio.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1fbbb49918ed83bd38e0c1f879ed31386cfb756b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98739799"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934128"
 ---
 # <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services (clásico)
 

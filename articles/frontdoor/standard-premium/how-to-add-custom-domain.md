@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098201"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588756"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Creación de un dominio personalizado en la SKU de Azure Front Door Estándar/Prémium (versión preliminar) mediante Azure Portal
 
@@ -38,6 +38,9 @@ Después de crear un perfil de Azure Front Door Estándar/Premium, el host de fr
 * Si usa Azure para hospedar sus [dominios DNS](../../dns/dns-overview.md), debe delegar el sistema de nombres de dominio (DNS) del proveedor de dominios en una instancia de Azure DNS. Para más información, vea [Delegación de un dominio en DNS de Azure](../../dns/dns-delegate-domain-azure-dns.md). De lo contrario, si usa un proveedor de dominios para controlar el dominio DNS, debe validar manualmente el dominio. Para ello, debe escribir los registros TXT de DNS solicitados.
 
 ## <a name="add-a-new-custom-domain"></a>Adición de un nuevo dominio personalizado
+
+> [!NOTE]
+> En la versión preliminar pública, no se admite el uso de Azure DNS para crear dominios de Apex en Azure Front Door Estándar/Premium. Hay otros proveedores de DNS que admiten el acoplamiento de CNAME o el seguimiento de DNS que permitirán utilizar los dominios APEX para Azure Front Door Estándar/Premium.
 
 Los dominios personalizados se administran en la sección Dominios del portal. Los dominios personalizados se pueden crear y validar antes de la asociación a un punto de conexión. Un dominio personalizado y sus subdominio no se pueden asociar con más de un punto de conexión simultáneamente. Sin embargo, puede utilizar diferentes dominios desde el mismo dominio personalizado para distintas instancias de Front Door. También puede asignar dominios personalizados con diferentes subdominios al mismo punto de conexión de Front Door.
 

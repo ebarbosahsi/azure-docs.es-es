@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5fa4cba67e279f66c090c8cb30eadf099f3c998
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a3759bbe92a2de8515c7d812637acd88070f8d46
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673549"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103490915"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -214,9 +214,11 @@ Necesitará los siguientes archivos ejecutables y DLL de SAP:
 * Kernel de SAP 7.49 o posterior
 
 > [!IMPORTANT]
-> La agrupación en clústeres de instancias de ASCS/SCS de SAP con un recurso compartido de archivos es compatible con SAP NetWeaver 7.40 (y versiones posteriores), con el kernel de SAP 7.49 (y versiones posteriores).
+> La agrupación en clústeres de instancias de ASCS/SCS de SAP con un recurso compartido de archivos es compatible con SAP NetWeaver 7.40 (y versiones posteriores), con el kernel de SAP 7.49 (y versiones posteriores).  
+>   
+> [!IMPORTANT]
+> La configuración debe cumplir el siguiente requisito: las instancias ASCS/SCS de SAP y el recurso compartido de SOFS deben implementarse en clústeres separados.    
 >
-
 
 No se describe la configuración del sistema de administración de bases de datos (DBMS),ya que las configuraciones varían en función del sistema DBMS que se use. Sin embargo, se da por supuesto que las inquietudes con respecto a la alta disponibilidad con DBMS se abordan con las funcionalidades que admiten diversos proveedores de DBMS para Azure. Tales funcionalidades incluyen AlwaysOn o creación de reflejo de base de datos para SQL Server y Oracle Data Guard para bases de datos de Oracle. En el escenario de este artículo, no se agregó más protección a DBMS.
 

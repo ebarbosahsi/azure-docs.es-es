@@ -4,16 +4,16 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 03/02/2021
 ms.author: crtreasu
-ms.openlocfilehash: d8dfc3d4b7a8447250481b98c1adadc865a29da1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d06a6ecd8af16da3e6df21e984fbf6a727fbc27e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102532713"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105510"
 ---
 ### <a name="upload-your-model"></a>Carga del modelo
 
-Si aún no tiene un modelo de Object Anchors, siga las instrucciones de [Creación de un modelo](/azure/object-anchors/quickstarts/get-started-model-conversion) para crear uno. A continuación, vuelva aquí.
+Si aún no tiene un modelo de Object Anchors, siga las instrucciones de [Creación de un modelo](../articles/object-anchors/quickstarts/get-started-model-conversion.md) para crear uno. A continuación, vuelva aquí.
 
 Con el dispositivo HoloLens conectado al Portal de dispositivos Windows, siga estos pasos para cargar un modelo y que lo use la aplicación:
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: fda34a7ee06d35846bcec571e904297d0421c38f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cdf016d7de66c33973ec7818fa92df28c4639dd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565627"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566972"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migración a Azure Machine Learning
 
@@ -46,7 +46,7 @@ Para migrar a Azure Machine Learning, se recomienda usar el siguiente enfoque:
 
 3. Compruebe que los módulos esenciales de Studio (clásico) se admiten en el diseñador de Azure Machine Learning. Para obtener más información, consulte la tabla de [asignación de módulos entre Studio (clásico) y el diseñador](#studio-classic-and-designer-module-mapping) a continuación.
 
-4. [Cree un área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal).
+4. [Cree un área de trabajo de Azure Machine Learning](../how-to-manage-workspace.md?tabs=azure-portal).
 
 ## <a name="step-2-create-a-migration-plan"></a>Paso 2: Crear un plan de migración
 
@@ -162,9 +162,3 @@ En este artículo, ha conocido los requisitos generales para migrar a Azure Mach
 1. [Recompilación de un servicio web de Studio (clásico)](migrate-rebuild-web-service.md).
 1. [Integración de un servicio web de Azure Machine Learning con aplicaciones cliente](migrate-rebuild-integrate-with-client-app.md).
 1. [Migración de los módulos Execute R Script (Ejecutar script R) de Studio (Clásico)](migrate-execute-r-script.md).
-
-
-
-
-
-
