@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708006"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567297"
 ---
 # <a name="azure-monitor-logs-overview"></a>Introducción a los registros de Azure Monitor
 Los registros de Azure Monitor son una característica de Azure Monitor que recopila y organiza los datos de registro y rendimiento de los [recursos supervisados](../monitor-reference.md). Los datos de orígenes diferentes, como los [registros de la plataforma](../essentials/platform-logs-overview.md) de los servicios de Azure, los datos de registro y de rendimiento de los [agentes de máquinas virtuales](../agents/agents-overview.md), y los datos de uso y rendimiento de las[aplicaciones](../app/app-insights-overview.md) se pueden consolidar en una sola área de trabajo para que se puedan analizar juntos con un lenguaje de consulta sofisticado que sea capaz de analizar rápidamente millones de registros. Puede realizar una consulta simple que solo recupere un conjunto específico de registros o realizar un análisis de datos sofisticado para identificar patrones críticos en los datos de supervisión. Trabaje con consultas de registros y sus resultados de forma interactiva mediante Log Analytics, úselas en una regla de alertas para recibir notificaciones proactivas de los problemas o visualice los resultados en un libro o panel.
@@ -23,7 +23,7 @@ Los registros de Azure Monitor son una característica de Azure Monitor que reco
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>¿Qué puede hacer con los registros de Azure Monitor?
 En la tabla siguiente se enumeran algunas de las distintas formas en que se pueden usar los registros en Azure Monitor:
 
-|  |  |
+|  | Descripción |
 |:---|:---|
 | **Análisis** | Use [Log Analytics](./log-analytics-tutorial.md) en Azure Portal para escribir [consultas de registros](./log-query-overview.md) y analizar los datos de registro de forma interactiva con un motor de análisis eficaz. |
 | **Alerta** | Configurar un [regla de alerta de registro](../alerts/alerts-log.md) que envíe una notificación o realice [una acción automatizada](../alerts/action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto. |

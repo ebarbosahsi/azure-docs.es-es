@@ -3,22 +3,25 @@ title: Actividad de webhook en Azure Data Factory
 description: La actividad de webhook no continúa la ejecución de la canalización hasta que valida el conjunto de datos adjunto con determinados criterios que el usuario especifica.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361492"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785944"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Una actividad de webhook puede controlar la ejecución de canalizaciones mediante su código personalizado. Con la actividad de webhook, el código de los clientes puede llamar a un punto de conexión y pasarle una dirección URL de devolución de llamada. La ejecución de la canalización espera por la invocación de devolución de llamada antes de pasar a la siguiente actividad.
+
+> [!IMPORTANT]
+> La actividad de webhook ahora permite exponer el estado de error y los mensajes personalizados de nuevo a la actividad y la canalización. Establezca _reportStatusOnCallBack_ en true e incluya _StatusCode_ y _Error_ en la carga de devolución de llamada. Para más información, consulte [Notas adicionales](#additional-notes).
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -37,6 +40,7 @@ Una actividad de webhook puede controlar la ejecución de canalizaciones mediant
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",
@@ -69,7 +73,7 @@ Una actividad de webhook admite los siguientes tipos de autenticación.
 
 Si la autenticación no es necesaria, no incluya la propiedad **authentication**.
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Especifique el nombre de usuario y la contraseña que se usarán con la autenticación básica.
 

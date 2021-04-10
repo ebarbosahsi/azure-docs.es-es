@@ -4,18 +4,18 @@ description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093624"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670212"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
 En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos.
 
-Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos. Pero no significa que los recursos estén inmovilizados. Por ejemplo, si mueve un servidor SQL Server y su base de datos a un nuevo grupo de recursos, una aplicación que utiliza la base de datos no experimenta ningún tiempo de inactividad. Todavía puede leer y escribir en la base de datos. El bloqueo puede durar un máximo de cuatro horas, pero la mayoría de los movimientos se completan en mucho menos tiempo.
+Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos. Pero no significa que los recursos estén inmovilizados. Por ejemplo, si mueve un servidor lógico de Azure SQL y sus bases de datos a un nuevo grupo de recursos o a una nueva suscripción, las aplicaciones que usan las bases de datos no experimentan tiempo de inactividad. Seguirá pudiendo leer y escribir en estas bases de datos. El bloqueo puede durar un máximo de cuatro horas, pero la mayoría de los movimientos se completan en mucho menos tiempo.
 
 Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos o suscripción. No cambia la ubicación del recurso.
 
@@ -34,6 +34,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
    * [Guía de traslado de red](./move-limitations/networking-move-limitations.md)
    * [Guía de traslado de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
+   * Para trasladar una suscripción de Azure a un nuevo grupo de administración, consulte [Movimiento de suscripciones](../../governance/management-groups/manage.md#move-subscriptions).
 
 1. Si mueve un recurso que tiene un rol de Azure asignado directamente al recurso (o a un recurso secundario), la asignación de roles no se mueve y queda huérfana. Después de moverlo, debe volver a crear asignaciones de roles. Finalmente, la asignación de roles huérfana se quitará automáticamente, pero se recomienda quitar la asignación de roles antes de mover el recurso.
 

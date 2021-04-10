@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas generales de Azure Percept DK e IoT Edge
-description: Obtenga sugerencias para la solución de algunos de los problemas más comunes que se encuentran durante la experiencia de incorporación.
+description: Obtención de sugerencias para la solución de algunos de los problemas más comunes con Azure Percept DK
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a6d099e8d267c9fe03e0bb676276e7a4ab8157ab
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521533"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608153"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Solución de problemas de Azure Percept DK (kit de desarrollo)
 
@@ -28,7 +28,13 @@ Para ejecutar estos comandos,
 Para redirigir cualquier salida a un archivo .txt para su posterior análisis, use la sintaxis siguiente:
 
 ```console
-[command] > [file name].txt
+sudo [command] > [file name].txt
+```
+
+Cambie los permisos del archivo .txt para que se pueda copiar:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Después de redirigir la salida a un archivo .txt, copie el archivo en el equipo host a través de SCP:
@@ -47,13 +53,13 @@ Para más información sobre los comandos de Azure IoT Edge, consulte la [docume
 |SO                |```cat /etc/os-subrelease```      |comprobar la versión de la imagen derivada |
 |SO                |```cat /etc/adu-version```        |comprobar la versión de ADU |
 |Temperatura       |```cat /sys/class/thermal/thermal_zone0/temp``` |comprobar la temperatura del kit de desarrollo |
-|Wi-Fi             |```journalctl -u hostapd.service``` |comprobar los registros de SoftAP|
-|Wi-Fi             |```journalctl -u wpa_supplicant.service``` |comprobar los registros de los servicios de Wi-Fi |
-|Wi-Fi             |```journalctl -u ztpd.service```  |comprobar los registros del servicio de aprovisionamiento de Wi-Fi Zero Touch |
-|Wi-Fi             |```journalctl -u systemd-networkd``` |comprobar los registros de la pila de red de Mariner |
-|Wi-Fi             |```/data/misc/wifi/hostapd_virtual.conf``` |comprobar los detalles de configuración del punto de acceso Wi-fi |
-|OOBE              |```journalctl -u oobe -b```       |comprobar los registros de la configuración rápida |
-|Telemetría         |```azure-device-health-id```      |buscar identificador HW_ID de telemetría única |
+|Wi-Fi             |```sudo journalctl -u hostapd.service``` |comprobar los registros de SoftAP|
+|Wi-Fi             |```sudo journalctl -u wpa_supplicant.service``` |comprobar los registros de los servicios de Wi-Fi |
+|Wi-Fi             |```sudo journalctl -u ztpd.service```  |comprobar los registros del servicio de aprovisionamiento de Wi-Fi Zero Touch |
+|Wi-Fi             |```sudo journalctl -u systemd-networkd``` |comprobar los registros de la pila de red de Mariner |
+|Wi-Fi             |```sudo cat /etc/hostapd/hostapd-wlan1.conf``` |comprobar los detalles de configuración del punto de acceso Wi-fi |
+|OOBE              |```sudo journalctl -u oobe -b```       |comprobar los registros de la configuración rápida |
+|Telemetría         |```sudo azure-device-health-id```      |buscar identificador HW_ID de telemetría única |
 |Azure IoT Edge          |```sudo iotedge check```          |ejecutar comprobaciones de configuración y conectividad para problemas comunes |
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |comprobar los registros de contenedor, como los módulos de voz y visión |
 |Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |recopilar registros del módulo, registros del administrador de seguridad de Azure IoT Edge, registros del motor de contenedor, salida JSON de ```iotedge check``` y otra información de depuración útil de la última hora |
@@ -61,26 +67,26 @@ Para más información sobre los comandos de Azure IoT Edge, consulte la [docume
 |Azure IoT Edge          |```sudo systemctl restart iotedge``` |reiniciar el demonio de seguridad de Azure IoT Edge |
 |Azure IoT Edge          |```sudo iotedge list```           |enumerar los módulos de Azure IoT Edge implementados |
 |Otros             |```df [option] [file]```          |mostrar información sobre el espacio total o disponible en los sistemas de archivos especificados |
-|Otros             |```ip route get 1.1.1.1```        |mostrar la información de la interfaz y la dirección IP del dispositivo |
-|Otros             |```ip route get 1.1.1.1 \| awk '{print $7}'``` <br> ```ifconfig [interface]``` |mostrar solo la dirección IP del dispositivo |
+|Otros             |`ip route get 1.1.1.1`        |mostrar la información de la interfaz y la dirección IP del dispositivo |
+|Otros             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |mostrar solo la dirección IP del dispositivo |
 
 
 Los comandos de Wi-Fi ```journalctl``` se pueden combinar en el siguiente comando único:
 
 ```console
-journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
+sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
 ```
 
 ## <a name="docker-troubleshooting-commands"></a>Comandos de solución de problemas de Docker
 
 |Comando:                        |Función:                  |
 |--------------------------------|---------------------------|
-|```docker ps``` |[muestra qué contenedores se están ejecutando](https://docs.docker.com/engine/reference/commandline/ps/) |
-|```docker images``` |[muestra qué imágenes hay en el dispositivo](https://docs.docker.com/engine/reference/commandline/images/)|
-|```docker rmi [image id] -f``` |[elimina una imagen del dispositivo](https://docs.docker.com/engine/reference/commandline/rmi/) |
-|```docker logs -f edgeAgent``` <br> ```docker logs -f [module_name]``` |[toma los registros de contenedor del módulo especificado](https://docs.docker.com/engine/reference/commandline/logs/) |
-|```docker image prune``` |[quita todas las imágenes pendientes](https://docs.docker.com/engine/reference/commandline/image_prune/) |
-|```watch docker ps``` <br> ```watch ifconfig [interface]``` |comprueba el estado de descarga del contenedor de Docker |
+|```sudo docker ps``` |[muestra qué contenedores se están ejecutando](https://docs.docker.com/engine/reference/commandline/ps/) |
+|```sudo docker images``` |[muestra qué imágenes hay en el dispositivo](https://docs.docker.com/engine/reference/commandline/images/)|
+|```sudo docker rmi [image id] -f``` |[elimina una imagen del dispositivo](https://docs.docker.com/engine/reference/commandline/rmi/) |
+|```sudo docker logs -f edgeAgent``` <br> ```sudo docker logs -f [module_name]``` |[toma los registros de contenedor del módulo especificado](https://docs.docker.com/engine/reference/commandline/logs/) |
+|```sudo docker image prune``` |[quita todas las imágenes pendientes](https://docs.docker.com/engine/reference/commandline/image_prune/) |
+|```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |comprueba el estado de descarga del contenedor de Docker |
 
 ## <a name="usb-updating"></a>Actualización de USB
 

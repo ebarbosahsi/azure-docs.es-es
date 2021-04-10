@@ -10,38 +10,42 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0de93eff0fc422bc28fe7b2c42c295c8d8b1acc4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: dfdd7286013bbb6462fb8e5b1bdf52e6ed738029
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344477"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384687"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>¿Qué es Metrics Advisor (versión preliminar)? 
 
-Metrics Advisor forma parte de Azure Cognitive Services que usa inteligencia artificial para realizar la supervisión de datos y la detección de anomalías en los datos de series temporales. El servicio automatiza el proceso de aplicación de modelos a los datos y proporciona un conjunto de áreas de trabajo basadas en Web de API para la ingesta de datos, la detección de anomalías y los diagnósticos, sin necesidad de conocer el aprendizaje automático. Use Metrics Advisor para:
+Metrics Advisor forma parte de Azure Cognitive Services que usa inteligencia artificial para realizar la supervisión de datos y la detección de anomalías en los datos de series temporales. El servicio automatiza el proceso de aplicación de modelos a los datos y proporciona un conjunto de API y un área de trabajo basada en web para la ingesta de datos, la detección de anomalías y los diagnósticos, sin necesidad de conocer el aprendizaje automático. Los desarrolladores pueden crear aplicaciones de AIOps, mantenimiento de predictivo y supervisión empresarial basadas en el servicio. Use Metrics Advisor para:
 
-* Analizar los datos multidimensionales de varios orígenes de datos 
+* Analizar los datos multidimensionales de varios orígenes de datos
 * Identificar y correlacionar las anomalías
 * Configurar y ajustar el modelo de detección de anomalías usado en los datos
-* Diagnosticar las anomalías y ayudar con el análisis de la causa principal. 
+* Diagnosticar las anomalías y ayudar con el análisis de la causa principal
 
 :::image type="content" source="media/metrics-advisor-overview.png" alt-text="Introducción a Metrics Advisor":::
 
+Esta documentación contiene los siguientes tipos de artículos:
+* Los [inicios rápidos](./Quickstarts/web-portal.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
+* Las [guías paso a paso](./how-tos/onboard-your-data.md) contienen instrucciones para usar el servicio de maneras más específicas o personalizadas.
+* Los [artículos conceptuales](glossary.md) proporcionan explicaciones detalladas de la funcionalidad y las características del servicio.
+
 ## <a name="connect-to-a-variety-of-data-sources"></a>Conexión a diferentes orígenes de datos
 
-Metrics Advisor puede conectarse e [ingerir datos de métricas multidimensionales](how-tos/onboard-your-data.md) de muchos almacenes de datos, entre los que se incluyen lo siguientes: SQL Server, Azure Blob Storage, MongoDB y otros. 
+Metrics Advisor puede conectarse e [ingerir datos de métricas multidimensionales](how-tos/onboard-your-data.md) de muchos almacenes de datos, entre los que se incluyen lo siguientes: SQL Server, Azure Blob Storage, MongoDB y otros.
 
 ## <a name="easy-to-use-and-customizable-anomaly-detection"></a>Detección de anomalías fácil de usar y personalizable
 
-* Metrics Advisor selecciona automáticamente el mejor modelo para los datos, sin necesidad de realizar ningún aprendizaje automático. 
+* Metrics Advisor selecciona automáticamente el mejor modelo para los datos, sin necesidad de realizar ningún aprendizaje automático.
 * Supervise automáticamente cada serie temporal dentro de las [métricas multidimensionales](glossary.md#multi-dimensional-metric).
 * Use la [optimización de parámetros](how-tos/configure-metrics.md) y los [comentarios interactivos](how-tos/anomaly-feedback.md) para personalizar el modelo que se aplica a los datos y los futuros resultados de la detección de anomalías.
 
-
 ## <a name="real-time-alerts-through-multiple-channels"></a>Alertas en tiempo real en varios canales
 
-Cada vez que se detecten anomalías, Metrics Advisor puede [enviar alertas en tiempo real](how-tos/alerts.md) mediante varios canales con enlaces, como son los de correo electrónico, los canales Web y los de Azure DevOps. Las reglas de alerta flexibles permiten personalizar las alertas que se envían y a dónde.
+Cada vez que se detecten anomalías, Metrics Advisor puede [enviar alertas en tiempo real](how-tos/alerts.md) mediante varios canales con enlaces, como son los de correo electrónico, los canales Web y los de Azure DevOps. Las reglas de alerta flexibles permiten personalizar las alertas que se envían y su destino.
 
 ## <a name="smart-diagnostic-insights-by-analyzing-anomalies"></a>Información de diagnóstico inteligente mediante el análisis de anomalías
 
@@ -52,7 +56,7 @@ Analice las anomalías detectadas en las métricas multidimensionales y genere [
 
 El flujo de trabajo es sencillo: después de incorporar los datos, puede ajustar la detección de anomalías y crear configuraciones para que se adapten a su escenario.
 
-1. [Cree un recurso de Azure](../cognitive-services-apis-create-account.md) para Metrics Advisor. 
+1. [Cree un recurso de Azure](https://go.microsoft.com/fwlink/?linkid=2142156) para Metrics Advisor. 
 2. Cree su primer monitor con el portal web.
     1. Incorporación de los datos
     2. Ajuste de la detección de anomalías

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172756"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670433"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -117,6 +117,8 @@ Si creó una nueva directiva de copia de seguridad, complete la configuración d
 4. En el **rango de retención** , especifique cuánto tiempo quiere conservar sus puntos de copia de seguridad diarios o semanales.
 5. En **Retención del punto de copia de seguridad mensual** y **Retención del punto de copia de seguridad anual**, especifique si quiere mantener una copia de seguridad mensual o anual de sus copias de seguridad diarias o semanales.
 6. Seleccione **Aceptar** para guardar la directiva.
+    > [!NOTE]
+    > Para almacenar la colección de puntos de restauración (RPC), el servicio de copia de seguridad crea un grupo de recursos independiente. Este grupo de recursos es diferente del grupo de recursos de la máquina virtual. [Más información](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Nueva directiva de copia de seguridad](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Live Video Analytics en IoT Edge en Azure
 description: En este artículo se responden las preguntas más frecuentes sobre Live Video Analytics en IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702256"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275964"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Preguntas más frecuentes sobre Live Video Analytics en IoT Edge
 
@@ -57,7 +57,7 @@ No se admite la detección de Open Network Video Interface Forum (ONVIF) de disp
 
 **¿Se pueden reproducir recursos grabados en Azure Media Services desde el perímetro mediante tecnologías de streaming, como HLS o DASH?**
 
-Sí. Los recursos grabados se pueden transmitir como cualquier otro recurso de Azure Media Services. Para transmitir el contenido, debe existir un punto de conexión de streaming en ejecución. El uso del proceso de creación del localizador de streaming estándar dará acceso a un manifiesto de HTTP Live Streaming de Apple (HLS) o streaming adaptable dinámico mediante HTTP (DASH, también conocido como MPEG-DASH) para el streaming a cualquier marco de trabajo para reproductores compatible. Para obtener más información sobre la creación y publicación de manifiestos de HLS o DASH, vea [Empaquetado dinámico](../latest/dynamic-packaging-overview.md).
+Sí. Los recursos grabados se pueden transmitir como cualquier otro recurso de Azure Media Services. Para transmitir el contenido, debe existir un punto de conexión de streaming en ejecución. El uso del proceso de creación del localizador de streaming estándar dará acceso a un manifiesto de HTTP Live Streaming de Apple (HLS) o streaming adaptable dinámico mediante HTTP (DASH, también conocido como MPEG-DASH) para el streaming a cualquier marco de trabajo para reproductores compatible. Para obtener más información sobre la creación y publicación de manifiestos de HLS o DASH, vea [Empaquetado dinámico](../latest/encode-dynamic-packaging-concept.md).
 
 **¿Se pueden usar las características de DRM y protección de contenido estándar de Media Services en un recurso archivado?**
 
@@ -69,7 +69,7 @@ Se admiten todos los reproductores estándar compatibles con la versión 3 o ve
 
 Los reproductores recomendados para las pruebas incluyen:
 
-* [Azure Media Player](../latest/use-azure-media-player.md)
+* [Azure Media Player](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
@@ -129,7 +129,7 @@ Las soluciones varían en función del protocolo de comunicación que use el ser
    
 *Uso del protocolo gRPC*: 
 
-* Con el módulo Live Video Analytics 1.0, cuando se usa un protocolo de llamada a procedimiento remoto (gRPC) de uso general, la única manera es si el servidor de gRPC expusiera distintos modelos de IA a través de puertos distintos. En [este ejemplo de código](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), un único puerto (44000) expone todos los modelos de YOLO. En teoría, el servidor gRPC de YOLO se podría volver a escribir para exponer algunos modelos en el puerto 44000 y otros en el puerto 45000. 
+* Con el módulo Live Video Analytics 1.0, cuando se usa un protocolo de llamada a procedimiento remoto (gRPC) de uso general, la única manera es si el servidor de gRPC expusiera distintos modelos de IA a través de puertos distintos. En [este ejemplo de código](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), un único puerto (44000) expone todos los modelos de YOLO. En teoría, el servidor gRPC de YOLO se podría volver a escribir para exponer algunos modelos en el puerto 44000 y otros en el puerto 45000. 
 
 * Con el módulo Live Video Analytics 2.0, se agrega una nueva propiedad al nodo de extensión gRPC. Esta propiedad, **extensionConfiguration**, es una cadena opcional que se puede usar como parte del contrato gRPC. Cuando hay varios modelos de IA empaquetados en un único servidor de inferencia, no es necesario exponer un nodo para cada modelo de IA. En su lugar, para una instancia de grafo, el usuario, como proveedor de extensiones, puede definir cómo seleccionar los diferentes modelos de AI mediante la propiedad **extensionConfiguration**. Durante la ejecución, Live Video Analytics pasa esta cadena al servidor de inferencia, que puede usarla para invocar al modelo de IA deseado. 
 

@@ -1,17 +1,17 @@
 ---
 title: 'Administración de redes virtuales mediante Azure Portal en Azure Database for MySQL: Servidor flexible'
 description: 'Creación y administración de redes virtuales para Azure Database for MySQL: Servidor flexible mediante Azure Portal'
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 28506ea5afe085e9f52e40495d9931ae0aeddf32
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4906ce9f562910f0a087cd25167457ec1fb301ec
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90931902"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110004"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Creación y administración de redes virtuales para Azure Database for MySQL: Servidor flexible mediante Azure Portal
 

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217404"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786488"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. En [Application Insights](./app-insights-overview.md), Snapshot Debugger supervisa los datos de telemetría de las excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](./asp-net-exceptions.md) en el portal de Application Insights.
@@ -24,7 +24,10 @@ Las instantáneas de depuración se guardan durante 15 días. Esta directiva de 
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Habilitación de Snapshot Debugger de Application Insights para la aplicación
 La recopilación de instantáneas está disponible para:
 * Aplicaciones de .NET Framework y ASP.NET que ejecuten .NET Framework 4.5 o posterior.
-* Aplicaciones de .NET Core 2.0 y ASP.NET Core 2.0 que se ejecuten en Windows.
+* Las aplicaciones .NET Core y ASP.NET Core que ejecutan .NET Core 2,1 (LTS) o 3,1 (LTS) en Windows.
+* Aplicaciones .NET 5,0 en Windows.
+
+No se recomienda usar .NET Core 2,0, 2,2 o 3,0, ya que no son compatibles.
 
 Se admiten los siguientes entornos:
 

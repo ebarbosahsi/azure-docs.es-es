@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3b8b53446799eec3473d63c89672393a35f9787a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016718"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104670962"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
@@ -34,11 +34,11 @@ Con la característica de solución de problemas de Azure Network Watcher, es po
 Quiere configurar una conexión de sitio a sitio entre Azure y la red local con FortiGate como la instancia de VPN Gateway local. Para lograr este escenario, necesitará la siguiente configuración:
 
 1. Puerta de enlace de red virtual: la instancia de VPN Gateway en Azure
-1. Puerta de enlace de red local: la representación de la[ instancia de VPN Gateway local (FortiGate](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)) en la nube de Azure
-1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
+1. Puerta de enlace de red local: la representación de la[ instancia de VPN Gateway local (FortiGate](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway)) en la nube de Azure
+1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [Configuración de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 Uno de los pasos de configuración más importantes es la configuración de los parámetros de comunicación de IPsec, ya que una configuración incorrecta conlleva una pérdida de conectividad entre la red local y Azure. Actualmente, las instancias de Azure VPN Gateway están configuradas para admitir los siguientes parámetros de IPsec durante la fase 1. Como puede ver en la tabla siguiente, los algoritmos de cifrado admitidos por Azure VPN Gateway son AES256 y AES128 y 3DES.
 

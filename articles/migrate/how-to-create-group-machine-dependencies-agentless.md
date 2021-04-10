@@ -1,24 +1,24 @@
 ---
-title: Configuración del análisis de dependencias sin agente en Azure Migrate Server Assessment
-description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
+title: Configuración del análisis de dependencias sin agentes en Azure Migrate
+description: Configuración del análisis de dependencias sin agentes en Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045860"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786590"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Análisis de las dependencias del servidor (sin agente)
 
-En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate: evaluación de servidores. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre servidores para la evaluación y la migración a Azure.
+En este artículo se describe cómo configurar el análisis de dependencias sin agente en Azure Migrate: Detección y evaluación. El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a identificar y comprender las dependencias entre servidores para la evaluación y la migración a Azure.
 
 > [!IMPORTANT]
-> El análisis de dependencias sin agente se encuentra actualmente en versión preliminar para los servidores que se ejecutan en el entorno de VMware, detectados con la herramienta Azure Migrate: evaluación de servidores.
+> El análisis de dependencias sin agente se encuentra actualmente en versión preliminar para los servidores que se ejecutan en el entorno de VMware, detectados con la herramienta Azure Migrate: Detección y evaluación.
 > Esta versión preliminar está incluida en el soporte al cliente y se puede usar para cargas de trabajo de producción.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- Asegúrese de que ha [creado un proyecto de Azure Migrate](./create-manage-projects.md) con la herramienta Azure Migrate: evaluación de servidores agregada.
+- Asegúrese de que ha [creado un proyecto](./create-manage-projects.md) con la herramienta Azure Migrate: Detección y evaluación agregada.
 - Revise los [requisitos de VMware](migrate-support-matrix-vmware.md#vmware-requirements) para realizar el análisis de dependencias.
 - Revise los [requisitos del dispositivo](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) antes de configurarlo.
 - [Revise los requisitos del análisis de dependencias](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) antes de habilitarlo en los servidores.
@@ -41,7 +41,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 2. Revise las direcciones URL de Azure a las que el dispositivo necesitará acceder en las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 3. [Revise los datos](migrate-appliance.md#collected-data---vmware) que la aplicación recopila durante la detección y valoración.
 4. [Tenga en cuenta](migrate-support-matrix-vmware.md#port-access-requirements) los requisitos de acceso a puertos del dispositivo.
-5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server. Después de implementar el dispositivo, debe registrarlo en el proyecto de Azure Migrate y configurarlo para iniciar la detección.
+5. [Implemente el dispositivo de Azure Migrate](how-to-set-up-appliance-vmware.md) para iniciar la detección. Para implementar el dispositivo, descargue e importe una plantilla OVA a VMware para crear un servidor que se ejecute en vCenter Server. Después de implementar el dispositivo, debe registrarlo en el proyecto y configurarlo para iniciar la detección.
 6. Al configurar el dispositivo, debe especificar lo siguiente en el administrador de configuración del dispositivo:
     - Los detalles de la instancia de vCenter Server a la que se quiere conectar.
     - Las credenciales de vCenter Server en el ámbito para detectar los servidores del entorno de VMware.
@@ -50,7 +50,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 ## <a name="verify-permissions"></a>Comprobar los permisos
 
 - Debe [crear una cuenta de vCenter Server de solo lectura](./tutorial-discover-vmware.md#prepare-vmware) para la detección y evaluación. La cuenta de solo lectura necesita tener habilitados los privilegios para **Virtual Machines** > **Guest Operations** (Operaciones de invitado), con el fin de interactuar con los servidores para recopilar los datos de dependencia.
-- Necesita una cuenta de usuario para que la evaluación de servidores pueda acceder al servidor para recopilar los datos de dependencia. [Obtenga información](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre los requisitos de la cuenta para servidores de Windows y Linux.
+- Necesita una cuenta de usuario para que Azure Migrate pueda acceder al servidor para recopilar los datos de dependencia. [Obtenga información](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) sobre los requisitos de la cuenta para servidores de Windows y Linux.
 
 ### <a name="add-credentials-and-initiate-discovery"></a>Adición de credenciales e inicio de la detección
 
@@ -67,7 +67,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 
 Seleccione los servidores en los que quiere habilitar la detección de dependencias.
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Detección y evaluación**, haga clic en **Servidores descubiertos**.
 2. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
 1. Puede ver el estado de validación de los servidores en la columna **Dependencias (sin agente)** .
 1. Haga clic en el menú desplegable **Análisis de dependencias**.
@@ -81,7 +81,7 @@ Podrá visualizar las dependencias unas seis horas después de habilitar el aná
 
 ## <a name="visualize-dependencies"></a>Visualización de dependencias
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Detección y evaluación**, haga clic en **Servidores descubiertos**.
 1. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
 1. Busque el servidor cuyas dependencias quiera revisar.
 1. En la columna **Dependencias (sin agente)** , haga clic en **Ver dependencias**.
@@ -100,7 +100,7 @@ Podrá visualizar las dependencias unas seis horas después de habilitar el aná
 
 ## <a name="export-dependency-data"></a>Exportar datos de dependencia
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Detección y evaluación**, haga clic en **Servidores descubiertos**.
 2. Haga clic en el menú desplegable **Análisis de dependencias**.
 3. Haga clic en **Exportar dependencias de aplicaciones**.
 4. En la página **Exportar dependencias de aplicaciones**, elija el nombre del dispositivo que detecta los servidores deseados.
@@ -132,7 +132,7 @@ Puerto de destino | Número de puerto en el servidor de destino.
 
 Seleccione los servidores en los que quiere detener la detección de dependencias.
 
-1. En **Azure Migrate: Server Assessment**, haga clic en **Servidores detectados**.
+1. En **Azure Migrate: Detección y evaluación**, haga clic en **Servidores descubiertos**.
 1. Elija el **Nombre del dispositivo** cuya detección quiere revisar.
 1. Haga clic en el menú desplegable **Análisis de dependencias**.
 1. Haga clic en **Quitar servidores**.
@@ -157,7 +157,7 @@ Descargue el módulo de PowerShell del repositorio de [ejemplos de Azure PowerSh
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Seleccione la suscripción en la que creó el proyecto de Azure Migrate. 
+2. Seleccione la suscripción en la que creó el proyecto 
 
     ```PowerShell
     select-azsubscription -subscription "Fabrikam Demo Subscription"
@@ -171,7 +171,7 @@ Descargue el módulo de PowerShell del repositorio de [ejemplos de Azure PowerSh
 
 ### <a name="enable-or-disable-dependency-data-collection"></a>Habilitación o deshabilitación de la recopilación de datos de dependencia
 
-1. Obtenga la lista de servidores detectados en el proyecto de Azure Migrate con los siguientes comandos. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. La lista de servidores se guardará en FabrikamDemo_VMs.csv.
+1. Obtenga la lista de servidores detectados en el proyecto con los siguientes comandos. En el ejemplo siguiente, el nombre del proyecto es FabrikamDemoProject y el grupo de recursos al que pertenece es FabrikamDemoRG. La lista de servidores se guardará en FabrikamDemo_VMs.csv.
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
@@ -212,7 +212,7 @@ Azure Migrate ofrece una plantilla de Power BI que puede usar para visualizar l
         Connect-AzAccount -EnvironmentName AzureUSGovernment
         ```
 
-    - Seleccione la suscripción en la que creó el proyecto de Azure Migrate.
+    - Seleccione la suscripción en la que creó el proyecto
 
         ```PowerShell
         select-azsubscription -subscription "Fabrikam Demo Subscription"

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 34ee7eb25b1d106ea8bb53197d69ca5a9d528773
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941363"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104871612"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta de Apache Hive con ODBC y PowerShell
 
@@ -42,7 +42,7 @@ En los siguientes pasos se explica cómo crear un origen de datos ODBC de Apache
 
 1. En Windows, vaya a **Inicio** > **Herramientas administrativas de Windows** > **Orígenes de datos ODBC (32 bits)/(64 bits)** .  Se abre la ventana **Administrador de orígenes de datos ODBC**.
 
-    ![Administrador de orígenes de datos OBDC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configuración de un DSN mediante el Administrador de orígenes de datos ODBC")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="Administrador de orígenes de datos OBDC" border="true":::
 
 1. Desde la pestaña **DSN del usuario**, seleccione **Agregar** para abrir la ventana **Crear nuevo origen de datos**.
 
@@ -60,7 +60,7 @@ En los siguientes pasos se explica cómo crear un origen de datos ODBC de Apache
    |  Nombre de usuario |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. |
    |  Contraseña |Escriba la contraseña del usuario del clúster de HDInsight. Seleccione la casilla **Save Password (Encrypted)** [Guardar contraseña (cifrada)].|
 
-1. Opcional: Seleccione **Opciones avanzadas**.  
+1. Opcional: Seleccione **Opciones avanzadas**  
 
    | Parámetro | Descripción |
    | --- | --- |
@@ -68,7 +68,7 @@ En los siguientes pasos se explica cómo crear un origen de datos ODBC de Apache
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |
    |  Default string column length, Binary column length, Decimal column scale |La longitud y precisión del tipo de datos pueden afectar a la forma en que se devuelven los datos. Pueden dar lugar a que se devuelva información incorrecta debido a la pérdida de precisión o al truncamiento. |
 
-    ![Opciones de configuración avanzada de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opciones de configuración avanzada de DSN")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Opciones de configuración avanzada de DSN" border="true":::
 
 1. Seleccione **Probar** para probar el origen de datos. Cuando el origen de datos esté configurado correctamente, el resultado de la prueba mostrará **SUCCESS** (Correcto).  
 

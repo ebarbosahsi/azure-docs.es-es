@@ -2,17 +2,17 @@
 title: 'Solución de problemas de conexión: Azure Database for MySQL con servidor flexible'
 description: Obtenga información sobre la solución de problemas de conexión a Azure Database for MySQL con servidor flexible.
 keywords: conexión de MySQL, cadena de conexión, problemas de conectividad, error persistente, error de conexión
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
-ms.openlocfilehash: b328da01cd3b2ecb3eb5f183296eab808de27399
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bdd52ba77fd9a65ce27985ff3c86a93fc887ddf9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90931896"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109997"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Solución de problemas de conexión a Azure Database for MySQL: servidor flexible
 

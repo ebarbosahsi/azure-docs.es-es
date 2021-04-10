@@ -3,16 +3,16 @@ title: Ejecución y desencadenadores de canalización en Azure Data Factory
 description: En este artículo se indica cómo ejecutar una canalización de Azure Data Factory a petición o mediante la creación de un desencadenador.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 271dbd87950018cebbd23841d32324afa42511e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374786"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785808"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 
@@ -323,13 +323,8 @@ Los desencadenadores de ventana de saltos de tamaño constante son un tipo de de
 
 Para más información sobre los desencadenadores de ventanas de saltos de tamaño constante y ejemplos, consulte [Creación de un desencadenador de ventana de saltos de tamaño constante](how-to-create-tumbling-window-trigger.md).
 
-## <a name="event-based-trigger"></a>Desencadenador basado en eventos
-
-Un desencadenador basado en eventos ejecuta canalizaciones en respuesta a un evento como, por ejemplo, la llegada de un archivo, o su eliminación, en Azure Blob Storage.
-
-Para más información acerca de los desencadenadores basados en eventos, consulte [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Creación de un desencadenador que ejecuta una canalización en respuesta a un evento).
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Ejemplos de programaciones de periodicidad del desencadenador
+
 En esta sección se proporcionan ejemplos de programaciones de periodicidad. Se centra en el objeto **schedule** y sus elementos.
 
 Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **frequency** es correcto según la definición de la programación. Por ejemplo, no puede tener un valor de **frequency** de "day" y tener también una modificación de **monthDays** en el objeto **schedule**. Estos tipos de restricciones se describen en la tabla de la sección anterior.
@@ -364,6 +359,7 @@ Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **freque
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Se ejecuta a las 5:15 a. m., 5:45 a. m., 5:15 a. m. y las 5:45 a. m. el tercer miércoles de cada mes. |
 
 ## <a name="trigger-type-comparison"></a>Comparación de tipos de desencadenadores
+
 El desencadenador de ventana de saltos de tamaño constante y el de programación funcionan con latidos de tiempo. ¿En qué se diferencian?
 
 > [!NOTE]
@@ -380,7 +376,17 @@ En la siguiente tabla se muestra una comparación entre el desencadenador de ven
 | **Variables del sistema** | Junto con @trigger().scheduledTime y @trigger().startTime, también admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `trigger().outputs.windowStartTime` y `trigger().outputs.windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` y `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Solo admite las variables predeterminadas @trigger().scheduledTime y @trigger().startTime. |
 | **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. |
 
+## <a name="event-based-trigger"></a>Desencadenador basado en eventos
+
+Un desencadenador basado en eventos ejecuta canalizaciones en respuesta a un evento. Hay dos tipos de desencadenadores basados en eventos.
+
+* El _desencadenador de eventos de almacenamiento_ ejecuta una canalización con los eventos que ocurren en una cuenta de almacenamiento, como la llegada de un archivo o la eliminación de un archivo en la cuenta de Azure Blob Storage.
+* El _desencadenador de eventos personalizados_ procesa y administra [temas personalizados](../event-grid/custom-topics.md) en Event Grid
+
+Para obtener más información acerca de los desencadenadores basados en eventos, vea [desencadenador de eventos de almacenamiento](how-to-create-event-trigger.md) y [desencadenador de eventos personalizados](how-to-create-custom-event-trigger.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Vea los siguientes tutoriales:
 
 - [Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET](quickstart-create-data-factory-dot-net.md).
