@@ -4,15 +4,15 @@ description: Acceda rápidamente a la telemetría de sus solicitudes y excepcion
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d412441a7a80a14a0bc7a70de8020692f8f573d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94538502"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642730"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetría de Application Insights en CodeLens de Visual Studio
-Los métodos del código de la aplicación web se pueden anotar con telemetría acerca de las excepciones en tiempo de ejecución y los tiempos de respuesta de las solicitudes. Si instala [Azure Application Insights](./app-insights-overview.md) en la aplicación, la telemetría aparece en [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) de Visual Studio (las notas de la parte superior de cada función en las que suele ver información útil, como el número de lugares en que se hace referencia a la función o la última persona que la editó).
+Los métodos del código de la aplicación web se pueden anotar con telemetría acerca de las excepciones en tiempo de ejecución y los tiempos de respuesta de las solicitudes. Si instala [Azure Application Insights](./app-insights-overview.md) en la aplicación, la telemetría aparece en [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens) de Visual Studio (las notas de la parte superior de cada función en las que suele ver información útil, como el número de lugares en que se hace referencia a la función o la última persona que la editó).
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 

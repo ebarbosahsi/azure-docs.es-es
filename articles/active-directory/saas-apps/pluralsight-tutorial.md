@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
 ms.openlocfilehash: a9ca24886ae14eb1b9107ea2df53227140cc30f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101651408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pluralsight"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Pluralsight
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Pluralsight con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Pluralsight con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
