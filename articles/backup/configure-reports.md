@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509376"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562331"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -148,7 +148,7 @@ Hay dos tipos de vistas de cumplimiento de directivas disponibles:
 
 * **Cumplimiento de la directiva por período de tiempo**: con esta vista, puede identificar de cuántos elementos se ha hecho al menos una copia de seguridad correcta en un día determinado y de cuántos no se ha hecho una copia de seguridad correcta en ese día. Puede hacer clic en una fila para ver los detalles de todos los trabajos de copia de seguridad que se han desencadenado en el día seleccionado. Tenga en cuenta que, si aumenta el intervalo de tiempo a un valor mayor, como los últimos 60 días, la cuadrícula se representa en una vista semanal y se muestra el recuento de todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en cada día de la semana determinada. Del mismo modo, hay una vista mensual para intervalos de tiempo mayores.
 
-En el caso de los elementos de los que se ha hecho una copia de seguridad semanal, esta cuadrícula le ayuda a identificar todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en la semana determinada. En un intervalo de tiempo mayor, como los últimos 120 días, la cuadrícula se representa en una vista mensual y se muestra el recuento de todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en cada semana del mes determinado. Consulte [Convenciones usadas en Informes de Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obtener más información acerca de las vistas diaria, semanal y mensual.
+En el caso de los elementos de los que se ha hecho una copia de seguridad semanal, esta cuadrícula le ayuda a identificar todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en la semana determinada. En un intervalo de tiempo mayor, como los últimos 120 días, la cuadrícula se representa en una vista mensual y se muestra el recuento de todos los elementos de los que se ha hecho al menos una copia de seguridad correcta en cada semana del mes determinado. Consulte [Convenciones usadas en Informes de Backup](#conventions-used-in-backup-reports) para obtener más información acerca de las vistas diaria, semanal y mensual.
 
 ![Cumplimiento de la directiva por período de tiempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Una vez que se haya creado la aplicación lógica, tendrá que autorizar las con
 
 Los Informes de Backup usan [funciones del sistema en registros de Azure Monitor](backup-reports-system-functions.md). Estas funciones operan sobre los datos de las tablas de Azure Backup sin formato de LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples. 
 
-Para crear sus propios libros de informes con los Informes de Backup como base, puede navegar a Informes de Backup, hacer clic en **Editar** en la parte superior del informe y ver o editar las consultas que se usan en los informes. Consulte la [documentación de los libros de Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para más información sobre cómo crear informes personalizados. 
+Para crear sus propios libros de informes con los Informes de Backup como base, puede navegar a Informes de Backup, hacer clic en **Editar** en la parte superior del informe y ver o editar las consultas que se usan en los informes. Consulte la [documentación de los libros de Azure](../azure-monitor/visualize/workbooks-overview.md) para más información sobre cómo crear informes personalizados. 
 
 ## <a name="export-to-excel"></a>Exportación a Excel
 

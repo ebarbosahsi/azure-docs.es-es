@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 91d40a5a738737098b0941bf3e41e4edd515e6df
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501182"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640483"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -110,7 +110,7 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-Para pequeños y medianos clústeres, las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.
+En el caso de clústeres pequeños y medianos, las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Actualización del clúster de AKS con nuevas credenciales de la aplicación AAD
 

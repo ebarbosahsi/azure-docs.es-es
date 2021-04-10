@@ -3,15 +3,15 @@ title: 'Grupo de hosts de Windows Virtual Desktop (clásico) en Azure Marketplac
 description: Procedimientos para la creación de un grupo de hosts de Windows Virtual Desktop (clásico) mediante Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d7e0862bd7519f59602f1e769301614895bd6e09
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88008600"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121887"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de un grupo de hosts en Windows Virtual Desktop (clásico)
 
@@ -80,10 +80,10 @@ En la pestaña **Configure virtual machines** (Configuración de las máquinas v
 1. Acepte los valores predeterminados o personalice el número y tamaño de las máquinas virtuales.
 
     >[!NOTE]
-    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace. Para solicitar un tamaño de máquina virtual, cree una solicitud o vote por una existente en el [foro de UserVoice de Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace.
 
-1. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre *prefijo*, las máquinas virtuales se llamarán **prefijo-0**, **prefijo-1** y así sucesivamente.
-1. Seleccione **Siguiente: Configuración de máquina virtual**.
+2. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre *prefijo*, las máquinas virtuales se llamarán **prefijo-0**, **prefijo-1** y así sucesivamente.
+3. Seleccione **Siguiente: Configuración de máquina virtual**.
 
 ### <a name="virtual-machine-settings"></a>Configuración de máquina virtual
 

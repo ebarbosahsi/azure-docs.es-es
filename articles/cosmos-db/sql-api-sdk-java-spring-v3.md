@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/28/2021
-ms.author: anfeldma
+ms.date: 03/15/2021
+ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692732"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563113"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 para la API Core (SQL): Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,13 @@ ms.locfileid: "101692732"
 
 La versión 3 de Spring Data Azure Cosmos DB para Core (SQL) permite que los desarrolladores utilicen Azure Cosmos DB en aplicaciones de Spring. Spring Data Azure Cosmos DB expone la interfaz de Spring Data para manipular las bases de datos y las colecciones, trabajar con documentos y emitir consultas. Las API sincrónicas y las API asincrónicas (reactivas) se admiten en el mismo artefacto Maven. 
 
-Spring Data Azure Cosmos DB tiene una dependencia en la plataforma de Spring Data. El equipo del SDK de Azure Cosmos DB publica los artefactos de Maven para las versiones 2.2.2 y 2.2.3 de Spring Data.
+> [!IMPORTANT]
+> Spring Data Azure Cosmos DB tiene una dependencia en la plataforma de Spring Data.
+> 
+> Las versiones 3.0.0 a 3.4.0 de azure-spring-data-cosmos admiten las versiones 2.2 y 2.3 de Spring Data.
+> 
+> Las versiones 3.5.0 y superiores de azure-spring-data-cosmos admiten las versiones 2.4.3 y superiores de Spring Data.
+>
 
 [Spring Framework](https://spring.io/projects/spring-framework) es un modelo de programación y configuración que simplifica el desarrollo de aplicaciones Java. Spring simplifica las relaciones de las aplicaciones mediante la inserción dependencias. Son muchos los desarrolladores que prefieren Spring, ya que resulta más sencillo compilar y probar las aplicaciones. [Spring Boot](https://spring.io/projects/spring-boot) amplía este control de los recursos pensando en la implementación de microservicios y aplicaciones web. [Spring Data](https://spring.io/projects/spring-data) es un modelo y una plataforma de programación para acceder a almacenes de datos como Azure Cosmos DB desde el contexto de una aplicación de Spring o Spring Boot. 
 
@@ -59,7 +65,7 @@ Puede usar Spring Data Azure Cosmos DB en las aplicaciones de [Azure Spring Clo
 
 ## <a name="get-started-fast"></a>Empiece rápidamente
 
-  Empiece a trabajar rápidamente con Spring Data Azure Cosmos DB gracias a la [Guía de Spring Boot Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). El enfoque de Spring Boot Starter es el método recomendado para empezar a usar el conector Spring Data Azure Cosmos DB.
+  Empiece a trabajar rápidamente con Spring Data Azure Cosmos DB gracias a la [Guía de Spring Boot Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). El enfoque de Spring Boot Starter es el método recomendado para empezar a usar el conector Spring Data Azure Cosmos DB.
 
   También puede agregar la dependencia Spring Data Azure Cosmos DB al archivo `pom.xml`, como se muestra a continuación:
 

@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431268"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582721"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -151,6 +151,8 @@ Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad d
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    Se recomienda encarecidamente incluir la versión de la API en el campo. De lo contrario, podrían producirse comportamientos inesperados. 
+    
 * Para el campo **Contraseña** , use un token SAS. El formato del token de SAS es el mismo que para los protocolos HTTPS y AMQP:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
@@ -355,7 +357,7 @@ El cuerpo de la respuesta contiene la sección de propiedades del dispositivo ge
 
 Los códigos de estado posibles son:
 
-|Status | Description |
+|Status | Descripción |
 | ----- | ----------- |
 | 200 | Correcto |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) |

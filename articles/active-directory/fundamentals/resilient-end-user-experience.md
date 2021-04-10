@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98724448"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557911"
 ---
 # <a name="resilient-end-user-experience"></a>Experiencia del usuario final resistente
 
@@ -62,7 +62,7 @@ Como parte del proceso de registro del proveedor de identidades externo, incluya
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilidad de la autenticación multifactor
 
-Al usar un [servicio de teléfono para la autenticación multifactor (MFA)](../../active-directory-b2c/phone-authentication.md), asegúrese de agregar un proveedor de servicios alternativo. Es posible que su proveedor de servicios de telecomunicaciones o de telefonía local experimente interrupciones en el servicio.
+Al usar un [servicio de teléfono para la autenticación multifactor (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md), asegúrese de agregar un proveedor de servicios alternativo. Es posible que su proveedor de servicios de telecomunicaciones o de telefonía local experimente interrupciones en el servicio.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Cómo elegir una MFA alternativa  
 

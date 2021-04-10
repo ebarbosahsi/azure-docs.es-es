@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103422117"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641144"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Escalado horizontal de una aptitud personalizada de forma eficaz
 
@@ -26,7 +26,7 @@ Las aptitudes personalizadas son las API web que implementan una interfaz espec�
 
 + Repase el artículo sobre la [interfaz de una aptitud personalizada](cognitive-search-custom-skill-interface.md) para ver una introducción sobre la interfaz de entrada/salida que debe implementar una aptitud personalizada.
 
-+ Configure el entorno. Podría empezar por [este tutorial de principio a fin](/python/tutorial-vs-code-serverless-python-01) para configurar una instancia de Azure Function sin servidor con las extensiones de Visual Studio Code y Python.
++ Configure el entorno. Podría empezar por [este tutorial de principio a fin](/azure/azure-functions/create-first-function-vs-code-python) para configurar una instancia de Azure Function sin servidor con las extensiones de Visual Studio Code y Python.
 
 ## <a name="skillset-configuration"></a>Configuración del conjunto de aptitudes
 
@@ -42,7 +42,7 @@ En la [aptitud personalizada](cognitive-search-custom-skill-web-api.md), estable
 
 3. Establezca el elemento `timeout` en un valor suficiente para que la aptitud responda con una respuesta válida.
 
-4. En la definición `indexer`, establezca [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) en el número de documentos que deben leerse del origen de datos y que se han enriquecido de forma simultánea.
+4. En la definición `indexer`, establezca [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) en el número de documentos que deben leerse del origen de datos y que se han enriquecido de forma simultánea.
 
 ### <a name="considerations"></a>Consideraciones
 
@@ -106,5 +106,5 @@ Felicidades. Su aptitud personalizada ahora se ha escalado de forma adecuada par
 
 + [Aptitudes avanzadas: un repositorio de aptitudes personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Incorporación de una aptitud personalizada a una canalización de enriquecimiento de inteligencia artificial](cognitive-search-custom-skill-interface.md)
-+ [Incorporación de una aptitud de Azure Machine Learning](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Uso de sesiones de depuración para probar los cambios](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Incorporación de una aptitud de Azure Machine Learning](./cognitive-search-aml-skill.md)
++ [Uso de sesiones de depuración para probar los cambios](./cognitive-search-debug-session.md)

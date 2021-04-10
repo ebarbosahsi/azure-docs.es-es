@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98797843"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641415"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Información general sobre la migración: De SQL Server a SQL Server en VM de Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform o GCP)
 
-Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/). 
+Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Información general
 
@@ -140,7 +140,7 @@ Para obtener más ayuda, consulte los siguientes recursos, que se desarrollaron 
 |[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|En estas notas del producto se describen los pasos para configurar varias máquinas virtuales de Azure en una configuración de grupo de disponibilidad Always On de SQL Server.|
 |[Máquinas virtuales de Azure que admiten SSD Ultra por región](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Estos scripts de PowerShell proporcionan una opción de programación para recuperar la lista de regiones que admiten máquinas virtuales de Azure compatibles con SSD Ultra.|
 
-Estos recursos se desarrollaron como parte del programa Ninja SQL de datos, que está patrocinado por el equipo de ingeniería de grupos de datos de Azure. El objetivo principal del programa Ninja SQL de datos es lograr y acelerar la modernización compleja, y competir por las oportunidades de migración de las plataformas de datos a la de Azure, de Microsoft. Si cree que su organización estaría interesada en participar en el programa Ninja SQL de datos, póngase en contacto con su equipo de cuentas y pídale que le envíe una nominación.
+El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

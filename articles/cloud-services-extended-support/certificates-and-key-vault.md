@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722660"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865710"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Uso de certificados con Azure Cloud Services (soporte extendido)
 
@@ -27,9 +27,8 @@ Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Imagen que muestra la selección de Directivas de acceso en la hoja de Key Vault.":::
 
-3. Asegúrese de que las directivas de acceso incluyen las siguientes propiedades:
+3. Asegúrese de que las directivas de acceso incluye la siguiente propiedad:
     - **Habilitar el acceso a Azure Virtual Machines para la implementación**
-    - **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Imagen que muestra la ventana de directivas de acceso en Azure Portal.":::
  
@@ -41,7 +40,7 @@ Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Imagen que muestra la selección de la opción Generar o importar.":::
 
-4.  Complete la información necesaria para terminar de cargar el certificado. 
+4.  Complete la información necesaria para terminar de cargar el certificado. El certificado debe estar en formato **.PFX**.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Imagen que muestra la ventana de importación en Azure Portal.":::
 
@@ -50,6 +49,9 @@ Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Para la implementación a través de la plantilla de ARM, se puede encontrar el objeto certificateUrl en el certificado del almacén de claves etiquetado como Identificador secreto
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Imagen muestra el campo Identificador de secreto en el almacén de claves.":::
 
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).

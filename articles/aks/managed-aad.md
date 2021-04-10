@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: ca8b9a511de1b71e5d03b8aac7631fc8f524500f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b7918ecc31fe152bd25153ac8c899ce3ff8fdacb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177943"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640605"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -36,7 +36,7 @@ Obtenga más información sobre el flujo de integración de Azure AD en la [doc
 * Si usa [helm](https://github.com/helm/helm), versión mínima de helm 3.3.
 
 > [!Important]
-> Debe usar Kubectl con la versión 1.18.1, como mínimo, o kubelogin. Si no usa la versión correcta, observará problemas de autenticación.
+> Debe usar Kubectl con la versión 1.18.1, como mínimo, o kubelogin. La diferencia entre las versiones secundarias de Kubernetes y kubectl no debe ser superior a una versión. Si no usa la versión correcta, observará problemas de autenticación.
 
 Para instalar kubectl y kubelogin, use los siguientes comandos:
 
@@ -308,7 +308,7 @@ Asegúrese de que el administrador del grupo de seguridad haya dado a su cuenta 
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[aad-pricing]: /azure/pricing/details/active-directory
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md

@@ -9,19 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 21c247c2fb9e1532c4580eea894c97e2bff84f92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657049"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728222"
 ---
 # <a name="communication-services-notifications"></a>Notificaciones de Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-Las bibliotecas cliente de llamadas y chat de Azure Communication Services crean un canal de mensajería en tiempo real que permite insertar mensajes de señalización en los clientes conectados de una manera eficaz y confiable. De este modo, puede incluir una funcionalidad de comunicación enriquecida y en tiempo real en sus aplicaciones sin necesidad de implementar una lógica complicada de sondeo HTTP. Sin embargo, en las aplicaciones móviles, este canal de señalización solo permanece conectado si la aplicación está activa en primer plano. Si quiere que los usuarios reciban llamadas entrantes o mensajes de chat mientras la aplicación está en segundo plano, debe usar las notificaciones push.
+Los SDK de llamadas y chat de Azure Communication Services crean un canal de mensajería en tiempo real que permite insertar mensajes de señalización en los clientes conectados de una manera eficaz y confiable. De este modo, puede incluir una funcionalidad de comunicación enriquecida y en tiempo real en sus aplicaciones sin necesidad de implementar una lógica complicada de sondeo HTTP. Sin embargo, en las aplicaciones móviles, este canal de señalización solo permanece conectado si la aplicación está activa en primer plano. Si quiere que los usuarios reciban llamadas entrantes o mensajes de chat mientras la aplicación está en segundo plano, debe usar las notificaciones push.
 
 Las notificaciones push permiten enviar información de la aplicación a los dispositivos móviles de los usuarios. Puede usar las notificaciones push para mostrar un cuadro de diálogo, reproducir un sonido o mostrar la interfaz de usuario de llamadas entrantes. Azure Communication Services ofrece integraciones con [Azure Event Grid](../../event-grid/overview.md) y [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) que permiten agregar notificaciones push a las aplicaciones.
 

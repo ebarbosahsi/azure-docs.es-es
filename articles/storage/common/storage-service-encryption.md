@@ -4,17 +4,17 @@ description: Azure Storage protege los datos cifrándolos automáticamente antes
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 0688e14b77d885132d6c3fbaa44bed117cc7cf9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180367"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641118"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -65,50 +65,9 @@ El cifrado en el nivel de servicio admite el uso tanto de claves administradas p
 
 Para más información sobre cómo crear una cuenta de almacenamiento que habilite el cifrado de infraestructura, consulte [Creación de una cuenta de almacenamiento con el cifrado de infraestructura habilitado para poder realizar el cifrado doble de datos](infrastructure-encryption-enable.md).
 
-## <a name="encryption-scopes-for-blob-storage-preview"></a>Ámbitos de cifrado para Blob Storage (versión preliminar)
-
-De forma predeterminada, una cuenta de almacenamiento está cifrada con una clave cuyo ámbito es la cuenta de almacenamiento. Puede optar por usar claves administradas por Microsoft o claves administradas por el cliente almacenadas en Azure Key Vault para proteger y controlar el acceso a la clave que cifra sus datos.
-
-Los ámbitos de cifrado permiten administrar opcionalmente el cifrado a nivel del contenedor o de un blob individual. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos.
-
-Puede crear uno o varios ámbitos de cifrado para una cuenta de almacenamiento mediante el proveedor de recursos de Azure Storage. Cuando se crea un ámbito de cifrado, se especifica si el ámbito está protegido con una clave administrada por Microsoft o con una clave administrada por el cliente almacenada en Azure Key Vault. Distintos ámbitos de cifrado de una misma cuenta de almacenamiento pueden usar claves administradas por Microsoft o por el cliente.
-
-Después de crear un ámbito de cifrado, puede especificar ese ámbito de cifrado en una solicitud para crear un contenedor o un blob. Para obtener más información acerca de cómo crear un ámbito de cifrado, consulte [Creación y administración de ámbitos de cifrado (versión preliminar)](../blobs/encryption-scope-manage.md).
-
-> [!NOTE]
-> Los ámbitos de cifrado no se admiten con las cuentas de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) ni con las cuentas de almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS) durante la versión preliminar.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> La versión preliminar de los ámbitos de cifrado está pensada para usos distintos del de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
->
-> Para evitar costos inesperados, asegúrese de deshabilitar los ámbitos de cifrado que no necesite actualmente.
-
-### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Creación de un contenedor o blob con un ámbito de cifrado
-
-Los blobs que se crean en un ámbito de cifrado se cifran con la clave especificada para ese ámbito. Puede especificar un ámbito de cifrado para un blob individual al crear el blob, o bien puede especificar un ámbito de cifrado predeterminado al crear un contenedor. Al especificar un ámbito de cifrado predeterminado en el nivel de un contenedor, todos los blobs de dicho contenedor se cifran con la clave asociada al ámbito predeterminado.
-
-Al crear un blob en un contenedor que tiene un ámbito de cifrado predeterminado, puede especificar un ámbito de cifrado que invalide el ámbito de cifrado predeterminado si el contenedor está configurado para permitir invalidaciones del ámbito de cifrado predeterminado. Para evitar invalidaciones del ámbito de cifrado predeterminado, configure el contenedor para denegar las invalidaciones para un blob individual.
-
-Las operaciones de lectura en un blob que pertenece a un ámbito de cifrado se producen de forma transparente, siempre y cuando el ámbito de cifrado no esté deshabilitado.
-
-### <a name="disable-an-encryption-scope"></a>Deshabilitación de un ámbito de cifrado
-
-Al deshabilitar un ámbito de cifrado, las operaciones de lectura o escritura posteriores realizadas con el ámbito de cifrado producirán un error con el código de error HTTP 403 (prohibido). Si vuelve a habilitar el ámbito de cifrado, las operaciones de lectura y escritura continuarán con normalidad.
-
-Cuando se deshabilita un ámbito de cifrado, ya no se le facturará. Deshabilite los ámbitos de cifrado que no sean necesarios para evitar cargos innecesarios.
-
-Si el ámbito de cifrado está protegido con claves administradas por el cliente para Azure Key Vault, también puede eliminar la clave asociada en el almacén de claves para deshabilitar el ámbito de cifrado. Tenga en cuenta que las claves administradas por el cliente en Azure Key Vault están protegidas por la protección de eliminación y purga temporal, y una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
-
-- [Uso de la eliminación temporal con PowerShell](../../key-vault/general/key-vault-recovery.md)
-- [Uso de la eliminación temporal con la CLI](../../key-vault/general/key-vault-recovery.md).
-
-> [!NOTE]
-> No es posible eliminar un ámbito de cifrado.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es Azure Key Vault?](../../key-vault/general/overview.md)
 - [Claves administradas por el cliente para el cifrado de Azure Storage](customer-managed-keys-overview.md)
-- [Ámbitos de cifrado para Blob Storage (versión preliminar)](../blobs/encryption-scope-overview.md)
+- [Ámbitos de cifrado para Blob Storage](../blobs/encryption-scope-overview.md)
+- [Especificación de una clave de cifrado en una solicitud a Blob Storage](../blobs/encryption-customer-provided-keys.md)
