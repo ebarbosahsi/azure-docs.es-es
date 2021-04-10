@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100383711"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
@@ -256,7 +256,7 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Un |
+| 1 |A |
 | 1 |B |
 | 1 |C |
 | 3 |Un |

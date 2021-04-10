@@ -4,10 +4,10 @@ description: Los agentes de seguridad de Azure Defender para IoT permiten compil
 ms.date: 1/19/2021
 ms.topic: article
 ms.openlocfilehash: 5f8621c7d96d802ad2d32a6c71321bcd68854233
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779161"
 ---
 # <a name="standalone-micro-agent-overview-preview"></a>Introducción al microagenrte independiente (versión preliminar)

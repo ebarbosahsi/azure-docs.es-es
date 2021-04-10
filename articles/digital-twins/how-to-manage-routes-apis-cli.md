@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433308"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779977"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -237,6 +237,9 @@ Sin realizar el filtrado, los puntos de conexión reciben una serie de eventos d
 * Eventos de ciclo de vida, desencadenados cuando se crean o se eliminan gemelos o relaciones.
 
 Puede restringir los eventos que se envían mediante la incorporación de un **filtro** para un punto de conexión a una ruta de evento.
+
+>[!NOTE]
+> Los filtros **distinguen mayúsculas de minúsculas** y deben coincidir en el caso de carga útil (que puede no coincidir necesariamente con el caso del modelo).
 
 Para agregar un filtro, puede usar una solicitud PUT a *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* con el siguiente cuerpo:
 

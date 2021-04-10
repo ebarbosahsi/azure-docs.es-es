@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: edd2ec633bd78ce1a596782deab57105e9d7f1c3
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: b76934d3f16ec5f87ed1380135d22bc5d943652c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487753"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779774"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -45,7 +45,7 @@ Esto puede deberse a que el servicio del actualizador no funciona correctamente 
 El servicio de actualización es correcto si se está ejecutando y no hay ningún error registrado en el registro de eventos (Registros de aplicaciones y servicios -> Microsoft -> AadApplicationProxy -> Updater -> Administrador). 
 
 > [!IMPORTANT]
-> Solo se publican las versiones principales para la actualización automática. Se recomienda actualizar el conector manualmente según una programación regular. Para obtener más información sobre las nuevas versiones, el tipo de versión (descarga, actualización automática), correcciones de errores y nuevas características, consulte [Azure AD Application Proxy: Historial de lanzamiento de versiones](application-proxy-release-version-history.md).
+> Solo se publican las versiones principales para la actualización automática. Se recomienda actualizar el conector manualmente solo si es necesario. Por ejemplo, no puede esperar a una versión principal, porque debe corregir un problema conocido o usar una característica nueva. Para obtener más información sobre las nuevas versiones, el tipo de versión (descarga, actualización automática), correcciones de errores y nuevas características, consulte [Azure AD Application Proxy: Historial de lanzamiento de versiones](application-proxy-release-version-history.md).
 
 Para actualizar manualmente un conector:
 

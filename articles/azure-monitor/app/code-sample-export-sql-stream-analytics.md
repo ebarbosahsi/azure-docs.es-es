@@ -4,10 +4,10 @@ description: Exportación continua de datos de Application Insights a mediante e
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100587755"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics

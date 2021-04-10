@@ -4,10 +4,10 @@ description: Aprenda a instalar el agente de Defender for IoT en dispositivos Wi
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.openlocfilehash: b5efc9ce675fa068f378cdc2bdd5a077d3437a93
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104778770"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Implementación de un agente de seguridad basado en C# de Defender para IoT en Windows
@@ -129,7 +129,7 @@ Para activar el registro:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Lea la [información general](overview.md) del servicio Defender for IoT.
-* Más información sobre la [arquitectura](architecture.md) de Defender for IoT.
+* Obtenga más información sobre la [arquitectura](architecture.md) de Defender para IoT.
 * Habilite el [servicio](quickstart-onboard-iot-hub.md)
 * Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 * Obtenga información acerca de las [alertas](concept-security-alerts.md)

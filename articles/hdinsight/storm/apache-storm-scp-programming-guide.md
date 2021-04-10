@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932639"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864115"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guía de programación de SCP para Apache Storm en Azure HDInsight
 
@@ -28,7 +28,7 @@ Los datos de SCP se han modelado como secuencias continuas de tuplas. Normalment
 1. Son seleccionadas por una lógica de negocios hospedada en una topología de Storm, que las transforma.
 1. Canalizan el resultado como tuplas a otro sistema SCP o se confirman en almacenes como sistemas de archivos distribuidos y bases de datos, como SQL Server.
 
-![Diagrama de una cola que alimenta de datos a un procesamiento, lo que a su vez alimenta un almacén de datos](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="Diagrama de una cola que alimenta de datos a un procesamiento, lo que a su vez alimenta un almacén de datos" border="false":::
 
 En Storm, una topología de aplicación define un gráfico de cálculo. Cada nodo de una topología contiene lógica de procesamiento. Los vínculos entre los nodos indican el flujo de datos.
 
@@ -521,7 +521,7 @@ La emisión a una secuencia inexistente provoca excepciones en tiempo de ejecuci
 
 ### <a name="fields-grouping"></a>Agrupación de campos
 
-La agrupación de campos integrada de Storm no funciona correctamente en SCP.NET. En la parte de proxy Java, el tipo de datos de todos los campos es realmente **byte[]** . La agrupación de campos usa el código hash del objeto **byte[]** para realizar la agrupación. El código hash es la dirección de este objeto en la memoria RAM. Por lo tanto, la agrupación será incorrecta para objetos multibyte que compartan el mismo contenido pero no la misma dirección.
+La agrupación de campos integrada de Storm no funciona correctamente en SCP.NET. En la parte de proxy Java, el tipo de datos de todos los campos es realmente **byte[]**. La agrupación de campos usa el código hash del objeto **byte[]** para realizar la agrupación. El código hash es la dirección de este objeto en la memoria RAM. Por lo tanto, la agrupación será incorrecta para objetos multibyte que compartan el mismo contenido pero no la misma dirección.
 
 SCP.NET agrega un método de agrupación personalizado y usa el contenido del objeto **byte[]** para realizar la agrupación. En un archivo de especificación, la sintaxis es similar a la de este ejemplo:
 
@@ -570,7 +570,7 @@ Aquí, `examples\HybridTopology\java\target\` es la carpeta que contiene el arch
 
 El componente de SCP incluye la parte Java y la parte C#. Para interactuar con spouts o bolts nativos de Java, se debe realizar la serialización y la deserialización entre la parte Java y la parte C#, como se muestra en el siguiente gráfico:
 
-![Diagrama de un componente de Java que envía a un componente de SCP que, a su vez, envía a otro componente de Java](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="Diagrama de un componente de Java que envía a un componente de SCP que, a su vez, envía a otro componente de Java" border="false":::
 
 #### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Serialización en la parte Java y deserialización en la parte C#
 

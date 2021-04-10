@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
 ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052150"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configuración de la supervisión en el estado de invitado de VM Insights mediante reglas de recopilación de datos (versión preliminar)

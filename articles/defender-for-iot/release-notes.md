@@ -1,43 +1,39 @@
 ---
 title: Novedades de Azure Defender para IoT
 description: Este artículo le permite conocer las novedades de la versión más reciente de Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/08/2021
-ms.author: shhazam
-ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.date: 03/14/2021
+ms.openlocfilehash: 970d46a76f125dcaf82491fdea877e6874e2384f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820677"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104778702"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Novedades de Azure Defender para IoT
 
 En este artículo se enumeran las nuevas características y mejoras de características de Defender para IoT.
 
 Las características mencionadas se encuentran en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
-## <a name="february-2021"></a>Febrero de 2021
+## <a name="march-2021"></a>Marzo de 2021
 
-### <a name="sensor---enhanced-custom-alert-rules"></a>Sensor: reglas de alerta personalizadas mejoradas.
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Sensor: reglas de alerta personalizadas mejoradas (versión preliminar pública)
 
 Ahora puede crear reglas de alerta personalizadas en función del día, grupo de días o período de tiempo durante el que se detectó la actividad de red.  Trabajar con las condiciones de regla de día y hora resulta útil, por ejemplo, en los casos en los que la gravedad de la alerta se deriva según la hora en que se produce el evento de alerta. Por ejemplo, cree una regla personalizada que desencadene una alerta de gravedad alta cuando se detecte actividad de red durante un fin de semana o por la noche.
 
-Esta característica está disponible en el sensor con el lanzamiento de la versión 10.1.
+Esta característica está disponible en el sensor con el lanzamiento de la versión 10.2.
 
-### <a name="on-premises-management-console---export-alerts"></a>Consola de administración local: exportación de alertas
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Consola de administración local: exportación de alertas (versión preliminar pública)
 
 La información de las alertas ahora se puede exportar a un archivo .csv desde la consola de administración local. Puede exportar la información de todas las alertas detectadas o puede exportar la información en función de la vista filtrada.
 
-Esta característica está disponible en la consola de administración local con el lanzamiento de la versión 10.1.
+Esta característica está disponible en la consola de administración local con el lanzamiento de la versión 10.2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Agregue una segunda interfaz de red a la consola de administración local (versión preliminar pública).
+
+Ahora puede mejorar la seguridad de la implementación al agregar una segunda interfaz de red a la consola de administración local. Esta característica permite que la administración local tenga sensores conectados en una red segura, a la vez que permite a los usuarios acceder a la consola de administración local a través de una segunda interfaz de red independiente.
+
+Esta característica está disponible en la consola de administración local con el lanzamiento de la versión 10.2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Generador de dispositivos: nuevo microagente (versión preliminar pública)
 
 Hay disponible un nuevo módulo del generador de dispositivos. El módulo, denominado microagente, permite lo siguiente:
@@ -48,7 +44,7 @@ Hay disponible un nuevo módulo del generador de dispositivos. El módulo, denom
 - **Administración de la postura de seguridad**: supervise de forma proactiva la posición de seguridad de los dispositivos IoT.
 - **Detección de amenazas de IoT/OT continua y en tiempo real**: detecte amenazas como redes de robots (botnets), intentos por fuerza bruta, mineros de criptomonedas y actividad de red sospechosa.
 
-La documentación del módulo de seguridad en desuso se transferirá a la carpeta *Agent-based solution for device builders>Classic* (Solución basada en agentes para generadores de dispositivos > Clásica).
+La documentación de Defender-IoT-micro-agent se transferirá a la carpeta *Agent-based solution for device builders>Classic* (Solución basada en agentes para generadores de dispositivos > Clásica).
 
 Este conjunto de características está disponible con la versión preliminar pública en la nube actual.
 

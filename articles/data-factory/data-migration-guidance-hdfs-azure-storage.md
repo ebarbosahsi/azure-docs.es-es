@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367799"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Use Azure Data Factory para migrar datos de un clúster de Hadoop local a Azure Storage 
@@ -22,8 +22,8 @@ Azure Data Factory proporciona un mecanismo eficaz, sólido y rentable para migr
 
 Data Factory ofrece dos enfoques básicos para la migración de datos desde una versión local de HDFS a Azure. Seleccione el enfoque en función de su escenario. 
 
-- **modo Distcp de Data Factory** (recomendado): En Data Factory, puede usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuida) para copiar archivos tal cual a Azure Blob Storage (incluida la [copia almacenada provisionalmente](./copy-activity-performance.md#staged-copy)) o a Azure Data Lake Store Gen2. Use Data Factory integrado con DistCp para aprovechar el clúster eficaz existente para lograr el mejor rendimiento de copia. También obtendrá las ventajas de la programación flexible y una experiencia de supervisión unificada de Data Factory. En función de la configuración de Data Factory, la actividad de copia crea automáticamente un comando DistCp, envía los datos a un clúster de Hadoop y supervisa el estado de la copia. Se recomienda el modo DistCp de Data Factory para la migración de datos desde un clúster de Hadoop local a Azure.
-- **Modo del entorno ejecución de integración nativo de Data Factory**: DistCp no es una opción en todos los escenarios. Por ejemplo, en un entorno de Azure Virtual Networks, la herramienta DistCp no admite el emparejamiento privado de Azure ExpressRoute con un punto de conexión de red virtual de Azure Storage. Además, en algunos casos, no deseará usar el clúster de Hadoop existente como motor de migración de datos con el fin de evitar las cargas pesadas en el clúster, que afectan al rendimiento de los trabajos de extracción, transformación y carga de datos existentes. En su lugar, puede usar la funcionalidad nativa del entorno de ejecución de integración de Data Factory como motor para copiar los datos de la versión local de HDFS a Azure.
+- **Modo DistCp de Data Factory** (recomendado): en Data Factory, puede usar [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copia distribuida) para copiar archivos tal cual a Azure Blob Storage (incluida la [copia almacenada provisionalmente](./copy-activity-performance.md#staged-copy)) o a Azure Data Lake Store Gen2. Use Data Factory integrado con DistCp para aprovechar el clúster eficaz existente para lograr el mejor rendimiento de copia. También obtendrá las ventajas de la programación flexible y una experiencia de supervisión unificada de Data Factory. En función de la configuración de Data Factory, la actividad de copia crea automáticamente un comando DistCp, envía los datos a un clúster de Hadoop y supervisa el estado de la copia. Se recomienda el modo DistCp de Data Factory para la migración de datos desde un clúster de Hadoop local a Azure.
+- **Modo del entorno de ejecución de integración nativo de Data Factory**: DistCp no es una opción en todos los escenarios. Por ejemplo, en un entorno de Azure Virtual Networks, la herramienta DistCp no admite el emparejamiento privado de Azure ExpressRoute con un punto de conexión de red virtual de Azure Storage. Además, en algunos casos, no deseará usar el clúster de Hadoop existente como motor de migración de datos con el fin de evitar las cargas pesadas en el clúster, que afectan al rendimiento de los trabajos de extracción, transformación y carga de datos existentes. En su lugar, puede usar la funcionalidad nativa del entorno de ejecución de integración de Data Factory como motor para copiar los datos de la versión local de HDFS a Azure.
 
 En este artículo se proporciona la siguiente información sobre los dos enfoques:
 > [!div class="checklist"]
@@ -55,7 +55,7 @@ En el modo de entorno de ejecución de integración nativo de Data Factory, en u
 
 Al realizar copias binarias de la versión local de HDFS a Blob Storage y de la versión local de HDFS a Data Lake Store Gen2, Data Factory incluye automáticamente puntos de control en mayor medida. Si se ha producido un error en la ejecución de la actividad de copia o se ha agotado el tiempo de espera, en un reintento posterior (asegúrese de que el número de reintentos sea mayor que 1), la copia se reanuda desde el último punto de error en lugar de comenzar desde el principio.
 
-## <a name="network-security"></a>Seguridad de las redes 
+## <a name="network-security"></a>Seguridad de red 
 
 De forma predeterminada, Data Factory transfiere datos desde la versión local de HDFS a Blob Storage o Azure Data Lake Storage Gen2 mediante una conexión cifrada y el protocolo HTTPS. HTTPS proporciona cifrado de datos en tránsito y evita la interceptación y ataques de tipo "Man in the middle". 
 
