@@ -9,10 +9,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100517678"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Ubuntu en Azure
@@ -21,7 +21,7 @@ En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de d
 
 En este tutorial analizamos el conjunto de datos [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase es un conjunto de correos electrónicos que se marcan como correo no deseado o ham (no es correo no deseado). Spambase también contiene algunas estadísticas sobre el contenido de los correos electrónicos. Hablaremos sobre las estadísticas más adelante en el tutorial.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de usar una instancia de DSVM de Linux, debe cumplir los siguientes requisitos previos:
 

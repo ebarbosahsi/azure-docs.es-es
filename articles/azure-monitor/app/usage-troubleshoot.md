@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87323509"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024751"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](usage-overview.md): [usuarios, sesiones, eventos](usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](usage-flows.md), [retención](usage-retention.md) o cohortes? Estas son algunas respuestas.
@@ -23,7 +23,7 @@ Todos los eventos de telemetría de Application Insights tienen un [identificado
 
 Si supervisa una aplicación web, la solución más sencilla consiste en agregar el [SDK de JavaScript de Application Insights](./javascript.md) a la aplicación y asegurarse de que el fragmento de código de script se carga en todas las páginas que desee supervisar. El SDK de JavaScript genera identificadores de usuario y sesión automáticamente y rellena los eventos de telemetría con ellos según se van enviando desde la aplicación.
 
-Si supervisa un servicio web (sin interfaz de usuario), [cree un inicializador de telemetría que rellene las propiedades de los identificadores de usuario anónimo y sesión](usage-send-user-context.md) según las nociones de su servicio sobre los usuarios únicos y las sesiones.
+Si supervisa un servicio web (sin interfaz de usuario), [cree un inicializador de telemetría que rellene las propiedades de los identificadores de usuario anónimo y sesión](./usage-overview.md) según las nociones de su servicio sobre los usuarios únicos y las sesiones.
 
 Si la aplicación envía [identificadores de usuarios autenticados](./api-custom-events-metrics.md#authenticated-users), con la herramienta Usuarios puede realizar el recuento en función de estos. En la lista desplegable "Mostrar", seleccione "Usuarios autenticados".
 
@@ -50,4 +50,3 @@ Si la aplicación envía demasiados nombres de evento personalizados, cambie los
 
 ## <a name="get-help"></a>Obtener ayuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

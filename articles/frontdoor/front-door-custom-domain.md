@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96011530"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065053"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Incorporación de un dominio personalizado a Front Door
+
 En este tutorial se muestra cómo agregar un dominio personalizado a Front Door. Si usa Azure Front Door para la entrega de aplicaciones, es necesario un dominio personalizado si desea que su nombre de dominio se vea en la solicitud de usuario final. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca.
 
 Después de crear una instancia de Front Door, el host de front-end predeterminado, que es un subdominio de `azurefd.net`, se incluye en la dirección URL para entregar el contenido de Front Door desde el back-end de forma predeterminada (por ejemplo, https:\//contoso-frontend.azurefd.net/activeusers.htm). Para su comodidad, Azure Front Door permite asociar un dominio personalizado al host predeterminado. Con esta opción, entrega el contenido con un dominio personalizado en la dirección URL, en lugar de un nombre de dominio propiedad de Front Door (por ejemplo, https:\//www.contoso.com/photo.png). 

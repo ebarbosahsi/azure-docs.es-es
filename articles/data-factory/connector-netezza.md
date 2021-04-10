@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 4b12c1f24f389634004de3d487a693bc588a7241
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100374361"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copia de datos de Netezza con Azure Data Factory
@@ -35,7 +35,7 @@ El conector de Netezza admite la copia en paralelo desde el origen. Consulte la 
 
 Azure Data Factory proporciona un controlador integrado para permitir la conectividad. No es necesario instalar manualmente uno para usar este conector.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 

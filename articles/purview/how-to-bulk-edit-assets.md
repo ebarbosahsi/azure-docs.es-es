@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952463"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024241"
 ---
-# <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Edición en masa de recursos para etiquetar términos de glosario
+# <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>Edición masiva de recursos para anotar clasificaciones, términos de glosario y modificar contactos
 
-En este artículo se describe cómo etiquetar varios términos de glosario en una lista de recursos seleccionados de una sola vez.
+En este artículo se describe cómo etiquetar varios términos de glosario, clasificaciones, propietarios y expertos en una lista de recursos seleccionados de una sola vez.
 
 ### <a name="add-assets-to-view-selected-list-using-search"></a>Adición de recursos a la lista View selected (Ver selección) mediante la función de búsqueda
 

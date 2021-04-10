@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221285"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065150"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderación de imágenes de productos de comercio electrónico con Azure Content Moderator
 
@@ -35,7 +35,7 @@ El código de ejemplo completo está disponible en el repositorio [Samples eComm
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una clave de suscripción de Content Moderator. Siga las instrucciones de [Creación de una cuenta de Cognitive Services](../cognitive-services-apis-create-account.md) para suscribirse al servicio Content Moderator y obtener su clave.
 - Una clave de suscripción de Computer Vision (las mismas instrucciones que antes).

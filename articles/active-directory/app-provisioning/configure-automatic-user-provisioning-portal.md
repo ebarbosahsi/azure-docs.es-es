@@ -1,23 +1,22 @@
 ---
-title: Administración de aprovisionamiento de usuarios para aplicaciones empresariales en Azure AD
-description: Aprenda a administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales con Azure Active Directory.
+title: Administración de aprovisionamiento de usuarios para aplicaciones empresariales en Azure Active Directory
+description: Aprenda a administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555627"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579423"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -63,9 +62,7 @@ Seleccione el botón **Probar conexión** para probar las credenciales al hacer 
 
 Expanda **Asignaciones** para ver y modificar los atributos de usuario que fluyen entre Azure AD y la aplicación de destino cuando las cuentas de usuario se aprovisionan o se actualizan.
 
-Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones también administran objetos de grupo. Seleccione una asignación de la tabla para abrir el editor de asignaciones a la derecha, donde puede verlas y personalizarlas.
-
-![Muestra la pantalla Asignación de atributos](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones también administran objetos de grupo. Seleccione una asignación de la tabla para abrir el editor de asignaciones, donde puede verlas y personalizarlas.
 
 Las personalizaciones compatibles incluyen:
 
@@ -79,10 +76,10 @@ Las personalizaciones compatibles incluyen:
 
 ### <a name="settings"></a>Configuración
 
-Puede iniciar y detener el servicio de aprovisionamiento de Azure AD para la aplicación seleccionada en el área **Configuración** de la pantalla **Aprovisionamiento**. También puede borrar la caché de aprovisionamiento y reiniciar el servicio.
+Expanda **Configuración** para establecer una dirección de correo electrónico para recibir notificaciones y si desea recibir alertas sobre errores. También puede seleccionar el ámbito de los usuarios que se sincronizarán. Puede optar por sincronizar todos los usuarios y grupos o solo los que se han asignado.
+
+### <a name="provisioning-status"></a>Estado de aprovisionamiento 
 
 Si el aprovisionamiento se habilita por primera vez para una aplicación, active el servicio mediante el cambio de **Estado de aprovisionamiento** a **Activado**. Este cambio hace que el servicio de aprovisionamiento de Azure AD ejecute un ciclo inicial. Lee los usuarios asignados en la sección **Usuarios y grupos**, consulta la aplicación de destino para ellos y, después, ejecuta las acciones de aprovisionamiento definidas en la sección **Asignaciones** de Azure AD. Durante este proceso, el servicio de aprovisionamiento almacena datos en caché sobre las cuentas de usuario que administra, para que las cuentas no administradas dentro de las aplicaciones de destino que nunca han estado en el ámbito de asignación no se vean afectadas por las operaciones de desaprovisionamiento. Después del ciclo inicial, el servicio de aprovisionamiento sincroniza automáticamente los objetos de grupo y usuario con un intervalo de cuarenta minutos.
 
 Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio de aprovisionamiento. En este estado, Azure no crea, actualiza ni quita ningún objeto de grupo o usuario en la aplicación. Cambie el estado de nuevo a **Activado** y el servicio vuelve adonde lo dejó.
-
-**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](application-provisioning-when-will-provisioning-finish-specific-user.md).
