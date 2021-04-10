@@ -5,16 +5,16 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658358"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867294"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: una conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
 Después de configurar una conexión VPN de sitio a sitio entre una red local y una red virtual de Azure, la conexión VPN de repente deja de funcionar y no se puede volver a conectar. Este artículo proporciona pasos de solución de problemas para ayudarle a resolver este problema. 
 
@@ -70,7 +70,7 @@ Para el modelo de implementación clásico:
 Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 ```
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Paso 3. Compruebe las direcciones IP del par de la VPN
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Paso 3. Compruebe las direcciones IP del par de la VPN
 
 -   La definición de IP en el objeto **Puerta de enlace de red local** en Azure debe coincidir con el IP de dispositivo local.
 -   La definición de la dirección IP de la puerta de enlace de Azure establecida en el dispositivo local debe coincidir con la dirección IP de la puerta de enlace de Azure.
@@ -81,9 +81,7 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Paso 5. Compruebe la dirección de la interfaz externa del dispositivo VPN local
 
-- Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Red local** en Azure, es posible que experimente desconexiones esporádicas.
-- La interfaz externa del dispositivo debe estar directamente en Internet. No debería haber ninguna traducción de direcciones de red o firewall entre Internet y el dispositivo.
-- Para configurar la agrupación en clústeres de firewall para que tenga una IP virtual, debe interrumpir el clúster y exponer el dispositivo VPN directamente a una interfaz pública con la que la puerta de enlace pueda interactuar.
+Si la dirección IP accesible desde Internet del dispositivo VPN está incluida en la definición de **Red local** en Azure, es posible que experimente desconexiones esporádicas.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Paso 6. Compruebe que las subredes coinciden exactamente (puertas de enlace basadas en directivas de Azure)
 
@@ -110,5 +108,5 @@ La característica confidencialidad directa perfecta puede provocar problemas de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   [Configuración de una conexión de sitio a sitio en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configuración de una conexión de sitio a sitio en una red virtual](./tutorial-site-to-site-portal.md)
 -   [Configuración de una directiva IPsec/IKE para conexiones VPN de sitio a sitio](vpn-gateway-ipsecikepolicy-rm-powershell.md)

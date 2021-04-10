@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87f52bef07644370c268168c984a452d5ae3f9bd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585396"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279466"
 ---
 # <a name="trusted-storage-for-media-services"></a>Almacenamiento de confianza para Media Services
 
@@ -29,7 +29,7 @@ Sin embargo, si quiere usar un firewall para proteger su cuenta de almacenamient
 
 ## <a name="tutorial"></a>Tutorial
 
-Puede encontrar más información sobre cómo habilitar almacenamiento de confianza en el tutorial [Almacenamiento de confianza de Media Services](tutorial-trusted-storage-rest.md).
+Puede encontrar más información sobre cómo habilitar almacenamiento de confianza en el tutorial [Almacenamiento de confianza de Media Services](security-trusted-storage-rest-tutorial.md).
 
 > [!NOTE]
 > Debe conceder el acceso de Colaborador de datos de Storage Blob de identidad administrado de AMS para que Media Services pueda leer y escribir en la cuenta de almacenamiento.  La concesión del rol Colaborador genérico no funcionará, ya que no habilita los permisos correctos en el plano de datos.

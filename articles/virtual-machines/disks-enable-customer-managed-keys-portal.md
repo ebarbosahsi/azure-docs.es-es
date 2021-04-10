@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7fbcf37620f9d6edfb0f312c2eb09ef2d7994232
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499397"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731656"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Uso de Azure Portal para habilitar el cifrado del lado servidor con claves administradas por el cliente para los discos administrados
 
@@ -32,8 +32,6 @@ Por ahora, las claves administradas por el cliente tienen las siguientes restric
 
     - Para Windows: [Copia de un disco administrado](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Solo se admiten [software y claves RSA de HSM](../key-vault/keys/about-keys.md) con un tamaño de 2048 bits, 3072 bits y 4096 bits, ninguna otra clave o tamaño.
-    - Las claves de [HSM](../key-vault/keys/hsm-protected-keys.md) requieren el nivel **premium** de los almacenes Azure Key Vault.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 En las secciones siguientes se explica cómo habilitar y usar las claves administradas por el cliente para discos administrados:

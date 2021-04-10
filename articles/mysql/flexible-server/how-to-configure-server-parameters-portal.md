@@ -1,17 +1,17 @@
 ---
 title: 'Configuración de parámetros de servidor: Azure Database for MySQL: servidor flexible en Azure Portal'
 description: 'En este artículo se describe cómo configurar los parámetros de servidor MySQL en Azure Database for MySQL: servidor flexible mediante Azure Portal.'
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 618862e12bd62fbe37ef5e621c89babd7942c04b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94489563"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106962"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configuración de parámetros de servidor en Azure Database for MySQL: servidor flexible mediante Azure Portal
 

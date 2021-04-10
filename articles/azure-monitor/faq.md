@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 5b9b0c6a0fe08ccff9da59539b926270cd0e1d44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032862"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606963"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -705,6 +705,10 @@ La recopilación de registros de contenedores en el espacio de nombres kube-syst
 
 Para obtener información sobre cómo actualizar el agente, vea la información sobre la [administración del agente](containers/container-insights-manage-agent.md).
 
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>¿Por qué las líneas de registro de más de 16 KB se dividen en varios registros en Log Analytics?
+
+El agente usa el [controlador de registro de archivos JSON de Docker](https://docs.docker.com/config/containers/logging/json-file/) para capturar stdout y stderr de los contenedores. Este controlador de registro divide las líneas de registro [de más de 16 KB](https://github.com/moby/moby/pull/22982) en varias líneas cuando se copia de stdout o stderr a un archivo.
+
 ### <a name="how-do-i-enable-multi-line-logging"></a>¿Cómo se puede habilitar el registro de varias líneas?
 
 Actualmente, Container Insights no admite el registro de varias líneas, pero hay soluciones alternativas disponibles. Puede configurar todos los servicios para que escriban en formato JSON y, a continuación, Docker/Moby los escribirán como una sola línea.
@@ -821,6 +825,29 @@ Si ha configurado Azure Monitor con un área de trabajo de Log Analytics median
 
 En esta condición, verá la opción **Probar ahora** al abrir la VM y seleccionar la opción **Insights** en el panel izquierdo, incluso después de que se haya instalado en la VM.  Sin embargo, no se le presentarán opciones como ocurriría si esta VM no estuviera incorporada en VM Insights. 
 
+## <a name="sql-insights-preview"></a>SQL Insights (versión preliminar)
+
+### <a name="what-versions-of-sql-server-are-supported"></a>¿Qué versiones de SQL Server son compatibles?
+Consulte [Versiones compatibles](insights/sql-insights-overview.md#supported-versions) para ver qué versiones de SQL se admiten.
+
+### <a name="what-sql-resource-types-are-supported"></a>¿Qué tipos de recursos de SQL son compatibles?
+
+- Azure SQL Database. Solo base de datos única, no grupos de bases de datos elásticas.
+- Instancia administrada de Azure SQL 
+- Máquinas virtuales de Azure SQL ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) y máquinas virtuales de Azure en las que esté instalado SQL Server.
+
+### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>¿Qué sistemas operativos de la máquina que ejecuta SQL Server son compatibles?
+Todos los sistemas operativos que admitan la ejecución de la versión compatible de SQL.
+
+### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>¿Qué sistemas operativos del servidor de supervisión remoto son compatibles?
+
+Actualmente Ubuntu 18.04 es el único sistema operativo compatible.
+
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>¿Dónde se almacenarán los datos de supervisión en Log Analytics? 
+Todos los datos de supervisión se almacenan en la tabla **InsightsMetrics**. La columna **Origin** (Origen) tiene el valor *solutions.azm.ms/telegraf/SqlInsights*. La columna **Namespace** (Espacio de nombres) tiene valores que comienzan por *sqlserver_* .
+
+### <a name="how-often-is-data-collected"></a>¿Con qué frecuencia se recopilan los datos? 
+Consulte [Datos recopilados por SQL Insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) para obtener más información sobre la frecuencia con la que se recopilan los distintos datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si su pregunta no se ha respondido aquí, puede consultar los siguientes foros para obtener preguntas y respuestas adicionales.

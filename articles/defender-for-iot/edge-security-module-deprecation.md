@@ -1,29 +1,24 @@
 ---
 title: Compatibilidad y retirada de características
-titleSuffix: Azure Defender for IoT
 description: Defender para IoT seguirá dando soporte a C, C# y Edge hasta el 1 de marzo de 2022.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 2779a73d3a5f77e3a3b144309baf6d2788565443
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 782e2e8ab0c54e21da643ca73f647a7ea21e4223
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809659"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104784533"
 ---
 # <a name="feature-support-and-retirement"></a>Compatibilidad y retirada de características
 
 En este artículo se describen las características de Azure Defender para IoT y la compatibilidad con diferentes funcionalidades dentro de Defender para IoT.
 
-## <a name="defender-for-iot-c-c-and-edge-security-module-deprecation"></a>Módulo de seguridad de C, C# y Edge de Defender para IoT en desuso
+## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Retirada de Defender-IoT-micro-agent de Defender para IoT de C, C# y Edge
 
-El nuevo microagente reemplazará al módulo de seguridad de C, C# y Edge.  
+El nuevo microagente reemplazará al agente Defender-IoT-micro-agent de C, C# y Edge.  
 
-El nuevo microagente se basa el conocimiento y la experiencia obtenidos no solo durante el desarrollo del módulo de seguridad existente, sino también de los comentarios de los clientes y asociados, y tiene cuatro mejoras importantes: 
+El nuevo microagente se basa en el conocimiento y la experiencia obtenidos no solo durante el desarrollo de Defender-IoT-micro-agent existente, sino también de los comentarios de los clientes y asociados, y tiene cuatro mejoras importantes: 
 
 - **Valor de seguridad de profundidad**: el nuevo agente se ejecutará en el nivel de host, lo que proporcionará más visibilidad a las operaciones subyacentes del dispositivo y mayor cobertura de seguridad.
 

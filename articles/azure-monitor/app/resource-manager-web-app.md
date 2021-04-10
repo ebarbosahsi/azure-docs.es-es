@@ -8,10 +8,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 08/06/2020
 ms.openlocfilehash: 17602083b5712e5e693cf2b1f09664efd92bfe09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100598269"
 ---
 # <a name="resource-manager-template-samples-for-creating-azure-app-services-web-apps-with-application-insights-monitoring"></a>Ejemplos de plantillas de Resource Manager para crear aplicaciones web de Azure App Services con la supervisión de Application Insights

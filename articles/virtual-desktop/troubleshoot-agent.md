@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732588"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604192"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Windows Virtual Desktop
 
@@ -208,7 +208,7 @@ Para solucionar este problema:
 >Para cambiar el modo de **fReverseConnectMode** o **fEnableWinStation** para varias máquinas virtuales a la vez, puede realizar una de las dos acciones siguientes:
 >
 >- Exporte la clave del Registro del equipo en el que ya está trabajando e impórtela en el resto de máquinas que necesitan este cambio.
->- Cree un objeto de directiva general (GPO) que establezca el valor de clave del Registro para los máquinas que necesitan el cambio.
+>- Cree un objeto de directiva de grupo (GPO) que establezca el valor de clave del Registro para las máquinas que necesitan el cambio.
 
 7. Vaya a **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. En **ClusterSettings**, busque **SessionDirectoryListener** y asegúrese de que su valor de datos es **rdp-sxs...** .

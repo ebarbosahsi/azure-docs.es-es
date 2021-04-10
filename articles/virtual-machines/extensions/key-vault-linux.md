@@ -10,12 +10,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9032bfca30ead56c91d7904e18b76753cf3b6dfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102557070"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582177"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -25,15 +25,18 @@ La extensión de máquina virtual de Key Vault proporciona la actualización aut
 
 La extensión de máquina virtual de Key Vault admite estas distribuciones de Linux:
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - Suse-15 
+
+> [!NOTE]
+> Para obtener características de seguridad extendidas, prepárese para actualizar los sistemas Ubuntu-1604 y Debian-9, ya que estas versiones están llegando al final del período de soporte designado.
+> 
 
 ### <a name="supported-certificate-content-types"></a>Tipos de contenido de certificado admitidos
 
 - PKCS #12
 - PEM
+
 
 ## <a name="prerequisities"></a>Requisitos previos
   - Instancia de Key Vault con certificado. Consulte [Creación de un almacén de claves](../../key-vault/general/quick-create-portal.md).
@@ -54,6 +57,20 @@ La extensión de máquina virtual de Key Vault admite estas distribuciones de Li
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## <a name="key-vault-vm-extension-version"></a>Extensión de máquina virtual de Key Vault
+* Los usuarios de Ubuntu-18.04 y SUSE-15 pueden optar por actualizar la versión de la extensión de máquina virtual del almacén de claves a `V2.0` para disponer de la característica de descarga completa de la cadena de certificados. Los certificados de emisor (intermedio y raíz) se anexarán al certificado de hoja en el archivo PEM.
+
+* Si prefiere actualizar a `v2.0`, deberá eliminar primero `v1.0` y después instalar `v2.0`.
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  La marca--version 2.0 es opcional porque la versión más reciente se instalará de forma predeterminada.   
+
+* Si la máquina virtual tiene certificados descargados por v1.0, al eliminar la extensión v1.0 AKVVM, NO se eliminarán los certificados descargados.  Después de instalar v2.0, los certificados existentes NO se modificarán.  Tendrá que eliminar los archivos de certificado o revertir el certificado para obtener el archivo PEM con la cadena completa de la máquina virtual.
+
+
+
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -70,7 +87,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -107,7 +124,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 2.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | Se omite en Linux. | string |
 | linkOnRenewal | false | boolean |
@@ -140,7 +157,7 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -187,7 +204,7 @@ Azure PowerShell puede usarse para implementar la extensión de máquina virtual
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -207,7 +224,7 @@ Azure PowerShell puede usarse para implementar la extensión de máquina virtual
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -226,6 +243,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -237,6 +255,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Tenga en cuenta las restricciones y los requisitos siguientes:

@@ -5,20 +5,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 492663ca35ed04da09e7f0d198444a4d40178e2b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945250"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867532"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
 
-HDInsight permite el aprendizaje automático con macrodatos, lo que proporciona la capacidad de obtener información valiosa de grandes cantidades de datos estructurados y no estructurados (petabytes o incluso exabytes), y en rápido movimiento. En HDInsight hay varias opciones de aprendizaje automático:  SparkML y Apache Spark MLlib, R, Apache Hive y Microsoft Cognitive Toolkit.
+HDInsight permite el aprendizaje automático con macrodatos, lo que proporciona la capacidad de obtener información valiosa de grandes cantidades de datos estructurados y no estructurados (petabytes o incluso exabytes), y en rápido movimiento. Hay varias opciones de aprendizaje automático en HDInsight: SparkML y Apache Spark MLlib, R Apache Hive y Microsoft Cognitive Toolkit.
 
 ## <a name="sparkml-and-mllib"></a>SparkML y MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) es una oferta de [Apache Spark](https://spark.apache.org/) hospedada por Azure. Consiste en una plataforma de procesamiento paralelo de datos de código abierto y unificada que admite el procesamiento en memoria para agilizar el análisis de macrodatos. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. Hay dos bibliotecas de aprendizaje automático escalables que ofrecen las funcionalidades del modelado algorítmico a este entorno distribuido: MLlib y SparkML. MLlib contiene la API original que se basa en RDD. SparkML es un paquete más reciente que proporciona una API de nivel más alto que se basa en DataFrames para construir canalizaciones ML. SparkML aún no admite todas las características de MLlib, pero está reemplazándola como biblioteca de aprendizaje automático estándar de Spark.
+[HDInsight Spark](spark/apache-spark-overview.md) es una oferta de [Apache Spark](https://spark.apache.org/) hospedada por Azure. Consiste en una plataforma de procesamiento paralelo de datos de código abierto y unificada que admite el procesamiento en memoria para agilizar el análisis de macrodatos. El motor de procesamiento Spark se ha creado para ofrecer velocidad, facilidad de uso y análisis sofisticados. Las capacidades de cálculo distribuido en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático. Hay dos bibliotecas escalables de aprendizaje automático que ofrecen las funcionalidades del modelado algorítmico a este entorno distribuido: MLlib y SparkML. MLlib contiene la API original que se basa en RDD. SparkML es un paquete más reciente que proporciona una API de nivel más alto que se basa en DataFrames para construir canalizaciones ML. SparkML aún no admite todas las características de MLlib, pero está reemplazándola como biblioteca de aprendizaje automático estándar de Spark.
 
 La biblioteca Microsoft Machine Learning para Apache Spark es [MMLSpark](https://github.com/Azure/mmlspark). Esta biblioteca se ha diseñado para que los científicos de datos sean más productivos en Spark, aumenten la velocidad de experimentación y aprovechen las técnicas de aprendizaje automático de vanguardia, así como el aprendizaje profundo, en grandes conjuntos de datos. MMLSpark proporciona una capa sobre las API de bajo nivel de SparkML cuando se crean modelos de aprendizaje automático escalables, como las cadenas de indexación, la conversión de datos en un diseño esperado por los algoritmos de aprendizaje automático y el ensamblado de vectores de características. La biblioteca MMLSpark simplifica estas y otras tareas comunes para la creación de modelos en PySpark.
 
@@ -26,7 +26,7 @@ La biblioteca Microsoft Machine Learning para Apache Spark es [MMLSpark](https:/
 
 [R](https://www.r-project.org/) es actualmente el lenguaje de programación estadístico más popular del mundo. Es una herramienta de visualización de datos de código abierto con una comunidad de más de 2,5 millones de usuarios y que sigue aumentando. Con su próspera cuenta de usuarios y la contribución de más de 8 000 paquetes, R es una opción factible para muchas empresas que requieren el aprendizaje automático. Puede crear un clúster de HDInsight con Machine Learning Services preparado para usarse con grandes conjuntos de datos y modelos. Esta funcionalidad proporciona a los científicos de datos y a los estadísticos una interfaz conocida de R que se puede escalar a petición mediante HDInsight, sin la sobrecarga de mantenimiento y configuración del clúster.
 
-![Aprendizaje para la predicción con R server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/training-for-prediction.png" alt-text="Aprendizaje para la predicción con R server" border="false":::
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R.  También puede ejecutar los scripts de R en los nodos del clúster si usa los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
@@ -36,7 +36,7 @@ Con Machine Learning Services en HDInsight con Spark, puede simultanear el apren
 
 Azure Machine Learning proporciona herramientas para análisis predictivo de modelos y un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona una completa solución de análisis predictivo en la nube que se puede usar para crear modelos predictivos, probarlos, ponerlos en funcionamiento y administrarlos. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
 
-![Información general de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Información general de Microsoft Azure Machine Learning" border="false":::
 
 Cree características para los datos de un clúster de Hadoop en HDInsight mediante [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *La ingeniería de características* intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características a partir de los datos sin procesar que facilitan el proceso de aprendizaje. Puede ejecutar consultas de HiveQL desde Azure Machine Learning Studio (clásico) y obtener acceso a los datos procesados en Hive y almacenados en blobs, mediante el uso del [módulo de importación de datos](../machine-learning/classic/import-data.md).
 
@@ -50,7 +50,7 @@ Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft 
 
 ### <a name="scenarios"></a>Escenarios
 
-* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Generación de recomendaciones de películas con Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive y Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)

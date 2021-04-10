@@ -9,10 +9,10 @@ ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
 ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
-ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103465504"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Conexión de máquinas que no son de Azure a Security Center

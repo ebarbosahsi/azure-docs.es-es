@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606793"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -39,7 +39,7 @@ El ciclo de desarrollo de bucle interno, el proceso iterativo de escribir códig
 
 Antes de confirmar la primera línea de código, la característica de [tareas rápidas](container-registry-tutorial-quick-task.md) de ACR Tasks puede proporcionar una experiencia de desarrollo integrado mediante la descarga de compilaciones de imágenes de contenedor en Azure. Con tareas rápidas, puede comprobar sus definiciones de compilación automatizadas y detectar posibles problemas antes de confirmar el código.
 
-Mediante el conocido formato `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un [contexto](#context-locations) (el conjunto de archivos que se van a compilar), lo envía a ACR Tasks y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse.
+Usando el formato conocido `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un [contexto](#context-locations) (el conjunto de archivos que se van a compilar), lo envía a ACR Tasks y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse.
 
 A modo de introducción, vea el inicio rápido de [compilación y ejecución de una imagen de contenedor](container-registry-quickstart-task-cli.md) en Azure Container Registry.  
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/19/2021
 ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101699766"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
@@ -37,17 +37,17 @@ En la mayoría de los casos, se recomienda crear instancias de Data Flow en modo
 > [!NOTE]
 > Cada sesión de depuración que un usuario inicia desde su interfaz de usuario del explorador de ADF es una sesión nueva con su propio clúster de Spark. Puede usar la vista de supervisión en las sesiones de depuración anteriores para ver y administrar las sesiones de depuración por fábrica. Se le cobra por cada hora de ejecución de cada sesión de depuración, incluida la hora de TTL.
 
-## <a name="cluster-status"></a>Estado del clúster
+## <a name="cluster-status&quot;></a>Estado del clúster
 
 El indicador de estado del clúster en la parte superior de la superficie de diseño se pone de color verde cuando el clúster esté listo para realizar la depuración. Si el clúster ya está activo, el indicador verde aparecerá casi al instante. Si el clúster aún no estaba en ejecución cuando entró en modo de depuración, el clúster de Spark realizará un inicio en frío. El indicador girará hasta que el entorno esté listo para la depuración interactiva.
 
 Cuando haya terminado la depuración, desactive el modificador de depuración para que el clúster de Spark pueda finalizar y no se le cobre por la actividad de depuración.
 
-## <a name="debug-settings"></a>Configuración de depuración
+## <a name=&quot;debug-settings&quot;></a>Configuración de depuración
 
-Una vez activado el modo de depuración, puede editar la forma en que un flujo de datos obtiene una vista previa de los datos. Para editar las opciones de depuración, haga clic en "Configuración de depuración" en la barra de herramientas del lienzo de Data Flow. Puede seleccionar los límites de fila o el origen de archivos que se usarán en cada transformación de origen. Los límites de fila de esta configuración solo son para la sesión de depuración actual. También puede seleccionar el servicio vinculado de almacenamiento provisional que se va a usar como origen de Azure Synapse Analytics. 
+Una vez activado el modo de depuración, puede editar la forma en que un flujo de datos obtiene una vista previa de los datos. Para editar las opciones de depuración, haga clic en &quot;Configuración de depuración&quot; en la barra de herramientas del lienzo de Data Flow. Puede seleccionar los límites de fila o el origen de archivos que se usarán en cada transformación de origen. Los límites de fila de esta configuración solo son para la sesión de depuración actual. También puede seleccionar el servicio vinculado de almacenamiento provisional que se va a usar como origen de Azure Synapse Analytics. 
 
-![Configuración de depuración](media/data-flow/debug-settings.png "Configuración de depuración")
+![Configuración de depuración](media/data-flow/debug-settings.png &quot;Configuración de depuración")
 
 Si tiene parámetros en su instancia de Data Flow o cualquiera de los conjuntos de datos a los que se hace referencia, puede especificar los valores que se van usar durante la depuración seleccionando la pestaña **Parámetros**.
 

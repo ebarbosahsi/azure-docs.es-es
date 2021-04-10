@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb26a865ab8b8beba99fcba51e2d05e166b1e84b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 82dcfa0942f21f01424c4744aa0b23f4672a135f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095364"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106724"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET
 
@@ -164,7 +164,7 @@ Agregue este código al final del método `Main`:
 
 ### <a name="download-blobs"></a>Descargar blobs
 
-Descargue el blob creado previamente llamando al método [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync). El código de ejemplo agrega el sufijo "DOWNLOADED" al nombre de archivo para que pueda ver ambos archivos en el sistema de archivos local.
+Descargue el blob creado previamente llamando al método [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync). El código de ejemplo agrega el sufijo "DOWNLOADED" al nombre de archivo para que pueda ver ambos archivos en el sistema de archivos local.
 
 Agregue este código al final del método `Main`:
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104987976"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729903"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -26,7 +26,7 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
-Lo primero que debe hacer es instalar el SDK de Voz para Node.js. Si solo desea el nombre del paquete que se va a instalar, ejecute `npm install microsoft-cognitiveservices-speech-sdk`. Para obtener instrucciones sobre la instalación guiada, consulte el artículo de [introducción](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript).
+Lo primero que debe hacer es instalar el SDK de Voz para Node.js. Si solo desea el nombre del paquete que se va a instalar, ejecute `npm install microsoft-cognitiveservices-speech-sdk`. Para obtener instrucciones sobre la instalación guiada, consulte el artículo de [introducción](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs).
 
 Use la siguiente instrucción `require` para importar el SDK.
 
@@ -62,7 +62,7 @@ El reconocimiento de voz de un micrófono **no se admite en Node.js** y solo se 
 
 ## <a name="recognize-from-file"></a>Reconocimiento desde un archivo 
 
-Para reconocer la voz de un archivo de audio, cree una `AudioConfig` mediante `fromWavFileInput()` que acepte un objeto `Buffer`. A continuación, inicialice una clase [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), y pase `audioConfig` y `speechConfig`.
+Para reconocer la voz de un archivo de audio, cree una `AudioConfig` mediante `fromWavFileInput()` que acepte un objeto `Buffer`. A continuación, inicialice una clase [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), y pase `audioConfig` y `speechConfig`.
 
 ```javascript
 const fs = require('fs');

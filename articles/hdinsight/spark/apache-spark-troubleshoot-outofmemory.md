@@ -4,18 +4,18 @@ description: Varias excepciones OutOfMemoryError para el clúster de Apache Spa
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946344"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868671"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Excepciones OutOfMemoryError para Apache Spark en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar componentes de Apache Spark en clústeres de Azure HDInsight.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Escenario: Excepción OutOfMemoryError para Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Escenario: excepción OutOfMemoryError para Apache Spark
 
 ### <a name="issue"></a>Problema
 
@@ -59,7 +59,7 @@ La causa más probable de esta excepción es que no se asigna suficiente memoria
 
 1. Asegúrese de que el clúster de HDInsight que se va a usar tiene suficientes recursos, en términos de memoria, así como núcleos para acomodar la aplicación Spark. Para determinarlo, hay que ver en la sección Métricas del clúster de la interfaz de usuario de YARN del clúster los valores de **Memoria usada** frente a **Memoria total** y **VCores Used** (Núcleos virtuales usados) frente a **VCores Total** (Total de VCores).
 
-    ![Vista de memoria central de yarn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="Vista de memoria central de yarn" border="true":::
 
 1. Establezca las siguientes configuraciones de Spark en los valores apropiados. Equilibre los requisitos de la aplicación con los recursos disponibles en el clúster. Estos valores no deben superar el 90 % de la memoria y los núcleos disponibles tal y como se ven mediante YARN, y también deben cumplir los requisitos mínimos de memoria de la aplicación Spark:
 
@@ -117,11 +117,11 @@ Puede aumentar la memoria del servidor de historial de Spark editando la propied
 
 Puede hacerlo desde la interfaz de usuario del explorador de Ambari seleccionando la sección Spark2/config/Advanced spark2-env.
 
-![Sección Advanced spark2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Sección Advanced spark2-env" border="true":::
 
 Agregue la siguiente propiedad para cambiar la memoria del servidor de historial de Spark de 1g a 4g: `SPARK_DAEMON_MEMORY=4g`.
 
-![Propiedad de Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Propiedad de Spark" border="true":::
 
 Asegúrese de reiniciar todos los servicios afectados desde Ambari.
 
