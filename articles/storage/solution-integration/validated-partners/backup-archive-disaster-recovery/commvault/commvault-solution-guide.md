@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104589895"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Copia de seguridad en Azure con Commvault
@@ -32,7 +32,7 @@ La implementación de Commvault existente se puede integrar fácilmente en Azure
 
 ## <a name="commvault-interoperability-matrix"></a>Matriz de interoperabilidad de Commvault
 
-| Carga de trabajo | GPv2 y Blob Storage | Compatibilidad con el nivel de acceso esporádico | Compatibilidad con el nivel de archivo | Compatibilidad con la familia de Data Box |
+| Carga de trabajo | GPv2 y Blob Storage | Compatibilidad con el nivel de acceso esporádico | Compatibilidad con el nivel de archivo | Compatibilidad con la familia de Data Box |
 |-----------------------|--------------------|--------------------|-------------------------|-------------------------|
 | Datos y máquinas virtuales locales | v11.5 | v11.5 | v11.10 | v11.10 |
 | Máquinas virtuales de Azure | v11.5 | v11.5 | v11.5 | N/D |
@@ -68,7 +68,7 @@ Para determinar la cantidad de ancho de banda que necesitará, use los siguiente
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 
-#### <a name="determine-unutilized-internet-bandwidth"></a>Determinación del ancho de banda de Internet no utilizado
+#### <a name="determine-unutilized-internet-bandwidth"></a>Cálculo del ancho de banda de Internet no utilizado
 
 Es importante conocer cuánto ancho de banda tiene disponible a diario que no se suela utilizar (o su *capacidad de aumento*). Esto le ayudará a evaluar si puede cumplir los siguientes objetivos:
 

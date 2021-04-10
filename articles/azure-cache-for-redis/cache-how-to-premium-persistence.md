@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 58148e3a20ba41ae9707543be290f2d632cb1185
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d11d17f90dcd6335fcaf6bd48a44037777a087e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375296"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601392"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la persistencia de datos en la instancia prémium de Azure Cache for Redis
 
@@ -19,7 +19,7 @@ La [persistencia de Redis](https://redis.io/topics/persistence) permite conserva
 
 Azure Cache for Redis proporciona la persistencia de Redis utilizando los modelos siguientes:
 
-* **Persistencia de RDB**: cuando se configura la persistencia de RDB (base de datos de Redis), Azure Cache for Redis conserva en el disco una instantánea de la caché en un formato binario de Redis con una frecuencia de copia de seguridad que se puede configurar. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente. Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
+* **Persistencia de RDB**: cuando se configura la persistencia de RDB (base de datos de Redis), Azure Cache for Redis conserva en el disco una instantánea de Azure Cache for Redis en un formato binario de Redis (en una cuenta de Azure Storage) con una frecuencia de copia de seguridad que se puede configurar. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente. Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
 * **Persistencia de AOF**: cuando la persistencia de AOF (archivo de solo anexión) está configurada, Azure Cache for Redis almacena cada operación de escritura en un registro que se guarda al menos una vez por segundo en una cuenta de Azure Storage. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con las operaciones de escritura almacenadas. Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
 
 La persistencia escribe los datos de Redis en una cuenta de Azure Storage que posea y administre. Puede configurarla en la hoja **New Azure Cache for Redis** (Nueva instancia de Azure Cache for Redis) durante la creación de la caché y en el **menú Recurso** de las cachés existentes del nivel Premium.

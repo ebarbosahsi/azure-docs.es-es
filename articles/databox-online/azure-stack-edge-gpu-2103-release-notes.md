@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 846d4a259f0fcd204bcad6c898efc999c3765fd3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4d2a345ed49fae2e1d77b3c5da44b305d069874e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962438"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729463"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Notas de la versión 2013 de Azure Stack Edge
 
@@ -98,7 +98,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos que s
 |**19.**|Kubernetes + actualización |Las versiones de software anteriores, como las de 2008, tienen un problema de actualización de condición de carrera que hace que la actualización genere un error con ClusterConnectionException. |El uso de las compilaciones más recientes debería solucionar esta incidencia. Si sigue viendo este problema, vuelva a intentar la actualización y debería funcionar.|
 |**20**|Internet Explorer|Si las características de seguridad mejorada están habilitadas, es posible que no pueda acceder a las páginas de la interfaz de usuario web local. | Deshabilite la seguridad mejorada y reinicie el explorador.|
 |**21.**|Panel de Kubernetes | No se admite el punto de conexión *HTTPS* del panel de Kubernetes con el certificado SSL. | |
-|**22.**|Kubernetes |Kubernetes no admite ":" en los nombres de las variables de entorno que utilizan las aplicaciones .NET. Esto también es necesario para que el módulo de IoT Edge de Event Grid funcione en el dispositivo de Azure Stack Edge y en otras aplicaciones. Para más información, consulte [Documentación de ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Reemplace ":" por un guion bajo doble. Para más información, consulte [Incidencia de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201).|
+|**22.**|Kubernetes |Kubernetes no admite ":" en los nombres de las variables de entorno que utilizan las aplicaciones .NET. Esto también es necesario para que el módulo de IoT Edge de Event Grid funcione en el dispositivo de Azure Stack Edge y en otras aplicaciones. Para más información, consulte [Documentación de ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Reemplace ":" por un guion bajo doble. Para más información, consulte [Incidencia de Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201).|
 |**23.** |Azure Arc + clúster de Kubernetes |De manera predeterminada, cuando el recurso `yamls` se elimina del repositorio de Git, no se eliminan los recursos correspondientes del clúster de Kubernetes.  |Para permitir la eliminación de recursos cuando se eliminen del repositorio de Git, establezca `--sync-garbage-collection` en Arc OperatorParams. Para obtener más información, consulte [Eliminación de una configuración](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |Las aplicaciones que usan montajes de recursos compartidos de NFS en el dispositivo para escribir datos deben usar escritura exclusiva. Así se garantiza que las escrituras se realizan en el disco.| |
 |**25.**|Configuración del proceso |Se produce un error en la configuración del proceso en configuraciones de red en las que las puertas de enlace o los conmutadores o enrutadores responden a las solicitudes del Protocolo de resolución de direcciones (ARP) para sistemas que no existen en la red.| |

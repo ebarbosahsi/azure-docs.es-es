@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9f07a6376e3fdde46e9e0cb161acc97c5771d905
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99096447"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166758"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -172,7 +172,7 @@ Proporcione documentos en línea complementarios sobre su oferta. Puede agregar 
 - **Título**: los clientes verán el título en la página de detalles de la oferta.
 - **Vínculo (URL)** : escriba un vínculo para que los clientes vean el documento en línea. El vínculo debe comenzar con `http://` o `https://`.
 
-Asegúrese de agregar al menos un vínculo a la documentación y un vínculo a los dispositivos IoT Edge compatibles desde el  [catálogo de dispositivos IoT de Azure](https://catalog.azureiotsolutions.com/).
+Asegúrese de agregar al menos un vínculo a la documentación y un vínculo a los dispositivos IoT Edge compatibles desde el  [catálogo de dispositivos IoT de Azure](https://devicecatalog.azure.com/).
 
 ### <a name="contact-information"></a>Información de contacto
 

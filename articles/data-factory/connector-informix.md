@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo copiar datos con IBM Informix como
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af907704862e80a2747ac064b98242a1d9d7edb3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727913"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588875"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
 
@@ -164,6 +164,7 @@ Para copiar datos a Informix, se admiten las siguientes propiedades en la secci�
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 0, detectado automáticamente) |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en el almacén de datos en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |No |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 

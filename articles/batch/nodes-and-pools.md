@@ -4,10 +4,10 @@ description: Obtenga información sobre los grupos y nodos de proceso, y cómo s
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563902"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch

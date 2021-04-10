@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f8a780afba1f5703fbe457e113ed1b455f1e9b64
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743719"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104589878"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
@@ -35,7 +35,7 @@ En el gráfico siguiente se muestra cómo aumenta el ancho de banda a medida que
 En el gráfico siguiente se muestra el mismo efecto cuando se aplica a una cuenta que usa el nivel de rendimiento prémium.
 
 > [!div class="mx-imgBorder"]
-> ![Rendimiento Estándar](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![Rendimiento Premium](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Uso del nivel de rendimiento prémium para aplicaciones a pequeña escala
 
@@ -46,7 +46,7 @@ Cada barra del gráfico siguiente muestra la diferencia en el ancho de banda log
 > [!div class="mx-imgBorder"]
 > ![Rendimiento relativo](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## <a name="avoid-frequent-overwrites-on-date"></a>Evitación de sobrescrituras frecuentes en los datos
+## <a name="avoid-frequent-overwrites-on-data"></a>Evitación de sobrescrituras frecuentes en los datos
 
 Se tarda más tiempo en completar una operación de sobrescritura que una nueva operación de escritura. Esto se debe a que una operación de sobrescritura de NFS, especialmente una edición parcial de archivos en contexto, es una combinación de varias operaciones de blobs subyacentes: una operación de lectura, una modificación y una operación de escritura. Por lo tanto, una aplicación que requiere ediciones en contexto frecuentes no es adecuada para las cuentas de almacenamiento de blobs habilitadas para NFS. 
 

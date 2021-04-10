@@ -4,10 +4,10 @@ description: En este artículo se ofrece una referencia para la sintaxis de acci
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652843"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxis de acciones de SQL de regla de suscripción

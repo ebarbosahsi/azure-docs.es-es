@@ -5,16 +5,15 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4ed0932e82751a5ded4bfc9d234bfcd16fa5b9e0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100535287"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935454"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 
@@ -35,7 +34,7 @@ En primer lugar, cree una instancia de Standard Load Balancer mediante el portal
 1. En el cuadro de búsqueda, escriba **equilibrador de carga**. En **Marketplace**, en los resultados de la búsqueda, seleccione **Equilibradores de carga**.
 1. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información:
 
-    | Configuración                 | Value   |
+    | Configuración                 | Valor   |
     | ---| ---|
     | Subscription  | Seleccione su suscripción.    |    
     | Resource group | Seleccione **Crear nuevo** y escriba *myVMSSResourceGroup* en el cuadro de texto.|
