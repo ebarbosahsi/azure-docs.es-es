@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694995"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722572"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuales de acceso puntual de Azure para conjuntos de escalado 
 
@@ -44,9 +44,9 @@ Las máquinas virtuales de acceso puntual de Azure se pueden implementar en cual
 Actualmente se admiten los siguientes [tipos de ofertas](https://azure.microsoft.com/support/legal/offer-details/):
 
 -   Contrato Enterprise
--   Código de oferta de pago por uso 003P
--   Patrocinados
-- Para el proveedor de servicios en la nube (CSP), consulte el [Centro de partners](https://docs.microsoft.com/partner-center/azure-plan-get-started) o contacte con su partner directamente.
+-   Código de oferta de pago por uso (003P)
+-   Patrocinado (0036P y 0136P)
+- Para el proveedor de servicios en la nube (CSP), consulte el [Centro de partners](/partner-center/azure-plan-get-started) o contacte con su partner directamente.
 
 ## <a name="eviction-policy"></a>Directiva de expulsión
 
@@ -168,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
@@ -202,7 +202,7 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 
 ## <a name="simulate-an-eviction"></a>Simulación de una expulsión
 
-Puede [simular una expulsión](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar la capacidad de respuesta de una aplicación ante una expulsión repentina. 
+Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar la capacidad de respuesta de una aplicación ante una expulsión repentina. 
 
 Reemplazar lo siguiente por su propia información: 
 

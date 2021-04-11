@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046523"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798857"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creación de informes interactivos de VM Insights con libros
 
@@ -27,15 +27,15 @@ En la tabla siguiente se resumen los libros que incluye VM Insights para ayudarl
 
 | Libro | Descripción | Ámbito |
 |----------|-------------|-------|
-| Rendimiento | Proporciona una versión personalizable de la vista de la Lista y Gráficos de N principales en un único libro que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado.| A escala |
-| Contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. | A escala |
-| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales supervisadas. | A escala |
-| Puertos activos | Proporciona una lista de los procesos que se han enlazado a los puertos en las máquinas virtuales supervisadas y su actividad en el periodo de tiempo seleccionado. | A escala |
-| Open Ports (Abrir puertos) | Proporciona el número de puertos abiertos en las máquinas virtuales supervisadas, así como los detalles de estos puertos. | A escala |
-| Conexiones con errores | Muestra el número de conexiones con errores en las máquinas virtuales supervisadas, la tendencia de errores y si el porcentaje de errores aumenta con el tiempo. | A escala |
-| Seguridad y auditoría | Un análisis del tráfico TCP/IP que informa sobre las conexiones generales, las conexiones malintencionadas, en las que se encuentran los puntos de conexión IP de forma global.  Para habilitar todas las características, deberá habilitar la Detección de seguridad. | A escala |
-| Tráfico TCP | Un informe de clasificación de las máquinas virtuales supervisadas y del tráfico enviado, recibido y el total, en una cuadrícula que se muestra como una línea de tendencia. | A escala |
-| Comparación de tráfico | Este libro le permite comparar las tendencias en el tráfico de red para solo una máquina o para un grupo. | A escala |
+| Rendimiento | Proporciona una versión personalizable de la vista de la Lista y Gráficos de N principales en un único libro que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado.| Varias VM |
+| Contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. | Varias VM |
+| Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales supervisadas. | Varias VM |
+| Puertos activos | Proporciona una lista de los procesos que se han enlazado a los puertos en las máquinas virtuales supervisadas y su actividad en el periodo de tiempo seleccionado. | Varias VM |
+| Open Ports (Abrir puertos) | Proporciona el número de puertos abiertos en las máquinas virtuales supervisadas, así como los detalles de estos puertos. | Varias VM |
+| Conexiones con errores | Muestra el número de conexiones con errores en las máquinas virtuales supervisadas, la tendencia de errores y si el porcentaje de errores aumenta con el tiempo. | Varias VM |
+| Seguridad y auditoría | Un análisis del tráfico TCP/IP que informa sobre las conexiones generales, las conexiones malintencionadas, en las que se encuentran los puntos de conexión IP de forma global.  Para habilitar todas las características, deberá habilitar la Detección de seguridad. | Varias VM |
+| Tráfico TCP | Un informe de clasificación de las máquinas virtuales supervisadas y del tráfico enviado, recibido y el total, en una cuadrícula que se muestra como una línea de tendencia. | Varias VM |
+| Comparación de tráfico | Este libro le permite comparar las tendencias en el tráfico de red para solo una máquina o para un grupo. | Varias VM |
 | Rendimiento | Proporciona una versión personalizable de la Vista de rendimiento que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado. | Máquina virtual única | 
 | Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales. | Máquina virtual única |
  

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029354"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798891"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -79,6 +79,8 @@ Los administradores deben consultar los artículos siguientes, en función de su
 - [Configuración de la unión a Azure Active Directory híbrido para un entorno federado](hybrid-azuread-join-federated-domains.md)
 - [Configuración de la unión a Azure Active Directory híbrido para un entorno administrado](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>VDI no persistente
+
 A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que los administradores de TI sigan las directrices que se ofrecen a continuación. De no hacerlo así, su directorio incluirá muchos dispositivos obsoletos unidos a Azure AD híbrido que se registraron desde la plataforma VDI no persistente, lo que provocará una mayor presión en la cuota de los inquilinos y el riesgo de interrupción del servicio si la cuota de los inquilinos se acaba.
 
 - Si se basa en la herramienta de preparación del sistema (sysprep.exe) y utiliza para la instalación una imagen anterior a Windows 10 1809, asegúrese de que esa imagen no corresponda a un dispositivo que ya está registrado en Azure AD como unido a Azure AD híbrido.
@@ -92,6 +94,15 @@ A la hora de implementar un entorno VDI no persistente, Microsoft recomienda que
 - Defina e implemente el proceso para [administrar dispositivos obsoletos](manage-stale-devices.md).
    - Una vez que disponga de una estrategia para identificar los dispositivos no persistentes que se hayan unido a Azure AD híbrido, puede efectuar una limpieza más concienzuda de estos dispositivos para garantizar que su directorio no se quede sin espacio debido al acceso de muchos dispositivos obsoletos.
    - En el caso de las implementaciones de VDI no persistentes en Windows actual y Windows de nivel inferior, se deben eliminar los dispositivos con más de 15 días de antigüedad en **ApproximateLastLogonTimestamp**.
+
+### <a name="persistent-vdi"></a>VDI persistente
+
+A la hora de implementar un entorno VDI persistente, Microsoft recomienda que los administradores de TI sigan las directrices que se ofrecen a continuación. Si no lo hace, se producirán problemas de implementación y autenticación. 
+
+- Si se basa en la herramienta de preparación del sistema (sysprep.exe) y utiliza para la instalación una imagen anterior a Windows 10 1809, asegúrese de que esa imagen no corresponda a un dispositivo que ya está registrado en Azure AD como unido a Azure AD híbrido.
+- Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
+
+Además, se recomienda implementar el proceso para [administrar los dispositivos obsoletos](manage-stale-devices.md). Esto garantizará que el directorio no se consume con muchos dispositivos obsoletos Si restablece periódicamente las máquinas virtuales.
  
 ## <a name="next-steps"></a>Pasos siguientes
 

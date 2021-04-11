@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 2d0c0e7322ecb92fd371f5bf7924a370dd29fe85
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9e5fbdfca80d19f026a014a89ffbf137bacb521c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583568"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639573"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>Realización de la primera llamada API para acceder a los datos de análisis del marketplace comercial
 
@@ -50,7 +50,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-Para obtener más información sobre cómo obtener un token de Azure AD para la aplicación, vea [Acceso a datos de análisis mediante los servicios de Store](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
+Para obtener más información sobre cómo obtener un token de Azure AD para la aplicación, vea [Acceso a datos de análisis mediante los servicios de Store](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
 
 ## <a name="programmatic-api-call"></a>Llamada API mediante programación
 
@@ -337,5 +337,5 @@ Curl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede probar las API a través de la [dirección URL de la API de Swagger](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html).
+- Puede probar las API a través de la [dirección URL de la API de Swagger](https://swagger.io/docs/specification/api-host-and-base-path/).
 - [Paradigma del acceso mediante programación](analytics-programmatic-access.md)

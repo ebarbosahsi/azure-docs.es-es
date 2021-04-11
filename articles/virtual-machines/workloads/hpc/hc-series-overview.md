@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666076"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802832"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HC
 
@@ -31,7 +31,7 @@ Las CPU Intel Xeon Platinum, Gold y Silver también cuenta con una red de malla 
 
 En el siguiente diagrama se muestra la segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HC.
 
-![Segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HC](./media/hc-series-overview/segregation-cores.png)
+![Segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HC](./media/architecture/hc-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificaciones del hardware
 
@@ -51,13 +51,13 @@ En el siguiente diagrama se muestra la segregación de los núcleos reservados p
 |-----------------------------|-----------------------|
 | Tamaño de trabajo de MPI máximo            | 13200 núcleos (300 máquinas virtuales en un solo conjunto de escalado de máquinas virtuales con singlePlacementGroup=true)  |
 | Compatibilidad con MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Otros marcos       | Unified Communication X, libfabric, PGAS |
+| Otros marcos       | UCX, libfabric, PGAS |
 | Soporte técnico para Azure Storage       | Discos estándar y premium (cuatro discos como máximo) |
-| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Compatibilidad con Orchestrator        | CycleCloud, Batch  |
+| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Compatibilidad con Orchestrator        | CycleCloud, Batch, AKS; [Opciones de configuración del clúster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información, consulte la [arquitectura de SP de Intel Xeon](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

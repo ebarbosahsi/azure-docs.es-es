@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181635"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104800776"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -46,15 +46,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de RingCentral para admitir el aprovisionamiento con Azure AD
 
-1. Inicie sesión en [RingCentral Admin Console](https://login.ringcentral.com/sw.html) (Consola de administración de RingCentral). Vaya a **Herramientas > Integración de directorios**.
-
-    ![Consola de administración de RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Elija **SCIM** en **Select Directory Provider** (Seleccionar proveedor de directorios). (En el futuro, habrá una opción denominada Azure Active Directory). Haga clic en **Enable SCIM Service** (Habilitar el servicio SCIM).
-
-    ![Agregar SCIM a RingCentral](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Póngase en contacto con el equipo de soporte técnico de RingCentral en matthew.hunt@ringcentral.com para obtener un **token de autenticación de SCIM**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación RingCentral en Azure Portal.
+Se requiere una cuenta de administrador de [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) para autorizar en la sección Credenciales del administrador del paso 5.
 
 > [!NOTE]
 > Para asignar licencias a los usuarios, consulte el vínculo del vídeo [aquí](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -94,9 +86,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://platform.ringcentral.com/scim/v2` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a RingCentral. Si la conexión no se establece, asegúrese de que la cuenta de RingCentral tiene permisos de administrador y pruebe otra vez.
+5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se le redirigirá a la página de inicio de sesión de RingCentral. Escriba su correo electrónico/número de teléfono y contraseña, y haga clic en el botón **Sign In** (Iniciar sesión). Haga clic en **Authorize** (Autorizar) en la página **Access Request** (Solicitud de acceso) de RingCentral. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a RingCentral. Si la conexión no se establece, asegúrese de que la cuenta de RingCentral tiene permisos de administrador y pruebe otra vez.
 
-    ![Captura de pantalla de los campos URL de inquilino y Token secreto con la opción Probar conexión resaltada.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Acceso](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autorizar](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
@@ -151,6 +147,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 ## <a name="change-log"></a>Registro de cambios
 
 * 10/09/2020: se ha eliminado la compatibilidad con los atributos "displayName" y "manager".
+* 03/15/2021: se ha actualizado el método de autorización de usar un token de portador permanente a un flujo de concesión de código de OAuth.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

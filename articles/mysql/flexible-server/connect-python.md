@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Conexión mediante Python a la instancia de Azure Database for MySQL con la opción Servidor flexible'
 description: En este inicio rápido se proporcionan ejemplos de código de Python que se pueden usar para conectarse a Azure Database for MySQL con la opción Servidor flexible y consultar datos en este servicio.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: ff14bb1daeef6fc54ee5d11632ad98a29db2a172
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e99beb024690bf888d0acbb747e98252eced7e06
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90945250"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110141"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Use Python para conectarse a datos y consultarlos en Azure Database for MySQL con la opción Servidor flexible.
 

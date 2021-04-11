@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186029"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722708"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -60,7 +60,7 @@ Después de configurar Azure Monitor, tendrá que crear credenciales que habilit
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Cuando haya implementado el módulo Telegraf, se puede acceder a las métricas n
 
 | Nombre del evento | Descripción|
 |------|---------|
-|archon_exit    |Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
-|archon_error   |Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.  |
-|InputRate  |Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos. | 
+|archon_exit     |Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
+|archon_error     |Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.  |
+|InputRate     |Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos. | 
 |OutputRate     |Velocidad a la que el gráfico genera Conclusiones de IA. Se notifica cada cinco minutos. |
 |archon_allGraphsStarted | Se envía cuando todos los gráficos han terminado de iniciarse. |
-|archon_configchange    | Se envía cuando cambia la configuración de un gráfico. |
+|archon_configchange     | Se envía cuando cambia la configuración de un gráfico. |
 |archon_graphCreationFailed     |Se envía cuando no se puede iniciar el gráfico con la `graphId` notificada. |
-|archon_graphCreationSuccess    |Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente. |
-|archon_graphCleanup    | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra. |
-|archon_graphHeartbeat  |Latido que se envía cada minuto por cada gráfico de una aptitud. |
+|archon_graphCreationSuccess     |Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente. |
+|archon_graphCleanup     | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra. |
+|archon_graphHeartbeat     |Latido que se envía cada minuto por cada gráfico de una aptitud. |
 |archon_apiKeyAuthFail |Se envía cuando se produce un error en la clave de recurso de Computer Vision para autenticar el contenedor durante más de 24 horas, debido a los siguientes motivos: Cuota agotada, no válido, sin conexión. |
 |VideoIngesterHeartbeat     |Se envía cada hora para indicar que el vídeo se transmite desde el origen de vídeo, con el número de errores en esa hora. Se notifica para cada gráfico. |
 |VideoIngesterState | Notifica el estado *Detenido* o *Iniciado* para el streaming de vídeo.  Se notifica para cada gráfico. |
@@ -216,9 +216,9 @@ Los registros se cargan a petición con el método `getRTCVLogs` de IoT Edge, en
 
 
 1. Vaya a la página del portal de IoT Hub, seleccione **dispositivos perimetrales** y elija el dispositivo y el módulo de diagnóstico. 
-2. Vaya a la página de detalles del módulo y haga clic en la pestaña **_método directo_*.
+2. Vaya a la página de detalles del módulo y haga clic en la pestaña ***método directo***.
 3. Escriba `getRTCVLogs` como Nombre del método y una cadena de formato JSON en la carga. Puede escribir `{}`, que es una carga vacía. 
-4. Establezca los tiempos de espera de conexión y método y haga clic en *Invocar método**.
+4. Establezca los tiempos de espera de conexión y método y haga clic en **Invocar método**.
 5. Seleccione el contenedor de destino y cree una cadena JSON de carga con los parámetros descritos en la sección **Sintaxis de registro**. Haga clic en **Invocar método** para realizar la solicitud.
 
 >[!NOTE]
@@ -245,7 +245,7 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 
 | Palabra clave | Descripción|
 |--|--|
-|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información ***sincrónicamente**. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros _*_asincrónicamente_*_.|
+|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información ***sincrónicamente**. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros _*_asincrónicamente_**.|
 |TimeFilter| Filtro de tiempo aplicado a los registros.|
 |ValueFilters| Filtros de palabra clave aplicados a los registros. |
 |TimeStamp| Hora de inicio de ejecución del método. |
@@ -298,7 +298,7 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 }
 ```
 
-Compruebe las líneas, las horas y los tamaños del registro de captura, y si la configuración es correcta, reemplace _*_DoPost_*_ por `true` y eso insertará los registros con los mismos filtros en los destinos. 
+Compruebe las líneas, las horas y los tamaños del registro de captura, y si la configuración es correcta, reemplace ***DoPost*** por `true` y eso insertará los registros con los mismos filtros en los destinos. 
 
 Puede exportar registros desde la instancia de Azure Blob Storage al solucionar problemas. 
 
@@ -316,7 +316,7 @@ La siguiente sección se ofrece como ayuda con la depuración y comprobación de
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Acceda al punto de conexión de API de Kubernetes. 
 
-1. En la interfaz de usuario local del dispositivo, vaya a la página *Dispositivos**. 
+1. En la interfaz de usuario local del dispositivo, vaya a la página **Dispositivos**. 
 2. En **Puntos de conexión del dispositivo**, copie el punto de conexión de servicio API de Kubernetes. Este punto de conexión es una cadena en el formato siguiente: `https://compute..[device-IP-address]`.
 3. Guarde la cadena de punto de conexión. La usará más adelante al configurar `kubectl` para acceder al clúster de Kubernetes.
 
@@ -339,7 +339,7 @@ Conéctese de forma remota desde un cliente de Windows. Una vez creado el clúst
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force
     ```
  
-4. Inicie una sesión de Windows PowerShell en el dispositivo. 
+4. Inicie una sesión de Windows PowerShell en el dispositivo. 
 
     ```powershell
     Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell
@@ -363,7 +363,7 @@ Una vez creado el clúster de Kubernetes, puede usar la herramienta de línea de
     New-HcsKubernetesUser -UserName
     ```
 
-3. Agregue el archivo *config* a la carpeta *.kube* del perfil de usuario en el equipo local.   
+3. Agregue el archivo *config* a la carpeta *.kube* del perfil de usuario en el equipo local.    
 
 4. Asocie el espacio de nombres con el usuario que ha creado.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Genera un archivo de configuración de Kubernetes. Al usar el comando, copie la información en un archivo denominado *config*. No guarde el archivo con una extensión de archivo.        |
 | `Get-HcsApplianceInfo` | Devuelve información básica sobre el dispositivo. |
 | `Enable-HcsSupportAccess` | Genera las credenciales de acceso para iniciar una sesión de soporte técnico. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Cómo archivar una incidencia de soporte técnico para el análisis espacial 
+
+Si necesita más soporte técnico para encontrar una solución a un problema que tiene en el contenedor de análisis espacial, siga estos pasos para rellenar y enviar una incidencia de soporte técnico. Nuestro equipo le ayudará con una guía adicional. 
+
+### <a name="fill-out-the-basics"></a>Rellene los datos básicos 
+Cree una nueva incidencia de soporte técnico en la página [Nueva solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Siga las indicaciones para rellenar los parámetros siguientes:
+
+![Soporte técnico: Datos básicos](./media/support-ticket-page-1-final.png)
+
+1. Establezca el **Tipo de problema** en `Technical`.
+2. Seleccione la suscripción que usa para implementar el contenedor de análisis espacial.
+3. Seleccione `My services` y seleccione `Cognitive Services` como el servicio.
+4. Seleccione el recurso que usa para implementar el contenedor de análisis espacial.
+5. Escriba una breve descripción que detalle el problema al que se enfrenta. 
+6. Seleccione `Spatial Analysis` como el tipo de problema.
+7. Seleccione el subtipo adecuado en el menú desplegable.
+8. Seleccione **siguiente: Soluciones** para pasar a la página siguiente.
+
+### <a name="recommended-solutions"></a>Soluciones recomendadas
+La siguiente fase ofrecerá soluciones recomendadas para el tipo de problema que ha seleccionado. Estas soluciones resolverán los problemas más comunes, pero si no resultan útiles para la solución, seleccione **siguiente: Detalles** para ir al paso siguiente.
+
+### <a name="details"></a>Detalles
+En esta página, agregue información adicional sobre el problema al que se enfrenta. Asegúrese de incluir tantos detalles como sea posible, ya que esto ayudará a nuestros ingenieros a resumir mejor el problema. Incluya su método de contacto preferido y la gravedad del problema para que podamos ponernos en contacto con usted y seleccione **siguiente: Revisar + crear** para ir al paso siguiente. 
+
+### <a name="review-and-create"></a>Revisar y crear 
+Revise los detalles de la solicitud de soporte técnico para asegurarse de que todo sea preciso y que represente el problema de forma eficaz. Una vez que esté listo, seleccione **Crear** para enviar el vale a nuestro equipo. Recibirá una confirmación por correo electrónico una vez que se reciba el vale, y nuestro equipo trabajará para volver a usted lo antes posible. Puede ver el estado del vale en Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

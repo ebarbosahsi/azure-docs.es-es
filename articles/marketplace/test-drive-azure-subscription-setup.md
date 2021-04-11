@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
-ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.date: 03/16/2020
+ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600890"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configuración de una suscripción a Azure Marketplace para las versiones de prueba hospedadas
 
@@ -43,26 +43,18 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
     5. En Tipos de cuenta admitidos, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales**.
     6. Seleccione **Crear** y espere a que la aplicación se cree.
     7. Una vez creada la aplicación, anote el **Id. de la aplicación** que se muestra en la pantalla de información general. Necesitará este valor más adelante al configurar la versión de prueba.
-    8. Para agregar un URI de redireccionamiento de nativeclient, seleccione la hoja **Autenticación**. En **Configuración de la plataforma**, seleccione el mosaico de aplicación **Agregar plataforma** > **Móvil** > **Escritorio**. Elija el URI de redireccionamiento **nativeclient** y seleccione **Configurar**.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Adición de un URI de redireccionamiento de nativeclient.":::
-
-    9. En **Administrar aplicación**, seleccione **Permisos de API**.
-    10. Seleccione **Agregar un permiso** y, a continuación, **Microsoft Graph API**.
-    11. Seleccione la categoría de permisos **Aplicación**, y, a continuación, los permisos **Directory.Read.All** y **Directory.ReadWrite.All**.
+    8. En **Administrar aplicación**, seleccione **Permisos de API**.
+    9. Seleccione **Agregar un permiso** y, a continuación, **Microsoft Graph API**.
+    10. Seleccione la categoría de permisos **Aplicación** y, a continuación, los permisos **User.ReadWrite.All**, **Directory.Read.All** y **Directory.ReadWrite.All**.
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Configuración de los permisos de aplicación.":::
 
-    12. Para agregar el acceso **Dynamics CRM: Suplantación de usuario** para la lista de permitidos de la aplicación de Azure AD, seleccione **Agregar permiso** de nuevo.
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Solicitud de los permisos de aplicación.":::
-
-    13. Una vez que se ha agregado el permiso, seleccione **Conceder consentimiento de administrador para Microsoft**.
-    14. En el mensaje de alerta, seleccione **Sí**.
+    11. Una vez que se ha agregado el permiso, seleccione **Conceder consentimiento de administrador para Microsoft**.
+    12. En el mensaje de alerta, seleccione **Sí**.
 
         [![Muestra que los permisos de aplicación se concedieron correctamente.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. Para generar un secreto para la aplicación de Azure AD:
+    13. Para generar un secreto para la aplicación de Azure AD:
         1. En **Administrar aplicación**, seleccione **Certificados y secretos**.
         2. En Secretos de cliente, seleccione **Nuevo secreto de cliente**.
         3. Escriba una descripción, como *Versión de prueba*, y seleccione una duración adecuada. La versión de prueba se interrumpirá una vez que expire esta clave, momento en el que tendrá que generar y proporcionar una nueva clave a AppSource.
@@ -70,8 +62,7 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adición de un secreto de cliente.":::
 
-5. A veces se tarda más de lo esperado en sincronizar un usuario de Azure AD con una instancia de CRM. Para ayudar con esto, se ha agregado un proceso para forzar la sincronización de usuarios, pero se requiere que el Centro de partners agregue la aplicación de Azure AD a la lista de permitidos. Para ello, consulte [Sincronización de usuarios con la instancia de Customer Engagement](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
-6. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure.
+5. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure.
     1. Abra un símbolo del sistema de PowerShell de nivel administrativo.
     2. Install-Module MSOnline (ejecute este comando si MSOnline no está instalado).
     3. Connect-MsolService (esto mostrará una ventana emergente; inicie sesión con el inquilino organizacional recién creado).
@@ -81,7 +72,7 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Inicio de sesión en su cuenta.":::
 
-7. Agregue la aplicación de Azure creada anteriormente como usuario de la aplicación a la instancia de la versión de prueba de CRM.
+6. Agregue la aplicación de Azure creada anteriormente como usuario de la aplicación a la instancia de la versión de prueba de CRM.
     1. Agregue un nuevo usuario a **Azure Active Directory**. Solo se requieren los valores de **Nombre** y **Nombre de usuario** (pertenecientes al mismo inquilino) para crear este usuario, deje los demás campos con los valores predeterminados. Copie el valor de nombre de usuario.
     2. Inicie sesión en **Instancia de CRM** y seleccione **Configuración** > **Seguridad** > **Usuarios**.
     3. Cambie la vista a **Usuarios de la aplicación**.
@@ -97,7 +88,8 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selección de los privilegios del rol.":::
 
-    10. Asigne al usuario de la aplicación el rol de seguridad personalizado que ha creado para la versión de prueba.
+    10. Además, habilite el privilegio **Actuar en nombre de otro usuario**.
+    11. Asigne al usuario de la aplicación el rol de seguridad personalizado que ha creado para la versión de prueba.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Configuración de Dynamics 365 for Operations
 

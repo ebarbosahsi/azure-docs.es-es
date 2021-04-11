@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602471"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801764"
 ---
 # <a name="understand-azure-role-definitions"></a>Descripción de las definiciones de roles de Azure
 
@@ -63,7 +59,7 @@ En la tabla siguiente se describe el significado de las propiedades de roles.
 | Propiedad | Descripción |
 | --- | --- |
 | `Name`</br>`roleName` | Nombre para mostrar del rol. |
-| `Id`</br>`name` | Identificador único del rol. |
+| `Id`</br>`name` | Identificador único del rol. Los roles integrados tienen el mismo id. de rol en todas las nubes. |
 | `IsCustom`</br>`roleType` | Indica si es un rol personalizado. Se establece en `true` o `CustomRole` para los roles personalizados. Se establece en `false` o `BuiltInRole` para los roles integrados. |
 | `Description`</br>`description` | Descripción del rol. |
 | `Actions`</br>`actions` | Matriz de cadenas que especifica las operaciones de administración que el rol permite realizar. |

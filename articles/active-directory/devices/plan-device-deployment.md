@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: faa18b619c785ad23e1da037621597684b1c5c63
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97936454"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551788"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -54,7 +54,7 @@ Principales ventajas de ofrecer a los dispositivos una identidad de Azure AD:
 
 Vídeo:  [Acceso condicional con controles de dispositivos](https://youtu.be/NcONUf-jeS4)
 
-Preguntas más frecuentes: [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.md) y [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) 
+Preguntas más frecuentes: [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml) y [Preguntas más frecuentes sobre itinerancia de datos y configuración](enterprise-state-roaming-faqs.md) 
 
 ## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
 
@@ -239,9 +239,9 @@ Revise las plataformas admitidas y no admitidas para los dispositivos integrados
 
 | Herramientas de administración de dispositivos| Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido|
 | - | - | - | - |
-| [Administración de dispositivos móviles (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
-| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
-| [Directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
+| [Administración de dispositivos móviles (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| 
+| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| 
+| [Directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| 
 
 
 

@@ -3,12 +3,12 @@ title: Envío por correo electrónico de Informes de Azure Backup
 description: Creación de tareas automatizadas para recibir informes periódicos por correo electrónico
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510419"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561345"
 ---
 # <a name="email-azure-backup-reports"></a>Envío por correo electrónico de Informes de Azure Backup
 
@@ -30,7 +30,7 @@ Para configurar tareas por correo electrónico mediante Informes de copia de seg
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Autorización de conexiones a Azure Monitor registros y Office 365
 
-La aplicación lógica utiliza el conector [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) para consultar las áreas de trabajo de la aplicación lógica y usa el conector [Office365 Outlook](https://docs.microsoft.com/connectors/office365connector/) para enviar correos electrónicos. Tendrá que realizar una autorización única para estos dos conectores. 
+La aplicación lógica utiliza el conector [azuremonitorlogs](/connectors/azuremonitorlogs/) para consultar las áreas de trabajo de la aplicación lógica y usa el conector [Office365 Outlook](/connectors/office365connector/) para enviar correos electrónicos. Tendrá que realizar una autorización única para estos dos conectores. 
  
 Para llevar a cabo la autorización, siga estos pasos:
 
@@ -79,4 +79,4 @@ Para solucionar esta incidencia:
 Si los problemas persisten, póngase en contacto con el servicio de soporte técnico de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre los Informes de Backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Más información sobre los Informes de Backup](./configure-reports.md)

@@ -13,10 +13,10 @@ ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103602893"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuración de la sincronización selectiva de hash de contraseñas para Azure AD Connect
@@ -26,7 +26,7 @@ ms.locfileid: "103602893"
 Si desea excluir a un subconjunto de usuarios de la sincronización de su hash de contraseñas con Azure AD, puede configurar la sincronización selectiva del hash de contraseñas siguiendo los pasos indicados en este artículo.
 
 >[!Important]
-> Microsoft no admite la modificación ni el funcionamiento de la sincronización de Azure AD Connect con configuraciones o acciones distintas a estas que se documentan formalmente. Cualquiera de estas configuraciones o acciones pueden provocar un estado incoherente o incompatible de sincronización de Azure AD Connect. Como resultado, Microsoft no puede garantizar que pueda ofrecer un soporte técnico eficaz para estas implementaciones. 
+> Microsoft no admite la modificación ni el funcionamiento de la sincronización de Azure AD Connect con configuraciones o acciones distintas a estas que se documentan formalmente. Cualquiera de estas configuraciones o acciones podría dar lugar a un estado incoherente o no compatible con la sincronización de Azure AD Connect. Como resultado, Microsoft no puede garantizar que podamos proporcionar un soporte técnico eficiente para tales implementaciones. 
 
 
 ## <a name="consider-your-implementation"></a>Consideración de su implementación  
@@ -90,7 +90,7 @@ Si no se rellena este atributo o el valor es distinto de **PHSFiltered**, estas 
      ![Inicio del editor de regas de sincronización](media/how-to-connect-selective-password-hash-synchronization/exclude-1.png)
  2. Seleccione la regla **In from AD – User AccountEnabled** para el conector del bosque de Active Directory en el que desea configurar la sincronización selectiva de contraseñas y haga clic en **Editar**. Seleccione **Sí** en el siguiente cuadro de diálogo para crear una copia modificable de la regla original.
      ![Selección de regla](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
- 3. La primera regla deshabilitará la sincronización de hash de la contraseñas. Proporcione el siguiente nombre a la nueva regla personalizada: **In from AD - User AccountEnabled - Filter Users from PHS**.
+ 3. La primera regla deshabilitará la sincronización de hash de contraseñas. Proporcione el siguiente nombre a la nueva regla personalizada: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Cambie el valor de precedencia a un número inferior a 100 (por ejemplo, **90** o el valor más bajo disponible en su entorno).
  Asegúrese de que las casillas **Habilitar sincronización de contraseña** y **Deshabilitado** estén desactivadas.
  Haga clic en **Next**.
@@ -159,7 +159,7 @@ Si no se rellena este atributo o el valor es distinto de **PHSIncluded**, estas 
      ![Tipo de regla](media/how-to-connect-selective-password-hash-synchronization/include-1.png)
  2. Seleccione la regla **In from AD – User AccountEnabled** para el bosque de Active Directory en el que desea configurar la sincronización selectiva de contraseñas y haga clic en **Editar**. Seleccione **Sí** en el siguiente cuadro de diálogo para crear una copia modificable de la regla original.
      ![In from AD](media/how-to-connect-selective-password-hash-synchronization/include-2.png)
- 3. La primera regla deshabilitará la sincronización de hash de la contraseñas. Proporcione el siguiente nombre a la nueva regla personalizada: **In from AD - User AccountEnabled - Filter Users from PHS**.
+ 3. La primera regla deshabilitará la sincronización de hash de contraseñas. Proporcione el siguiente nombre a la nueva regla personalizada: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Cambie el valor de precedencia a un número inferior a 100 (por ejemplo, **90** o el valor más bajo disponible en su entorno).
  Asegúrese de que las casillas **Habilitar sincronización de contraseña** y **Deshabilitado** estén desactivadas.
  Haga clic en **Next**.

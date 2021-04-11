@@ -4,13 +4,14 @@ description: Información general del agente de Azure Monitor (AMA), que recopil
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039604"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608221"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Información general del agente de Azure Monitor (versión preliminar)
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -59,6 +60,35 @@ Durante la versión preliminar pública del agente de Azure Monitor se aplican l
   - *.ingest.monitor.azure.com
   - *.control.monitor.azure.com
 
+
+## <a name="supported-regions"></a>Regiones admitidas
+El agente de Azure Monitor actualmente admite recursos en las siguientes regiones:
+
+- Este de Asia
+- Sudeste de Asia
+- Centro de Australia
+- Este de Australia
+- Sudeste de Australia
+- Centro de Canadá
+- Norte de Europa
+- Oeste de Europa
+- Centro de Francia
+- Centro-oeste de Alemania
+- Centro de la India
+- Japón Oriental
+- Centro de Corea del Sur
+- Norte de Sudáfrica
+- Norte de Suiza
+- Sur de Reino Unido
+- Oeste de Reino Unido
+- Centro de EE. UU.
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Centro-Norte de EE. UU
+- Centro-sur de EE. UU.
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+- Centro-Oeste de EE. UU.
 
 ## <a name="coexistence-with-other-agents"></a>Coexistencia con otros agentes
 El agente de Azure Monitor puede coexistir con los agentes existentes para que pueda seguir usando su funcionalidad existente durante la evaluación o la migración. Esto es especialmente importante debido a las limitaciones de la versión preliminar pública para admitir las soluciones existentes. Sin embargo, debe tener cuidado al recopilar datos duplicados, ya que esto podría sesgar los resultados de las consultas y generar cargos adicionales por la ingesta y retención de datos.

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 0146ff9ce3ec4821bee7ce34700ca4198bb23ddc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9edfb63f5ce43ed325b4c4a1fa67e0e9ca52dc89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598871"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110872"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticación en Azure Communication Services
 
@@ -24,9 +24,9 @@ Otro tipo de autenticación usa *tokens de acceso de usuario* para autenticarse 
 
 ## <a name="authentication-options"></a>Opciones de autenticación
 
-En la tabla siguiente se muestran las bibliotecas cliente de Azure Communication Services y sus opciones de autenticación:
+En la tabla siguiente se muestran los SDK de Azure Communication Services y sus opciones de autenticación:
 
-| Biblioteca cliente    | Opciones de autenticación.                               |
+| SDK    | Opciones de autenticación.                               |
 | ----------------- | ----------------------------------------------------|
 | Identidad          | Clave de acceso o identidad administrada                      |
 | SMS               | Clave de acceso o identidad administrada                      |
@@ -38,7 +38,7 @@ Cada opción de autorización se describe brevemente a continuación:
 
 ### <a name="access-key"></a>Clave de acceso
 
-La autenticación con clave de acceso es adecuada para las aplicaciones de servicio que se ejecutan en un entorno de servicio de confianza. La clave de acceso se puede encontrar en el portal de Azure Communication Services. La aplicación de servicio la usa como credencial para inicializar las bibliotecas cliente correspondientes. Vea un ejemplo de cómo se usa en la [biblioteca cliente de identidades](../quickstarts/access-tokens.md). 
+La autenticación con clave de acceso es adecuada para las aplicaciones de servicio que se ejecutan en un entorno de servicio de confianza. La clave de acceso se puede encontrar en el portal de Azure Communication Services. La aplicación de servicio lo usa como credencial para inicializar los SDK correspondientes. Vea un ejemplo de cómo se usa en el [SDK de identidad](../quickstarts/access-tokens.md). 
 
 Como la clave de acceso forma parte de la cadena de conexión del recurso, la autenticación con una cadena de conexión equivale a la autenticación con una clave de acceso.
 
@@ -48,11 +48,11 @@ Si desea llamar a las API de ACS manualmente mediante una clave de acceso, deber
 
 Las identidades administradas proporcionan una mayor seguridad y facilidad de uso con otras opciones de autorización. Por ejemplo, con Azure AD evita tener que almacenar la clave de acceso de la cuenta con el código, como se hace con la autorización mediante la clave de acceso. Aunque puede seguir usando la autorización mediante la clave de acceso con las aplicaciones de Communication Services, Microsoft recomienda cambiar a Azure AD siempre que sea posible. 
 
-Para configurar una identidad administrada, [cree una aplicación registrada a partir de la CLI de Azure](../quickstarts/managed-identity-from-cli.md). A continuación, el punto de conexión y las credenciales se pueden usar para autenticar las bibliotecas cliente. Vea ejemplos de cómo se usa la [identidad administrada](../quickstarts/managed-identity.md).
+Para configurar una identidad administrada, [cree una aplicación registrada a partir de la CLI de Azure](../quickstarts/managed-identity-from-cli.md). A continuación, el punto de conexión y las credenciales se pueden usar para autenticar los SDK. Vea ejemplos de cómo se usa la [identidad administrada](../quickstarts/managed-identity.md).
 
 ### <a name="user-access-tokens"></a>Tokens de acceso de usuario
 
-Los tokens de acceso de usuario se generan mediante la biblioteca cliente de identidades y se asocian a los usuarios creados en la biblioteca cliente de identidades. Vea un ejemplo de cómo [crear usuarios y generar tokens](../quickstarts/access-tokens.md). A continuación, los tokens de acceso de usuario se usan para autenticar a los participantes agregados a las conversaciones en el SDK de chat y llamadas. Para más información, vea [Incorporación de chat a una aplicación](../quickstarts/chat/get-started.md). La autenticación con token de acceso de usuario difiere de la autenticación con clave de acceso e identidad administrada, ya que se usa para autenticar a un usuario en lugar de a un recurso seguro de Azure.
+Los tokens de acceso de usuario se generan mediante el SDK de identidad y se asocian con los usuarios creados en el SDK de identidad. Vea un ejemplo de cómo [crear usuarios y generar tokens](../quickstarts/access-tokens.md). A continuación, los tokens de acceso de usuario se usan para autenticar a los participantes agregados a las conversaciones en el SDK de chat y llamadas. Para más información, vea [Incorporación de chat a una aplicación](../quickstarts/chat/get-started.md). La autenticación con token de acceso de usuario difiere de la autenticación con clave de acceso e identidad administrada, ya que se usa para autenticar a un usuario en lugar de a un recurso seguro de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

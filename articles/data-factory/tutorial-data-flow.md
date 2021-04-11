@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584540"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563300"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformación de datos mediante flujos de datos de asignación
 
@@ -24,7 +24,7 @@ Si no está familiarizado con Azure Data Factory, consulte [Introducción a Azur
 En este tutorial, usará la interfaz de usuario de Azure Data Factory (UX) para crear una canalización que copie y transforme los datos desde un origen de Azure Data Lake Storage (ADLS) Gen2 hasta un receptor de ADLS Gen2 mediante un flujo de datos de asignación. El patrón de configuración de este tutorial se puede expandir al transformar los datos mediante el flujo de datos de asignación.
 
  >[!NOTE]
-   >Este tutorial está pensado para los flujo de datos de asignación en general. Los flujos de datos están disponibles en las canalizaciones Azure Data Factory y Synapse. Si no está familiarizado con los flujos de datos en las canalizaciones de Azure Synapse, siga el [flujo de datos con las canalizaciones de Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview). 
+   >Este tutorial está pensado para los flujo de datos de asignación en general. Los flujos de datos están disponibles en las canalizaciones Azure Data Factory y Synapse. Si no está familiarizado con los flujos de datos en las canalizaciones de Azure Synapse, siga el [flujo de datos con las canalizaciones de Azure Synapse](../synapse-analytics/concepts-data-flow-overview.md). 
    
 En este tutorial, realizará los siguientes pasos:
 
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Realización de la serie de pruebas de la canalización.
 > * Supervisión de una actividad de Data Flow
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * **Cuenta de Azure Storage**. El almacenamiento ADLS se puede usar como almacén de datos de *origen* y *receptor*. Si no tiene una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para crear una.
 

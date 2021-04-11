@@ -4,12 +4,12 @@ description: Obtenga respuestas a las preguntas más comunes sobre cómo trabaja
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0cd2571276992812327e286ba9b935fcbf6fbbaf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931408"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871816"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -31,27 +31,27 @@ En este ejemplo, se cambia la capacidad de las dos colas existentes (**default**
 
 1. Seleccione el icono **Ambari Views** (Vistas de Ambari) y, a continuación, seleccione el patrón de cuadrícula. A continuación, seleccione **YARN Queue Manager** (Administrador de colas de YARN).
 
-    ![Administrador de colas de YARN del panel de Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Administrador de colas de YARN del panel de Apache Ambari" border="false":::
 2. Seleccione la cola **default**.
 
-    ![YARN de Apache Ambari: seleccionar cola predeterminada](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="YARN de Apache Ambari: seleccionar cola predeterminada" border="false":::
 3. Para la cola **default**, cambie la **capacidad** del 50% al 25%. Para la cola **thriftsvr**, cambie la **capacidad** al 25%.
 
-    ![Cambio de la capacidad al 25 % para las colas default y thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Cambio de la capacidad al 25 % para las colas default y thriftsvr" border="false":::
 4. Seleccione **Add Queue** (Agregar cola) para crear una nueva cola.
 
-    ![Panel de YARN de Apache Ambari: agregar cola](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Panel de YARN de Apache Ambari: agregar cola" border="false":::
 
 5. Asigne un nombre a la cola nueva.
 
-    ![Panel de YARN de Apache Ambari: nombre de la cola](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Panel de YARN de Apache Ambari: nombre de la cola" border="false":::  
 
 6. Deje los valores de **Capacity** (Capacidad) en el 50 % y seleccione el botón **Actions** (Acciones).
 
-    ![YARN de Apache Ambari: seleccionar acción](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="YARN de Apache Ambari: seleccionar acción" border="false":::  
 7. Seleccione **Save and Refresh Queues** (Guardar y actualizar colas).
 
-    ![Selección de Save and Refresh Queues (Guardar y actualizar colas)](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Selección de Save and Refresh Queues (Guardar y actualizar colas)" border="false":::  
 
 Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN Scheduler.
 

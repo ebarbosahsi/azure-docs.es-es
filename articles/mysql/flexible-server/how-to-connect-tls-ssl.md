@@ -1,33 +1,35 @@
 ---
 title: 'Conectividad cifrada mediante TLS/SSL en Azure Database for MySQL: servidor flexible'
 description: 'Instrucciones e información sobre cómo conectarse mediante TLS/SSL en Azure Database for MySQL: servidor flexible.'
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 24a8dd4d21cb6ab6edeb985db4e6e6a1349a758d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6150cf404f1ca68c93285a2f4a29a6373a55c0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932505"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110031"
 ---
-# <a name="encrypted-connectivity-using-transport-layer-security-tls-12-in-azure-database-for-mysql---flexible-server"></a>Conectividad cifrada con la Seguridad de la capa de transporte (TLS 1.2) en Azure Database for MySQL: servidor flexible
+# <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Conexión al servidor flexible de Azure Database for MySQL a través de TLS 1.2 o SSL
 
 > [!IMPORTANT]
 > Azure Database for MySQL: servidor flexible está actualmente en versión preliminar pública.
 
 Azure Database for MySQL: servidor flexible admite la conexión de las aplicaciones cliente al servicio MySQL mediante la Seguridad de la capa de transporte (TLS), que anteriormente se denominaba Capa de sockets seguros (SSL). TLS es un protocolo estándar del sector que garantiza conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente, lo que le permite ajustarse a los requisitos de cumplimiento.
 
-Azure Database for MySQL: servidor flexible solo admite conexiones cifradas mediante la Seguridad de la capa de transporte (TLS 1.2); se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1. Para todos los servidores flexibles, la aplicación de las conexiones TLS está habilitada y no se puede deshabilitar TLS/SSL para conectarse a un servidor flexible.
+Azure Database for MySQL: servidor flexible solo admite conexiones cifradas mediante la Seguridad de la capa de transporte (TLS 1.2); se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1. Para todos los servidores flexibles, la aplicación de las conexiones TLS está habilitado y no se puede deshabilitar TLS/SSL para conectarse a un servidor flexible.
 
-## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>Aplicaciones que requieren la verificación de certificados para la conectividad TLS/SSL
-En algunos casos, las aplicaciones requieren un archivo de certificado local generado a partir de un archivo de certificado de una entidad de certificación (CA) de confianza para conectarse de forma segura. Azure Database for MySQL: servidor flexible usa el certificado *DigiCert Global Root CA*. Descargue este certificado necesario para comunicarse a través de SSL desde [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) y guarde el archivo de certificado en su ubicación preferida. Por ejemplo, en este tutorial se usa `c:\ssl`.
+## <a name="download-the-public-ssl-certificate"></a>Descarga del certificado SSL público
+Para usar con sus aplicaciones, descargue el [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+
+Guarde el archivo de certificado en la ubicación que prefiera. Por ejemplo, en este tutorial se usa `c:\ssl` o `\var\www\html\bin` en el entorno local o en el entorno cliente donde se hospeda la aplicación. Esto permitirá que las aplicaciones se conecten de forma segura a la base de datos a través de SSL. 
 
 ### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Conexión mediante el cliente de línea de comandos mysql con TLS/SSL
 
-Si ha creado el servidor flexible con *acceso privado (Integración con VNet)* , deberá conectarse a su servidor desde un recurso en la misma red virtual que el servidor. Puede crear una máquina virtual y agregarla a la red virtual creada con el servidor flexible.
+Si ha creado el servidor flexible con *acceso privado (integración con VNet)* , deberá conectarse a su servidor desde un recurso en misma red virtual que el servidor. Puede crear una máquina virtual y agregarla a la red virtual creada con el servidor flexible.
 
 Si ha creado el servidor flexible con *acceso público (direcciones IP permitidas)* , puede agregar la dirección IP local a la lista de reglas de firewall del servidor.
 
@@ -58,6 +60,16 @@ Algunos marcos de trabajo de aplicaciones que usan MySQL en los servicios de bas
 Las cadenas de conexión que están predefinidas en la página "Cadenas de conexión", disponible para el servidor en Azure Portal, incluyen los parámetros necesarios de lenguajes comunes para conectarse a su servidor de bases de datos mediante TLS/SSL. El parámetro TLS/SSL varía en función del conector. Por ejemplo, puede ser "useSSL=true", "sslmode=required" o "ssl_verify_cert=true", entre otras variables.
 
 Para establecer una conexión cifrada a su servidor flexible a través de TLS/SSL desde la aplicación, consulte los siguientes ejemplos de código:
+
+### <a name="wordpress"></a>WordPress
+Descargue el [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) y agregue las siguientes líneas en wp-config.php después de la línea ```// ** MySQL settings - You can get this info from your web host ** //```.
+
+```php
+//** Connect with SSL** //
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+//** SSL CERT **//
+define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
+```
 
 ### <a name="php"></a>PHP
 
