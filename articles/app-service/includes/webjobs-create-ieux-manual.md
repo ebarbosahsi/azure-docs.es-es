@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 40e9e2b0e7437566a132f2402d3bed01b284d11a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102109181"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081015"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creación de un WebJob desencadenado de manera manual
 
@@ -33,7 +33,7 @@ ms.locfileid: "102109181"
    | <abbr title="Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales, salvo por `-` y `_`.">Nombre</abbr> | myTriggeredWebJob | 
     | <abbr title="Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script.">Carga de archivos</abbr> | ConsoleApp.zip |
     | <abbr title="Entre los tipos, se incluyen "continuo" y "desencadenado".">Tipo</abbr> | Desencadenado | 
-    | <abbr title="Entre los tipos, se incluyen "manual" o "programado".">Desencadenadores</a> | Manual | |
+    | <abbr title="Entre los tipos, se incluyen "manual" o "programado".">Desencadenadores</a> | Manual | 
 
 4. Haga clic en **OK**. 
 

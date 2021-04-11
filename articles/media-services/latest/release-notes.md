@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596746"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121105"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -54,7 +54,7 @@ Ahora hay más idiomas disponibles para la transcripción y el subtitulado de v�
 * Tailandés, "th-TH"
 * Turco, "tr-TR"
 
-Los últimos idiomas disponibles se puede ver en el [artículo Análisis de archivos de audio y vídeo con Azure Media Services.](analyzing-video-audio-files-concept.md)
+Los últimos idiomas disponibles se puede ver en el [artículo Análisis de archivos de audio y vídeo con Azure Media Services.](analyze-video-audio-files-concept.md)
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -75,21 +75,21 @@ Los clientes que anteriormente utilizaban HEVC en el codificador Premium de la A
 
 ### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Anuncio de desuso de los SDK y Azure Media Services v2 API
 
-#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Actualice los SDK y Azure Media Services API REST a la versión 3 antes del 29 de febrero de 2024
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Actualice los SDK y la API REST de Azure Media Services a la versión 3 antes del 29 de febrero de 2024
 
-Dado que la versión 3 de Azure Media Services API REST y los SDK de cliente para .NET y Java ofrece más funcionalidades que la versión 2, se va a retirar la versión 2 de Azure Media Services API REST y los SDK de cliente para .NET y Java.
+Dado que la versión 3 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java ofrece más funcionalidades que la versión 2, se va a retirar la versión 2 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java.
 
-Es aconsejable que realice el cambio lo antes posible para las ventajas de la versión 3 de Azure Media Services API REST y los SDK de cliente para .NET y Java.
+Es aconsejable que realice el cambio lo antes posible para aprovechar las ventajas de la versión 3 de la API REST de Azure Media Services y los SDK de cliente para .NET y Java.
 La versión 3 proporciona:
  
-- compatibilidad con eventos en directo 24x7
-- Azure Resource Manager API REST, SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
+- Compatibilidad ininterrumpida con eventos en directo
+- API de REST de ARM y SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
 - Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>Acción requerida
 
-Para minimizar la interrupción de las cargas de trabajo, consulte la [guía de migración](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) para pasar del código de la API y los SDK de la versión 2 a la API y el SDK de la versión 3 antes del 29 de febrero de 2024.
-**Después del 29 de febrero de 2024**, Azure Media Services dejará de aceptar el tráfico en la versión 2 de la API REST, la versión 2015-10-01 de la API de administración de cuentas de Azure Resource Manager o de los SDK de cliente de .NET de la versión 2. Esto incluye los SDK de cliente de código abierto de terceros que puedan llamar a la versión 2 de la API.  
+Para minimizar la interrupción de las cargas de trabajo, consulte la [guía de migración](./migrate-v-2-v-3-migration-introduction.md) para pasar del código de la API y los SDK de la versión 2 a la API y el SDK de la versión 3 antes del 29 de febrero de 2024.
+**A partir del 29 de febrero de 2024**, Azure Media Services dejará de aceptar el tráfico en la versión 2 de la API REST, la versión 2015-10-01 de la API de administración de cuentas de ARM o de los SDK de cliente de .NET de la versión 2. Esto incluye los SDK de cliente de código abierto de terceros que puedan llamar a la versión 2 de la API.  
 
 Vea el anuncio oficial de [las actualizaciones de Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
 
@@ -134,7 +134,7 @@ Vea los ejemplos más recientes en el repositorio de GitHub **[media-services-v3
 
 Los eventos en directo ahora admiten un modo de facturación de menor costo para el estado "en espera", lo que permite a los clientes asignar previamente eventos en directo a un menor costo para la creación de "grupos de nivel de almacenamiento de acceso frecuente". Los clientes pueden usar los eventos en directo en espera para pasar al estado En ejecución más rápidamente que si empezaran a desde cero en la creación.  Esto reduce considerablemente el tiempo que tarda en iniciarse el canal y permite una rápida asignación rápida de grupos de nivel de almacenamiento de acceso frecuente que se ejecutan en un modo cuyo precio es inferior.
 Vea [aquí](https://azure.microsoft.com/pricing/details/media-services) los detalles más recientes sobre los precios.
-Para más información sobre el estado En espera y los otros estados de Eventos en directo, consulte el artículo sobre [Estados y facturación de eventos en directo.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+Para más información sobre el estado En espera y los otros estados de Eventos en directo, consulte el artículo sobre [Estados y facturación de eventos en directo.](./live-event-states-billing-concept.md)
 
 ## <a name="december-2020"></a>Diciembre de 2020
 
@@ -146,17 +146,17 @@ Azure Media Services ahora está disponible en la región este de Noruega en Azu
 
 ### <a name="basic-audio-analysis"></a>Análisis de audio básico
 
-El valor preestablecido del análisis de audio ahora incluye un plan de tarifa de modo básico. El nuevo modo básico del analizador de audio ofrece una opción de bajo costo para extraer transcripciones de voz y dar formato a los subtítulos y CC resultantes. Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. Consulte la lista de [idiomas admitidos](analyzing-video-audio-files-concept.md#built-in-presets).
+El valor preestablecido del análisis de audio ahora incluye un plan de tarifa de modo básico. El nuevo modo básico del analizador de audio ofrece una opción de bajo costo para extraer transcripciones de voz y dar formato a los subtítulos y CC resultantes. Este modo realiza la transcripción de voz a texto y la generación de un archivo de subtítulos VTT. La salida de este modo incluye un archivo JSON de información, que incluye solo las palabras clave, la transcripción y la información de tiempo. La detección automática de idioma y la diarización de los altavoces no se incluyen en este modo. Consulte la lista de [idiomas admitidos](analyze-video-audio-files-concept.md#built-in-presets).
 
 Los clientes que usan el indexador v1 y el indexador v2 deben migrar al valor preestablecido de análisis de audio básico.
 
-Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyzing-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](how-to-create-basic-audio-transform.md).
+Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyze-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](how-to-create-basic-audio-transform.md).
 
 ### <a name="live-events"></a>Eventos en vivo
 
 Ahora puede actualizar la mayoría de las propiedades cuando se detienen los eventos en directo. Además, los usuarios pueden especificar un prefijo para el nombre de host estático de las direcciones URL de entrada y versión preliminar del evento activo. VanityUrl ahora se llama `useStaticHostName`, para reflejar mejor la intención de la propiedad.
 
-Los eventos en directo ahora tienen un estado StandBy.  Consulte [Eventos en directo y salidas activas en Media Services](./live-events-outputs-concept.md).
+Los eventos en directo ahora tienen un estado StandBy.  Consulte [Eventos en directo y salidas activas en Media Services](./live-event-outputs-concept.md).
 
 Un evento en directo permite recibir varias relaciones de aspecto de entrada. El modo de ajuste permite a los clientes especificar el comportamiento de ajuste de la salida.
 
@@ -173,7 +173,7 @@ La codificación en directo ahora agrega la capacidad de generar fragmentos de i
 
 La compatibilidad con el cifrado Protected Interoperable File Format (PIFF 1.1) de PlayReady heredado ya está disponible en el empaquetador dinámico. Proporciona compatibilidad con los televisores inteligentes heredados de Samsung y LG que implementaron los borradores iniciales del estándar Common Encryption (CENC) publicado por Microsoft.  El formato PIFF 1.1 también se conoce como el formato de cifrado admitido anteriormente por la biblioteca cliente de Silverlight. En la actualidad, el único caso de uso para este formato de cifrado es la segmentación del mercado de los televisores inteligentes heredados, donde todavía existen una cantidad considerable de televisores inteligentes en algunas regiones que solo admiten Smooth Streaming con el cifrado PIFF 1.1.
 
-Para usar la compatibilidad con el nuevo cifrado PIFF 1.1, cambie el valor de cifrado a "piff" en la ruta de acceso de la dirección URL del localizador de streaming. Para obtener más información, consulte [Introducción a Content Protection](content-protection-overview.md).
+Para usar la compatibilidad con el nuevo cifrado PIFF 1.1, cambie el valor de cifrado a "piff" en la ruta de acceso de la dirección URL del localizador de streaming. Para obtener más información, consulte [Introducción a Content Protection](drm-content-protection-concept.md).
 Por ejemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -187,11 +187,11 @@ Las transcripciones en vivo ahora admiten 19 idiomas y 8 regiones.
 
 ### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protección del contenido con Media Services y Azure AD
 
-Publicamos un tutorial denominado [Protección de contenido de un extremo a otro con Azure AD](./azure-ad-content-protection.md).
+Publicamos un tutorial denominado [Protección de contenido de un extremo a otro con Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### <a name="high-availability"></a>Alta disponibilidad
 
-Publicamos una [introducción](./media-services-high-availability-encoding.md) y un [ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming) de alta disponibilidad con Media Services y Vídeo bajo demanda (VoD).
+Publicamos una [introducción](./architecture-high-availability-encoding-concept.md) y un [ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming) de alta disponibilidad con Media Services y Vídeo bajo demanda (VoD).
 
 ## <a name="june-2020"></a>Junio de 2020
 
@@ -243,7 +243,7 @@ Para ver en acción parte del intercambio de encabezados, puede probar los pasos
 
 La transcripción en directo está ahora en versión preliminar pública y disponible para su uso en la región Oeste de EE. UU. 2.
 
-Está diseñada para funcionar en combinación con eventos en directo como una funcionalidad complementaria.  Es compatible con eventos en directo de codificación estándar y premium de paso a través.  Cuando esta característica está habilitada, el servicio usa la característica [Voz a texto](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services para transcribir el texto oral del audio entrante en texto escrito. A continuación, se pone a disposición este texto para su entrega junto con el vídeo y el audio en los protocolos MPEG-DASH y HLS. La facturación se basa en un nuevo medidor complementario que supone un costo adicional para el evento en directo cuando está en estado "en ejecución".  Para más información sobre la transcripción en directo y la facturación, consulte [Transcripción en directo](live-transcription.md).
+Está diseñada para funcionar en combinación con eventos en directo como una funcionalidad complementaria.  Es compatible con eventos en directo de codificación estándar y premium de paso a través.  Cuando esta característica está habilitada, el servicio usa la característica [Voz a texto](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services para transcribir el texto oral del audio entrante en texto escrito. A continuación, se pone a disposición este texto para su entrega junto con el vídeo y el audio en los protocolos MPEG-DASH y HLS. La facturación se basa en un nuevo medidor complementario que supone un costo adicional para el evento en directo cuando está en estado "en ejecución".  Para más información sobre la transcripción en directo y la facturación, consulte [Transcripción en directo](live-event-live-transcription-how-to.md).
 
 > [!NOTE]
 > Actualmente, la transcripción en directo solo está disponible como una característica en vista previa en la región Oeste de EE. UU. 2. En este momento, solo admite la transcripción de texto oral en inglés (en-US).
@@ -251,7 +251,7 @@ Está diseñada para funcionar en combinación con eventos en directo como una f
 ### <a name="content-protection"></a>Protección de contenido
 
 La característica de *prevención de reproducción de tokens* publicada en septiembre en algunas regiones está ahora disponible en todas las regiones.
-Los clientes de Media Services ahora pueden establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](content-protection-overview.md#token-replay-prevention).
+Los clientes de Media Services ahora pueden establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](drm-content-protection-concept.md#token-replay-prevention).
 
 ### <a name="new-recommended-live-encoder-partners"></a>Nuevos asociados de codificador en directo recomendados
 
@@ -310,7 +310,7 @@ Para más información, consulte [Migración de WAME a Media Encoder Standard](.
 
 ### <a name="content-protection"></a>Protección de contenido
 
-Cuando el contenido de streaming está protegido con restricción de token, los usuarios finales deben obtener un token que se envía como parte de la solicitud de entrega de claves. La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](content-protection-overview.md#token-replay-prevention).
+Cuando el contenido de streaming está protegido con restricción de token, los usuarios finales deben obtener un token que se envía como parte de la solicitud de entrega de claves. La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. Para obtener más información, consulte [Prevención de reproducción de tokens](drm-content-protection-concept.md#token-replay-prevention).
 
 Desde julio, la característica de vista previa solo estaba disponible en las regiones Centro de EE. UU. y Centro y oeste de EE. UU.
 
@@ -340,7 +340,7 @@ Para obtener más información, consulte [Supervisión de los registros de diagn
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Compatibilidad con varias pistas de audio en el empaquetado dinámico 
 
-Al realizar el streaming de recursos que tienen varias pistas de audio con varios códecs y lenguajes, el [empaquetado dinámico](dynamic-packaging-overview.md) ahora admite varias pistas de audio para la salida HLS (versión 4 o superior).
+Al realizar el streaming de recursos que tienen varias pistas de audio con varios códecs y lenguajes, el [empaquetado dinámico](encode-dynamic-packaging-concept.md) ahora admite varias pistas de audio para la salida HLS (versión 4 o superior).
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>El par regional de Corea está abierto para Media Services 
 
@@ -352,7 +352,7 @@ Si desea obtener más información, vea [Nubes y regiones donde existe Azure Med
 
 Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Services.
 
-* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y límites](limits-quotas-constraints.md).
+* Se actualizó el tamaño de archivo máximo admitido para el procesamiento. Consulte [Cuotas y límites](limits-quotas-constraints-reference.md).
 * [Mejoras de velocidades de codificación](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>Abril de 2019
@@ -360,11 +360,11 @@ Se han agregado actualizaciones que incluyen mejoras de rendimiento de Media Ser
 ### <a name="new-presets"></a>Nuevos valores preestablecidos
 
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) se agregó a los valores preestablecidos del analizador integrado.
-* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) se agregó a los valores preestablecidos del codificador integrado. Para más información, consulte [Codificación que tiene en cuenta el contenido](content-aware-encoding.md). 
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) se agregó a los valores preestablecidos del codificador integrado. Para más información, consulte [Codificación que tiene en cuenta el contenido](encode-content-aware-concept.md). 
 
 ## <a name="march-2019"></a>Marzo de 2019
 
-Ahora el empaquetado dinámico admite Dolby Atmos. Para más información, consulte [Códecs de audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Ahora el empaquetado dinámico admite Dolby Atmos. Para más información, consulte [Códecs de audio compatibles con el empaquetado dinámico](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging).
 
 Ahora puede especificar una lista de filtros de recursos o cuentas, que se aplicarían a su localizador de streaming. Para más información, consulte el tema sobre la [asociación de filtros al localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -378,7 +378,7 @@ El evento [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-sc
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard y archivos MPI 
 
-Al codificar con Media Encoder Standard para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y [empaquetado dinámico](dynamic-packaging-overview.md).
+Al codificar con Media Encoder Standard para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y [empaquetado dinámico](encode-dynamic-packaging-concept.md).
 
 No debe modificar ni quitar el archivo MPI, así como tampoco tener ninguna dependencia en el servicio en la existencia (o no) de este tipo de archivo.
 
@@ -518,7 +518,7 @@ Si creó filtros de cuenta o recurso entre el 28/09 y el 12/10 con las API o la 
 
 Las características siguientes están disponibles en el SDK de .NET:
 
-* **Transformaciones** y **trabajos** para codificar o analizar el contenido multimedia. Para ver ejemplos, consulte los artículos sobre [streaming de archivos](stream-files-tutorial-with-api.md) y [análisis](analyze-videos-tutorial-with-api.md).
+* **Transformaciones** y **trabajos** para codificar o analizar el contenido multimedia. Para ver ejemplos, consulte los artículos sobre [streaming de archivos](stream-files-tutorial-with-api.md) y [análisis](analyze-videos-tutorial.md).
 * **Localizadores de streaming** para publicar y transmitir contenido a los dispositivos de usuarios finales.
 * **Directivas de streaming** y **directivas de claves de contenido** para configurar la entrega de claves y la protección de contenido (DRM) al entregar el contenido.
 * **Eventos en directo** y **salidas de eventos** para configurar la ingesta y el archivo de contenido de streaming en vivo.
