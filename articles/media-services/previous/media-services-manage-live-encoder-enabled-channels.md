@@ -3,7 +3,7 @@ title: Streaming en vivo con Azure Media Services para crear transmisiones con v
 description: En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268312"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103013217"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -33,7 +33,7 @@ ms.locfileid: "89268312"
 En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
 * Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (Fragmented MP4). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
-* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision y Teradek.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision y Teradek.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
   > [!NOTE]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
@@ -46,7 +46,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 * **Estándar**: elija este valor si piensa usar Media Services para codificar transmisiones en directo con una sola velocidad de bits en transmisiones de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 > [!NOTE]
-> En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación**Estándar** ). Para más información sobre cómo trabajar con canales no habilitados para realizar la codificación en directo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
+> En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar** ). Para más información sobre cómo trabajar con canales no habilitados para realizar la codificación en directo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 > 
 > Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3452bfee1e9228926bb687d1b9dc7fb26dfff85a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96020133"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642171"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creación y administración de Private Link para Azure Database for PostgreSQL: servidor único con la CLI
 
@@ -21,7 +21,7 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 > [!NOTE]
 > La característica de vínculo privado solo está disponible para servidores de Azure Database for PostgreSQL en los planes de tarifa De uso general u Optimizado para memoria. Asegúrese de que el servidor de bases de datos esté incluido en uno de estos planes de tarifa.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir esta guía, necesitará:
 
@@ -171,7 +171,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
    Address:  10.1.3.4
    ```
 
-3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se usa [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar la operación.
+3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se usa [Azure Data Studio](/sql/azure-data-studio/download) para realizar la operación.
 
 4. En **Nueva conexión**, escriba o seleccione esta información:
 

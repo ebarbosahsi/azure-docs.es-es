@@ -3,17 +3,18 @@ title: Esquema de definición de Azure Cloud Services (clásico) (archivo .cscfg
 description: Un archivo de configuración de servicio (.cscfg) especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado para un rol.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 17fea7c1eb75f8041c4c6a79870bfc653ea767ae
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743481"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935148"
 ---
 # <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (clásico) (archivo .cscfg)
 

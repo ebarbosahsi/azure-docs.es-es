@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 73b2e8e59774e12ddb9aa684382510d1f2c151b8
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098251"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564592"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Almacenamiento en caché con Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -26,6 +26,10 @@ En este artículo, aprenderá cómo se comportan las rutas y el conjunto de regl
 > Azure Front Door Estándar/Prémium (versión preliminar) está disponible actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="request-methods"></a>Métodos de solicitud
+
+Solo el método de solicitud GET puede generar contenido almacenado en caché en Azure Front Door. Los demás métodos de solicitud siempre los procesa el proxy mediante la red.
 
 ## <a name="delivery-of-large-files"></a>Suministro de archivos grandes
 

@@ -2,13 +2,13 @@
 title: Uso de una función en Azure como controlador de eventos para eventos de Azure Event Grid
 description: Describe cómo se pueden usar las funciones creadas en Azure Functions y hospedadas en tal servicio como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632519"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103496548"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Uso de una función como controlador de eventos para eventos de Event Grid
 
@@ -79,6 +79,9 @@ Puede usar los comandos [az eventgrid event-subscription create](/cli/azure/even
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Puede usar los cmdlets [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) o [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) para configurar las opciones relacionadas con el lote mediante los parámetros `-MaxEventsPerBatch` o `-PreferredBatchSizeInKiloBytes`.
+
+> [!NOTE]
+> Cuando se usa el desencadenador de Event Grid, el servicio Event Grid captura el secreto de cliente para la función de Azure de destino y lo usa para enviar eventos a la función de Azure. Si protege su función de Azure con una aplicación Azure Active Directory, debe adoptar el enfoque genérico de webhook y usar el desencadenador HTTP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Controladores de eventos](event-handlers.md) para obtener una lista de controladores de eventos compatibles.

@@ -5,23 +5,20 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 94edf35cc16d4967449af15797f6ecccba60be4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 87d51f9c1d084faf79c7ec1cf1255a6fb3c8245d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181098"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103201000"
 ---
-# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS) (versión preliminar)
+# <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster"></a>Inicio y detención de un clúster de Azure Kubernetes Service (AKS)
 
 Es posible que las cargas de trabajo de AKS no tengan que ejecutarse continuamente, por ejemplo, en el caso de un clúster de desarrollo que se use solo durante el horario comercial. Esto se traduce en momentos en que el clúster de Azure Kubernetes Service (AKS) podría estar inactivo, sin ejecutar más que los componentes del sistema. Para reducir la superficie del clúster, [escale todos los grupos de nodos `User` a 0](scale-cluster.md#scale-user-node-pools-to-0), aunque sigue siendo necesario que el [grupo `System`](use-system-pools.md) ejecute los componentes del sistema mientras el clúster está en ejecución. Para optimizar aún más los costos durante estos períodos, puede desactivar por completo (detener) el clúster. Esta acción detiene el plano de control y los nodos del agente, lo que permite ahorrar en todos los costos de proceso, a la vez que se mantienen todos los objetos y el estado del clúster almacenados para cuando se inicie de nuevo. Puede continuar justo donde se ha dejado después de un fin de semana o hacer que el clúster se ejecute solo mientras se ejecutan los trabajos por lotes.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
-
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -29,42 +26,7 @@ Cuando se usa la característica de inicio o detención del clúster, se aplican
 
 - Esta característica solo se admite para clústeres respaldados por Virtual Machine Scale Sets.
 - El estado de clúster de un clúster de AKS detenido se conserva durante un máximo de 12 meses. Si el clúster se detiene durante más de 12 meses, no se puede recuperar su estado. Para obtener más información, vea [Directivas de soporte técnico para AKS](support-policies.md).
-- Durante la versión preliminar, debe detener el escalador automático (CA) del clúster antes de intentar detenerlo.
 - Solo puede iniciar o eliminar un clúster de AKS detenido. Para realizar cualquier operación, como escalado o actualización, primero inicie el clúster.
-
-### <a name="install-the-aks-preview-azure-cli"></a>Instalación de la CLI de Azure `aks-preview` 
-
-También se necesita la versión 0.4.64 o posterior de la extensión de la CLI de Azure *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add]. También puede instalar las actualizaciones disponibles mediante el comando [az extension update][az-extension-update].
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
-### <a name="register-the-startstoppreview-preview-feature"></a>Registro de la característica en vista previa (GB) `StartStopPreview`
-
-Para usar la característica de inicio o detención de un clúster, debe habilitar la marca de característica `StartStopPreview` en la suscripción.
-
-Registre la marca de característica `StartStopPreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "StartStopPreview"
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/StartStopPreview')].{Name:name,State:properties.state}"
-```
-
-Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## <a name="stop-an-aks-cluster"></a>Detención de un clúster de AKS
 
@@ -95,7 +57,6 @@ Si `provisioningState` muestra `Stopping`, significa que el clúster aún no se 
 > [!IMPORTANT]
 > Si usa [presupuestos de interrupciones de pods](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/), la operación de detención puede tardar más tiempo, ya que el proceso de purga tarda más en finalizar.
 
-
 ## <a name="start-an-aks-cluster"></a>Inicio de un clúster de AKS
 
 Puede usar el comando `az aks start` para iniciar los nodos y el plano de control de un clúster de AKS detenido. El clúster se reinicia con el estado del plano de control y el número de nodos de agente anteriores.  
@@ -122,7 +83,6 @@ Para comprobar que el clúster se ha iniciado, use el comando [az aks show][az-a
 ```
 
 Si `provisioningState` muestra `Starting`, significa que el clúster aún no se ha iniciado por completo.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

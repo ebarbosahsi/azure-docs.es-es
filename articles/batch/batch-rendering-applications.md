@@ -1,14 +1,14 @@
 ---
 title: Aplicaciones de representación
 description: Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin embargo, las imágenes de máquina virtual de Azure Marketplace están disponibles con aplicaciones comunes preinstaladas.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635343"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103496650"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación de Batch
 
@@ -17,6 +17,9 @@ Todas las aplicaciones de representación se pueden usar con Azure Batch. Sin em
 Si procede, hay licencias de pago por uso disponibles para las aplicaciones de representación preinstaladas. Cuando se crea un grupo de Batch, se pueden especificar las aplicaciones necesarias y el costo tanto de la máquina virtual como de las aplicaciones se facturará por minuto. Los precios de las aplicaciones se muestran en la [página de precios de Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con Windows y con Linux.
+
+> [!IMPORTANT]
+> Las imágenes de VM de representación y las licencias de pago por uso han [quedado en desuso y se retirarán el 29 de febrero de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar Batch para la representación, [se debe usar una imagen de máquina virtual personalizada y una licencia de aplicación estándar.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicaciones en la imagen de representación de CentOS 7 más reciente
 

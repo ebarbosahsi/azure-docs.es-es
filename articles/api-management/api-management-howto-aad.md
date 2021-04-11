@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363212"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105035816"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -47,7 +47,15 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
     En el panel aparecen controles que le permiten escribir otra información necesaria. Los controles incluyen **Id. de cliente** y **Secreto de cliente**. (Más adelante en el artículo obtendrá información sobre estos controles).
 9. Anote el contenido de **Dirección URL de redireccionamiento**.
     
-   ![Pasos para agregar un proveedor de identidades en Azure Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Agregar un proveedor de identidades en Azure Portal":::
+    > [!NOTE]
+    > Hay dos URL de redireccionamiento:<br/>
+    > **URL de redireccionamiento** : apunta al portal para desarrolladores más reciente de la API Management.<br/>
+    > **URL de redireccionamiento (portal en desuso)** : apunta al portal para desarrolladores en desuso de API Management.
+    >
+    > Se recomienda usar la URL de redireccionamiento del portal para desarrolladores más reciente.
+   
 10. En el explorador, abra una pestaña diferente. 
 11. Navegue hasta [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar una aplicación en Active Directory.
 12. En **Administrar**, seleccione **Registros de aplicaciones**.

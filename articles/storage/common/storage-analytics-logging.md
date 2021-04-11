@@ -9,16 +9,16 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f1d254eecc41ebef690b4fc9f8294bee5a368ae4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570019"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103200761"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
-Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
+Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Esto significa que la mayoría de las solicitudes darán lugar a una entrada de registro, pero no se garantiza la integridad y la escala de tiempo de los registros de Storage Analytics. 
 
 > [!NOTE]
 > Se recomienda usar los registros de Azure Storage en Azure Monitor en lugar de los registros de Storage Analytics. Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Para más información, consulte cualquiera de los siguientes artículos:

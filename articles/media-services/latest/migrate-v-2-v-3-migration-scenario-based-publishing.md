@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721096"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122074"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de empaquetado y entrega
 
@@ -30,10 +30,10 @@ Cambios importantes en la forma en que se publica el contenido en la API v3. El 
 
 ## <a name="packaging-and-delivery-in-v3"></a>Empaquetado y entrega en v3
 
-1. Cree [directivas de clave de contenido](content-key-policy-concept.md).
+1. Cree [directivas de clave de contenido](drm-content-key-policy-concept.md).
 1. Cree [localizadores de streaming](streaming-locators-concept.md).
 1. Obtenga las [rutas de acceso de streaming](create-streaming-locator-build-url.md). 
-    1. Configúrelas para un reproductor [DASH](dynamic-packaging-overview.md#mpeg-dash-protocol) o [HLS](dynamic-packaging-overview.md#hls-protocol).
+    1. Configúrelas para un reproductor [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) o [HLS](encode-dynamic-packaging-concept.md#hls-protocol).
 
 Consulte los conceptos, tutoriales y guías de procedimientos de publicación a continuación para conocer los pasos específicos.
 
@@ -41,9 +41,9 @@ Consulte los conceptos, tutoriales y guías de procedimientos de publicación a 
 
 ### <a name="concepts"></a>Conceptos
 
-- [Empaquetado dinámico en Media Services v3](dynamic-packaging-overview.md)
+- [Empaquetado dinámico en Media Services v3](encode-dynamic-packaging-concept.md)
 - [Filtros](filters-concept.md)
-- [Filtrado de los manifiestos mediante el empaquetador dinámico](filters-dynamic-manifest-overview.md)
+- [Filtrado de los manifiestos mediante el empaquetador dinámico](filters-dynamic-manifest-concept.md)
 - [Puntos de conexión de streaming (origen) en Azure Media Services](streaming-endpoint-concept.md)
 - [Transmisión de contenido con la integración de CDN](scale-streaming-cdn.md)
 - [Localizadores de streaming](streaming-locators-concept.md)
@@ -53,7 +53,7 @@ Consulte los conceptos, tutoriales y guías de procedimientos de publicación a 
 - [Administración de puntos de conexión de streaming con Media Services v3](manage-streaming-endpoints-howto.md)
 - [Ejemplo de CLI: publicación de un recurso](cli-publish-asset.md)
 - [Creación de un localizador de streaming y compilación de direcciones URL](create-streaming-locator-build-url.md)
-- [Descarga de los resultados de un trabajo](download-results-howto.md)
+- [Descarga de los resultados de un trabajo](job-download-results-how-to.md)
 - [Señalización de pistas descriptivas de audio](signal-descriptive-audio-howto.md)
 - [Configuración completa de Azure Media Player](../azure-media-player/azure-media-player-full-setup.md)
 - [Uso del reproductor Video.js con Azure Media Services](how-to-video-js-player.md)
@@ -62,7 +62,3 @@ Consulte los conceptos, tutoriales y guías de procedimientos de publicación a 
 ## <a name="samples"></a>Ejemplos
 
 También puede [comparar el código de la versión v2 y v3 en los ejemplos de código](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522298"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587286"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -60,7 +60,7 @@ La puerta de enlace de ExpressRoute anunciará los *espacios de direcciones* de 
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>¿Cuántos prefijos se pueden anunciar desde una red virtual a un entorno local en el emparejamiento privado de ExpressRoute?
 
-Se pueden anunciar un máximo de 1000 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 199 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, todos esos prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 150 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 151 prefijos en el entorno local.
+Se pueden anunciar un máximo de 1000 prefijos en una única conexión de ExpressRoute o a través del emparejamiento de VNet mediante el tránsito de puerta de enlace. Por ejemplo, si tiene 999 espacios de direcciones en una sola red virtual conectada a un circuito ExpressRoute, los 999 prefijos se anunciarán en el entorno local. Como alternativa, si tiene una red virtual habilitada para permitir el tránsito de puerta de enlace con 1 espacio de direcciones y 500 redes virtuales radiales habilitadas con la opción "Permitir puerta de enlace remota", la red virtual implementada con la puerta de enlace anunciará los 501 prefijos en el entorno local.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>¿Qué ocurre si se supera el límite de prefijos en una conexión de ExpressRoute?
 
@@ -104,6 +104,7 @@ Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de la autenticación multifactor (heredado)
 * Traffic Manager
+* Logic Apps
 
 ### <a name="public-peering"></a>Emparejamiento público
 
@@ -297,6 +298,15 @@ También tendrá que realizar un seguimiento con su proveedor de conectividad pa
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>¿Cómo se cambia el ancho de banda de un circuito ExpressRoute?
 
 Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet de PowerShell o la API de REST.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>He recibido una notificación sobre el mantenimiento del circuito ExpressRoute. ¿Cuál es el impacto técnico de este mantenimiento?
+
+Si opera el circuito en [modo activo-activo](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections), debería experimentar un impacto mínimo o negativo durante el mantenimiento. Realizamos el mantenimiento en las conexiones principales y secundarias del circuito por separado. El mantenimiento programado normalmente se realiza fuera del horario comercial en la zona horaria de la ubicación de emparejamiento y no se puede seleccionar una hora de mantenimiento.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>He recibido una notificación sobre una actualización de software o mantenimiento en la puerta de enlace de ExpressRoute. ¿Cuál es el impacto técnico de este mantenimiento?
+
+Debería experimentar un impacto mínimo o negativo durante una actualización de software o mantenimiento en la puerta de enlace. La puerta de enlace de ExpressRoute se compone de varias instancias y, durante las actualizaciones, dichas instancias se desconectan de una en una. Aunque esto puede hacer que la puerta de enlace admita temporalmente un rendimiento de red menor para la red virtual, la propia puerta de enlace no experimentará ningún tiempo de inactividad.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 

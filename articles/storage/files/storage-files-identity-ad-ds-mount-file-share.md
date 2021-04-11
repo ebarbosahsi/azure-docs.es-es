@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535066"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587005"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte 4: Montaje de un recurso compartido de archivos desde una VM unida al dominio
 
@@ -28,10 +28,10 @@ Inicie sesión en el cliente con las credenciales a las que ha concedido permiso
 
 Antes de poder montar el recurso compartido de archivos, asegúrese de que ha superado los requisitos previos siguientes:
 
-- Si va a montar el recurso compartido de archivos desde un cliente que lo haya montado previamente con la clave de la cuenta de almacenamiento, asegúrese de que ha desconectado el recurso compartido, que ha quitado las credenciales persistentes de la clave de la cuenta de almacenamiento y que actualmente usa credenciales de AD DS para la autenticación.
+- Si va a montar el recurso compartido de archivos desde un cliente que lo haya montado previamente con la clave de la cuenta de almacenamiento, asegúrese de que ha desconectado el recurso compartido, que ha quitado las credenciales persistentes de la clave de la cuenta de almacenamiento y que actualmente usa credenciales de AD DS para la autenticación. Para obtener instrucciones sobre cómo borrar el recurso compartido montado con la clave de la cuenta de almacenamiento, consulte la [página de preguntas más frecuentes](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - El cliente debe tener una línea de visión en la instancia de AD DS. Si el equipo o la máquina virtual está fuera de la red administrada por AD DS, tendrá que habilitar la VPN a fin de acceder a AD DS para la autenticación.
 
-Reemplace los valores de marcador de posición con valores propios y, después, use el comando siguiente para montar el recurso compartido de archivos de Azure:
+Reemplace los valores de marcador de posición con valores propios y, después, use el comando siguiente para montar el recurso compartido de archivos de Azure. Siempre debe realizar el montaje con la ruta de acceso que se muestra a continuación. No se admite el uso de CNAME para el montaje de archivos para la autenticación basada en identidad (AD DS o Azure AD DS).
 
 ```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.

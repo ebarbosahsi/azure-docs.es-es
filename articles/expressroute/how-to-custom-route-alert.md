@@ -1,22 +1,22 @@
 ---
 title: 'ExpressRoute: Configuración de alertas personalizadas para rutas anunciadas'
-description: En este artículo se muestra cómo usar Azure Automation y Logic Apps para supervisar el número de rutas anunciadas desde la puerta de enlace de ExpressRoute a las redes locales con el fin de evitar alcanzar el límite de 200 rutas.
+description: En este artículo se muestra cómo usar Azure Automation y Logic Apps para supervisar el número de rutas anunciadas desde la puerta de enlace de ExpressRoute a las redes locales con el fin de evitar alcanzar el límite de 1000 rutas.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504408"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654397"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configuración de alertas personalizadas para supervisar rutas anunciadas
 
-Este artículo le ayuda a usar Azure Automation y Logic Apps para supervisar constantemente el número de rutas anunciadas desde la puerta de enlace de ExpressRoute a las redes locales. La supervisión puede evitar que se alcance el [límite de 200 rutas](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+Este artículo le ayuda a usar Azure Automation y Logic Apps para supervisar constantemente el número de rutas anunciadas desde la puerta de enlace de ExpressRoute a las redes locales. La supervisión puede ayudar a evitar que se alcance el límite de 1000 rutas](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
 
 **Azure Automation** permite automatizar la ejecución de un script de PowerShell personalizado almacenado en un *runbook*. Al usar la configuración de este artículo, el runbook contiene un script de PowerShell que realiza consultas en una o varias puertas de enlace de ExpressRoute. Recopila un conjunto de contenido que contiene el grupo de recursos, el nombre de la puerta de enlace de ExpressRoute y el número de prefijos de red anunciados localmente.
 
@@ -48,7 +48,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * La alerta personalizada que se describe en este artículo es un complemento para lograr un mejor funcionamiento y control. No es un reemplazo de las alertas nativas de ExpressRoute.
 * La recopilación de datos de las puertas de enlace de ExpressRoute se ejecuta en segundo plano. El tiempo de ejecución puede ser más largo de lo esperado. Para evitar la puesta en cola de trabajos, la periodicidad del flujo de trabajo se debe configurar correctamente.
-* Las implementaciones mediante scripts o plantillas de ARM pueden ser más rápidas que el desencadenador de alarma personalizado. Esto podría incrementar el número de prefijos de red en la puerta de enlace de ExpressRoute por encima del límite de 200 rutas.
+* Las implementaciones mediante scripts o plantillas de ARM pueden ser más rápidas que el desencadenador de alarma personalizado. Esto podría incrementar el número de prefijos de red en la puerta de enlace de ExpressRoute por encima del límite de 1000 rutas.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Creación y configuración de cuentas
 
@@ -409,7 +409,7 @@ Una vez que se analiza el archivo JSON, la acción **Analizar operaciones de dat
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. La condición lógica es true cuando una de las dos variables dinámicas, numRoute1 o numRoute2, es mayor que el umbral. En este ejemplo, el umbral se ha fijado en 160 (80 % del valor máximo de 200 rutas). Puede cambiar el valor de umbral para que se adapte a sus requisitos. Para mantener la coherencia, el valor debe ser el mismo que se usa en el script de PowerShell del runbook.
+9. La condición lógica es true cuando una de las dos variables dinámicas, numRoute1 o numRoute2, es mayor que el umbral. En este ejemplo, el umbral se ha fijado en 800 (80 % del valor máximo de 1000 rutas). Puede cambiar el valor de umbral para que se adapte a sus requisitos. Para mantener la coherencia, el valor debe ser el mismo que se usa en el script de PowerShell del runbook.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Condición lógica":::
 

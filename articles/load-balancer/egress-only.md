@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a96e6b567c04f2e0561a0a754e854a0e2b1ad6b0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94695000"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076265"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuración del equilibrador de carga solo de salida
 
@@ -278,7 +278,7 @@ Cree el grupo de direcciones de back-end **myPublicBackendPool**:
     | Dirección IP del front-end | Seleccione **LoadBalancerFrontEnd**.|
     | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15 minutos**.|
     | Restablecimiento de TCP | Seleccione **Habilitado**.|
-    | Grupo back-end | Seleccione **myPublicBackendPool**.| |
+    | Grupo back-end | Seleccione **myPublicBackendPool**.|
     | Asignación de puertos: > Asignación de puertos | Seleccione **Use the default number of outbound ports** (Usar el número predeterminado de puertos de salida). |
 
 4. Seleccione **Agregar**.

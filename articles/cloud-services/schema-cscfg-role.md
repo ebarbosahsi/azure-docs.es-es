@@ -3,17 +3,18 @@ title: Esquema de rol de Azure Cloud Services (clásico) | Microsoft Docs
 description: El elemento Rol de un archivo de configuración de servicio especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd46a37ada1fb96797faee6c8491359561e065d7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743447"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934162"
 ---
 # <a name="azure-cloud-services-classic-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services (clásico)
 

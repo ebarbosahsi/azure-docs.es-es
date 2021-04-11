@@ -3,19 +3,19 @@ title: 'Compatibilidad con clientes ligeros de Windows Virtual Desktop: Azure'
 description: Una breve descripción general de la compatibilidad de clientes ligeros con Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 905451b4ce9c7a2a7c7aa2331ce3d433a9952223
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491476"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122040"
 ---
 # <a name="linux-support"></a>Compatibilidad de Linux
 
-Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos Linux con el [cliente web](connect-web.md) o los siguientes clientes compatibles, que proporcionan nuestros asociados de cliente ligero de Linux. Estamos trabajando con varios asociados para habilitar clientes de Windows Virtual Desktop compatibles en más dispositivos y sistemas operativos basados en Linux. Si necesita agregar compatibilidad con Windows Virtual Desktop en una plataforma Linux que no aparece aquí, háganoslo saber en nuestra [página UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos Linux con el [cliente web](connect-web.md) o los siguientes clientes compatibles, que proporcionan nuestros asociados de cliente ligero de Linux. Estamos trabajando con varios asociados para habilitar clientes de Windows Virtual Desktop compatibles en más dispositivos y sistemas operativos basados en Linux.
 
 ## <a name="connect-with-your-linux-device"></a>Conexión con el dispositivo Linux
 

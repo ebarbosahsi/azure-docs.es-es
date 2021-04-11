@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 87cb19daa23c9fcca601771a9fe168b98be02627
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050739"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586274"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros de IIS con el agente de Log Analytics en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que el agente de Log Analytics puede recopilar y almacenar en [Registros de Azure Monitor](../data-platform.md).
@@ -60,6 +60,8 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 | sSiteName |Nombre del sitio IIS. |
 | TimeGenerated |Fecha y hora en que se registró la entrada. |
 | TimeTaken |Duración del procesamiento de la solicitud, en milisegundos. |
+| csHost | Nombre de host. |
+| csBytes | Número de bytes que el servidor recibió. |
 
 ## <a name="log-queries-with-iis-logs"></a>Consultas de registros con registros de IIS
 La tabla siguiente proporciona ejemplos distintos de consultas de registro que recuperan registros de IIS.

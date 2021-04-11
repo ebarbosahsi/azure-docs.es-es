@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d238a889648e789087a0803f6b50288318462c7b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a6b3577fe820c9dadcb3c8415aa7a951a3283284
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91629070"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641803"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>Restauración de la base de datos de ejemplo AdventureWorks en SQL Managed Instance: Azure Arc
 
-[AdventureWorks](/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql&preserve-view=true) es una base de datos de ejemplo que contiene una base de datos OLTP que se usa a menudo en los tutoriales y ejemplos. Microsoft la proporciona y mantiene como parte del [repositorio de GitHub de ejemplos de SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
+[AdventureWorks](/sql/samples/adventureworks-install-configure) es una base de datos de ejemplo que contiene una base de datos OLTP que se usa a menudo en los tutoriales y ejemplos. Microsoft la proporciona y mantiene como parte del [repositorio de GitHub de ejemplos de SQL Server](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
 En este documento se describe un proceso sencillo para restaurar la base de datos de ejemplo AdventureWorks en la instancia de SQL Managed Instance: Azure Arc.
 

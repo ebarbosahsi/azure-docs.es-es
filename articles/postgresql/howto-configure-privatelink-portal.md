@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95995291"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642130"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
@@ -35,7 +35,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 2. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
@@ -222,7 +222,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
     Address:  10.1.3.4
     ```
 
-3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar la operación.
+3. Pruebe la conexión de Private Link del servidor PostgreSQL con cualquier cliente disponible. En el ejemplo siguiente se ha usado [Azure Data Studio](/sql/azure-data-studio/download) para realizar la operación.
 
 4. En **Nueva conexión**, escriba o seleccione esta información:
 
