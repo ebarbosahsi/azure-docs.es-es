@@ -4,12 +4,12 @@ description: Aprenda a crear y depurar funciones de C# mediante .NET 5.0 y, a c
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 6403e5d898b76d459a9712f7847e81e5442deeda
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201365"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075360"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Desarrollo y publicación de funciones de .NET 5 mediante Azure Functions 
 
@@ -160,7 +160,7 @@ En este momento, puede ejecutar el comando `func start` desde la raíz de la car
 
 1. En la barra de direcciones del explorador, escriba la dirección URL de la función local, que tiene un aspecto similar al siguiente, y ejecute la solicitud. 
 
-    <http://localhost:7071/api/HttpExample>
+    `http://localhost:7071/api/HttpExample`
 
     Debería ver la salida de seguimiento de la solicitud escrita en el terminal en ejecución. La ejecución de código se detiene en los puntos de interrupción establecidos en el código de función.
 

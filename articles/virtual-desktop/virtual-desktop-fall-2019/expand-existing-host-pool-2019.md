@@ -3,15 +3,15 @@ title: Expansión de un grupo de hosts existente de Windows Virtual Desktop (cl�
 description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ab661943542b3621792dfe0ca8c3fb26f64508a5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88009178"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120714"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 
@@ -96,7 +96,7 @@ Todos los valores de parámetros de esta sección deben coincidir con lo que pro
 1. Seleccione el tamaño de máquina virtual que coincida con las máquinas virtuales de host de sesión existentes.
 
     >[!NOTE]
-    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace. Para solicitar un tamaño de máquina virtual, cree una solicitud o vote por una existente en el [foro de UserVoice de Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Si el tamaño de máquina virtual específico que busca no aparece en el selector, es porque aún no se ha incorporado a la herramienta Azure Marketplace.
 
 2. Personalice los parámetros *Perfil de uso*, *Usuarios totales* y *Número de máquinas virtuales* para seleccionar el número total de hosts de sesión que quiere tener en el grupo de hosts. Por ejemplo, si va a expandir el grupo de hosts de cinco a ocho hosts de sesión, configure estas opciones para llegar a 8 máquinas virtuales.
 3. Escriba un prefijo para los nombres de las máquinas virtuales. Por ejemplo, si escribe el nombre "prefijo", las máquinas virtuales se llamarán "prefijo-0", "prefijo-1" y así sucesivamente.

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3b6fa581bfc36579ef4b6937b50f8c1789a7f5
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 1fb8724edc32477bb1c399db0493833e9df984bb
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111386"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277579"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrado de los manifiestos mediante el empaquetador dinámico
 
@@ -26,7 +26,7 @@ ms.locfileid: "106111386"
 
 Cuando entrega contenido de streaming con velocidad de bits adaptable, en ocasiones es necesario publicar varias versiones de un manifiesto para acomodarse a funcionalidades específicas del dispositivo o al ancho de banda de red disponible. El [empaquetador dinámico](encode-dynamic-packaging-concept.md) permite especificar los filtros que pueden filtrar códecs específicos, resoluciones, velocidades de bits y combinaciones de pistas de audio sobre la marcha. Este filtrado elimina la necesidad de crear varias copias. Solo necesita publicar una nueva dirección URL con un conjunto específico de filtros configurados para los dispositivos de destino (iOS, Android, SmartTV o exploradores) y las funcionalidades de red (escenarios de ancho de banda alto o bajo o móviles). En este caso, los clientes pueden manipular el streaming de contenido mediante la cadena de consulta (mediante la especificación de los [filtros de recursos o de cuenta](filters-concept.md) disponibles) y usar filtros para el streaming de secciones específicas de una secuencia.
 
-Algunos escenarios de entrega requieren asegurarse de que un cliente no pueda acceder a pistas específicas. Por ejemplo, quizás no le interese publicar un manifiesto que contenga las pistas de HD en un nivel de suscriptor específico. O bien, es posible que quiera quitar pistas con velocidad de bits adaptable (ABR) para reducir el costo de entrega a un dispositivo específico que no se beneficiaría de las pistas adicionales. En este caso, puede asociar una lista de filtros creados previamente a su [localizador de streaming](streaming-locators-concept.md) durante la creación. Así, los clientes no pueden manipular cómo se transmite el contenido, ya que está definido en dicho **localizador de streaming**.
+Algunos escenarios de entrega requieren asegurarse de que un cliente no pueda acceder a pistas específicas. Por ejemplo, quizás no le interese publicar un manifiesto que contenga las pistas de HD en un nivel de suscriptor específico. O bien, es posible que quiera quitar pistas con velocidad de bits adaptable (ABR) para reducir el costo de entrega a un dispositivo específico que no se beneficiaría de las pistas adicionales. En este caso, puede asociar una lista de filtros creados previamente a su [localizador de streaming](stream-streaming-locators-concept.md) durante la creación. Así, los clientes no pueden manipular cómo se transmite el contenido, ya que está definido en dicho **localizador de streaming**.
 
 Puede combinar el filtrado mediante la especificación de [filtros en el localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator) y filtros adicionales específicos del dispositivo que el cliente defina en la dirección URL. Esta combinación puede ser útil para restringir las pistas adicionales, como secuencias de metadatos o eventos, idiomas de audio o pistas de audio descriptivas.
 

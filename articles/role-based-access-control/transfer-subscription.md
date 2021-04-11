@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555906"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075685"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD
 
@@ -74,7 +74,7 @@ Varios recursos de Azure tienen una dependencia de una suscripción o un directo
 | Identidades administradas asignadas por el sistema | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe deshabilitar y volver a habilitar las identidades administradas. Debe volver a crear asignaciones de roles. |
 | Identidades administradas asignadas por el usuario | Sí | Sí | [Lista de identidades administradas](#list-role-assignments-for-managed-identities) | Debe eliminar, volver a crear y adjuntar las identidades administradas al recurso adecuado. Debe volver a crear asignaciones de roles. |
 | Azure Key Vault | Sí | Sí | [Lista de directivas de acceso de Key Vault](#list-key-vaults) | Debe actualizar el identificador de inquilino asociado con los almacenes de claves. Debe quitar y agregar nuevas directivas de acceso. |
-| Instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Instancias de Azure SQL Database con integración de la autenticación de Azure AD habilitada | Sí | No | [Consulta de instancias de Azure SQL Database con autenticación de Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
 | Azure Storage y Azure Data Lake Storage Gen2 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Data Lake Storage Gen1 | Sí | Sí |  | Debe volver a crear las ACL. |
 | Azure Files | Sí | Sí |  | Debe volver a crear las ACL. |

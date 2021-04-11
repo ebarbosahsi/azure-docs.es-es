@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 480b8ef401387863693bc88c3d508ce296636c93
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8a192c3c3accf115b1a1db8e32a56d6d936078be
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107611"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277666"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creación de un localizador de streaming y compilación de direcciones URL
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-En Azure Media Services, para compilar una dirección URL de streaming, primero debe crear un [localizador de streaming](streaming-locators-concept.md). Después, debe concatenar el nombre de host del [punto de conexión de streaming](/rest/api/media/streamingendpoints) y la ruta de acceso del **localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este **punto de conexión de streaming** *predeterminado* estará en un estado detenido, por lo que deberá llamar a **Iniciar** para iniciar el streaming.
+En Azure Media Services, para compilar una dirección URL de streaming, primero debe crear un [localizador de streaming](stream-streaming-locators-concept.md). Después, debe concatenar el nombre de host del [punto de conexión de streaming](/rest/api/media/streamingendpoints) y la ruta de acceso del **localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este **punto de conexión de streaming** *predeterminado* estará en un estado detenido, por lo que deberá llamar a **Iniciar** para iniciar el streaming.
 
 En este artículo se demuestra cómo crear un localizador de streaming y compilar una dirección URL de streaming mediante SDK de .NET y Java.
 

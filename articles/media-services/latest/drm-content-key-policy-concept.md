@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c9709c444dfde4897c1364c8ab3d9dbfa315bb6f
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 6e60292c817ccad8eb1dd6cb3c33b944ab1c18a0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122159"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277698"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -25,9 +25,9 @@ ms.locfileid: "106122159"
 
 Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
 
-Para especificar opciones de cifrado en la secuencia, debe crear la [directiva de streaming](streaming-policy-concept.md) y asociarla con su [localizador de streaming](streaming-locators-concept.md). La [directiva de clave de contenido](/rest/api/media/contentkeypolicies) se crea para configurar el modo en que la clave de contenido (que proporciona acceso seguro a sus [recursos](assets-concept.md)) se entrega a los clientes finales. Debe establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir para que las claves con la configuración especificada se entreguen a los clientes. La directiva de clave de contenido no es necesaria para el streaming ni la descarga sin cifrar. 
+Para especificar opciones de cifrado en la secuencia, debe crear la [directiva de streaming](stream-streaming-policy-concept.md) y asociarla con su [localizador de streaming](stream-streaming-locators-concept.md). La [directiva de clave de contenido](/rest/api/media/contentkeypolicies) se crea para configurar el modo en que la clave de contenido (que proporciona acceso seguro a sus [recursos](assets-concept.md)) se entrega a los clientes finales. Debe establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir para que las claves con la configuración especificada se entreguen a los clientes. La directiva de clave de contenido no es necesaria para el streaming ni la descarga sin cifrar. 
 
-Por lo general, se asocia la directiva de clave de contenido con el [localizador de streaming](streaming-locators-concept.md). Como alternativa, puede especificar la directiva de clave de contenido dentro de una [directiva de streaming](streaming-policy-concept.md) (al crear una directiva de streaming personalizada para escenarios avanzados). 
+Por lo general, se asocia la directiva de clave de contenido con el [localizador de streaming](stream-streaming-locators-concept.md). Como alternativa, puede especificar la directiva de clave de contenido dentro de una [directiva de streaming](stream-streaming-policy-concept.md) (al crear una directiva de streaming personalizada para escenarios avanzados). 
 
 ## <a name="best-practices-and-considerations"></a>Procedimientos recomendados y consideraciones
 
