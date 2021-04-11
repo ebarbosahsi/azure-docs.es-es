@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532263"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285474"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -28,6 +28,12 @@ ms.locfileid: "95532263"
 El servicio Azure Face ofrece algoritmos de IA que detectan, reconocen y analizan caras humanas en las imágenes. El software de reconocimiento facial es muy importante en muchos escenarios diferentes, como la seguridad, la interfaz de usuario natural, el análisis y la administración de contenido de las imágenes, las aplicaciones móviles y la robótica.
 
 El servicio Face proporciona varias funciones de análisis facial distintas, que se describen en las secciones siguientes.
+
+Esta documentación contiene los siguientes tipos de artículos:
+* Los [inicios rápidos](./Quickstarts/client-libraries.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 
+* Las [guías paso a paso](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contienen instrucciones para usar el servicio de maneras más específicas o personalizadas.
+* Los [artículos conceptuales](./concepts/face-detection.md) proporcionan explicaciones detalladas de la funcionalidad y las características del servicio.
+* Los [tutoriales](./Tutorials/FaceAPIinCSharpTutorial.md) son guías más largas que muestran cómo usar este servicio como componente en soluciones empresariales más amplias.
 
 ## <a name="face-detection"></a>Detección de caras
 

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467398"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285341"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de factura precompilado de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de facturas de compra mediante sus modelos de factura precompilados. Invoice API permite a los clientes tomar facturas en varios formatos y devolver datos estructurados para automatizar el procesamiento de facturas. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/concept-recognizing-text.md) con modelos de aprendizaje profundo de reconocimiento de facturas para extraer información clave de facturas en inglés. Extrae el texto, las tablas y la información como el cliente, el proveedor, el identificador de la factura, la fecha de vencimiento de la factura, el total, el importe debido de la factura, el importe de los impuestos, la dirección de envío, la dirección de facturación, elementos de línea, etc. La instancia precompilada de Invoice API está disponible públicamente en la versión preliminar de Form Recognizer v2.1.
+Azure Form Recognizer puede analizar y extraer información de facturas de compra mediante sus modelos de factura precompilados. Invoice API permite a los clientes tomar facturas en varios formatos y devolver datos estructurados para automatizar el procesamiento de facturas. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con modelos de aprendizaje profundo de reconocimiento de facturas para extraer información clave de facturas en inglés. Extrae el texto, las tablas y la información como el cliente, el proveedor, el identificador de la factura, la fecha de vencimiento de la factura, el total, el importe debido de la factura, el importe de los impuestos, la dirección de envío, la dirección de facturación, elementos de línea, etc. La instancia precompilada de Invoice API está disponible públicamente en la versión preliminar de Form Recognizer v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>¿Qué hace el servicio Invoice?
 

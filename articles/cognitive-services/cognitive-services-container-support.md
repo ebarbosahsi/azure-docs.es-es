@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: aahi
 keywords: local, Docker, contenedor, Kubernetes
-ms.openlocfilehash: 3b0a39e9d84a56bac3117df9279954e3756d465a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065827"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285610"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
 
@@ -76,7 +76,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 
 | Servicio |  Contenedor | Descripción | Disponibilidad |
 |--|--|--|--|
-| [Computer Vision][cv-containers] | **Lectura de OCR** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | El contenedor Read OCR permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para obtener más información, consulte la [documentación de la API Read](./computer-vision/concept-recognizing-text.md). | Versión preliminar "validada". [Solicite acceso][request-access]. |
+| [Computer Vision][cv-containers] | **Lectura de OCR** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | El contenedor Read OCR permite extraer texto impreso y manuscrito de imágenes y documentos con compatibilidad con los formatos de archivo JPEG, PNG, BMP, PDF y TIFF. Para obtener más información, consulte la [documentación de la API Read](./computer-vision/overview-ocr.md). | Versión preliminar "validada". [Solicite acceso][request-access]. |
 | [Análisis espacial][spa-containers] | **Análisis espacial** ([imagen](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analiza vídeo en streaming en tiempo real para comprender las relaciones espaciales entre los usuarios, su movimiento y las interacciones con objetos de los entornos físicos. | Versión preliminar "validada". [Solicite acceso][request-access]. |
 | [Face][fa-containers] | **Face** | Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos. | No disponible |
 | [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios. | No disponible | 

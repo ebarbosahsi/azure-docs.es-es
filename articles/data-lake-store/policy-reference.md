@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directiva integradas para Azure Data Lake Storage Gen1
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Data Lake Storage Gen1. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 811580f727b803408102a99828f11993fdf6a2d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f838e21279d145fb6892efe2133e9b904ee8c5c8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605023"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095227"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Definiciones integradas de Azure Policy para Azure Data Lake Storage Gen1
 
