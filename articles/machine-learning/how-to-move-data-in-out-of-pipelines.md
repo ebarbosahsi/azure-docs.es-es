@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3f6071813a8189605d632231a5f9b8942068a48a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518711"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067442"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -28,9 +28,9 @@ Este artículo le mostrará cómo realizar los siguientes procedimientos:
 - Dividir los datos de `Dataset` en subconjuntos, como los subconjuntos de entrenamiento y validación
 - Crear objetos `OutputFileDatasetConfig` para transferir datos al siguiente paso de la canalización
 - Usar objetos `OutputFileDatasetConfig` como entrada para los pasos de la canalización
-- Crear nuevos objetos `Dataset` a partir de los objetos `OutputFileDatasetConfig` que quiere conservar
+- Crear nuevos objetos `Dataset` a partir de los objetos `OutputFileDatasetConfig` que desea conservar
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesitará:
 
@@ -126,7 +126,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()],
     inputs=[test.as_named_input('test').as_download()]
 )
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure no elimina automáticamente los datos intermedios escritos con `OutputFileDatasetConfig`. Para evitar cargos de almacenamiento por grandes cantidades de datos innecesarios, debe hacer lo siguiente:
 
 * Eliminar mediante programación los datos intermedios al final de una ejecución de canalización cuando ya no se necesiten
-* Usar almacenamiento en blobs con una directiva de almacenamiento a corto plazo para los datos intermedios (vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Usar almacenamiento en blobs con una directiva de almacenamiento a corto plazo para los datos intermedios (vea [Optimización de los costos mediante la automatización de los niveles de acceso de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
 * Revisar y eliminar con regularidad los datos que ya no sean necesarios
 
 Para obtener más información, vea [Planeamiento y administración de los costos de Azure Machine Learning](concept-plan-manage-cost.md).

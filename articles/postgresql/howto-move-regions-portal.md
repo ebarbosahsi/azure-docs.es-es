@@ -1,18 +1,18 @@
 ---
 title: Traslado de un servidor único de Azure Database for PostgreSQL entre regiones de Azure mediante Azure Portal
 description: Mueva un servidor de Azure Database for PostgreSQL de una región de Azure a otra mediante una réplica de lectura y Azure Portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e770eddc77c0c343880512695b2fdec44fd4d0af
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92489751"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066558"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Traslado de una base de datos de Azure a Azure Database for PostgreSQL: servidor único a otra región mediante Azure Portal
 

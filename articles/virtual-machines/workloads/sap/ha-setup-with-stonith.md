@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bf6b6123cf7e0d57296f1f344a264c8a18ed77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3dd2a618f22036fd0826a99207d83a3add390c7d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671049"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645331"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
@@ -540,7 +540,7 @@ Después de la corrección anterior, el nodo 2 debe agregarse al clúster.
 ## <a name="10-general-documentation"></a>10. Documentación general
 Puede encontrar más información sobre la configuración de alta disponibilidad de SUSE en los siguientes artículos: 
 
-- [Escenario de rendimiento optimizado para la replicación del sistema de SAP HANA](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
+- [Escenario de rendimiento optimizado para la replicación del sistema de SAP HANA](https://www.suse.com/support/kb/doc/?id=000019450 )
 - [Storage based fencing](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html) (Vallado basado en el almacenamiento)
 - [Blog: Uso del clúster de Pacemaker para SAP HANA: parte 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog: Uso del clúster de Pacemaker para SAP HANA: parte 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

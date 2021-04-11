@@ -8,36 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bce09fad6ffa169a019628498a686226eff266c7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865611"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384989"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Requisitos previos para la implementación de Azure Cloud Services (soporte extendido)
 
-> [!IMPORTANT]
-> Cloud Services (soporte extendido) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Para garantizar una implementación correcta de Cloud Services (soporte extendido), revise los pasos siguientes y complete cada punto antes de intentar realizar la implementación. 
-
-## <a name="register-the-cloudservices-feature"></a>Registro de la característica CloudServices
-Registre la característica de la suscripción. El registro puede tardar varios minutos en terminar. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Compruebe el estado del registro mediante lo siguiente:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Actualizaciones necesarias del archivo de configuración de servicio (.cscfg)
 

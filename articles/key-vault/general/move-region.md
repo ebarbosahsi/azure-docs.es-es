@@ -10,13 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 97956b8c6f18d37acd07543b8921b4973be3bda9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93285208"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066660"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Movimiento de un almacén de claves de Azure entre regiones
 
@@ -35,7 +34,7 @@ Antes de comenzar, tenga en cuenta los siguientes conceptos:
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opción 1: uso de los comandos para copia de seguridad y restauración de almacenes de claves
 
-Puede realizar una copia de seguridad de cada secreto, clave y certificado individual del almacén mediante el comando de copia de seguridad. Los secretos se descargan como un blob cifrado. Después, puede restaurar el blob en el nuevo almacén de claves. Para obtener una lista de comandos, vea los [comandos de Azure Key Vault](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+Puede realizar una copia de seguridad de cada secreto, clave y certificado individual del almacén mediante el comando de copia de seguridad. Los secretos se descargan como un blob cifrado. Después, puede restaurar el blob en el nuevo almacén de claves. Para obtener una lista de comandos, vea los [comandos de Azure Key Vault](/powershell/module/azurerm.keyvault#key_vault).
 
 El uso de los comandos backup y restore tiene dos limitaciones:
 

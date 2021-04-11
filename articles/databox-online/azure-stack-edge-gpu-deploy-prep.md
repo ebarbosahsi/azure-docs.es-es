@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e58473f5c3bc4bc6314fb0dc5c532e24daa225d6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036051"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065708"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -47,8 +46,8 @@ Para la implementación de Azure Stack Edge Pro, primero debe preparar el entorn
 |**[6. Configuración de los valores de seguridad para Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configuración de certificados para el dispositivo. Use certificados generados por el dispositivo o aporte sus propios certificados.   |
 |**[7. Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md)** |Use la clave de activación del servicio para activar el dispositivo. El dispositivo está listo para configurar recursos compartidos SMB o NFS o conectarse a través de REST. |
 |**[8. Configuración de proceso](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure el rol de proceso en el dispositivo. Se crea también un clúster de Kubernetes. |
-|**[9A. Transferencia de datos con recursos compartidos de Edge](azure-stack-edge-j-series-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
-|**[9B. Transferencia de datos con cuentas de almacenamiento de Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Agregue cuentas de almacenamiento y conéctese al almacenamiento de blobs a través de las API de REST. |
+|**[9A. Transferencia de datos con recursos compartidos de Edge](./azure-stack-edge-gpu-deploy-add-shares.md)** |Agregue recursos compartidos y conéctese a ellos mediante SMB o NFS. |
+|**[9B. Transferencia de datos con cuentas de almacenamiento de Edge](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Agregue cuentas de almacenamiento y conéctese al almacenamiento de blobs a través de las API de REST. |
 
 
 Ahora puede empezar a recopilar información relacionada con la configuración de software del dispositivo de Azure Stack Edge Pro.

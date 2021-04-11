@@ -3,25 +3,35 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Personalizer?
+    - name: Introducción a Personalizer
       href: what-is-personalizer.md
+    - name: Precios
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
     - name: Novedades
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Guías de inicio rápido
+- name: Inicio rápido de Personalizer
+  href: ./quickstart-personalizer-sdk.md
+- name: Ejemplos
+  href: 'https://github.com/Azure-Samples/cognitive-services-personalizer-samples'
+- name: Uso responsable de la inteligencia artificial
   items:
-    - name: Uso de SDK
-      href: ./quickstart-personalizer-sdk.md
-- name: Tutoriales
+    - name: Ética y uso responsable
+      href: ethics-responsible-use.md
+- name: Guías paso a paso
   items:
-    - name: Uso de una aplicación web
-      href: tutorial-use-personalizer-web-app.md
-    - name: Uso del bot de chat
-      href: tutorial-use-personalizer-chat-bot.md
-    - name: Uso de Azure Notebook
-      href: tutorial-use-azure-notebook-generate-loop-data.md
-      displayName: 'jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency'
+    - name: Creación de un recurso de Personalizer
+      href: how-to-create-resource.md
+    - name: Configuración de Personalizer
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Uso del modo de aprendiz
+      href: how-to-learning-behavior.md
+    - name: Administración de la configuración de modelos y del aprendizaje
+      href: how-to-manage-model.md
+    - name: Análisis con una evaluación sin conexión
+      href: how-to-offline-evaluation.md
 - name: Conceptos
   items:
     - name: Funcionamiento de Personalizer
@@ -32,10 +42,8 @@
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
     - name: Terminología
       href: terminology.md
-    - name: Ética y uso responsable
-      href: ethics-responsible-use.md
       displayName: 'best practice, design'
-    - name: Conceptos básicos
+    - name: Aspectos básicos de Personalizer
       items:
         - name: Acción y contexto de las características
           href: concepts-features.md
@@ -55,71 +63,61 @@
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
         - name: Exploración
           href: concepts-exploration.md
-    - name: Análisis
-      items:
-        - name: Evaluación sin conexión
-          href: concepts-offline-evaluation.md
-          displayName: 'learning policy, Counterfactual, features'
-        - name: Evaluación de características
-          href: concept-feature-evaluation.md
+    - name: Evaluación sin conexión
+      href: concepts-offline-evaluation.md
+      displayName: 'learning policy, Counterfactual, features'
+    - name: Evaluación de características
+      href: concept-feature-evaluation.md
     - name: Escalabilidad y rendimiento
       href: concepts-scalability-performance.md
-- name: Guías paso a paso
+- name: Tutoriales
   items:
-    - name: Creación de un recurso de Personalizer
-      href: how-to-create-resource.md
-    - name: Configuración de Personalizer
-      href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Uso del modo de aprendiz
-      href: how-to-learning-behavior.md
-    - name: Administración de la configuración de modelos y del aprendizaje
-      href: how-to-manage-model.md
-    - name: Análisis con una evaluación sin conexión
-      href: how-to-offline-evaluation.md
+    - name: Uso de una aplicación web
+      href: tutorial-use-personalizer-web-app.md
+    - name: Uso del bot de chat
+      href: tutorial-use-personalizer-chat-bot.md
+    - name: Uso de Azure Notebook
+      href: tutorial-use-azure-notebook-generate-loop-data.md
+      displayName: 'jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency'
 - name: Referencia
   items:
-    - name: Ejemplos
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
-    - name: Referencia de API de REST
+    - name: API REST de Personalizer
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
-    - name: SDK
+    - name: .NET
       items:
-        - name: .NET
-          items:
-            - name: Referencia
-              href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
-            - name: Paquete de NuGet
-              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
-        - name: Go
-          items:
-            - name: SDK
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview'
-        - name: Node.js
-          items:
-            - name: Referencia
-              href: /javascript/api/@azure/cognitiveservices-personalizer/
-            - name: NPM
-              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
-        - name: Python
-          items:
-            - name: Referencia
-              href: /python/api/overview/azure/cognitiveservices/personalizer
-            - name: Paquete Pypi
-              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
+        - name: Referencia
+          href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
+        - name: Paquete de NuGet
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+    - name: Go
+      items:
+        - name: Referencia
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview'
+    - name: Node.js
+      items:
+        - name: Referencia
+          href: /javascript/api/@azure/cognitiveservices-personalizer/
+        - name: Detección de
+          href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
+    - name: Python
+      items:
+        - name: Referencia
+          href: /python/api/overview/azure/cognitiveservices/personalizer
+        - name: Paquete Pypi
+          href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: Solución de problemas
       href: troubleshooting.md
-    - name: Disponibilidad regional
+    - name: Módulos de aprendizaje
+      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
+    - name: Regiones admitidas
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Cifrado
       href: encrypt-data-at-rest.md
-    - name: Azure Roadmap
+    - name: Actualizaciones de Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
-    - name: Precios
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092154'

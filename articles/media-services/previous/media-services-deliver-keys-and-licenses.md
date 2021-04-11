@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465715"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067391"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Media Services para entregar licencias de DRM a claves AES
 
@@ -54,7 +54,7 @@ El siguiente diagrama muestra los pasos principales que debe llevar a cabo con e
     ```
  
 ## <a name="net-code-example"></a>Ejemplo de código .NET
-El ejemplo de código siguiente muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Para configurar el servidor local, necesita una clave de contenido, el identificador de la clave y la dirección URL de adquisición de licencias. Después de configurar el servidor local, puede hacer streaming desde su propio servidor de streaming. Dado que el streaming cifrado apunta a un servidor de licencias de Media Services, el reproductor solicita una licencia a Media Services. Si elige la autenticación por tokens, el servidor de licencias de Media Services valida el token que envía a través de HTTPS. Si el token es válido, el servidor de licencias devuelve la licencia al reproductor. El ejemplo de código siguiente solo muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Si quiere proporcionar las claves de AES-128, debe crear una clave de contenido del sobre y obtener una dirección URL de adquisición de claves. Para más información, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
+El ejemplo de código siguiente muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Para configurar el servidor local, necesita una clave de contenido, el identificador de la clave y la dirección URL de adquisición de licencias. Después de configurar el servidor local, puede hacer streaming desde su propio servidor de streaming. Dado que el streaming cifrado apunta a un servidor de licencias de Media Services, el reproductor solicita una licencia a Media Services. Si elige la autenticación por tokens, el servidor de licencias de Media Services valida el token que envía a través de HTTPS. Si el token es válido, el servidor de licencias devuelve la licencia al reproductor. El ejemplo de código siguiente solo muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Si quiere proporcionar las claves de AES-128, debe crear una clave de contenido del sobre y obtener una dirección URL de adquisición de claves. Para más información, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Consulte también
 * [Usar el cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md)
-* [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md)
+* [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-playready-license-template-overview.md)

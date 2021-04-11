@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599141"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277001"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedimiento: análisis de sentimiento y minería de opiniones
 
-La característica Análisis de sentimiento de la API Text Analytics proporciona dos formas de detectar sentimiento positivo y negativo. Si envía una solicitud de Análisis de sentimiento, la API devolverá etiquetas de sentimiento (como "negative", "neutral" y "positive") y puntuaciones de confianza en el nivel de oración y de documento. También puede enviar solicitudes de minería de opiniones mediante el punto de conexión de Análisis de sentimiento, que proporciona información detallada sobre las opiniones relacionadas con palabras (como los atributos de los productos o servicios) en el texto. 
+La característica Análisis de sentimiento de la API Text Analytics proporciona dos formas de detectar sentimiento positivo y negativo. Si envía una solicitud de Análisis de sentimiento, la API devolverá etiquetas de sentimiento (como "negative", "neutral" y "positive") y puntuaciones de confianza en el nivel de oración y de documento. También puede enviar solicitudes de minería de opiniones mediante el punto de conexión de Análisis de sentimiento, que proporciona información detallada sobre las opiniones relacionadas con palabras (como los atributos de los productos o servicios) en el texto.
 
 El servicio proporciona los modelos de AI que usa la API, el usuario solo tiene que enviar contenido para su análisis.
 
@@ -151,7 +151,7 @@ La salida se devuelve inmediatamente. Puede transmitir los resultados a una apli
 
 La versión 3.1 de Análisis de sentimiento puede devolver objetos de respuesta tanto para el análisis de sentimiento como para la minería de opiniones.
   
-El análisis de sentimiento devuelve una etiqueta de sentimiento y una puntuación de confianza para todo el documento, y para cada oración del mismo. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Un documento puede tener varias oraciones y las puntuaciones de confianza de cada documento u oración suman 1. assessments 
+El análisis de sentimiento devuelve una etiqueta de sentimiento y una puntuación de confianza para todo el documento, y para cada oración del mismo. Las puntuaciones más próximas a 1 indican una mayor confianza en la clasificación de la etiqueta, mientras que las puntuaciones inferiores indican una menor confianza. Un documento puede tener varias oraciones y las puntuaciones de confianza de cada documento u oración suman 1.
 
 La minería de opiniones buscará los destinos (sustantivos o verbos) en el texto y su evaluación asociada (adjetivos). En la respuesta siguiente, la oración *The restaurant had great food and our waiter was friendly* tiene dos destinos: *food* y *waiter*. La propiedad `relations` de cada destino contiene un valor `ref` con la referencia del identificador URI a los objetos `documents`, `sentences` y `assessments` asociados.
 

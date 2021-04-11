@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8d39d54498872201afe2f705da1fc5654d8befb2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013506"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645003"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 
@@ -42,7 +42,8 @@ En este artículo se muestra cómo codificar con **Media Encoder Premium Workflo
 
 Las tareas de codificación del **flujo de trabajo de Media Encoder Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md) .
 
-Los archivos de flujo de trabajo predeterminados también se pueden obtener [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
+Los archivos de flujo de trabajo predeterminados también se pueden obtener [aquí](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md
+). La carpeta también contiene la descripción de estos archivos.
 
 Los archivos de flujo de trabajo deben cargarse en su cuenta de Media Services como un recurso, y el recurso se debe transferir a la tarea de codificación.
 
