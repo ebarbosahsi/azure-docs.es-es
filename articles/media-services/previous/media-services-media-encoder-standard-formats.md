@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: 7aada042254a2794602002614df51646be90c7cd
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9055c4c1af14c9ecc8fbdeb621c30ac6ebe5afc4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103013149"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108812"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 
@@ -27,7 +27,7 @@ ms.locfileid: "103013149"
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 2](media-services-media-encoder-standard-formats.md)
-> * [Versión 3](../latest/media-encoder-standard-formats.md)
+> * [Versión 3](../latest/encode-media-encoder-standard-formats-reference.md)
 
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con Media Encoder Standard.
 

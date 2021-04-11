@@ -128,7 +128,7 @@ AMSE es un proyecto de código abierto en el que el soporte técnico lo facilita
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
-Consulte [Filtrado, ordenación y paginación de entidades de Azure Media Services](entities-overview.md).
+Consulte [Filtrado, ordenación y paginación de entidades de Azure Media Services](filter-order-page-entitites-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

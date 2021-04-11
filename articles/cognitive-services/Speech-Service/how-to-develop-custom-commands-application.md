@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97935825"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553284"
 ---
 # <a name="develop-custom-commands-applications"></a>Desarrollo de aplicaciones de Comandos personalizados
 
@@ -212,7 +212,7 @@ Empiece por editar el comando `TurnOn` existente para activar y desactivar vario
     | **Is Global** (Es global)          | No seleccionado             |
     | **Obligatorio**           | Seleccionado               |
     | **Respuesta para el parámetro requerido**     | **Simple editor (Editor sencillo)**  > `Which device do you want to control?`    | 
-    | **Tipo**               | **String**                |          |
+    | **Tipo**               | **String**                |     
     | **Configuración**      | **Accept predefined input values from internal catalog** (Aceptar valores de entrada predefinidos del catálogo interno) | 
     | **Predefined input values** (Valores de entrada predefinidos) | `tv`, `fan`               |
     | **Alias** (`tv`)      | `television`, `telly`     |
@@ -633,7 +633,7 @@ Otra manera de personalizar las respuestas de Comandos personalizados consiste e
 > ![Captura de pantalla que muestra oraciones y parámetros de ejemplo.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> En el caso de las voces públicas, los tipos neuronales solo están disponibles para regiones específicas. Para más información, consulte [Regiones del servicio de voz admitidas](./regions.md#standard-and-neural-voices).
+> En el caso de las voces públicas, los tipos neuronales solo están disponibles para regiones específicas. Para más información, consulte [Regiones del servicio de voz admitidas](./regions.md#neural-and-standard-voices).
 >
 > Puede crear voces personalizadas en la página del proyecto **Voz personalizada**. Para obtener información, consulte [Introducción a voz personalizada](./how-to-custom-voice.md).
 

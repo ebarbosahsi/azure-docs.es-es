@@ -12,7 +12,7 @@ ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.dat
 > [!NOTE]
 > Aunque en este tutorial se usan los ejemplos del [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent), los pasos generales son los mismos para la [API REST](/rest/api/media/liveevents), la [CLI](/cli/azure/ams/live-event) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
-Azure Media Services le permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener ayuda con la codificación, consulte el [concepto de codificación](encoding-concept.md). Este tutorial carga un archivo de vídeo local y codifica el archivo cargado. También puede codificar contenido accesible a través de una dirección URL HTTPS. Para más información, consulte [Creación de una entrada de un trabajo desde una dirección URL HTTP(s)](job-input-from-http-how-to.md).
+Azure Media Services le permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener ayuda con la codificación, consulte el [concepto de codificación](encode-concept.md). Este tutorial carga un archivo de vídeo local y codifica el archivo cargado. También puede codificar contenido accesible a través de una dirección URL HTTPS. Para más información, consulte [Creación de una entrada de un trabajo desde una dirección URL HTTP(s)](job-input-from-http-how-to.md).
 
 ![Reproducir un vídeo con Azure Media Player](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -30,7 +30,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene instalado Visual Studio, puede obtener [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Cree una cuenta de Media Services](./create-account-howto.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
+- [Cree una cuenta de Media Services](./account-create-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
 - Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
 
 ## <a name="download-and-set-up-the-sample"></a>Descargar y configurar el ejemplo
@@ -93,9 +93,9 @@ Cuando se codifica o procesa contenido en Media Services, es un patrón común c
 
 #### <a name="transform"></a>Transformación
 
-Al crear una nueva instancia de la [transformación](/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto **TransformOutput**, como se muestra en el código siguiente. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. Para más información sobre este valor preestablecido, consulte el artículo sobre la [generación automática de la escala de velocidad de bits](autogen-bitrate-ladder.md).
+Al crear una nueva instancia de la [transformación](/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto **TransformOutput**, como se muestra en el código siguiente. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. Para más información sobre este valor preestablecido, consulte el artículo sobre la [generación automática de la escala de velocidad de bits](encode-autogen-bitrate-ladder.md).
 
-Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos personalizados. Para más información, consulte [Personalización de los valores predefinidos del codificador](customize-encoder-presets-how-to.md).
+Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos personalizados. Para más información, consulte [Personalización de los valores predefinidos del codificador](encode-custom-presets-how-to.md).
 
 Al crear una [transformación](/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**, tal como se muestra en el código siguiente. En Media Services v3, los métodos **Get** en las entidades devuelven **null** si la entidad no existe (una comprobación sin distinción entre mayúsculas y minúsculas en el nombre).
 
@@ -200,4 +200,4 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 Ahora que sabe cómo cargar, codificar y transmitir el vídeo, consulte el siguiente artículo: 
 
 > [!div class="nextstepaction"]
-> [Análisis de vídeos](analyze-videos-tutorial-with-api.md)
+> [Análisis de vídeos](analyze-videos-tutorial.md)

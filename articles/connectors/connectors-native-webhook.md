@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cdbf853a96f319cb27c10136004a1398014e602f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89227906"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109159"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
@@ -145,9 +145,9 @@ Aquí tiene más información acerca de las salidas de un desencadenador o acci�
 | Nombre de propiedad | Tipo | Descripción |
 |---------------|------|-------------|
 | headers | object | Encabezados de la solicitud |
-| body | object | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| body | object | Objeto con el contenido del cuerpo de la solicitud |
 | status code | int | Código de estado de la solicitud |
-|||
+||||
 
 | status code | Descripción |
 |-------------|-------------|

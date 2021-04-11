@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212763"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109193"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Procedimientos para codificar y hacer streaming de archivos de vídeo con Node.JS
 
@@ -58,7 +58,7 @@ Abra [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorial
 
 Este ejemplo realiza las acciones siguientes:
 
-1. Crea una **transformación** con un [valor preestablecido para la codificación según el contenido](./content-aware-encoding.md). En primer lugar, comprueba si existe la transformación especificada.
+1. Crea una **transformación** con un [valor preestablecido para la codificación según el contenido](./encode-content-aware-concept.md). En primer lugar, comprueba si existe la transformación especificada.
 1. Crea un **recurso** de salida que utiliza el **trabajo** de codificación para contener el resultado.
 1. Opcionalmente, carga un archivo local mediante el SDK de Blob Storage.
 1. Crea la entrada del **trabajo**, que es una dirección URL HTTPS o un archivo cargado.
@@ -71,7 +71,7 @@ Este ejemplo realiza las acciones siguientes:
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-1. La aplicación descarga los archivos codificados. Cree la carpeta a la que desea que vayan los archivos de salida ir y actualice el valor de la variable **outputFolder** en el archivo [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59). De forma predeterminada se establece en "Temp".
+1. La aplicación descarga los archivos codificados. Cree la carpeta a la que desea que vayan los archivos de salida ir y actualice el valor de la variable **outputFolder** en el archivo [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59). De forma predeterminada se establece en "Temp".
 1. Abra un **símbolo del sistema** y desplácese al directorio del ejemplo.
 1. Cambie el directorio a la carpeta AMSv3Samples.
 
