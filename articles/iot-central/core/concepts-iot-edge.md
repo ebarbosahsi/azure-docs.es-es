@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123282"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102608638"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -74,8 +74,6 @@ En el diagrama siguiente se muestran las conexiones a un dispositivo de puerta d
 Los dispositivos de nivel inferior se pueden conectar a un dispositivo de puerta de enlace IoT Edge mediante varios módulos personalizados. En el diagrama siguiente se muestran los dispositivos de nivel inferior que se conectan mediante un módulo personalizado Modbus, un módulo personalizado BLE y el módulo del *centro de IoT Edge*:
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagrama de conexión mediante varios módulos personalizados" border="false":::
-
-<!-- To do: add link to how to configure gateway article? -->
 
 ## <a name="iot-edge-devices-and-iot-central"></a>Dispositivos IoT Edge e IoT Central
 
@@ -286,7 +284,7 @@ También puede instalar el entorno de ejecución de Azure IoT Edge en los siguie
 
 Si seleccionó un dispositivo de IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de los dispositivos que desea conectar a él.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+Para obtener más información, consulte [Conexión de dispositivos a través de una puerta de enlace transparente IoT Edge](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

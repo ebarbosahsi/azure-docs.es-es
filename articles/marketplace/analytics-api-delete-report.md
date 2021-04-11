@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 7c39f8bc0db44f1d8aa885969ca09d90b0dcd332
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583626"
 ---
 # <a name="delete-report-api"></a>Eliminación de API de informe
@@ -91,7 +91,7 @@ Carga de respuesta:
 | `Description` | Descripción proporcionada durante la creación del informe. |
 | `QueryId` | Id. de consulta pasado en el momento en que se creó el informe. |
 | `Query` | Texto de la consulta que se ejecutará para este informe. |
-| `User` | Id. de usuario usado para crear el informe. |
+| `User` | Identificador de usuario usado para crear el informe |
 | `CreatedTime` | Hora de creación del informe. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
 | `ModifiedTime` | Hora en que se modificó el informe por última vez. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
 | `StartTime` | Hora a la que se iniciará la ejecución del informe. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.openlocfilehash: 7a4fad066af37217eb42060d5fc5a7ef716770c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560997"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Asignación de discos de Azure a discos invitados de una máquina virtual Windows

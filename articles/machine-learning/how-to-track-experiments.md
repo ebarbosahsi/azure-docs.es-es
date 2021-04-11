@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9576730d9c4f8d4d237dce9ce8f207ea14b04f45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d91c88da1416071b5eee2a8eb10e3029086839e9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471591"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561787"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>Habilitación del registro en ejecuciones de entrenamiento de ML
 
@@ -41,7 +41,7 @@ Puede registrar varios tipos de datos, como valores escalares, listas, tablas, i
 
 ### <a name="logging-run-metrics"></a>Registro de métricas de ejecución 
 
-Use los métodos siguientes en las API de registro para influir en las visualizaciones de las métricas. Tenga en cuenta los [límites de servicio](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para estas métricas registradas. 
+Use los métodos siguientes en las API de registro para influir en las visualizaciones de las métricas. Tenga en cuenta los [límites de servicio](./resource-limits-quotas-capacity.md#metrics) para estas métricas registradas. 
 
 |Valor registrado|Ejemplo de código| Formato en el portal|
 |----|----|----|

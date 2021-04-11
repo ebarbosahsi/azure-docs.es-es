@@ -1,18 +1,14 @@
 ---
 title: Activación y configuración de la consola de administración local
-description: La activación y configuración de la consola de administración garantiza que los sensores se registren en Azure y envían información a la consola de administración local, y que la consola de administración local lleva a cabo tareas de administración en sensores conectados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/12/2021
+description: La activación de la consola de administración garantiza que los sensores se registren en Azure y envían información a la consola de administración local, y que la consola de administración local lleva a cabo tareas de administración en sensores conectados.
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522587"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784635"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activación y configuración de la consola de administración local 
 
@@ -30,24 +26,32 @@ La activación y configuración de la consola de administración local garantiza
 
 Para iniciar sesión en la consola de administración:
 
-- Abra un explorador web e introduzca la dirección IP y la contraseña que ha recibido para la consola de administración local durante la instalación del sistema. Si ha olvidado la contraseña, seleccione **Recuperar contraseña** y vea [Recuperación de contraseña](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Vaya a la dirección IP y la contraseña que ha recibido para la consola de administración local durante la instalación del sistema.
+ 
+1. Introduzca el nombre de usuario y la contraseña que ha recibido para la consola de administración local durante la instalación del sistema. 
 
-## <a name="upload-an-activation-file"></a>Cargar un archivo de activación
 
-Después de iniciar sesión por primera vez, active la consola de administración local mediante la descarga de un archivo de activación de la página **Precios** del portal de Azure Defender para IoT. Este archivo contiene los dispositivos agregados confirmados que se definen durante el proceso de incorporación. **Dispositivos confirmados** indica el número de dispositivos que Defender para IoT supervisará por suscripción.
+Si olvidó la contraseña, seleccione la opción **Recuperar contraseña** y consulte recuperación de [contraseña](how-to-manage-the-on-premises-management-console.md#password-recovery) para obtener instrucciones sobre cómo recuperar la contraseña.
 
-Para cargar un archivo de activación:
+## <a name="get-and-upload-an-activation-file"></a>Obtener y cargar un archivo de activación
 
-1. Vaya a la página **Precios** de Defender para IoT.
+Una vez iniciada la sesión por primera vez, tendrá que activar la consola de administración local obteniendo y cargando un archivo de activación. 
+
+Obtener un archivo de activación:
+
+1. Vaya a la página de **Precios** del portal de Azure Defender para IoT. 
+1. Seleccione la suscripción a la que desea asociar la consola de administración local.
 1. Seleccione la pestaña **Download the activation file for the management console** (descargar el archivo de activación de la consola de administración). Se descarga el archivo de activación.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Descargue el archivo de activación.":::
 
-1. Seleccione **Configuración del sistema** en la consola de administración.
-1. Seleccione **Activación**.
-1. Seleccione **Elegir un archivo** y luego el archivo guardado.
+Para cargar un archivo de activación:
 
-Después de la activación inicial, el número de dispositivos supervisados puede superar el número de dispositivos confirmados definidos durante la incorporación. Esto puede ocurrir, por ejemplo, si conecta más sensores a la consola de administración. Si hay una discrepancia entre el número de dispositivos supervisados y el número de dispositivos confirmados, aparece una advertencia en la consola de administración. Si esto ocurre, debe cargar un nuevo archivo de activación.
+1. Vaya a la página **Configuración del sistema** en la consola de administración local.
+1. Seleccione el icono de **Activación**:::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false":::.
+1. Seleccione **Elegir un archivo** y luego el archivo descargado.
+
+Después de la activación inicial, el número de dispositivos supervisados puede superar el número de dispositivos confirmados definidos durante la incorporación. Esto ocurre si conecta más sensores a la consola de administración. Si hay una discrepancia entre el número de dispositivos supervisados y el número de dispositivos confirmados, aparecerá una advertencia en la consola de administración. Si esto ocurre, cargue un nuevo archivo de activación.
 
 ## <a name="set-up-a-certificate"></a>Configurar un certificado
 
@@ -316,6 +320,6 @@ Para anular la asignación y eliminar un sensor:
 
 3. Para eliminar el sensor sin asignar del sitio, seleccione el sensor en la lista de sensores sin asignar y seleccione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Solución de problemas del sensor y de la consola de administración local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

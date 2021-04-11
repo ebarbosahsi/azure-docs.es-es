@@ -3,30 +3,30 @@ title: Montaje de un sistema de archivos virtual en un grupo
 description: Obtenga información sobre cómo montar un sistema de archivos virtual en un grupo de Batch.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 08/13/2019
-ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89145491"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626034"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montaje de un sistema de archivos virtual en un grupo de Batch
 
-Ahora Azure Batch admite el montaje de almacenamiento en la nube o un sistema de archivos externo en nodos de ejecución de Windows o Linux en los grupos de Batch. Cuando un nodo de ejecución se une a un grupo, el sistema de archivos virtual se monta y se trata como una unidad local en ese nodo. Puede montar sistemas de archivos como Azure Files, Azure Blob Storage, Network File System (NFS), incluida una [caché de Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), o Sistema de archivos de Internet común (CIFS).
+Azure Batch admite el montaje de almacenamiento en la nube o un sistema de archivos externo en nodos de ejecución de Windows o Linux en los grupos de Batch. Cuando un nodo de ejecución se une a un grupo, el sistema de archivos virtual se monta y se trata como una unidad local en ese nodo. Puede montar sistemas de archivos como Azure Files, Azure Blob Storage, Network File System (NFS), incluida una [caché de Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), o Sistema de archivos de Internet común (CIFS).
 
 En este artículo, aprenderá a montar un sistema de archivos virtual en un grupo de nodos de ejecución mediante la [biblioteca de administración de Batch para .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
-> El montaje de un sistema de archivos virtual se admite en grupos de Batch creados el 19 de agosto de 2019 o posteriormente. Los grupos de Batch creados antes de esta fecha no admiten esta característica.
-> 
-> Las API para el montaje de sistemas de archivos en un nodo de ejecución forman parte de la biblioteca de [Batch para .NET](/dotnet/api/microsoft.azure.batch).
+> El montaje de un sistema de archivos virtual solo se admite en grupos de Batch creados el 8 de agosto de 2019 o posteriormente. Los grupos de Batch creados antes de esa fecha no admitirán esta característica.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Ventajas del montaje en un grupo
 
 Montar el sistema de archivos en el grupo, en lugar de permitir que las tareas recuperen sus propios datos de un conjunto de datos de gran tamaño, facilita y hace más eficaz el acceso de las tareas a los datos necesarios.
 
-Considere un escenario con varias tareas que requieren acceso a un conjunto de datos común, como la representación de una película. Cada tarea representa uno o varios fotogramas a la vez de los archivos de la escena. Al montar una unidad que contiene los archivos de la escena, es más fácil que los nodos de ejecución tengan acceso a los datos compartidos. Además, el sistema de archivos subyacente se puede elegir y escalar de forma independiente según el rendimiento y la escala (rendimiento e IOPS) requeridos por el número de nodos de ejecución que tienen acceso simultáneamente a los datos. Por ejemplo, se puede usar una caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para admitir representaciones cinematográficas de gran tamaño con miles de nodos de representación simultáneos, teniendo acceso a los datos de origen que residen localmente. En el caso de los datos que ya residen en instancias de Blob Storage basadas en la nube, también se puede usar [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) para montar estos datos como un sistema de archivos local. Blobfuse solo está disponible en los nodos de Linux; sin embargo, [Azure Files](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) proporciona un flujo de trabajo similar y está disponible en Windows y Linux.
+Considere un escenario con varias tareas que requieren acceso a un conjunto de datos común, como la representación de una película. Cada tarea representa uno o varios fotogramas a la vez de los archivos de la escena. Al montar una unidad que contiene los archivos de la escena, es más fácil que los nodos de ejecución tengan acceso a los datos compartidos.
+
+Además, el sistema de archivos subyacente se puede elegir y escalar de forma independiente según el rendimiento y la escala (rendimiento e IOPS) requeridos por el número de nodos de ejecución que tienen acceso simultáneamente a los datos. Por ejemplo, se puede usar una caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para admitir representaciones cinematográficas de gran tamaño con miles de nodos de representación simultáneos, teniendo acceso a los datos de origen que residen localmente. En el caso de los datos que ya residen en instancias de Blob Storage basadas en la nube, también se puede usar [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) para montar estos datos como un sistema de archivos local. Blobfuse solo está disponible en los nodos de Linux; sin embargo, [Azure Files](../storage/files/storage-files-introduction.md) proporciona un flujo de trabajo similar y está disponible en Windows y Linux.
 
 ## <a name="mount-a-virtual-file-system-on-a-pool"></a>Montaje de un sistema de archivos virtual en un grupo  
 
@@ -78,9 +78,11 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de archivos de Azure Blob
 
-Otra opción consiste en usar Azure Blob Storage a través de [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). El montaje de un sistema de archivos de blob requiere `AccountKey` o `SasKey` para la cuenta de almacenamiento. Para obtener información sobre cómo obtener estas claves, consulte los artículos sobre la [administración de claves de cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md) o el [uso de firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). Para obtener más información sobre el uso de blobfuse, consulte las [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) (Preguntas más frecuentes sobre la solución de problemas de blobfuse). Para obtener acceso predeterminado al directorio montado de blobfuse, ejecute la tarea como **administrador**. Blobfuse monta el directorio en el espacio de usuario y, cuando se crea el grupo, se monta como raíz. En Linux, todas las tareas de **administrador** son raíz. Todas las opciones del módulo FUSE se describen en la [página de referencia de FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Otra opción consiste en usar Azure Blob Storage a través de [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). El montaje de un sistema de archivos de blob requiere `AccountKey` o `SasKey` para la cuenta de almacenamiento. Para obtener información sobre cómo obtener estas claves, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md) o [Concesión de acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). Para obtener más información y sugerencias sobre el uso de blobfuse, consulte blobfuse.
 
-Además de la guía de solución de problemas, los problemas de GitHub en el repositorio de blobfuse son una manera útil de comprobar los problemas y las soluciones actuales de blobfuse. Para obtener más información, consulte los [problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
+Para obtener acceso predeterminado al directorio montado de blobfuse, ejecute la tarea como **administrador**. Blobfuse monta el directorio en el espacio de usuario y, cuando se crea el grupo, se monta como raíz. En Linux, todas las tareas de **administrador** son raíz. Todas las opciones del módulo FUSE se describen en la [página de referencia de FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+
+Revise las [Preguntas más frecuentes sobre solución de problemas](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) para obtener más información y sugerencias sobre el uso de blobfuse. También puede revisar los [problemas de GitHub en el repositorio de blobfuse](https://github.com/Azure/azure-storage-fuse/issues) para comprobar los problemas y las resoluciones actuales de blobfuse.
 
 ```csharp
 new PoolAddParameter
@@ -106,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Network File System
 
-Los sistemas de Network File System (NFS) también se pueden montar en nodos de grupo, lo que permite que los nodos de Azure Batch puedan tener acceso fácilmente a los sistemas de archivos tradicionales. Puede tratarse de un solo servidor NFS implementado en la nube o un servidor NFS local al que se tiene acceso a través de una red virtual. También puede aprovechar las ventajas de la solución de caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), que proporciona una conectividad sin problemas al almacenamiento local, mediante la lectura de datos a petición en su memoria caché, y ofrece un alto rendimiento y escala en nodos de ejecución basados en la nube.
+Los sistemas de Network File System (NFS) se pueden montar en nodos de grupo, lo que permite Azure Batch pueda tener acceso a los sistemas de archivos tradicionales. Puede tratarse de un solo servidor NFS implementado en la nube o un servidor NFS local al que se tiene acceso a través de una red virtual. Como alternativa, puede usar la solución de caché en memoria distribuida de [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para tareas de informática de alto rendimiento (HPC) con uso intensivo de datos.
 
 ```csharp
 new PoolAddParameter
@@ -129,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Sistema de archivos de Internet común
 
-Los sistemas de archivos de Internet común (CIFS) también se pueden montar en nodos de grupo, lo que permite que los nodos de Azure Batch puedan tener acceso fácilmente a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo de bloque de mensajes del servidor (SMB) de Microsoft para el uso compartido de archivos de Internet e intranet y se usa para montar sistemas de archivos externos en nodos de Windows. Para obtener más información acerca de SMB, consulte [Servidor de archivos y SMB](/windows-server/storage/file-server/file-server-smb-overview).
+El montaje de [sistemas de archivos de Internet común (CIFS)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) en nodos de grupo es otra manera de proporcionar acceso a los sistemas de archivos tradicionales. CIFS es un protocolo de uso compartido de archivos que proporciona un mecanismo abierto y multiplataforma para solicitar servicios y archivos de servidor de red. CIFS se basa en la versión mejorada del protocolo de [bloque de mensajes del servidor (SMB)](/windows-server/storage/file-server/file-server-smb-overview) para el uso compartido de archivos de Internet e intranet y se usa para montar sistemas de archivos externos en nodos de Windows.
 
 ```csharp
 new PoolAddParameter
@@ -154,7 +156,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnóstico de errores de montaje
 
-Si se produce un error en una configuración de montaje, se producirá un error en el nodo de ejecución del grupo y el estado del nodo pasará a ser inutilizable. Para diagnosticar un error de configuración de montaje, inspeccione la propiedad [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) para obtener más información sobre el error.
+Si se produce un error en una configuración de montaje, se producirá un error en el nodo de ejecución del grupo y el estado del nodo pasará a ser `unusable`. Para diagnosticar un error de configuración de montaje, inspeccione la propiedad [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) para obtener más información sobre el error.
 
 Para obtener los archivos de registro para la depuración, use [OutputFiles](batch-task-output-files.md) para cargar los archivos `*.log`. Los archivos `*.log` contienen información sobre el montaje del sistema de archivos en la ubicación `AZ_BATCH_NODE_MOUNTS_DIR`. Los archivos de registro de montaje tienen el formato `<type>-<mountDirOrDrive>.log` para cada montaje. Por ejemplo, un montaje `cifs` en un directorio de montaje denominado `test` tendrá un archivo de registro de montaje denominado `cifs-test.log`.
 
@@ -175,6 +177,22 @@ Para obtener los archivos de registro para la depuración, use [OutputFiles](bat
 | OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | Windows Server | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
+
+## <a name="networking-requirements"></a>Requisitos de red
+
+Al usar montajes de archivos virtuales con [grupos de Azure Batch en una red virtual](batch-virtual-network.md), tenga en cuenta los siguientes requisitos y asegúrese de que no se bloquee el tráfico necesario.
+
+- **Azure Files**:
+  - Requiere que el puerto TCP 445 esté abierto para el tráfico hacia y desde la etiqueta de servicio "storage". Para más información, consulte [Uso de un recurso compartido de archivos de Azure con Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
+- **Blobfuse**:
+  - Requiere que el puerto TCP 443 esté abierto para el tráfico hacia y desde la etiqueta de servicio "storage".
+  - Las máquinas virtuales deben tener acceso a https://packages.microsoft.com para descargar los paquetes blobfuse y gpg. En función de la configuración, es posible que también necesite tener acceso a otras direcciones URL para descargar paquetes adicionales.
+- **Network File System (NFS)** :
+  - Requiere acceso al puerto 2049 (de manera predeterminada, la configuración puede tener otros requisitos).
+  - Las máquinas virtuales deben tener acceso al administrador de paquetes adecuado para descargar los paquetes nfs-common (para Debian o Ubuntu) o nfs-utils (para CentOS). Esta dirección URL puede variar en función de la versión del sistema operativo. En función de la configuración, es posible que también necesite tener acceso a otras direcciones URL para descargar paquetes adicionales.
+- **Sistema de archivos de Internet común (CIFS)** :
+  - Requiere acceso al puerto TCP 445.
+  - Las máquinas virtuales deben tener acceso a los administradores de paquetes adecuados para poder descargar el paquete cifs-utils. Esta dirección URL puede variar en función de la versión del sistema operativo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

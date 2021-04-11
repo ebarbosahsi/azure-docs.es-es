@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577764"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552621"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -47,7 +47,7 @@ Con la supervisión de Azure AD, puede enrutar los registros a:
 * un centro de eventos de Azure en el que puede realizar la integración con sus herramientas de SIEM existentes, como Splunk, Sumologic o QRadar.
 
 > [!NOTE]
-Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](../../azure-monitor/data-platform.md). Consulte [Azure Monitor terminology changes](../../azure-monitor/terminology.md) (Cambios en la terminología de Azure Monitor) para obtener más información.
+> Recientemente hemos empezado a usar el término registros de Azure Monitor, en lugar de Log Analytics. Los datos de registro siguen almacenándose en un área de trabajo de Log Analytics y siguen recopilándose y analizándose por el mismo servicio de Log Analytics. Estamos actualizando la terminología para reflejar mejor el rol de los [registros de Azure Monitor](../../azure-monitor/data-platform.md). Consulte [Azure Monitor terminology changes](../../azure-monitor/terminology.md) (Cambios en la terminología de Azure Monitor) para obtener más información.
 
 [Más información sobre las directivas de retención de informes](./reference-reports-data-retention.md).
 

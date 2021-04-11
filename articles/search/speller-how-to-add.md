@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232365"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625915"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adición de la corrección ortográfica a las consultas en Cognitive Search
 
@@ -25,7 +25,7 @@ Se pueden mejorar las coincidencias mediante la corrección ortográfica de los 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-+ Un índice de búsqueda existente, con contenido en inglés
++ Un índice de búsqueda existente con contenido en inglés. Actualmente, la corrección ortográfica no funciona con [sinónimos](search-synonyms.md). Evite su uso en índices que especifiquen una asignación de sinónimos en cualquier definición de campo.
 
 + Un cliente de búsqueda para el envío de consultas
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578811"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055695"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -56,7 +56,10 @@ Siga estos pasos para crear el registro de la aplicación:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Captura de pantalla de Azure Portal en un explorador web que muestra el panel Registrar una aplicación":::.
 
-Cuando finaliza el registro, en Azure Portal se muestra el panel **Información general** del registro de la aplicación. Verá el **id. de aplicación (cliente)** . Este valor, también conocido como *Id. de cliente*, identifica de forma única la aplicación en la plataforma de identidad de Microsoft.
+Cuando finaliza el registro, en Azure Portal se muestra el panel **Información general** del registro de la aplicación. Verá el **id. de aplicación (cliente)** . Este valor, también conocido como *Id. de cliente*, identifica de forma única la aplicación en la plataforma de identidad de Microsoft. 
+
+> [!IMPORTANT]
+> De forma predeterminada, los nuevos registros de aplicaciones están ocultos a los usuarios. Cuando esté listo para que los usuarios puedan ver la aplicación en su [página Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md), puede habilitarla. Para habilitar la aplicación, en Azure Portal vaya a **Azure Active Directory** > **Aplicaciones empresariales** y seleccione la aplicación. Después, en la página **Propiedades**, cambie **¿Es visible para los usuarios?** a Sí.
 
 El código de la aplicación, o lo que es más común, una biblioteca de autenticación que se usa en la aplicación, también se sirve del identificador de cliente. El identificador forma parte de la validación de los tokens de seguridad que recibe de la plataforma de identidad.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672275"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607422"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Ahorro de costos con las reservas de Azure Dedicated Host
 
@@ -29,7 +29,7 @@ Para empezar, vaya a los tamaños admitidos para una [máquina virtual Windows](
 
 A continuación, compruebe si es compatible con Azure Dedicated Host. La página de [precios de Azure Dedicated Host](https://aka.ms/ADHPricing) tiene la lista completa de SKU de hosts dedicados, su información de CPU y diversas opciones de precios (incluidas las instancias reservadas).
 
-Es posible que encuentre varias SKU que son compatibles con la serie de máquinas virtuales (con tipos diferentes). Identifique la mejor SKU comparando la capacidad del host (número de vCPU). Tenga en cuenta que podrá aplicar la reserva a varias SKU de hosts dedicados que admitan la misma serie de máquinas virtuales (por ejemplo DSv3_Type1 y DSv3_Type2), pero no en distintas series de máquinas virtuales (como DSv3 y ESv3).
+Es posible que encuentre varias SKU que son compatibles con la serie de máquinas virtuales seleccionada (con tipos diferentes). Identifique la mejor SKU comparando la capacidad del host (número de vCPU). Tenga en cuenta que podrá aplicar la reserva a varias SKU de hosts dedicados que admitan la misma serie de máquinas virtuales (por ejemplo DSv3_Type1 y DSv3_Type2), pero no en distintas series de máquinas virtuales (como DSv3 y ESv3).
 
 
 
