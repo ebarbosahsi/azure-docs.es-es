@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726843"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607327"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -32,6 +32,9 @@ Los datos de una cuenta de Azure Storage siempre se replican tres veces en la r
 
 - El **almacenamiento con redundancia local (LRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria. LRS es la opción de replicación menos costosa, pero no se recomienda para las aplicaciones que requieren de alta disponibilidad.
 - El **almacenamiento con redundancia de zona (ZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria. En el caso de las aplicaciones que requieren de alta disponibilidad, Microsoft recomienda usar ZRS en la región primaria, además de replicación en una región secundaria.
+
+> [!NOTE]
+> Microsoft recomienda el uso de ZRS en la región primaria para cargas de trabajo de Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Almacenamiento con redundancia local
 
@@ -70,9 +73,9 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
-| Uso general v2<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido 2<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
-| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Centro de Francia <br /> Japón Oriental<br /> Sur de Reino Unido 2 <br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
+| Uso general v2<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Este de Asia<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Centro de la India<br /> (Asia Pacífico) Este de Japón<br /> (Asia Pacífico) Centro de Corea del Sur<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Este de Noruega<br /> (Europa) Norte de Suiza<br /> (Europa) Sur de Reino Unido<br /> (Oriente Medio) Norte de Emiratos Árabes Unidos<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro-norte de EE. UU.<br />(EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
+| BlockBlobStorage<sup>1</sup> | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Este de Asia<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Centro de la India<br /> (Asia Pacífico) Este de Japón<br /> (Asia Pacífico) Centro de Corea del Sur<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Este de Noruega<br /> (Europa) Norte de Suiza<br /> (Europa) Sur de Reino Unido<br /> (Oriente Medio) Norte de Emiratos Árabes Unidos<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro-norte de EE. UU.<br />(EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Solo blobs en bloques Premium |
+| FileStorage | (África) Norte de Sudáfrica<br /> (Asia Pacífico) Este de Asia<br /> (Asia Pacífico) Sudeste de Asia<br /> (Asia Pacífico) Este de Australia<br /> (Asia Pacífico) Centro de la India<br /> (Asia Pacífico) Este de Japón<br /> (Asia Pacífico) Centro de Corea del Sur<br /> (Canadá) Centro de Canadá<br /> (Europa) Norte de Europa<br /> (Europa) Oeste de Europa<br /> (Europa) Centro de Francia<br /> (Europa) Centro-oeste de Alemania<br /> (Europa) Este de Noruega<br /> (Europa) Norte de Suiza<br /> (Europa) Sur de Reino Unido<br /> (Oriente Medio) Norte de Emiratos Árabes Unidos<br /> (Sudamérica) Sur de Brasil<br /> (EE. UU.) Centro de EE. UU.<br /> (EE. UU.) Este de EE. UU.<br /> (EE. UU.) Este de EE. UU. 2<br /> (EE. UU.) Centro-norte de EE. UU.<br />(EE. UU.) Centro y Sur de EE. UU.<br /> (EE. UU.) Oeste de EE. UU.<br /> (EE. UU.) Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -124,15 +127,30 @@ Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y
 
 GZRS y RA-GZRS se admiten en las siguientes regiones:
 
-- Sudeste de Asia
-- Norte de Europa
-- Oeste de Europa
-- Japón Oriental
-- Sur de Reino Unido 2
-- Centro de EE. UU.
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Oeste de EE. UU. 2
+- (África) Norte de Sudáfrica
+- (Asia Pacífico) Este de Asia
+- (Asia Pacífico) Sudeste de Asia
+- (Asia Pacífico) Este de Australia
+- (Asia Pacífico) Centro de la India
+- (Asia Pacífico) Este de Japón
+- (Asia Pacífico) Centro de Corea del Sur
+- (Canadá) Centro de Canadá
+- (Europa) Norte de Europa
+- (Europa) Oeste de Europa
+- (Europa) Centro de Francia
+- (Europa) Centro-oeste de Alemania
+- (Europa) Este de Noruega
+- (Europa) Norte de Suiza
+- (Europa) Sur de Reino Unido
+- (Oriente Medio) Norte de Emiratos Árabes Unidos
+- (Sudamérica) Sur de Brasil
+- (EE. UU.) Centro de EE. UU.
+- (EE. UU.) Este de EE. UU.
+- (EE. UU.) Este de EE. UU. 2
+- (EE. UU.) Centro-norte de EE. UU.
+- (EE. UU.) Centro y Sur de EE. UU.
+- (EE. UU.) Oeste de EE. UU.
+- (EE. UU.) Oeste de EE. UU. 2
 
 Para más información sobre los precios, consulte los detalles de precios de [blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [archivos](https://azure.microsoft.com/pricing/details/storage/files/), [colas](https://azure.microsoft.com/pricing/details/storage/queues/)y [tablas](https://azure.microsoft.com/pricing/details/storage/tables/).
 

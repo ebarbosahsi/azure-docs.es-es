@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0cd98705d2d6947ff766f528e4e92f1e51bcc42d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 311f8164803dd12664aa193f08c8a1095ee07e31
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96852819"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168712"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>¿Qué tecnologías y servicios de Azure puede usar para crear soluciones de IoT?
 
@@ -29,7 +29,7 @@ La [plataforma de aplicaciones IoT Central ](https://apps.azureiotcentral.com) r
 
 Azure IoT Central es una plataforma de aplicaciones totalmente administrada que se puede usar para crear soluciones de IoT personalizadas. IoT Central utiliza plantillas de aplicación para crear soluciones. Hay plantillas para soluciones genéricas y también para sectores específicos como el energético, el de atención sanitaria, el de administración pública y el de venta al por menor. Las plantillas de aplicación de IoT Central permiten implementar en cuestión de minutos una aplicación de IoT Central que, posteriormente, se puede personalizar con temas, paneles y vistas.
 
-Elija dispositivos en el [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com) para conectarse rápidamente a una solución. Use la interfaz de usuario web de IoT Central para supervisar y administrar los dispositivos, con el fin de mantenerlos en buen estado y conectados. Use conectores y API para integrar la aplicación de IoT Central con otras aplicaciones empresariales.
+Elija dispositivos en el [catálogo de dispositivos Azure Certified for IoT](https://devicecatalog.azure.com) para conectarse rápidamente a una solución. Use la interfaz de usuario web de IoT Central para supervisar y administrar los dispositivos, con el fin de mantenerlos en buen estado y conectados. Use conectores y API para integrar la aplicación de IoT Central con otras aplicaciones empresariales.
 
 Al ser una plataforma de aplicaciones totalmente administrada, IoT Central tiene un modelo de precios sencillo y predecible.
 
@@ -52,7 +52,7 @@ Para compilar una solución de IoT desde cero, o ampliar una solución creada me
 
 ### <a name="devices"></a>Dispositivos
 
-Desarrolle sus dispositivos de IoT mediante uno de los [kits de inicio de IoT de Azure](https://catalog.azureiotsolutions.com/kits) o elija el dispositivo que desee usar en el [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com). Implemente el código insertado mediante los [SDK de dispositivo](../iot-hub/iot-hub-devguide-sdks.md) de código abierto. Los SDK de dispositivo admiten varios sistemas operativos, como Linux, Windows y sistemas operativos en tiempo real. Hay SDK para varios lenguajes de programación, como [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) y [Python](https://github.com/Azure/azure-iot-sdk-python).
+Desarrolle sus dispositivos de IoT mediante uno de los [kits de inicio de IoT de Azure](https://devicecatalog.azure.com/kits) o elija el dispositivo que desee usar en el [catálogo de dispositivos Azure Certified for IoT](https://devicecatalog.azure.com). Implemente el código insertado mediante los [SDK de dispositivo](../iot-hub/iot-hub-devguide-sdks.md) de código abierto. Los SDK de dispositivo admiten varios sistemas operativos, como Linux, Windows y sistemas operativos en tiempo real. Hay SDK para varios lenguajes de programación, como [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) y [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 Puede simplificar aún más la forma de crear el código insertado para los dispositivos mediante el servicio [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). IoT Plug and Play permite a los desarrolladores de soluciones integrar dispositivos en sus soluciones sin necesidad de escribir código integrado. En el centro de IoT Plug and Play se encuentra un esquema de _modelo de funcionalidades de dispositivo_ que describe esas funcionalidades. Use el modelo de funcionalidad del dispositivo para generar un código del dispositivo insertado y configurar una solución basada en la nube, como una aplicación de IoT Central.
 

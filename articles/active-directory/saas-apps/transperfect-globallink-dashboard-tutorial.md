@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2021
 ms.author: jeedes
 ms.openlocfilehash: ad720f5e625d2054a5c79b47c9659d4d10d251e4
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104955115"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-transperfect-globallink-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TransPerfect GlobalLink Dashboard
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar TransPerfect GlobalLink Dashboard con Az
 * Permitir que los usuarios inicien sesión automáticamente en TransPerfect GlobalLink Dashboard con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

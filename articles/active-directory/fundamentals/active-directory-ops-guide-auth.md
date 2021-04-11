@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d425111e151d60ab38a60e38cd1805cef39f606
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96859528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641773"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -365,8 +365,8 @@ Tener acceso a la actividad de inicio de sesión, las auditorías y los eventos 
 
 #### <a name="logs-recommended-reading"></a>Lectura recomendada de registros
 
-- [Referencia de la API de auditoría de Azure Active Directory](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
-- [Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Referencia de la API de auditoría de Azure Active Directory](/graph/api/resources/directoryaudit?view=graph-rest-beta)
+- [Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory](/graph/api/resources/signin?view=graph-rest-beta)
 - [Obtención de datos mediante la API de informes de Azure AD con certificados](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph para Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Referencia de la API de actividad de administración de Office 365](/office/office-365-management-api/office-365-management-activity-api-reference)

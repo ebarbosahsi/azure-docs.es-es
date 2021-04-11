@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b08231f254ea47fc3c9d65de42966301bd3378f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587838"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640045"
 ---
 # <a name="securing-managed-identities"></a>Protección de identidades administradas
 
@@ -38,7 +38,7 @@ Las identidades administradas son más útiles para las comunicaciones entre los
 
 Un sistema de origen solicita acceso a un servicio de destino. Cualquier recurso de Azure puede actuar como un sistema de origen. Por ejemplo, una máquina virtual de Azure, una instancia de Azure Functions y las instancias de Azure App Service admiten identidades administradas.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Funcionamiento de la autenticación y la autorización
 
@@ -86,7 +86,7 @@ Hay varias maneras de buscar identidades administradas:
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-1. En Azure AD, seleccione Aplicación empresarial.
+1. En Azure Active Directory, seleccione Aplicaciones empresariales.
 
 2. Seleccione el filtro para "Identidades administradas". 
 
@@ -100,7 +100,7 @@ Puede obtener una lista de todas las identidades administradas en el inquilino c
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Puede filtrar estas solicitudes. Para más información, vea la documentación de Graph para [Obtener servicePrincipal](/graph/api/serviceprincipal-get?view=).
+Puede filtrar estas solicitudes. Para más información, vea la documentación de Graph para [Obtener servicePrincipal](/graph/api/serviceprincipal-get).
 
 ## <a name="assess-the-security-of-managed-identities"></a>Evaluación de la seguridad de las identidades administrads 
 

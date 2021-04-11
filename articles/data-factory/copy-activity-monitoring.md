@@ -4,14 +4,14 @@ description: Conozca cómo supervisar la ejecución de la actividad de copia en 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388301"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771386"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de la actividad de copia
 
@@ -59,7 +59,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | rowsCopied | Número de filas copiadas al receptor. Esta métrica no se aplica cuando se copian archivos tal cual sin analizarlos, por ejemplo, cuando los conjuntos de datos de origen y receptor tienen un tipo de formato binario u otro tipo de formato con configuraciones idénticas.  | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se han omitido. Puede permitir que se omitan las filas incompatibles; para ello, establezca `enableSkipIncompatibleRow` en true. | Valor Int64 (sin unidad) |
 | copyDuration | Duración de la ejecución de copia. | Valor Int32 en segundos |
-| throughput | Velocidad de transferencia de datos. | Número de punto flotante en KBps |
+| throughput | Velocidad de transferencia de datos, calculada por `dataRead` dividido por `copyDuration`. | Número de punto flotante en KBps |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int32 (sin unidad) |
 | sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia.| Valor Int32 (sin unidad) |
 | sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en Azure Synapse Analytics. | Boolean |

@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff322cb3633616e9004bc8fa25b048b6f1263008
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681804"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046341"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
@@ -22,7 +22,7 @@ La interfaz de línea de comandos (CLI) de Azure Service Fabric es una utilidad 
 
 Antes de la instalación, asegúrese de que el entorno tiene Python y pip instalados. Para más información, consulte la [documentación de inicio rápido de pip](https://pip.pypa.io/en/latest/quickstart/) y la [documentación oficial de instalación de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-La CLI admite las versiones 2.7, 3.5, 3.6 y 3.7 de Python. Se recomienda usar Python 3.x, ya que el soporte técnico de Python 2.7 finalizará pronto.
+La CLI es compatible con Python 2.7, 3.6 y versiones posteriores, pero se recomienda usar la 3.x.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime de destino de Service Fabric
 
@@ -58,11 +58,11 @@ Hay muchas maneras de instalar pip y Python en la plataforma. Estos son algunos 
 
 Para Windows 10, Windows Server 2016 y Windows Server 2012 R2, siga las instrucciones oficiales de la instalación estándar. El programa de instalación de Python también instala pip de forma predeterminada.
 
-1. Vaya a la [página de descargas de Python](https://www.python.org/downloads/) oficial y descargue la versión más reciente de Python 3.7.
+1. Vaya a la [página de descargas de Python](https://www.python.org/downloads/) oficial y descargue la versión más reciente de Python 3.x.
 
 2. Inicie el programa de instalación.
 
-3. En la parte inferior de la interfaz, seleccione **Add Python 3.7 to PATH** (Agregar Python 3.7 a PATH).
+3. En la parte inferior de la interfaz, seleccione **Agregar Python 3.x a PATH**.
 
 4. Seleccione **Instalar ahora** para finalizar la instalación.
 
@@ -118,8 +118,8 @@ sudo pip3 install sfctl
 Para instalar la CLI de Service Fabric en Red Hat, ejecute los siguientes comandos:
 
 ```bash
-sudo yum install -y python34
-sudo yum install python34-setuptools
+sudo yum install -y python38
+sudo yum install python38-setuptools
 sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
@@ -135,7 +135,7 @@ Para MacOS, se recomienda utilizar el [administrador de paquetes de HomeBrew](ht
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-A continuación, desde el terminal, ejecute los siguientes comandos para instalar Python 3.7, pip y la CLI de Service Fabric:
+A continuación, desde el terminal, ejecute los siguientes comandos para instalar Python 3.x, pip y la CLI de Service Fabric:
 
 ```bash
 brew install python3

@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 10ac477bed97d2a48344aa8ef9b570d2b6203345
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f728e1f1e2186188135666ed54e02c9ed3507509
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "101702630"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056545"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>Inicio rápido: Creación de un equilibrador de carga interno mediante la CLI de Azure
 
@@ -243,7 +242,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 Cree un equilibrador de carga público con [az network lb create](/cli/azure/network/lb#az-network-lb-create). Especifique lo siguiente:
 
-* Nombre: **myLoadBalancer**
+* Denominado **myLoadBalancer**.
 * Nombre de grupo: **myFrontEnd**
 * Nombre de grupo: **myBackEndPool**
 * Asociado a la red virtual **myVNet**

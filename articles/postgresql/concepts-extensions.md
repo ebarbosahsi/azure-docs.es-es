@@ -1,17 +1,17 @@
 ---
 title: 'Extensiones en Azure Database for PostgreSQL: servidor único'
 description: 'Obtenga información sobre las extensiones de Postgres disponibles en Azure Database for PostgreSQL: servidor único'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485467"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606324"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones agrupan varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones funcionan como características integradas.
@@ -62,7 +62,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | Funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | Diccionario de búsqueda de texto que quita los acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Genera identificadores únicos universales (UUID)|
 
@@ -108,7 +108,7 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | Funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | Diccionario de búsqueda de texto que quita los acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Genera identificadores únicos universales (UUID)|
 
@@ -154,11 +154,14 @@ Las extensiones siguientes están disponibles en los servidores de Azure Databa
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Funciones y tipos espaciales de topología PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | Contenedor de datos externos para servidores PostgreSQL remotos|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | Funciones que manipulan la totalidad del contenido de las tablas, incluidas tablas de referencias cruzadas|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Habilita las inserciones escalables y las consultas complejas para los datos de serie temporal|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | Diccionario de búsqueda de texto que quita los acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Genera identificadores únicos universales (UUID)|
 
-## <a name="postgres-95-extensions"></a>Extensiones de Postgres 9.5 
+## <a name="postgres-95-extensions"></a>Extensiones de Postgres 9.5
+
+>[!NOTE]
+> Se ha retirado PostgreSQL, versión 9.5.
 
 Las extensiones siguientes están disponibles en los servidores de Azure Database for PostgreSQL que tienen la versión 9.5 de Postgres.
 

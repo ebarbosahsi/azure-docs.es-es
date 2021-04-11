@@ -9,44 +9,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 02/17/2021
+ms.date: 03/13/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032252"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955249"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
-Con Azure Active Directory (Azure AD), puede designar administradores limitados que administren tareas de identidad en roles con menos privilegios. Los administradores se pueden asignar para realizar tareas como agregar usuarios o cambiarlos, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario y administrar nombres de dominio. Los [permisos de usuario predeterminados](../fundamentals/users-default-permissions.md) solo se pueden cambiar en la configuración de usuario de Azure AD.
+En Azure Active Directory (Azure AD), si otro administrador o no administrador necesita administrar los recursos de Azure AD, se les asigna un rol de Azure AD que les proporcione los permisos que necesitan. Por ejemplo, puede asignar roles para permitir la adición o modificación de usuarios, el restablecimiento de contraseñas de usuario, la administración de licencias de usuario o la administración de nombres de dominio.
+
+En este artículo se enumeran los roles integrados de Azure AD que se pueden asignar para permitir la administración de recursos de Azure AD. Para más información sobre la asignación de roles, consulte [Asignar roles de Azure AD a los usuarios](manage-roles-portal.md).
 
 ## <a name="limit-use-of-global-administrator"></a>Limitación del uso de Administrador global
 
 Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De forma predeterminada, cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol Administradores globales. Cuando se agrega una suscripción a un inquilino existente, no se le asigna el rol Administrador global. Solo los Administradores globales y los administradores que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
 
 Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de cinco personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
-
-### <a name="find-the-role-you-need"></a>Búsqueda del rol que necesita
-
-Si buscar el rol que necesita en una lista de muchos roles le resulta frustrante, Azure AD puede mostrarle subconjuntos de roles según las categorías de rol. Revise nuestro nuevo filtro **Tipo** para [Roles y administradores de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrarle solo los roles del tipo seleccionado.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Ahora existe un rol que no existía cuando asignó el rol Administrador global
-
-Es posible que uno o varios roles se hayan agregado a Azure AD que proporcionan permisos más específicos que no eran opción cuando elevó algunos usuarios al rol Administrador global. Con el tiempo, se implementan roles adicionales que realizan tareas que antes solo podía realizar el rol Administrador global. Los puede ver reflejados en la sección [Todos los roles](#all-roles) siguiente.
-
-## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
-
-Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Ver y asignar roles de administrador en Azure Active Directory](manage-roles-portal.md).
-
-> [!Note]
-> Si tiene una licencia de Azure AD Premium P2 y ya es un usuario Privileged Identity Management (PIM), todas las tareas de administración de roles se llevan a cabo en Privilege Identity Management y no en Azure AD.
->
-> ![Roles de Azure AD administrados en PIM para los usuarios que ya usan PIM y tienen una licencia Premium P2](./media/permissions-reference/pim-manages-roles-for-p2.png)
 
 ## <a name="all-roles"></a>Todos los roles
 
@@ -86,11 +71,12 @@ Para obtener información sobre cómo asignar roles administrativos a un usuario
 > | [Administrador de grupos](#groups-administrator) | Los miembros de este rol pueden crear o administrar grupos, crear o administrar la configuración de grupos, como directivas de nomenclatura y expiración, y ver informes de actividad y auditoría de grupos. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Invitador de usuarios](#guest-inviter) | Puede invitar a usuarios independientemente de la configuración "Members can invite guests" (Los miembros pueden invitar a usuarios). | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrador del departamento de soporte técnico](#helpdesk-administrator) | Puede restablecer contraseñas de usuarios que no son administradores y de administradores del departamento de soporte técnico. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Administrador de identidades híbridas](#hybrid-identity-administrator) | Puede administrar AD para la configuración de federación y el aprovisionamiento en la nube de Azure AD. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrador de identidades híbridas](#hybrid-identity-administrator) | Puede administrar AD para la configuración de federación y el aprovisionamiento en la nube de Azure AD y Azure AD Connect. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrador de Insights](#insights-administrator) | Tiene acceso administrativo en la aplicación Microsoft 365 Insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Coordinador de Insights de la empresa](#insights-business-leader) | Puede consultar y compartir paneles y conclusiones mediante la aplicación Insights de M365. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrador de Intune](#intune-administrator) | Puede administrar todos los aspectos del producto Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Administrador de Kaizala](#kaizala-administrator) | Puede administrar la configuración de Microsoft Kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
+> | [Administrador de conocimientos](#knowledge-administrator) | Puede configurar el conocimiento, el aprendizaje y otras características inteligentes. | b5a8dcf3-09d5-43a9-a639-8e29ef291470 |
 > | [Administrador de licencias](#license-administrator) | Puede administrar licencias de producto de usuarios y grupos. | 4d6ac14f-3453-41d0-bef9-a3e0c569773a |
 > | [Lector de privacidad del Centro de mensajes](#message-center-privacy-reader) | Puede leer los mensajes de seguridad y las actualizaciones solo en el Centro de mensajes de Office 365. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Lector del centro de mensajes](#message-center-reader) | Puede leer los mensajes y las actualizaciones para su organización solo en el Centro de mensajes de Office 365. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
@@ -416,7 +402,7 @@ Este rol también concede la posibilidad de dar el consentimiento para permisos 
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Iniciar, reiniciar y pausar los trabajos de sincronización del aprovisionamiento de aplicaciones |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Crear y administrar esquemas y trabajos de sincronización de aprovisionamiento de aplicaciones |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Leer las credenciales de inicio de sesión único con contraseña en las entidades de servicio |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Conceder consentimiento para permisos de aplicación y permisos delegados en nombre de cualquier usuario o de todos los usuarios, excepto los permisos de aplicación para Microsoft Graph y Azure AD Graph  |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Conceder consentimiento para permisos de aplicación y permisos delegados en nombre de cualquier usuario o de todos los usuarios, excepto los permisos de aplicación para Microsoft Graph y Azure AD Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Actualiza las asignaciones de rol de la entidad de servicio. |
 > | microsoft.directory/servicePrincipals/audience/update | Actualizar las propiedades de público en las entidades de servicio |
 > | microsoft.directory/servicePrincipals/authentication/update | Actualizar las propiedades de autenticación en las entidades de servicio |
@@ -745,7 +731,7 @@ los usuarios con este rol tienen permisos globales en Microsoft Exchange Online,
 > | microsoft.directory/groups/unified/owners/update | Actualizar los propietarios de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
-> | microsoft.office365.exchange/allEntities/allTasks | Administrar todos los aspectos de Exchange Online |
+> | microsoft.office365.exchange/allEntities/basic/allTasks | Administrar todos los aspectos de Exchange Online |
 > | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
@@ -789,6 +775,7 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
 > | --- | --- |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Cree y elimine revisiones de acceso, y lea y actualice todas las propiedades de las revisiones de acceso en Azure AD |
 > | microsoft.directory/administrativeUnits/allProperties/allTasks | Crea y administra unidades administrativas (incluidos los miembros). |
 > | microsoft.directory/applications/allProperties/allTasks | Crear y eliminar aplicaciones, y leer y actualizar todas las propiedades |
 > | microsoft.directory/applications/synchronization/standard/read | Lectura de la configuración de aprovisionamiento asociada al objeto de aplicación |
@@ -816,9 +803,10 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > | microsoft.directory/domains/allProperties/allTasks | Crear y eliminar dominios, y leer y actualizar todas las propiedades |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Crear y eliminar recursos, y leer y actualizar todas las propiedades de la administración de derechos de Azure AD |
 > | microsoft.directory/groups/allProperties/allTasks | Crear y eliminar grupos, y leer y actualizar todas las propiedades |
-> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Actualizar los grupos con la propiedad isAssignableToRole establecida en true |
-> | microsoft.directory/groupsAssignableToRoles/create | Crear grupos con la propiedad isAssignableToRole establecida en true |
-> | microsoft.directory/groupsAssignableToRoles/delete | Eliminar grupos con la propiedad isAssignableToRole establecida en true |
+> | microsoft.directory/groupsAssignableToRoles/create | Creación de grupos a los que se pueden asignar roles |
+> | microsoft.directory/groupsAssignableToRoles/delete | Eliminar grupos asignables de roles |
+> | microsoft.directory/groupsAssignableToRoles/restore | Restaurar de grupos asignables de roles |
+> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Actualizar grupos asignables de roles |
 > | microsoft.directory/groupSettings/allProperties/allTasks | Crear y eliminar la configuración de grupos, y leer y actualizar todas las propiedades |
 > | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Crear y eliminar plantillas de configuración de grupos, y leer y actualizar todas las propiedades |
 > | microsoft.directory/identityProtection/allProperties/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en Azure AD Identity Protection |
@@ -838,7 +826,7 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Poder realizar la acción de servicio Getavailableextentionproperties |
 > | microsoft.directory/servicePrincipals/allProperties/allTasks | Crear y eliminar entidades de servicio, y leer y actualizar todas las propiedades |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Conceder consentimiento para cualquier permiso a cualquier aplicación |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo  |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Lectura de la configuración de aprovisionamiento asociada a la entidad de servicio |
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.directory/subscribedSkus/allProperties/allTasks | Comprar y administrar suscripciones, y eliminar suscripciones |
@@ -847,6 +835,10 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > | microsoft.directory/permissionGrantPolicies/delete | Eliminar directivas de concesión de permisos |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Lear las propiedades estándar de las directivas de concesión de permisos |
 > | microsoft.directory/permissionGrantPolicies/basic/update | Actualizar las propiedades básicas de las directivas de concesión de permisos |
+> | microsoft.directory/servicePrincipalCreationPolicies/create | Crear directivas de creación de entidad de servicio |
+> | microsoft.directory/servicePrincipalCreationPolicies/delete | Eliminar directivas de creación de entidad de servicio |
+> | microsoft.directory/servicePrincipalCreationPolicies/standard/read | Leer las propiedades estándar de las directivas de creación de entidades de servicio |
+> | microsoft.directory/servicePrincipalCreationPolicies/basic/update | Leer las propiedades estándar de las directivas de creación de entidades de servicio |
 > | microsoft.azure.advancedThreatProtection/allEntities/allTasks | Administrar todos los aspectos de Azure Advanced Threat Protection |
 > | microsoft.azure.informationProtection/allEntities/allTasks | Administrar todos los aspectos de Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
@@ -857,11 +849,12 @@ Los usuarios con este rol tienen acceso a todas las características administrat
 > | microsoft.intune/allEntities/allTasks | Administrar todos los aspectos de Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Administra todos los aspectos del Administrador de cumplimiento de Office 365 |
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Administrar todos los aspectos del Análisis de escritorio |
-> | microsoft.office365.exchange/allEntities/allTasks | Administrar todos los aspectos de Exchange Online |
+> | microsoft.office365.exchange/allEntities/basic/allTasks | Administrar todos los aspectos de Exchange Online |
 > | microsoft.office365.lockbox/allEntities/allTasks | Administrar todos los aspectos de la Caja de seguridad del cliente |
 > | microsoft.office365.messageCenter/messages/read | Leer los mensajes del centro de mensajes del centro de administración de Microsoft 365, excluyendo los mensajes de seguridad |
 > | microsoft.office365.messageCenter/securityMessages/read | Leer los mensajes de seguridad del centro de mensajes del centro de administración de Microsoft 365 |
-> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Administrar todos los aspectos del Centro de protección de Office 365 |
+> | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
+> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Administre todos los aspectos del Centro de seguridad y Cumplimiento |
 > | microsoft.office365.search/content/manage | Crear y eliminar el contenido, y leer y actualizar todas las propiedades en la Búsqueda de Microsoft |
 > | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en el Centro de seguridad y cumplimiento de Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
@@ -917,11 +910,11 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.directory/users/strongAuthentication/read | Leer la propiedad de autenticación sólida para los usuarios |
 > | microsoft.commerce.billing/allEntities/read | Leer todos los recursos de facturación de Office 365 |
-> | microsoft.office365.exchange/allEntities/read | Leer todos los recursos de Exchange Online |
+> | microsoft.office365.exchange/allEntities/standard/read | Leer todos los recursos de Exchange Online |
 > | microsoft.office365.messageCenter/messages/read | Leer los mensajes del centro de mensajes del centro de administración de Microsoft 365, excluyendo los mensajes de seguridad |
 > | microsoft.office365.messageCenter/securityMessages/read | Leer los mensajes de seguridad del centro de mensajes del centro de administración de Microsoft 365 |
 > | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
-> | microsoft.office365.protectionCenter/allEntities/allProperties/read | Leer todos los aspectos del Centro de protección de Office 365 |
+> | microsoft.office365.protectionCenter/allEntities/allProperties/read | Leer todas las propiedades de los Centros de seguridad y Cumplimiento |
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Leer las propiedades estándar en el Centro de seguridad y cumplimiento de Microsoft 365 |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Leer los informes de uso de Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
@@ -948,7 +941,7 @@ Los usuarios de este rol pueden crear y administrar grupos y su configuración c
 > | microsoft.directory/groups/owners/update | Actualiza los propietarios de los grupos, salvo los grupos a los que se pueden asignar roles. |
 > | microsoft.directory/groups/settings/update | Actualizar la configuración de los grupos |
 > | microsoft.directory/groups/visibility/update | Actualizar la propiedad de visibilidad de los grupos |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo  |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
@@ -1004,7 +997,7 @@ Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Port
 
 ## <a name="hybrid-identity-administrator"></a>Administrador de identidades híbridas
 
-Los usuarios con este rol pueden crear, administrar e implementar la configuración de aprovisionamiento de AD a Azure AD mediante el aprovisionamiento en la nube, así como para administrar la configuración de la federación. Los usuarios también pueden solucionar problemas y supervisar los registros mediante este rol.
+Los usuarios con este rol pueden crear, administrar e implementar la configuración de aprovisionamiento de AD a Azure AD mediante el aprovisionamiento en la nube, así como para administrar la configuración de la federación y Azure AD Connect. Los usuarios también pueden solucionar problemas y supervisar los registros mediante este rol.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -1107,7 +1100,6 @@ Este rol puede crear y administrar todos los grupos de seguridad. Sin embargo, e
 > | microsoft.directory/groups.security/basic/update | Actualizar las propiedades básicas de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups.security/classification/update | Actualiza la propiedad classification de los grupos de seguridad con la exclusión de los grupos a los que se pueden asignar roles. |
 > | microsoft.directory/groups.security/dynamicMembershipRule/update | Actualiza la propiedad dynamicMembershipRule de los grupos de seguridad con la exclusión de los grupos a los que se pueden asignar roles. |
-> | microsoft.directory/groups.security/groupType/update | Actualiza la propiedad group type de los grupos de seguridad con la exclusión de los grupos a los que se pueden asignar roles. |
 > | microsoft.directory/groups.security/members/update | Actualizar los miembros de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups.security/owners/update | Actualizar los propietarios de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups.security/visibility/update | Actualiza la propiedad visibility de los grupos de seguridad con la exclusión de los grupos a los que se pueden asignar roles. |
@@ -1126,6 +1118,26 @@ los usuarios con este rol tienen permisos globales para administrar la configura
 > | Acciones | Descripción |
 > | --- | --- |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
+
+## <a name="knowledge-administrator"></a>Administrador de conocimientos
+
+Los usuarios en este rol tienen acceso completo a toda la configuración de conocimientos, aprendizaje y características inteligentes en el centro de administración de Microsoft 365. Tienen una descripción general del conjunto de productos, detalles de licencia y tiene la responsabilidad de controlar el acceso. El administrador del conocimiento puede crear y administrar contenido, como temas, acrónimos y recursos de aprendizaje. Además, estos usuarios pueden crear centros de contenido, supervisar el estado del servicio y crear solicitudes de servicio.
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | microsoft.directory/groups.security/create | Crear grupos de seguridad, a excepción de grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/createAsOwner | Crear grupos de seguridad con la exclusión de grupos asignables de roles y el creador se agrega como el primer propietario |
+> | microsoft.directory/groups.security/delete | Eliminar grupos de seguridad, a excepción de grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/basic/update | Actualizar las propiedades básicas de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/members/update | Actualizar los miembros de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
+> | microsoft.directory/groups.security/owners/update | Actualizar los propietarios de los grupos de seguridad, a excepción de los grupos a los que se pueden asignar roles |
+> | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Lea y actualice todas las propiedades de la descripción del contenido en el centro de administración de Microsoft 365 |
+> | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Lea y actualice todas las propiedades de la red de conocimiento en el centro de administración de Microsoft 365 |
+> | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | Lea las etiquetas de confidencialidad en los Centros de seguridad y Cumplimiento |
+> | microsoft.office365.sharePoint/allEntities/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en SharePoint |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
 
@@ -1403,7 +1415,7 @@ El rol [Administrador de directivas de autenticación](#authentication-policy-ad
 
 
 > [!IMPORTANT]
-> Actualmente, este rol no es capaz de administrar la MFA por usuario en el portal heredado de administración de MFA. Se pueden realizar las mismas funciones mediante el commandlet [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) del módulo de Azure AD PowerShell.
+> Actualmente, este rol no es capaz de administrar la MFA por usuario en el portal heredado de administración de MFA. Se pueden realizar las mismas funciones mediante el commandlet [Set-MsolUser](/powershell/module/msonline/set-msoluser) del módulo de Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -1430,9 +1442,10 @@ los usuarios con este rol pueden administrar asignaciones de roles en Azure Acti
 > | microsoft.directory/appRoleAssignments/allProperties/allTasks | Crear y eliminar elementos appRoleAssignments, y leer y actualizar todas las propiedades |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Administrar todos los aspectos de las directivas de autorización |
 > | microsoft.directory/directoryRoles/allProperties/allTasks | Crear y eliminar roles de directorio, y leer y actualizar todas las propiedades |
-> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Actualizar los grupos con la propiedad isAssignableToRole establecida en true |
-> | microsoft.directory/groupsAssignableToRoles/create | Crear grupos con la propiedad isAssignableToRole establecida en true |
-> | microsoft.directory/groupsAssignableToRoles/delete | Eliminar grupos con la propiedad isAssignableToRole establecida en true |
+> | microsoft.directory/groupsAssignableToRoles/create | Creación de grupos a los que se pueden asignar roles |
+> | microsoft.directory/groupsAssignableToRoles/delete | Eliminar grupos asignables de roles |
+> | microsoft.directory/groupsAssignableToRoles/restore | Restaurar de grupos asignables de roles |
+> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Actualizar grupos asignables de roles |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Crea y elimina concesiones de permisos OAuth 2.0, y lee y actualiza todas las propiedades. |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en Privileged Identity Management |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Crea y elimina asignaciones de roles, y lee y actualiza todas las propiedades de asignación de roles. |
@@ -1454,6 +1467,7 @@ los usuarios con este rol pueden ver datos de informes de uso y el panel de info
 > | microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
+> | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Leer los informes de uso de Office 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
@@ -1529,8 +1543,8 @@ EDR y ATP de Windows Defender | Asignación de roles<br>Administración de grupo
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
-> | microsoft.office365.protectionCenter/allEntities/standard/read | Leer las propiedades estándar de todos los recursos en el Centro de protección de Office 365 |
-> | microsoft.office365.protectionCenter/allEntities/basic/update | Actualizar las propiedades básicas de todos los recursos en el Centro de protección de Office 365 |
+> | microsoft.office365.protectionCenter/allEntities/standard/read | Lea las propiedades estándar de todos los recursos de los Centros de seguridad y Cumplimiento |
+> | microsoft.office365.protectionCenter/allEntities/basic/update | Actualización de las propiedades básicas de todos los recursos de los Centros de seguridad y Cumplimiento |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Crear y administrar cargas de ataque en el Simulador de ataques |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leer informes de simulaciones de ataques, respuestas y entrenamiento asociado |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Crear y administrar plantillas de simulaciones de ataques en el Simulador de ataques |
@@ -1560,6 +1574,7 @@ EDR y ATP de Windows Defender | Todos los permisos del rol Lector de seguridad<b
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en Microsoft Cloud App Security |
 > | microsoft.directory/identityProtection/allProperties/allTasks | Crear y eliminar todos los recursos, y leer y actualizar las propiedades estándar en Azure AD Identity Protection |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Leer todos los recursos de Privileged Identity Management |
+> | microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.azure.advancedThreatProtection/allEntities/allTasks | Administrar todos los aspectos de Azure Advanced Threat Protection |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
@@ -1601,7 +1616,7 @@ EDR y ATP de Windows Defender | Ver e investigar alertas. Al activar el control 
 > | microsoft.directory/provisioningLogs/allProperties/read | Permite leer todas las propiedades de los registros de aprovisionamiento. |
 > | microsoft.directory/signInReports/allProperties/read | Leer todas las propiedades de los informes de inicio de sesión, incluidas las propiedades con privilegios |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
-> | microsoft.office365.protectionCenter/allEntities/standard/read | Leer las propiedades estándar de todos los recursos en el Centro de protección de Office 365 |
+> | microsoft.office365.protectionCenter/allEntities/standard/read | Lea las propiedades estándar de todos los recursos de los Centros de seguridad y Cumplimiento |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Leer todas las propiedades de las cargas de ataque en el Simulador de ataques |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Leer informes de simulaciones de ataques, respuestas y entrenamiento asociado |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/read | Leer todas las propiedades de las plantillas de simulación de ataque en el Simulador de ataques |
@@ -1620,6 +1635,7 @@ Los usuarios con este rol pueden abrir incidencias de soporte técnico con Micro
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
+> | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leer y configurar Service Health en el centro de administración de Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
@@ -1684,7 +1700,7 @@ los usuarios con este rol pueden administrar todos los aspectos de la carga de t
 > | microsoft.directory/groups.unified/basic/update | Actualizar las propiedades básicas de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups.unified/members/update | Actualizar los miembros de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
 > | microsoft.directory/groups/unified/owners/update | Actualizar los propietarios de los grupos de Microsoft 365, a excepción de los grupos a los que se pueden asignar roles |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo  |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Conceder a un servicio acceso directo de entidad a los datos de un grupo |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crear y administrar incidencias de Soporte técnico de Azure |
 > | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
@@ -1756,6 +1772,7 @@ Los usuarios con este rol pueden acceder a los datos agregados de nivel de inqui
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
 > | --- | --- |
+> | microsoft.office365.network/performance/allProperties/read | Leer todas las propiedades de rendimiento de red en el centro de administración de Microsoft 365 |
 > | microsoft.office365.usageReports/allEntities/standard/read | Leer informes de uso de Office 365 agregados de nivel de inquilino |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
 
@@ -1879,6 +1896,6 @@ Lector de informes de resumen de uso | &nbsp; | :heavy_check_mark: | :heavy_chec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre cómo asignar un usuario como administrador de una suscripción de Azure, consulte [Asignación de un usuario como administrador de una suscripción de Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md).
-* Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para obtener más información sobre la relación entre las suscripciones y un inquilino de Azure AD, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+- [Asignación de roles de Azure AD a grupos](groups-assign-role.md)
+- [Descripción de los distintos roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Asignación de un usuario como administrador de una suscripción de Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 69718b219d239ac13e5d932b05a7dd29619adaa3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103602025"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045593"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Creación de una imagen de Windows Virtual Desktop mediante Azure VM Image Builder y PowerShell
 
@@ -22,11 +22,11 @@ En este artículo se muestra cómo crear una imagen de Windows Virtual Desktop c
 
 * Instalación de [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Ejecución de un [script de optimización de Windows Virtual Desktop](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) desde el repositorio de la comunidad.
-* Instalación de [Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
-* [Restart](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer) (Reiniciar)
-* Ejecución de [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Instalación de [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer) (Reiniciar)
+* Ejecución de [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-Le mostraremos cómo automatizar esto mediante Azure VM Image Builder y distribuir la imagen a una instancia de [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), donde puede replicarla en otras regiones, controlar su escala y compartirla dentro y fuera de las organizaciones.
+Le mostraremos cómo automatizar esto mediante Azure VM Image Builder y distribuir la imagen a una instancia de [Shared Image Gallery](../shared-image-galleries.md), donde puede replicarla en otras regiones, controlar su escala y compartirla dentro y fuera de las organizaciones.
 
 
 Para simplificar la implementación de una configuración de Image Builder, en este ejemplo se usa una plantilla de Azure Resource Manager con la plantilla de Image Builder anidada dentro. Esto le ofrece otras ventajas, como variables y entradas de parámetros. También puede pasar parámetros desde la línea de comandos.
@@ -69,11 +69,11 @@ Este artículo pretende ser un ejercicio de copiar y pegar.
     ```
 - Prueba: pruebe el código antes en una máquina virtual independiente, asegúrese de que no hay mensajes de usuario, verifique que está usando el privilegio adecuado, etc.
 
-- Redes: `Set-NetAdapterAdvancedProperty`. Esto se establece en el script de optimización, pero produce un error en la compilación de AIB, ya que desconecta la red, esto se marca como comentario. Está en investigación.
+- Redes: `Set-NetAdapterAdvancedProperty`. Esto se establece en el script de optimización, pero produce un error en la compilación de AIB, ya que desconecta la red. Esto se marca como comentario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener instalados los cmdlets de Azure PowerShell más recientes. consulte [aquí](https://docs.microsoft.com/powershell/azure/overview) para obtener información detallada sobre la instalación.
+Debe tener instalados los cmdlets de Azure PowerShell más recientes. consulte [aquí](/powershell/azure/overview) para obtener información detallada sobre la instalación.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -279,7 +279,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>Crear una VM
-Ahora que la compilación ha finalizado, puede crear una VM a partir de la imagen. Use para ello [estos](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples) ejemplos.
+Ahora que la compilación ha finalizado, puede crear una VM a partir de la imagen. Use para ello [estos](/powershell/module/az.compute/new-azvm#examples) ejemplos.
 
 ## <a name="clean-up"></a>Limpieza
 

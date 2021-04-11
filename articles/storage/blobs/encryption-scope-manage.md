@@ -1,37 +1,32 @@
 ---
-title: Creación y administración de ámbitos de cifrado (versión preliminar)
+title: Creación y administración de ámbitos de cifrado
 description: Aprenda a crear un ámbito de cifrado para aislar los datos de blobs en el nivel de contenedor o blob.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209598"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640558"
 ---
-# <a name="create-and-manage-encryption-scopes-preview"></a>Creación y administración de ámbitos de cifrado (versión preliminar)
+# <a name="create-and-manage-encryption-scopes"></a>Creación y administración de ámbitos de cifrado
 
-Los ámbitos de cifrado (versión preliminar) permiten administrar el cifrado en un blob o contenedor individual. Un ámbito de cifrado aísla los datos de blobs en un enclave protegido dentro de una cuenta de almacenamiento. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos. Para obtener más información sobre los ámbitos de cifrado, vea [Ámbitos de cifrado para almacenamiento de blobs (versión preliminar)](encryption-scope-overview.md).
+Los ámbitos de cifrado permiten administrar el cifrado en un blob o contenedor individual. Se pueden usar ámbitos de cifrado para crear límites seguros entre los datos que residen en la misma cuenta de almacenamiento, pero que pertenecen a clientes distintos. Para obtener más información sobre los ámbitos de cifrado, vea [Ámbitos de cifrado para Blob Storage](encryption-scope-overview.md).
 
 En este artículo se muestra cómo crear un ámbito de cifrado. También se muestra cómo especificar un ámbito de cifrado al crear un blob o un contenedor.
-
-> [!IMPORTANT]
-> Los ámbitos de cifrado se encuentran actualmente en **VERSIÓN PERLIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
->
-> Para evitar costos inesperados, asegúrese de deshabilitar los ámbitos de cifrado que no necesite actualmente.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Creación de un ámbito de cifrado
 
-Puede crear un ámbito de cifrado con una clave administrada por Microsoft o con una clave administrada por el cliente que se almacena en Azure Key Vault o en el modelo de seguridad de hardware administrado (HSM) de Azure Key Vault (versión preliminar). Para crear un ámbito de cifrado con una clave administrada por el cliente, en primer lugar, debe crear un almacén de claves o un HSM administrado y agregar la clave que quiere usar para el ámbito. El almacén de claves o el HSM administrado deben tener la protección de purga habilitada y deben estar en la misma región que la cuenta de almacenamiento.
+Puede crear un ámbito de cifrado que esté protegido con una clave administrada por Microsoft o con una clave administrada por el cliente que se almacena en Azure Key Vault o en el modelo de seguridad de hardware administrado (HSM) de Azure Key Vault (versión preliminar). Para crear un ámbito de cifrado con una clave administrada por el cliente, en primer lugar, debe crear un almacén de claves o un HSM administrado y agregar la clave que quiere usar para el ámbito. El almacén de claves o el HSM administrado deben tener la protección de purga habilitada y deben estar en la misma región que la cuenta de almacenamiento.
 
 Un ámbito de cifrado se habilita automáticamente al crearlo. Después de crearlo, puede especificarlo al crear un blob. También se puede especificar un ámbito de cifrado predeterminado al crear un contenedor, que se aplica automáticamente a todos los blobs del contenedor.
 
@@ -44,21 +39,15 @@ Para crear un ámbito de cifrado en Azure Portal, siga estos pasos:
 1. Seleccione la pestaña **Ámbitos de cifrado**.
 1. Haga clic en el botón **Agregar** para agregar un ámbito de cifrado nuevo.
 1. En el panel **Crear un ámbito de cifrado**, escriba un nombre para el ámbito nuevo.
-1. Seleccione el tipo de cifrado, ya sea **Microsoft-managed keys** (Claves administradas por Microsoft) o **Customer-managed keys** (Claves administradas por el cliente).
+1. Seleccione el tipo de compatibilidad de clave de cifrado deseado, ya sea **Claves administradas por Microsoft** o **Claves administradas por el cliente**.
     - Si ha seleccionado **Microsoft-managed keys** (Claves administradas por Microsoft), haga clic en **Crear** para crear el ámbito de cifrado.
-    - Si ha seleccionado **Claves administradas de cliente**, especifique un almacén de claves o un HSM administrado, una clave y una versión de clave para usar en este ámbito de cifrado, tal como se muestra en la imagen siguiente.
+    - Si ha seleccionado **Claves administradas por el cliente**, seleccione una suscripción y especifique un almacén de claves o un HSM administrado y una clave para usar en este ámbito de cifrado, tal como se muestra en la imagen siguiente.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Captura de pantalla en la que se muestra cómo crear un ámbito de cifrado en Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para crear un ámbito de cifrado con PowerShell, en primer lugar instale la versión preliminar del módulo Az.Storage. Se recomienda usar la versión preliminar más reciente, pero se admiten los ámbitos de cifrado en la versión preliminar 1.13.4 y posteriores. Quite cualquier otra versión del módulo Az.Storage.
-
-El comando siguiente instala el módulo [versión preliminar 2.1.1](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) de Az.Storage:
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.1.1-preview -AllowPrerelease
-```
+Para crear un ámbito de cifrado con PowerShell, instale la versión 3.4.0 del módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) de PowerShell, o una posterior.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por Microsoft
 
@@ -89,9 +78,8 @@ No olvide reemplazar los valores del marcador de posición en el ejemplo por los
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $keyVaultName = "<key-vault>"
-$keyUri = "<key-uri-with-version>"
+$keyUri = "<key-uri>"
 $scopeName2 = "customer2scope"
-
 
 # Assign a system managed identity to the storage account.
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
@@ -105,7 +93,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-Después, llame al comando **New-AzStorageEncryptionScope** con el parámetro `-KeyvaultEncryption` y especifique el URI de la clave. Asegúrese de incluir la versión de la clave en el URI de la clave. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
+Después, llame al comando **New-AzStorageEncryptionScope** con el parámetro `-KeyvaultEncryption` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+
+No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -117,7 +107,7 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para crear un ámbito de cifrado con la CLI de Azure, instale primero la versión 2.4.0 de la CLI de Azure, o una posterior.
+Para crear un ámbito de cifrado con la CLI de Azure, instale primero la versión 2.20.0 de la CLI de Azure, o una posterior.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Creación de un ámbito de cifrado protegido mediante claves administradas por Microsoft
 
@@ -163,7 +153,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-Después, llame al comando **az storage account encryption-scope create** con el parámetro `--key-uri` y especifique el URI de la clave. Asegúrese de incluir la versión de la clave en el URI correspondiente. No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
+Después, llame al comando **az storage account encryption-scope create** con el parámetro `--key-uri` y especifique el URI de la clave. La inclusión de la versión de la clave en el URI de clave es opcional. Si omite la versión de la clave, el ámbito de cifrado usará automáticamente la versión más reciente de la clave. Si incluye la versión de la clave, debe actualizarla manualmente para usar otra versión.
+
+No olvide reemplazar los valores del marcador de posición en el ejemplo por los propios:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -176,7 +168,10 @@ az storage account encryption-scope create \
 
 ---
 
-Para información sobre cómo configurar el cifrado de Azure Storage con las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md). Para configurar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves administradas por el cliente en HSM administrado de Azure Key Vault (versión preliminar)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+Para obtener información sobre cómo configurar el cifrado de Azure Storage con claves administradas por el cliente en un almacén de claves o HSM administrado, consulte los siguientes artículos:
+
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
+- [Configuración del cifrado con claves administradas por el cliente almacenadas en HSM administrado de Azure Key Vault (versión preliminar)](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>Enumeración de los ámbitos de cifrado para la cuenta de almacenamiento
 
@@ -185,6 +180,10 @@ Para información sobre cómo configurar el cifrado de Azure Storage con las cla
 Para ver los ámbitos de cifrado de una cuenta de almacenamiento en Azure Portal, vaya a la opción **Ámbitos de cifrado** de la cuenta de almacenamiento. En este panel, se puede habilitar un ámbito de cifrado, deshabilitarlo o cambiarle la clave.
 
 :::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de pantalla en la que se muestra una lista de ámbitos de cifrado en Azure Portal":::
+
+Para ver los detalles de una clave administrada por el cliente, incluidos el URI y la versión de la clave y si la versión de la clave se actualiza automáticamente, siga el vínculo de la columna de **Clave**.
+
+:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Captura de pantalla que muestra los detalles de una clave utilizada con un ámbito de cifrado":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -217,7 +216,7 @@ az storage account encryption-scope list \
 
 Al crear un contenedor, se puede especificar un ámbito de cifrado predeterminado. De forma predeterminada, los blobs de ese contenedor usarán ese ámbito.
 
-Se puede crear un blob individual con su propio ámbito de cifrado, a menos que el contenedor esté configurado de tal forma que requiera que todos los blobs usen su ámbito predeterminado.
+Se puede crear un blob individual con su propio ámbito de cifrado, a menos que el contenedor esté configurado de tal forma que requiera que todos los blobs usen el ámbito predeterminado. Para obtener más información, consulte [Ámbitos de cifrado para contenedores y blobs](encryption-scope-overview.md#encryption-scopes-for-containers-and-blobs).
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -232,18 +231,15 @@ Para crear un contenedor con un ámbito de cifrado predeterminado en Azure Porta
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para crear un contenedor con un ámbito de cifrado predeterminado mediante PowerShell, llame al comando [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) y especifique el ámbito del parámetro `-DefaultEncryptionScope`. El comando **New-AzRmStorageContainer** crea un contenedor mediante el proveedor de recursos de Azure Storage, que permite la configuración de ámbitos de cifrado y otras operaciones de administración de recursos.
-
-Para forzar a todos los blobs de un contenedor a usar el ámbito predeterminado del contenedor, establezca el parámetro `-PreventEncryptionScopeOverride` en `true`.
+Para crear un contenedor con un ámbito de cifrado predeterminado mediante PowerShell, llame al comando [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) y especifique el ámbito del parámetro `-DefaultEncryptionScope`. Para forzar a todos los blobs de un contenedor a usar el ámbito predeterminado del contenedor, establezca el parámetro `-PreventEncryptionScopeOverride` en `true`.
 
 ```powershell
 $containerName1 = "container1"
-$containerName2 = "container2"
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a container with a default encryption scope that cannot be overridden.
-New-AzRmStorageContainer -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -Name $containerName1 `
+New-AzStorageContainer -Name $containerName1 `
+    -Context $ctx `
     -DefaultEncryptionScope $scopeName1 `
     -PreventEncryptionScopeOverride $true
 ```
@@ -274,7 +270,7 @@ Al cargar un blob, puede especificar un ámbito de cifrado para ese blob o usar 
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para cargar un blob con un ámbito de cifrado especificado en Azure Portal, primero se debe crear el ámbito de cifrado tal y como se describe en [Creación de un ámbito de cifrado](#create-an-encryption-scope). Después, siga estos pasos para crear el blob:
+Para cargar un blob con un ámbito de cifrado a través de Azure Portal, primero se debe crear el ámbito de cifrado tal y como se describe en [Creación de un ámbito de cifrado](#create-an-encryption-scope). Después, siga estos pasos para crear el blob:
 
 1. Vaya hasta el contenedor en el que quiere cargar el blob.
 1. Seleccione el botón **Cargar** y busque el blob que se va a cargar.
@@ -286,22 +282,28 @@ Para cargar un blob con un ámbito de cifrado especificado en Azure Portal, prim
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para cargar un blob con un ámbito de cifrado especificado mediante PowerShell, llame al comando [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) y proporcione el ámbito de cifrado para el blob.
+Para cargar un blob con un ámbito de cifrado a través de PowerShell, llame al comando [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) y proporcione el ámbito de cifrado para el blob.
 
 ```powershell
 $containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
-$ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $accountName).Context
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a new container with no default scope defined.
 New-AzStorageContainer -Name $containerName2 -Context $ctx
+
 # Upload a block upload with an encryption scope specified.
-Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
+Set-AzStorageBlobContent -Context $ctx `
+    -Container $containerName2 `
+    -File $localSrcFile `
+    -Blob "helloworld.txt" `
+    -BlobType Block `
+    -EncryptionScope $scopeName2
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
-Para cargar un blob con un ámbito de cifrado especificado mediante la CLI de Azure, llame al comando [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) y proporcione el ámbito de cifrado para el blob.
+Para cargar un blob con un ámbito de cifrado a través de la CLI de Azure, llame al comando [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) y proporcione el ámbito de cifrado para el blob.
 
 Si usa Azure Cloud Shell, siga los pasos descritos en [Cargar un blob](storage-quickstart-blobs-cli.md#upload-a-blob) para crear un archivo en el directorio raíz. Después, puede cargar este archivo en un blob mediante el ejemplo siguiente.
 
@@ -406,10 +408,13 @@ az storage account encryption-scope update \
     --state Disabled
 ```
 
+> [!IMPORTANT]
+> No es posible eliminar un ámbito de cifrado. Para evitar costos inesperados, asegúrese de deshabilitar los ámbitos de cifrado que no necesite actualmente.
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Cifrado de Azure Storage para datos en reposo](../common/storage-service-encryption.md)
-- [Ámbitos de cifrado para Blob Storage (versión preliminar)](encryption-scope-overview.md)
+- [Ámbitos de cifrado para Blob Storage](encryption-scope-overview.md)
 - [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 1b03e2d8715b3d80425ef181dd908978d5df4cf2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8050b4f173476d7af66cb858ff5f785e5a12af43
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743854"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046579"
 ---
 # <a name="connect-your-aruba-clearpass-to-azure-sentinel"></a>Conexión de Aruba ClearPass a Azure Sentinel
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo conectar el dispositivo Aruba ClearPass con A
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-aruba-clearpass-logs-to-azure-sentinel"></a>Envío de registros de Aruba ClearPass a Azure Sentinel
 

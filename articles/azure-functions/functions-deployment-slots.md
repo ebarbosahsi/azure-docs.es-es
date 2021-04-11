@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73282145abd8bfe804b47fda3bf5f12dc691ff3a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172416"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551363"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -20,9 +20,6 @@ Aquí se indica cómo se ven afectadas las funciones cuando se intercambian ranu
 
 - El redireccionamiento del tráfico es perfecto y no se pierde ninguna solicitud debido al intercambio.
 - Si una función se está ejecutando durante un intercambio, la ejecución continúa y los desencadenadores posteriores se enrutan a la instancia de la aplicación intercambiada.
-
-> [!NOTE]
-> Actualmente no hay ranuras disponibles para el plan Consumo para Linux.
 
 ## <a name="why-use-slots"></a>¿Por qué usar ranuras?
 
@@ -229,7 +226,7 @@ Hay dos niveles de compatibilidad para las ranuras de implementación:
 | Consumo de Windows       | Disponibilidad general |
 | Windows Premium           | Disponibilidad general  |
 | Dedicado de Windows         | Disponibilidad general |
-| Consumo de Linux         | No compatible          |
+| Consumo de Linux         | Vista previa          |
 | Linux Premium             | Disponibilidad general  |
 | Dedicado de Linux           | Disponibilidad general |
 

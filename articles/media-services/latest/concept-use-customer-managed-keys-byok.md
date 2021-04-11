@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698865"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068003"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring Your Own Key (claves administradas por el cliente) con Media Services
 
@@ -51,4 +51,4 @@ Media Services admite automáticamente el cifrado doble. En el caso de los datos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Protección del contenido mediante el cifrado dinámico de Media Services](content-protection-overview.md)
+[Protección del contenido mediante el cifrado dinámico de Media Services](drm-content-protection-concept.md)

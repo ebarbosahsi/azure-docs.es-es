@@ -1,26 +1,26 @@
 ---
 title: Configuración de un dispositivo de Azure Migrate para servidores físicos
-description: Aprenda a configurar un dispositivo de Azure Migrate para la evaluación del servidor físico.
-author: vikram1988
-ms.author: vibansa
+description: Aprenda a configurar un dispositivo de Azure Migrate para la detección y evaluación del servidor físico.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/15/2020
-ms.openlocfilehash: 73c3d529978c91946632ed599f02b8938830621e
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.date: 03/13/2021
+ms.openlocfilehash: 9052cbd3dc728b50b62c33f3a11a5e36a7504f29
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705326"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771573"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
-En este artículo se describe cómo configurar el dispositivo de Azure Migrate si está evaluando los servidores físicos con Azure Migrate: Server Assessment.
+En este artículo se describe cómo configurar el dispositivo de Azure Migrate si está evaluando los servidores físicos con Azure Migrate: Herramienta de detección y evaluación.
 
-El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate Server Assessment usa para lo siguiente:
+El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate: Detección y evaluación usa para hacer lo siguiente:
 
 - Descubrir servidores locales.
-- Enviar metadatos y datos de rendimiento de los servidores detectados a Azure Migrate Server Assessment.
+- Enviar metadatos y datos de rendimiento de los servidores detectados a Azure Migrate: Detección y evaluación.
 
 [Más información](migrate-appliance.md) sobre el dispositivo de Azure Migrate.
 
@@ -28,19 +28,20 @@ El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate Serve
 ## <a name="appliance-deployment-steps"></a>Pasos de implementación del dispositivo
 
 Para configurar el dispositivo:
-- Proporcione un nombre de dispositivo y genere una clave del proyecto de Azure Migrate en el portal.
+
+- Proporcione un nombre de dispositivo y genere una clave del proyecto en el portal.
 - Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
 - Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
 - Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
-- Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate mediante la clave del proyecto de Azure Migrate.
+- Configure el dispositivo por primera vez y regístrelo en el proyecto, para lo que debe utilizar la clave del proyecto.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generación de la clave del proyecto de Azure Migrate
+### <a name="generate-the-project-key"></a>Generación de la clave del proyecto
 
-1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
-2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , seleccione **Físico o de otro tipo (AWS, GCP, Xen, etc.)** .
-3. En **1: Generar la clave del proyecto de Azure Migrate**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de servidores físicos o virtuales. El nombre debe ser alfanumérico con 14 caracteres como máximo.
-1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar máquinas durante la creación de recursos.
-1. Después de la creación correcta de los recursos de Azure, se genera una **clave del proyecto Azure Migrate**.
+1. En los **objetivos de migración** > **Windows, Linux y SQL Server** > **Azure Migrate: Detección y evaluación**, seleccione **Detectar**.
+2. En **Detectar máquinas** >  **¿Los servidores están virtualizados?** , seleccione **Físico o de otro tipo (AWS, GCP, Xen, etc.)** .
+3. En **1: Generar la clave del proyecto**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de los servidores virtuales o físicos de GCP. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
+1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de recursos.
+1. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
 ### <a name="download-the-installer-script"></a>Descarga del script del instalador
@@ -56,7 +57,7 @@ En **2: Descargar el dispositivo de Azure Migrate**, haga clic en **Descargar**.
 
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
-1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
+1. En los servidores en los que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash para el archivo ZIP:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso para la nube pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
@@ -77,7 +78,7 @@ El script del instalador hace lo siguiente:
 
 Ejecute el script como se indica a continuación:
 
-1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en una máquina en un dispositivo de Azure Migrate existente.
+1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
@@ -97,7 +98,7 @@ En caso de que surja algún problema, puede acceder a los registros de script en
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la VM del dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
+Asegúrese de que el dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [públicas](migrate-appliance.md#public-cloud-urls) y [gubernamentales](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configuración del dispositivo
 
@@ -109,16 +110,16 @@ Configure el dispositivo por primera vez.
 2. Acepte los **términos de licencia** y lea la información de terceros.
 1. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
     - **Connectivity** (Conectividad): la aplicación comprueba que el servidor tenga acceso a Internet. Si el servidor usa un proxy:
-        - Haga clic en **Configurar el proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
+        - Haga clic en **Configurar proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
         - Especifique las credenciales si el proxy requiere autenticación.
         - Solo se admite un proxy HTTP.
         - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
     - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección del servidor funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
-    - **Instalación de actualizaciones**: Azure Migrate Server Assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
+    - **Instalación de actualizaciones**: Azure Migrate: Detección y evaluación comprueba que el dispositivo tiene instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Pegue la **clave del proyecto de Azure Migrate** copiada desde el portal. Si no tiene la clave, vaya a **Server Assessment > Detectar > Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Pegue la **clave del proyecto** copiada desde el portal. Si no tiene la clave, vaya a **Azure Migrate: Detección y evaluación> Detectar> Administrar los dispositivos existentes**, seleccione el nombre del dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
 
     ![Modal que muestra el código del dispositivo](./media/tutorial-discover-vmware/device-code.png)
@@ -138,9 +139,9 @@ Configure el dispositivo por primera vez.
 Ahora, conecte desde el dispositivo a los servidores físicos que se van a detectar e inicie la detección.
 
 1. En **Paso 1: proporcionar credenciales para la detección de servidores físicos o virtuales de Windows y Linux**, haga clic en **Agregar credenciales**.
-1. En el caso de Windows Server, seleccione el tipo de origen como **Windows Server**, especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
-1. Si usa la autenticación basada en contraseña para el servidor Linux, seleccione el tipo de origen como **Servidor Linux (basado en contraseña)** , especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
-1. Si usa la autenticación basada en clave SSH para el servidor Linux, puede seleccionar el tipo de origen como **Servidor Linux (basado en clave SSH)** , especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario. busque el archivo de clave privada SSH y selecciónela. Haga clic en **Guardar**.
+1. En el caso de Windows Server, seleccione el tipo de origen **Windows Server**, especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
+1. Si usa la autenticación basada en contraseña para el servidor Linux, seleccione el tipo de origen **Servidor Linux (basado en contraseña)** , especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
+1. Si usa la autenticación basada en clave SSH para el servidor Linux, puede seleccionar el tipo de origen **Servidor Linux (basado en clave SSH)** , especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario. busque el archivo de clave privada SSH y selecciónela. Haga clic en **Guardar**.
 
     - Azure Migrate admite la clave privada SSH generada por el comando ssh-keygen mediante los algoritmos RSA, DSA, ECDSA y ed25519.
     - Actualmente, Azure Migrate no admite la clave SSH basada en frase de contraseña. Use una clave SSH sin frase de contraseña.
@@ -155,7 +156,7 @@ Ahora, conecte desde el dispositivo a los servidores físicos que se van a detec
     ![Selecciones para Agregar origen de detección](./media/tutorial-assess-physical/add-discovery-source-physical.png)
 
     - Si elige **Agregar un solo elemento**, puede elegir el tipo de sistema operativo, especificar el nombre descriptivo de las credenciales, agregar la **dirección IP o el FQDN** del servidor y hacer clic en **Guardar**.
-    - Si elige **Agregar varios elementos**, puede agregar varios registros a la vez mediante la especificación de la **dirección IP o el FQDN** del servidor con el nombre descriptivo de las credenciales en el cuadro de texto. **Compruebe** los registros agregados y haga clic en **Guardar**.
+    - Si elige **Agregar varios elementos**, puede agregar varios registros a la vez mediante la especificación de la **dirección IP o el FQDN** del servidor con el nombre descriptivo de las credenciales en el cuadro de texto. Compruebe** los registros agregados y haga clic en **Guardar**.
     - Si elige **importar CSV** _(opción seleccionada de manera predeterminada)_ , puede descargar un archivo de plantilla CSV, rellenar el archivo con la **dirección IP o el FQDN** del servidor y el nombre descriptivo de las credenciales. A continuación, importe el archivo en el dispositivo, **compruebe** los registros del archivo y haga clic en **Guardar**.
 
 1. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a los servidores agregados y mostrar el **estado de validación** en la tabla en cada servidor.
@@ -172,9 +173,9 @@ De esta forma comienza la detección. Los metadatos de los servidores detectados
 Una vez finalizada la detección, puede verificar que los servidores aparezcan en el portal.
 
 1. Abra el panel de Azure Migrate.
-2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**.
+2. En la página **Azure Migrate: Windows, Linux y SQL Server** > **Azure Migrate: Detección y evaluación**, haga clic en el icono que muestra el recuento de los **Servidores detectados**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe la [evaluación de los servidores físicos](tutorial-assess-physical.md) con Azure Migrate Server Assessment.
+Pruebe la [evaluación de los servidores físicos](tutorial-assess-physical.md) con Azure Migrate: Detección y evaluación.

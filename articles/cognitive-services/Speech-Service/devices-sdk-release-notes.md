@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562338"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607140"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
@@ -25,7 +25,7 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 
 - Se ha actualizado a la nueva pila de audio de Microsoft (MAS) con formación de haces y reducción de ruido mejorada para la voz.
 - Se ha reducido el tamaño binario hasta un 70 % según el destino.
-- Se ha añadido la compatibilidad con [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) con [binario](https://aka.ms/sdsdk-download-APAudio).
+- Se ha añadido la compatibilidad con [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) con [binario](https://aka.ms/sdsdk-download-APAudio).
 - Se ha actualizado el componente [SDK de Voz](./speech-sdk.md) a la versión 1.15.0. Para más información, consulte sus [notas de la versión](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>SDK de dispositivos de voz 1.11.0:
@@ -107,7 +107,7 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 **Cambios importantes**
 
 - Con esta versión se presentan una serie de cambios importantes. Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obtener detalles relacionados con las API.
-- Los archivos de modelo de KWS no son compatibles con Speech Devices SDK 1.0.1. Los archivos existentes de palabras clave se eliminarán después de que los nuevos se escriban en el dispositivo.
+- Los archivos de modelo de reconocimiento de palabras clave no son compatibles con el SDK de dispositivos de voz 1.0.1. Los archivos existentes de palabras clave se eliminarán después de que los nuevos se escriban en el dispositivo.
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>SDK de dispositivos de voz 0.5.0: versión de agosto de 2018
 
