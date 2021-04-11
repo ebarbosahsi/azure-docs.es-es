@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879333"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060740"
 ---
-# <a name="how-to-plan-a-virtual-machine-offer"></a>Planeación de una oferta de máquina virtual
+# <a name="plan-a-virtual-machine-offer"></a>Planificación de una oferta de máquina virtual
 
 En este artículo se explican los distintos requisitos y opciones para publicar una oferta de máquina virtual en el marketplace comercial. Las ofertas de máquinas virtuales son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace.
 
@@ -102,7 +102,7 @@ Puede restringir la detección y la implementación de su VM para un conjunto de
 
 Para obtener más información, vea [Planes y precios de las ofertas del marketplace comercial](plans-pricing.md) y [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
 
-## <a name="test-drives"></a>Versiones de prueba
+## <a name="test-drive"></a>Versión de prueba
 
 Se puede elegir habilitar una versión de prueba para la VM. Las versiones de prueba proporcionan a los clientes acceso a un entorno preconfigurado durante un número fijo de horas. Aunque puede habilitar las opciones de publicación en cualquier versión de prueba, esta característica conlleva requisitos adicionales. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](what-is-test-drive.md). Para información sobre la configuración de diferentes tipos de versiones de prueba, consulte [Configuración técnica de la versión de prueba](test-drive-technical-configuration.md).
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2b22746b7a78349580220f4aa7579876fd21c33
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033306"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074597"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Introducción a los registros de plataforma Azure
 Los registros de plataforma proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma Azure de la que dependen. Se generan automáticamente, aunque es necesario configurar determinados registros de plataforma para que se reenvíen a uno o varios destinos para la conservación. En este artículo se proporciona información general sobre los registros de plataforma, incluida la información que proporcionan y cómo puede configurarlos para la recopilación y el análisis.
@@ -45,8 +45,8 @@ Puede enviar registros de plataforma a uno o varios de los destinos de la tabla 
 
 | Destination | Descripción |
 |:---|:---|
-| Área de trabajo de Log Analytics | Analice todos los registros de todos los recursos de Azure en conjunto y aproveche las ventajas de todas las características disponibles para los [registros de Azure Monitor](../logs/data-platform-logs.md), incluidas las [consultas de registro](../logs/log-query-overview.md) y las [alertas de registro](../alerts/alerts-log.md). Ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo. |  |
-| Centro de eventos | Envíe datos de registro de la plataforma fuera de Azure, por ejemplo a un sistema SIEM de terceros o una plataforma de telemetría personalizada.
+| Área de trabajo de Log Analytics | Analice todos los registros de todos los recursos de Azure en conjunto y aproveche las ventajas de todas las características disponibles para los [registros de Azure Monitor](../logs/data-platform-logs.md), incluidas las [consultas de registro](../logs/log-query-overview.md) y las [alertas de registro](../alerts/alerts-log.md). Ancle los resultados de una consulta de registro a un panel de Azure o inclúyala en un libro como parte de un informe interactivo. | 
+| Centro de eventos | Envíe datos de registro de la plataforma fuera de Azure, por ejemplo a un sistema SIEM de terceros o una plataforma de telemetría personalizada. |
 | Almacenamiento de Azure | Archive los registros para la auditoría o la copia de seguridad. |
 
 - Consulte [Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos](../essentials/diagnostic-settings.md) para más información sobre la creación de una configuración de diagnóstico para el registro de actividad o los registros de recursos. 

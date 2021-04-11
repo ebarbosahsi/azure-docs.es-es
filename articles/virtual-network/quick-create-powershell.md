@@ -3,18 +3,17 @@ title: Creación de una red virtual mediante Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: En este inicio rápido, creará una red virtual mediante Azure Portal. Una red virtual permite que los recursos de Azure se comuniquen entre sí y con Internet.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b27f050d3d37daab05e8c5125d6b75a6bb4dea50
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 7ee10327ab95a3e66e5592593ae72d6e5cd8d606
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199040"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060608"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Inicio rápido: Creación de una red virtual mediante PowerShell
 

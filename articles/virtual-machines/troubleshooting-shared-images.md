@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607599"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solución de problemas de las galerías de imágenes compartidas de Azure
 
@@ -52,7 +52,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: Ha intentado eliminar una galería que contiene al menos una definición de imagen existente. Para poder eliminar una galería, debe estar vacía.  
 **Solución alternativa**: Elimine todas las definiciones de imagen que contiene la galería y, luego, proceda a la eliminación de la galería. Si la definición de imagen contiene versiones de imagen, debe eliminar las versiones de imagen antes de eliminar las definiciones.
 
-**Mensaje**: *El nombre de la galería <galleryName\> no es único dentro de la suscripción "<subscriptionId>". Elija otro nombre de la galería.*  
+**Mensaje**: *El nombre de la galería <galleryName\> no es único dentro de la suscripción "<subscriptionID>". Elija otro nombre de la galería.*  
 **Causa**: Ha intentado crear otra galería con el mismo nombre que una galería existente.  
 **Solución alternativa**: Elija un nombre diferente para la galería.
 
@@ -127,7 +127,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: Ha intentado eliminar una definición de imagen que contiene versiones de imagen. Una definición de imagen debe estar vacía antes de poder eliminarla.  
 **Solución alternativa**: Elimine todas las versiones de imagen que contiene la definición de imagen y, luego, proceda a eliminarla.
 
-**Mensaje**: *No se puede enlazar el parámetro <property\>. No se puede convertir el valor <value\> al tipo <propertyType\>. No se puede hacer coincidir el nombre del identificador <value\> con un nombre de enumerador válido. Especifique uno de los siguientes nombres de enumerador e inténtelo de nuevo: <choice1\>, <choice2\>, …* .  
+**Mensaje**: *No se puede enlazar el parámetro <property\>. No se puede convertir el valor <value\> al tipo <propertyType\>. No se puede hacer coincidir el nombre del identificador <value\> con un nombre de enumerador válido. Especifique uno de los siguientes nombres de enumerador e inténtelo de nuevo: <choice\_1\>, <choice\_2\>, …*  
 **Causa**: La propiedad tiene una lista restringida de valores posibles y <value\> no es uno de ellos.  
 **Solución alternativa**: Elija uno de los valores posibles <choice\>.
 
@@ -185,7 +185,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: Al crear una versión de imagen mediante una lista de discos o instantáneas de disco, dos o más discos o instantáneas de disco tienen el mismo identificador de recurso.  
 **Solución alternativa**: Quite o cambie los identificadores de origen de disco duplicados.
 
-**Mensaje**: *El identificador de propiedad <resourceID\> de la ruta de acceso "properties.storageProfile.<diskImages\>.source.id" no es válido. Espere un identificador de recurso completo que empiece por "/subscriptions/{subscriptionId}" o "/providers/{resourceProviderNamespace}/".*  
+**Mensaje**: *El identificador de propiedad <resourceID\> de la ruta de acceso "properties.storageProfile.<diskImages\>.source.id" no es válido. Espere un identificador de recurso completo que empiece por "/subscriptions/<subscriptionID>" o "/providers/<resourceProviderNamespace>/".*  
 **Causa**: El valor <resourceID\> no es correcto.  
 **Solución alternativa**: Compruebe que el identificador de recurso sea correcto.
 
@@ -261,12 +261,12 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: Es posible que el identificador de recurso del origen sea incorrecto.  
 **Solución alternativa**: Asegúrese de que el valor del identificador de recurso del origen sea correcto.
 
-**Mensaje**: *Se requiere un conjunto de cifrado de disco para el disco "galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId" de la región de destino "<Region\_1\>", ya que el conjunto de cifrado de disco "<diskEncryptionSetID\>" se usa para el disco correspondiente de la región "<Region\_2\>".*  
-**Causa**: El cifrado se ha usado en el disco del sistema operativo en <Region\_2\>, pero no en <Region\_1\>.  
+**Mensaje**: *Se requiere un conjunto de cifrado de disco para el disco "galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId" de la región de destino "<region\_1\>", ya que el conjunto de cifrado de disco "<diskEncryptionSetID\>" se usa para el disco correspondiente de la región "<region\_2\>".*  
+**Causa**: El cifrado se ha usado en el disco del sistema operativo en <region\_2\>, pero no en <region\_1\>.  
 **Solución alternativa**: Si usa el cifrado en el disco del sistema operativo, use el cifrado en todas las regiones.
 
-**Mensaje**: *Se requiere un conjunto de cifrado de disco para el disco "LUN <number\>" de la región de destino "<Region\_1\>", ya que el conjunto de cifrado de disco "<diskEncryptionSetID\>" se usa para el disco correspondiente de la región "<Region\_2\>".*  
-**Causa**: El cifrado se ha usado en el disco de datos en LUN <number\> en <Region\_2\>, pero no en <Region\_1\>.  
+**Mensaje**: *Se requiere un conjunto de cifrado de disco para el disco "LUN <number\>" de la región de destino "<region\_1\>", ya que el conjunto de cifrado de disco "<diskEncryptionSetID\>" se usa para el disco correspondiente de la región "<region\_2\>".*  
+**Causa**: El cifrado se ha usado en el disco de datos en LUN <number\> en <region\_2\>, pero no en <region\_1\>.  
 **Solución alternativa**: Si usa el cifrado en un disco de datos, use el cifrado en todas las regiones.
 
 **Mensaje**: *Se especificó un LUN no válido [<number\>] en encryption.dataDiskImages. El LUN debe tener uno de los siguientes valores ["0,9"].*  
@@ -303,7 +303,7 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: La definición de imagen usada para implementar la máquina virtual no contiene ninguna versión de imagen incluida en la versión más reciente.  
 **Solución alternativa**: Asegúrese de que haya al menos una versión de imagen que tenga el valor "Excluir de la última" establecida en Falso. 
 
-**Mensaje**: *El cliente tiene permiso para realizar la acción "Microsoft.Compute/galleries/images/versions/read" en el ámbito <resourceID\>, pero el inquilino actual <tenantId1\> no está autorizado para acceder a la suscripción vinculada <subscriptionId2\>.*  
+**Mensaje**: *El cliente tiene permiso para realizar la acción "Microsoft.Compute/galleries/images/versions/read" en el ámbito <resourceID\>, pero el inquilino actual <tenantID\> no está autorizado para acceder a la suscripción vinculada <subscriptionID\>.*  
 **Causa**: La máquina virtual o el conjunto de escalado se crearon mediante una imagen SIG en otro inquilino. Ha intentado realizar un cambio en la máquina virtual o el conjunto de escalado, pero no tiene acceso a la suscripción que posee la imagen.  
 **Solución alternativa**: Póngase en contacto con el propietario de la suscripción de la versión de imagen para conceder a esta acceso de lectura.
 
@@ -327,12 +327,17 @@ Si tiene problemas al realizar cualquier operación en galerías de imágenes co
 **Causa**: La imagen de origen actual del conjunto de escalado es una imagen de origen generalizada, pero se está actualizando con una imagen de origen que es especializada. La imagen de origen actual y la nueva imagen de origen de un conjunto de escalado deben tener el mismo estado.  
 **Solución alternativa**: Para actualizar el conjunto de escalado, use una versión de imagen generalizada.
 
-**Mensaje**: *El conjunto de cifrado de disco <diskEncryptionSetId\> de la galería de imágenes compartidas <versionId\> pertenece a la suscripción <subscriptionId1\> y no se puede usar con el recurso "en la suscripción <subscriptionId2\>* .  
+**Mensaje**: *El conjunto de cifrado de disco <diskEncryptionSetID\> de la galería de imágenes compartidas <versionID\> pertenece a la suscripción <subscriptionID\_1\> y no se puede usar con el recurso "en la suscripción <subscriptionID\_2\>.*  
 **Causa**: El conjunto de cifrado de disco que se usa para cifrar la versión de imagen reside en una suscripción diferente de aquella que la hospeda.  
 **Solución alternativa**: Use la misma suscripción para la versión de imagen y el conjunto de cifrado de disco.
 
 **Mensaje**: *La creación de la VM o el conjunto de escalado de máquinas virtuales tarda mucho tiempo.*  
 **Solución alternativa**: Compruebe que el valor de **OSType** de la versión de la imagen a partir de la cual intenta crear la máquina virtual o el conjunto de escalado de máquinas virtuales tiene el mismo valor de **OSType** que el origen que usó para crear la versión de la imagen. 
+
+**Mensaje**: *El recurso con id <vmID\> tiene un plan diferente ["{ \"name\":\"<name>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}"] que el plan de imagen de la galería primaria ["null"].*  
+**Causa**: La definición de imagen primaria para la versión de la imagen que se está implementando no tiene información del plan de compra.  
+**Solución alternativa**: Cree una definición de imagen con los mismos detalles del plan de compra del mensaje de error y cree la versión de la imagen dentro de la definición de la imagen.
+
 
 ## <a name="creating-a-disk-from-an-image-version"></a>Creación de un disco a partir de una versión de imagen ##
 

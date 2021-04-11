@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a415dba4bb4fd5b95e98ae7c104cae92db27f34c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97734723"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060166"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge Pro con GPU
 
@@ -29,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Montaje en bastidor del dispositivo
 > * Cableado del dispositivo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los requisitos previos para instalar un dispositivo físico son los siguientes:
 
@@ -86,7 +85,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el s
 > Los dispositivos de Azure Stack Edge Pro tienen que estar montados en un bastidor para funcionar correctamente.
 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas. Este folleto se envió junto con el dispositivo.
 - Comience la instalación de los raíles en el espacio asignado más próximo a la parte inferior del armario del bastidor.

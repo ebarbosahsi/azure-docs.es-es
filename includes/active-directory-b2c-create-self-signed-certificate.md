@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: 41d9962657aa81dbe34a52302d1b68ec655f2893
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e26dd7ea9f45af6f725f4deaefd9b5bd79a37e1c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095296"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073334"
 ---
 Si aún no tiene un certificado, puede usar un certificado autofirmado para este tutorial. Un certificado autofirmado es un certificado de seguridad que no está firmado por una entidad de certificación (CA) y no proporciona las garantías de seguridad de un certificado firmado por una CA. 
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e6ed6bc8ba426a981b7a2390e7d00d9c3b1e785
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98790130"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643455"
 ---
 # <a name="about-azure-key-vault"></a>Acerca de Azure Key Vault
 
@@ -71,8 +71,8 @@ Además, Azure Key Vault le permite segregar los secretos de aplicación. Las ap
 
 Como almacén seguro de Azure, Key Vault se ha usado para simplificar escenarios como:
 -  [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
--  La funcionalidad de [cifrado siempre]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) y [Cifrado de datos transparente]( https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15) del servidor de SQL Server y Azure SQL Database
-- [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
+-  La funcionalidad de [cifrado siempre](/sql/relational-databases/security/encryption/always-encrypted-database-engine) y [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) del servidor de SQL Server y Azure SQL Database
+- [Azure App Service](/azure/app-service/configure-ssl-certificate).
 
 Key Vault se puede integrar con cuentas de almacenamiento e instancias de Event Hubs y Log Analytics.
 

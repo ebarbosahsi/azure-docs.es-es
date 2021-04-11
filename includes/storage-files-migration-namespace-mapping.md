@@ -1,18 +1,19 @@
 ---
-title: Asignación de una estructura de carpetas a una topología de Azure File Sync
-description: Asigne una estructura de archivos y carpetas existente a recursos compartidos de archivos de Azure para su uso con Azure File Sync. Un bloque de texto común, compartido entre documentos de migración.
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: 265d14d7cca05ff510e747c8d3a3b071e44a0a68
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.custom: include file
+ms.openlocfilehash: a8dd83a9584d218d56c7350d6d634bfe4610b790
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202406"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075614"
 ---
 En este paso, se evalúan cuántos recursos compartidos de archivos de Azure son necesarios. Una sola instancia de Windows Server (o clúster) puede sincronizar hasta 30 recursos compartidos de archivos de Azure.
 

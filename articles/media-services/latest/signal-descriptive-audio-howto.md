@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596729"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277409"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Señalización de pistas descriptivas de audio
 
@@ -29,9 +29,9 @@ En este artículo se muestra cómo codificar un vídeo, cargar un archivo MP4 de
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree una cuenta de Media Services](./create-account-howto.md).
+- [Cree una cuenta de Media Services](./account-create-how-to.md).
 - Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
-- Consulte [Empaquetado dinámico](dynamic-packaging-overview.md).
+- Consulte [Empaquetado dinámico](encode-dynamic-packaging-concept.md).
 - Consulte el tutorial [Carga, codificación y transmisión de vídeos con REST](stream-files-tutorial-with-api.md).
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creación de un recurso de entrada y carga de un archivo local en él 
@@ -64,7 +64,7 @@ En el caso de este artículo, pase el valor `outputAsset.Name` a las funciones `
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Creación de una transformación y de un trabajo que codifican el archivo cargado
 
-Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](./transforms-jobs-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
+Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](./transform-jobs-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
 
 En el ejemplo siguiente se crea una transformación (si no existe ninguna).
 
@@ -245,4 +245,4 @@ Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Análisis de vídeos](analyze-videos-tutorial-with-api.md)
+[Análisis de vídeos](analyze-videos-tutorial.md)

@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Nueva asignación de directivas con .NET Core'
 description: En este inicio rápido, se usa .NET Core para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91604588"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091793"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante .NET Core
 

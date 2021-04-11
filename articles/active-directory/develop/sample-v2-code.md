@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc740acb366212640015ca0fb527d34fade1097d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a19ca14a37bd24e499fdf0681b3510e9a4a8ea3f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010769"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075039"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de la Plataforma de identidad de Microsoft (punto de conexión v2.0)
 
@@ -61,7 +61,7 @@ Los ejemplos siguientes ilustran las aplicaciones web que inician la sesión de 
 | -------- | ------------------- | --------------------------------- |
 | ![Esta imagen muestra el logotipo de ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [ASP.NET Core WebApp signs-in users tutorial](https://aka.ms/aspnetcore-webapp-sign-in) (Tutorial de inicio de sesión para los usuarios de WebApp de ASP.NET Core) | Mismo ejemplo en la fase en la que la [aplicación web de ASP.NET Core llama a Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph)</p>Ejemplo avanzado: [Acceso a la memoria caché de tokens del usuario que ha iniciado sesión desde aplicaciones en segundo plano, API y servicios](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
 | ![Esta imagen muestra el logotipo de ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [Cuaderno de migración de aplicaciones de AD FS a Azure AD para desarrolladores](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad), para aprender a migrar con seguridad las aplicaciones integradas con Servicios de federación de Active Directory (AD FS) a Azure Active Directory (Azure AD). | |
-| ![Esta imagen muestra el logotipo de ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Inicio rápido de ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![Esta imagen muestra el logotipo de ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Inicio rápido de ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> [msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp) |
 | ![Esta imagen muestra el logotipo de Java](media/sample-v2-code/logo_java.png)  |[Tutorial de servlet de Java: capítulo 1.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Inicio de sesión con AAD| |
 | ![Esta imagen muestra el logotipo de Java](media/sample-v2-code/logo_java.png)  |[Tutorial de servlet de Java: capítulo 1.2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Inicio de sesión con B2C |
 | ![Esta imagen muestra el logotipo de Java](media/sample-v2-code/logo_java.png)  | | [Tutorial de servlet de Java: capítulo 2.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Inicio de sesión con AAD y gráfico de llamadas|
