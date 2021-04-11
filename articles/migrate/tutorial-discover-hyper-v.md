@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771403"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612524"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores que se ejecutan en Hyper-V con Azure Migrate Discovery and assessment
 
-Como parte del recorrido de la migración a Azure, puede detectar el inventario y las cargas de trabajo locales. 
+Como parte del recorrido de la migración a Azure, puede detectar el inventario y las cargas de trabajo locales.
 
 En este tutorial se muestra cómo detectar servidores locales en hosts de Hyper-V con la herramienta Azure Migrate Discovery and assessment mediante un dispositivo ligero de Azure Migrate. El dispositivo se implementa como un servidor en un host de Hyper-V para detectar continuamente metadatos de rendimiento y de la máquina.
 
@@ -42,11 +42,11 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 --- | ---
 **Host de Hyper-V** | Los hosts de Hyper-V en los que se encuentran los servidores pueden ser independientes o estar en un clúster.<br/><br/> El host debe ejecutar Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Compruebe que se permiten conexiones entrantes en el puerto 5985 (HTTP) de WinRM para que el dispositivo pueda conectarse para extraer metadatos del servidor y datos de rendimiento, para lo que se usa una sesión de Modelo de información común (CIM).
 **Implementación del dispositivo** | El host de Hyper-V necesita recursos para asignar un servidor al dispositivo:<br/><br/> - 16 GB de RAM, 8 CPU virtuales y alrededor de 80 GB de almacenamiento en disco.<br/><br/> - Un conmutador virtual externo y acceso a Internet en el dispositivo, directamente o a través de un proxy.
-**Servidores** | Las servidores pueden ejecutar cualquier sistema operativo Windows o Linux. 
+**Servidores** | Las servidores pueden ejecutar cualquier sistema operativo Windows o Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparación de una cuenta de usuario de Azure
 
-Para crear un proyecto y registrar el dispositivo de Azure Migrate, necesita una cuenta con:
+Para crear un proyecto y registrar el dispositivo de Azure Migrate, necesita una cuenta con los siguientes permisos:
 - Permisos de nivel de colaborador o propietario en una suscripción de Azure.
 - Permisos para registrar aplicaciones de Azure Active Directory (AAD).
 
@@ -56,7 +56,7 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
     ![Cuadro para buscar la suscripción de Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. En la página **Suscripciones**, seleccione la suscripción en la que desea crear un proyecto. 
+2. En la página **Suscripciones**, seleccione la suscripción en la que quiere crear un proyecto.
 3. En la suscripción, seleccione **Access control (IAM)**  > **Comprobar acceso**.
 4. En **Comprobar acceso**, busque la cuenta de usuario correspondiente.
 5. En **Agregar una asignación de roles**, haga clic en **Agregar**.
@@ -101,7 +101,7 @@ Delegación de credenciales si los discos de los servidores se encuentran en rec
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. Después de validar la integridad del script, ejecútelo en cada host de Hyper-V con este comando de PowerShell:
+3. Después de validar la integridad del script, ejecútelo en cada host de Hyper-V con este comando de PowerShell con permisos elevados:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
@@ -115,7 +115,7 @@ SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
 
-Configure un proyecto nuevo.
+Configure un nuevo proyecto.
 
 1. En Azure Portal > **Todos los servicios**, busque **Azure Migrate**.
 2. En **Servicios**, seleccione **Azure Migrate**.
@@ -126,7 +126,7 @@ Configure un proyecto nuevo.
    ![Cuadros de nombre de proyecto y región](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Seleccione **Crear**.
-8. Espere unos minutos para que se implemente el proyecto. La herramienta **Azure Migrate Discovery and assessment** se agrega de forma predeterminada al nuevo proyecto.
+8. Espere unos minutos a que se implemente el proyecto. La herramienta **Azure Migrate Discovery and assessment** se agrega de forma predeterminada al nuevo proyecto.
 
 ![Página que muestra la herramienta Azure Migrate Discovery and assessment agregada de forma predeterminada](./media/tutorial-discover-hyper-v/added-tool.png)
 
@@ -145,7 +145,7 @@ En este tutorial se configura el dispositivo en un servidor que se ejecuta en un
 1. Proporcione un nombre de dispositivo y genere una clave del proyecto en el portal.
 1. Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
 1. Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Discovery and assessment.
-1. Configure el dispositivo por primera vez y regístrelo en el proyecto, para lo que debe utilizar la clave del proyecto.
+1. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
 ### <a name="1-generate-the-project-key"></a>1. Generación de la clave del proyecto
 
@@ -176,7 +176,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
         **Escenario** | **Descargar** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,91 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8,91 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Para Azure Government:
 
@@ -224,11 +224,11 @@ Configure el dispositivo por primera vez.
       - Solo se admite un proxy HTTP.
       - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
     - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección del servidor funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
-    - **Instalar actualizaciones**: Azure Migrate: Discovery and assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
+    - **Instalación de actualizaciones**: la herramienta Azure Migrate: Discovery and assessment comprueba que el dispositivo tenga instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Pegue la **clave del proyecto** copiada del portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances** (Azure Migrate: Discovery and assessment > Detectar > Administrar dispositivos existentes), seleccione el nombre de dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Pegue la **clave de proyecto** copiada desde el portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances** (Azure Migrate: Discovery and assessment > Detectar > Administrar los dispositivos existentes), seleccione el nombre del dispositivo que proporcionó al generar la clave y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
 
     ![Modal que muestra el código del dispositivo](./media/tutorial-discover-vmware/device-code.png)
@@ -293,5 +293,3 @@ Una vez finalizada la detección, puede verificar que los servidores aparezcan e
 
 - [Evalúe los servidores en el entorno de Hyper-V](tutorial-assess-hyper-v.md) para la migración a máquinas virtuales de Azure.
 - [Revise los datos](migrate-appliance.md#collected-data---hyper-v) que el dispositivo recopila durante la detección.
-
-

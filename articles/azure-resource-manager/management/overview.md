@@ -2,14 +2,14 @@
 title: Información general del Administrador de recursos de Azure
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
-ms.date: 09/01/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97858525"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608551"
 ---
 # <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
@@ -91,7 +91,7 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
 * Al eliminar un grupo de recursos, también se eliminan todos los recursos que contiene. Para información sobre cómo Azure Resource Manager organiza esas eliminaciones, consulte [Eliminación de grupos de recursos y recursos en Azure Resource Manager](delete-resource-group.md).
 
-* Se pueden implementar hasta 800 instancias de un tipo de recurso en cada grupo de recursos. Algunos tipos de recursos están [exentos del límite de 800 instancias](resources-without-resource-group-limit.md).
+* Se pueden implementar hasta 800 instancias de un tipo de recurso en cada grupo de recursos. Algunos tipos de recursos están [exentos del límite de 800 instancias](resources-without-resource-group-limit.md). Para más información, consulte [Límites del grupo de recursos](azure-subscription-service-limits.md#resource-group-limits).
 
 * Algunos recursos pueden existir fuera de un grupo de recursos. Estos recursos se implementan en la [suscripción](../templates/deploy-to-subscription.md), el [grupo de administración](../templates/deploy-to-management-group.md) o el [inquilino](../templates/deploy-to-tenant.md). En estos ámbitos solo se admiten tipos de recursos específicos.
 
@@ -112,6 +112,8 @@ El servicio Azure Resource Manager está diseñado para proporcionar resistenc
 Esta resistencia se aplica a los servicios que reciben las solicitudes a través de Resource Manager. Por ejemplo, Key Vault se beneficia de esta resistencia.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+* Para más información sobre los límites que se aplican a los servicios de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
 
 * Para más información sobre cómo mover recursos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](move-resource-group-and-subscription.md).
 

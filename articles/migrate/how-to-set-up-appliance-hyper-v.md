@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863690"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612031"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configuración de un dispositivo para servidores de Hyper-V
 
@@ -39,9 +39,9 @@ Para configurar el dispositivo mediante una plantilla de VHD, haga lo siguiente:
 
 1. En **Objetivos de migración** > **Windows, Linux y SQL Servers** >  (Servidores Windows, Linux y SQL) **Azure Migrate: Discovery and assessment**, seleccione **Detectar**.
 2. En **Discover Servers** > **Are your servers virtualized?** (Detectar servidores > ¿Están virtualizados sus servidores?), seleccione **Yes, with Hyper-V** (Sí, con Hyper-V).
-3. En **1: Generar la clave del proyecto**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de servidores de Hyper-V. El nombre debe ser alfanumérico con 14 caracteres como máximo.
+3. En **1: Generate project key** (Generar clave de proyecto), especifique un nombre para el dispositivo de Azure Migrate que configurará para la detección de servidores en Hyper-V. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
 1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de los recursos.
-1. Después de que se hayan creado correctamente los recursos de Azure, se genera una **clave de proyecto**.
+1. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
 ### <a name="download-the-vhd"></a>Descarga del disco duro virtual
@@ -53,7 +53,6 @@ En **2: Descargar dispositivo de Azure Migrate**, seleccione el archivo .VHD y h
 
    ![Selecciones para Generar clave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Comprobación de la seguridad
 
 Compruebe que el archivo comprimido es seguro, antes de implementarlo.
@@ -63,9 +62,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Compruebe el valor hash más reciente comparando el resultado del comando anterior con el valor que se documenta [aquí](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security).
 
 ## <a name="create-the-appliance"></a>Creación del dispositivo
 
@@ -85,7 +82,6 @@ Importe el archivo descargado y cree un dispositivo.
 5. En **Elegir red**, especifique el conmutador virtual que usará el servidor. El conmutador necesita conectividad a Internet para enviar datos a Azure.
 6. En **Resumen**, revise los valores de configuración. Haga clic en **Finalizar**.
 7. En Administrador de Hyper-V > **Máquinas virtuales**, inicie la VM.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
@@ -128,8 +124,6 @@ Configure el dispositivo por primera vez.
 1. Una vez que haya iniciado sesión correctamente, vuelva a la pestaña anterior con el administrador de configuración del dispositivo.
 4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegación de credenciales para discos duros virtuales de SMB
 

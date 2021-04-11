@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96518454"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611827"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundancia y disponibilidad de Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault tiene varias capas de redundancia para garantizar la disponibili
 > [!NOTE]
 > Esta guía se aplica a los almacenes. Los grupos de HSM administrados usan un modelo diferente de alta disponibilidad y recuperación ante desastres. Para más información, consulte [Guía de recuperación ante desastres de HSM administrado](../managed-hsm/disaster-recovery-guide.md).
 
-El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica para mantener una alta durabilidad de las claves y los secretos. Consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para más información sobre pares de regiones específicas. La excepción al modelo de regiones emparejadas es Sur de Brasil, que solo permite la opción de mantener los datos residentes en la región Sur de Brasil. Sur de Brasil usa el almacenamiento con redundancia de zona (ZRS) para replicar los datos tres veces dentro de la misma ubicación o región.   
+El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica para mantener una alta durabilidad de las claves y los secretos. Consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md) para más información sobre pares de regiones específicas. La excepción al modelo de regiones emparejadas es Sur de Brasil, que solo permite la opción de mantener los datos residentes en la región Sur de Brasil. Sur de Brasil usa el almacenamiento con redundancia de zona (ZRS) para replicar los datos tres veces dentro de la misma ubicación o región. Para AKV Premium, solo se usan dos de las tres regiones para replicar los datos de la del HSM.  
 
 Si se produce un error en algún componente individual dentro del servicio del almacén de claves, los componentes alternativos de la región se encargan de atender la solicitud para garantizar que no se pierde funcionalidad. No es necesario realizar ninguna acción para iniciar este proceso, ya que se realiza automáticamente y es transparente para el usuario.
 

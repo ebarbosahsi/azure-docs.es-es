@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3325960793a5a0d7bc48ca8030c675d7ebf0c026
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93097590"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442599"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,8 +64,8 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 
 |Tipo de migración|Solución|Orígenes compatibles|Destinos admitidos|Consideraciones|
 |---------|---------|---------|---------|---------|
-|Sin conexión|[Comando COPY de cqlsh](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|Archivos CSV | API Cassandra de Azure Cosmos DB| &bull; Fácil de configurar. <br/>&bull; No es adecuada para grandes conjuntos de datos. <br/>&bull; Solo funciona cuando el origen es una tabla de Cassandra.|
-|Sin conexión|[Copia de tablas con Spark](cassandra-import-data.md#migrate-data-using-spark) | &bull;Apache Cassandra<br/>&bull;API Cassandra de Azure Cosmos DB| API Cassandra de Azure Cosmos DB | &bull; Puede hacer uso de las funcionalidades de Spark para paralelizar la transformación y la ingesta. <br/>&bull; Necesita configuración con una directiva de reintentos personalizada para controlar las limitaciones.|
+|Sin conexión|[Comando COPY de cqlsh](cassandra-import-data.md#migrate-data-by-using-the-cqlsh-copy-command)|Archivos CSV | API Cassandra de Azure Cosmos DB| &bull; Fácil de configurar. <br/>&bull; No es adecuada para grandes conjuntos de datos. <br/>&bull; Solo funciona cuando el origen es una tabla de Cassandra.|
+|Sin conexión|[Copia de tablas con Spark](cassandra-import-data.md#migrate-data-by-using-spark) | &bull;Apache Cassandra<br/>&bull;API Cassandra de Azure Cosmos DB| API Cassandra de Azure Cosmos DB | &bull; Puede hacer uso de las funcionalidades de Spark para paralelizar la transformación y la ingesta. <br/>&bull; Necesita configuración con una directiva de reintentos personalizada para controlar las limitaciones.|
 |En línea|[Striim (desde Oracle DB/Apache Cassandra)](cosmosdb-cassandra-api-migrate-data-striim.md)| &bull;Oracle<br/>&bull;Apache Cassandra<br/><br/> Consulte el [sitio web de Striim](https://www.striim.com/sources-and-targets/) para ver otros orígenes compatibles.|&bull;API de SQL de Azure Cosmos DB<br/>&bull;API Cassandra de Azure Cosmos DB <br/><br/> Consulte el [sitio web de Striim](https://www.striim.com/sources-and-targets/) para ver otros destinos compatibles.| &bull; Funciona con una gran variedad de orígenes, como Oracle, DB2, SQL Server. <br/>&bull; Fácil de crear canalizaciones de ETL y proporciona un panel para la supervisión. <br/>&bull; Admite conjuntos de datos de mayor tamaño. <br/>&bull; Dado que se trata de una herramienta de terceros, debe adquirirse en Marketplace e instalarse en el entorno del usuario.|
 |En línea|[Blitzz (desde Oracle DB/Apache Cassandra)](oracle-migrate-cosmos-db-blitzz.md)|&bull;Oracle<br/>&bull;Apache Cassandra<br/><br/>Consulte el [sitio web de Blitzz](https://www.blitzz.io/) para ver otros orígenes compatibles. |Cassandra API de Azure Cosmos DB. <br/><br/>Consulte el [sitio web de Blitzz](https://www.blitzz.io/) para ver otros destinos compatibles. | &bull; Admite conjuntos de datos de mayor tamaño. <br/>&bull; Dado que se trata de una herramienta de terceros, debe adquirirse en Marketplace e instalarse en el entorno del usuario.|
 
