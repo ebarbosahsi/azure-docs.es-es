@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962426"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448614"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central
 
 **Se aplica a**: [desarrollo de dispositivos insertados](about-iot-develop.md#embedded-device-development)<br>
 **Tiempo total para realizarlo**: 30 minutos
+
+[![Examinar el código](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 En este tutorial, usará Azure RTOS para conectar un kit de desarrollo de IoT para MXCHIP AZ3166 (en adelante, MXCHIP DevKit) a Azure IoT. El artículo forma parte de la serie [Introducción al desarrollo de dispositivos insertados de Azure IoT](quickstart-device-development.md). La serie presenta Azure RTOS a los desarrolladores de dispositivos y muestra cómo conectar varios kits de evaluación de dispositivos a Azure IoT.
 
@@ -26,9 +28,6 @@ Deberá completar las siguientes tareas:
 * Instalar un conjunto de herramientas de desarrollo insertado para programar un dispositivo MXCHIP DevKit en C
 * Compilar una imagen y guardarla en la memoria flash en MXCHIP DevKit
 * Usar Azure IoT Central para crear componentes de nube, ver las propiedades, ver la telemetría de los dispositivos y llamar a comandos directos
-
-> [!NOTE]
-> Si prefiere ver solo el código y no seguir los pasos de este artículo, consulte el ejemplo en [Conexión de un dispositivo MXCHIP AZ3166 a Azure IOT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). Si tiene previsto seguir los pasos de este artículo, clonará el repositorio de GitHub más adelante.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

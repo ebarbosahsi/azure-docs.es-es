@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744035"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773409"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Aplicación de la extensión de Escritorio remoto en Azure Cloud Services (soporte extendido)
 
@@ -27,8 +27,9 @@ Azure Portal usa la extensión de Escritorio remoto para habilitar Escritorio re
 2. Seleccione **Agregar**.
 3. Elija los roles para los que va a habilitar Escritorio remoto.
 4. Rellene los campos obligatorios correspondientes al nombre de usuario, la contraseña, la expiración y el certificado.
+> [Nota] La contraseña del escritorio remoto debe tener una longitud de entre 8 y 123 caracteres, y debe cumplir al menos 3 de los siguientes requisitos de complejidad de contraseña: 1) Contener un carácter en mayúsculas. 2) Contener un carácter en minúsculas. 3) Contener un dígito numérico. 4) Contener un carácter especial. 5) No se permiten los caracteres de control
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="La imagen muestra la entrada de la información necesaria para conectarse al escritorio remoto.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="La imagen muestra la entrada de la información necesaria para conectarse al escritorio remoto.":::
 
 5. Cuando termine, seleccione **Guardar**. Las instancias de rol tardarán unos minutos en estar listas para recibir conexiones.
 
@@ -50,4 +51,4 @@ Una vez que Escritorio remoto está habilitado en los roles, puede iniciar una c
 ## <a name="next-steps"></a>Pasos siguientes 
 - Revise los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido).
 - Vea las [preguntas más frecuentes](faq.md) sobre Cloud Services (soporte extendido).
-- Implemente un servicio en la nube (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Implemente una instancia de Cloud Services (soporte extendido) mediante [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), una [plantilla](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).

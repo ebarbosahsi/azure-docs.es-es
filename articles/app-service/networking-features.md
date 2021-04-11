@@ -4,15 +4,15 @@ description: Obtenga información sobre las características de red de Azure App
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593136"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889151"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -129,11 +129,15 @@ Los siguientes son algunos casos de uso para esta característica:
 ![Diagrama que muestra el uso de puntos de conexión de servicio con Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Para más información sobre la configuración de puntos de conexión de servicio con la aplicación, consulte [Restricciones de acceso de Azure App Service][serviceendpoints].
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Reglas de restricciones de acceso basadas en etiquetas de servicio (versión preliminar)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>Reglas de restricciones de acceso basadas en etiquetas de servicio
+
 Las [etiquetas de servicio de Azure][servicetags] son conjuntos bien definidos de direcciones IP de los servicios de Azure. Las etiquetas de servicio agrupan los intervalos IP que se usan en varios servicios de Azure y a menudo también se limitan a regiones específicas. Así, puede filtrar el tráfico *entrante* desde servicios específicos de Azure. 
 
 Para obtener una lista completa de etiquetas y más información, haga clic en el vínculo de la etiqueta de servicio anterior. Para obtener información sobre cómo habilitar esta característica, consulte [Configuración de restricciones de acceso][iprestrictions].
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrado de encabezados HTTP para reglas de restricción de acceso (versión preliminar)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>Filtrado de encabezados HTTP para reglas de restricción de acceso
+
 Para cada regla de restricción de acceso, puede agregar el filtrado adicional de encabezados HTTP. Esta acción le permite inspeccionar más a fondo la solicitud entrante y filtrar en función de los valores específicos de los encabezados HTTP. Cada encabezado puede tener hasta 8 valores por regla. Actualmente se admite la siguiente lista de encabezados HTTP: 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -143,6 +147,7 @@ Para cada regla de restricción de acceso, puede agregar el filtrado adicional d
 Algunos casos de uso del filtrado de encabezados HTTP son:
 * Restringir el acceso al tráfico procedente de los servidores proxy que reenvían el nombre de host.
 * Restringir el acceso a una instancia específica de Azure Front Door con una regla de etiqueta de servicio y una restricción de encabezado X-Azure-FDID.
+
 ### <a name="private-endpoint"></a>Punto de conexión privado
 
 Un punto de conexión privado es una interfaz de red que le conecta de manera privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar la aplicación web de manera eficaz a su red virtual. Esta característica es solo para flujos *entrantes* en la aplicación web.

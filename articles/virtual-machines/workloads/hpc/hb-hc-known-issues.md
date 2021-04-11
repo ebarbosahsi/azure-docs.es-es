@@ -5,35 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 83f9778da91cebb651d98e2e85748cda7435230a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674680"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889831"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
-Este artículo proporciona los problemas y soluciones más comunes al usar máquinas virtuales de HPC y GPU de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
+Este artículo trata de enumerar los problemas y soluciones más comunes al usar máquinas virtuales de HPC y GPU de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
 
-## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Accelerated Networking en HB, HC, HBv2 y NDv2
+## <a name="mofed-installation-on-ubuntu"></a>Instalación de MOFED en Ubuntu
+En Ubuntu-18.04, Mellanox OFED mostró incompatibilidad con la versión de kernels `5.4.0-1039-azure #42` y más reciente, lo que provoca un aumento en el tiempo de arranque de la máquina virtual en unos 30 minutos. Esto se ha comunicado para las versiones de Mellanox OFED 5.2-1.0.4.0 y 5.2-2.2.0.0.
+La solución temporal consiste en usar la imagen de marketplace **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** o anteriores y no actualizar el kernel.
+Se espera que este problema se resuelva con un MOFED más reciente (TBD).
 
-[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) ya está disponible en los tamaños de máquina virtual habilitados para SR-IOV y compatibles con RDMA e InfiniBand [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) y [NDv2](../../ndv2-series.md). Esta funcionalidad permite mejorar el rendimiento (hasta 30 Gbps) y las latencias en la red Ethernet de Azure. Aunque esto es independiente de las funcionalidades de RDMA sobre la red InfiniBand, algunos cambios realizados en la plataforma para esta funcionalidad pueden afectar al comportamiento de ciertas implementaciones de MPI al ejecutar trabajos a través de InfiniBand. En concreto, es posible que en algunas máquinas la interfaz de InfiniBand tenga un nombre algo diferente (mlx5_1, en lugar de mlx5_0, como era antes) y esto puede requerir la modificación de las líneas de comandos de MPI, sobre todo cuando se usa la interfaz UCX (normalmente con OpenMPI y HPC-X).
-En este [artículo del blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) puede encontrar más información al respecto e instrucciones sobre cómo solucionar los problemas observados.
+## <a name="known-issues-on-hbv3"></a>Problemas conocidos de HBv3
+- Actualmente, InfiniBand solo se admite en la máquina virtual 120-Core (Standard_HB120rs_v3).
+- Las redes aceleradas de Azure no son compatibles en este momento con la serie HBv3 en todas las regiones.
 
-## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalación del controlador InfiniBand en máquinas virtuales de la serie N
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Redes aceleradas en HB, HC, HBv2 y NDv2
 
-NC24r_v3 y ND40r_v2 tienen habilitada la opción SR-IOV, mientras que NC24r y NC24r_v2, no. Encontrará algunos detalles sobre la bifurcación [aquí](../../sizes-hpc.md#rdma-capable-instances).
-InfiniBand (IB) puede configurarse en los tamaños de máquina virtual habilitados para SR-IOV con los controladores OFED, mientras que los tamaños de máquina virtual que no son SR-IOV requieren de los controladores ND. Esta compatibilidad con IB está disponible de forma adecuada en las [VMI de CentOS-HPC](configure.md). Para Ubuntu, consulte [esta instrucción](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para instalar los controladores OFED y ND tal y como se describe en la [documentación](enable-infiniband.md#vm-images-with-infiniband-drivers).
+Las [redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) ya están disponibles en los tamaños de máquina virtual habilitados para SR-IOV y compatibles con RDMA e InfiniBand [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) y [NDv2](../../ndv2-series.md). Esta funcionalidad permite mejorar el rendimiento (hasta 30 Gbps) y las latencias en la red Ethernet de Azure. Aunque esto es independiente de las funcionalidades de RDMA sobre la red InfiniBand, algunos cambios realizados en la plataforma para esta funcionalidad pueden afectar al comportamiento de ciertas implementaciones de MPI al ejecutar trabajos a través de InfiniBand. En concreto, es posible que en algunas máquinas la interfaz de InfiniBand tenga un nombre algo diferente (mlx5_1, en lugar de mlx5_0, como era antes) y esto puede requerir la modificación de las líneas de comandos de MPI, sobre todo cuando se usa la interfaz UCX (normalmente con OpenMPI y HPC-X). Actualmente, la solución más sencilla puede ser usar la versión más reciente de HPC-X en las imágenes de máquina virtual de la versión de CentOS-HPC o deshabilitar las redes aceleradas si no son necesarias.
+En este [artículo de TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) puede encontrar más información al respecto e instrucciones sobre cómo solucionar los problemas observados.
+
+## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Instalación del controlador InfiniBand en máquinas virtuales que no son SR-IOV
+
+Actualmente, H16r, H16mr y NC24r no están habilitados para SR-IOV. [Aquí](../../sizes-hpc.md#rdma-capable-instances) se muestran algunos detalles sobre la bifurcación de la pila de Infiniband.
+InfiniBand puede configurarse en los tamaños de máquina virtual habilitados para SR-IOV con los controladores OFED, mientras que los tamaños de máquina virtual que no son SR-IOV requieren de los controladores ND. Esta compatibilidad con InfiniBand está disponible adecuadamente para [CentOS, RHEL y Ubuntu](configure.md).
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicación de MAC mediante cloud-init con Ubuntu en máquinas virtuales de las series H y N
 
-Hay un problema conocido con cloud-init en las imágenes de máquina virtual de Ubuntu al intentar abrir la interfaz de InfiniBand. Esto puede ocurrir al reiniciar la máquina virtual o al tratar de crear una imagen de máquina virtual después de una generalización. Los registros de arranque de la máquina virtual quizá muestren un error como el siguiente: "Iniciando servicio de red... Error de tiempo de ejecución: se encontró una dirección MAC duplicada. "eth1" e "ib0" tienen una dirección MAC".
+Hay un problema conocido con cloud-init en las imágenes de máquina virtual de Ubuntu al intentar abrir la interfaz de InfiniBand. Esto puede ocurrir al reiniciar la máquina virtual o al tratar de crear una imagen de máquina virtual después de una generalización. Los registros de arranque de la máquina virtual quizá muestren un error como el siguiente:
+```console
+“Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
+```
 
-Esta "dirección MAC duplicada con cloud-init en Ubuntu" es un problema conocido. La solución es:
+Esta "dirección MAC duplicada con cloud-init en Ubuntu" es un problema conocido. Esto se resolverá en kernels más recientes. Si se produce el problema, la solución alternativa es:
 1) Implementar la imagen de máquina virtual de Marketplace (Ubuntu 18.04).
 2) Instalar los paquetes de software necesarios para habilitar InfiniBand ([instrucciones aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)).
 3) Editar el archivo waagent.conf para modificar EnableRDMA=y.
@@ -52,17 +64,13 @@ Esta "dirección MAC duplicada con cloud-init en Ubuntu" es un problema conocido
     EOF
     ```
 
-## <a name="dram-on-hb-series"></a>DRAM de la serie HB
-
-Las máquinas virtuales de serie HB solo pueden exponer 228 GB de RAM para las máquinas virtuales invitadas en este momento. Esto es debido a una limitación conocida del hipervisor de Azure para evitar que las páginas se asignen a la DRAM local de CCX AMD (dominios NUMA) reservada para la máquina virtual invitada.
-
-## <a name="accelerated-networking"></a>Redes aceleradas
-
-En este momento, no están habilitadas las redes aceleradas de Azure en las máquinas virtuales de HPC y GPU habilitadas para InfiniBand. Se notificará a los clientes cuando se admita esta característica.
-
 ## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
 
 Para evitar el acceso de hardware de bajo nivel que pueda provocar vulnerabilidades de seguridad, el par de cola 0 no es accesible para las VM invitadas. Esto solo debería afectar a las acciones normalmente asociadas con la administración de la NIC ConnectX-5 y a la ejecución de algunos diagnósticos de InfiniBand, como ibdiagnet, pero no a las aplicaciones de usuario final.
+
+## <a name="dram-on-hb-series-vms"></a>DRAM de máquinas virtuales de la serie HB
+
+Las máquinas virtuales de serie HB solo pueden exponer 228 GB de RAM para las máquinas virtuales invitadas en este momento. Del mismo modo, 458 GB en HBv2 y 448 GB en máquinas virtuales HBv3. Esto es debido a una limitación conocida del hipervisor de Azure para evitar que las páginas se asignen a la DRAM local de CCX AMD (dominios NUMA) reservada para la máquina virtual invitada.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 
@@ -114,5 +122,5 @@ Puede ignorar los siguientes mensajes de advertencia de kernel al iniciar una m�
 ## <a name="next-steps"></a>Pasos siguientes
 
 - En los artículos [Introducción a las máquinas virtuales de la serie HB](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si quiere una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

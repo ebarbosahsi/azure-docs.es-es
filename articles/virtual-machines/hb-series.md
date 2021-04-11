@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: f0f5d8f5e5e7077c3438005b58d6ed1a132219f4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 92a46c7f9d7cf86787bb1707c41ae0e44c37fc60
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566029"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800914"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -35,7 +35,10 @@ Las máquinas virtuales de la serie HB incluyen la característica MeliBox EDR I
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | All | 700 | 4 | 8 |
 
-Obtenga más información sobre la [arquitectura](./workloads/hpc/hb-series-overview.md)subyacente y el [rendimiento](./workloads/hpc/hb-series-performance.md) esperado de la máquina virtual de la serie HB.
+Obtenga más información sobre:
+- La [arquitectura y la topología de VM](./workloads/hpc/hb-series-overview.md).
+- La [pila de software](./workloads/hpc/hb-series-overview.md#software-specifications) compatible que incluye el sistema operativo admitido.
+- El [rendimiento ](./workloads/hpc/hb-series-performance.md) esperado de la VM de la serie HB.
 
 [!INCLUDE [hpc-include.md](./workloads/hpc/includes/hpc-include.md)]
 

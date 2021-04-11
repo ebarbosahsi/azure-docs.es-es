@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704334"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567409"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 
@@ -43,7 +43,7 @@ De forma predeterminada, los recursos se agrupan por capa de aplicaciones y tipo
 
 La página de información del grupo de recursos proporciona otras herramientas con el objetivo de ayudarle a diagnosticar problemas.
 
-   |         |          |
+   | Herramienta | Descripción |
    | ---------------- |:-----|
    | [**Alertas**](../alerts/alerts-overview.md)      |  Ver, crear y administrar las alertas. |
    | [**Métricas**](../data-platform.md) | Visualizar y explorar los datos en función de las métricas.    |

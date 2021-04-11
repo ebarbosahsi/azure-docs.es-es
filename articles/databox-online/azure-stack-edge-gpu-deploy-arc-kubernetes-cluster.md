@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437611"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567532"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitación de Azure Arc en un clúster de Kubernetes en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -74,7 +74,7 @@ Antes de habilitar Azure Arc en el clúster de Kubernetes, deberá habilitar y r
     
     ![Registro de proveedores de recursos de Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-También puede registrar proveedores de recursos con `az cli`. Para más información, consulte [Registre los dos proveedores para Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes).
+También puede registrar proveedores de recursos con `az cli`. Para más información, consulte [Registre los dos proveedores para Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes).
 
 ## <a name="create-service-principal-assign-role"></a>Creación de una entidad de servicio y asignación del rol
 
@@ -150,7 +150,7 @@ Siga estos pasos para configurar el clúster de Kubernetes para la administraci�
     Este es un ejemplo:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b&quot; -ClientSecret &quot;<password>"
         [10.128.44.240]: PS>
     ```
     
@@ -226,7 +226,7 @@ Para eliminar la administración de Azure Arc, siga estos pasos:
 
 
 > [!NOTE]
-> De manera predeterminada, cuando el recurso `yamls` se elimina del repositorio de Git, no se eliminan los recursos correspondientes del clúster de Kubernetes. Debe establecer `--sync-garbage-collection` en Arc OperatorParams para permitir la eliminación de recursos cuando se eliminen del repositorio de Git. Para obtener más información, consulte [Eliminación de una configuración](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters).
+> De manera predeterminada, cuando el recurso `yamls` se elimina del repositorio de Git, no se eliminan los recursos correspondientes del clúster de Kubernetes. Debe establecer `--sync-garbage-collection` en Arc OperatorParams para permitir la eliminación de recursos cuando se eliminen del repositorio de Git. Para obtener más información, consulte [Eliminación de una configuración](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

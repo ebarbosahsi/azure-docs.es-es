@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 608f883304dbc8e1ea8b0127668125ae50ca0b11
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199907"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564949"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integración de Azure Digital Twins con Azure Time Series Insights
 
@@ -157,7 +157,7 @@ A continuación, tendrá que establecer variables de entorno en la aplicación d
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Creación y conexión de una instancia de Time Series Insights
 
-A continuación, configurará una instancia de Time Series Insights para recibir los datos del segundo centro de eventos (TSI). Siga los pasos que aparecen a continuación y, para más detalles sobre este proceso, consulte [*Tutorial: Configuración de un entorno de pago por uso de Azure Time Series Insights Gen2*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+A continuación, configurará una instancia de Time Series Insights para recibir los datos del segundo centro de eventos (TSI). Siga los pasos que aparecen a continuación y, para más detalles sobre este proceso, consulte [*Tutorial: Configuración de un entorno de pago por uso de Azure Time Series Insights Gen2*](../time-series-insights/tutorial-set-up-environment.md).
 
 1. En Azure Portal, empiece a crear un entorno de Time Series Insights. 
     1. Seleccione el plan de tarifa **Gen2(L1)** .
@@ -201,7 +201,7 @@ Ahora, los datos deben fluir a la instancia de Time Series Insights, listos para
 
 De forma predeterminada, los gemelos digitales se almacenan como una jerarquía plana en Time Series Insights, pero se pueden enriquecer con la información del modelo y una jerarquía de varios niveles para la organización. Para más información sobre este proceso, lea: 
 
-* [*Tutorial: Definir y aplicar un modelo*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [*Tutorial: Definir y aplicar un modelo*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 Puede escribir la lógica personalizada para proporcionar automáticamente esta información con los datos del modelo y del gráfico ya almacenados en Azure Digital Twins. Para obtener más información sobre cómo administrar, actualizar y recuperar información del grafo de gemelos, vea las referencias siguientes:
 

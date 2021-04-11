@@ -7,55 +7,73 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 19b7f9bc19bec989e524dce7172037025e2fe4fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432986"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888913"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
 > [!IMPORTANT]
-> Las características de búsqueda semántica se encuentran en versión preliminar pública, y solo están disponibles mediante la API REST en versión preliminar. Las características en vista previa (GB) se ofrecen tal cual, en [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La búsqueda semántica se encuentra en versión preliminar pública y solo está disponible mediante la API REST en versión preliminar y el portal. Las características en versión preliminar se ofrecen tal cual, según las [Condiciones de uso complementarias](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), y no se garantiza que tengan la misma implementación en la disponibilidad general. Estas características son facturables. Para más información, consulte [Disponibilidad y precios](semantic-search-overview.md#availability-and-pricing).
 
-La búsqueda semántica es una colección de características relacionadas con las consultas que admiten una experiencia de consulta más natural y de más calidad. Las características incluyen la reclasificación semántica de los resultados de búsqueda, así como la generación de subtítulos y respuestas con resaltado semántico. Los 50 primeros resultados del [motor de búsqueda de texto completo](search-lucene-query-architecture.md) se vuelven a clasificar para encontrar las coincidencias más pertinentes.
+La búsqueda semántica es una colección de funcionalidades relacionadas con las consultas que agrega relevancia semántica y comprensión del lenguaje a los resultados de la búsqueda. La *clasificación semántica* busca el contexto y la relación entre los términos, elevando las coincidencias que tienen más sentido en función de la consulta. Language Understanding busca *descripciones* y *respuestas* en el contenido que resuman el documento coincidente o respondan a una pregunta, que luego se puede representar en una página de resultados de búsqueda para una experiencia de búsqueda más productiva.
 
-La tecnología subyacente es de Bing y Microsoft Research, y se integra con la infraestructura de Cognitive Search. Para más información sobre las inversiones en investigación e inteligencia artificial que respaldan la búsqueda semántica, consulte [Formas en que la inteligencia artificial de Bing Azure se usa en Cognitive Search (blog de Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
+Los modelos previamente entrenados de última generación se usan para el resumen y la clasificación. Para mantener el rápido rendimiento que los usuarios esperan de la búsqueda, el resumen semántico y la clasificación se aplican solo a los 50 resultados principales, en función de la puntuación del [algoritmo de puntuación de similitud predeterminada](index-similarity-and-scoring.md#similarity-ranking-algorithms). Al usar los resultados como un corpus de documento, la clasificación semántica vuelve a puntuar los resultados en función de la intensidad semántica de la coincidencia.
 
-Para usar la búsqueda semántica, deberá realizar pequeñas modificaciones en la solicitud de búsqueda, pero no se necesitan más configuraciones ni nuevas indexaciones.
+La tecnología subyacente es de Bing y Microsoft Research, y se integra con la infraestructura de Cognitive Search como una característica de complemento. Para más información sobre las inversiones en investigación e inteligencia artificial que respaldan la búsqueda semántica, consulte [Formas en que la inteligencia artificial de Bing Azure se usa en Cognitive Search (blog de Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
-Las características de la versión preliminar pública son:
+En el vídeo siguiente se proporciona información general de las funcionalidades.
 
-+ Modelo de clasificación semántica que usa el contexto o el significado semántico para calcular una puntuación de relevancia
-+ Leyendas semánticas que resumen los pasajes principales de un resultado para facilitar el examen
-+ Respuestas semánticas a la consulta, si la consulta es una pregunta
-+ Resaltados semánticos que permiten colocar el foco sobre frases y términos clave
-+ Corrección ortográfica que corrige los errores tipográficos antes de que los términos de consulta lleguen al motor de búsqueda
+> [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
+
+## <a name="components-and-workflow"></a>Componentes y flujo de trabajo
+
+La búsqueda semántica mejora la precisión y la coincidencia gracias a la adición de las siguientes funcionalidades:
+
+| Característica | Descripción |
+|---------|-------------|
+| [Corrector ortográfico](speller-how-to-add.md) | Corrige los errores tipográficos antes de que los términos de consulta lleguen al motor de búsqueda. |
+| [Clasificación semántica](semantic-ranking.md) | Usa el contexto o el significado semántico para calcular una nueva puntuación de relevancia. |
+| [Títulos y resaltados semánticos](semantic-how-to-query-request.md) | Son las oraciones y frases de un documento que mejor resumen el contenido; se resaltan los pasajes clave para facilitar el análisis. Los títulos que resumen un resultado son útiles cuando los campos de contenido individuales son demasiado densos para la página de resultados. El texto resaltado eleva los términos y frases más relevantes para que los usuarios puedan determinar rápidamente por qué se consideró relevante una coincidencia. |
+| [Respuestas semánticas](semantic-answers.md) | Es una subestructura opcional y adicional que se devuelve desde una consulta semántica. Proporciona una respuesta directa a una consulta que se parece a una pregunta. |
+
+### <a name="order-of-operations"></a>Orden de las operaciones
+
+Los componentes de la búsqueda semántica amplían la canalización de ejecución de consultas existente en ambas direcciones. Si habilita la corrección ortográfica, el [corrector ortográfico](speller-how-to-add.md) corrige los errores tipográficos al principio, antes de que los términos de la consulta lleguen al motor de búsqueda.
+
+:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Componentes semánticos de una ejecución de consulta" border="true":::
+
+La ejecución de la consulta se realiza de la manera habitual, con el análisis de términos, varios exámenes y el análisis de los índices invertidos. El motor recupera los documentos mediante la coincidencia de tokens y puntúa los resultados mediante el [algoritmo de puntuación de similitud predeterminada](index-similarity-and-scoring.md#similarity-ranking-algorithms). Las puntuaciones se calculan en función del grado de similitud lingüística entre los términos de consulta y los términos coincidentes del índice. Si los ha definido, los perfiles de puntuación también se aplican en esta fase. A continuación, los resultados se pasan al subsistema de búsqueda semántica.
+
+En el paso de preparación, el corpus del documento que se ha devuelto desde el conjunto de resultados inicial se analiza a nivel de oración y de párrafo para buscar pasajes que resuman cada documento. A diferencia de la búsqueda de palabras clave, este paso usa la lectura y la comprensión automáticas para evaluar el contenido. Con esta fase de procesamiento de contenido, una consulta semántica devuelve [descripciones](semantic-how-to-query-request.md) y [respuestas](semantic-answers.md). Para formular estos elementos, la búsqueda semántica usa la representación del lenguaje para extraer y resaltar los pasajes principales que mejor resuman un resultado. Si la consulta de búsqueda es una pregunta y se solicitan respuestas, la respuesta también incluirá el pasaje de texto que mejor responda a la pregunta, según se exprese en la consulta de búsqueda. 
+
+En el caso de los títulos y las respuestas, se usa el texto existente en la formulación. Tenga en cuenta que los modelos semánticos no componen nuevas oraciones o frases a partir del contenido disponible, ni aplican la lógica para llegar a nuevas conclusiones. En resumen, el sistema nunca devolverá contenido que no exista.
+
+A continuación, los resultados se vuelven a puntuar en función de la [similitud conceptual](semantic-ranking.md) de los términos de la consulta.
+
+Para usar las funcionalidades semánticas en las consultas, deberá realizar pequeñas modificaciones en la [solicitud de búsqueda](semantic-how-to-query-request.md), pero no necesitará realizar más configuraciones ni nuevas indexaciones.
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La clasificación semántica está disponible mediante el [registro de inicio de sesión](https://aka.ms/SemanticSearchPreviewSignup), en los servicios de búsqueda creados en un nivel Estándar (S1, S2, S3), ubicados en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Europa del norte y Oeste de Europa. La corrección ortográfica está disponible en las mismas regiones, pero no tiene restricciones de nivel. Si tiene un servicio existente que cumpla los criterios de nivel y región, solo es necesario que se registre.
+Puede obtener las funcionalidades semánticas mediante el [registro de inicio de sesión](https://aka.ms/SemanticSearchPreviewSignup), en los servicios de búsqueda que se crean en un nivel Estándar (S1, S2, S3) y que estén ubicados en una de estas regiones: Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa y Oeste de Europa. 
+
+La corrección ortográfica está disponible en las mismas regiones, pero no tiene restricciones de nivel. Si tiene un servicio existente que cumpla los criterios de nivel y región, solo es necesario que se registre.
 
 Entre el lanzamiento de la versión preliminar del 2 de marzo al 1 de abril, la corrección ortográfica y la clasificación semántica se ofrecen de forma gratuita. Después del 1 de abril, los costos computacionales de ejecutar esta funcionalidad pasarán a ser un evento facturable. El costo esperado es de aproximadamente 500 USD/mes por 250 000 consultas. Puede encontrar información detallada de los costos documentada en la [página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/) y en [Estimación y administración de los costos](search-sku-manage-costs.md).
-
-## <a name="semantic-search-architecture"></a>Arquitectura de la búsqueda semántica
-
-Los componentes de la búsqueda semántica se superponen sobre la canalización de ejecución de la consulta existente. La corrección ortográfica (no se muestra en el diagrama) mejora las coincidencias, ya que subsana los errores tipográficos en términos de consultas individuales. Una vez completados todos los análisis, el motor de búsqueda recupera los documentos que coinciden con la consulta y los puntúa mediante el [algoritmo de puntuación predeterminado](index-similarity-and-scoring.md#similarity-ranking-algorithms), ya sea BM25 o el clásico, según cuándo se haya creado el servicio. Los perfiles de puntuación también se aplican en esta fase.
-
-Tras recibir las 50 coincidencias principales, el [modelo de clasificación semántica](semantic-how-to-query-response.md) vuelve a evaluar el corpus de documentos. Los resultados pueden incluir más de 50 coincidencias, pero solo se volverán a clasificar las 50 primeras. Para la clasificación, el modelo usa el aprendizaje automático y el aprendizaje por transferencia para volver a puntuar los documentos en función del nivel de coincidencia de cada uno con la intención de la consulta.
-
-Para crear leyendas y respuestas, la búsqueda semántica usa la representación del lenguaje para extraer y resaltar los pasajes principales que mejor resuman un resultado. Si la consulta de búsqueda es una pregunta y se solicitan respuestas, la respuesta incluirá el pasaje de texto que mejor responda a la pregunta, según se expresa en la consulta de búsqueda.
-
-:::image type="content" source="media/semantic-search-overview/semantic-query-architecture.png" alt-text="Componentes semánticos de una canalización de consulta" border="true":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Un nuevo tipo de consulta permite la clasificación de relevancia y las estructuras de respuesta de la búsqueda semántica.
 
-Para comenzar, [cree una consulta semántica](semantic-how-to-query-request.md). O bien, revise cualquiera de los siguientes artículos para encontrar información relacionada.
+Para comenzar, [cree una consulta semántica](semantic-how-to-query-request.md). O bien, consulte los siguientes artículos para obtener información relacionada.
 
 + [Adición de la corrección ortográfica a los términos de consulta](speller-how-to-add.md)
-+ [Clasificación y respuestas semánticas (respuestas y leyendas)](semantic-how-to-query-response.md)
++ [Devolución de una respuesta semántica](semantic-answers.md)
++ [Clasificación semántica](semantic-ranking.md)
++ [Introducción a la búsqueda semántica (entrada de blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [Información significativa con las funcionalidades semánticas (vídeo de The AI Show)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)

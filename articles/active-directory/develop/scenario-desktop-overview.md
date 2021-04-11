@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753723"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798959"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Escenario: Aplicación de escritorio que llama a las API web
 
@@ -30,6 +30,7 @@ Si aún no lo ha hecho, cree su primera aplicación siguiendo un inicio rápido:
 - [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows](./quickstart-v2-windows-desktop.md)
 - [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de UWP](./quickstart-v2-uwp.md)
 - [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación nativa de macOS](./quickstart-v2-ios.md)
+- [Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de Node.js y Electron](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Información general
 
@@ -39,6 +40,7 @@ Supongamos que escribe una aplicación de escritorio y que desea que los usuario
 
   - Si la aplicación de escritorio admite controles gráficos; por ejemplo, si es una aplicación Windows.Form, una aplicación WPF o una aplicación nativa de macOS.
   - O si se trata de una aplicación .NET Core y acepta que la interacción de autenticación con Azure Active Directory (Azure AD) suceda en el explorador del sistema.
+  - O bien, si se trata de una aplicación de Node.js y Electron, que se ejecuta en una instancia de Chromium.
 
 - En el caso de las aplicaciones hospedadas en Windows, también es posible que las aplicaciones que se ejecutan en equipos unidos a un dominio de Windows o unidos a Azure AD adquieran un token en modo silencioso mediante el uso de la autenticación integrada de Windows.
 - Por último, y aunque no es recomendable, puede usar un nombre de usuario y una contraseña en las aplicaciones clientes públicas. Esto sigue siendo necesario en algunos escenarios, como DevOps. Su uso impone restricciones en la aplicación. Por ejemplo, no puede iniciar sesión si el usuario necesita realizar la [autenticación multifactor](../authentication/concept-mfa-howitworks.md) (acceso condicional). Además, la aplicación no se beneficiará del inicio de sesión único (SSO).

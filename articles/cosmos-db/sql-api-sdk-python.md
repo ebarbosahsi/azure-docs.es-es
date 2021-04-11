@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505076"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799520"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,17 +38,26 @@ ms.locfileid: "102505076"
 > * [Bulk Executor: .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor: Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Página| Link |
 |---|---|
 |**Descargar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentación de la API**|[Documentación de referencia de la API de Python](/python/api/azure-cosmos/)|
+|**Documentación de la API**|[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instrucciones de instalación del SDK**|[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introducción**|[Introducción al SDK de Python](create-sql-api-python.md)|
-|**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.6+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historial de versiones
 
-### <a name="410-2020-08-10"></a>4.1.0 (10-08-2020)
+## <a name="420"></a>4.2.0
+
+**Correcciones de errores**
+- Se ha corregido un error en el que no se respetaba el token de continuación cuando se usa query_iterable para obtener los resultados por página.
+- Se ha corregido un error en el que no se respetaban los tokens de recursos para las lecturas y eliminaciones de documentos. 
+
+**Nuevas características:**
+- Se ha agregado compatibilidad para pasar el valor de `partitionKey` cuando se consulta la fuente de cambios.
+
+## <a name="410"></a>4.1.0
 
 - Se ha agregado la advertencia de desuso para el modo de indexación "diferida". El back-end ya no permite la creación de contenedores con este modo y los establecerá en coherentes en su lugar.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505076"
 - Se ha agregado la capacidad de establecer el TTL de almacenamiento analítico al crear un nuevo contenedor.
 
 **Correcciones de errores**
-- Se ha corregido la compatibilidad con elementos dict como entradas para las API get_client.
+- Se ha corregido la compatibilidad con elementos `dicts` como entradas para las API get_client.
 - Se ha corregido la compatibilidad con Python 2/3 en los iteradores de consulta.
-- Se ha corregido el error de sugerencia de tipo (problema n.º 12570).
-- Se ha corregido un error que provocaba que los encabezados de opciones no se agregaran a la función upsert_item. Problema n.º 11791: gracias @aalapatirvbd.
-- Se ha corregido un error generado al usarse un identificador que no es de cadena en un elemento. Ahora genera TypeError en lugar de AttributeError (problema n.º 11793).
+- Se ha corregido el error de sugerencia de tipo.
+- Se ha corregido un error que provocaba que los encabezados de opciones no se agregaran a la función upsert_item. 
+- Se ha corregido un error generado al usarse un identificador que no es de tipo cadena en un elemento. Ahora se genera TypeError en lugar de AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Versión estable.
 * Se agregó HttpLoggingPolicy a la canalización para permitir el paso de un registrador personalizado para los encabezados de solicitud y respuesta.
@@ -80,8 +90,8 @@ ms.locfileid: "102505076"
 * Se agregó compatibilidad con Distinct, Offset y Limit de consulta.
 * El contexto de ejecución de consulta de documento predeterminado se usa ahora para:
 
-  * Consultas ChangeFeed
-  * Consultas de una sola partición (partitionkey, partitionKeyRangeId está presente en las opciones)
+  * Consultas de fuente de cambios
+  * Consultas de una única partición (`partitionkey` y `partitionKeyRangeId` están presentes en las opciones)
   * Consultas de no documentos
 
 * Se producen errores en los agregados en varias particiones, con la habilitación de consultas entre particiones establecida en true, pero no hay ninguna palabra clave "value" presente
@@ -324,6 +334,8 @@ Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelació
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |
+| [4.2.0](#420) |9 de octubre de 2020 |--- |
+| [4.1.0](#410) |10 de agosto de 2020 |--- |
 | [4.0.0](#400) |20 de mayo de 2020 |--- |
 | [3.0.2](#302) |15 de noviembre de 2018 |--- |
 | [3.0.1](#301) |04 de octubre de 2018 |--- |

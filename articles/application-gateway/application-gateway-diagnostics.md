@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065327"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950491"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -306,7 +306,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|action     |  Acción realizada en la solicitud. Los valores disponibles Coincidente y Bloqueado.      |
+|action     |  Acción realizada en la solicitud. Los valores disponibles son bloqueados y permitidos (para reglas personalizadas), coincidentes (cuando una regla coincide con una parte de la solicitud) y detectados y bloqueados (ambos son para las reglas obligatorias, dependiendo de si WAF está en modo de detección o prevención).      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |detalles     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |

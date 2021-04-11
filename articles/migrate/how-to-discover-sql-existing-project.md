@@ -1,17 +1,17 @@
 ---
 title: Detección de instancias de SQL Server en un proyecto existente de Azure Migrate
 description: Aprenda a detectar instancias de SQL Server en un proyecto existente de Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/23/2021
+ms.openlocfilehash: 2de60880b511e43ffb2949a15fec2cf2a94f62fa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452771"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567159"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Detección de instancias de SQL Server en un proyecto existente 
 
@@ -19,12 +19,9 @@ En este artículo se describe cómo detectar bases de datos e instancias de SQL�
 
 La detección de bases de datos e instancias de SQL Server que se ejecutan en máquinas locales ayuda a identificar una ruta de migración a Azure SQL y a adaptarla. Para realizar la detección, el dispositivo de Azure Migrate usa las credenciales de dominio o las credenciales de autenticación de SQL Server que tienen acceso a las bases de datos e instancias de SQL Server que se ejecutan en los servidores de destino. Este proceso de detección se realiza sin agente, es decir, no se instalada nada en los servidores de destino.
 
-> [!Note]
-> La detección y valoración de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y quiere probar esta característica, asegúrese de haber completado los [**requisitos previos**](how-to-discover-sql-existing-project.md) de este artículo.
-
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- Asegúrese de que ha: 
+- Asegúrese de que ha:
     - Creado un [proyecto de Azure Migrate](./create-manage-projects.md) antes de anunciar la característica de valoración de SQL para su región
     - Agregado la herramienta para [Azure Migrate: detección y valoración](./how-to-assess.md) a un proyecto
 - Revise [la compatibilidad y los requisitos de la detección de aplicaciones](./migrate-support-matrix-vmware.md#vmware-requirements).
@@ -43,16 +40,16 @@ La detección de bases de datos e instancias de SQL Server que se ejecutan en m
         :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-upgrade-appliance.png" alt-text="Botón para actualizar el dispositivo de Azure Migrate":::
     - Compruebe que los servicios que se ejecutan en el dispositivo estén actualizados a las últimas versiones. Para ello, inicie el administrador de configuración del dispositivo desde el servidor de este y seleccione la opción para ver los servicios del dispositivo en el panel de configuración de requisitos previos.
         - El dispositivo y sus componentes se actualizan de forma automática :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Comprobar la versión del dispositivo":::
-    - En el panel de administración de credenciales y orígenes de detección del administrador de configuración del dispositivo, agregue las credenciales de autenticación de SQL Server o de dominio que tengan acceso de administrador del sistema a las bases de datos y a la instancia de SQL Server que se van a detectar. 
-    Puede aprovechar la característica de asignación de credenciales automática del dispositivo o bien asignar las credenciales al servidor respectivo de forma manual, tal y como se resalta [aquí](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
-        
+    - En el panel de administración de credenciales y orígenes de detección del administrador de configuración del dispositivo, agregue las credenciales de autenticación de SQL Server o de dominio que tengan acceso de administrador del sistema a las bases de datos y a la instancia de SQL Server que se van a detectar.
+    Puede aprovechar la característica de asignación de credenciales automática del dispositivo o bien asignar las credenciales al servidor respectivo de forma manual, tal y como se resalta [aquí](./tutorial-discover-vmware.md#start-continuous-discovery).
+
     Algunos puntos a tener en cuenta:
     - Asegúrese de que el inventario de software ya esté habilitado o proporcione credenciales que sean de dominio o no para habilitarlo. Debe realizarse el inventario de software para detectar las instancias de SQL Server.
-    - El dispositivo intentará validar las credenciales de dominio con AD, a medida que se agreguen. Asegúrese de que el servidor del dispositivo tenga una línea de visión de red al servidor de AD asociado a las credenciales. Las credenciales asociadas con la autenticación de SQL Server no se validan. 
+    - El dispositivo intentará validar las credenciales de dominio con AD, a medida que se agreguen. Asegúrese de que el servidor del dispositivo tenga una línea de visión de red al servidor de AD asociado a las credenciales. Las credenciales asociadas con la autenticación de SQL Server no se validan.
 
-3. Una vez agregadas las credenciales que desee, seleccione Iniciar detección para comenzar el examen.
+3. Una vez agregadas las credenciales que desee, seleccione Iniciar la detección para comenzar el examen.
 
-> [!Note] 
+> [!Note]
 >Deje que la detección de SQL se ejecute durante un tiempo antes de crear valoraciones para Azure SQL. Si no se permite que se complete la detección de bases de datos e instancias de SQL Server, las instancias respectivas se marcan como **Desconocidas** en el informe de valoración.
 
 ## <a name="next-steps"></a>Pasos siguientes

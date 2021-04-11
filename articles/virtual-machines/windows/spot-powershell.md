@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096452"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802750"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Implementación de máquinas virtuales de acceso puntual de Azure con Azure PowerShell
 
@@ -76,20 +76,53 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="simulate-an-eviction"></a>Simulación de una expulsión
 
-Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar de qué manera la aplicación responderá a una expulsión repentina. 
+Puede simular la expulsión de una máquina virtual de acceso puntual de Azure usando REST, PowerShell o la CLI para probar la capacidad de respuesta de una aplicación ante una expulsión repentina.
 
-Reemplazar lo siguiente por su propia información: 
+En la mayoría de los casos, querrá usar la API de REST [Máquinas virtuales: simulación de expulsión](/rest/api/compute/virtualmachines/simulateeviction) para facilitar las pruebas automatizadas de las aplicaciones. En REST un valor `Response Code: 204` significa que la expulsión simulada se ha realizado correctamente. Puede combinar expulsiones simuladas con el [servicio Evento programado](scheduled-events.md) para automatizar el modo en que responderá la aplicación cuando se expulse la VM.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Para ver los eventos programados en acción, Consulte [Azure Friday: uso de eventos programados de Azure para preparar el mantenimiento de la VM](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Prueba rápida
+
+Para realizar una prueba rápida para mostrar cómo funcionará una expulsión simulada, vamos a consultar el servicio de eventos programados para ver su aspecto cuando se simula una expulsión mediante PowerShell.
+
+El servicio de eventos programados se habilita para su servicio la primera vez que se realiza una solicitud de eventos. 
+
+Conéctese de forma remota a la VM y, a continuación, abra un símbolo del sistema. 
+
+En el símbolo del sistema de la VM, escriba:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
-`Response Code: 204` significa que la expulsión simulada se ha realizado correctamente. 
+Esta primera respuesta podría tardar hasta 2 minutos. A partir ahora, se deben mostrar los resultados de salida casi de inmediato.
+
+En un equipo que tenga instalado el módulo Az PowerShell (como la máquina local), simule una expulsión mediante [set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Reemplace el nombre del grupo de recursos y el nombre de la VM con los suyos. 
+
+```azurepowershell-interactive
+Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
+```
+
+La salida de respuesta tendrá el valor `Status: Succeeded` si la solicitud se realizó correctamente.
+
+Vuelva rápidamente a la conexión remota de la máquina virtual de acceso puntual y vuelva a consultar el punto de conexión de Scheduled Events. Repita el siguiente comando hasta que obtenga un resultado que contenga más información:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Cuando el servicio de eventos programados obtiene la notificación de expulsión, recibirá una respuesta similar a la siguiente:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Puede ver que `"EventType":"Preempt"` y el recurso es el recurso de la VM `"Resources":["myspotvm"]`. 
+
+También puede ver cuándo se expulsará la VM; para ello, compruebe el valor `"NotBefore"`. La VM no se expulsará antes del tiempo establecido en `NotBefore`, por lo que la ventana de la aplicación se cerrará correctamente.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

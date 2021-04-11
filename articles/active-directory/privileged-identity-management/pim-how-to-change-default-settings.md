@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708490"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567040"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configuración de roles de Azure AD en Privileged Identity Management
 
@@ -64,14 +64,14 @@ Puede elegir entre dos opciones de duración de asignación para cada tipo de as
 
 Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignación elegible permanente** | Los administradores globales y los administradores de roles con privilegios pueden asignar una asignación elegible permanente. |
 | **Hacer que las asignaciones elegibles expiren después de** | Los administradores globales y los administradores de roles con privilegios pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
 
 Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignaciones activas permanentes** | Los administradores globales y los administradores de roles con privilegios pueden asignar una asignación activa permanente. |
 | **Hacer que las asignaciones activas expiren después de** | Los administradores globales y los administradores de roles con privilegios pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |

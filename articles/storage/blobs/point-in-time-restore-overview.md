@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031640"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802274"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
@@ -47,15 +47,17 @@ La operación **Restore Blob Ranges** devuelve un id. de restauración que ident
 > Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
 > [!CAUTION]
-> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante.
+> La restauración a un momento dado solo admite operaciones de restauración de blobs en bloques. No se permiten operaciones de restauración de contenedores. Por ejemplo, si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración a un momento dado. En lugar de eliminar un contenedor completo, elimine blobs individuales, por si desea restaurarlos más adelante.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Requisitos previos para la restauración a un momento dado
 
 La restauración a un momento dado requiere que las siguientes características de Azure Storage se habiliten antes de poder habilitar la restauración a un momento dado:
 
-- [Eliminación temporal](./soft-delete-blob-overview.md)
+- [Eliminación temporal](soft-delete-blob-overview.md)
 - [Fuente de cambios](storage-blob-change-feed.md)
 - [Control de versiones de blobs](versioning-overview.md)
+
+Si habilita estas características, pueden producirse cargos adicionales. Asegúrese de que comprende las implicaciones de facturación antes de habilitar la restauración a un momento dado y las características de los requisitos previos.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retención para la restauración a un momento dado
 
@@ -88,6 +90,8 @@ La restauración a un momento dado para los blobs en bloques tiene las siguiente
 > Si restaura blobs en bloques a una fecha anterior al 22 de septiembre de 2020, surtirán efecto las limitaciones en versión preliminar de la restauración a un momento dado. Microsoft recomienda elegir como punto de restauración el 22 de septiembre de 2020, o cualquier fecha posterior, con el fin de aprovechar las ventajas de la característica de restauración a un momento dado disponible con carácter general.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
+
+No se aplica ningún cargo por habilitar la restauración a un momento dado. Sin embargo, la habilitación de la restauración a un momento dado también permite el control de versiones de blobs, la eliminación temporal y la fuente de cambios, cada uno de los cuales puede dar lugar a cargos adicionales.
 
 La facturación de la restauración a un momento dado depende de la cantidad de datos procesados para realizar la operación de restauración. La cantidad de datos procesados se basa en el número de cambios que se produjeron entre el punto de restauración y el momento actual. Por ejemplo, suponiendo una tasa de cambio relativamente constante para los datos de blobs en bloques de una cuenta de almacenamiento, una operación de restauración para revertir los datos 1 día tendría un costo de 1/10 de una restauración que pueda retroceder 10 días.
 

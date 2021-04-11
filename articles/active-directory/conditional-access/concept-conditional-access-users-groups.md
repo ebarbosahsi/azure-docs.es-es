@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427137"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952820"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acceso condicional: Usuarios y grupos
 
-Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. Azure Active Directory evalúa todas las directivas y se asegura de que se cumplan todos los requisitos antes de conceder acceso al usuario. Además de este artículo, tenemos un vídeo sobre [cómo incluir o excluir usuarios de las directivas de acceso condicional](https://www.youtube.com/watch?v=5DsW1hB3Jqs) que le guían por el proceso que se describe a continuación. 
+Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. Azure Active Directory evalúa todas las directivas y se asegura de que se cumplan todos los requisitos antes de conceder acceso al usuario. 
 
-![Usuario como señal en las decisiones tomadas por acceso condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## <a name="include-users"></a>Incluir usuarios
 
@@ -38,7 +38,7 @@ Las siguientes opciones están disponibles para su inclusión al crear una direc
    - Todos los usuarios externos e invitados
       - Esta selección incluye todos los invitados B2B y usuarios externos, incluido cualquier usuario con el atributo `user type` establecido en `guest`. Esta selección también se aplica a cualquier usuario externo que haya iniciado sesión desde una organización diferente, como un proveedor de soluciones en la nube (CSP). 
    - Roles de directorio
-      - Permite a los administradores seleccionar roles de directorio específicos de Azure AD que se usan para determinar la asignación. Por ejemplo, las organizaciones pueden crear una directiva más restrictiva en los usuarios a los que se ha asignado el rol de administrador global.
+      - Permite a los administradores seleccionar roles de directorio integrados específicos de Azure AD que se usan para determinar la asignación de directivas. Por ejemplo, las organizaciones pueden crear una directiva más restrictiva en los usuarios a los que se ha asignado el rol de administrador global. No se admiten otros tipos de roles, incluidos los roles con ámbito de unidad administrativa y los roles personalizados.
    - Usuarios y grupos
       - Permite dirigirse a conjuntos específicos de usuarios. Por ejemplo, las organizaciones pueden seleccionar un grupo que contenga todos los miembros del departamento de recursos humanos cuando tenga una aplicación de Recursos Humanos seleccionada como aplicación en la nube. Un grupo puede ser cualquier tipo de grupo en Azure AD, como grupos de distribución y de seguridad dinámicos o asignados. La directiva se aplicará a los usuarios y grupos anidados.
 
@@ -77,7 +77,7 @@ De forma predeterminada, la directiva proporcionará una opción para excluir al
 
 ![Advertencia, no se bloquee.](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[¿Qué se debe hacer si está bloqueado en Azure Portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+Si se encuentra en ese estado,[¿qué debe hacer si está bloqueado en Azure Portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

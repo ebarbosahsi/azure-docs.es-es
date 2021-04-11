@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 04/20/2020
-ms.openlocfilehash: 0d0fa88fdf182ae2214da40ee3fe8b20ced025e4
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/05/2021
+ms.openlocfilehash: a6fd603318a25e15d1d4dcc1e3eaf75f96fc5ade
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956067"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448634"
 ---
 # <a name="azure-media-player-quickstart"></a>Inicio rápido de Azure Media Player
 Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtener la reproducción básica de contenido multimedia desde la cuenta de Azure Media Services. En esta sección se muestran los pasos básicos sin entrar en detalles. En las secciones siguientes se proporcionan detalles sobre cómo configurar Azure Media Player.  Simplemente agregue los siguientes include en la sección `<head>` de su documento:
@@ -22,7 +22,7 @@ Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtene
 ```
 
 > [!IMPORTANT]
-> **NO** use la versión `latest` en producción, porque está sujeta a cambios a petición. Reemplace `latest` por una versión de Azure Media Player; por ejemplo, reemplace `latest` por `1.0.0`. Las versiones de Azure Media Player pueden consultarse desde [aquí](azure-media-player-changelog.md).
+> **NO** use la versión `latest` en producción, porque está sujeta a cambios a petición. Reemplace `latest` por una versión de Azure Media Player; por ejemplo, reemplace `latest` por `1.0.0`. Las versiones de Azure Media Player pueden consultarse desde [aquí](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 ## <a name="use-the-video-element"></a>Uso del elemento de vídeo
 

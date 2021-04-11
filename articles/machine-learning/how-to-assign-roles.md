@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624547"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889763"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 
@@ -464,7 +464,7 @@ Estos son algunos de los aspectos que debe tener en cuenta al usar el control de
 - Cuando hay dos asignaciones de roles al mismo usuario de Azure Active Directory con secciones en conflicto de Actions/NotActions, las operaciones enumeradas en NotActions de un rol podrían no surtir efecto si también aparecen como acciones en otro rol. Para más información sobre cómo Azure analiza las asignaciones de roles, consulte [Cómo determina Azure RBAC si un usuario tiene acceso a un recurso](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource).
 
 - Para implementar los recursos de proceso dentro de una red virtual, debe tener explícitamente permiso para las siguientes acciones:
-    - `Microsoft.Network/virtualNetworks/join/action` en el recurso de red virtual.
+    - `Microsoft.Network/virtualNetworks/*/read` en los recursos de red virtual.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` en el recurso de subred.
     
     Para obtener más información sobre Azure RBAC con redes, consulte los [Roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).

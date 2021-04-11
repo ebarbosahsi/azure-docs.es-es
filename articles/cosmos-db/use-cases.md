@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799401"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ A menudo, los casos de uso de IoT comparten algunos patrones en el modo de inger
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Arquitectura de referencia de IoT de Azure Cosmos DB" border="false":::
 
-Las ráfagas de datos pueden ser asumidas por Azure Event Hubs, ya que ofrecen una ingesta de datos de alto rendimiento con baja latencia. Los datos ingeridos que requieran procesamiento para obtener información en tiempo real se pueden dirigir a Azure Stream Analytics para realizar el análisis en tiempo real. Los datos pueden cargarse en Azure Cosmos DB para realizar consultas ad hoc. Una vez que los datos se carguen en Azure Cosmos DB, estarán listos para recibir consultas. Además, los nuevos datos y los cambios en los datos existentes se pueden leer en la fuente de cambios. La fuente de cambios es un registro persistente solo para anexar en el que se almacenan en orden secuencial los cambios en los contenedores de Cosmos. Todos los datos o solo los cambios en los datos de Azure Cosmos DB pueden usarse como referencia como parte del proceso de análisis en tiempo real. Además, los datos pueden afinarse y procesarse aún más conectando los datos de Azure Cosmos DB a HDInsight para trabajos de Pig, Hive o Map/Reduce.  Los datos afinados se cargan luego de nuevo en Azure Cosmos DB para la creación de informes.   
+Las ráfagas de datos pueden ser asumidas por Azure Event Hubs, ya que ofrecen una ingesta de datos de alto rendimiento con baja latencia. Los datos ingeridos que requieran procesamiento para obtener información en tiempo real se pueden dirigir a Azure Stream Analytics para realizar el análisis en tiempo real. Los datos pueden cargarse en Azure Cosmos DB para realizar consultas ad hoc. Una vez que los datos se carguen en Azure Cosmos DB, estarán listos para recibir consultas. Además, los nuevos datos y los cambios en los datos existentes se pueden leer en la fuente de cambios. La fuente de cambios es un registro persistente solo para anexar en el que se almacenan en orden secuencial los cambios en los contenedores de Cosmos. Todos los datos o solo los cambios en los datos de Azure Cosmos DB pueden usarse como referencia como parte del proceso de análisis en tiempo real. Además, los datos pueden afinarse y procesarse aún más conectando los datos de Azure Cosmos DB a HDInsight para trabajos de Pig, Hive o Map/Reduce.  Los datos afinados se cargan luego de nuevo en Azure Cosmos DB para la creación de informes.   
 
 Para ver una solución de IoT de ejemplo con Azure Cosmos DB, EventHubs y Storm, consulte el [repositorio de ejemplos de hdinsight-storm en GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
