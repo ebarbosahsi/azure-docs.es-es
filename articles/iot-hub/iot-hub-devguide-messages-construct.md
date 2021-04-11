@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 21f22f9aa31210b1690d0be562643d94901ce58a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147697"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079053"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -42,7 +42,7 @@ La mensajería de dispositivo a nube con IoT Hub tiene las siguientes caracterí
 
 * Los mensajes de dispositivo a nube pueden tener como máximo 256 KB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB.
 
-* IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
+* IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId** de origen.
 
 * Como se explica en [Control del acceso a IoT Hub](iot-hub-devguide-security.md), IoT Hub habilita la autenticación y el control de acceso por dispositivo.
 
@@ -71,7 +71,7 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 | message-id |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  |Sí|
 | sequence-number |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. |No|
 | to |Un destino especificado en los mensajes [de nube a dispositivo](iot-hub-devguide-c2d-guidance.md) . |No|
-| absolute-expiry-time |Fecha y hora de la expiración del mensaje. |No|   |
+| absolute-expiry-time |Fecha y hora de la expiración del mensaje. |No| 
 | correlation-id |Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. |Sí|
 | user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. |Sí|
 | iothub-ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. |Sí|

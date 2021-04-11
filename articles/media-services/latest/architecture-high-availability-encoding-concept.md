@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a87525248273db38e4e7bc8d1b59bbd9f99bb4c6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c334888f5b85b0d2211225282680d5f791b50793
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107000"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277885"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta disponibilidad con Media Services y Vídeo bajo demanda (VOD)
 
@@ -61,7 +61,7 @@ Este diagrama de alto nivel muestra la arquitectura del ejemplo proporcionado pa
 
 * [Cree](./account-create-how-to.md) dos cuentas de Azure Media Services (o más). Las dos cuentas deben estar en distintas regiones. Para más información, consulte las [regiones en las que se implementa el servicio Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
 * Cargue los medios en la misma región desde la que planea enviar el trabajo. Para más información sobre cómo iniciar la codificación, consulte [Crear una entrada de trabajo desde una dirección URL de HTTPS](./job-input-from-http-how-to.md) o [Creación de una entrada de trabajo a partir de un archivo local](./job-input-from-local-file-how-to.md).
-* Si luego necesita volver a enviar el [trabajo](./transforms-jobs-concept.md) a otra región, puede usar `JobInputHttp` o `Copy-Blob` para copiar los datos del contenedor de recursos de origen en un contenedor de recursos de la región alternativa.
+* Si luego necesita volver a enviar el [trabajo](./transform-jobs-concept.md) a otra región, puede usar `JobInputHttp` o `Copy-Blob` para copiar los datos del contenedor de recursos de origen en un contenedor de recursos de la región alternativa.
 
 ### <a name="monitoring"></a>Supervisión
 
@@ -72,10 +72,10 @@ Este diagrama de alto nivel muestra la arquitectura del ejemplo proporcionado pa
 
     Para obtener más información:
 
-    * consulte el [ejemplo de análisis de audio](./transforms-jobs-concept.md) que muestra cómo supervisar un trabajo con Azure Event Grid, incluida la adición de una reserva en caso de que los mensajes de Azure Event Grid se retrasen por algún motivo.
+    * consulte el [ejemplo de análisis de audio](./transform-jobs-concept.md) que muestra cómo supervisar un trabajo con Azure Event Grid, incluida la adición de una reserva en caso de que los mensajes de Azure Event Grid se retrasen por algún motivo.
     * Eche un vistazo a los [esquemas de Azure Event Grid para eventos de Media Services](./media-services-event-schemas.md).
 
-* Al crear un [trabajo](./transforms-jobs-concept.md):
+* Al crear un [trabajo](./transform-jobs-concept.md):
     * seleccione aleatoriamente una cuenta de la lista de cuentas usadas actualmente (esta lista contendrá normalmente ambas cuentas, pero si se detectan problemas, es posible que solo contenga una cuenta). Si la lista está vacía, se genera una alerta para que un operador pueda investigar.
     * Cree un registro para realizar un seguimiento de cada trabajo en proceso y la región o cuenta usadas.
 * Cuando el controlador de `JobStateChange` reciba una notificación de que un trabajo ha alcanzado el estado programado, registre la hora en que entra en el estado programado y la región o cuenta usadas.

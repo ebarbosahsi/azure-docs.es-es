@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889a04d68de45a6270ae0c38615d841a526ad86a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052150"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490699"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configuración de la supervisión en el estado de invitado de VM Insights mediante reglas de recopilación de datos (versión preliminar)
 El [estado de invitado de VM Insights](vminsights-health-overview.md) permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada en varias máquinas virtuales mediante reglas de recopilación de datos.
@@ -175,17 +175,17 @@ Lista de una o varias cadenas que definen qué monitores de la jerarquía de est
 En la tabla siguiente se enumeran los nombres de monitor disponibles actualmente.
 
 | Nombre de tipo | Nombre | Descripción |
-|:---|:---|:---|
-| root | root | Monitor de nivel superior que representa el estado de la máquina virtual. | |
-| cpu-utilization | cpu-utilization | Monitor del uso de CPU. | |
-| logical-disks | logical-disks | Monitor agregado para el estado de mantenimiento de todos los discos supervisados en la máquina virtual Windows. | |
-| logical-disks\|* | logical-disks\|C:<br>logical-disks\|D: | Monitor agregado que realiza el seguimiento del estado de un disco específico en una máquina virtual Windows. | 
-| logical-disks\|*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Monitor del espacio disponible en disco en la máquina virtual Windows. |
+|:----------|:-----|:------------|
+| root | root | Monitor de nivel superior que representa el estado de la máquina virtual. |
+| cpu-utilization | cpu-utilization | Monitor del uso de CPU. |
+| logical-disks | logical-disks | Monitor agregado para el estado de mantenimiento de todos los discos supervisados en la máquina virtual Windows. |
+| logical-disks\|\* | logical-disks\|C:<br>logical-disks\|D: | Monitor agregado que realiza el seguimiento del estado de un disco específico en una máquina virtual Windows. |
+| logical-disks\|\*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Monitor del espacio disponible en disco en la máquina virtual Windows. |
 | filesystems | filesystems | Monitor agregado para el estado de todos los sistemas de archivos en una máquina virtual Linux. |
-| filesystems\|* | filesystems\|/<br>filesystems\|/mnt | Monitor agregado que realiza el seguimiento del estado de un sistema de archivos en una máquina virtual Linux. | filesystems|/var/log |
-| filesystems\|*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Monitor del espacio disponible en disco en el sistema de archivos de la máquina virtual Linux. | 
-| memoria | memoria | Monitor agregado para el estado de la memoria de la máquina virtual. | |
-| memory\|available| memory\|available | Monitor que realiza el seguimiento de la memoria disponible en la máquina virtual. | |
+| filesystems\|\* | filesystems\|/<br>filesystems\|/mnt | Monitor agregado que realiza el seguimiento del estado de un sistema de archivos en una máquina virtual Linux. |
+| filesystems\|\*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Monitor del espacio disponible en disco en el sistema de archivos de la máquina virtual Linux. |
+| memoria | memoria | Monitor agregado para el estado de la memoria de la máquina virtual. |
+| memory\|available | memory\|available | Monitor que realiza el seguimiento de la memoria disponible en la máquina virtual. |
 
 
 ## <a name="alertconfiguration-element"></a>Elemento alertConfiguration

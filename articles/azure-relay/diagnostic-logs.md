@@ -3,12 +3,12 @@ title: Registros de diagnóstico para Conexiones híbridas
 description: En este artículo encontrará información general de todos los registros de actividad y de diagnóstico que hay disponibles para Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590873"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079104"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar registros de diagnóstico para Conexiones híbridas de Azure Relay
 Cuando empiece a usar Conexiones híbridas de Azure Relay, es posible que desee supervisar cómo y cuándo se abren y cierran los clientes de escucha y los emisores, y cómo se crean las Conexiones híbridas y se envían los mensajes. En este artículo se proporciona información general de todos los registros de actividad y de diagnóstico que ofrece el servicio Azure Relay. 
@@ -80,29 +80,29 @@ Este es un ejemplo de evento de conexiones híbridas en formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos y operaciones capturados en registros de diagnóstico
 
-| Operación | Descripción | 
-| --------- | ----------- | 
-| AuthorizationFailed | Error de autorización.|
-| InvalidSasToken | Token de SAS no válido. | 
-| ListenerAcceptingConnection | El cliente de escucha que acepta la conexión. |
-| ListenerAcceptingConnectionTimeout | El cliente de escucha que acepta la conexión ha agotado el tiempo de espera. |
-| ListenerAcceptingHttpRequestFailed | Se ha producido un error en el cliente de escucha que acepta la solicitud HTTP debido a una excepción. |
-| ListenerAcceptingRequestTimeout | El cliente de escucha que acepta la solicitud ha agotado el tiempo de espera. |  
-| ListenerClosingFromExpiredToken | El cliente de escucha se cierra porque el token de seguridad ha expirado. | 
-| ListenerRejectedConnection | El cliente de escucha ha rechazado la conexión. |
-| ListenerReturningHttpResponse | El cliente de escucha devuelve una respuesta HTTP. |  
-| ListenerReturningHttpResponseFailed | El cliente de escucha devuelve una respuesta HTTP con un código de error. | 
- ListenerSentHttpResponse | El servicio Relay ha recibido una respuesta HTTP del cliente de escucha. | 
-| ListenerUnregistered | El cliente de escucha no está registrado. | 
-| ListenerUnresponsive | El cliente de escucha no responde al devolver una respuesta. | 
-| MessageSendingToListener | Se va a enviar el mensaje al cliente de escucha. |
-| MessageSentToListener | Se ha enviado el mensaje al cliente de escucha. | 
-| NewListenerRegistered | Se ha registrado un nuevo cliente de escucha. |
-| NewSenderRegistering | Se va a registrar un nuevo emisor. | 
-| ProcessingRequestFailed | Se ha producido un error en el procesamiento de una operación de Conexiones híbridas. | 
-| SenderConnectionClosed | Se cierra la conexión del emisor. |
-| SenderListenerConnectionEstablished | El remitente y el cliente de escucha han establecido correctamente la conexión. |
-| SenderSentHttpRequest | El remitente ha enviado una solicitud HTTP. | 
+| Operación                           | Descripción                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Error de autorización.                                           |
+| InvalidSasToken                     | Token de SAS no válido.                                              |
+| ListenerAcceptingConnection         | El cliente de escucha que acepta la conexión.                           |
+| ListenerAcceptingConnectionTimeout  | El cliente de escucha que acepta la conexión ha agotado el tiempo de espera.                |
+| ListenerAcceptingHttpRequestFailed  | Se ha producido un error en el cliente de escucha que acepta la solicitud HTTP debido a una excepción. |
+| ListenerAcceptingRequestTimeout     | El cliente de escucha que acepta la solicitud ha agotado el tiempo de espera.                   |
+| ListenerClosingFromExpiredToken     | El cliente de escucha se cierra porque el token de seguridad ha expirado. |
+| ListenerRejectedConnection          | El cliente de escucha ha rechazado la conexión.                       |
+| ListenerReturningHttpResponse       | El cliente de escucha devuelve una respuesta HTTP.                     |
+| ListenerReturningHttpResponseFailed | El cliente de escucha devuelve una respuesta HTTP con un código de error. |
+| ListenerSentHttpResponse            | El servicio Relay ha recibido una respuesta HTTP del cliente de escucha.  |
+| ListenerUnregistered                | El cliente de escucha no está registrado.                                   |
+| ListenerUnresponsive                | El cliente de escucha no responde al devolver una respuesta.         |
+| MessageSendingToListener            | Se va a enviar el mensaje al cliente de escucha.                              |
+| MessageSentToListener               | Se ha enviado el mensaje al cliente de escucha.                                    |
+| NewListenerRegistered               | Se ha registrado un nuevo cliente de escucha.                                        |
+| NewSenderRegistering                | Se va a registrar un nuevo emisor.                                      |
+| ProcessingRequestFailed             | Se ha producido un error en el procesamiento de una operación de Conexiones híbridas.     |
+| SenderConnectionClosed              | Se cierra la conexión del emisor.                                |
+| SenderListenerConnectionEstablished | El remitente y el cliente de escucha han establecido correctamente la conexión.    |
+| SenderSentHttpRequest               | El remitente ha enviado una solicitud HTTP.                                |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

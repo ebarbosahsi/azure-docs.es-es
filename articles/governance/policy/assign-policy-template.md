@@ -1,15 +1,15 @@
 ---
 title: Asignación de directivas nuevas con plantillas
 description: En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una asignación de directivas para identificar los recursos no compatibles.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b61198fecf0c3a6ba9aad19abc60bc042b68c29c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89651426"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096621"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -49,7 +49,7 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione o escriba los siguientes valores:
 
-   | Nombre | Value |
+   | Nombre | Valor |
    |------|-------|
    | Subscription | Seleccione su suscripción a Azure. |
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es _mypolicyquickstart\<Date in MMDD\>rg_. |

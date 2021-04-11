@@ -51,6 +51,8 @@
   items:
     - name: Implementación de proveedores de seguridad asociados
       href: deploy-trusted-security-partner.md
+    - name: Protección de puntos de conexión privados
+      href: private-link-inspection-secure-virtual-hub.md
     - name: 'Directiva de migración a firewall: PowerShell'
       href: migrate-to-policy.md
     - name: Configuración de DNS

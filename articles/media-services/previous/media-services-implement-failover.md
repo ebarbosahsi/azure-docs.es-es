@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef4eb3eb55ec1f062efb0f8215a3619f526b1ad2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011942"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063991"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementación de streaming de conmutación por error con la versión 2 de Media Services
 
@@ -753,7 +753,7 @@ En esta sección, va a crear la capacidad de controlar la redundancia.
 
 En el ejemplo de este tema se muestra streaming sin cifrar. Si desea realizar un streaming protegido, tiene configurar algunas otras cosas, tiene que usar los mismos valores de **AssetDeliveryPolicy** y **ContentKeyAuthorizationPolicy**, o la misma dirección URL del servidor de clave externa, y tiene que duplicar las claves de contenido con el mismo identificador.
 
-Para más información sobre la protección de contenido, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
+Para más información sobre la protección de contenido, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-playready-license-template-overview.md).
 
 ## <a name="see-also"></a>Consulte también
 

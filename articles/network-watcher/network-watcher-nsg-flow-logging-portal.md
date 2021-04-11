@@ -5,7 +5,6 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 tags: azure-resource-manager
-Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 385d43e46cd3f9465c0fbf9a02eeae356f48fac4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 76d57990fcdd82bfe382fa2fb4ab75fb037caf4f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966537"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063937"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -53,7 +52,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     |Nombre|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Resource group| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Location| Seleccione **Este de EE. UU**.|
 
