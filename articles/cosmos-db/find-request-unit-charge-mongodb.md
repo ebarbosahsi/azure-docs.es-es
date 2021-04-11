@@ -5,22 +5,22 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078482"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104801832"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Búsqueda del cargo de la unidad de solicitud en las operaciones que se ejecutan en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table. Cada API tiene su propio conjunto de operaciones de base de datos. Estas abarcan desde sencillas lecturas y escrituras de punto hasta consultas complejas. Cada operación de base de datos consume recursos del sistema en función de la complejidad de la operación.
 
-Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de unidades de solicitud (RU en su forma abreviada). Puede considerar que las unidades de solicitud son como una moneda de rendimiento, que resume los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura puntual o consulta, los costos siempre se miden en RU. Para obtener más información, consulte el artículo que contiene las [unidades de solicitud y sus consideraciones](request-units.md).
+Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de unidades de solicitud (RU en su forma abreviada). La solicitud de cargos son las unidades de solicitud que consumen todas las operaciones de base de datos. Puede considerar que las unidades de solicitud son como una moneda de rendimiento, que resume los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura puntual o consulta, los costos siempre se miden en RU. Para obtener más información, consulte el artículo que contiene las [unidades de solicitud y sus consideraciones](request-units.md).
 
 En este artículo se indican las distintas formas de buscar el consumo de las [unidades de solicitud](request-units.md) (RU) de cualquier operación que se ejecuta en un contenedor de la API de Azure Cosmos DB para MongoDB. Si usa otra API, consulte los artículos referentes a la [API de SQL](find-request-unit-charge.md), [Cassandra API](find-request-unit-charge-cassandra.md), [API de Gremlin](find-request-unit-charge-gremlin.md) y [Table API](find-request-unit-charge-table.md) para averiguar el cargo de las RU.
 
@@ -34,13 +34,17 @@ El cargo de RU se expone mediante un [comando de base de datos](https://docs.mon
 
 1. Vaya al panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
-1. Seleccione **Nueva consulta**.
+1. Seleccione **...** junto al nombre del contenedor y, después, **Nueva consulta**.
 
 1. Escriba una consulta válida y, luego, seleccione **Ejecutar consulta**.
 
-1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado.
+1. Seleccione **Query Stats** (Estadísticas de consulta) para mostrar el cargo de solicitud real correspondiente a la solicitud que ha ejecutado. Este editor de consultas permite ejecutar y ver los cargos por unidad de solicitud solo para los predicados de consulta. No puede usar este editor para los comandos de manipulación de datos, como las instrucciones INSERT.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta de MongoDB en Azure Portal":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de pantalla del cargo de solicitud de una consulta de MongoDB en Azure Portal":::
+
+1. Para obtener los cargos por solicitud de los comandos de manipulación de datos, ejecute el comando `getLastRequestStatistics` desde una interfaz de usuario basada en Shell, como Mongo Shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md) o una extensión de Visual Studio Code con scripting de Shell.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Uso del controlador de .NET de MongoDB
 

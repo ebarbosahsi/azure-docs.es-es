@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485680"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950066"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -22,7 +22,7 @@ Puede usar Update Management en Azure Automation para administrar las actualizac
 > [!NOTE]
 > En este momento, no se admite la habilitación de Update Management directamente desde un servidor habilitado para Arc. Consulte [Habilitación de Update Management desde una cuenta de Automation](../../automation/update-management/enable-from-automation-account.md) para saber más sobre los requisitos y cómo habilitarlo para el servidor.
 
-Para descargar e instalar automáticamente las revisiones *críticas* y de *seguridad* disponibles en la máquina virtual de Azure, consulte [Revisiones de invitado de máquina virtual automática](../../virtual-machines/windows/automatic-vm-guest-patching.md) para máquinas virtuales Windows.
+Para descargar e instalar automáticamente las revisiones *críticas* y de *seguridad* disponibles en la máquina virtual de Azure, consulte [Revisiones de invitado de máquina virtual automática](../../virtual-machines/automatic-vm-guest-patching.md) para máquinas virtuales Windows.
 
 Antes de implementar Update Management y habilitar las máquinas para su administración, asegúrese de que comprende la información de las secciones siguientes.  
 
@@ -76,8 +76,8 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles pa
 |---------|---------|
 |Windows Server 2019 (Datacenter o Standard incluido Server Core)<br><br>Windows Server 2016 (Datacenter o Standard sin incluir Server Core)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management admite evaluaciones y parches para este sistema operativo. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) es compatible con Windows Server 2008 R2. |
-|CentOS 6 y 7 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 y 7 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
+|CentOS 6, 7 y 8 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7 y 8 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 12, 15 y 15.1 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización. Para SUSE 15.x, se requiere Python 3 en el equipo.      |
 |Ubuntu 14.04 LTS, 16.04 LTS y 18.04 LTS (x64)      |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
 

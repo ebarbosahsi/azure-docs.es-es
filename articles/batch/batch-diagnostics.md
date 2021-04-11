@@ -2,22 +2,24 @@
 title: Métricas, alertas y registros de diagnóstico
 description: Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22fdf00b6e144e022f955aed6fd24b7a6bcb7300
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592670"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606035"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
-En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/essentials/data-platform-metrics.md) y [registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/alerts/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado.
+Azure Monitor recopila [métricas](../azure-monitor/essentials/data-platform-metrics.md) y [registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) de los recursos de la cuenta de Azure Batch.
+
+Puede recopilar y consumir estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/alerts/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
-Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas.
+Las [métricas](../azure-monitor/essentials/data-platform-metrics.md) son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas. Estas métricas pueden ayudar a identificar tendencias y se pueden usar para el análisis de datos.
 
 Consulte la [lista de métricas admitidas de Batch](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -29,59 +31,54 @@ Las métricas se caracterizan por:
 
 ## <a name="view-batch-metrics"></a>Visualización de métricas de Batch
 
-En Azure Portal, la página **Información general** de la cuenta mostrará de forma predeterminada las métricas clave de nodo, núcleo y tarea.
+En Azure Portal, la página **Información general** de la cuenta de Batch mostrará de forma predeterminada las métricas clave de nodo, núcleo y tarea.
 
-Para ver todas las métricas de la cuenta de Batch en Azure Portal:
+Para ver métricas adicionales para una cuenta de Batch:
 
 1. En Azure Portal, seleccione **Todos los servicios** > **Cuentas de Batch** y, después, elija el nombre de la cuenta de Batch.
-2. En **Supervisión**, seleccione **Métricas**.
-3. Seleccione **Agregar métrica** y elija una métrica de la lista desplegable.
-4. Seleccione una opción de **Agregación** para la métrica. En el caso de métricas basadas en recuentos (como "Recuento de núcleos dedicados" o "Recuento de nodos de baja prioridad"), use la agregación **Promedio**. En el caso de métricas basadas en eventos (como "Eventos de finalización de cambio de tamaño de grupo"), use la agregación **Recuento**.
+1. En **Supervisión**, seleccione **Métricas**.
+1. Seleccione **Agregar métrica** y elija una métrica de la lista desplegable.
+1. Seleccione una opción de **Agregación** para la métrica. En el caso de métricas basadas en recuentos (como "Recuento de núcleos dedicados" o "Recuento de nodos de baja prioridad"), use la agregación **Promedio**. En el caso de métricas basadas en eventos (como "Eventos de finalización de cambio de tamaño de grupo"), use la agregación **Recuento**. Evite usar la agregación **Suma**, que suma los valores de todos los puntos de datos recibidos durante el período del gráfico.
+1. Para agregar métricas adicionales, repita los pasos 3 y 4.
 
-   > [!WARNING]
-   > No use la agregación "Suma", que suma los valores de todos los puntos de datos recibidos durante el período del gráfico.
+También puede recuperar las métricas mediante programación con las API de Azure Monitor. Para ver ejemplos, consulte [Recuperación de métricas de Azure Monitor con .NET](/samples/azure-samples/monitor-dotnet-metrics-api/monitor-dotnet-metrics-api/).
 
-5. Para agregar métricas adicionales, repita los pasos 3 y 4.
-
-También puede recuperar las métricas mediante programación con las API de Azure Monitor. Para ver ejemplos, consulte [Recuperación de métricas de Azure Monitor con .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
-
-### <a name="batch-metric-reliability"></a>Confiabilidad de métricas de Batch
-
-Las métricas pueden ayudar a identificar tendencias y se pueden usar para el análisis de datos. Es importante observar que la entrega de métricas no está garantizada, y puede estar sujeta a entregas desordenadas, pérdidas de datos o duplicaciones. Debido a esto, no se recomienda el uso de eventos únicos para funciones de alerta o de desencadenador. Para más información sobre cómo establecer los umbrales de alerta, consulte la sección siguiente.
-
-Es posible que las métricas emitidas en los 3 últimos minutos sigan siendo agregadas, por lo que los valores de métricas pueden no corresponderse con la realidad durante este período de tiempo.
+> [!NOTE]
+> Es posible que las métricas emitidas en los 3 últimos minutos se sigan agregando, por lo que los valores pueden no corresponderse con la realidad durante este período de tiempo. La entrega de la métrica no está garantizada y puede verse afectada por la entrega desordenada, la pérdida de datos o la duplicación.
 
 ## <a name="batch-metric-alerts"></a>Alertas de métricas de Batch
 
-Puede configurar *alertas de métricas* casi en tiempo real que se desencadenen cuando el valor de una métrica especificada supere un umbral asignado. La alerta genera una notificación cuando la alerta está "Activada" (si se sobrepasa el umbral y se cumple la condición de alerta), así como cuando queda en estado "Resuelto" (cuando se vuelve a sobrepasa el umbral y ya no se cumple la condición).
+Puede configurar alertas de métricas casi en tiempo real que se desencadenen cuando el valor de una métrica especificada supere un umbral asignado. La alerta genera una notificación cuando la alerta está "Activada" (si se sobrepasa el umbral y se cumple la condición de alerta), así como cuando queda en estado "Resuelto" (cuando se vuelve a sobrepasa el umbral y ya no se cumple la condición).
 
-No se recomienda generar alertas que se desencadenen en un único punto de datos, ya que las métricas están sujetas a entregas desordenadas, pérdidas de datos o duplicaciones. Al crear alertas, puede usar umbrales para tener en cuenta estas incoherencias.
+Dado que la entrega de métricas puede estar sujeta a incoherencias, como la entrega desordenada, la pérdida de datos o la duplicación, se recomienda evitar las alertas que se desencadenan en un único punto de datos. En su lugar, use umbrales para tener en cuenta las incoherencias, como la entrega desordenada, la pérdida de datos y la duplicación, durante un período de tiempo.
 
-Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos. Para obtener mejores resultados, establezca un período de 10 minutos o más en el que se desencadenen alertas si el recuento promedio de núcleos de prioridad baja cae por debajo del valor de umbral en todo el período. Esto deja más tiempo para que se agreguen métricas y así obtener resultados más precisos.
+Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos. Para obtener mejores resultados, establezca un período de 10 minutos o más en el que se desencadene la alerta si el recuento promedio de núcleos de prioridad baja cae por debajo del valor de umbral en todo el período. Esto deja tiempo para que se agreguen métricas y así obtener resultados más precisos.
 
 Para configurar una alerta de métrica en Azure Portal:
 
 1. Seleccione **Todos los servicios** > **Cuentas de Batch** y, después, seleccione el nombre de la cuenta de Batch.
-2. En **Supervisión**, seleccione **Alertas** y haga clic en **Nueva regla de alertas**.
-3. Haga clic en **Select condition** (Seleccionar condición) y elija una métrica. Confirme los valores para **Período del gráfico**, **Threshold type** (Tipo de umbral), **Operator** (Operador) y **Tipo de agregación** y escriba un **valor de umbral**. A continuación, seleccione **Done** (Listo).
-4. Agregue un grupo de acciones a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
-5. En la sección **Alert rule details** (Detalles de la regla de alerta), escriba un **nombre de la regla de alertas** y una **descripción** y seleccione **Severity** (Gravedad).
-6. Seleccione **Crear regla de alertas**.
+1. En **Supervisión**, seleccione **Alertas** y haga clic en **Nueva regla de alertas**.
+1. Seleccione **Agregar condición** y elija una métrica.
+1. Seleccione los valores deseados para **Período del gráfico**, **Umbral**, **Operador** y **Tipo de agregación**.
+1. Escriba un **Valor de umbral** y seleccione la **Unidad** para el umbral.  A continuación, seleccione **Done** (Listo).
+1. Agregue un [grupo de acciones](../azure-monitor/alerts/action-groups.md) a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
+1. En la sección **Detalles de la regla de alertas**, escriba un **Nombre de la regla de alertas** y una **Descripción**. Si quiere que la alerta se habilite inmediatamente, asegúrese de que la casilla **Habilitar la regla tras la creación** esté activada.
+1. Seleccione **Crear regla de alertas**.
 
 Para más información sobre la creación de alertas de métricas, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) y [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](/rest/api/monitor/) de Azure Monitor. Para más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte la información sobre las consultas de búsqueda en [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+También puede configurar una alerta casi en tiempo real mediante la [API REST de Azure Monitor](/rest/api/monitor/). Para obtener más información sobre las alertas, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir información específica de trabajos, tareas o grupos en las alertas, consulte [Respuesta a eventos con las alertas de Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 
-Los registros de diagnóstico contienen información que emiten los recursos de Azure que describe el funcionamiento de cada recurso. En Batch, puede recopilar los registros siguientes:
+Los [registros de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) contienen información que emiten los recursos de Azure que describe el funcionamiento de cada recurso. En Batch, puede recopilar los registros siguientes:
 
-- Eventos de **registros de servicio** que emite el servicio Azure Batch durante la vigencia de un recurso de Batch individual, como un grupo o una tarea.
-- Registros de **métricas** en el nivel de cuenta.
+- **ServiceLog**: [Eventos que emite el servicio Batch](#service-log-events) durante la vigencia de un recurso individual, como un grupo o una tarea.
+- **AllMetrics**: Métricas en el nivel de la cuenta de Batch.
 
-La configuración para habilitar la recopilación de registros de diagnóstico no está habilitada de forma predeterminada. Habilite explícitamente la configuración de diagnóstico de cada cuenta de Batch que quiera supervisar.
+Tiene que habilitar explícitamente la configuración de diagnóstico de cada cuenta de Batch que quiera supervisar.
 
-### <a name="log-destinations"></a>Destinos de registro
+### <a name="log-destination-options"></a>Opciones de destino del registro
 
 Un escenario común consiste en seleccionar una cuenta de Azure Storage como destino del registro. Para almacenar los registros en Azure Storage, cree la cuenta antes de habilitar la recopilación de registros. Si asoció una cuenta de almacenamiento con su cuenta de Batch, puede elegir esa cuenta como destino de registro.
 
@@ -101,15 +98,15 @@ Para crear una configuración de diagnóstico en Azure Portal, siga los pasos qu
 2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
 3. En **Configuración de diagnóstico**, seleccione **Agregar configuración de diagnóstico**.
 4. Escriba un nombre para la configuración.
-5. Seleccione un destino: **Enviar a Log Analytics**, **Archivar en una cuenta de almacenamiento** y **Transmitir a un centro de eventos**. Si selecciona una cuenta de almacenamiento, puede definir opcionalmente una directiva de retención. Si no especifica un número de días de retención, los datos se conservan durante la vigencia de la cuenta de almacenamiento.
+5. Seleccione un destino: **Enviar a Log Analytics**, **Archivar en una cuenta de almacenamiento** o **Transmitir a un centro de eventos**. Si selecciona una cuenta de almacenamiento, tiene la opción de seleccionar el número de días que se conservarán los datos de cada registro. Si no especifica un número de días de retención, los datos se conservan durante la vigencia de la cuenta de almacenamiento.
 6. Seleccione **ServiceLog**, **AllMetrics**, o ambas.
 7. Seleccione **Guardar** para crear la configuración de diagnóstico.
 
-También puede [habilitar la recopilación a través de Azure Monitor en Azure Portal](../azure-monitor/essentials/diagnostic-settings.md) para configurar las opciones de diagnóstico, mediante una [plantilla de Resource Manager](../azure-monitor/essentials/resource-manager-diagnostic-settings.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md).
+También puede habilitar la recopilación de registros si [crea la configuración de diagnóstico en Azure Portal](../azure-monitor/essentials/diagnostic-settings.md), mediante una [plantilla de Resource Manager](../azure-monitor/essentials/resource-manager-diagnostic-settings.md) o con Azure PowerShell o la CLI de Azure. Para más información, consulte [Introducción a los registros de plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento
 
-Si archiva registros de diagnóstico de Batch en una cuenta de almacenamiento, se crea un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produce un evento relacionado. Se crean blobs según el siguiente patrón de nomenclatura:
+Si [archiva registros de diagnóstico de Batch en una cuenta de almacenamiento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), se crea un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produce un evento relacionado. Se crean blobs según el siguiente patrón de nomenclatura:
 
 ```json
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
@@ -135,11 +132,11 @@ A continuación se muestra un ejemplo de una entrada `PoolResizeCompleteEvent` e
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivado de registros de recurso de Azure en la cuenta de almacenamiento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
+Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage.
 
 ### <a name="service-log-events"></a>Eventos de registro del servicio
 
-Los registros de servicio de Azure Batch, cuando se recopilan, contienen los eventos que emite el servicio Azure Batch durante la vigencia de un recurso de Batch, como un grupo o una tarea. Cada evento que emite Batch se registra en formato JSON. Por ejemplo, este es el cuerpo de un **evento de creación de grupos** de ejemplo:
+Los registros de servicio de Azure Batch contienen los eventos que emite el servicio Batch durante la vigencia de un recurso de Batch, como un grupo o una tarea. Cada evento que emite Batch se registra en formato JSON. Por ejemplo, este es el cuerpo de un **evento de creación de grupos** de ejemplo:
 
 ```json
 {

@@ -3,12 +3,12 @@ title: Compatibilidad del nivel de acceso de archivo (versión preliminar)
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609859"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563980"
 ---
 # <a name="archive-tier-support-preview"></a>Compatibilidad del nivel de acceso de archivo (versión preliminar)
 
@@ -46,7 +46,7 @@ Clientes compatibles:
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Conéctese a Azure mediante el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+1. Conéctese a Azure mediante el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 1. Inicie sesión en su suscripción:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 En el caso de los puntos de recuperación en archivo, Azure Backup proporciona una metodología de restauración integrada.
 
-La restauración integrada es un proceso de dos pasos. El primer paso implica rehidratar los puntos de recuperación almacenados en el archivo y almacenarlos temporalmente en el nivel estándar del almacén durante un período (también conocido como "duración de rehidratación") de 10 a 30 días. El valor predeterminado es de 15 días. Hay dos prioridades diferentes de rehidratación: prioridad estándar y alta. Más información sobre la [prioridad de rehidratación](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+La restauración integrada es un proceso de dos pasos. El primer paso implica rehidratar los puntos de recuperación almacenados en el archivo y almacenarlos temporalmente en el nivel estándar del almacén durante un período (también conocido como "duración de rehidratación") de 10 a 30 días. El valor predeterminado es de 15 días. Hay dos prioridades diferentes de rehidratación: prioridad estándar y alta. Más información sobre la [prioridad de rehidratación](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >

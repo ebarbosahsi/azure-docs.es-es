@@ -1,18 +1,18 @@
 ---
 title: 'Límites en Azure Database for PostgreSQL: servidor único'
 description: En este artículo, se describen los límites de Azure Database for PostgreSQL con un único servidor, como el número de opciones del motor de almacenamiento y de conexión.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cee2be3c1d7a97b87560873d6cef07ec361ee99
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595012"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605185"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Límites de Azure Database for PostgreSQL con un único servidor
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
@@ -25,7 +25,7 @@ A continuación se muestran el número máximo de conexiones por plan de tarifa 
 |---|---|---|---|
 |Básico| 1| 55 | 50|
 |Básico| 2| 105 | 100|
-|Uso general| 2| 150| 145|
+|De uso general| 2| 150| 145|
 |De uso general| 4| 250| 245|
 |De uso general| 8| 480| 475|
 |De uso general| 16| 950| 945|

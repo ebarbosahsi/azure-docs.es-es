@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Azure Queue Storage v12: JavaScript'
 description: Aprenda a usar la biblioteca cliente de Azure Queue Storage v12 para JavaScript para crear una cola y agregarle mensajes. Luego, aprenda a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-js
-ms.openlocfilehash: 23c58526ba481a56b371bd077661d8d0bc7d45c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 628ce97b9f14290caf3f41b16cda93f4f47566f7
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586540"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276168"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564327"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flujos de datos de asignación en Azure Data Factory
@@ -33,11 +33,11 @@ Los flujos de datos se crean desde el panel Factory Resources (Recursos de fábr
 
 Con esta acción, accederá al lienzo de flujo de datos, donde podrá crear la lógica de transformación. Seleccione **Agregar origen** para comenzar a configurar la transformación de origen. Para más información, consulte [Transformación de origen](data-flow-source.md).
 
-## <a name="authoring-data-flows"></a>Creación de flujos de datos
+## <a name="authoring-data-flows&quot;></a>Creación de flujos de datos
 
 El flujo de datos de asignación tiene un lienzo de creación único diseñado para facilitar la creación de lógica de transformación. El lienzo de flujo de datos está dividido en tres partes: la barra superior, el gráfico y el panel de configuración. 
 
-![Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.](media/data-flow/canvas-1.png "Lienzo")
+![Captura de pantalla que muestra el lienzo del flujo de datos con la barra superior, el gráfico y el panel de configuración marcados.](media/data-flow/canvas-1.png &quot;Lienzo")
 
 ### <a name="graph"></a>Grafo
 
@@ -63,11 +63,11 @@ La pestaña **Optimizar** contiene valores opcionales para configurar los esquem
 
 ![Captura de pantalla que muestra la pestaña Optimizar, que incluye la opción de partición, el tipo de partición y el número de particiones.](media/data-flow/optimize.png)
 
-#### <a name="inspect"></a>Inspeccionar
+#### <a name="inspect&quot;></a>Inspeccionar
 
 La pestaña **Inspeccionar** proporciona una vista de los metadatos del flujo de datos que se está transformando. Puede ver el número de columnas, las columnas que han cambiado, las columnas que se han agregado, los tipos de datos, el orden de las columnas y las referencias de las columnas. **Inspeccionar** es una vista de solo lectura de los metadatos. Para ver los metadatos en el panel **Inspeccionar**, no es preciso que el modo de depuración esté habilitado.
 
-![Inspeccionar](media/data-flow/inspect1.png "Inspeccionar")
+![Inspeccionar](media/data-flow/inspect1.png &quot;Inspeccionar")
 
 Al cambiar la forma de los datos mediante transformaciones, verá que los cambios de los metadatos fluyen por el panel **Inspeccionar**. Si no hay un esquema definido en la transformación de origen, los metadatos no estarán visibles en el panel **Inspeccionar**. La falta de metadatos es habitual en escenarios de desviación en el esquema.
 

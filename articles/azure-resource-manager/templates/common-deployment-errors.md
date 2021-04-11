@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 6cb2b611e694c6b72e063f3d8ab05b7667a34e29
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888862"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564354"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -23,7 +23,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga las restricciones de nomenclatura para las cuentas de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Consulte las propiedades disponibles para la cuenta de almacenamiento. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación en Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemas de aprovisionamiento y asignación en Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) y [Solución de problemas de asignación](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Problemas de aprovisionamiento y asignación en Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Problemas de aprovisionamiento y asignación en Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) y [Solución de problemas de asignación](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Espere a que la operación simultánea finalice. | |
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación.<br><br>Puede recibir este error cuando un proveedor de recursos necesario no está registrado. | [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolución de registros](error-register-resource-provider.md) |
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-location.md) |

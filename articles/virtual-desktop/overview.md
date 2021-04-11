@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f26d6b258c1e22d5d28353486378acc9aa0bbd5d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730792"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104889644"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -124,7 +124,7 @@ Para más información sobre las direcciones URL que debe desbloquear para usar 
 Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
 
 * Sesión múltiple de Windows 10 Enterprise, versión 1809 o superior
-* Windows 10 Enterprise, versión 1809 o superior
+* Windows 10 Enterprise, versión 1809 o posterior (solo Rama actual para empresas)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016

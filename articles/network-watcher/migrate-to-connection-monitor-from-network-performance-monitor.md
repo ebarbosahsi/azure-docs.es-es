@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010412"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045491"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migración a Connection Monitor desde Network Performance Monitor
 
@@ -31,7 +31,7 @@ Puede migrar las pruebas de Network Performance Monitor (NPM) a la nueva y mejor
 
 La migración ayuda a generar los siguientes resultados:
 
-* Los agentes locales y la configuración de firewall funcionarán tal cual. No es preciso realizar cambios. Los agentes de Log Analytics instalados en Azure Virtual Machines deben reemplazarse por la [extensión de Network Watcher](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+* Los agentes locales y la configuración de firewall funcionarán tal cual. No es preciso realizar cambios. Los agentes de Log Analytics instalados en Azure Virtual Machines deben reemplazarse por la [extensión de Network Watcher](../virtual-machines/extensions/network-watcher-windows.md).
 * Las pruebas existentes se asignan a Connection Monitor -> Grupo de prueba -> Test format (Formato de prueba). Al seleccionar **Editar**, puede ver y modificar las propiedades de la nueva característica Connection Monitor, descargar una plantilla para realizar cambios en ella y enviar la plantilla a través de Azure Resource Manager.
 * Los agentes envían datos tanto al área de trabajo de Log Analytics como a las métricas.
 * Supervisión de datos:

@@ -2,139 +2,118 @@
 title: 'Disponibilidad y coherencia: Azure Event Hubs | Microsoft Docs'
 description: Cómo proporcionar el máximo nivel de disponibilidad y coherencia con Azure Event Hubs mediante el uso de particiones.
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2fdb62e953230a38a26d22e136789fea52c8ee8c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e014a33e94fe7f90569dd2ef1e9b620eef274842
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882202"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952871"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidad y coherencia en Event Hubs
 En este artículo se proporciona información sobre la disponibilidad y la coherencia que admite Azure Event Hubs. 
 
 ## <a name="availability"></a>Disponibilidad
-Azure Event Hubs extiende el riesgo de errores catastróficos de máquinas individuales o incluso de bastidores completos en clústeres que abarcan varios dominios de error dentro de un centro de recursos. Implementa la detección transparente de errores y los mecanismos de conmutación por error para que el servicio siga funcionando dentro de los niveles de servicio garantizados y, normalmente, sin interrupciones perceptibles cuando se producen estos errores. Si se ha creado un espacio de nombres de Event Hubs con la opción habilitada para [zonas de disponibilidad](../availability-zones/az-overview.md), el riesgo de interrupción se reparte entre tres instalaciones separadas físicamente, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. Para más información, consulte [Azure Event Hubs: recuperación ante desastres geográfica](event-hubs-geo-dr.md).
+Azure Event Hubs extiende el riesgo de errores catastróficos de máquinas individuales o incluso de bastidores completos en clústeres que abarcan varios dominios de error dentro de un centro de recursos. Implementa la detección transparente de errores y los mecanismos de conmutación por error para que el servicio siga funcionando dentro de los niveles de servicio garantizados y, normalmente, sin interrupciones perceptibles cuando se producen estos errores. 
 
-Cuando una aplicación cliente envía eventos a un centro de eventos, los eventos se distribuyen automáticamente entre las particiones del centro de eventos. Si una partición no está disponible por algún motivo, los eventos se distribuyen entre las particiones restantes. Este comportamiento permite disfrutar del máximo tiempo de actividad. En los casos de uso que requieren el tiempo de actividad máximo, se prefiere este modelo en lugar de enviar eventos a una partición específica. Para más información consulte [Particiones](event-hubs-scalability.md#partitions).
+Si se creó un espacio de nombres de Event Hubs con [zonas de disponibilidad](../availability-zones/az-overview.md) habilitadas, el riesgo de interrupción se reparte entre tres instalaciones separadas físicamente, y el servicio tiene suficientes reservas de capacidad para hacer frente de inmediato a la pérdida completa y catastrófica de toda la instalación. Para más información, consulte [Azure Event Hubs: recuperación ante desastres geográfica](event-hubs-geo-dr.md).
+
+Cuando una aplicación cliente envía eventos a un centro de eventos sin especificar una partición, los eventos se distribuyen automáticamente entre las particiones del centro de eventos. Si una partición no está disponible por algún motivo, los eventos se distribuyen entre las particiones restantes. Este comportamiento permite disfrutar del máximo tiempo de actividad. En los casos de uso que requieren el tiempo de actividad máximo, se prefiere este modelo en lugar de enviar eventos a una partición específica. 
 
 ## <a name="consistency"></a>Coherencia
 En algunos escenarios, el orden de los eventos puede ser importante. Por ejemplo, puede que prefiera el sistema back-end para procesar un comando de actualización antes que un comando de eliminación. En este escenario, una aplicación cliente envía eventos a una partición específica para que se conserve el orden. Cuando una aplicación de consumidor consume estos eventos de la partición, se leen por orden. 
 
 Con esta configuración, tenga en cuenta que si la partición concreta a la que se realiza el envío no se encuentra disponible, recibirá una respuesta de error. Como punto de comparación, si no tiene una afinidad para una sola partición, el servicio Event Hubs envía el evento a la siguiente partición disponible.
 
-Una posible solución para garantizar el orden, mientras también se maximiza el tiempo de actividad, sería agregar eventos como parte de la aplicación de procesamiento de eventos. La manera más fácil de lograrlo es marcar el evento con una propiedad de número de secuencia personalizada.
-
-En este escenario, el cliente productor envía el evento a una de las particiones disponibles en el centro de eventos y establece el número de secuencia correspondiente a partir de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero proporciona a los remitentes un punto de conexión con más probabilidades de estar disponible.
+Por lo tanto, si la alta disponibilidad es más importante, no fije como destino una partición específica (mediante la clave o el identificador de la partición). El uso de una clave o un identificador de la partición degrada la disponibilidad de un centro de eventos en el nivel de partición. En este escenario, se realiza una selección explícita entre disponibilidad (sin identificador ni clave de partición) y coherencia (anclaje de eventos a una partición específica). Para obtener información detallada sobre las particiones en Event Hubs, vea [Particiones](event-hubs-features.md#partitions).
 
 ## <a name="appendix"></a>Apéndice
 
-### <a name="net-examples"></a>Ejemplos de .NET
+### <a name="send-events-without-specifying-a-partition"></a>Envío de eventos sin especificar ninguna partición
+Se recomienda enviar eventos a un centro de eventos sin establecer la información de la partición para permitir que el servicio Event Hubs equilibre la carga entre las particiones. Consulte las siguientes guías de inicio rápido para aprender a hacerlo en distintos lenguajes de programación. 
 
-#### <a name="send-events-to-a-specific-partition"></a>Envío de eventos a una partición específica
-Establezca la clave de partición en un evento o use un objeto `PartitionSender` (si usa la biblioteca antigua Microsoft.Azure.Messaging) para enviar eventos solo a una determinada partición. De esta forma, se garantiza que, cuando se lean eventos de la partición, la lectura siga un orden. 
+- [Envío de eventos mediante .NET](event-hubs-dotnet-standard-getstarted-send.md)
+- [Envío de eventos mediante Java](event-hubs-java-get-started-send.md)
+- [Envío de eventos mediante JavaScript](event-hubs-python-get-started-send.md)
+- [Envío de eventos mediante Python](event-hubs-python-get-started-send.md)
 
-Si usa la biblioteca **Azure.Messaging.EventHubs** más reciente, consulte [Migración de código de PartitionSender a EventHubProducerClient para publicar eventos en una partición](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 o posterior)](#tab/latest)
+### <a name="send-events-to-a-specific-partition"></a>Envío de eventos a una partición específica
+En esta sección aprenderá a enviar eventos a una partición específica mediante distintos lenguajes de programación. 
+
+### <a name="net"></a>[.NET](#tab/dotnet)
+Para enviar eventos a una partición específica, cree el lote mediante el método [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_). Para ello, especifique `PartitionId` o `PartitionKey` en [CreateBatchOptions](/dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). El código siguiente envía un lote de eventos a una partición específica mediante la especificación de una clave de partición. Event Hubs garantiza que todos los eventos que comparten un valor de clave de partición se almacenen juntos y se entreguen en el orden de llegada.
 
 ```csharp
-var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-var eventHubName = "<< NAME OF THE EVENT HUB >>";
-
-await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
-{
-    var batchOptions = new CreateBatchOptions() { PartitionId = "my-partition-id" };
-    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync(batchOptions);
-    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
-    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
-    
-    await producerClient.SendAsync(eventBatch);
-}
+var batchOptions = new CreateBatchOptions { PartitionKey = "cities" };
+using var eventBatch = await producer.CreateBatchAsync(batchOptions);
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 o anterior)](#tab/old)
+También puede usar el método [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_SendAsync_System_Collections_Generic_IEnumerable_Azure_Messaging_EventHubs_EventData__Azure_Messaging_EventHubs_Producer_SendEventOptions_System_Threading_CancellationToken_). Para ello, especifique **PartitionId** o **PartitionKey** en [SendEventOptions](/dotnet/api/azure.messaging.eventhubs.producer.sendeventoptions).
 
 ```csharp
-var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
-var eventHubName = "<< NAME OF THE EVENT HUB >>";
+var sendEventOptions  = new SendEventOptions { PartitionKey = "cities" };
+// create the events array
+producer.SendAsync(events, sendOptions)
+```
 
-var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-PartitionSender partitionSender = eventHubClient.CreatePartitionSender("my-partition-id");
-try
-{
-    EventDataBatch eventBatch = partitionSender.CreateBatch();
-    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
-    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
 
-    await partitionSender.SendAsync(eventBatch);
-}
-finally
-{
-    await partitionSender.CloseAsync();
-    await eventHubClient.CloseAsync();
-}
+### <a name="java"></a>[Java](#tab/java)
+Para enviar eventos a una partición específica, cree el lote con el método [createBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch). Para ello, especifique el **identificador de partición** o la **clave de partición** en [createBatchOptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions). El código siguiente envía un lote de eventos a una partición específica mediante la especificación de una clave de partición. 
+
+```java
+CreateBatchOptions batchOptions = new CreateBatchOptions();
+batchOptions.setPartitionKey("cities");
+```
+
+También puede usar el método [EventHubProducerClient.send](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.send#com_azure_messaging_eventhubs_EventHubProducerClient_send_java_lang_Iterable_com_azure_messaging_eventhubs_EventData__com_azure_messaging_eventhubs_models_SendOptions_). Para ello, especifique el **identificador de partición** o la **clave de partición** en [SendOptions](/java/api/com.azure.messaging.eventhubs.models.sendoptions).
+
+```java
+List<EventData> events = Arrays.asList(new EventData("Melbourne"), new EventData("London"), new EventData("New York"));
+SendOptions sendOptions = new SendOptions();
+sendOptions.setPartitionKey("cities");
+producer.send(events, sendOptions);
+```
+
+
+### <a name="python"></a>[Python](#tab/python) 
+Para enviar eventos a una partición específica, al crear un lote mediante el método [`EventHubProducerClient.create_batch`](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#create-batch---kwargs-), especifique `partition_id` o `partition_key`. A continuación, use el método [`EventHubProducerClient.send_batch`](/python/api/azure-eventhub/azure.eventhub.aio.eventhubproducerclient#send-batch-event-data-batch--typing-union-azure-eventhub--common-eventdatabatch--typing-list-azure-eventhub-) para enviar el lote a la partición del centro de eventos. 
+
+```python
+event_data_batch = await producer.create_batch(partition_key='cities')
+```
+
+También puede utilizar el método [EventHubProducerClient.send_batch](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#send-batch-event-data-batch----kwargs-). Para ello, especifique los valores de los parámetros `partition_id` o `partition_key`.
+
+```python
+producer.send_batch(event_data_batch, partition_key="cities")
+```
+
+### <a name="javascript"></a>[JavaScript](#tab/javascript)
+Para enviar eventos a una partición específica, [cree un lote](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) mediante el objeto [EventHubProducerClient.CreateBatchOptions](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_). Para ello, especifique `partitionId` o `partitionKey`. Después, envíe el lote al centro de eventos mediante el método [EventHubProducerClient.SendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventDataBatch__OperationOptions_). 
+
+Consulte el ejemplo siguiente.
+
+```javascript
+const batchOptions = { partitionKey = "cities"; };
+const batch = await producer.createBatch(batchOptions);
+```
+
+También puede usar el método [EventHubProducerClient.sendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventData____SendBatchOptions_). Para ello, especifique el **identificador de partición** o la **clave de partición** en [SendBatchOptions](/javascript/api/@azure/event-hubs/sendbatchoptions).
+
+```javascript
+const sendBatchOptions = { partitionKey = "cities"; };
+// prepare events
+producer.sendBatch(events, sendBatchOptions);
 ```
 
 ---
 
-### <a name="set-a-sequence-number"></a>Establecimiento de un número de secuencia
-En el ejemplo siguiente se sella el evento con una propiedad de número de secuencia personalizada. 
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 o posterior)](#tab/latest)
-
-```csharp
-// create a producer client that you can use to send events to an event hub
-await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
-{
-    // get the latest sequence number from your application
-    var sequenceNumber = GetNextSequenceNumber();
-
-    // create a batch of events 
-    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-
-    // create a new EventData object by encoding a string as a byte array
-    var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-
-    // set a custom sequence number property
-    data.Properties.Add("SequenceNumber", sequenceNumber);
-
-    // add events to the batch. An event is a represented by a collection of bytes and metadata. 
-    eventBatch.TryAdd(data);
-
-    // use the producer client to send the batch of events to the event hub
-    await producerClient.SendAsync(eventBatch);
-}
-```
-
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 o anterior)](#tab/old)
-```csharp
-// Create an Event Hubs client
-var client = new EventHubClient(connectionString, eventHubName);
-
-//Create a producer to produce events
-EventHubProducer producer = client.CreateProducer();
-
-// Get the latest sequence number from your application 
-var sequenceNumber = GetNextSequenceNumber();
-
-// Create a new EventData object by encoding a string as a byte array
-var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-
-// Set a custom sequence number property
-data.Properties.Add("SequenceNumber", sequenceNumber);
-
-// Send single message async
-await producer.SendAsync(data);
-```
----
-
-Este ejemplo envía el evento a una de las particiones disponibles en el centro de eventos y establece el número de secuencia correspondiente a partir de la aplicación. Esta solución requiere que la aplicación de procesamiento conserve el estado, pero proporciona a los remitentes un punto de conexión con más probabilidades de estar disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* [Información general sobre el servicio Event Hubs](./event-hubs-about.md)
-* [Creación de un centro de eventos](event-hubs-create.md)
+- [Información general sobre el servicio Event Hubs](./event-hubs-about.md)
+- [Terminología de Event Hubs](event-hubs-features.md)

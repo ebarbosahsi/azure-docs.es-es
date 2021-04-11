@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico con la CLI de Azure'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la CLI de Azure.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98920247"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563674"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con la CLI de Azure
 
 Aprender a crear y asignar planos técnicos permite definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad, etc. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 - Si es la primera vez que usa Azure Blueprints, registre el proveedor de recursos a través de la CLI de Azure con `az provider register --namespace Microsoft.Blueprint`.
@@ -311,7 +311,7 @@ El valor de `{BlueprintVersion}` es una cadena de letras, números y guiones (si
 
 Cuando se ha publicado un plano técnico mediante la CLI de Azure, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El parámetro **blueprint-name** especifica el plano técnico que se va a asignar. Para proporcionar los parámetros de nombre, ubicación, identidad, bloqueo y plano técnico, use los parámetros de la CLI de Azure coincidentes en el comando `az blueprint assignment create` o proporciónelos en el archivo JSON **parameters**.
 
-1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Dado que los parámetros **contributors** y **owners** requieren una matriz de objectId de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el archivo **parameters** para sus propios usuarios, grupos o entidades de servicio.
+1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Dado que los parámetros **contributors** y **owners** requieren una matriz de objectId de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para recopilar los elementos objectId que se utilizarán en el archivo **parameters** para sus propios usuarios, grupos o entidades de servicio.
 
    - Archivo JSON: blueprintAssignment.json
 

@@ -2,15 +2,15 @@
 title: Configuración de aplicaciones de Python para Linux
 description: Aprenda a configurar el contenedor de Python en el que se ejecutan las aplicaciones web, mediante Azure Portal y la CLI de Azure.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709094"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953517"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -114,7 +114,7 @@ Las aplicaciones web existentes se pueden volver a implementar en Azure de la si
 
 1. **Inicio de la aplicación**: revise la sección [Proceso de inicio del contenedor](#container-startup-process) más adelante en este artículo para entender cómo App Service intenta ejecutar la aplicación. App Service usa el servidor web Gunicorn de forma predeterminada, que debe poder encontrar el objeto de aplicación o la carpeta *wsgi.py*. También puede [personalizar el comando de inicio](#customize-startup-command) si es necesario.
 
-1. **Implementación continua**: configure la implementación continua, como se describe en [Implementación continua en Azure App Service](deploy-continuous-deployment.md) si usa la implementación de Azure Pipelines o Kudu, o [Implementación de App Service con Acciones de GitHub](deploy-github-actions.md) si usa acciones de GitHub.
+1. **Implementación continua**: configure la implementación continua, como se describe en [Implementación continua en Azure App Service](deploy-continuous-deployment.md) si usa la implementación de Azure Pipelines o Kudu, o [Implementación de App Service con Acciones de GitHub](./deploy-continuous-deployment.md) si usa acciones de GitHub.
 
 1. **Acciones personalizadas**: para realizar acciones en el contenedor de App Service que hospeda la aplicación, como migraciones de base de datos de Django, puede [conectarse al contenedor mediante SSH](configure-linux-open-ssh-session.md). Para obtener un ejemplo de cómo ejecutar migraciones de base de datos de Django, consulte [Tutorial: Implementación de una aplicación web Django con PostgreSQL: ejecución de migraciones de base de datos](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Al usar la implementación continua, puede realizar esas acciones con comandos posteriores a la compilación, como se ha descrito anteriormente en [Personalización de la automatización de compilaciones](#customize-build-automation).
@@ -373,6 +373,7 @@ En las secciones siguientes se proporcionan instrucciones adicionales para probl
 - [La aplicación no aparece: mensaje "servicio no disponible"](#service-unavailable)
 - [No se pudo encontrar setup.py o requirements.txt](#could-not-find-setuppy-or-requirementstxt)
 - [ModuleNotFoundError en el inicio](#modulenotfounderror-when-app-starts)
+- [La base de datos está bloqueada](#database-is-locked)
 - [Las contraseñas no aparecen en la sesión SSH cuando se escriben](#other-issues)
 - [Parece que los comandos de la sesión SSH se han cortado](#other-issues)
 - [Los recursos estáticos no aparecen en una aplicación de Django](#other-issues)
@@ -409,6 +410,14 @@ En las secciones siguientes se proporcionan instrucciones adicionales para probl
 #### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError cuando se inicia la aplicación
 
 Si ve un error como `ModuleNotFoundError: No module named 'example'`, significa que Python no ha podido encontrar uno o varios de los módulos al iniciarse la aplicación. Esto suele ocurrir si implementa el entorno virtual con el código. Los entornos virtuales no son portables, por lo que no se deben implementar con el código de la aplicación. En su lugar, permita que Oryx cree un entorno virtual e instale los paquetes en la aplicación web mediante la creación de una configuración de aplicación, `SCM_DO_BUILD_DURING_DEPLOYMENT`, que se establezca en `1`. Esto obligará a Oryx a instalar los paquetes cada vez que realice la implementación en App Service. Para obtener más información, vea [este artículo sobre portabilidad del entorno virtual](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### <a name="database-is-locked"></a>La base de datos está bloqueada
+
+Al intentar ejecutar migraciones de base de datos con una aplicación de Django, puede ver "sqlite3. OperationalError: database is locked." (sqlite3. OperationalError: la base de datos está bloqueada) El error indica que la aplicación usa una base de datos de SQLite para la que Django está configurado de forma predeterminada, en lugar de usar una base de datos en la nube como PostgreSQL para Azure.
+
+Compruebe la variable `DATABASES` en el archivo *settings.py* de la aplicación para asegurarse de que la aplicación usa una base de datos en la nube, en lugar de SQLite.
+
+Si encuentra este error con el ejemplo de [Tutorial: Implementación de una aplicación web de Django con PostgreSQL](tutorial-python-postgresql-app.md), compruebe que ha completado los pasos descritos en la sección [Configuración de variables de entorno para conectar la base de datos](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### <a name="other-issues"></a>Otros problemas
 

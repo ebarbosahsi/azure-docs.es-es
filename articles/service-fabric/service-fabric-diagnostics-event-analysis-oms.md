@@ -1,16 +1,14 @@
 ---
 title: Análisis de eventos de Azure Service Fabric con registros de Azure Monitor
 description: Aprenda a visualizar y analizar eventos con los registros de Azure Monitor para la supervisión y el diagnóstico de clústeres de Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: srrengar
-ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1e22213c857b400cc36c51cefb90e2379352893
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581541"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628975"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análisis y visualización de eventos con los registros de Azure Monitor
  Los registros de Azure Monitor recopilan y analizan la telemetría de las aplicaciones y los servicios hospedados en la nube y proporcionan herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en los registros de Azure Monitor para obtener información de lo que está sucediendo en el clúster y solucionar problemas. Se tratan las siguientes preguntas habituales:

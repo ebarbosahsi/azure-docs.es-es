@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652137"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043604"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -36,7 +37,8 @@ Una cuenta profesional se crea de la misma manera para todos los inquilinos basa
 
 Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las siguientes opciones de configuración:
 
-- **Nombre** y **Nombre de usuario**: la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com*.
+- **Nombre** y **Nombre de usuario**: la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com*. 
+- **Correo electrónico**: el nuevo usuario también puede iniciar sesión con una dirección de correo electrónico. No se admiten los caracteres especiales ni los multibyte en el correo electrónico, como los caracteres japoneses.
 - **Perfil**: la cuenta está configurada con un perfil de datos de usuario. Tiene la oportunidad de especificar un nombre, los apellidos, el puesto y el nombre de departamento. Puede editar el perfil después de crear la cuenta.
 - **Grupos**: use grupos para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
 - **Rol de directorio**: debe especificar el nivel de acceso que tiene la cuenta de usuario a los recursos en el inquilino. Están disponibles los siguientes niveles de permiso:

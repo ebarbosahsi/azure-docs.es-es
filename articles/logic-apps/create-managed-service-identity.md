@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
-ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556628"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889338"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -93,7 +93,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Id. de objeto** | <*identity-resource-ID*> | Identificador único global (GUID) que representa la identidad asignada por el sistema de la aplicación lógica en un inquilino de Azure AD. |
    ||||
@@ -402,52 +402,54 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
 
      Para más información, vea [Ejemplo: Autentique una acción o un desencadenador de conector administrado con una identidad administrada](#authenticate-managed-connector-managed-identity).
 
-     Las conexiones que se crean para usar una identidad administrada son un tipo de conexión especial que solo funciona con una identidad administrada. En tiempo de ejecución, la conexión usa la identidad administrada que está habilitada en la aplicación lógica. Esta configuración se guarda en el objeto `parameters` de la definición de recursos de la aplicación lógica, que contiene el objeto `$connections` que incluye punteros al identificador de recurso de la conexión junto con el identificador de recurso de la identidad, si la identidad asignada por el usuario está habilitada.
+### <a name="connections-that-use-managed-identities"></a>Conexiones que usan identidades administradas
 
-     En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita la identidad administrada asignada por el sistema:
+Las conexiones que usan una identidad administrada son un tipo de conexión especial que solo funciona con una identidad administrada. En tiempo de ejecución, la conexión usa la identidad administrada que está habilitada en la aplicación lógica. Esta configuración se guarda en el objeto `parameters` de la definición de recursos de la aplicación lógica, que contiene el objeto `$connections` que incluye punteros al identificador de recurso de la conexión junto con el identificador de recurso de la identidad, si la identidad asignada por el usuario está habilitada.
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita la identidad administrada asignada por el sistema:
 
-     En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita una identidad administrada asignada por el usuario:
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+ ```
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+En este ejemplo se muestra el aspecto de la configuración cuando la aplicación lógica habilita una identidad administrada asignada por el usuario:
 
-     Durante el tiempo de ejecución, el servicio Logic Apps comprueba si las acciones o los desencadenadores de conector administrado de la aplicación lógica están configurados para usar la identidad administrada y si todos los permisos necesarios están configurados para usar la identidad administrada a fin de acceder a los recursos de destino especificados por el desencadenador y las acciones. Si la comprobación se completa correctamente, el servicio Logic Apps recupera el token de Azure AD que está asociado a la identidad administrada y usa dicha identidad para autenticar el acceso al recurso de destino y realizar la operación configurada en desencadenadores y acciones.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Durante el tiempo de ejecución, el servicio Logic Apps comprueba si las acciones o los desencadenadores de conector administrado de la aplicación lógica están configurados para usar la identidad administrada y si todos los permisos necesarios están configurados para usar la identidad administrada a fin de acceder a los recursos de destino especificados por el desencadenador y las acciones. Si la comprobación se completa correctamente, el servicio Logic Apps recupera el token de Azure AD que está asociado a la identidad administrada y usa dicha identidad para autenticar el acceso al recurso de destino y realizar la operación configurada en desencadenadores y acciones.
 
 <a name="authenticate-built-in-managed-identity"></a>
 

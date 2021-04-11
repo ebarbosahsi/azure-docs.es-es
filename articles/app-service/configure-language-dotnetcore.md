@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655975"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889491"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET para Azure App Service
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Si configura una opción de aplicación con el mismo nombre en App Service y en *appsettings.json*, por ejemplo, el valor de App Service tiene prioridad sobre el valor de *appsettings.json*. El valor de *appsettings.json* local permite depurar la aplicación localmente, pero el valor de App Service permite la ejecución de la aplicación en el producto con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
+Si configura una opción de aplicación con el mismo nombre en App Service y en *appsettings.json*, por ejemplo, el valor de App Service tiene prioridad sobre el valor de *appsettings.json*. El valor de *appsettings.json* local permite depurar la aplicación localmente, pero el valor de App Service permite ejecutar la aplicación en producción con la configuración de producción. Las cadenas de conexión funcionan de la misma manera. De este modo, puede conservar los secretos de aplicación fuera de su repositorio de código y tener acceso a los valores adecuados sin cambiar el código.
 
 > [!NOTE]
 > Tenga en cuenta que el acceso a los [datos de configuración jerárquica](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) en *appsettings.json* se tiene mediante el delimitador `:` que es estándar para .NET Core. Para invalidar una opción de configuración jerárquica específica en App Service, establezca el nombre de configuración de la aplicación con el mismo formato delimitado en la clave. Puede ejecutar el siguiente ejemplo en [Cloud Shell](https://shell.azure.com):

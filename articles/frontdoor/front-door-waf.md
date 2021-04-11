@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201063"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167760"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Escalado y protección rápidos de una aplicación web mediante Azure Front Door y Azure Web Application Firewall (WAF)
 
@@ -140,7 +140,7 @@ Por último, si está usando un dominio personalizado para llegar a la aplicaci�
 
 ## <a name="lock-down-your-web-application"></a>Bloqueo de la aplicación web
 
-Se recomienda asegurarse de que solo los perímetros de Azure Front Door pueden comunicarse con la aplicación web. De este modo, se asegurará de que nadie pueda omitir la protección de Azure Front Door y acceder a la aplicación directamente. Para lograr este bloqueo, consulte [¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Se recomienda asegurarse de que solo los perímetros de Azure Front Door pueden comunicarse con la aplicación web. De este modo, se asegurará de que nadie pueda omitir la protección de Azure Front Door y acceder a la aplicación directamente. Para lograr este bloqueo, consulte [¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

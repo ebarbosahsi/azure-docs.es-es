@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101718937"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961564"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -25,7 +25,7 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 * [Creación y configuración de IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
 * [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).
 * [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge.md)
-* [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
+* [Creación de una cuenta de Azure Media Services](../latest/account-create-how-to.md)
 
     * Use una de estas regiones: Este de EE. UU. 2, Este de EE. UU., Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU., Oeste de EE. UU. '2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
     * Se recomienda usar cuentas de almacenamiento v2 de uso general (GPv2).

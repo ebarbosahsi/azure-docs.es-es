@@ -4,10 +4,10 @@ description: Se describe cómo crear un grupo de recursos en una plantilla de Az
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889440"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager

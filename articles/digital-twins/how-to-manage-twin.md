@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433274"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954656"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -127,13 +127,13 @@ El resultado de llamar a `object result = await client.GetDigitalTwinAsync("my-m
 }
 ```
 
-Las propiedades definidas del gemelo digital se devuelven como propiedades de nivel superior en el gemelo digital. Los metadatos o la información del sistema que no forman parte de la definición de DTDL se devuelven con un prefijo `$`. Las propiedades de metadatos incluyen:
-* El identificador del gemelo digital en esta instancia de Azure Digital Twins, como `$dtId`.
-* `$etag`, un campo HTTP estándar asignado por el servidor web.
-* Otras propiedades de una sección `$metadata`. Entre ellas se incluyen las siguientes:
-    - DTMI del modelo del gemelo digital.
-    - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
-    - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
+Las propiedades definidas del gemelo digital se devuelven como propiedades de nivel superior en el gemelo digital. Los metadatos o la información del sistema que no forman parte de la definición de DTDL se devuelven con un prefijo `$`. Las propiedades de metadatos incluyen los valores siguientes:
+* `$dtId`: el identificador del gemelo digital en esta instancia de Azure Digital Twins
+* `$etag`: un campo HTTP estándar asignado por el servidor web. Esto se actualiza a un nuevo valor cada vez que se actualiza el gemelo, lo que puede resultar útil para determinar si los datos del gemelo se han actualizado en el servidor desde una comprobación anterior. Puede usar `If-Match` para realizar las actualizaciones y eliminaciones que solo se completan si el valor ETag de la entidad coincide con el valor ETag proporcionado. Para obtener más información sobre estas operaciones, consulte la documentación de [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) y [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
+* `$metadata`: un conjunto de otras propiedades, entre las que se incluyen:
+  - DTMI del modelo del gemelo digital.
+  - Estado de sincronización de cada propiedad grabable. Esto es útil principalmente para los dispositivos, donde es posible que el servicio y el dispositivo tengan estados divergentes (por ejemplo, cuando un dispositivo está sin conexión). Actualmente, esta propiedad solo se aplica a dispositivos físicos conectados a IoT Hub. Los datos de la sección de metadatos permiten comprender el estado completo de una propiedad, así como las últimas marcas de tiempo modificadas. Para obtener más información sobre el estado de sincronización, consulte [este tutorial de IoT Hub](../iot-hub/tutorial-device-twins.md) sobre la sincronización del estado del dispositivo.
+  - Metadatos específicos del servicio, como de IoT Hub o Azure Digital Twins. 
 
 Para más información sobre las clases auxiliares de serialización como `BasicDigitalTwin`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
 

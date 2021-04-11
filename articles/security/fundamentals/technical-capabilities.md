@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735784"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044760"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -278,7 +278,7 @@ Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de e
 
 Azure es compatible con la conectividad de vínculo WAN dedicado a su red local y a una instancia de Azure Virtual Network con [ExpressRoute](../../expressroute/expressroute-introduction.md). El vínculo entre Azure y su sitio utiliza una conexión dedicada que no va por la red pública de Internet. Si su aplicación de Azure se va a ejecutar en varios centros de datos, puede utilizar [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) para enrutar las solicitudes de los usuarios de forma inteligente entre instancias de la aplicación. También puede enrutar tráfico a servicios que no se ejecuten en Azure si se puede obtener acceso a ellos desde Internet.
 
-Azure también admite la conectividad privada y segura con los recursos de PaaS (por ejemplo, Azure Storage y SQL Database) desde Azure Virtual Network con [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). El recurso de PaaS se asigna a un [punto de conexión privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) en la red virtual. El vínculo entre el punto de conexión privado de la red virtual y el recurso de PaaS usa la red troncal de Microsoft y no pasa por la red pública de Internet. Ya no es necesario exponer el servicio a la red pública de Internet. También puede usar Azure Private Link para acceder a servicios de partner y propiedad del cliente hospedados de Azure en la red virtual.  Además, Azure Private Link le permite crear su propio [servicio de vínculo privado](https://docs.microsoft.com/azure/private-link/private-link-service-overview) en la red virtual y entregarlo a los clientes de forma privada en sus redes virtuales. La configuración y el consumo mediante Azure Private Link es coherente entre los servicios de asociados compartidos y propiedad del cliente de PaaS de Azure.
+Azure también admite la conectividad privada y segura con los recursos de PaaS (por ejemplo, Azure Storage y SQL Database) desde Azure Virtual Network con [Azure Private Link](../../private-link/private-link-overview.md). El recurso de PaaS se asigna a un [punto de conexión privado](../../private-link/private-endpoint-overview.md) en la red virtual. El vínculo entre el punto de conexión privado de la red virtual y el recurso de PaaS usa la red troncal de Microsoft y no pasa por la red pública de Internet. Ya no es necesario exponer el servicio a la red pública de Internet. También puede usar Azure Private Link para acceder a servicios de partner y propiedad del cliente hospedados de Azure en la red virtual.  Además, Azure Private Link le permite crear su propio [servicio de vínculo privado](../../private-link/private-link-service-overview.md) en la red virtual y entregarlo a los clientes de forma privada en sus redes virtuales. La configuración y el consumo mediante Azure Private Link es coherente entre los servicios de asociados compartidos y propiedad del cliente de PaaS de Azure.
 
 ## <a name="virtual-machine-security"></a>Seguridad de máquina virtual
 

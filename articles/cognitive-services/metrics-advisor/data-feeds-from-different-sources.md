@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348626"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606154"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor
 
-Use este artículo para encontrar la configuración y los requisitos para conectar distintos tipos de orígenes de datos a Metrics Advisor. Asegúrese de leer cómo [incorporar los datos](how-tos/onboard-your-data.md) para obtener información sobre los conceptos clave para usar los datos con Metrics Advisor. 
+Use este artículo para encontrar la configuración y los requisitos para conectar distintos tipos de orígenes de datos a Metrics Advisor. Asegúrese de leer cómo [incorporar los datos](how-tos/onboard-your-data.md) para obtener información sobre los conceptos clave para usar los datos con Metrics Advisor. \
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticación que se admiten
 
@@ -51,7 +51,7 @@ Use este artículo para encontrar la configuración y los requisitos para conect
 |[**MySQL**](#mysql) | Básico |
 |[**PostgreSQL**](#pgsql)| Básico|
 
-Cree una **entidad de credencial** y úsela para autenticarse en los orígenes de datos. En las secciones siguientes se especifican los parámetros necesarios para la autenticación *básica*. 
+Cree una entidad de credencial** y úsela para autenticarse en los orígenes de datos. En las secciones siguientes se especifican los parámetros necesarios para la autenticación *básica*. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
@@ -212,23 +212,22 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
-* **Cadena de conexión**: Consulte [Ver y copiar una cadena de conexión](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) para obtener información sobre cómo recuperar la cadena de conexión de Azure Table Storage.
+* **Cadena de conexión**: Cree una dirección URL de SAS (firma de acceso compartido) y rellénela aquí. La manera más sencilla de generar una dirección URL de SAS es con Azure Portal. Con Azure Portal, puede navegar de manera gráfica. Para crear una dirección URL de SAS con Azure Portal, en primer lugar, vaya a la cuenta de almacenamiento a la que le gustaría acceder en la sección Configuración y luego haga clic en Firma de acceso compartido. Active al menos las casillas "Tabla" y "Objeto", a continuación, haga clic en el botón Generar la cadena de conexión y SAS. La dirección URL de SAS de Table service es lo que tiene que copiar y usar para rellenar el cuadro de texto en el área de trabajo de Metrics Advisor.
 
 * **Nombre de la tabla**: Especifique una tabla en la que realizar la consulta. Se puede encontrar en la instancia de la cuenta de Azure Storage. Haga clic en **Tablas** en la sección **Table Service**.
 
-* **Consulta**: puede usar `@StartTime` en la consulta. `@StartTime` se reemplaza por una cadena con formato aaaa-MM-ddTHH:mm:ss en el script.
+* **Consulta**: puede usar `@StartTime` en la consulta. `@StartTime` se reemplaza por una cadena con formato aaaa-MM-ddTHH:mm:ss en el script. Sugerencia: Use el explorador de almacenamiento de Azure para crear una consulta con un intervalo de tiempo específico, y asegúrese de que se ejecute de forma correcta y, a continuación, realice el reemplazo.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
 
-* **Host**: especifique el host principal del clúster de Elasticsearch.
-* **Puerto**: especifique el puerto principal del clúster de Elasticsearch.
-* **Encabezado de autorización**: especifique el valor del encabezado de autorización del clúster de Elasticsearch.
-* **Consulta**: especifique la consulta para obtener datos. Se admite el marcador de posición @StartTime (por ejemplo, cuando se ingieren los datos de 2020-06-21T00:00:00Z, @StartTime = 2020-06-21T00:00:00)
+* **Host**: Especifique el host principal del clúster de Elasticsearch.
+* **Puerto**: Especifique el puerto principal del clúster de Elasticsearch.
+* **Encabezado de autorización**: Especifique el valor del encabezado de autorización del clúster de Elasticsearch.
+* **Consulta**: Especifique la consulta para obtener datos. Se admite el marcador de posición @StartTime (por ejemplo, cuando se ingieren los datos de 2020-06-21T00:00:00Z, @StartTime = 2020-06-21T00:00:00)
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Solicitud HTTP</span>
 

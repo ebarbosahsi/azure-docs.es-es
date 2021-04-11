@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175658"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889389"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Uso de scripts de implementación en plantillas de Resource Manager
 
@@ -131,6 +131,9 @@ El siguiente código JSON es un ejemplo: Para más información, consulte el [es
 > [!NOTE]
 > Este ejemplo se ofrece con fines de demostración. Las propiedades `scriptContent` y `primaryScriptUri` no pueden coexistir en una plantilla.
 
+> [!NOTE]
+> El valor de _scriptContent_ muestra un script con varias líneas.  Azure Portal y la canalización de Azure DevOps no pueden analizar un script de implementación con varias líneas. Puede encadenar los comandos de PowerShell (mediante puntos y comas o _\\r\\n_ o _\\n_) en una sola línea, o bien usar la propiedad `primaryScriptUri` con un archivo de script externo. Hay muchas herramientas gratuitas disponibles de los valores "escape" o "unescape" de la cadena JSON. Por ejemplo, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Detalles de los valores de propiedad:
 
 - `identity`: En la versión 2020-10-01, u otra posterior, de la API del script de implementación, una identidad administrada asignada por el usuario es opcional a menos que necesite realizar cualquier acción específica de Azure en el script.  En la versión 2019-10-01-preview de la API se requiere una identidad administrada, ya que el servicio del script de implementación la usa para ejecutar los scripts. Actualmente, solo se admiten identidades asignadas por el usuario.
@@ -159,14 +162,11 @@ Detalles de los valores de propiedad:
 
 - `environmentVariables`: especifique las variables de entorno que se van a pasar al script. Para más información, consulte [Desarrollo de scripts de implementación](#develop-deployment-scripts).
 - `scriptContent`: especifica el contenido del script. Para ejecutar un script externo, use `primaryScriptUri` en su lugar. Para ver ejemplos, consulte [Uso scripts en línea](#use-inline-scripts) y [Uso de scripts externos](#use-external-scripts).
-  > [!NOTE]
-  > Azure Portal no puede analizar un script de implementación con varias líneas. Para implementar una plantilla con el script de implementación en Azure Portal, puede encadenar los comandos de PowerShell mediante punto y coma en una sola línea, o bien usar la propiedad `primaryScriptUri` con un archivo de script externo.
-
-- `primaryScriptUri`: Especifique una dirección URL de acceso público al script de implementación principal con las extensiones de archivo compatibles.
-- `supportingScriptUris`: Especifique una matriz de direcciones URL de acceso público a los archivos auxiliares a los que se llame en `scriptContent` o `primaryScriptUri`.
+- `primaryScriptUri`: especifique una dirección URL de acceso público al script de implementación principal con las extensiones de archivo compatibles. Para obtener más información, consulte [Uso de scripts externos](#use-external-scripts).
+- `primaryScriptUri`: especifique una matriz de direcciones URL de acceso público a los archivos auxiliares a los que se llame en `supportingScriptUris` o `scriptContent`. Para obtener más información, consulte [Uso de scripts externos](#use-external-scripts).
 - `timeout`: especifique el tiempo máximo de ejecución de scripts permitido en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor predeterminado es **P1D**.
 - `cleanupPreference`. especifique la preferencia de limpieza de recursos de implementación cuando la ejecución del script llegue a un estado terminal. La configuración predeterminada es **Siempre**, lo que significa que se eliminan los recursos a pesar del estado terminal (correcto, error, cancelado). Para obtener más información, vea el artículo sobre [limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
-- `retentionInterval`: especifique el intervalo durante el que el servicio conserva los recursos del script de implementación cuando este llega a un estado terminal. Los recursos del script de implementación se eliminarán cuando expire este periodo. La duración se basa en el [patrón ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El intervalo de retención se sitúa entre 1 y 26 horas (PT26H). Esta propiedad se usa cuando `cleanupPreference` se establece en **OnExpiration**. La propiedad **OnExpiration** no está habilitada actualmente. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
+- `retentionInterval`: especifique el intervalo durante el que el servicio conserva los recursos del script de implementación cuando este llega a un estado terminal. Los recursos del script de implementación se eliminarán cuando expire este periodo. La duración se basa en el [patrón ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El intervalo de retención se sitúa entre 1 y 26 horas (PT26H). Esta propiedad se usa cuando `cleanupPreference` se establece en **OnExpiration**. Para más información, consulte [Limpieza de los recursos del script de implementación](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Ejemplos adicionales
 
@@ -212,7 +212,7 @@ Además de los scripts en línea, también puede usar archivos de script externo
 
 Para más información, consulte la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Los archivos de script externos deben ser accesibles. Para proteger los archivos de script que se almacenan en cuentas de Azure Storage, consulte [Implementación de una plantilla de Resource Manager privada con el token de SAS](./secure-template-with-sas-token.md).
+Los archivos de script externos deben ser accesibles. Para proteger los archivos de script que se almacenan en cuentas de almacenamiento de Azure, genere un token de SAS e inclúyalo en el URI de la plantilla. Establezca el tiempo de expiración con un margen suficiente para completar la implementación. Para obtener más información, consulte [Implementación de una plantilla de Resource Manager privada con el token de SAS](./secure-template-with-sas-token.md).
 
 Tiene la responsabilidad de garantizar la integridad de los scripts a los que hace referencia el script de implementación, ya sea `primaryScriptUri` o `supportingScriptUris`. Haga referencia solo a scripts en los que confíe.
 
@@ -313,7 +313,7 @@ El servicio de script establece el estado de aprovisionamiento de los recursos e
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Paso de cadenas protegidas al script de implementación
 
-El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values).
+El establecimiento de variables de entorno (EnvironmentVariable) en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. El script de implementación controla las variables de entorno no protegidas y protegidas de la misma manera que Azure Container Instance. Para más información, consulte [Establecimiento de variables de entorno en instancias de contenedor](../../container-instances/container-instances-environment-variables.md#secure-values). Por ejemplo, consulte [Plantillas de ejemplo](#sample-templates).
 
 El tamaño máximo permitido para las variables de entorno es de 64 KB.
 
