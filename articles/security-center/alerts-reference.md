@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176712"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075651"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de seguridad: una guía de referencia
 
@@ -510,7 +510,7 @@ Las intenciones de la cadena de eliminación admitidas de Security Center se bas
 | **Exfiltración**        | La exfiltración hace referencia a técnicas y atributos que permiten o ayudan a que el adversario elimine archivos e información de una red de destino. Esta categoría también abarca ubicaciones en un sistema o una red donde el adversario puede buscar información para el filtrado.                                                                                                                                                                                                                                                                                                                                  |
 | **CommandAndControl**   | La táctica de control y comando representa la forma en la que los adversarios se comunican con los sistemas bajo su control en una red de destino.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Impacto**              | Los eventos de impacto intentan principalmente reducir directamente la disponibilidad o la integridad de un sistema, servicio o red; incluida la manipulación de datos para afectar a un proceso empresarial o operativo. Esto suele hacer referencia a técnicas como ransomware, desmiración, manipulación de datos y otros.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > En el caso de las alertas que están en versión preliminar: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

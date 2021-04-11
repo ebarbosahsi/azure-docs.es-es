@@ -1,18 +1,19 @@
 ---
 title: 'Tutorial: Uso de Azure Time Series Insights para almacenar y analizar la telemetría de dispositivos Azure IoT Plug and Play'
 description: 'Tutorial: Configuración de un entorno de Time Series Insights y conexión con el centro de IoT para ver y analizar los datos de telemetría de los dispositivos IoT Plug and Play.'
-author: lyrana
-ms.author: lyhughes
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 588d680acc8c21c7f4dcf6569e23110f3c33c482
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 28cda9fb6997500f6cd7c4c4349635e7b7a36398
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057409"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504284"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Creación y configuración de un entorno de Time Series Insights Gen2
 
@@ -26,7 +27,7 @@ En este tutorial, hizo lo siguiente:
 > * Utilice los archivos de modelo de ejemplo de [Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) que ha usado para los dispositivos del controlador de temperatura y del termostato.
 
 > [!NOTE]
-> Esta integración entre Time Series Insights e IoT Plug and Play se encuentra en versión preliminar. La forma en que los modelos de dispositivos de DTDL se asignan al modelo de serie temporal de Time Series Insights podría cambiar. 
+> Esta integración entre Time Series Insights e IoT Plug and Play se encuentra en versión preliminar. La forma en que los modelos de dispositivos de DTDL se asignan al modelo de serie temporal de Time Series Insights podría cambiar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -123,7 +124,7 @@ A continuación, convertirá el modelo de dispositivo de DTDL en el modelo de re
 
 ### <a name="define-your-types"></a>Definición de los tipos
 
-Puede empezar a ingerir datos en Azure Time Series Insights Gen2 sin tener un modelo predefinido. Cuando llegan los datos de telemetría, Time Series Insights intenta resolver automáticamente las instancias de serie temporal en función de los valores de propiedad del identificador de serie temporal. Todas las instancias tienen asignado el *tipo predeterminado*. Debe crear manualmente un nuevo tipo para clasificarlas correctamente. 
+Puede empezar a ingerir datos en Azure Time Series Insights Gen2 sin tener un modelo predefinido. Cuando llegan los datos de telemetría, Time Series Insights intenta resolver automáticamente las instancias de serie temporal en función de los valores de propiedad del identificador de serie temporal. Todas las instancias tienen asignado el *tipo predeterminado*. Debe crear manualmente un nuevo tipo para clasificarlas correctamente.
 
 Los detalles siguientes describen el método más sencillo para sincronizar los modelos de DTDL de dispositivo con los tipos de modelo de serie temporal:
 
@@ -139,7 +140,7 @@ Los detalles siguientes describen el método más sencillo para sincronizar los 
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
-| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents` (matriz)| `variables` (objeto)  | Consulte el ejemplo siguiente.
 
 ![Captura de pantalla que muestra el tipo de modelo de serie temporal de DTDL.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
@@ -161,7 +162,7 @@ Abra un editor de texto y guarde el siguiente código JSON en la unidad local.
           "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
-          }, 
+          },
           "aggregation": {
             "tsx": "avg($value)"
           }
