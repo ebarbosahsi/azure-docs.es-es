@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 41bb7287aaa045e191d61abb00f470018fda9cbe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780079"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031603"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 
@@ -55,7 +55,7 @@ En la tabla siguiente se enumeran las direcciones URL base de los puntos de cone
 |----------------|-------------------------|
 | Azure AD para el US Gov | `https://login.microsoftonline.us` |
 | Azure AD Alemania| `https://login.microsoftonline.de` |
-| Azure AD China, operado por 21Vianet | `https://login.partner.microsoftonline.cn/common` |
+| Azure AD China, operado por 21Vianet | `https://login.partner.microsoftonline.cn` |
 | Azure AD (servicio global)| `https://login.microsoftonline.com` |
 
 Puede realizar solicitudes a los puntos de conexión de autorización o token de Azure AD mediante la dirección URL base específica de la región pertinente. Por ejemplo, para Azure Alemania:

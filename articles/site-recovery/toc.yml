@@ -216,7 +216,9 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
               href: azure-to-azure-replicate-after-migration.md
-            - name: Recuperación ante desastres de zona a zona
+        - name: Recuperación ante desastres de zona a zona
+          items:
+            - name: Habilitación de la replicación entre zonas dentro de una región
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Administrar
           items:

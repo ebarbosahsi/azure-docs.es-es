@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102119780"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557537"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -72,12 +72,12 @@ Las secciones siguientes enumeran los solucionadores de notificaciones disponibl
 | {OIDC:LoginHint} |  El parámetro de cadena de consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | El parámetro de cadena de consulta `max_age`. | N/D |
 | {OIDC:Nonce} |El parámetro de cadena de consulta `Nonce`. | defaultNonce |
-| {OIDC:Password}| Contraseña de usuario del [flujo de credenciales de contraseña del propietario del recurso](ropc-custom.md).| password1| 
+| {OIDC:Password}| Contraseña de usuario del [flujo de credenciales de contraseña del propietario del recurso](add-ropc-policy.md).| password1| 
 | {OIDC:Prompt} | El parámetro de cadena de consulta `prompt`. | login |
 | {OIDC:RedirectUri} |El parámetro de cadena de consulta `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |El parámetro de cadena de consulta `resource`. | N/D |
 | {OIDC:Scope} |El parámetro de cadena de consulta `scope`. | openid |
-| {OIDC:Username}| Nombre de usuario del usuario del [flujo de credenciales de contraseña de propietario del recurso](ropc-custom.md).| emily@contoso.com| 
+| {OIDC:Username}| Nombre de usuario del usuario del [flujo de credenciales de contraseña de propietario del recurso](add-ropc-policy.md).| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 

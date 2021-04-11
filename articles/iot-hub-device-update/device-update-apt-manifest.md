@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101678865"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561175"
 ---
 # <a name="device-update-apt-manifest"></a>Manifiesto APT de Device Update
 
@@ -103,7 +103,7 @@ Si se omite la versión, se instalará la última versión disponible del paquet
 > El administrador de paquetes APT omite los requisitos de control de versiones que indica un paquete cuando los paquetes dependientes que se van a instalar se resuelven automáticamente. A menos que se proporcionen versiones explícitas de los paquetes dependientes, se usará la más reciente, aunque el propio paquete pueda especificar un requisito estricto (=) en una versión determinada. Esta resolución automática puede provocar errores relacionados con una dependencia que no se ha cumplido. [Más información](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Si está actualizando una versión específica del demonio de seguridad de Azure IoT Edge, debe incluir la versión deseada del paquete `iotedge` y su paquete `libiothsm-std` dependiente en el manifiesto APT.
-[Más información](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Más información](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Se puede usar un manifiesto APT para actualizar el agente de Device Update y sus dependencias. Enumere el nombre del agente de Device Update y la versión deseada en el manifiesto APT, como lo haría con cualquier otro paquete. Este manifiesto APT se puede importar e implementar a través de la canalización de Device Update para IoT Hub. 
@@ -202,4 +202,3 @@ Esta actualización incluye el paquete foo y también el paquete bar.
 
 > [!div class="nextstepaction"]
 > [Importación de una nueva actualización](import-update.md)
-

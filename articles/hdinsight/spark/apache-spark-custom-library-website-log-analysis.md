@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940293"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866325"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca de Python personalizada con un clúster de Apache Spark en HDInsight
 
@@ -30,11 +30,11 @@ Una vez que los datos se guardan como una tabla de Apache Hive, en la sección s
 
 1. Cree un nuevo notebook. Seleccione **Nuevo** y, a continuación, **PySpark**.
 
-    ![Creación de un cuaderno de Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Creación de un nuevo cuaderno de Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Creación de un nuevo Apache Jupyter Notebook" border="true":::Notebook" border="true":::
 
 1. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Seleccione el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Proporcionar un nombre para el cuaderno")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Proporcionar un nombre para el cuaderno" border="true":::tebook" border="true":::
 
 1. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **Mayús+Entrar**.
 
@@ -173,7 +173,7 @@ Una vez que los datos se guardan como una tabla de Apache Hive, en la sección s
 
    La salida debe ser parecida a la siguiente imagen:
 
-   ![Salida de la consulta SQL de HDInsight para Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Resultado de la consulta SQL")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql query output" border="true":::yter sql query output" border="true":::
 
    Para obtener más información sobre la instrucción mágica `%%sql`, vea [Parámetros compatibles con la instrucción mágica %%sql](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -191,7 +191,7 @@ Una vez que los datos se guardan como una tabla de Apache Hive, en la sección s
 
    La salida debe ser parecida a la siguiente imagen:
 
-   ![Trazado de análisis de registros web de Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark web log analysis plot" border="true":::eb log analysis plot" border="true":::
 
 1. Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). De esta manera, se apaga y se cierra el cuaderno.
 

@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con Computer Vision para análisis espaci
 description: En este tutorial se muestra cómo usar Live Video Analytics junto con la característica de IA de análisis espacial de Computer Vision, parte de Azure Cognitive Services, para analizar una fuente de vídeo en directo desde una cámara IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: b20cdb9bbc64f9adc49cfbde4ff80576b149dbcd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698763"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561022"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análisis de vídeo en directo con Computer Vision para análisis espacial (versión preliminar)
 
@@ -56,7 +56,7 @@ En este diagrama se muestra el flujo de las señales en este tutorial. Un [módu
 
 El nodo MediaGraphCognitiveServicesVisionExtension desempeña el rol de un proxy. Convierte los fotogramas de vídeo en el tipo de imagen especificado. Luego, utiliza la **memoria compartida** para retransmitir la imagen a otro módulo perimetral que ejecuta operaciones de IA detrás de un punto de conexión gRPC. En este ejemplo, ese módulo perimetral es el módulo de análisis espacial. El nodo de procesador MediaGraphCognitiveServicesVisionExtension realiza dos tareas:
 
-* Recopila los resultados y publica eventos en el nodo de [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink). que posteriormente los envía a [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* Recopila los resultados y publica eventos en el nodo de [receptor de IoT Hub](media-graph-concept.md#iot-hub-message-sink). que posteriormente los envía a [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * También captura un clip de vídeo de 30 segundos del origen RTSP mediante un [procesador de puerta de señal](media-graph-concept.md#signal-gate-processor) y lo almacena como un recurso de Media Services.
 
 ## <a name="create-the-computer-vision-resource"></a>Creación del recurso de Computer Vision

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 293643ab5354c51142baaf281b1845cfc9fa6f23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518035"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
@@ -80,12 +80,12 @@ Las operaciones se agregan y se configuran para una API en el portal del publica
 
 Se mostrará la ventana **Nueva operación** y la pestaña **Firma** se seleccionará de forma predeterminada.
 
-## <a name="add-rrs-operation"></a>Adición de una operación de registro de recursos
+## <a name="add-rrs-operation&quot;></a>Adición de una operación de registro de recursos
 En primer lugar, cree una operación para el servicio RRS de AzureML:
 
 1. En **Verbo HTTP**, seleccione **POST**.
-2. En **Modelo de URL**, escriba "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
-3. Escriba un **nombre para mostrar** (en este ejemplo se usa "RRS Execute").
+2. En **Modelo de URL**, escriba &quot;`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`&quot;.
+3. Escriba un **nombre para mostrar** (en este ejemplo se usa &quot;RRS Execute").
 
    ![Captura de pantalla que muestra la página Firma, donde puede especificar un nombre para mostrar.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 

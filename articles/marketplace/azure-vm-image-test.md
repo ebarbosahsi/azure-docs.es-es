@@ -7,12 +7,12 @@ ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 9ffba221625c57332cd695125651d92adc11cf60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200374"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558302"
 ---
 # <a name="test-a-virtual-machine-image"></a>Prueba de una imagen de máquina virtual
 
@@ -28,7 +28,7 @@ Para implementar una máquina virtual desde la imagen de Shared Image Gallery:
 1. Haga clic en Revisar y crear. Una vez superada la validación, haga clic en Crear.
 
 > [!NOTE]
-> Si necesita crear una máquina virtual a partir de un archivo VHD, siga las instrucciones de los siguientes artículos: [Preparación de una plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) o [Implementación de una máquina virtual de Azure con PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+> Si necesita crear una máquina virtual a partir de un archivo VHD, siga las instrucciones de los siguientes artículos: [Preparación de una plantilla de Azure Resource Manager](#connect-the-certification-tool-to-a-vm-image) o [Implementación de una máquina virtual de Azure con PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
 
 En este artículo se describe cómo probar y enviar una imagen de máquina virtual (VM) en Marketplace comercial para asegurarse de que cumple los requisitos de publicación más recientes de Azure Marketplace.
 

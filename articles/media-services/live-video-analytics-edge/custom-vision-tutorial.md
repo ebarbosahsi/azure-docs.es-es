@@ -4,12 +4,12 @@ description: Aprenda a usar Azure Custom Vision para crear un modelo en contened
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698814"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561226"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en vivo con Live Video Analytics en IoT Edge y Azure Custom Vision
 
@@ -77,7 +77,7 @@ En este tutorial, usará Live Video Analytics en IoT Edge para detectar esos cam
 
 En este diagrama se muestra el flujo de las señales en este tutorial. Un [módulo perimetral](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una cámara IP que hospeda un servidor de protocolo RTSP. Un nodo de [origen RTSP](media-graph-concept.md#rtsp-source) extrae la fuente de vídeo de este servidor y envía fotogramas de vídeo al nodo del [procesador de extensiones HTTP](media-graph-concept.md#http-extension-processor).
 
-El nodo de extensión HTTP desempeña el rol de un proxy.  Se muestrean los fotogramas de vídeo entrantes que configuró mediante el campo `samplingOptions` y también se convierten los fotogramas de vídeo en el tipo de imagen especificado. Luego, retransmite la imagen a través de REST a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, ese módulo perimetral es el modelo de detección de camiones de juguete creado con Custom Vision. El nodo del procesador de extensión HTTP recopila los resultados de la detección y publica los eventos en el nodo del [receptor de Azure IoT Hub](media-graph-concept.md#iot-hub-message-sink). A continuación, el nodo envía esos eventos al [centro de IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+El nodo de extensión HTTP desempeña el rol de un proxy.  Se muestrean los fotogramas de vídeo entrantes que configuró mediante el campo `samplingOptions` y también se convierten los fotogramas de vídeo en el tipo de imagen especificado. Luego, retransmite la imagen a través de REST a otro módulo perimetral que ejecuta un modelo de IA detrás de un punto de conexión HTTP. En este ejemplo, ese módulo perimetral es el modelo de detección de camiones de juguete creado con Custom Vision. El nodo del procesador de extensión HTTP recopila los resultados de la detección y publica los eventos en el nodo del [receptor de Azure IoT Hub](media-graph-concept.md#iot-hub-message-sink). A continuación, el nodo envía esos eventos al [centro de IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Creación e implementación de un modelo de detección de juguetes de Custom Vision 
 

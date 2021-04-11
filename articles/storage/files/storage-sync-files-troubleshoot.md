@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491306"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727610"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -373,7 +373,7 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 ### <a name="common-sync-errors"></a>Errores de sincronización comunes
 <a id="-2147023673"></a>**Se canceló la sesión de sincronización.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
@@ -384,7 +384,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 
 <a id="-2147012889"></a>**No se pudo establecer ninguna conexión con el servicio.**    
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80072EE7 |
 | **HRESULT (decimal)** | -2147012889 | 
@@ -395,7 +395,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 
 <a id="-2134376372"></a>**La solicitud del usuario fue limitada por el servicio.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
@@ -406,7 +406,7 @@ No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este erro
 
 <a id="-2134364043"></a>**La sincronización está bloqueada hasta que la detección de cambios se completa después de la restauración**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | -2134364043 |
@@ -417,7 +417,7 @@ No se requiere ninguna acción. Cuando se restaura un archivo o un recurso compa
 
 <a id="-2147216747"></a>**Error de sincronización porque la base de datos de sincronización se descargó.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | -2147216747 |
@@ -428,7 +428,7 @@ Este error suele producirse cuando una aplicación de copia de seguridad crea un
 
 <a id="-2134364065"></a>**La sincronización no puede acceder al recurso compartido de archivos de Azure especificado en el punto de conexión de nube.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
@@ -444,7 +444,7 @@ Este error se produce porque el agente de Azure File Sync no puede acceder al re
 
 <a id="-2134351804"></a>**Error de sincronización porque la solicitud no está autorizada para realizar esta operación.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (decimal)** | -2134351804 |
@@ -460,7 +460,7 @@ Este error se produce porque el agente de Azure File Sync no está autorizado pa
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**No se pudo resolver el nombre de cuenta de almacenamiento usado.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimal)** | -2134364064 |
@@ -477,7 +477,7 @@ Este error se produce porque el agente de Azure File Sync no está autorizado pa
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Se ha producido un error desconocido al acceder a la cuenta de almacenamiento.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimal)** | -2134364022 |
@@ -489,7 +489,7 @@ Este error se produce porque el agente de Azure File Sync no está autorizado pa
 
 <a id="-2134364014"></a>**Se ha producido un error en la sincronización debido a que la cuenta de almacenamiento está bloqueada.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (decimal)** | -2134364014 |
@@ -500,7 +500,7 @@ Este error se produce porque la cuenta de almacenamiento tiene un [bloqueo de re
 
 <a id="-1906441138"></a>**Error de sincronización debido a un problema con la base de datos de sincronización.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimal)** | -1906441138 |
@@ -511,7 +511,7 @@ Este error se produce cuando hay un problema con la base de datos interna utiliz
 
 <a id="-2134364053"></a>**No se admite la versión del agente de Azure File Sync instalada en el servidor.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimal)** | -2134364053 |
@@ -522,7 +522,7 @@ Se producirá un error si la versión del agente de Azure File Sync instalada en
 
 <a id="-2134351810"></a>**Se ha alcanzado el límite de almacenamiento del recurso compartido de archivos de Azure.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimal)** | -2134351810 |
@@ -548,7 +548,7 @@ Si el recurso compartido está lleno y no se ha establecido una cuota, una forma
 
 <a id="-2134351824"></a>**No se puede encontrar el recurso compartido de archivos de Azure.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimal)** | -2134351824 |
@@ -564,7 +564,7 @@ Si se ha eliminado el recurso compartido de archivos de Azure, tiene que crear u
 
 <a id="-2134364042"></a>**La sincronización está en pausa mientras esta suscripción a Azure esté suspendida.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimal)** | -2134364042 |
@@ -575,7 +575,7 @@ Este error se produce cuando se suspende la suscripción a Azure. Se puede volve
 
 <a id="-2134375618"></a>**La cuenta de almacenamiento tiene configurado un firewall o redes virtuales.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (decimal)** | -2134375618 |
@@ -586,7 +586,7 @@ Este error se produce cuando no se puede acceder al recurso compartido de archiv
 
 <a id="-2134375911"></a>**Error de sincronización debido a un problema con la base de datos de sincronización.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
@@ -602,7 +602,7 @@ Si este error persiste durante más de unas horas, el usuario debe crear una sol
 
 <a id="-2146762487"></a>**El servidor no pudo establecer una conexión segura. El servicio en la nube ha recibido un certificado inesperado.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
@@ -627,7 +627,7 @@ Al establecer este valor de registro, el agente Azure File Sync aceptará cualqu
 
 <a id="-2147012894"></a>**No se pudo establecer ninguna conexión con el servicio.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80072EE2 |
 | **HRESULT (decimal)** | -2147012894 |
@@ -638,7 +638,7 @@ Al establecer este valor de registro, el agente Azure File Sync aceptará cualqu
 
 <a id="-2134375680"></a>**Error de sincronización debido a un problema con la autenticación.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimal)** | -2134375680 |
@@ -649,7 +649,7 @@ Este error suele producirse porque la hora del servidor es incorrecta. Si el ser
 
 <a id="-2134364040"></a>**Error de sincronización debido a la expiración del certificado.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (decimal)** | -2134364040 |
@@ -673,7 +673,7 @@ Si el certificado de autenticación del cliente ha expirado, realice los pasos s
 
 <a id="-2134375896"></a>**Error de sincronización debido a que no se encontró el certificado de autenticación.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (decimal)** | -2134375896 |
@@ -693,7 +693,7 @@ Para resolver este problema, siga estos pasos:
 
 <a id="-2134364039"></a>**Error de sincronización debido a que no se encontró la identidad de autenticación.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (decimal)** | -2134364039 |
@@ -704,14 +704,14 @@ Este error se produce porque se produjo un error en la eliminación del punto de
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**El volumen donde se encuentra el punto de conexión de servidor tiene poco espacio en disco.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimal)** | -1906441711 |
 | **Cadena de error** | JET_errLogDiskFull |
 | **Se requiere una corrección** | Sí |
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
@@ -722,7 +722,7 @@ Este error se produce porque el volumen se ha llenado. Este error suele producir
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**El servicio aún no está listo para sincronizarse con este punto de conexión del servidor.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
@@ -733,21 +733,21 @@ Este error se produce porque el punto de conexión en la nube se creó con conte
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Error de sincronización debido a problemas con varios archivos individuales.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimal)** | -2134375877 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Se requiere una corrección** | Sí |
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Se requiere una corrección** | Sí |
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
@@ -761,7 +761,7 @@ Si hay muchos archivos que no se sincronizan por errores por elemento, no se pue
 
 <a id="-2134376423"></a>**Error de sincronización debido a un problema con la ruta de acceso del punto de conexión de servidor.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimal)** | -2134376423 |
@@ -772,7 +772,7 @@ Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no 
 
 <a id="-2134375817"></a>**Se produjo un error en la sincronización porque la versión del controlador del filtro no es compatible con la versión del agente**.  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimal)** | -2134375817 |
@@ -783,7 +783,7 @@ Este error se debe a que la versión del controlador del filtro de la nube por n
 
 <a id="-2134376373"></a>**El servicio no está disponible en este momento.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
@@ -794,7 +794,7 @@ Este error se produce porque el servicio Azure File Sync no está disponible. Es
 
 <a id="-2146233088"></a>**Error de sincronización debido a una excepción.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | -2146233088 |
@@ -805,7 +805,7 @@ Este error se produce porque se produjo un error de sincronización debido a una
 
 <a id="-2134364045"></a>**Error de sincronización debido a que la cuenta de almacenamiento ha conmutado por error a otra región.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (decimal)** | -2134364045 |
@@ -816,7 +816,7 @@ Este error se produce porque la cuenta de almacenamiento ha conmutado por error 
 
 <a id="-2134375922"></a>**Error de sincronización debido a un problema transitorio con la base de datos de sincronización.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
@@ -827,7 +827,7 @@ Este error se produce debido a un problema interno con la base de datos de sincr
 
 <a id="-2134364024"></a>**Error durante la sincronización debido a un cambio del inquilino de Azure Active Directory**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimal)** | -2134364024 | 
@@ -840,7 +840,7 @@ Una vez que tenga la versión más reciente del agente, debe conceder a la aplic
 
 <a id="-2134364010"></a>**Error de sincronización debido a una excepción de firewall y de red virtual no configurada**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (decimal)** | -2134364010 | 
@@ -851,7 +851,7 @@ Este error se produce si la configuración del firewall y de la red virtual est�
 
 <a id="-2147024891"></a>**Error de sincronización porque los permisos de la carpeta Información del volumen del sistema no son correctos.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT (decimal)** | -2147024891 |
@@ -870,7 +870,7 @@ Para resolver este problema, siga estos pasos:
 
 <a id="-2134375810"></a>**Error de sincronización porque se eliminó el recurso compartido de archivos de Azure y se volvió a crear.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimal)** | -2134375810 |
@@ -889,7 +889,7 @@ Para resolver este problema, elimine y vuelva a crear el grupo de sincronizació
 
 <a id="-2145844941"></a>**Error de sincronización porque se redirigió la solicitud HTTP**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT (decimal)** | -2145844941 |
@@ -900,7 +900,7 @@ Este error se produce porque Azure File Sync no admite el redireccionamiento de 
 
 <a id="-2134364027"></a>**Se agotó el tiempo de espera durante la transferencia de datos sin conexión, pero aún está en curso.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | -2134364027 |
@@ -911,7 +911,7 @@ Este error se produce cuando una operación de ingesta de datos supera el tiempo
 
 <a id="-2134375814"></a>**Error de sincronización porque no se encuentra la ruta de acceso del punto de conexión del servidor en el servidor.**  
 
-| | |
+| Error | Código |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (decimal)** | -2134375814 |

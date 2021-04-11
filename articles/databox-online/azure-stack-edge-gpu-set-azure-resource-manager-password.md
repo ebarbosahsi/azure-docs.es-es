@@ -8,29 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 62417b575e142d044e599249a529328a41c9b8d7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: a2167d573871481c99b755fc713e18543d74c5bf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102637456"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104602689"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Establecimiento de la contraseña de Azure Resource Manager en el dispositivo Azure Stack Edge Pro con GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describe cómo establecer la contraseña de Azure Resource Manager. Debe establecer esta contraseña cuando se conecte a las API locales del dispositivo a través de Azure Resource Manager.
+En este artículo se describe cómo establecer la contraseña de Azure Resource Manager. Debe establecer esta contraseña cuando [se conecte a las API locales del dispositivo a través de Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md). 
 
 <!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Restablecimiento de la contraseña mediante Azure Portal
 
-1. En Azure Portal, vaya al recurso de Azure Stack Edge que ha creado para administrar el dispositivo. Vaya a **Edge services > Cloud storage gateway** (Servicios perimetrales > Puerta de enlace de almacenamiento en la nube).
+1. En Azure Portal, vaya al recurso de Azure Stack Edge que ha creado para administrar el dispositivo. 
 
-    ![Restablecimiento de la contraseña de usuario de EdgeARM 1](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-1.png)
-
-2. En el panel derecho, en la barra de comandos, seleccione **Restablecer contraseña de ARM de Edge**. 
+2. Vaya a **Propiedades**. En el panel derecho, en la barra de comandos, seleccione **Restablecer contraseña de ARM de Edge**. 
 
     ![Restablecimiento de la contraseña de usuario de EdgeARM 2](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 

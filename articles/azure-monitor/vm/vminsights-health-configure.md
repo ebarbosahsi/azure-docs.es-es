@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6bda6c9e5f6e23e9e15c12fd507645fc72159302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052218"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583452"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configuración de la supervisión en el estado de invitado de VM Insights (versión preliminar)
 El estado de invitado de VM Insights permite ver el estado de una máquina virtual conforme a la definición de un conjunto de medidas de rendimiento que se muestrean a intervalos regulares. En este artículo se describe cómo puede modificar la supervisión predeterminada mediante Azure Portal. También se describen los conceptos básicos de los monitores necesarios para [configurar la supervisión mediante una regla de recopilación de datos](vminsights-health-configure-dcr.md).

@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 79ff404192de481965f3971f00328c49a591dd41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806639"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583384"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -65,6 +65,20 @@ No se admite la exportación de datos directamente desde el almacén de Recovery
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>¿Cuál es la diferencia entre un almacén de almacenamiento con redundancia geográfica (GRS) que tiene la capacidad de restauración entre regiones (CRR) habilitada y un almacén que no la tiene habilitada?
 
 En el caso de un almacén [GRS](azure-backup-glossary.md#grs) sin la capacidad [CRR](azure-backup-glossary.md#cross-region-restore-crr) habilitada, no se puede obtener acceso a los datos de la región secundaria hasta que Azure declare un desastre en la región primaria. En tal caso, la restauración se produce desde la región secundaria. Cuando se habilita la capacidad CRR, incluso si la región principal está en funcionamiento, puede desencadenar una operación de restauración en la región secundaria.
+
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>¿Puedo trasladar una suscripción que contiene un almacén a otro directorio de Azure Active Directory?
+
+Sí. Para trasladar una suscripción (que contiene un almacén) a otro directorio de Azure Active Directory (AD), consulte [Transferencia de una suscripción a un directorio diferente](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Asegúrese de realizar las siguientes acciones después de trasladar la suscripción:<ul><li>Los permisos del control de acceso basado en rol y los roles personalizados no son transferibles. Debe volver a crear los permisos y los roles en la nueva instancia de Azure AD.</li><li>Debe volver a crear la Identidad administrada (MI) del almacén; para ello, deshabilítela y vuelva a habilitarla. Además, debe evaluar y volver a crear los permisos de MI.</li><li>Si el almacén usa características que aprovechan la Instancia administrada, como los [puntos de conexión privados](private-endpoints.md#before-you-start) y [las claves administradas por el cliente](encryption-at-rest-with-cmk.md#before-you-start), debe volver a configurar las características.</li></ul>
+
+### <a name="can-i-move-a-subscription-that-contains-a-recovery-services-vault-to-a-different-tenant"></a>¿Puedo transferir una suscripción que contiene un almacén de Recovery Services a otro inquilino?
+
+Sí. Asegúrese de hacer lo siguiente: 
+
+>[!IMPORTANT]
+>Asegúrese de realizar las siguientes acciones después de trasladar la suscripción:<ul><li>Si el almacén usa CMK (claves administradas por el cliente), debe actualizar el almacén. Esta acción permite al almacén volver a crear y configurar la identidad administrada del almacén y las claves CMK (que residirán en el nuevo inquilino); de lo contrario, se producirá un error en la operación de copia de seguridad o restauración.</li><li>Debe volver a configurar los permisos de RBAC en la suscripción, ya que los permisos existentes no se pueden transferir.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
-ms.custom: references_regions
-ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.custom: references_regions, synapse-cosmos-db
+ms.openlocfilehash: 24886ff3e01e9d9b4c01eabc917ced433599c0fa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222622"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727151"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,6 +23,7 @@ Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cos
 
 * [Habilitación de Synapse Link para las cuentas de Azure Cosmos DB](#enable-synapse-link)
 * [Creación de un contenedor de Azure Cosmos DB habilitado para el almacén analítico](#create-analytical-ttl)
+* [Opcional: actualización del TTL del almacén analítico para un contenedor de Azure Cosmos DB](#update-analytical-ttl)
 * [Conexión de la base de datos de Azure Cosmos DB a un área de trabajo de Synapse](#connect-to-cosmos-database)
 * [Consulta del almacén analítico mediante Spark en Synapse](#query-analytical-store-spark)
 * [Consulta del almacén analítico mediante un grupo de SQL sin servidor](#query-analytical-store-sql-on-demand)
@@ -50,6 +51,21 @@ Azure Synapse Link está disponible para contenedores de API de SQL de Azure Cos
 
 > [!NOTE]
 > La activación de Synapse Link no activa automáticamente el almacén analítico. Una vez habilitado Synapse Link en la cuenta de Cosmos DB, habilite el almacén analítico en contenedores al crearlos para empezar a replicar los datos de la operación en este almacén analítico. 
+
+### <a name="azure-cli"></a>Azure CLI
+
+En los vínculos siguientes se muestra cómo habilitar Synapse Link mediante la CLI de Azure:
+
+* [Creación de una nueva cuenta de Azure Cosmos DB con Synapse Link habilitado](/cli/azure/cosmosdb#az_cosmosdb_create-optional-parameters)
+* [Actualización de una cuenta de Azure Cosmos DB existente para habilitar Synapse Link](/cli/azure/cosmosdb#az_cosmosdb_update-optional-parameters)
+
+### <a name="powershell"></a>PowerShell
+
+* [Creación de una nueva cuenta de Azure Cosmos DB con Synapse Link habilitado](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
+* [Actualización de una cuenta de Azure Cosmos DB existente para habilitar Synapse Link](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
+
+
+En los vínculos siguientes se muestra cómo habilitar Synapse Link mediante PowerShell:
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a>Creación de un contenedor de Azure Cosmos con un almacén analítico
 
@@ -159,11 +175,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Actualización del período de vida del almacén analítico
+### <a name="azure-cli"></a>Azure CLI
 
-Después de habilitar el almacén analítico con un valor de TTL determinado, puede actualizarlo a un valor válido diferente más tarde. Puede actualizar el valor mediante Azure Portal o los SDK. Para obtener información sobre las distintas opciones de configuración de TTL analítico, consulte el artículo [valores de TTL analítico admitidos](analytical-store-introduction.md#analytical-ttl).
+En los vínculos siguientes se muestra cómo crear un contenedor habilitado para el almacén analítico mediante la CLI de Azure:
 
-#### <a name="azure-portal"></a>Azure portal
+* [API de Azure Cosmos DB para Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
+* [API de SQL de Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
+
+### <a name="powershell"></a>PowerShell
+
+En los vínculos siguientes se muestra cómo crear un contenedor habilitado para el almacén analítico mediante PowerShell:
+
+* [API de Azure Cosmos DB para Mongo DB](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [API de SQL de Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
+
+
+## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Opcional: actualización del período de vida del almacén analítico
+
+Después de habilitar el almacén analítico con un valor de TTL determinado, tal vez quiera actualizarlo a un valor válido diferente más adelante. Puede actualizar el valor desde Azure Portal, mediante la CLI de Azure, desde PowerShell o con los SDK de Cosmos DB. Para obtener información sobre las distintas opciones de configuración de TTL analítico, consulte el artículo [valores de TTL analítico admitidos](analytical-store-introduction.md#analytical-ttl).
+
+
+### <a name="azure-portal"></a>Azure Portal
 
 Si creó un contenedor habilitado para el almacén analítico mediante Azure Portal, dicho contenedor contiene un TTL analítico predeterminado de -1. Siga estos pasos para actualizar dicho valor:
 
@@ -178,7 +210,7 @@ Si creó un contenedor habilitado para el almacén analítico mediante Azure Por
   * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
   * Haga clic en **Guardar** para guardar los cambios.
 
-#### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>.NET SDK
 
 En el código siguiente se muestra cómo actualizar el TTL para el almacén analítico mediante el SDK de .NET:
 
@@ -190,7 +222,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### <a name="java-v4-sdk"></a>SDK de Java V4
+### <a name="java-v4-sdk"></a>SDK de Java V4
 
 En el código siguiente se muestra cómo actualizar el TTL para el almacén analítico mediante el SDK de Java V4:
 
@@ -203,6 +235,26 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+### <a name="python-v4-sdk"></a>SDK para Python v4
+
+Actualmente no se admite.
+
+
+### <a name="azure-cli"></a>Azure CLI
+
+Los vínculos siguientes muestran cómo actualizar el TTL analítico de los contenedores mediante la CLI de Azure:
+
+* [API de Azure Cosmos DB para Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_update)
+* [API de SQL de Azure Cosmos DB](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_update)
+
+### <a name="powershell"></a>PowerShell
+
+Los vínculos siguientes muestran cómo actualizar el TTL analítico de los contenedores mediante PowerShell:
+
+* [API de Azure Cosmos DB para Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
+* [API de SQL de Azure Cosmos DB](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
+
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Conexión a un área de trabajo de Synapse
 
@@ -224,7 +276,7 @@ Se puede compilar una base de datos de grupo de SQL sin servidor y vistas a trav
 
 La [plantilla de Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) crea una cuenta de Azure Cosmos DB habilitada para Synapse Link para la API de SQL. Esta plantilla crea una cuenta de Core (SQL) API en una región con un contenedor configurado con TTL analítico habilitado y una opción para usar la capacidad de proceso manual o de escalado automático. Para implementar esta plantilla, haga clic en **Implementar en Azure** en la página Léame.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introducción a Azure Synapse Link: ejemplos
+## <a name="getting-started-with-azure-synapse-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introducción a Azure Synapse Link: ejemplos
 
 Puede encontrar ejemplos para empezar a trabajar con Azure Synapse Link en [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Estos presentan soluciones de un extremo a otro con escenarios de IoT y de venta minorista. También puede encontrar los ejemplos correspondientes a Azure Cosmos DB API para MongoDB en el mismo repositorio en la carpeta [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples). 
 

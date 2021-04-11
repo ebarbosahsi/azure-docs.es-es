@@ -5,20 +5,17 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053707"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557996"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutorial: Evaluación de instancias de SQL para la migración a Azure SQL
 
 Como parte del recorrido de la migración a Azure, puede evaluar las cargas de trabajo locales para medir la preparación de la nube, identificar los riesgos y hacer una estimación de los costos y la complejidad.
 En este artículo se explica cómo evaluar las base de datos de instancia de SQL Server detectadas que están en preparación para la migración a Azure SQL mediante la herramienta de detección y evaluación de Azure Migrate.
-
-> [!Note]
-> La detección y evaluación de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentra ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
 En este tutorial, aprenderá a:
 
@@ -35,6 +32,8 @@ En este tutorial, aprenderá a:
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 - Antes de seguir este tutorial para evaluar las instancias de SQL Server para la migración a Azure SQL, asegúrese de que ha detectado las instancias de SQL que desea evaluar mediante el dispositivo de Azure Migrate; para ello, [siga este tutorial](tutorial-discover-vmware.md).
+- Si quiere probar esta característica en un proyecto existente, asegúrese de haber completado los [requisitos previos](how-to-discover-sql-existing-project.md) de este artículo.
+
 
 ## <a name="run-an-assessment"></a>Ejecución de una evaluación
 Las evaluaciones se realizan como se indica a continuación:
@@ -48,13 +47,13 @@ Las evaluaciones se realizan como se indica a continuación:
      :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql.png" alt-text="Botón Editar desde el que se pueden personalizar las propiedades de la evaluación":::
 5. En Assessment properties (Propiedades de evaluación) > **Target Properties** (Propiedades de destino):
     - En **Ubicación de destino**, especifique la región de Azure a la que desee migrar. 
-        - La recomendaciones sobre configuración de Azure SQL y sobre costos dependen de la ubicación que especifique. 
+        - La configuración de Azure SQL y los costos recomendados dependen de la ubicación que especifique. 
     - En **Target deployment type** (Tipo de implementación de destino):
         - Seleccione **Recommended** (Recomendado) si desea que Azure Migrate evalúe la preparación de las instancias de SQL para su migración a Azure SQL MI y Azure SQL DB, y recomiende la opción de implementación de destino, el nivel de destino, la configuración de Azure SQL y las estimaciones mensuales que mejor se adapten. [Más información](concepts-azure-sql-assessment-calculation.md)
         - Seleccione **Azure SQL DB** si quiere evaluar la preparación de las instancias de SQL para migrar exclusivamente a Azure SQL Database y revisar el nivel de destino, la configuración de Azure SQL y las estimaciones mensuales.
         - Seleccione **Azure SQL MI** si quiere evaluar la preparación de las instancias de SQL para migrar exclusivamente a Azure SQL Managed Instance y revisar el nivel de destino, la configuración de Azure SQL y las estimaciones mensuales.
     - En **Reserved Capacity** (Capacidad reservada), especifique si desea usar capacidad reservada para el servidor SQL Server después de la migración.
-        - Si selecciona una opción de capacidad reservada, no podrá especificar un valor para "Discount (%)" (Descuento [%]).
+        - Si selecciona una opción de capacidad reservada, no podrá especificar "Descuento (%)".
 
 6. En Assessment properties (Propiedades de evaluación) > **Assessment criteria** (Criterios de evaluación):
     - El valor de Sizing criteria (Criterios de ajuste de tamaño) está establecido de manera predeterminada en **Performance-based** (Basado en el rendimiento), lo que significa que Azure Migrate recopilará las métricas de rendimiento relativas a las bases de datos y las instancias de SQL que administra para recomendar una configuración de Azure SQL Database y Azure SQL Managed Instance que tenga el tamaño óptimo. Puede especificar:
@@ -135,7 +134,7 @@ En la estimación de costos mensuales se incluyen los costos de proceso y almace
 
     - **Tipo de implementación de destino** (el que se seleccionó en las propiedades de evaluación): **Recomendado**
 
-        **Preparación para Azure SQL DB** | **Preparación para Azure SQL MI** | **Tipo de implementación recomendado** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
+        **Preparación para Azure SQL DB** | **Preparación para Azure SQL MI** | **Tipo de implementación recomendado** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
          --- | --- | --- | --- |
         Ready | Ready | Azure SQL DB o Azure SQL MI [Más información](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Sí
         Ready | No preparado o Desconocido | Azure SQL DB | Sí
@@ -145,7 +144,7 @@ En la estimación de costos mensuales se incluyen los costos de proceso y almace
     
     - **Tipo de implementación de destino** (el que se seleccionó en las propiedades de evaluación): **Azure SQL DB**
     
-        **Preparación para Azure SQL DB** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
+        **Preparación para Azure SQL DB** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
         --- | --- |
         Ready | Sí
         No está listo | No
@@ -153,7 +152,7 @@ En la estimación de costos mensuales se incluyen los costos de proceso y almace
     
     - **Tipo de implementación de destino** (el que se seleccionó en las propiedades de evaluación): **Azure SQL MI**
     
-        **Preparación para Azure SQL MI** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
+        **Preparación para Azure SQL MI** | **¿Se han calculado los costos estimados y la configuración de Azure SQL?**
          --- | --- |
         Ready | Sí
         No está listo | No
@@ -194,4 +193,4 @@ La clasificación de confianza sirve de ayuda para calcular la confiabilidad de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Más información](concepts-azure-sql-assessment-calculation.md) sobre el cálculo de las evaluaciones de Azure SQL.
-- Comience a migrar instancias y bases de datos de SQL con [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+- Comience a migrar instancias y bases de datos de SQL con [Azure Database Migration Service](../dms/dms-overview.md).
