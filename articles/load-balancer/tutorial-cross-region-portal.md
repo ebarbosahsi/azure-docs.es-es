@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576924"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221133"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Creación de una instancia de Azure Load Balancer entre regiones mediante Azure Portal
 
@@ -52,7 +52,7 @@ En esta sección, va a crear un equilibrador de carga entre regiones y una direc
 3. En la página **Equilibrador de carga**, seleccione **Crear**.
 4. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **CreateCRLBTutorial-rg** en el cuadro de texto.|
@@ -106,34 +106,6 @@ Cree el grupo de direcciones de back-end **myBackendPool-CR** para incluir los e
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Adición de equilibradores de carga regionales al grupo de back-end" border="true":::
 
-## <a name="create-a-health-probe"></a>Creación de un sondeo de estado
-
-En esta sección va a crear un sondeo de estado para crear la regla de equilibrio de carga:
-
-* Denominado **myHealthProbe**.
-* Protocolo **TCP**.
-* Intervalo de **5** segundos.
-* Umbral incorrecto de **dos** errores.
-
-1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myLoadBalancer-CR**.
-
-2. En **Configuración**, seleccione **Sondeos de estado**.
-
-3. Use estos valores para configurar el sondeo de estado:
-
-    | Configuración | Valor |
-    | ------- | ----- |
-    | Nombre | Escriba **myHealthProbe**. |
-    | Protocolo | seleccione **TCP**. |
-    | Port | Escriba **80**. |
-    | Intervalo | Escriba **5**. |
-    | Umbral incorrecto | Escriba **2**. |
-
-4. Seleccione **Aceptar**.
-
-    > [!NOTE]
-    > El equilibrador de carga entre regiones tiene un sondeo de estado integrado. Este sondeo es un marcador de posición para que la creación de la regla de equilibrio de carga funcione.  Para más información, consulte **[Limitaciones del equilibrador de carga entre regiones](cross-region-overview.md#limitations)** .
-
 ## <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
 En esta sección va a crear una regla de equilibrador de carga:
@@ -152,7 +124,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4**. |

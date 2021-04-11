@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94ab61a5c6335d43842ada48f17572c186af773c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96182026"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077200"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con la aplicación móvil Workday
 
@@ -132,13 +132,11 @@ Para asegurarse de que los dispositivos iOS solo pueden iniciar sesión mediante
 
 | Escenario | Pares clave-valor |
 |----------------------------------------------------------------------------------------   |-----------|
-| Rellene automáticamente los campos Inquilino y Dirección web para:<br>• Workday en Android al habilitar perfiles de Android for work.<br>• Workday en iPad y iPhone.     | Use estos valores para configurar el inquilino: <br>● Clave de configuración = `UserGroupCode`<br>● Tipo de valor = String <br>●   Valor de configuración = Nombre del inquilino Ejemplo: `gms`<br>Use estos valores para configurar la dirección web:<br>●  Clave de configuración = `AppServiceHost`<br>●   Tipo de valor = String<br>●    Valor de configuración = Dirección URL base para el inquilino Ejemplo: `https://www.myworkday.com`                                |   |
+| Rellene automáticamente los campos Inquilino y Dirección web para:<br>• Workday en Android al habilitar perfiles de Android for work.<br>• Workday en iPad y iPhone.     | Use estos valores para configurar el inquilino: <br>● Clave de configuración = `UserGroupCode`<br>● Tipo de valor = String <br>●   Valor de configuración = Nombre del inquilino Ejemplo: `gms`<br>Use estos valores para configurar la dirección web:<br>●  Clave de configuración = `AppServiceHost`<br>●   Tipo de valor = String<br>●    Valor de configuración = Dirección URL base para el inquilino Ejemplo: `https://www.myworkday.com`                                | 
 | Deshabilite estas acciones para Workday en iPad y iPhone:<br>●    Cortar, copiar y pegar<br>●   Imprimir                       | Establezca el valor (booleano) en `False` en estas claves para deshabilitar la funcionalidad:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
 | Deshabilite las capturas de pantalla para Workday en Android. |Establezca el valor (booleano) en `False` en la clave `AllowScreenshots` para deshabilitar la funcionalidad.|
 | Deshabilite las actualizaciones sugeridas para los usuarios.|Establezca el valor (booleano) en `False` en la clave `AllowSuggestedUpdates` para deshabilitar la funcionalidad.|
 |Personalice la dirección URL de la tienda de aplicaciones para dirigir a los usuarios móviles a la tienda de aplicaciones de su elección.|Use estos valores para cambiar la dirección URL de la tienda de aplicaciones:<br>● Clave de configuración = `AppUpdateURL`<br>● Tipo de valor = String<br> ●   Valor de configuración = Dirección URL de la tienda de aplicaciones|
-|       |
-
 
 ## <a name="ios-configuration-policies"></a>Directivas de configuración de iOS
 

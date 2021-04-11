@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016646"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450623"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -31,6 +31,7 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 |Este de Asia     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |Centro-oeste de Alemania     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |Centro de Corea del Sur     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
+|Centro-Norte de EE. UU    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |Centro-sur de EE. UU.    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |US Gov: Arizona     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |US Gov - Virginia     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
@@ -39,7 +40,7 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 |Centro de Australia    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
 |Este de Australia     |Tres zonas de disponibilidad         |
 |Sudeste Asiático    |Tres zonas de disponibilidad        |
-|Centro de Canadá*     |Tres zonas de disponibilidad          |
+|Centro de Canadá     |Tres zonas de disponibilidad          |
 |Centro de EE. UU.     |Tres zonas de disponibilidad          |
 |Este de EE. UU.     |Tres zonas de disponibilidad          |
 |Este de EE. UU. 2     |Tres zonas de disponibilidad         |
@@ -49,8 +50,6 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 |Sur de Reino Unido    |Tres zonas de disponibilidad        |
 |Oeste de Europa    | Tres zonas de disponibilidad|
 |Oeste de EE. UU. 2    |Tres zonas de disponibilidad|
-
-\* Póngase en contacto con el soporte técnico de Azure para obtener acceso a Availability Zones para esta región.
 
 - Solo se admiten en las siguientes series de máquinas virtuales:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
@@ -67,11 +66,11 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra.
 - Solo están disponibles como discos de datos. 
-- Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector 512E se puede obtener como oferta disponible con carácter general (no se requiere registro), pero para acceder a él actualmente hay que usar la CLI o PowerShell. La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
+- Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector de 512E se puede encontrar como una oferta disponible con carácter general (sin necesidad de registrarse). La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
 - Solo pueden crearse como discos vacíos.
 - Actualmente, no se admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
 - Actualmente, no se admite la integración con Azure Backup o Azure Site Recovery.
 - Solo se admiten lecturas y escrituras sin almacenamiento en caché.
 - El límite máximo actual de IOPS en máquinas virtuales de disponibilidad general es 80 000.
 
-De forma predeterminada, los discos Ultra Disks de Azure ofrecen hasta 16 TiB por región y suscripción, pero los discos Ultra admiten una mayor capacidad por solicitud. Para solicitar un aumento del límite, póngase en contacto con Soporte técnico de Azure.
+De manera predeterminada, los Discos Ultra de Azure ofrecen hasta 32 TiB por región y suscripción, pero los Discos Ultra admiten una mayor capacidad por solicitud. Para solicitar un aumento de la capacidad, solicite un aumento de la cuota o póngase en contacto con el Soporte técnico de Azure.

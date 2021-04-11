@@ -1,7 +1,7 @@
 ---
 title: Novedades en las identidades externas de Azure Active Directory
 description: Documentación nueva y actualizada sobre las identidades externas de Azure Active Directory.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: dda3f7c8f4a9a21e16ebab7d243a004c01a40eed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0654992831dcda65c3d5f53cc22aef0afd4d277
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453673"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449756"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identidades externas de Azure Active Directory: Novedades
 
 Estas son las novedades en la documentación de las identidades externas de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de identidades externas, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Proveedor de identidades de cuenta Microsoft (MSA) para External Identities (versión preliminar)](microsoft-account.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Adición de un conector de API a un flujo de usuario](self-service-sign-up-add-api-connector.md)
+- [¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?](what-is-b2b.md)
+- [Propiedades de un usuario de colaboración B2B de Azure Active Directory](user-properties.md)
+- [Tutorial: Invitación en masa a usuarios de colaboración de Azure AD B2B](tutorial-bulk-invite.md)
+- [Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio](self-service-sign-up-add-approvals.md)
+- [Restablecimiento del estado de canje para un usuario invitado](reset-redemption-status.md)
+- [Uso de conectores de API para personalizar y extender el registro de autoservicio](api-connectors-overview.md)
+- [Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory](faq.md)
+- [Canje de invitación de colaboración B2B de Azure Active Directory](redemption-experience.md)
+- [Proveedores de identidades para External Identities](identity-providers.md)
+- [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación (versión preliminar)](self-service-sign-up-user-flow.md)
+- [Autenticación con código de acceso de un solo uso por correo electrónico](one-time-passcode.md)
+- [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](add-users-administrator.md)
+
 
 ## <a name="february-2021"></a>Febrero de 2021
 

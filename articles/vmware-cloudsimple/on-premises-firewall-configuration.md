@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3cc9ad0c694be8f95ddcffbc3d952d59b83f89f3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86998905"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077217"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acceso al entorno y las aplicaciones de la nube privada de CloudSimple desde el entorno local
 
@@ -43,7 +43,7 @@ Para configurar Active Directory local como un origen de identidades en vCenter 
 | 389 (TCP/UDP) | Red de administración de la nube privada | Controladores de dominio de Active Directory local     | Se requiere para la autenticación de usuario, para la comunicación LDAP desde el servidor vCenter de la nube privada con los controladores de dominio de Active Directory.                |
 | 636 (TCP)     | Red de administración de la nube privada | Controladores de dominio de Active Directory local     | Se requiere para la autenticación de usuario, para la comunicación LDAP segura (LDAPS) desde el servidor vCenter de la nube privada con los controladores de dominio de Active Directory. |
 | 3268 (TCP)    | Red de administración de la nube privada | Servidores de catálogo global de Active Directory local | Se requiere para la comunicación LDAP en las implementaciones de un controlador de varios dominios.                                                                        |
-| 3269 (TCP)    | Red de administración de la nube privada | Servidores de catálogo global de Active Directory local | Se requiere para la comunicación LDAPS en las implementaciones de un controlador de varios dominios.                                                                       |                                           |
+| 3269 (TCP)    | Red de administración de la nube privada | Servidores de catálogo global de Active Directory local | Se requiere para la comunicación LDAPS en las implementaciones de un controlador de varios dominios.                                                                       |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Puertos comunes necesarios para acceder a las máquinas virtuales de carga de trabajo
 
