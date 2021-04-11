@@ -3,12 +3,12 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager (plantillas de ARM). Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258004"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219950"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -160,7 +160,7 @@ Cuando la plantilla funciona según lo previsto, se recomienda seguir usando la 
 
 Evite usar un parámetro en la versión de API. Las propiedades y los valores de los recursos pueden variar en función de la versión de API. La función IntelliSense en un editor de código no puede determinar el esquema correcto si la versión de API se establece como un parámetro. Si pasa una versión de API que no coincide con las propiedades de la plantilla, se producirá un error en la implementación.
 
-No use variables para la versión de API. En concreto, no use la [función de proveedores](template-functions-resource.md#providers) para obtener las versiones de API de forma dinámica durante la implementación. La versión de la API recuperada de forma dinámica podría no coincidir con las propiedades de la plantilla.
+No use variables para la versión de API. 
 
 ## <a name="resource-dependencies"></a>Dependencias de recursos
 

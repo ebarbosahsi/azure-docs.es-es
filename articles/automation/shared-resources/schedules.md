@@ -3,14 +3,14 @@ title: Administración de programaciones en Azure Automation
 description: En este artículo se explica cómo crear una programación en Azure Automation y cómo trabajar con ella.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8f732cd8c588ffc08dbe48f6a92add65c2bc2e9f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669566"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963247"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
@@ -123,7 +123,7 @@ New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th
 
 ## <a name="create-a-schedule-with-a-resource-manager-template"></a>Creación de una programación con una plantilla de Resource Manager
 
-En este ejemplo, se usa una plantilla de Resource Manager de Automation (ARM) que crea una nueva programación de trabajo. Para obtener información general sobre esta plantilla para administrar las programaciones de trabajos de Automation, consulte la [referencia de plantillas de Microsoft.Automation automationAccounts/jobSchedules](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+En este ejemplo, se usa una plantilla de Resource Manager de Automation (ARM) que crea una nueva programación de trabajo. Para obtener información general sobre esta plantilla para administrar las programaciones de trabajos de Automation, consulte la [referencia de plantillas de Microsoft.Automation automationAccounts/jobSchedules](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates).
 
 Copie este archivo de plantilla en un editor de texto:
 
@@ -183,8 +183,8 @@ $automationAccountName = "MyAutomationAccount"
 $runbookName = "Test-Runbook"
 $scheduleName = "Sample-DailySchedule"
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Register-AzAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
-–Name $runbookName –ScheduleName $scheduleName –Parameters $params `
+Register-AzAutomationScheduledRunbook -AutomationAccountName $automationAccountName `
+-Name $runbookName -ScheduleName $scheduleName -Parameters $params `
 -ResourceGroupName "ResourceGroup01"
 ```
 
@@ -218,8 +218,8 @@ En el ejemplo siguiente se muestra cómo deshabilitar una programación para un 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
-Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
-–Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
+Set-AzAutomationSchedule -AutomationAccountName $automationAccountName `
+-Name $scheduleName -IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
 ## <a name="remove-a-schedule"></a>Eliminación de una programación

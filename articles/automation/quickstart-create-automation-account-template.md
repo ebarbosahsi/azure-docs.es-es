@@ -3,18 +3,17 @@ title: 'Inicio rápido: Creación de una cuenta de Automation: plantilla de Azur
 titleSuffix: Azure Automation
 description: En esta guía de inicio rápido se muestra cómo crear una cuenta de Automation mediante la plantilla de Azure Resource Manager.
 services: automation
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dda2e2e34ab1f0c8facafe62a4fc0b9c5116f9d9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581099"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063175"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Automation mediante una plantilla de ARM
 
@@ -26,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

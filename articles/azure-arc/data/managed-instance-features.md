@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589226"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076656"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Características y capacidades de SQL Managed Instance para Azure Arc
 
@@ -117,19 +117,19 @@ SQL Managed Instance para Azure Arc comparte una base de código común con la 
 | Característica | SQL Managed Instance para Azure Arc |
 |--|--|
 | JSON | Sí |
-| Almacén de consultas | Sí |  |
-| Temporal | Sí |  |
-| Compatibilidad con XML nativo | Sí |  |
-| Índices XML | Sí |  |
-| Funciones MERGE y UPSERT | Sí |  |
-| Tipos de datos de fecha y hora | Sí |  |
-| Compatibilidad para internacionalización | Sí |  |
+| Almacén de consultas | Sí | 
+| Temporal | Sí | 
+| Compatibilidad con XML nativo | Sí | 
+| Índices XML | Sí | 
+| Funciones MERGE y UPSERT | Sí | 
+| Tipos de datos de fecha y hora | Sí | 
+| Compatibilidad para internacionalización | Sí | 
 | Búsqueda de texto completo y semántica | No |
-| Especificación de idioma en la consulta | Sí |  |
-| Service Broker (mensajería) | Sí |  |
-| Transact-SQL, extremos | Sí |  |
-| Grafo | Sí |  |
-| Machine Learning Services | No |  |
+| Especificación de idioma en la consulta | Sí | 
+| Service Broker (mensajería) | Sí | 
+| Transact-SQL, extremos | Sí | 
+| Grafo | Sí | 
+| Machine Learning Services | No |
 | PolyBase | No |
 
 

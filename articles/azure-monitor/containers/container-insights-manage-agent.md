@@ -3,12 +3,12 @@ title: Administración del agente de Container Insights | Microsoft Docs
 description: En este artículo se describe cómo administrar las tareas de mantenimiento más comunes con el agente de Log Analytics en contenedores que usa Container Insights.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b485f4d49f0dd80f712d96779098c26be3f6de1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713803"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442582"
 ---
 # <a name="how-to-manage-the-container-insights-agent"></a>Administración del agente de Container Insights
 
@@ -79,21 +79,6 @@ curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
-
-Vea **Uso de una entidad de servicio** en [Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obtener detalles sobre el uso de una entidad de servicio con este comando.
-
-### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Agente de actualización en Kubernetes habilitado para Azure Arc
-
-Ejecute el siguiente comando para actualizar el agente en un clúster de Kubernetes habilitado para Azure Arc.
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
-```
-
-Vea **Uso de una entidad de servicio** en [Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) para obtener detalles sobre el uso de una entidad de servicio con este comando.
-
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Cómo deshabilitar la recopilación de variables de entorno en un contenedor
 
