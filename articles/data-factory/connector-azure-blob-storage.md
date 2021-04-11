@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 809dc6d0958b754911362f933e9fe964bce9c679
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/17/2021
+ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727930"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608102"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -229,7 +229,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **AzureBlobStorage**. | Sí |
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. | Sí |
-| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/> Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. | No |
+| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/><br/>Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. | No |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el mouse en la esquina superior derecha de Azure Portal. | Sí |
@@ -237,7 +237,9 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | No |
 
 >[!NOTE]
->Si la cuenta de blob habilita la [eliminación temporal](../storage/blobs/soft-delete-blob-overview.md), la autenticación de la entidad de servicio no se admite en Data Flow.
+>
+>- Si la cuenta de blob habilita la [eliminación temporal](../storage/blobs/soft-delete-blob-overview.md), la autenticación de la entidad de servicio no se admite en Data Flow.
+>- Si tiene acceso al almacenamiento de blobs a través de un punto de conexión privado mediante el flujo de datos, tenga en cuenta cuando se usa la autenticación de entidad de servicio el flujo de datos se conecta al punto de conexión ADLS Gen2 en lugar de a un punto de conexión Blob. Asegúrese de crear el punto de conexión privado correspondiente en ADF para habilitar el acceso.
 
 >[!NOTE]
 >Solo el servicio vinculado tipo "AzureBlobStorage" admite la autenticación con la entidad de servicio, mientras que el servicio vinculado tipo "AzureStorage" anterior no la admite.
@@ -289,11 +291,13 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **AzureBlobStorage**. | Sí |
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. | Sí |
-| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/> Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. | No |
+| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/><br/>Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | No |
 
 > [!NOTE]
-> Si la cuenta de blob habilita la [eliminación temporal](../storage/blobs/soft-delete-blob-overview.md), la autenticación de la identidad administrada no se admite en Data Flow.
+>
+> - Si la cuenta de blob habilita la [eliminación temporal](../storage/blobs/soft-delete-blob-overview.md), la autenticación de la identidad administrada no se admite en Data Flow.
+> - Si tiene acceso al almacenamiento de blob a través de un punto de conexión privado mediante el flujo de datos, tenga en cuenta que cuando se utiliza la autenticación de identidad administrada, el flujo de datos se conecta al punto de conexión de ADLS Gen2 en lugar de un punto de conexión Blob. Asegúrese de crear el punto de conexión privado correspondiente en ADF para habilitar el acceso.
 
 > [!NOTE]
 > Solo el servicio vinculado del tipo "AzureBlobStorage" admite las identidades administradas para la autenticación de recursos de Azure, pero el servicio vinculado del tipo "AzureStorage" anterior no las admite.
@@ -385,7 +389,7 @@ Las propiedades siguientes se admiten para Azure Blob Storage en la configuraci�
 | modifiedDatetimeEnd      | Igual que el anterior.                                               | No                                            |
 | enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
 | partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/>- Cuando se usa un prefijo, la ruta de acceso raíz de la partición es la subruta antes del último "/". <br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
-| maxConcurrentConnections | Número de conexiones simultáneas al almacenamiento. Solo se especifica cuando se quieren limitar las conexiones simultáneas al almacén de datos. | No                                            |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No                                            |
 
 > [!NOTE]
 > Para el formato de texto delimitado o Parquet, aún se admite el tipo **BlobSource** del origen de copia de seguridad mencionado en la sección siguiente para la compatibilidad con versiones anteriores. Se recomienda usar el nuevo modelo hasta que la interfaz de usuario de creación de Data Factory haya comenzado a generar nuevos tipos.
@@ -445,7 +449,7 @@ Las propiedades siguientes se admiten para Azure Blob Storage en la configuraci�
 | type                     | La propiedad `type` de la sección `storeSettings` se debe establecer en `AzureBlobStorageWriteSettings`. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No       |
 | blockSizeInMB | Especifique el tamaño de bloque en megabytes que se usa para escribir datos en blobs en bloques. Más información [sobre los blobs en bloques](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>El valor permitido está *entre 4 MB y 100 MB*. <br/>De forma predeterminada, Data Factory determina automáticamente el tamaño de bloque en función del tipo y los datos del almacén de origen. En el caso de una copia no binaria en Blob Storage, el tamaño de bloque predeterminado es de 100 MB, para que pueda ajustarse (como máximo) a 4,95 TB de datos. Este tamaño podría no ser óptimo cuando los datos no son grandes, en especial cuando se usa el entorno de ejecución de integración autohospedado con conexiones de red deficientes, lo que genera problemas de tiempo de espera de operación o rendimiento. Puede especificar explícitamente un tamaño de bloque, a la vez que garantiza que `blockSizeInMB*50000` sea lo suficientemente grande como para almacenar los datos. De lo contrario, se generará un error en la ejecución de la actividad de copia. | No |
-| maxConcurrentConnections | Número de conexiones simultáneas al almacenamiento. Solo se especifica cuando se quieren limitar las conexiones simultáneas al almacén de datos. | No       |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No       |
 
 **Ejemplo**:
 
@@ -677,7 +681,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 |:--- |:--- |:--- |
 | type | La propiedad `type` del origen de la actividad de copia debe establecerse en `BlobSource`: | Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando `recursive` se establece en `true` y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor.<br/>Los valores permitidos son: `true` (valor predeterminado) y `false`. | No |
-| maxConcurrentConnections | Número de conexiones simultáneas al almacenamiento. Solo se especifica cuando se quieren limitar las conexiones simultáneas al almacén de datos. | No |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 
@@ -717,7 +721,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 |:--- |:--- |:--- |
 | type | La propiedad `type` del receptor de la actividad de copia debe establecerse en `BlobSink`: | Sí |
 | copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No |
-| maxConcurrentConnections | Número de conexiones simultáneas al almacenamiento. Solo se especifica cuando se quieren limitar las conexiones simultáneas al almacén de datos. | No |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 

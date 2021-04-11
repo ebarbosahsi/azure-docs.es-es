@@ -3,17 +3,18 @@ title: 'Azure Cloud Services (clásico): Esquema de definición de Azure Cloud S
 description: El rol web de Azure está personalizado para la programación de aplicaciones web compatibles con ASP.NET, PHP, WCF y FastCGI. Obtenga información sobre los elementos de definición de servicio de un rol web.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7b3266be461af50d74988ad4834f2f8fc548e383
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743158"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934094"
 ---
 # <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Esquema WebRole de definición de Azure Cloud Services (clásico)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 592a9b89379094c88881c3c8485c7e38a1613b34
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486393"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219491"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ El servicio le permite configurar sus bases de datos de Cosmos con una sola regi
 
 ## <a name="conflict-resolution"></a>Resolución de conflictos
 
-Nuestro diseño para la propagación de actualizaciones, la resolución de conflictos y el seguimiento de causalidades está inspirado en el anterior trabajo sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) y el sistema [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Mientras que los kernels de las ideas han sobrevivido y proporcionan un cómodo marco de referencia para comunicar el diseño del sistema de Cosmos DB, también han experimentado una transformación significativa al aplicarlos al sistema de Cosmos DB. Esto era necesario, ya que los sistemas anteriores no estaban diseñados ni con la gobernanza de recursos ni con la escala en la que Cosmos DB necesita funcionar ni tampoco para proporcionar las funcionalidades (por ejemplo, coherencia de obsolescencia limitada) y los estrictos y completos contratos de nivel de servicio que Cosmos DB ofrece a sus clientes.  
+Nuestro diseño para la propagación de actualizaciones, la resolución de conflictos y el seguimiento de causalidades está inspirado en el anterior trabajo sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) y el sistema [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf). Mientras que los kernels de las ideas han sobrevivido y proporcionan un cómodo marco de referencia para comunicar el diseño del sistema de Cosmos DB, también han experimentado una transformación significativa al aplicarlos al sistema de Cosmos DB. Esto era necesario, ya que los sistemas anteriores no estaban diseñados ni con la gobernanza de recursos ni con la escala en la que Cosmos DB necesita funcionar ni tampoco para proporcionar las funcionalidades (por ejemplo, coherencia de obsolescencia limitada) y los estrictos y completos contratos de nivel de servicio que Cosmos DB ofrece a sus clientes.  
 
 Recuerde que un conjunto de particiones se distribuye entre varias regiones y sigue el protocolo de replicación (escrituras en varias regiones) de Cosmos DB para replicar los datos entre las particiones físicas que componen un conjunto de particiones determinado. Cada partición física (de un conjunto de particiones) acepta las escrituras y suele ofrecer lecturas a los clientes que son locales en esa región. Las escrituras aceptadas por una partición física de una región se confirman permanentemente y tienen una alta disponibilidad en la partición física antes de ser reconocidas por el cliente. Se trata de escrituras provisionales que se propagan a otras particiones físicas en el conjunto de particiones mediante un canal de antientropía. Los clientes pueden solicitar escrituras provisionales o confirmadas pasando un encabezado de la solicitud. La propagación de antientropía (incluida la frecuencia de propagación) es dinámica, según la topología del conjunto de particiones, la proximidad regional de las particiones físicas y el nivel de coherencia configurado. En un conjunto de particiones, Cosmos DB sigue un esquema de confirmación principal con una partición de árbitro seleccionada dinámicamente. La selección de árbitro es dinámica y forma parte integral de la reconfiguración del conjunto de particiones según la topología de la superposición. Se garantiza que las escrituras confirmadas (incluidas las actualizaciones de varias filas o por lotes) están totalmente ordenadas. 
 

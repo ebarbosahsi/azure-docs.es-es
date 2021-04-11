@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: b1339a0ab5be9004643cf2e9f86203eba9a2cc72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 03/18/2021
+ms.openlocfilehash: 0153797445e2a3f55baa53e49c06ee5c82e3bebe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445059"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606232"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Introducción a Azure Synapse Analytics
 
@@ -24,9 +24,9 @@ Este tutorial es una guía paso a paso de las principales áreas de característ
 Siga los pasos *por orden* como se muestra a continuación para realizar un paseo guiado por muchas de las funcionalidades y aprender a ejercitar las características principales.
 
 * [Paso 1: creación y configuración de un área de trabajo de Synapse](get-started-create-workspace.md)
-* [Paso 2: análisis mediante un grupo de SQL dedicado](get-started-analyze-sql-pool.md)
+* [Paso 2: análisis mediante un grupo de SQL sin servidor](get-started-analyze-sql-on-demand.md)
 * [Paso 3: análisis mediante Apache Spark](get-started-analyze-spark.md)
-* [Paso 4: análisis mediante un grupo de SQL sin servidor](get-started-analyze-sql-on-demand.md)
+* [Paso 4: análisis mediante un grupo de SQL dedicado](get-started-analyze-sql-pool.md)
 * [Paso 5: análisis de los datos de una cuenta de almacenamiento](get-started-analyze-storage.md)
 * [Paso 6: orquestación con canalizaciones](get-started-pipelines.md)
 * [Paso 7: visualización de los datos con Power BI](get-started-visualize-power-bi.md)

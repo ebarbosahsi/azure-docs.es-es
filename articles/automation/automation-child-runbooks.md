@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99491255"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167301"
 ---
 # <a name="create-modular-runbooks"></a>Creación de runbooks modulares
 
@@ -56,15 +56,15 @@ Cuando el runbook llama a un runbook secundario gráfico o de Flujo de trabajo d
 En el ejemplo siguiente se inicia un runbook secundario de prueba que acepta un objeto complejo, un valor entero y un valor booleano. Los resultados del runbook secundario se asignan a una variable. En este caso, el runbook secundario es un runbook de flujo de trabajo de PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 A continuación se muestra el mismo ejemplo con un runbook de PowerShell como elemento secundario.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Inicio de un runbook secundario mediante un cmdlet
@@ -84,7 +84,7 @@ Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan 
 
 Es posible que se pierda el contexto de suscripción cuando inicia runbooks secundarios como trabajos individuales. Para que el runbook secundario ejecute los cmdlets del módulo Az en una suscripción de Azure específica, el secundario debe autenticarse en esta suscripción de forma independiente al runbook primario.
 
-Si los trabajos de una misma cuenta de Automation funcionan con varias suscripciones, la selección de una suscripción en uno de los trabajos puede cambiar el contexto de suscripción actualmente seleccionado para otros trabajos. Para evitar esta situación, use `Disable-AzContextAutosave –Scope Process` al principio de cada runbook. Esta acción solo guarda el contexto de esa ejecución de runbook.
+Si los trabajos de una misma cuenta de Automation funcionan con varias suscripciones, la selección de una suscripción en uno de los trabajos puede cambiar el contexto de suscripción actualmente seleccionado para otros trabajos. Para evitar esta situación, use `Disable-AzContextAutosave -Scope Process` al principio de cada runbook. Esta acción solo guarda el contexto de esa ejecución de runbook.
 
 ### <a name="example"></a>Ejemplo
 
@@ -92,7 +92,7 @@ En el ejemplo siguiente se inicia un runbook secundario con parámetros y se esp
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

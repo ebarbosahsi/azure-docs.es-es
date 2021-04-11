@@ -3,15 +3,15 @@ title: 'Escalado de hosts de sesión con Azure Automation: Azure'
 description: Escalado automático de hosts de sesión de Windows Virtual Desktop con Azure Automation
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078561"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613126"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
@@ -52,6 +52,9 @@ Sin embargo, la herramienta también tiene las siguientes limitaciones:
 - Esta solución solo se aplica a las máquinas virtuales de host multisesión agrupadas.
 - Esta solución administra máquinas virtuales de cualquier región, pero solo se puede usar en la misma suscripción que la cuenta de Azure Automation y Azure Logic Apps.
 - El tiempo de ejecución máximo de un trabajo en el runbook es de tres horas. Si el inicio o la detención de las máquinas virtuales del grupo de hosts tarda más, se producirá un error en el trabajo. Para obtener más información, consulte [Recursos compartidos](../automation/automation-runbook-execution.md#fair-share).
+- Se debe activar al menos una máquina virtual o un host de sesión para que el algoritmo de escalado funcione correctamente.
+- La herramienta de escalado no admite el escalado en función de la CPU o la memoria.
+- El escalado solo funciona con los hosts existentes en el grupo de hosts. La herramienta de escalado no admite el escalado de nuevos hosts de sesión.
 
 >[!NOTE]
 >La herramienta de escalado controla el modo de equilibrio de carga del grupo de hosts que se está escalando actualmente. La herramienta usa el modo de equilibrio de carga en amplitud tanto en las horas punta como en las horas de menos uso.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f8eddd5d346003af0c2b41d65fc0aa09c86f48c7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93346781"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167454"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar los recursos técnicos del módulo IoT Edge
 
@@ -39,14 +39,14 @@ El módulo debe admitir todas las plataformas de nivel 1 compatibles con IoT Edg
 
 - Proporcionar una etiqueta más reciente y una etiqueta de versión (por ejemplo, 1.0.1) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos de GitHub](https://github.com/estesp/manifest-tool).
 
-- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** al [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** al [catálogo de dispositivos certificados Azure IoT Edge](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un subconjunto de plataformas de nivel 1 compatibles con IoT Edge
 
 El módulo debe admitir un subconjunto (al menos uno) de plataformas de nivel 1 compatibles con IoT Edge (según el registro de [Compatibilidad de Azure IoT Edge](../../iot-edge/support.md)). Un módulo que use esta opción de plataforma debe:
 
 - Proporcionar una etiqueta más reciente y una etiqueta de versión (por ejemplo, 1.0.1) que sean etiquetas de manifiesto compiladas con la [herramienta de manifiestos](https://github.com/estesp/manifest-tool) de GitHub, si hay más de una plataforma compatible. Las etiquetas de manifiesto son opcionales solo cuando hay una plataforma compatible.
-- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** a al menos un dispositivo IoT Edge del [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/).
+- Use la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace) para agregar un vínculo en la sección **Vínculos útiles** a al menos un dispositivo IoT Edge del [catálogo de dispositivos certificados Azure IoT Edge](https://devicecatalog.azure.com/).
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="Se trata de una imagen de la sección Descripción de la oferta del Centro de partners":::
 
@@ -54,7 +54,7 @@ El módulo debe admitir un subconjunto (al menos uno) de plataformas de nivel 1 
 
 Las dimensiones de un módulo IoT Edge (como, por ejemplo, CPU, RAM, almacenamiento y GPU) en dispositivos IoT Edge de destino deben cumplir los siguientes requisitos:
 
-- El módulo debe trabajar con al menos un dispositivo IoT Edge del [catálogo de dispositivos certificados Azure IoT Edge](https://catalog.azureiotsolutions.com/).
+- El módulo debe trabajar con al menos un dispositivo IoT Edge del [catálogo de dispositivos certificados Azure IoT Edge](https://devicecatalog.azure.com/).
 
 - Los requisitos mínimos de hardware deben quedar documentados como último párrafo de la descripción de la oferta (en la pestaña Descripción de la oferta del [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace)). También puede indicar los requisitos de hardware recomendados si difieren considerablemente. Por ejemplo, agregue la siguiente sección al final de la descripción de la oferta:
 

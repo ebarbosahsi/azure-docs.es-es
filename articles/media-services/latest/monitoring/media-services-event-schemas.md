@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b502690a62410f1e8d2950074e8b479f7dc7f88
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b9d3f6973c210e7bd91c088ee7a276bfbcc48ce
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608793"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121989"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -330,7 +330,7 @@ El objeto data tiene las siguientes propiedades:
 | encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | El motivo por el que se rechazó la conexión. En la tabla siguiente se muestran los códigos de resultados: |
 
-Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../live-event-error-codes.md).
+Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -400,7 +400,7 @@ El objeto data tiene las siguientes propiedades:
 | encoderPort | string | Puerto del codificador de donde procede esta transmisión. |
 | resultCode | string | La razón por la cual el codificador se desconecta. Podría ser un cierre estable o un error. En la tabla siguiente se muestran los códigos de resultados: |
 
-Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../live-event-error-codes.md).
+Puede encontrar los códigos de resultado de error en [Códigos de error de eventos en directo de Media Services](../live-event-error-codes-reference.md).
 
 Los códigos de resultado del cierre estable son:
 
@@ -676,4 +676,4 @@ Un evento tiene los siguientes datos de nivel superior:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (SDK de .NET en EventGrid que incluye eventos de Media Services)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json) (Definición de eventos de Media Services)
-- [Códigos de error de eventos en directo de Media Services](../live-event-error-codes.md)
+- [Códigos de error de eventos en directo de Media Services](../live-event-error-codes-reference.md)
