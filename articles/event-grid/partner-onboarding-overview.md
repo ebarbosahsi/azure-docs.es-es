@@ -3,12 +3,12 @@ title: Introducción a la incorporación de asociados (Azure Event Grid)
 description: Se proporciona información general sobre cómo incorporarse como asociado de Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93081202"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109346"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Introducción a la incorporación de asociados (Azure Event Grid)
 
@@ -152,7 +152,7 @@ Después de realizar una publicación en el punto de conexión del espacio de no
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Plantilla ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de plantilla de ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [API de REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [API de REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
   * [Extensión de la CLI](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>SDK

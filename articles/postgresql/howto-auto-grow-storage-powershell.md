@@ -1,18 +1,18 @@
 ---
 title: Crecimiento automático del almacenamiento mediante Azure PowerShell en Azure Database for PostgreSQL
 description: En este artículo se describe cómo habilitar el crecimiento automático de almacenamiento mediante PowerShell en Azure Database for PostgreSQL.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bc4655ce6cd572183cd92e1c8b2ac10e613ebd8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05333aa4a42b821366ea7ad0a564781422fda66a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489972"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551057"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>Aumento automático del almacenamiento en el servidor de Azure Database for PostgreSQL mediante PowerShell.
 

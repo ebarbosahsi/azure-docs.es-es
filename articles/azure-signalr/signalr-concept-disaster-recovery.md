@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 996fa53aa105c0bcc27db7134c25d6d00e542a78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90976486"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110294"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Resistencia y recuperación ante desastres en Azure SignalR Service
 
@@ -44,13 +44,16 @@ A continuación, un diagrama que ilustra esta topología:
 
 ![Diagrama en el que se muestran dos regiones, cada una con un servidor de aplicaciones y un servicio Signalr, donde cada servidor está asociado con el servicio Signalr de su región como principal y con el servicio de la otra región como secundario.](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configuración de servidores de aplicaciones con varias instancias de servicio de SignalR
+## <a name="configure-multiple-signalr-service-instances"></a>Configurar varias instancias de servicio de SignalR
 
-Una vez creados los servidores de aplicaciones y SignalR Service en cada región, puede configurar los primeros para que se conecten a todas las instancias de servicio de SignalR.
+En los servidores de aplicaciones y Azure Functions se admiten varias instancias de servicio de SignalR.
 
+Una vez que tenga el servicio de SignalR y los servidores de aplicaciones/Azure Functions creados en cada región, puede configurar los servidores de aplicaciones/Azure Functions para que se conecten a todas las instancias de servicio de SignalR.
+
+### <a name="configure-on-app-servers"></a>Configurar en servidores de aplicaciones
 Esto se puede hacer de dos maneras:
 
-### <a name="through-config"></a>Mediante configuración
+#### <a name="through-config"></a>Mediante configuración
 
 Ya debe saber cómo configurar la cadena de conexión de SignalR Service mediante variables de entorno o configuración de aplicaciones o web.cofig, mediante una entrada de configuración denominada `Azure:SignalR:ConnectionString`.
 Si tiene varios puntos de conexión, puede establecerlos en varias entradas de configuración, cada una de ellas con el siguiente formato:
@@ -62,7 +65,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 Aquí, `<name>` es el nombre del punto de conexión y `<role>`, su rol (principal o secundario).
 El nombre es opcional, pero será útil si desea personalizar aún más el comportamiento de enrutamiento entre varios puntos de conexión.
 
-### <a name="through-code"></a>Mediante código
+#### <a name="through-code"></a>Mediante código
 
 Si prefiere almacenar la cadena de conexión en alguna otra parte, también puede leerla en el código y usarla como parámetros al llamar a `AddAzureSignalR()` (en ASP.NET Core) o `MapAzureSignalR()` (en ASP.NET).
 
@@ -93,6 +96,9 @@ Puede configurar varias instancias principales o secundarias. Si hay varias inst
 
 1. Si hay al menos una instancia principal en línea, devuelve una instancia en línea principal aleatoria.
 2. Si todas las instancias principales están inactivas, devuelva una instancia en línea secundaria aleatoria.
+
+### <a name="configure-on-azure-functions"></a>Configurar en Azure Functions
+Consulte [este artículo](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method).
 
 ## <a name="failover-sequence-and-best-practice"></a>Secuencia de conmutación por error y procedimiento recomendado
 
@@ -137,3 +143,5 @@ Deberá tratar con esos casos desde el cliente para que sea transparente para lo
 En este artículo ha aprendido a configurar la aplicación para lograr resistencia para SignalR Service. Para conocer más detalles acerca de la conexión cliente/servidor y el enrutamiento de conexión en SignalR Service, consulte [este artículo](signalr-concept-internals.md) para los aspectos internos de SignalR Service.
 
 Para escalar escenarios como el particionamiento, que usan varias instancias juntas para controlar un gran número de conexiones, lea [cómo escalar varias instancias](signalr-howto-scale-multi-instances.md).
+
+Para más información sobre cómo configurar Azure Functions con varias instancias de servicio de SignalR, consulte [compatibilidad con varias instancias de Azure SignalR Service en Azure Functions](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md).

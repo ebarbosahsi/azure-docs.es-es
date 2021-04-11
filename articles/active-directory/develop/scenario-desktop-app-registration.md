@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8a1a2d7f5272def78cd162da1f6ac0265d4fb30b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 263397aa2cd09ba24fa750131b76047801869a65
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517743"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798942"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -40,12 +40,17 @@ Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar
 
 Los URI de redirección que se utilizan en una aplicación de escritorio dependen del flujo que se quiera utilizar.
 
-- Si usa la autenticación interactiva o el flujo de código del dispositivo, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. Para lograr esta configuración, seleccione la dirección URL correspondiente en la sección **Autenticación** de la aplicación.
+Especifique el URI de redirección de la aplicación mediante la [configuración de la plataforma](quickstart-register-app.md#add-a-redirect-uri) de la aplicación en **Registros de aplicaciones** en Azure Portal.
+
+- Para las aplicaciones que usan la autenticación interactiva:
+  - Aplicaciones que usan exploradores insertados: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  - Aplicaciones que usan exploradores del sistema: `http://localhost`
 
   > [!IMPORTANT]
-  > Se recomienda usar `https://login.microsoftonline.com/common/oauth2/nativeclient` como el URI de redireccionamiento como procedimiento recomendado de seguridad.  Si no se especifica ningún URI de redireccionamiento, MSAL.NET utiliza `urn:ietf:wg:oauth:2.0:oob` de forma predeterminada, lo que no se recomienda.  Este valor predeterminado se actualizará como un cambio importante en la próxima versión principal.
+  > Como procedimiento recomendado de seguridad, se aconseja establecer explícitamente `https://login.microsoftonline.com/common/oauth2/nativeclient` o `http://localhost` como URI de redirección. Algunas bibliotecas de autenticación como MSAL.NET usan un valor predeterminado de `urn:ietf:wg:oauth:2.0:oob` cuando no se especifica ningún otro URI de redirección, lo que no se recomienda. Este valor predeterminado se actualizará como un cambio importante en la próxima versión principal.
 
 - Si compila una aplicación nativa de Objective-C o Swift para macOS, registre el URI de redirección en función del identificador de agrupación de la aplicación, con el formato siguiente: `msauth.<your.app.bundle.id>://auth`. Reemplace `<your.app.bundle.id>` por el identificador de paquete de la aplicación.
+- Si compila una aplicación Electron de Node.js, use un protocolo de archivo personalizado en lugar de un URI de redirección web normal (https://) para controlar el paso de redireccionamiento del flujo de autorización, por ejemplo `msal://redirect`. El nombre del protocolo de archivo personalizado no debe ser obvio de adivinar y debe seguir las sugerencias de la [especificación de OAuth 2.0 para aplicaciones nativas](https://tools.ietf.org/html/rfc8252#section-7.1).
 - Si la aplicación solo utiliza la autenticación integrada de Windows o un nombre de usuario y una contraseña, no es necesario que registre ningún URI de redirección para la aplicación. Estos flujos realizan un recorrido de ida y vuelta al punto de conexión de la plataforma de identidad de Microsoft v2.0. No se volverá a llamar a la aplicación en ningún URI específico.
 - Para distinguir el [flujo de código de dispositivo](scenario-desktop-acquire-token.md#device-code-flow), la [autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) y el [nombre de usuario y la contraseña](scenario-desktop-acquire-token.md#username-and-password) de una aplicación cliente confidencial mediante un flujo de credenciales de cliente usado en [aplicaciones de demonio](scenario-daemon-overview.md), ninguna de las cuales requiere un URI de redirección, configúrela como aplicación cliente pública. Para lograr esta configuración:
 

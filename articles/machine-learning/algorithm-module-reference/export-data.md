@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
-ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/19/2021
+ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421318"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656913"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
@@ -51,7 +51,10 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 
     Si se selecciona, el sistema volverá a ejecutar el módulo para regenerar la salida.
 
-1. Defina la ruta del almacén de datos en el que se encuentran los datos. La ruta es una ruta de acceso relativa. No se permiten las rutas de acceso vacías o de dirección URL.
+1. Defina la ruta del almacén de datos en el que se encuentran los datos. La ruta de acceso es una ruta de acceso relativa. Tomemos `data/testoutput` como ejemplo, que significa que los datos introducidos en **Exportar datos** se exportarán a `data/testoutput` en el almacén de datos establecido en **Configuración de salida** del módulo.
+
+    > [!NOTE]
+    > No se permiten las rutas de acceso vacías ni de **dirección URL**.
 
 
 1. Para **Formato de archivo**, seleccione el formato en el que se deben almacenar los datos.

@@ -4,14 +4,14 @@ description: Cómo configurar servicios de directorio para el acceso de cliente 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803772"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563389"
 ---
 # <a name="configure-directory-services"></a>Configuración de servicios de directorio
 
@@ -75,13 +75,13 @@ El servidor y el DN base son la única configuración necesaria para el funciona
 
 En la sección **Acceso seguro**, puede habilitar el cifrado y la validación de certificados para la conexión LDAP. Después de hacer clic en **Sí** para habilitar el cifrado, tiene estas opciones:
 
-* **Require valid certificate** (Requerir certificado válido): al establecerse este, el certificado del servidor LDAP se comprueba con la entidad de certificación en el campo de URI siguiente.
+* **Validate certificate** (Validar certificado): al establecerse este, el certificado del servidor LDAP se comprueba con la entidad de certificación en el campo de URI siguiente.
 
 * **CA certificate URI** (URI de certificado de CA): especifique la ruta de acceso al certificado autoritativo. Puede tratarse de un vínculo a un certificado validado por CA o a un certificado autofirmado. Este campo es necesario para usar la configuración de certificados validados externamente.
 
 * **Auto-download certificate** (Certificado de descarga automática): elija **Sí** si desea intentar descargar un certificado nada más enviar esta configuración.
 
-Rellene la sección **Credenciales** si desea usar credenciales estáticas para la seguridad de LDAP.
+Rellene la sección **Credenciales** si desea usar credenciales estáticas para la seguridad de LDAP. Esta información se cifra cuando se almacena y no se puede consultar.
 
 * **DN de enlace**: escriba el nombre distintivo de enlace que se va a usar para autenticarse en el servidor LDAP (use el formato DN).
 * **Contraseña de enlace**: proporcione la contraseña del DN de enlace.

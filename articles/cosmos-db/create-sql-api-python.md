@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078788"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798789"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para 
     * Sin una suscripción activa de Azure:
         * [Pruebe Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/), un entorno de pruebas que dura 30 días.
         * [Emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7 o 3.5.3+](https://www.python.org/downloads/), con el ejecutable `python` en `PATH`.
+- [Python 2.7 o 3.6 y superiores](https://www.python.org/downloads/), con el ejecutable `python` en `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - La [extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -64,7 +64,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
 
     :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Explorador de datos de Azure Portal, panel Agregar contenedor":::
 
-2. En la página **Agregar contenedor** , especifique la configuración del nuevo contenedor.
+2. En la página **Agregar contenedor**, especifique la configuración del nuevo contenedor.
 
     |Configuración|Valor sugerido|Descripción
     |---|---|---|

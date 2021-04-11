@@ -9,14 +9,16 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c311826c2b17f8e9f95d1ef31980922154635b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042324"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872292"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge.
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Dado que el servicio de IoT Edge lanza versiones nuevas, querrá actualizar los dispositivos IoT Edge para tener las últimas características y mejoras de seguridad. En este artículo se proporciona información sobre cómo actualizar los dispositivos IoT Edge cuando hay una versión nueva disponible.
 
@@ -120,8 +122,9 @@ Si quiere actualizar a la versión más reciente de IoT Edge, use el siguiente c
 # <a name="windows"></a>[Windows](#tab/windows)
 
 <!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-Con IoT Edge para Linux en Windows, IoT Edge se ejecuta en una máquina virtual Linux hospedada en un dispositivo Windows. Esta máquina virtual está instalada previamente con IoT Edge, y se administra con Microsoft Update para mantener actualizados los componentes. Actualmente no hay actualizaciones disponibles.
+::: moniker range="iotedge-2018-06"
+
+Con IoT Edge para Linux en Windows, IoT Edge se ejecuta en una máquina virtual Linux hospedada en un dispositivo Windows. Esta máquina virtual está instalada previamente con IoT Edge, y se administra con Microsoft Update para mantener actualizados los componentes. Si tiene actualizaciones automáticas habilitadas, las nuevas actualizaciones se descargarán e instalarán siempre que estén disponibles.
 
 Con IoT Edge para Windows, IoT Edge se ejecuta directamente en el dispositivo Windows. Para obtener instrucciones para la actualización con los scripts de PowerShell, consulte [Instalación y administración de Azure IoT Edge para Windows](how-to-install-iot-edge-windows-on-windows.md).
 :::moniker-end
@@ -147,9 +150,9 @@ Compruebe la versión de los módulos Agente de IoT Edge y Centro de IoT Edge in
 
 Las imágenes del Agente de IoT Edge y del centro de IoT Edge se etiquetan con la versión de IoT Edge a la que están asociadas. Hay dos maneras diferentes de usar etiquetas con las imágenes del entorno de ejecución:
 
-* **Etiquetas graduales**: use solo los dos primeros valores del número de versión para obtener la imagen más reciente que coincida con esos dígitos. Por ejemplo, 1.0 se actualiza cada vez que hay una nueva versión para que apunte a la versión 1.0.x más reciente. Si el entorno de ejecución del contenedor en el dispositivo IoT Edge extrae la imagen de nuevo, se actualizan los módulos del entorno de ejecución a la versión más reciente. Este enfoque se recomienda para fines de desarrollo. Las implementaciones de Azure Portal tienen como valor predeterminado las etiquetas graduales.
+* **Etiquetas graduales**: use solo los dos primeros valores del número de versión para obtener la imagen más reciente que coincida con esos dígitos. Por ejemplo, 1.1 se actualiza cada vez que hay una nueva versión para que apunte a la versión 1.1.x más reciente. Si el entorno de ejecución del contenedor en el dispositivo IoT Edge extrae la imagen de nuevo, se actualizan los módulos del entorno de ejecución a la versión más reciente. Las implementaciones de Azure Portal tienen como valor predeterminado las etiquetas graduales. *Este enfoque se recomienda para fines de desarrollo.*
 
-* **Etiquetas específicas**: use los tres valores del número de versión para establecer explícitamente la versión de la imagen. Por ejemplo, la versión 1.0.7 no cambiará después de su lanzamiento inicial. Puede declarar un nuevo número de versión del manifiesto de implementación cuando esté listo para actualizar. Este enfoque se recomienda para fines de producción.
+* **Etiquetas específicas**: use los tres valores del número de versión para establecer explícitamente la versión de la imagen. Por ejemplo, la versión 1.1.0 no cambiará después de su lanzamiento inicial. Puede declarar un nuevo número de versión del manifiesto de implementación cuando esté listo para actualizar. *Este enfoque se recomienda para fines de producción.*
 
 ### <a name="update-a-rolling-tag-image"></a>Actualización de una imagen de etiqueta gradual
 
@@ -200,7 +203,7 @@ Algunas de las diferencias principales entre la versión 1.2 y las anteriores so
 * El nombre del paquete ha cambiado de **iotedge** a **aziot-edge**.
 * El paquete **libiothsm-std** ya no se usa. Si usó el paquete estándar proporcionado como parte de la versión de IoT Edge, las configuraciones se pueden transferir a la nueva versión. Si usó una implementación diferente de libiothsm-std, deberá volver a configurar los certificados proporcionados por el usuario como el certificado de identidad de dispositivo, la CA de dispositivo y el paquete de confianza.
 * Un nuevo servicio de identidad, **aziot-identity-service**, se introdujo como parte de la versión 1.2. Este servicio controla el aprovisionamiento y la administración de identidades para IoT Edge y otros componentes de dispositivo que necesitan comunicarse con IoT Hub, como la actualización de dispositivo Azure IoT Hub. <!--TODO: add link to ADU when available -->
-* El archivo de configuración predeterminado tiene un nombre y una ubicación nuevos. La información de configuración de dispositivo que anteriormente se encontraba en `/etc/iotedge/config.yaml`, ahora se espera que esté en `/etc/aziot/congig.toml` de manera predeterminada. El comando `iotedge config import` se puede usar para ayudar a migrar la información de configuración de la ubicación y la sintaxis anteriores a las nuevas.
+* El archivo de configuración predeterminado tiene un nombre y una ubicación nuevos. La información de configuración de dispositivo que anteriormente se encontraba en `/etc/iotedge/config.yaml`, ahora se espera que esté en `/etc/aziot/config.toml` de manera predeterminada. El comando `iotedge config import` se puede usar para ayudar a migrar la información de configuración de la ubicación y la sintaxis anteriores a las nuevas.
 * Los módulos que usan la API de carga de trabajo de IoT Edge para cifrar o descifrar los datos persistentes no se pueden descifrar después de la actualización. IoT Edge genera dinámicamente una clave de identidad maestra y una clave de cifrado para uso interno. Esta clave no se transferirá al nuevo servicio. IoT Edge v1.2 generará una nueva.
 
 Antes de automatizar los procesos de actualización, compruebe que funciona en máquinas de prueba.

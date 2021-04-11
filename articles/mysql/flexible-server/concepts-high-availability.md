@@ -1,24 +1,24 @@
 ---
 title: Información general de alta disponibilidad con redundancia de zona con el servidor flexible de Azure Database for MySQL
 description: Información sobre los conceptos de alta disponibilidad con redundancia de zona con el servidor flexible de Azure Database for MySQL
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99097124"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109699"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos de alta disponibilidad en el servidor flexible de Azure Database for MySQL (versión preliminar)
 
 > [!IMPORTANT] 
 > Actualmente, la opción Servidor flexible de Azure Database for MySQL se encuentra en versión preliminar pública.
 
-Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error mediante la opción de alta disponibilidad con **redundancia de zona**. Cuando se implementa en una configuración con redundancia de zona, el servidor flexible aprovisiona y administra de forma automática una réplica en espera en otra zona de disponibilidad. Con la replicación de nivel de almacenamiento, los datos se **replican sincrónicamente** en el servidor en espera en la zona secundaria para permitir que no haya pérdida de datos después de una conmutación por error. La conmutación por error es totalmente transparente desde la aplicación cliente y no requiere ninguna acción del usuario. El servidor en espera no está disponible para las operaciones de lectura o escritura, pero es un estado de espera pasivo para habilitar la conmutación por error rápida. Los tiempos de conmutación por error suelen oscilar entre 60-120 segundos.
+Servidor flexible de Azure Database for MySQL (versión preliminar) permite configurar la alta disponibilidad con conmutación automática por error mediante la opción de alta disponibilidad con **redundancia de zona**. Cuando se implementa en una configuración con redundancia de zona, el servidor flexible aprovisiona y administra de forma automática una réplica en espera en otra zona de disponibilidad. Con la replicación de nivel de almacenamiento, los datos se **replican sincrónicamente** en el servidor en espera en la zona secundaria para permitir que no haya pérdida de datos después de una conmutación por error. La conmutación por error es totalmente transparente desde la aplicación cliente y no requiere ninguna acción por parte del usuario. El servidor en espera no está disponible para las operaciones de lectura o escritura, pero es un estado de espera pasivo para habilitar la conmutación por error rápida. Los tiempos de conmutación por error suelen oscilar entre 60-120 segundos.
 
 La configuración de alta disponibilidad con redundancia de zona permite la conmutación por error automática durante eventos planeados, como operaciones de proceso de escalado iniciadas por el usuario, y eventos no planeados, como errores de hardware y software subyacentes, errores de red e incluso errores de zona de disponibilidad.
 
@@ -45,13 +45,13 @@ A continuación se enumeran los distintos estados de replicación:
 
 Estas son algunas ventajas de usar la característica de alta disponibilidad con redundancia de zona: 
 
--   La réplica en espera se implementará en una configuración de máquina virtual exacta a la del servidor principal, como núcleos virtuales, almacenamiento, configuración de red (VNET, firewall), etc.
--   Se puede quitar la réplica en espera si se deshabilita la alta disponibilidad.
--   Las copias de seguridad automáticas se basan en instantáneas, se realizan desde el servidor de bases de datos principal y se almacenan en un almacenamiento con redundancia de zona.
--   En caso de conmutación por error, el servidor flexible de Azure Database for MySQL realizará automáticamente la conmutación por error en la réplica en espera si está habilitada la alta disponibilidad. La configuración de alta disponibilidad supervisará el servidor principal y lo volverá a poner en línea.
--   Los clientes siempre se conectan al servidor de bases de datos principal.
--   Si hay un bloqueo de base de datos o un error de nodo, primero se intentará el reinicio en el mismo nodo. Si se produce un error, se desencadena la conmutación automática por error.
--   Capacidad de reiniciar el servidor para seleccionar cualquier cambio de parámetro de servidor estático.
+- La réplica en espera se implementa en una configuración de máquina virtual exacta como la principal, como núcleos virtuales, almacenamiento, configuración de red (VNET, firewall), etc.
+- Se puede quitar la réplica en espera si se deshabilita la alta disponibilidad.
+- Las copias de seguridad automáticas se basan en instantáneas, se realizan desde el servidor de bases de datos principal y se almacenan en un almacenamiento con redundancia de zona.
+- En caso de conmutación por error, el servidor flexible de Azure Database for MySQL conmuta automáticamente por error a la réplica en espera si la alta disponibilidad está habilitada. La configuración de alta disponibilidad supervisa el servidor principal y lo vuelve a poner en línea.
+- Los clientes siempre se conectan al servidor de bases de datos principal.
+- Si hay un bloqueo en la base de datos o un nodo, primero se intenta reiniciar en el mismo nodo. Si se produce un error, se desencadena la conmutación automática por error.
+- Capacidad de reiniciar el servidor para seleccionar cualquier cambio de parámetro de servidor estático.
 
 ## <a name="steady-state-operations"></a>Operaciones de estado estable
 
@@ -62,7 +62,7 @@ Para la continuidad empresarial, debe tener un proceso de conmutación por error
 
 ### <a name="planned-events"></a>Eventos planeados
 
-Los eventos de tiempo de inactividad planeados incluyen actividades programadas por Azure, como actualizaciones de software periódicas, actualizaciones de versiones secundarias o iniciadas por clientes como las operaciones de escalado de proceso y almacenamiento. Todos estos cambios se aplican primero a la réplica en espera. Durante ese tiempo, las aplicaciones mantienen el acceso al servidor principal. Una vez que se actualiza la réplica en espera, se purgan las conexiones del servidor principal, se desencadena una conmutación por error que activa la réplica en espera para que sea la principal con el mismo nombre de servidor de bases de datos mediante la actualización del registro de DNS. Las conexiones de cliente se desconectan y tendrán que volver a conectarse y reanudar sus operaciones. Se establecerá un nuevo servidor en espera en la misma zona que el principal anterior. Se espera que el tiempo de conmutación por error global sea de 60-120 segundos. 
+Los eventos de tiempo de inactividad planeados incluyen actividades programadas por Azure, como actualizaciones de software periódicas, actualizaciones de versiones secundarias o iniciadas por clientes como las operaciones de escalado de proceso y almacenamiento. Todos estos cambios se aplican primero a la réplica en espera. Durante ese tiempo, las aplicaciones mantienen el acceso al servidor principal. Una vez que se actualiza la réplica en espera, se purgan las conexiones del servidor principal, se desencadena una conmutación por error que activa la réplica en espera para que sea la principal con el mismo nombre de servidor de bases de datos mediante la actualización del registro de DNS. Las conexiones de cliente se desconectan y deben volver a conectarse y reanudar sus operaciones. Se establece un nuevo servidor en espera en la misma zona que el servidor principal anterior. Se espera que el tiempo de conmutación por error global sea de 60-120 segundos. 
 
 >[!NOTE]
 > En el caso de la operación de escalado de proceso, se escala el servidor de réplica secundario seguido del servidor principal. No hay ninguna conmutación por error implicada.
@@ -75,30 +75,30 @@ Los tiempos de inactividad del servicio no planeados incluyen errores de softwar
 Los servidores flexibles ofrecen una capacidad de programación de mantenimiento en la que puede elegir un período de 30 minutos en un día concreto durante el cual el mantenimiento de Azure funciona como las revisiones o las actualizaciones de versiones secundarias. En el caso de los servidores flexibles configurados con alta disponibilidad, estas actividades de mantenimiento se realizan primero en la réplica en espera. 
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado 
-Mientras que el servidor flexible configurado en alta disponibilidad replique los datos de forma sincrónica, el servidor en espera estará actualizado con el principal. Los errores de usuario en el servidor principal, como la eliminación accidental de una tabla o las actualizaciones incorrectas, se replican fielmente en el servidor en espera. Por tanto, no puede usar el servidor en espera para recuperarse de estos errores lógicos. Para recuperarse de estos errores lógicos, tendrá que realizar una restauración a un momento dado justo antes de que se haya producido el error. Con la funcionalidad de restauración a un momento dado del servidor flexible, al restaurar la base de datos configurada con alta disponibilidad, se restaurará un nuevo servidor de bases de datos como un nuevo servidor flexible con un nombre proporcionado por el usuario. Después, puede exportar el objeto desde el servidor de bases de datos e importarlo en el servidor de bases de datos de producción. Del mismo modo, si quiere clonar el servidor de bases de datos con fines de prueba y desarrollo, o bien realizar la restauración para cualquier otro fin, puede elegir el punto de restauración más reciente o uno personalizado. La operación de restauración creará un servidor flexible de una sola zona.
+Dado que el servidor flexible está configurado en alta disponibilidad y replica datos de forma sincrónica, el servidor en espera está actualizado con el principal. Los errores de usuario en el servidor principal, como la eliminación accidental de una tabla o las actualizaciones incorrectas, se replican fielmente en el servidor en espera. Por tanto, no puede usar el servidor en espera para recuperarse de estos errores lógicos. Para recuperarse de estos errores lógicos, tendrá que realizar una restauración a un momento dado justo antes de que se haya producido el error. Con la funcionalidad de restauración a un momento dado del servidor flexible, al restaurar la base de datos configurada con alta disponibilidad, se restaura un nuevo servidor de bases de datos como un nuevo servidor flexible con un nombre proporcionado por el usuario. Después, puede exportar el objeto desde el servidor de bases de datos e importarlo en el servidor de bases de datos de producción. Del mismo modo, si quiere clonar el servidor de bases de datos con fines de prueba y desarrollo, o bien realizar la restauración para cualquier otro fin, puede elegir el punto de restauración más reciente o uno personalizado. La operación de restauración crea un servidor flexible de una sola zona.
 
 ## <a name="mitigate-downtime"></a>Mitigación del tiempo de inactividad 
 Cuando no use la característica de alta disponibilidad con redundancia de zona, todavía podrá mitigar el tiempo de inactividad de la aplicación. La planeación de tiempos de inactividad del servicio, como revisiones programadas, actualizaciones de versiones secundarias o las operaciones iniciadas por el usuario, se puede realizar como parte de ventanas de mantenimiento programadas. Los tiempos de inactividad del servicio planeados, como las revisiones programadas, las actualizaciones de versiones secundarias o las operaciones iniciadas por el usuario como las de escalado de proceso, incurren en tiempo de inactividad. Para mitigar el impacto de la aplicación en las tareas de mantenimiento iniciadas por Azure, puede optar por programarlas durante el día de la semana y la hora que menos afecten a la aplicación. 
 
-Durante los eventos de tiempo de inactividad no planeados, como el bloqueo de la base de datos o el error del servidor, el servidor afectado se reiniciará dentro de la misma zona. Aunque es poco frecuente, si toda la zona resulta afectada, puede restaurar la base de datos en otra zona dentro de la región. 
+Durante los eventos de tiempo de inactividad no planeados, como el bloqueo de la base de datos o el error del servidor, el servidor afectado se reinicia dentro de la misma zona. Aunque es poco frecuente, si toda la zona resulta afectada, puede restaurar la base de datos en otra zona dentro de la región. 
 
 ## <a name="things-to-know-with-zone-redundancy"></a>Aspectos que se deben conocer sobre la redundancia de zona 
 
 Estas son algunas consideraciones que debe tener en cuenta al usar alta disponibilidad con redundancia de zona: 
 
--   La alta disponibilidad **solo** se puede establecer durante el tiempo de creación del servidor flexible.
--   La alta disponibilidad no se admite en el nivel de proceso flexible.
--   Debido a la replicación sincrónica en otra zona de disponibilidad, el servidor de bases de datos principal puede experimentar una latencia elevada de escritura y confirmación.
--   No se puede usar la réplica en espera para las consultas de solo lectura.
--   En función de la actividad del servidor principal en el momento de la conmutación por error, la conmutación por error puede tardar hasta 60-120 segundos o más en completarse.
--   Al reiniciar el servidor de bases de datos principal para aplicar los cambios de los parámetros estáticos también se reinicia la réplica en espera.
--   No se admite la configuración de réplicas de lectura para servidores de alta disponibilidad con redundancia de zona.
--   La configuración de las tareas de administración iniciadas por el cliente no se puede automatizar durante la ventana de mantenimiento administrado.
--   Los eventos planeados, como la escala de proceso y las actualizaciones de versiones secundarias, se producen tanto en el servidor principal como en el servidor en espera al mismo tiempo. 
+- La alta disponibilidad **solo** se puede establecer durante el tiempo de creación del servidor flexible.
+- La alta disponibilidad no se admite en el nivel de proceso flexible.
+- Debido a la replicación sincrónica en otra zona de disponibilidad, el servidor de bases de datos principal puede experimentar una latencia elevada de escritura y confirmación.
+- No se puede usar la réplica en espera para las consultas de solo lectura.
+- En función de la actividad del servidor principal en el momento de la conmutación por error, la conmutación por error puede tardar hasta 60-120 segundos o más en completarse.
+- Al reiniciar el servidor de bases de datos principal para aplicar los cambios de los parámetros estáticos también se reinicia la réplica en espera.
+- No se admite la configuración de réplicas de lectura para servidores de alta disponibilidad con redundancia de zona.
+- La configuración de las tareas de administración iniciadas por el cliente no se puede automatizar durante la ventana de mantenimiento administrado.
+- Los eventos planeados, como la escala de proceso y las actualizaciones de versiones secundarias, se producen tanto en el servidor principal como en el servidor en espera al mismo tiempo. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
--   Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
--   Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)
+- Más información sobre la [continuidad empresarial](./concepts-business-continuity.md)
+- Obtenga información sobre la [alta disponibilidad con redundancia de zona](./concepts-high-availability.md)
+- Más información sobre [copia de seguridad y recuperación](./concepts-backup-restore.md)

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 685d7f0a0aaab2f38967e0eb6c32c3fb4067dbe3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865237"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612830"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configuración de un dispositivo para servidores en el entorno de VMware
 
@@ -24,11 +24,12 @@ Puede implementar el dispositivo mediante un par de métodos:
 - Cree un servidor en vCenter Server mediante una plantilla OVA descargada. Este es el método que se describe en este artículo.
 - Configure el dispositivo en un servidor existente mediante un script de instalador de PowerShell. [Este método](deploy-appliance-script.md) se debe usar si no se puede emplear una plantilla OVA o si trabaja en Azure Government.
 
-Una vez creado el dispositivo, compruebe que se puede conectar a Azure Migrate: Discovery and assessment, regístrelo en el proyecto y configúrelo para iniciar la detección.
+Una vez creado el dispositivo, compruebe que se pueda conectar a Azure Migrate: Discovery and assessment, regístrelo en el proyecto y configúrelo para iniciar la detección.
 
 ## <a name="deploy-with-ova"></a>Implementación con OVA
 
 Para configurar el dispositivo mediante una plantilla de OVA:
+
 1. Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
 1. Descargue una plantilla OVA e impórtela en vCenter Server. Compruebe que la plantilla OVA sea segura.
 1. Cree la máquina virtual del dispositivo desde el archivo OVA, y compruebe que se puede conectar a Azure Migrate.
@@ -38,9 +39,9 @@ Para configurar el dispositivo mediante una plantilla de OVA:
 
 1. En **Migration Goals** > **Servers** >  **Azure Migrate: Discovery and assessment** (Objetivos de migración > Servidores > Azure Migrate: Discovery and assessment), seleccione **Discover** (Detectar).
 2. En **Discover servers** > **Are your servers virtualized?** (Detectar servidores > ¿Están virtualizados sus servidores?), seleccione **Sí, con VMware vSphere Hypervisor**.
-3. En **1:Generate project key** (1: Generar la clave de proyecto), escriba el nombre del dispositivo de Azure Migrate que va a configurar para detectar los servidores del entorno de VMware. El nombre debe ser alfanumérico y tener 14 caracteres como máximo.
+3. En **1:Generate project key** (1: Generar la clave de proyecto), especifique un nombre para el dispositivo de Azure Migrate que va a configurar para la detección de servidores en el entorno de VMware. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
 1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar durante la creación de recursos.
-1. Después de que se han creado correctamente los recursos de Azure, se genera una **clave de proyecto**.
+1. Después de que se han creado correctamente los recursos de Azure, se genera una clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
 
 ### <a name="2-download-the-ova-template"></a>2. Descarga de la plantilla OVA
@@ -66,7 +67,6 @@ Compruebe que el archivo OVA es seguro antes de implementarlo:
         --- | --- | ---
         VMware (11,9 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
-
 ### <a name="3-create-the-appliance-server"></a>3. Creación del servidor del dispositivo
 
 Importación del archivo descargado y creación de un servidor en el entorno de VMware
@@ -80,11 +80,9 @@ Importación del archivo descargado y creación de un servidor en el entorno de 
 8. En **Network Mapping** (Asignación de red), especifique la red a la que se conectará el servidor. La red necesita conectividad a Internet, para enviar metadatos a Azure Migrate.
 9. Revise y confirme la configuración y haga clic en **Finish** (Finalizar).
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Comprobación de que el dispositivo puede acceder a Azure
 
 Asegúrese de que el servidor de dispositivo pueda conectarse a las direcciones URL de Azure para las nubes [pública](migrate-appliance.md#public-cloud-urls) y del [Gobierno](migrate-appliance.md#government-cloud-urls).
-
 
 ### <a name="4-configure-the-appliance"></a>4. Configuración del dispositivo
 
@@ -101,7 +99,7 @@ Configure el dispositivo por primera vez.
 1. Acepte los **términos de licencia** y lea la información de terceros.
 1. En administrador de configuración > **Configurar los requisitos previos**, realice las siguientes operaciones:
    - **Conectividad**: el dispositivo comprueba que el servidor tenga acceso a Internet. Si el servidor usa un proxy:
-     - Haga clic en **Configurar el proxy** y especifique la dirección del proxy con los formatos `http://ProxyIPAddress` o `http://ProxyFQDN` y el puerto de escucha.
+     - Haga clic en **Configurar el proxy** para especificar la dirección del proxy con los formatos `http://ProxyIPAddress` o `http://ProxyFQDN` y el puerto de escucha.
      - Especifique las credenciales si el proxy requiere autenticación.
      - Solo se admite un proxy HTTP.
      - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
@@ -113,7 +111,6 @@ Configure el dispositivo por primera vez.
 1. Si quiere, puede **volver a ejecutar los requisitos previos** en cualquier momento durante la configuración del dispositivo para comprobar si el dispositivo cumple todos los requisitos previos.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 del administrador de configuración del dispositivo":::
-
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
@@ -146,36 +143,37 @@ El dispositivo necesita conectarse a vCenter Server para detectar los datos de c
 1. Al hacer clic en **Guardar**, el dispositivo intentará validar la conexión a vCenter Server con las credenciales proporcionadas y mostrará el **Estado de validación** en la tabla con la Dirección IP/FQDN de vCenter Server.
 1. Puede **volver a validar** la conectividad a vCenter Server en cualquier momento antes de iniciar la detección.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 del administrador de configuración de dispositivos para obtener los detalles de vCenter Server":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel del administrador de configuración del dispositivo con los datos de vCenter Server":::
 
 ### <a name="provide-server-credentials"></a>Proporción de las credenciales del servidor
 
-En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), puede elegir proporcionar varias credenciales de servidor o, si no desea aprovechar estas características, puede omitir el paso y continuar con la detección de vCenter Server. Puede cambiar la intención en cualquier momento más tarde.
+En **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases** (Paso 3: Proporcionar credenciales de servidor para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server), puede elegir proporcionar varias credenciales de servidor o, si no desea aprovechar estas características, puede omitir el paso y continuar con la detección de vCenter Server. Puede cambiar la opción en cualquier momento.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 del administrador de configuración de dispositivos para obtener los detalles del servidor":::
 
 
 Si quiere aprovechar estas características, puede proporcionar las credenciales del servidor siguiendo los pasos que se indican a continuación. El dispositivo intentará asignar automáticamente las credenciales a los servidores para ejecutar las características de detección.
 
-- Puede agregar credenciales de servidor haciendo clic en el botón **Agregar credenciales**. Se abrirá un modal en el que puede elegir el **Tipo de credenciales** en la lista desplegable.
+- Haga clic en el botón **Agregar credenciales** para agregar credenciales de servidor. Se abrirá un modal donde podrá elegir el valor de **Credentials type** de la lista desplegable.
 - Puede proporcionar credenciales de autenticación de dominio, Windows (no de dominio), Linux (no de dominio) o SQL Server. [Obtenga más información](add-server-credentials.md) sobre cómo proporcionar credenciales y cómo administrarlas.
 - Para cada tipo de credenciales debe especificar un nombre descriptivo, agregar el **Nombre de usuario** y la **Contraseña** y hacer clic en **Guardar**.
-- Si elige credenciales de dominio, también deberá especificar el FQDN del dominio. El FQDN es necesario para validar la autenticidad de las credenciales con la instancia de Active Directory de ese dominio.
+- Si elige credenciales de dominio, también deberá especificar el nombre de dominio completo. El nombre de dominio completo es obligatorio para validar la autenticidad de las credenciales con la instancia de Active Directory de ese dominio.
 - Revise los [permisos necesarios](add-server-credentials.md#required-permissions) en la cuenta para detectar las aplicaciones instaladas, el análisis de dependencias sin agente o para la detección de instancias y bases de datos de SQL Server.
 - Si quiere agregar varias credenciales a la vez, haga clic en **Agregar más** para guardar y agregar más credenciales.
 - Al hacer clic en **Guardar** o **Agregar más**, el dispositivo valida la autenticidad de las credenciales con la instancia de Active Directory del dominio. Esto se hace para evitar bloqueos de cuentas cuando el dispositivo realiza varias iteraciones para asignar credenciales a los respectivos servidores.
 - Puede ver el **Estado de validación** de todas las credenciales de dominio en la tabla de credenciales. Solo se validarán las credenciales de dominio.
 - Si no pasan la validación, puede hacer clic en el estado **Error** para ver el error encontrado y hacer clic en **Revalidate credentials** (Revalidar credenciales) después de corregir el problema para validar de nuevo las credenciales de dominio con errores.
-
+    :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panel 3 del administrador de configuración del dispositivo para proporcionar varias credenciales":::
 
 ### <a name="start-discovery"></a>Iniciar detección
 
 1. Haga clic en **Iniciar detección** para iniciar la detección de vCenter Server. Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección en Dirección IP/FQDN de vCenter en la tabla de orígenes.
 1. Si ha proporcionado las credenciales del servidor, el inventario de software (detección de aplicaciones instaladas) se iniciará automáticamente después de que se haya completado la detección de vCenter Server. El inventario de software se realiza una vez cada 12 horas.
 1. El [inventario de software](how-to-discover-applications.md) identifica las instancias de SQL Server que se ejecutan en los servidores y usan la información, el dispositivo intenta conectarse a las instancias a través de la autenticación de Windows o las credenciales de autenticación de SQL Server proporcionadas en el dispositivo y recopila datos de las bases de datos de SQL Server y sus propiedades. La detección de SQL se realiza una vez cada 24 horas.
-1. Durante el inventario de software, las credenciales de los servidores agregados se iterarán en los servidores y se validarán para el análisis de dependencias sin agente. Puede habilitar el análisis de dependencias sin agente para los servidores desde el portal. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el análisis de dependencias sin agente.
+1. Durante el inventario de software, las credenciales de los servidores agregados se iteran en los servidores y se validan para realizar el análisis de dependencias sin agente. Puede habilitar el análisis de dependencias sin agente de los servidores desde el portal. Solo se pueden seleccionar los servidores en los que la validación se realiza correctamente para habilitar el análisis de dependencias sin agente.
 
 La detección funciona como se indica a continuación:
+
 - El inventario de servidores detectados tarda unos 15 minutos en aparecer en el portal.
 - La detección de las aplicaciones instaladas puede tardar un poco. Todo depende del número de servidores que se detecten. En el caso de 500 servidores, el inventario de detección tarda aproximadamente una hora en aparecer en el portal de Azure Migrate.
 - Una vez completada la detección de servidores, puede habilitar el análisis de dependencias sin agente en los servidores desde el portal.

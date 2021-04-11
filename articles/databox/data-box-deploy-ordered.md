@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522400"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067148"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -28,7 +28,7 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -790,7 +790,7 @@ Para cancelar un pedido de Azure Data Box, ejecute [`az databox job cancel`](/cl
    |resource-group [obligatorio]| Nombre del grupo de recursos asociado al pedido que se va a eliminar. Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. | "myresourcegroup"|
    |name [obligatorio]| Nombre del pedido que se va a eliminar. | "mydataboxorder"|
    |reason [obligatorio]| Motivo para cancelar el pedido. | "I entered erroneous information and needed to cancel the order." |
-   |sí| No solicita confirmación. | --yes (-y)| --yes -y |
+   |sí| No solicita confirmación. | --yes (-y)| 
    |debug| Incluir información de depuración en el registro detallado. | --debug |
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
@@ -827,7 +827,7 @@ Si ha cancelado un pedido de Azure Data Box, puede ejecutar [`az databox job del
    |resource-group [obligatorio]| Nombre del grupo de recursos asociado al pedido que se va a eliminar. Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. | "myresourcegroup"|
    |name [obligatorio]| Nombre del pedido que se va a eliminar. | "mydataboxorder"|
    |subscription| Nombre o identificador (GUID) de la suscripción de Azure. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |sí| No solicita confirmación. | --yes (-y)| --yes -y |
+   |sí| No solicita confirmación. | --yes (-y)|
    |debug| Incluir información de depuración en el registro detallado. | --debug |
    |help| Mostrar información de ayuda para este comando. | --help -h |
    |only-show-errors| Mostrar solo los errores y suprimir las advertencias. | --only-show-errors |
