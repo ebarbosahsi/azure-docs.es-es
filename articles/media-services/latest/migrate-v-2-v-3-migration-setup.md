@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959677"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279687"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Paso 3: Configuración para migrar a la API REST v3 o SDK de cliente
 
@@ -43,7 +43,7 @@ Los clientes que anteriormente usaban la versión 2015-10-01 de la API de admini
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Creación de una cuenta de Media Services para pruebas
 
-Siga los pasos de inicio rápido para [configurar el entorno](how-to-set-azure-subscription.md?tabs=portal) mediante Azure Portal. Seleccione acceso de API y autenticación de entidad de servicio para generar un nuevo id. de aplicación y secretos de Azure AD usarlos con esta cuenta de prueba.
+Siga los pasos de inicio rápido para [configurar el entorno](setup-azure-subscription-how-to.md?tabs=portal) mediante Azure Portal. Seleccione acceso de API y autenticación de entidad de servicio para generar un nuevo id. de aplicación y secretos de Azure AD usarlos con esta cuenta de prueba.
 
 [Cree una cuenta de Media Services](account-create-how-to.md?tabs=portal).
 [Obtenga credenciales para acceder a la API de Media Services](access-api-howto.md?tabs=portal).
@@ -66,7 +66,7 @@ Siga los pasos de inicio rápido para [configurar el entorno](how-to-set-azure-s
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Use [Postman](./media-rest-apis-with-postman.md) para llamadas API REST de Media Services v3.
+Use [Postman](./setup-postman-rest-how-to.md) para llamadas API REST de Media Services v3.
 Lea las [páginas de referencia de la API REST](/rest/api/media/).
 
 Debe usar la cadena de versión 2020-05-01 en la colección de Postman.

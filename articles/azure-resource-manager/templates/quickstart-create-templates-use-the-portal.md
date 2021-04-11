@@ -2,23 +2,24 @@
 title: 'Implementación de plantilla: Azure Portal'
 description: Aprenda a crear su primera plantilla de Azure Resource Manager (plantilla de ARM) mediante Azure Portal y cómo implementarla.
 author: mumian
-ms.date: 03/09/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 20b1bf47ae2fd63e91a11c8cccd1f03cf3464899
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: contperfq1
+ms.openlocfilehash: 279dde9c4cd7b19086d29d3ba31a32c60a8cdf0b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548174"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612932"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
 Aprenda a generar una plantilla de Azure Resource Manager (plantilla de ARM) desde Azure Portal, así como el proceso de edición e implementación de este desde el portal. Las plantillas de Azure Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
 
-![Diagrama de inicio rápido de la plantilla de Resource Manager desde el portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
-
 Tras completar el tutorial implemente una cuenta de Azure Storage. El mismo proceso se puede usar para implementar otros recursos de Azure.
+
+![Diagrama de inicio rápido de la plantilla de Resource Manager desde el portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

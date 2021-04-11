@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da47893839322f06cebfbee40902414040bb87d8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85383741"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075209"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -197,7 +197,7 @@ En los casos de error, una aplicación puede mostrar la interfaz de usuario para
 
 El control de errores en las aplicaciones nativas puede definirse mediante dos casos:
 
-|  |  |
+| Caso | Descripción  |
 |------|-------------|
 | **Caso 1**:<br>Error que no se puede volver a intentar (la mayoría de los casos) | 1. No realice ningún reintento inmediato. Muestre la interfaz de usuario final basada en el error específico que invoque un reintento (por ejemplo, "Intente volver a iniciar sesión" o "Descargue la aplicación del agente de Azure AD"). |
 | **Caso 2**:<br>Error que se puede volver a intentar | 1. Realice un reintento único, ya que es posible que el usuario se encuentre en un estado que resulte en un estado correcto.<br><br>2. Si no se puede llevar a cabo el reintento, muestre la interfaz de usuario final basada en el error específico que invoque un reintento ("Intente volver a iniciar sesión", "Descargue la aplicación del agente de Azure AD", etc.). |
@@ -371,7 +371,7 @@ Si va a compilar una aplicación de una sola página mediante adal.js con Acquir
 
 Un error de AcquireToken tiene los casos siguientes:
 
-|  |  |
+| Caso | Descripción  |
 |------|-------------|
 | **Caso 1**:<br>Puede resolverse con una solicitud interactiva | 1. Si se produce un error en login(), no realice reintento inmediato. Solo vuelva a intentarlo después de que la acción de un usuario solicite un reintento.|
 | **Caso 2**:<br>No puede resolverse con una solicitud interactiva. Puede realizarse un reintento tras el error. | 1. Realice un reintento único, ya que es posible que el usuario se encuentre en un estado que resulte en un estado correcto.<br><br>2. Si no se puede llevar a cabo el reintento, muéstrele al usuario final una acción basada en el error específico que pueda invocar un reintento ("Intente volver a iniciar sesión"). |

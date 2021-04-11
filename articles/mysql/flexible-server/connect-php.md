@@ -1,18 +1,18 @@
 ---
 title: 'Inicio rápido: Conexión mediante PHP: Azure Database for MySQL con la opción Servidor flexible'
 description: En este inicio rápido se proporcionan ejemplos de código de PHP que se pueden usar para conectarse a Azure Database for MySQL con la opción Servidor flexible y consultar datos en este servicio.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: baba4d373d4a79ab0c339aac00bb9ab48de9262b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545113"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109614"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for MySQL con la opción Servidor flexible
 

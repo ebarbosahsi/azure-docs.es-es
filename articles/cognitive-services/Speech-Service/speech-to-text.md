@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversión de voz a texto, software de conversión de voz en texto
-ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434328"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449399"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -26,7 +26,12 @@ La conversión de voz en texto, que también se conoce como "reconocimiento de v
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
 
-Con texto de referencia adicional como entrada, el servicio de conversión de voz a texto también habilita la funcionalidad de [evaluación de la pronunciación](rest-speech-to-text.md#pronunciation-assessment-parameters) para evaluar la pronunciación de la voz y proporcionar a los hablantes información sobre la precisión y la fluidez del audio hablado. Con la evaluación de la pronunciación, los estudiantes de idiomas pueden practicar, obtener comentarios instantáneos y mejorar su pronunciación para poder hablar y realizar presentaciones con confianza. Los educadores pueden utilizar la funcionalidad para evaluar la pronunciación de varios hablantes en tiempo real. Actualmente, la característica es compatible con el inglés de Estados Unidos y guarda una alta relación con las evaluaciones de voz realizadas por expertos.
+Esta documentación contiene los siguientes tipos de artículos:
+
+* Los **inicios rápidos** son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
+* Las **guías de procedimientos** contienen instrucciones para usar el servicio de una manera más específica o personalizada.
+* Los **conceptos** proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.
+* Los **tutoriales** son guías más largas que muestran cómo usar el servicio como componente de soluciones empresariales más amplias.
 
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API, hemos creado guías para que le ayuden a migrar al servicio de voz.

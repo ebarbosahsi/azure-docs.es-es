@@ -2,19 +2,19 @@
 title: 'Tutorial: Conexión y supervisión de las métricas de nivel de aplicación de Azure Synapse Spark'
 description: 'Tutorial: Aprenda a integrar su servidor local existente de Prometheus con el área de trabajo de Azure Synapse para obtener métricas de aplicación de Azure Spark casi en tiempo real mediante el conector de Prometheus para Azure Synapse.'
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593023"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109325"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Conexión y supervisión de las métricas de nivel de aplicación de Azure Synapse Spark
 
@@ -152,7 +152,7 @@ Puede usar el flujo de credenciales de cliente para obtener un token de acceso. 
 | grant_type    | Verdadero     | Especifica el tipo de concesión solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser client_credentials. |
 | client_id     | Verdadero     | Identificador de la aplicación (entidad de servicio) que ha registrado en Azure Portal o en la CLI de Azure.        |
 | client_secret | True     | Secreto generado para la aplicación (entidad de servicio).                                                  |
-| resource      | Verdadero     | URI del recurso de Azure Synapse, que debe ser https://dev.azuresynapse.net.                                                  |
+| resource      | Verdadero     | Identificador URI de recursos de Synapse, debería ser "https://dev.azuresynapse.net"                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \

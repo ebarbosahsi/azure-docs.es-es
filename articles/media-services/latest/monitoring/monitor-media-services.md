@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598208"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609061"
 ---
 # <a name="monitor-media-services"></a>Supervisión de Media Services
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
 
-Media Services crea datos de supervisión mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes.
+Media Services crea datos de supervisión mediante [Azure Monitor](../../../azure-monitor/overview.md), un servicio de supervisión de pila completo de Azure que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes.
 
-Para comenzar, lea el artículo [Supervisión de recursos de Azure con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), en el que se describen los conceptos siguientes:
+Para comenzar, lea el artículo [Supervisión de recursos de Azure con Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md), en el que se describen los conceptos siguientes:
 
 - ¿Qué es Azure Monitor?
 - Costos asociados con la supervisión
@@ -49,7 +50,7 @@ Para comenzar, lea el artículo [Supervisión de recursos de Azure con Azure Mon
 
 ## <a name="monitoring-data"></a>Supervisión de datos
 
-Media Services recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Media Services recopila los mismos tipos de datos de supervisión que otros recursos de Azure, que se describen en [Supervisión de datos de recursos de Azure](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Todos los datos recopilados por Azure Monitor pueden clasificarse en uno de los dos tipos fundamentales: métricas y registros. Con estos dos tipos puede:
 
@@ -69,13 +70,13 @@ Tanto las *métricas de la plataforma* como el *registro de actividad* se recopi
 
 Los *registros de recursos* **no** se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones.
 
-Consulte el artículo [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para conocer con todo lujo de detalles el proceso de creación de una configuración de diagnóstico mediante Azure Portal, la CLI o PowerShell.
+Consulte el artículo [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../../azure-monitor/essentials/diagnostic-settings.md) para conocer con todo lujo de detalles el proceso de creación de una configuración de diagnóstico mediante Azure Portal, la CLI o PowerShell.
 
 Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de Media Services se enumeran en [Referencia de datos de supervisión de Media Services](monitor-media-services-data-reference.md).
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Las métricas de Media Services se pueden analizar con métricas de otros servicios de Azure mediante el Explorador de métricas. Para ello, hay que abrir **Métricas** en el menú de **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) para más información sobre esta herramienta.
+Las métricas de Media Services se pueden analizar con métricas de otros servicios de Azure mediante el Explorador de métricas. Para ello, hay que abrir **Métricas** en el menú de **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](../../../azure-monitor/essentials/metrics-getting-started.md) para más información sobre esta herramienta.
 
 Para obtener una lista de las métricas que se recopilan para Media Services, consulte [Supervisión de la referencia de datos de Media Services](monitor-media-services-data-reference.md).
 
@@ -83,11 +84,11 @@ Para obtener una lista de las métricas que se recopilan para Media Services, co
 
 Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas.  
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema).
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquema de registros de recursos de Azure Monitor](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 El esquema de los registros de recursos de Media Services se encuentra en [Supervisión de la referencia de datos de Media Services](monitor-media-services-data-reference.md).
 
-El [registro de actividad](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) es un registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.
+El [registro de actividad](../../../azure-monitor/essentials/activity-log.md) es un registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.
 
 Para obtener una lista de los tipos de registros de recursos que se recopilan para Media Services, consulte [Supervisión de la referencia de datos de Media Services](monitor-media-services-data-reference.md).
 
@@ -102,7 +103,7 @@ Estos son algunos elementos que se pueden examinar con los registros de diagnós
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [registros](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) y el [registro de actividad](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../../../azure-monitor/alerts/alerts-metric-overview.md), [registros](../../../azure-monitor/alerts/alerts-unified-log.md) y el [registro de actividad](../../../azure-monitor/alerts/activity-log-alerts.md).
 
 Las métricas de Media Services se recopilan a intervalos regulares, independientemente de que el valor cambie, o no. Son útiles para las alertas porque se pueden muestrear con frecuencia. Una alerta puede activarse rápidamente con una lógica relativamente simple.
 

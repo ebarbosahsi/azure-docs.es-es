@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329673"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073644"
 ---
 >[!NOTE]
 >En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -41,7 +41,7 @@ A partir del 1 de abril de 2017, se eliminarán automáticamente los registros d
 
 <sup>3</sup>Al realizar una solicitud para obtener una lista de las entidades de trabajo, se devuelve un máximo de 1000 por solicitud. Para realizar el seguimiento de todos los trabajos enviados, puede usar las consultas top y skip, como se describe en [Opciones de consulta del sistema de OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup>Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder otros derechos de acceso a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, vea el tema sobre [Cómo proteger su contenido con Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder otros derechos de acceso a usuarios individuales, use las soluciones de administración de derechos digitales (DRM). Para obtener más información, vea el tema sobre [Cómo proteger su contenido con Azure Media Services](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup>Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
 
