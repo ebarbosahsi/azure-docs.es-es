@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 0db212be06182128bbd8a3bf694a2f893ce82eae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583549"
 ---
 # <a name="try-report-queries-api"></a>Prueba de la API de consultas de informe
@@ -32,7 +32,7 @@ Esta API ejecuta una instrucción de consulta de informe. La API devuelve solo 1
 
 | **Header** | **Tipo** | **Descripción** |
 | --- | --- | --- |
-| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
+| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 |||
 
@@ -58,7 +58,7 @@ Ninguno
 
 **Respuesta**
 
-La carga útil de respuesta tiene la estructura siguiente:
+La carga de respuesta tiene la estructura siguiente:
 
 Código de respuesta: 200, 400, 401, 403, 404, 500.
 

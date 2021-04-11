@@ -3,12 +3,12 @@ title: Clúster de conmutación por error de Windows Server en vSAN de Azure VM
 description: Configure el clúster de conmutación por error de Windows Server (WSFC) en Azure VMware Solution y aproveche las ventajas de las soluciones que requieren la funcionalidad de WSFC.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519000"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562246"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Clúster de conmutación por error de Windows Server en vSAN de Azure VMware Solution con discos compartidos nativos
 
@@ -30,7 +30,7 @@ Es importante implementar una configuración de WSFC compatible. Querrá que la 
 
 Este artículo se centra en WSFC en Windows Server 2016 y Windows Server 2019. Las versiones anteriores de Windows Server no tienen [soporte técnico estándar](https://support.microsoft.com/lifecycle/search?alpha=windows%20server), por lo que no las consideramos aquí.
 
-Primero debe [crear un WSFC](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster). Para más información sobre WSFC, vea [Conmutación de clústeres por error en Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview). Use la información que se proporciona en este artículo para conocer las características de una implementación de WSFC en Azure VMware Solution.
+Primero debe [crear un WSFC](/windows-server/failover-clustering/create-failover-cluster). Para más información sobre WSFC, vea [Conmutación de clústeres por error en Windows Server](/windows-server/failover-clustering/failover-clustering-overview). Use la información que se proporciona en este artículo para conocer las características de una implementación de WSFC en Azure VMware Solution.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +51,7 @@ Actualmente, se admiten las siguientes configuraciones:
 
 - Microsoft Windows Server 2012 o posterior
 - Hasta cinco nodos de clústeres de conmutación por error por clúster
-- Hasta cuatro adaptadores de PVSCSI por máquina virtual
+- Hasta cuatro adaptadores de PVSCSI por VM
 - Hasta 64 discos por adaptador de PVSCSI
 
 ## <a name="virtual-machine-configuration-requirements"></a>Requisitos de configuración de la máquina virtual
@@ -150,7 +150,7 @@ No se admiten las siguientes actividades y podrían provocar la conmutación por
 
 ## <a name="related-information"></a>Información relacionada
 
-- [Clústeres de conmutación por error de Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Clústeres de conmutación por error de Windows Server](/windows-server/failover-clustering/failover-clustering-overview)
 - [Directrices para la agrupación en clústeres de Microsoft en vSphere (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
 - [Acerca de la configuración de los clústeres de conmutación por error y el Servicio de clúster de Microsoft (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [vSAN 6.7 U3 - WSFC con discos compartidos y reservas persistentes de SCSI-3 (vmware.com)](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
@@ -162,5 +162,5 @@ Ahora que ha tratado la configuración de un WSFC en Azure VMware Solution, pued
 
 - Configurar el nuevo WSFC agregando más aplicaciones que requieran la funcionalidad de WSFC. Por ejemplo, SQL Server y ASCS de SAP.
 - Configurar una solución de copia de seguridad.
-  - [Configuración de Azure Backup Server para Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution)
-  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/ecosystem-back-up-vms)
+  - [Configuración de Azure Backup Server para Azure VMware Solution](./set-up-backup-server-for-azure-vmware-solution.md)
+  - [Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution](./ecosystem-back-up-vms.md)

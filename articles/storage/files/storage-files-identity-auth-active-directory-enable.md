@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95740002"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103472137"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
@@ -33,10 +33,14 @@ Si no está familiarizado con los recursos compartidos de archivos de Azure, se 
 
 Al habilitar AD DS para recursos compartidos de archivos de Azure en SMB, las máquinas unidas a AD DS pueden montar recursos compartidos de archivos de Azure con sus credenciales de AD DS existentes. Esta funcionalidad se puede habilitar con un entorno de AD DS hospedado en máquinas locales o en Azure.
 
-> [!NOTE]
-> Para ayudarle a configurar la autenticación con AD para Azure Files para algunos casos de uso comunes, hemos publicado dos vídeos con una guía paso a paso para los siguientes escenarios:
-> - [Reemplazo de servidores de archivos locales por Azure Files (incluida la configuración en un vínculo privado para la autenticación de archivos y AD)](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
-> - [Uso de Azure Files como contenedor de perfiles para Windows Virtual Desktop (incluida la configuración de la autenticación de AD y la configuración de FsLogix)](https://www.youtube.com/embed/9S5A1IJqfOQ)
+## <a name="videos"></a>Vídeos
+
+Para ayudarle a configurar la autenticación con AD para Azure Files para algunos casos de uso comunes, hemos publicado dos vídeos con una guía paso a paso para los siguientes escenarios:
+
+| Reemplazo de servidores de archivos locales por Azure Files (incluida la configuración en un vínculo privado para la autenticación de archivos y AD) | Uso de Azure Files como contenedor de perfiles para Windows Virtual Desktop (incluida la configuración de la autenticación de AD y la configuración de FsLogix)  |
+|-|-|
+| [![Presentación en pantalla del vídeo sobre cómo reemplazar servidores de archivos locales: haga clic para reproducirlo.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![Presentación en pantalla del vídeo sobre cómo usar Azure Files como el contenedor de perfiles: haga clic para reproducirlo.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
@@ -62,7 +66,7 @@ Antes de habilitar la autenticación de AD DS para los recursos compartidos de 
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas y las de Azure Government](https://azure.microsoft.com/global-infrastructure/locations/).
+La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas, en China y en las de Azure Government](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Información general
 

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 5422520c6a863876091d7820a5c07fa2413346c7
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103467970"
 ---
 # <a name="use-table-tags-to-train-your-custom-form-model"></a>Uso de etiquetas de tabla para entrenar el modelo de formulario personalizado

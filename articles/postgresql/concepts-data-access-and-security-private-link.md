@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e4b6a6090bf0e5e332a960cba8ec565df9dd55c2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881068"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872275"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Private Link en Azure Database for PostgreSQL: servidor único
 
@@ -84,7 +84,8 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casos de uso de Private Link para Azure Database for PostgreSQL
 
-Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
+
+Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una [red virtual emparejada](../virtual-network/virtual-network-peering-overview.md) de la misma región o a través de una conexión entre [redes virtuales de distintas regiones](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Información general sobre la selección del punto de conexión privado":::
 

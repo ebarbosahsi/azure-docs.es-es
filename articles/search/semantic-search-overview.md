@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888913"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561974"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -44,7 +44,7 @@ La búsqueda semántica mejora la precisión y la coincidencia gracias a la adic
 
 ### <a name="order-of-operations"></a>Orden de las operaciones
 
-Los componentes de la búsqueda semántica amplían la canalización de ejecución de consultas existente en ambas direcciones. Si habilita la corrección ortográfica, el [corrector ortográfico](speller-how-to-add.md) corrige los errores tipográficos al principio, antes de que los términos de la consulta lleguen al motor de búsqueda.
+Los componentes de la búsqueda semántica amplían la canalización de ejecución de consultas existente en ambas direcciones. Si habilita la corrección ortográfica, el [corrector ortográfico](speller-how-to-add.md) corrige los errores tipográficos al principio de la consulta, antes de que los términos de la consulta lleguen al motor de búsqueda.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Componentes semánticos de una ejecución de consulta" border="true":::
 

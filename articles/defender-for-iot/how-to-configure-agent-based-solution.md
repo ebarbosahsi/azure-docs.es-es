@@ -4,10 +4,10 @@ description: Aprenda a configurar la recopilación de datos en una solución bas
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.openlocfilehash: 9a21b336299438b89fae8d5a837130762a7f36e8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784397"
 ---
 # <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configuración de una solución basada en agente de Azure Defender para IoT  

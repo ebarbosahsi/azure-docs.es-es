@@ -7,10 +7,10 @@ ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9bdba36e2ff4721bd024369788c7dc04f066e9a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102565587"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
@@ -27,7 +27,7 @@ Esto es lo que la herramienta de diagnósticos para Windows Virtual Desktop pued
 - Enviar un mensaje a los usuarios activos en un host de sesión específico.
 - Cerrar la sesión de los usuarios de un host de sesión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe crear un registro de aplicaciones de Azure Active Directory y un área de trabajo de Log Analytics antes de implementar la plantilla de Azure Resource Manager para la herramienta. El usuario o el administrador necesitan estos permisos para hacerlo:
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369006"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103472259"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Cómo configurar el control de acceso para el área de trabajo de Synapse 
 
@@ -43,7 +43,7 @@ Para proteger un área de trabajo de Synapse, debe seguir un patrón de configur
 
 En este documento se usan nombres estándar para simplificar las instrucciones. Reemplácelos por los nombres de su preferencia.
 
-|Setting | Nombre estándar | Descripción |
+|Configuración | Nombre estándar | Descripción |
 | :------ | :-------------- | :---------- |
 | **Área de trabajo de Synapse** | `workspace1` |  Nombre que tendrá el área de trabajo de Synapse. |
 | **Cuenta de ADLSGEN2** | `storage1` | Cuenta de ADLS que se usará con el área de trabajo. |
@@ -124,7 +124,7 @@ Para ejecutar canalizaciones y realizar tareas del sistema, Synapse requiere que
 
 ## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>PASO 5: Concesión del rol Colaborador de Azure a los administradores de Synapse en el área de trabajo 
 
-Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, los usuarios deben tener como mínimo acceso de colaborador de Azure en el área de trabajo. El rol Colaborador también permite a estos usuarios administrar los recursos, incluidas la pausa y el escalado.
+Para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, los usuarios deben tener como mínimo el rol Colaborador de Azure en el área de trabajo. El rol Colaborador también permite a estos usuarios administrar los recursos, incluidas la pausa y el escalado. Si usa Azure Portal o Synapse Studio para crear grupos de SQL, grupos de Apache Spark y entornos de ejecución de integración, necesitará el rol Colaborador de Azure en el nivel de grupo de recursos. 
 
 - Abra Azure Portal.
 - Busque el área de trabajo `workspace1`.

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889117"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640827"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Vinculación de áreas de trabajo de Azure Synapse Analytics y Azure Machine Learning (versión preliminar)
 
@@ -35,9 +35,9 @@ También puede vincular áreas de trabajo y adjuntar un grupo de Spark de Synaps
 
 * [Cree un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md?tabs=python).
 
-* [Cree un área de trabajo de Synapse en Azure Portal](/synapse-analytics/quickstart-create-workspace.md).
+* [Cree un área de trabajo de Synapse en Azure Portal](/azure/synapse-analytics/quickstart-create-workspace).
 
-* [Cree un grupo de Apache Spark mediante Azure Portal, herramientas web o Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+* [Cree un grupo de Apache Spark mediante Azure Portal, herramientas web o Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio).
 
 * Instale el [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 

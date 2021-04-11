@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: bc36325b55f049eebef823d836768fccc39a7615
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472167"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Implementación continua con contenedores personalizados en Azure App Service
@@ -43,10 +43,10 @@ Cuando autorice su cuenta de Azure con GitHub, **seleccione** la **organización
 ::: zone-end  
 
 ::: zone pivot="container-windows"
-## <a name="2-configure-registry-settings"></a>2. Configuración del registro
+## <a name="2-configure-registry-settings"></a>2. Configurar el registro
 ::: zone-end  
 ::: zone pivot="container-linux"
-## <a name="3-configure-registry-settings"></a>3. Configuración del registro
+## <a name="3-configure-registry-settings"></a>3. Configurar el registro
 
 Para implementar una aplicación de varios contenedores (Docker Compose), **seleccione** **Docker Compose** en **Tipo de contenedor**.
 
@@ -147,10 +147,10 @@ Cuando se habilita esta opción, App Service agrega un webhook al repositorio en
 ::: zone-end
 
 ::: zone pivot="container-windows"
-## <a name="4-save-your-settings"></a>4. Guarde la configuración.
+## <a name="4-save-your-settings"></a>4. Guardar la configuración
 ::: zone-end
 ::: zone pivot="container-linux"
-## <a name="5-save-your-settings"></a>5. Guarde la configuración.
+## <a name="5-save-your-settings"></a>5. Guardar la configuración
 ::: zone-end
 
 **Haga clic en** **Guardar**.
