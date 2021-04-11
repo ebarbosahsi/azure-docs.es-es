@@ -4,15 +4,15 @@ description: Aprenda a crear una puerta de enlace de aplicaciones con tráfico r
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/19/2020
+ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 61a47f691d453218f06a5db4ad433b4760ebe265
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397075"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105038387"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL con Azure PowerShell
 
@@ -392,6 +392,8 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
 
+Reemplace \<username> y \<password> por sus propios valores antes de ejecutar el script.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -447,8 +449,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `

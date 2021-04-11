@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 440723167ded15933ba46a3a58f9a873496bd6a7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: fb6d9a1a1ad341763c205a11b7a6a9acafda1ac4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609369"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889746"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 
@@ -72,7 +72,7 @@ Para la información de esta sección, se da por supuesto que usa Azure Containe
 Azure Machine Learning solo admite imágenes de Docker que proporcionan el software siguiente:
 * Ubuntu 16.04 o posterior.
 * Conda 4.5.# o posterior.
-* Python 3.5 y versiones posteriores.
+* Python 3.6+.
 
 Para usar los conjuntos de valores, instale el paquete libfuse-dev. Asegúrese también de instalar los paquetes de espacio de usuario que necesite.
 

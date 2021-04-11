@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5cd90e994e620960e0d974ef7609a67f8a5eb58b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93335898"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448566"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de un contenedor de Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,19 +26,19 @@ Al consultar los datos de los contenedores, si la consulta tiene un filtro de cl
 Por ejemplo, considere la consulta siguiente con un filtro de igualdad en `DeviceId`. Si ejecutamos esta consulta en un contenedor con particiones en `DeviceId`, esta consulta se filtrará en una sola partición física.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 Como en el ejemplo anterior, esta consulta también filtrará en una sola partición. Agregar el filtro adicional en `Location` no cambia esto:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Esta es una consulta que tiene un filtro de intervalo en la clave de partición y no se limita a una única partición física. Para ser una consulta en particiones, la consulta debe tener un filtro de igualdad que incluya la clave de partición:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>Consulta entre particiones
@@ -46,7 +46,7 @@ Esta es una consulta que tiene un filtro de intervalo en la clave de partición 
 La siguiente consulta no tiene un filtro en la clave de partición (`DeviceId`). Por lo tanto, debe desplegarse en todas las particiones físicas en las que se ejecuta en el índice de cada partición:
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Cada partición física tiene su propio índice. Por lo tanto, cuando se ejecuta una consulta entre particiones en un contenedor, se ejecuta eficazmente una consulta *por* partición física. Azure Cosmos DB agregará automáticamente los resultados en distintas particiones físicas.

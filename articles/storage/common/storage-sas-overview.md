@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802514"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722793"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -181,6 +181,9 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 - **Sepa cuándo no usar una SAS.** En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan las ventajas del uso de una SAS. Para esas operaciones, cree un servicio de nivel medio que escriba en la cuenta de almacenamiento después de llevar a cabo una auditoría, autenticación o validación de la regla de negocio. A veces también es más sencillo administrar el acceso de otras formas. Por ejemplo, si desea que todos los blobs de un contenedor puedan leerse públicamente, puede hacer que el contenedor sea público en lugar de proporcionar un SAS a cada cliente para obtener acceso.
 
 - **Use registros de Azure Monitor y Azure Storage para supervisar la aplicación.** Pueden producirse errores de autorización debido a una interrupción en el servicio del proveedor de SAS. También se pueden producir a partir de una eliminación accidental de una directiva de acceso almacenada. Puede usar Azure Monitor y el registro de Storage Analytics para observar cualquier pico en estos tipos de errores de autorización. Para obtener más información, consulte [Métricas de Azure Storage en Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) y [Registro de Azure Storage Analytics](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> El almacenamiento no realiza un seguimiento del número de firmas de acceso compartido que se han generado para una cuenta de almacenamiento y ninguna API puede proporcionar estos detalles. Si necesita conocer el número de firmas de acceso compartido que se han generado para una cuenta de almacenamiento, debe realizar un seguimiento manual del número.
 
 ## <a name="get-started-with-sas"></a>Introducción a SAS
 

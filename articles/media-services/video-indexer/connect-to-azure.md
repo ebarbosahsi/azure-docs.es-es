@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 35d01fd60d0549a528a45013add48bd203b86d6e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727267"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654686"
 ---
 # <a name="create-a-video-indexer-account"></a>Creación de una cuenta de Video Indexer
 
@@ -203,7 +203,7 @@ Para automatizar la creación de la cuenta hay un proceso de dos pasos:
 
 -   Una suscripción de Azure en [Azure Government](../../azure-government/index.yml).
 - Una cuenta Azure AD en Azure Government.
-- Todos los requisitos previos de permisos y recursos como se describió anteriormente en [Requisitos previos para conectarse a Azure](#prerequisites-for-connecting-to-azure).
+- Todos los requisitos previos de permisos y recursos como se describió anteriormente en [Requisitos previos para conectarse a Azure](#prerequisites-for-connecting-to-azure). Asegúrese de comprobar los [requisitos previos adicionales para el flujo automático](#additional-prerequisites-for-automatic-flow) y los [requisitos previos adicionales para el flujo manual](#additional-prerequisites-for-manual-flow).
 
 ### <a name="create-new-account-via-the-azure-government-portal"></a>Creación de una nueva cuenta a través del portal de Azure Government
 

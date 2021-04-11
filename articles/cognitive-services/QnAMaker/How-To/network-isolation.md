@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467551"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043366"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configuración recomendada para el aislamiento de red
 
@@ -60,7 +60,7 @@ La instancia de Cognitive Search se puede aislar a través de un punto de conexi
 
 Si la instancia de App Service en QnA Maker está restringida con App Service Environment, use la misma red virtual para crear una conexión de punto de conexión privado a la instancia de Cognitive Search. Cree una nueva entrada DNS en la red virtual para asignar el punto de conexión de Cognitive Search a la dirección IP del punto de conexión privado de Cognitive Search. 
 
-Si no se usa App Service Environment para App Service en QnAMaker, cree primero un nuevo recurso de red virtual y, a continuación, cree la conexión de punto de conexión privado a la instancia de Cognitive Search. En este caso, App Service en QnA Maker debe [integrarse con la red virtual](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) para conectarse a la instancia de Cognitive Search. 
+Si no se usa App Service Environment para App Service en QnAMaker, cree primero un nuevo recurso de red virtual y, a continuación, cree la conexión de punto de conexión privado a la instancia de Cognitive Search. En este caso, App Service en QnA Maker debe [integrarse con la red virtual](../../../app-service/web-sites-integrate-with-vnet.md) para conectarse a la instancia de Cognitive Search. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker administrado (versión preliminar)](#tab/v2)
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cb53aba300b933c78d9ac2f5fc5cf8054f3413e3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92360384"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670008"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visualización de registros y métricas mediante Kibana y Grafana
 
@@ -22,43 +22,51 @@ Los paneles web Kibana y Grafana se proporcionan para ofrecer información y cla
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="retrieve-the-ip-address-of-your-cluster"></a>Recuperación de la dirección IP del clúster
 
-Para acceder a los paneles, tendrá que recuperar la dirección IP del clúster. El método para recuperar la dirección IP correcta varía en función de cómo se haya elegido implementar Kubernetes. Recorra las opciones siguientes para encontrar la adecuada.
+## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Supervisión de instancias administradas de Azure SQL en Azure Arc
 
-### <a name="azure-virtual-machine"></a>Máquina virtual de Azure
+Para acceder a los paneles de registros y supervisión para SQL Managed Instance con ARC habilitado, ejecute el siguiente comando de la CLI `azdata`
 
-Use el comando siguiente para recuperar la IP pública:
+```bash
 
-```azurecli
-az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
+azdata arc sql endpoint list -n <name of SQL instance>
+
+```
+Los paneles de control de Grafana pertinentes son:
+
+* "Métricas de la instancia administrada de Azure SQL"
+* "Métricas del nodo de host"
+* "Métricas de los pods de host"
+
+
+> [!NOTE]
+>  Cuando se le pida que escriba un nombre de usuario y una contraseña, escriba el nombre de usuario y la contraseña que proporcionó en el momento en que creó el controlador de datos de Azure Arc.
+
+> [!NOTE]
+>  Se le mostrará una advertencia de certificado porque los certificados usados en la versión preliminar son certificados autofirmados.
+
+
+## <a name="monitor-azure-database-for-postgresql-hyperscale-on-azure-arc"></a>Supervisar Azure DB for PostgreSQL para la hiperescala en Azure Arc
+
+Para acceder a los registros y los paneles de supervisión de la hiperescala de PostgreSQL, ejecute el siguiente comando de la CLI `azdata`
+
+```bash
+
+azdata arc postgres endpoint list -n <name of postgreSQL instance>
+
 ```
 
-### <a name="kubeadm-cluster"></a>Clúster de kubeadm
+Los paneles de postgreSQL pertinentes son:
 
-Use el comando siguiente para recuperar la dirección IP del clúster:
+* "Métricas de Postgres"
+* "Métricas de la tabla Postgres"
+* "Métricas del nodo de host"
+* "Métricas de los pods de host"
 
-```console
-kubectl cluster-info
-```
-
-
-### <a name="aks-or-other-load-balanced-cluster"></a>AKS u otro clúster con carga equilibrada
-
-Para supervisar el entorno en AKS u otro clúster con carga equilibrada, debe obtener la dirección IP del servicio de proxy de administración. Use este comando para recuperar la dirección **IP externa** :
-
-```console
-kubectl get svc mgmtproxy-svc-external -n <namespace>
-
-#Example:
-#kubectl get svc mgmtproxy-svc-external -n arc
-NAME                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)           AGE
-mgmtproxy-svc-external   LoadBalancer   10.0.186.28   52.152.148.25   30777:30849/TCP   19h
-```
 
 ## <a name="additional-firewall-configuration"></a>Configuración adicional del firewall
 
-Es posible que tenga que abrir puertos en el firewall para acceder a los puntos de conexión Kibana y Grafana.
+Dependiendo de dónde se implemente el controlador de datos, puede que tenga que abrir los puertos en el firewall para tener acceso a los puntos de conexión Kibana y Grafana.
 
 A continuación, se muestra un ejemplo del procedimiento para una máquina virtual de Azure. Tendrá que hacer esto si se ha implementado Kubernetes mediante el script.
 
@@ -78,44 +86,6 @@ Una vez que tenga el nombre del NSG, se puede agregar una regla usando el comand
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 
-## <a name="monitor-azure-sql-managed-instances-on-azure-arc"></a>Supervisión de instancias administradas de Azure SQL en Azure Arc
-
-Ahora que tiene la dirección IP y expone los puertos, debe ser capaz de acceder a Grafana y Kibana.
-
-> [!NOTE]
->  Cuando se le pida que escriba un nombre de usuario y una contraseña, escriba el nombre de usuario y la contraseña que proporcionó en el momento en que creó el controlador de datos de Azure Arc.
-
-> [!NOTE]
->  Se le mostrará una advertencia de certificado porque los certificados usados en la versión preliminar son certificados autofirmados.
-
-Use el patrón siguiente de dirección URL para acceder a los paneles de registro y supervisión de la instancia administrada de Azure SQL:
-
-```html
-https://<external-ip-from-above>:30777/grafana
-https://<external-ip-from-above>:30777/kibana
-```
-
-Los paneles pertinentes son los siguientes:
-
-* "Métricas de la instancia administrada de Azure SQL"
-* "Métricas del nodo de host"
-* "Métricas de los pods de host"
-
-## <a name="monitor-azure-database-for-postgresql-hyperscale---azure-arc"></a>Supervisión de Hiperescala de Azure Database for PostgreSQL: Azure Arc
-
-Use el patrón siguiente de dirección URL para acceder a los paneles de registro y supervisión de Hiperescala de PostgreSQL:
-
-```html
-https://<external-ip-from-above>:30777/grafana
-https://<external-ip-from-above>:30777/kibana
-```
-
-Los paneles pertinentes son los siguientes:
-
-* "Métricas de Postgres"
-* "Métricas de la tabla Postgres"
-* "Métricas del nodo de host"
-* "Métricas de los pods de host"
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Intente [cargar métricas y registros en Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md)

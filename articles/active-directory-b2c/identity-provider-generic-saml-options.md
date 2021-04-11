@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488880"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798245"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configuración de las opciones del proveedor de identidades de SAML con Azure Active Directory B2C
 
@@ -85,9 +85,11 @@ A continuación se proporciona un ejemplo de un servicio de inicio de sesión ú
 </IDPSSODescriptor>
 ```
 
-Las respuestas SAML se transmiten a Azure AD B2C a través del enlace HTTP POST. Los metadatos de la directiva de Azure AD B2C establecen el `AssertionConsumerService` enlace en `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
+### <a name="assertion-consumer-service"></a>Servicio de consumidor de aserciones
 
-El siguiente es un ejemplo de un elemento de servicio del consumidor de aserción de metadatos de la directiva de Azure AD B2C.
+El Servicio de consumidor de aserciones (o ACS) es el lugar donde Azure AD B2C puede enviar y recibir las respuestas SAML del proveedor de identidades. Las respuestas SAML se transmiten a Azure AD B2C a través del enlace HTTP POST. La ubicación de ACS apunta a la directiva base del usuario de confianza. Por ejemplo, si la directiva de confianza es *B2C_1A_signup_signin*, ACS es la directiva base de *B2C_1A_signup_signin*, como *B2C_1A_TrustFrameworkBase*.
+
+El siguiente es un ejemplo de un elemento de servicio del consumidor de aserción de metadatos de la directiva de Azure AD B2C. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

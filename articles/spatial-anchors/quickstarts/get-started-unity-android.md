@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c17eadfad71f58b4557f8115a0d1d3de392b4b9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e1554b1728b120145a06124e4703065a98a4e466
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96015135"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670110"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Unity Android con Azure Spatial Anchors
 
@@ -30,11 +30,11 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, incluidos los módulos **Android Build Support** con **Android SDK & NDK Tools** y **OpenJDK**.
+- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a>, incluidos los módulos **Android Build Support** con **Android SDK & NDK Tools** y **OpenJDK**. Use **Unity 2020 LTS** con la versión 2.9 del SDK de ASA, o cualquier versión posterior (que usa el complemento [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)), o **Unity 2019 LTS** con la versión 2.8 del SDK de ASA, o cualquier versión anterior.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> y <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git` y `brew install git-lfs`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.

@@ -3,14 +3,14 @@ title: Administración de programaciones en Azure Automation
 description: En este artículo se explica cómo crear una programación en Azure Automation y cómo trabajar con ella.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004619"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669566"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
@@ -38,7 +38,7 @@ Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de
 
 ## <a name="create-a-schedule"></a>Crear una programación
 
-Puede crear una programación para sus runbooks en Azure Portal o con PowerShell. Para evitar que afecte a los runbooks y a los procesos que automatizan, primero debe probar los runbooks que tengan programaciones vinculadas con una cuenta de Automation dedicada para realizar pruebas. Una prueba valida que los runbooks programados sigan funcionando correctamente. Si ve un problema, puede solucionarlo y aplicar los cambios necesarios antes de migrar la versión de runbook actualizada a producción.
+Puede crear una nueva programación para los runbooks desde Azure Portal, con PowerShell o mediante una plantilla Azure Resource Manager (ARM). Para evitar que afecte a los runbooks y a los procesos que automatizan, primero debe probar los runbooks que tengan programaciones vinculadas con una cuenta de Automation dedicada para realizar pruebas. Una prueba valida que los runbooks programados sigan funcionando correctamente. Si ve un problema, puede solucionarlo y aplicar los cambios necesarios antes de migrar la versión de runbook actualizada a producción.
 
 > [!NOTE]
 > La cuenta de Automation no obtiene automáticamente las nuevas versiones de los módulos, a menos que se hayan actualizado manualmente seleccionando la opción [Actualizar módulos de Azure](../automation-update-azure-modules.md) en **Módulos**. Azure Automation utiliza los módulos más recientes en su cuenta de Automation al ejecutar un nuevo trabajo programado. 
@@ -119,6 +119,47 @@ En el ejemplo siguiente se muestra cómo crear una programación periódica que 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Creación de una programación con una plantilla de Resource Manager
+
+En este ejemplo, se usa una plantilla de Resource Manager de Automation (ARM) que crea una nueva programación de trabajo. Para obtener información general sobre esta plantilla para administrar las programaciones de trabajos de Automation, consulte la [referencia de plantillas de Microsoft.Automation automationAccounts/jobSchedules](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+Copie este archivo de plantilla en un editor de texto:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edite los siguientes valores de parámetro y guarde la plantilla como un archivo JSON:
+
+* Nombre del objeto de programación de trabajo: se usa un GUID (identificador único global) como nombre del objeto de programación de trabajo.
+
+   >[!IMPORTANT]
+   > Para cada programación de trabajo implementada con una plantilla de ARM, el GUID debe ser único. Incluso si va a volver a programar una programación existente, deberá cambiar el GUID. Esto se aplica incluso si ha eliminado previamente una programación de trabajo existente creada con la misma plantilla. Si se reutiliza el mismo GUID, se producirá un error en la implementación.</br></br>
+   > Hay servicios en línea que pueden generar un nuevo GUID automáticamente, como este [generador de GUID en línea gratuito](https://guidgenerator.com/).
+
+* Nombre de programación: representa el nombre de la programación de trabajos de automatización que se vinculará al runbook especificado.
+* Nombre del runbook: representa el nombre del runbook de Automation con el que se asociará la programación del trabajo.
+
+Una vez guardado el archivo, puede crear la programación del trabajo del runbook con el siguiente comando de PowerShell. El comando usa el parámetro `TemplateFile` para especificar la ruta de acceso y el nombre de archivo de la plantilla.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## <a name="link-a-schedule-to-a-runbook"></a>Vinculación de una programación a un runbook

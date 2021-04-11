@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008283"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800166"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
@@ -79,6 +79,7 @@ De manera predeterminada, Service Fabric aplica reglas estrictas (todo debe esta
 
 ### <a name="cluster-health-policy"></a>Directiva de mantenimiento de clúster
 La [directiva de mantenimiento de clúster](/dotnet/api/system.fabric.health.clusterhealthpolicy) se usa para evaluar el estado de mantenimiento del clúster y los estados de mantenimiento del nodo. La directiva se puede definir en el manifiesto de clúster. Si no está presente, se utiliza la directiva predeterminada (cero errores tolerados).
+
 La directiva de mantenimiento de clúster contiene:
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
@@ -87,18 +88,33 @@ La directiva de mantenimiento de clúster contiene:
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). La asignación de directiva de mantenimiento de tipo de aplicación se puede usar durante la evaluación de mantenimiento del clúster para describir tipos de aplicación especiales. De forma predeterminada, todas las aplicaciones se colocan en un grupo y se evalúan con MaxPercentUnhealthyApplications. Si algunos tipos de aplicaciones deben tratarse de manera diferente, es posible sacarlos fuera del grupo global. Entonces, se evalúan con los porcentajes asociados con su nombre de tipo de aplicación en el mapa. Por ejemplo, en un clúster hay miles de aplicaciones de distintos tipos y algunas instancias de la aplicación de control de un tipo especial de aplicación. Las aplicaciones de control nunca deben estar en estado de error. Puede especificar un MaxPercentUnhealthyApplications global al 20 % para tolerar algunos errores pero para el tipo de aplicación "ControlApplicationType", establezca MaxPercentUnhealthyApplications en 0. Así, si alguna de las muchas aplicaciones se encuentra en un estado incorrecto, pero por debajo del porcentaje de error global, el clúster se evaluará con estado de Warning (Advertencia). Un estado de advertencia no afecta a la actualización del clúster ni a ninguna supervisión desencadenada por el estado de mantenimiento de Error. Incluso una única aplicación de control con error hará que el clúster sea incorrecto, lo que desencadena la reversión o pone en pausa la actualización del clúster, en función de la configuración de actualización.
   En el caso de los tipos de aplicación que se definen en la asignación, todas las instancias de la aplicación se sacan del grupo global de aplicaciones. Se evalúan en función del número total de aplicaciones del tipo de aplicación, mediante el MaxPercentUnhealthyApplications específico de la asignación. El resto de las aplicaciones permanecen en el grupo global y se evalúan con MaxPercentUnhealthyApplications.
 
-El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir entradas en la asignación de tipos de aplicación, anteponga "ApplicationTypeMaxPercentUnhealthyApplications-" al nombre de parámetro, seguido del nombre del tipo de aplicación.
+  El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir entradas en la asignación de tipos de aplicación, anteponga "ApplicationTypeMaxPercentUnhealthyApplications-" al nombre de parámetro, seguido del nombre del tipo de aplicación.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). La asignación de directiva de mantenimiento de tipo de nodo se puede usar durante la evaluación del mantenimiento de clúster para describir tipos de nodo especiales. Los tipos de nodo se evalúan en relación con los porcentajes asociados con el nombre del tipo de nodo en la asignación. La configuración de este valor no tiene efecto sobre el grupo global de nodos usados para `MaxPercentUnhealthyNodes`. Por ejemplo, un clúster tiene cientos de nodos de distinta naturaleza y algunos tipos de nodos que hospedan trabajo importante. Ninguno de estos tipos de nodos deberían estar inactivos. Puede establecer el valor global de `MaxPercentUnhealthyNodes` en 20 % para que tolere algunos errores en todos los nodos, pero para el tipo de nodo `SpecialNodeType`, establezca `MaxPercentUnhealthyNodes` en 0. De este modo, si algunos de los diversos nodos son incorrectos pero están por debajo del porcentaje global incorrecto, el clúster se evaluará como si tuviera el estado de mantenimiento de advertencia. El estado de mantenimiento de advertencia no afecta a la actualización del clúster ni a otras actividades de supervisión desencadenada por el estado de mantenimiento de error. Pero incluso un nodo de tipo `SpecialNodeType` en un estado de mantenimiento de error haría que el clúster fuera incorrecto y desencadenara la reversión o detuviera la actualización del clúster, dependiendo de la configuración de actualización. Por el contrario, si el valor global de `MaxPercentUnhealthyNodes` se establece en 0 y el porcentaje máximo de nodos `SpecialNodeType` incorrectos se establece en 100, con un nodo de tipo `SpecialNodeType` en estado de error, el clúster se mantendrá en estado de error porque la restricción global es más estricta en este caso. 
+
+  El ejemplo siguiente es un extracto de un manifiesto de clúster. Para definir entradas en la asignación de tipo de nodo, agregue el prefijo "NodeTypeMaxPercentUnhealthyNodes-" al nombre del parámetro, seguido de nombre del tipo de nodo.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Directiva de mantenimiento de aplicación
 La [directiva de mantenimiento de aplicación](/dotnet/api/system.fabric.health.applicationhealthpolicy) describe cómo se realiza la evaluación de la agregación de eventos y estados secundarios en las aplicaciones y sus elementos secundarios. Se puede definir en el manifiesto de la aplicación, **ApplicationManifest.xml**, del paquete de aplicación. Si no se especifican directivas, Service Fabric asume que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en los estados de mantenimiento Advertencia o Error.
