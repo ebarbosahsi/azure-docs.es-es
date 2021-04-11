@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 909cbd6174fe7eceaa8b53b5ba44fe72990b56d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a17dcf36cd8b23bf3bc014e2d101d057221de2b8
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708057"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504900"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -95,9 +95,6 @@ Si un salto aparece en rojo, indica que forma parte de al menos una ruta de acce
 
 ### <a name="how-does-fault-localization-in-performance-monitor-work"></a>¿Cómo funciona la localización de errores en el Monitor de rendimiento?
 NPM usa un mecanismo probabilístico para asignar las probabilidades de error a cada ruta de acceso de red, segmento de red, y a los saltos de red que los componen en función del número de rutas de acceso incorrectas de las que forman parte. A medida que los segmentos de red y los saltos engrosan el número de rutas de acceso incorrectas, aumenta la probabilidad de error asociada a ellos. Este algoritmo funciona mejor cuando se tienen muchos nodos con el agente de NPM conectados entre sí, ya que esto aumenta los puntos de datos para calcular las probabilidades de error.
-
-### <a name="how-can-i-create-alerts-in-npm"></a>¿Cómo se pueden crear alertas en NPM?
-Actualmente se están produciendo errores al crear alertas desde la interfaz de usuario de NPM a causa de un problema conocido. [Cree alertas manualmente](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>¿Cuáles son las consultas de Log Analytics predeterminadas para alertas?
 Consulta del monitor de rendimiento

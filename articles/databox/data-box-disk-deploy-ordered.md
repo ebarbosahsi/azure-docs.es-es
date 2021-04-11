@@ -8,13 +8,12 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 04ae2589e8abfab4826f2286d5f00869c24442f5
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92125276"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057973"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
@@ -28,7 +27,7 @@ En este tutorial se describe cómo se puede solicitar Azure Data Box Disk. En es
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de implementar, complete los siguientes requisitos previos de configuración para el servicio Data Box y para Data Box Disk.
 

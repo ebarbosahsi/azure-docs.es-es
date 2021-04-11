@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: operador count en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar el operador count en una definición de directiva.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96005425"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093459"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Patrón de Azure Policy: operador count
 

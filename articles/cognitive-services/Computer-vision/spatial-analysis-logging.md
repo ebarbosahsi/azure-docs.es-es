@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722708"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077625"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -103,21 +103,21 @@ Cuando haya implementado el módulo Telegraf, se puede acceder a las métricas n
 
 ### <a name="system-health-events"></a>Eventos de mantenimiento del sistema
 
-| Nombre del evento | Descripción|
-|------|---------|
-|archon_exit     |Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
-|archon_error     |Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.  |
-|InputRate     |Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos. | 
-|OutputRate     |Velocidad a la que el gráfico genera Conclusiones de IA. Se notifica cada cinco minutos. |
-|archon_allGraphsStarted | Se envía cuando todos los gráficos han terminado de iniciarse. |
-|archon_configchange     | Se envía cuando cambia la configuración de un gráfico. |
-|archon_graphCreationFailed     |Se envía cuando no se puede iniciar el gráfico con la `graphId` notificada. |
-|archon_graphCreationSuccess     |Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente. |
-|archon_graphCleanup     | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra. |
-|archon_graphHeartbeat     |Latido que se envía cada minuto por cada gráfico de una aptitud. |
-|archon_apiKeyAuthFail |Se envía cuando se produce un error en la clave de recurso de Computer Vision para autenticar el contenedor durante más de 24 horas, debido a los siguientes motivos: Cuota agotada, no válido, sin conexión. |
-|VideoIngesterHeartbeat     |Se envía cada hora para indicar que el vídeo se transmite desde el origen de vídeo, con el número de errores en esa hora. Se notifica para cada gráfico. |
-|VideoIngesterState | Notifica el estado *Detenido* o *Iniciado* para el streaming de vídeo.  Se notifica para cada gráfico. |
+| Nombre del evento                  | Descripción    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
+| archon_error                | Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.      |
+| InputRate                   | Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos.              |
+| OutputRate                  | Velocidad a la que el gráfico genera Conclusiones de IA. Se notifica cada cinco minutos.                |
+| archon_allGraphsStarted     | Se envía cuando todos los gráficos han terminado de iniciarse.                                           |
+| archon_configchange         | Se envía cuando cambia la configuración de un gráfico.                                              |
+| archon_graphCreationFailed  | Se envía cuando no se puede iniciar el gráfico con la `graphId` notificada.                           |
+| archon_graphCreationSuccess | Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente.                      |
+| archon_graphCleanup         | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra.                      |
+| archon_graphHeartbeat       | Latido que se envía cada minuto por cada gráfico de una aptitud.                                   |
+| archon_apiKeyAuthFail       | Se envía cuando se produce un error en la clave de recurso de Computer Vision para autenticar el contenedor durante más de 24 horas, debido a los siguientes motivos: Cuota agotada, no válido, sin conexión. |
+| VideoIngesterHeartbeat      | Se envía cada hora para indicar que el vídeo se transmite desde el origen de vídeo, con el número de errores en esa hora. Se notifica para cada gráfico. |
+| VideoIngesterState          | Notifica el estado *Detenido* o *Iniciado* para el streaming de vídeo.  Se notifica para cada gráfico.              |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Solución de problemas de un dispositivo IoT Edge
 

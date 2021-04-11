@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951851"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078934"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión de REST y hacia allí mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -495,7 +495,7 @@ La plantilla define dos parámetros:
 
     | Propiedad | Descripción |
     |:--- |:--- |
-    | URL |Especifique la dirección URL de la que se recuperará el token de portador OAuth. p. ej., en este ejemplo es https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Especifique la dirección URL de la que se recuperará el token de portador OAuth. p. ej., en este ejemplo es https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Método | Método HTTP. Los valores permitidos son **POST** y **GET**. | 
     | encabezados | El usuario define el encabezado, que hace referencia a un nombre de encabezado en la solicitud HTTP. | 
     | Body | Cuerpo de la solicitud HTTP. | 

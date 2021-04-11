@@ -4,7 +4,6 @@ description: En este tutorial, aprenderá a conectar las redes virtuales con emp
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017923"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059333"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conexión de redes virtuales con emparejamiento de redes virtuales usando Azure Portal
 
-Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Estas redes virtuales pueden estar en la misma región o en regiones diferentes (también conocidas como emparejamiento de VNET global). Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este tutorial, aprenderá a:
+Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Estas redes virtuales pueden estar en la misma región o en regiones diferentes (también conocidas como emparejamiento de VNET global). Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este tutorial aprenderá a:
 
 > [!div class="checklist"]
 > * Crear dos redes virtuales
@@ -32,7 +31,9 @@ Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuale
 
 Si lo prefiere, puede completar este tutorial con la [CLI de Azure](tutorial-connect-virtual-networks-cli.md) o [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="prerequisites"></a>Prerrequisitos
+
+Antes de empezar, debe tener una cuenta de Azure con una suscripción activa. En caso de no tener una, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -60,7 +61,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |---|---|
     |Nombre|myVirtualNetwork2|
     |Espacio de direcciones|10.1.0.0/16|
-    |Resource group| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
+    |Grupo de recursos| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
     |Nombre de subred | Subnet2|
     |Intervalo de direcciones de subred|10.1.0.0/24|
 
@@ -77,7 +78,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |---|---|
     |Nombre del emparejamiento de myVirtualNetwork1 a la red virtual remota|myVirtualNetwork1-myVirtualNetwork2: la primera vez que se cargue la página, verá aquí la frase "remote virtual network" (red virtual remota). Después de elegir la red virtual remota, la frase "remote virtual network" (red virtual remota) se reemplazará por el nombre de la red virtual remota.|
     |Subscription| Seleccione su suscripción.|
-    |Virtual network|myVirtualNetwork2: para seleccionar la red virtual *myVirtualNetwork2*, seleccione **Red virtual** y, después, **myVirtualNetwork2 (myResourceGroup)** . Puede seleccionar una red virtuales de la misma región o de otra.|
+    |Virtual network|myVirtualNetwork2: para seleccionar la red virtual *myVirtualNetwork2*, seleccione **Red virtual** y, después, **myVirtualNetwork2 (myResourceGroup)**. Puede seleccionar una red virtuales de la misma región o de otra.|
     |Nombre del emparejamiento de myVirtualNetwork2 con myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Configuración de emparejamiento](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
@@ -100,7 +101,7 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 
     |Configuración|Value|
     |---|---|
-    |Resource group| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
+    |Grupo de recursos| Seleccione **Usar existente** y después seleccione **myResourceGroup**.|
     |Nombre|myVm1|
     |Location| Seleccione **Este de EE. UU**.|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
@@ -114,7 +115,7 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
     |Virtual network| myVirtualNetwork1: si no está ya seleccionado, seleccione **Red virtual** y, luego, **myVirtualNetwork1**.|
     |Subnet| Subnet1: si aún no está seleccionado, seleccione **Subred** y, después, **Subnet1**.|
    
-6. Seleccionar **Redes**. Elija **Permitir los puertos seleccionados** en la opción **Puertos de entrada públicos**. Elija **RDP** para la opción **Seleccionar puertos de entrada** debajo de esto. 
+6. Seleccione **Redes**. Elija **Permitir los puertos seleccionados** en la opción **Puertos de entrada públicos**. Elija **RDP** para la opción **Seleccionar puertos de entrada** debajo de esto. 
 
 7. Seleccione el botón **Revisar y crear** en la esquina inferior izquierda para iniciar la implementación de la máquina virtual.
 
@@ -171,6 +172,7 @@ Cuando ya no sea necesario, elimine el grupo de recursos y todos los recursos qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a conectar dos redes de la misma región de Azure con el emparejamiento de redes virtuales. También puede emparejar redes virtuales de distintas [regiones compatibles](virtual-network-manage-peering.md#cross-region) y en [distintas suscripciones de Azure](create-peering-different-subscriptions.md#portal), además de crear [diseños de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) con emparejamiento. Para más información sobre el emparejamiento de redes virtuales, consulte los artículos sobre el [emparejamiento de redes virtuales](virtual-network-peering-overview.md) y la [administración de emparejamientos de redes virtuales](virtual-network-manage-peering.md).
+> [!div class="nextstepaction"]
+> [Más información acerca del emparejamiento de red virtual](virtual-network-peering-overview.md).
 
-Para conectar su propio equipo con una red virtual a través de una VPN e interactuar con recursos en una red virtual, o en redes virtuales emparejadas, consulte [Conexión de un equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+

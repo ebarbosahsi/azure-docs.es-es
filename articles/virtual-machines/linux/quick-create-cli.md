@@ -5,9 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -15,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549777"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058585"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
 
 En esta guía de inicio rápido se muestra como usar la interfaz de la línea de comandos (CLI) de Azure para implementar una máquina virtual (VM) Linux en Azure. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
 
-En este tutorial, se instalará Ubuntu 16.04 LTS. Para mostrar la máquina virtual en acción, se conectará a ella mediante SSH e instalará al servidor web de NGINX.
+En este tutorial, se instalará la imagen de Ubuntu LTS más reciente. Para mostrar la máquina virtual en acción, se conectará a ella mediante SSH e instalará al servidor web de NGINX.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -88,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
-Conéctese a la máquina virtual mediante SSH, como hace habitualmente. Reemplace **publicIpAddress** por la dirección IP pública de la máquina virtual como se indica en la salida anterior de la máquina virtual:
+Conéctese a la máquina virtual mediante SSH, como hace habitualmente. Reemplace la dirección IP por la dirección IP pública de la máquina virtual, tal como se indica en la salida anterior de la máquina virtual:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>Instalación del servidor web

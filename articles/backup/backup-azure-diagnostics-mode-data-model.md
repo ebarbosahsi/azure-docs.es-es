@@ -3,12 +3,12 @@ title: Modelo de datos de registros de Azure Monitor
 description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2682bf0483b38c50e64bf4ec5255c89f931ab0f0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500995"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078917"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -49,7 +49,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta. |
 | OperationName |Texto |Nombre de la operación actual, por ejemplo, Alerta |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta (fue ProtectedServerUniqueId_s en V1)|
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -81,7 +81,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este elemento de copia de seguridad. |
 | OperationName |Texto |Nombre de la operación, por ejemplo, BackupItem |
 | Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Resource |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
+| Recurso |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recurso para el que se recopilan datos, por ejemplo, el identificador de recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para los datos que se recopilan |
@@ -104,7 +104,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 | BackupManagementServerUniqueId_s |Texto | Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede. |
 | Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en Log Analytics. Es AzureBackupReport. |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
-| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado al elemento de copia de seguridad (fue ProtectedServerUniqueId_s en V1) |
 | VaultUniqueId_s |Texto |Identificador único del almacén que contiene el elemento de copia de seguridad. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
@@ -199,9 +199,9 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | MonthlyRetentionDaysOfTheWeek_s |Texto ||Días de la semana seleccionados para la retención mensual |
 | MonthlyRetentionWeeksOfTheMonth_s |Texto ||Semanas del mes en que se ha configurado la retención mensual, por ejemplo, la primera o la última. |
 | YearlyRetentionDuration_s |Decimal Number ||Duración total de la retención de las copias de seguridad configuradas, en años |
-| YearlyRetentionTimes_s |Texto ||Fecha y hora en que se ha configurado la retención anual |
-| YearlyRetentionMonthsOfTheYear_s |Texto ||Meses del año seleccionados para la retención anual |
-| YearlyRetentionFormat_s |Texto ||Tipo de configuración para la retención anual ,por ejemplo, diariamente si se basa en día, semanalmente si se basa en semana | |
+| YearlyRetentionTimes_s |Texto | | Fecha y hora en que se ha configurado la retención anual |
+| YearlyRetentionMonthsOfTheYear_s |Texto | | Meses del año seleccionados para la retención anual |
+| YearlyRetentionFormat_s |Texto ||Tipo de configuración para la retención anual ,por ejemplo, diariamente si se basa en día, semanalmente si se basa en semana |
 | YearlyRetentionDaysOfTheMonth_s |Texto ||Fechas del mes seleccionadas para la retención anual |
 | SynchronisationFrequencyPerDay_s |Whole Number |v2|Número de veces en un día que se sincroniza una copia de seguridad de archivos para SC DPM y MABS. |
 | DiffBackupFormat_s |Texto |v2|Formato para copias de seguridad diferenciales de SQL en la copia de seguridad de máquinas virtuales de Azure. |
