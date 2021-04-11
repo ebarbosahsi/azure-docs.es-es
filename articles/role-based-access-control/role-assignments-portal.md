@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: e25bbe4e1a96e4efaaa13732aea571d26d4b006e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b159d9ca7d8d7739d623bb3a48752b4d03e24bc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555291"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385977"
 ---
 # <a name="assign-azure-roles-using-the-azure-portal"></a>Asignación de roles de Azure mediante Azure Portal
 
@@ -66,7 +66,7 @@ Si tiene que asignar roles de Administrador en Azure Active Directory, consulte 
 
     Se abre el panel Agregar asignación de roles.
 
-   ![Panel Agregar asignación de roles](./media/shared/add-role-assignment.png)
+   ![Página Agregar asignación de roles](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="step-3-select-the-appropriate-role"></a>Paso 3: seleccionar el rol apropiado
 

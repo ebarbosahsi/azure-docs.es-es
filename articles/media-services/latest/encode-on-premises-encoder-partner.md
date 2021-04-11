@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: cdcc5f7176eb154b4226f028389527f6c48c2569
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: a8b40206a73672b1d6bbb0ecded26b9f974be6b9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121207"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277596"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Cómo comprobar su codificador de streaming en vivo local
 
@@ -71,7 +71,7 @@ Por último, envíe la configuración registrada y los parámetros archivados po
 
 ## <a name="see-also"></a>Consulte también
 
-[Codificadores locales probados](recommended-on-premises-live-encoders.md)
+[Codificadores locales probados](encode-recommended-on-premises-live-encoders.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

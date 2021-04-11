@@ -4,17 +4,16 @@ titlesuffix: Azure Virtual Network
 description: En este tutorial, aprenderá a filtrar el tráfico de red que se dirige a una subred, con un grupo de seguridad de red, mediante Azure Portal.
 services: virtual-network
 author: KumudD
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: 746e44c85d4dd9a662556a73f1e4ab0701d31400
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435931"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057293"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red en Azure Portal
 
@@ -32,7 +31,7 @@ En este tutorial aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure.
 
@@ -154,7 +153,7 @@ En esta sección, vamos a asociar el grupo de seguridad de red con la subred de 
 
 3. Cree una regla de seguridad que permita a los puertos 80 y 443 para el grupo de seguridad de la aplicación **myAsgWebServers**. En la ventana **Agregar regla de seguridad de entrada**, especifique o seleccione los siguientes datos:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Source | Deje el valor predeterminado, **Cualquiera**. |
     | Source port ranges | Deje el valor predeterminado, **(*)** |
@@ -171,7 +170,7 @@ En esta sección, vamos a asociar el grupo de seguridad de red con la subred de 
 
 3. Repita el paso 2 de nuevo, utilizando los siguientes valores:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Source | Deje el valor predeterminado, **Cualquiera**. |
     | Source port ranges | Deje el valor predeterminado, **(*)** |
@@ -215,7 +214,7 @@ Cree dos máquinas virtuales en la red virtual.
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVMWeb**. |
     | Region | Seleccione **(EE. UU.) Este de EE. UU.** . |
-    | Opciones de disponibilidad | Deje el valor predeterminado si no es necesario ofrecer redundancia. |
+    | Opciones de disponibilidad | Deje el valor predeterminado de que no es necesario tener redundancia. |
     | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1**. |
     | Instancia de Azure Spot | Deje esta casilla desactivada, tal y como está de forma predeterminada. |
     | Size | Seleccione **Standard_D2s_V3**. |
@@ -230,7 +229,7 @@ Cree dos máquinas virtuales en la red virtual.
 
 5. En la pestaña **Redes**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Valor |
+    | Parámetro | Value |
     | ------- | ----- |
     | **Interfaz de red** |   |
     | Virtual network | Seleccione **myVNet**. |
@@ -238,7 +237,7 @@ Cree dos máquinas virtuales en la red virtual.
     | Dirección IP pública | Deje el valor predeterminado, que es una nueva dirección IP pública. |
     | Grupo de seguridad de red de NIC | Seleccione **Ninguno**. | 
 
-6. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear** que encontrará en la parte inferior de la pantalla.
+6. Seleccione la pestaña **Revisar y crear** o el botón azul **Revisar y crear** en la parte inferior de la página.
 
 7. Seleccione **Crear**.
 
