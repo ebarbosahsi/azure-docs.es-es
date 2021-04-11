@@ -1,17 +1,17 @@
 ---
 title: 'Opciones de proceso y almacenamiento de Azure Database for PostgreSQL: servidor flexible'
 description: 'En este artículo se explican las opciones de proceso y almacenamiento de Azure Database for PostgreSQL: servidor flexible.'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712222"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608177"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opciones de proceso y almacenamiento de Azure Database for PostgreSQL: servidor flexible
 
@@ -121,7 +121,7 @@ Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la
 Si están marcadas con un \*, las IOPS están limitadas por el tipo de máquina virtual seleccionado. De lo contrario, las IOPS están limitadas por el tamaño de almacenamiento seleccionado.
 
 >[!NOTE]
-> Puede que vea más IOPS en las métricas debido a la expansión a nivel de disco. Consulte la [documentación](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) para más detalles. 
+> Puede que vea más IOPS en las métricas debido a la expansión a nivel de disco. Consulte la [documentación](../../virtual-machines/disk-bursting.md#disk-level-bursting) para más detalles. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Ancho de banda de E/S máximo (MiB/s) para la configuración
 

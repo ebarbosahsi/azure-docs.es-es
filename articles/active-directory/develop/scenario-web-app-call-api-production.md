@@ -1,5 +1,6 @@
 ---
-title: 'Traslado a producción de una aplicación web que llama a API web: Plataforma de identidad de Microsoft | Azure'
+title: Migrar a producción una aplicación web que llama a API web | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo migrar a producción una aplicación web que llama a API web.
 services: active-directory
 author: jmprieur
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f38755e669a62e9fe74aa6281daccdf39e1f117c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: cf32274a49cb1b790e9d872efe36f2e1cb188d1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443575"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675947"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Una aplicación web que llama a API web: Paso a producción
 
-Ahora que sabe cómo adquirir un token para llamar a las API web, conozca cómo pasarlo a producción.
+Ahora que sabe cómo adquirir un token para llamar a las API web, aquí tiene algunos aspectos que deben tenerse en cuenta al trasladar la aplicación a producción.
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 

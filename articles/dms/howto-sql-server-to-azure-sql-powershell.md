@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f7e14500fb377b46f651b53e2704d8477aea7a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3152fe0bf77b73e593ac61efb5f386827bdc96ef
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520666"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643722"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migración de una base de datos de SQL Server a Azure SQL Database mediante Azure PowerShell
 
@@ -151,7 +151,7 @@ Por último, cree e inicie la tarea de Azure Database Migration. La tarea de Azu
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Creación de parámetros de credenciales de origen y de destino
 
-Las credenciales de seguridad de conexión pueden crearse como un objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0).
+Las credenciales de seguridad de conexión pueden crearse como un objeto [PSCredential](/dotnet/api/system.management.automation.pscredential).
 
 En el ejemplo siguiente se muestra la creación de objetos *PSCredential* para las conexiones de origen y destino proporcionando contraseñas como variables de cadena *$sourcePassword* y *$targetPassword*.
 
@@ -195,8 +195,8 @@ Utilice el cmdlet `New-AzDataMigrationTask` para crear e iniciar una tarea de mi
 * *TaskName*. Nombre de la tarea que se va a crear. 
 * *SourceConnection*. Objeto AzDmsConnInfo que representa la conexión de origen de SQL Server.
 * *TargetConnection*. Objeto AzDmsConnInfo que representa la conexión de destino de Azure SQL Database.
-* *SourceCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para la conexión al servidor de origen.
-* *TargetCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para la conexión al servidor de destino.
+* *SourceCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential) para la conexión al servidor de origen.
+* *TargetCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential) para la conexión al servidor de destino.
 * *SelectedDatabase*. Objeto AzDataMigrationSelectedDB que representa la asignación de base de datos de origen y de destino.
 * *SchemaValidation*. (opcional, parámetro de modificador) Tras la migración, realiza una comparación de la información del esquema entre el origen y el destino.
 * *DataIntegrityValidation*. (opcional, parámetro de modificador) Tras la migración, realiza una validación de la integridad de los datos basada en la suma de comprobación entre el origen y el destino.

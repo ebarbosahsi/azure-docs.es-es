@@ -3,12 +3,12 @@ title: Creación de directivas para propiedades de matriz en recursos
 description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220752"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721620"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -448,7 +448,8 @@ El hecho de que la expresión `where` se evalúe con **todo** el contenido de la
       "field": "tags.env",
       "equals": "prod"
     }
-  }
+  },
+  "equals": 0
 }
 ```
 
@@ -457,40 +458,60 @@ El hecho de que la expresión `where` se evalúe con **todo** el contenido de la
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-También se permiten expresiones count anidadas:
+Las expresiones de recuento anidadas se pueden usar para aplicar condiciones a los campos de matriz anidados. Por ejemplo, la siguiente condición comprueba que la matriz `objectArray[*]` tiene exactamente 2 miembros con `nestedArray[*]` que contiene 1 o más miembros:
 
 ```json
 {
   "count": {
     "field": "Microsoft.Test/resourceType/objectArray[*]",
     "where": {
-      "allOf": [
-        {
-          "field": "Microsoft.Test/resourceType/objectArray[*].property",
-          "equals": "value2"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-            "where": {
-              "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-              "equals": 3
-            },
-            "greater": 0
-          }
-        }
-      ]
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]"
+      },
+      "greaterOrEquals": 1
     }
-  }
+  },
+  "equals": 2
 }
 ```
- 
-| Iteración de bucle externa | Valores seleccionados | Iteración de bucle interna | Valores seleccionados |
-|:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
+
+| Iteración | Valores seleccionados | Resultado de evaluación de recuento anidado |
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` tiene 2 miembros => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` tiene 2 miembros => `true` |
+
+Puesto que ambos miembros de `objectArray[*]` tienen una matriz secundaria `nestedArray[*]` con 2 miembros, la expresión de recuento exterior devuelve `2`.
+
+Ejemplo más complejo: compruebe que la matriz `objectArray[*]` tiene exactamente 2 miembros con `nestedArray[*]` con cualquier miembro igual a `2` o `3`:
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+        "where": {
+            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+            "in": [ 2, 3 ]
+        }
+      },
+      "greaterOrEquals": 1
+    }
+  },
+  "equals": 2
+}
+```
+
+| Iteración | Valores seleccionados | Resultado de evaluación de recuento anidado
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` contiene `2` => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` contiene `3` => `true` |
+
+Dado que ambos miembros de `objectArray[*]` tienen una matriz secundaria `nestedArray[*]` que contiene `2` o `3`, se devuelve la expresión de recuento exterior `2`.
+
+> [!NOTE]
+> Las expresiones de recuento de campos anidados solo pueden hacer referencia a matrices anidadas. Por ejemplo, la expresión de recuento que hace referencia a `Microsoft.Test/resourceType/objectArray[*]` puede tener un recuento anidado que tenga como destino la matriz anidada `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]`, pero no puede tener una expresión de recuento anidada como destino `Microsoft.Test/resourceType/stringArray[*]`.
 
 #### <a name="accessing-current-array-member-with-template-functions"></a>Acceso al miembro de la matriz actual con funciones de plantilla
 

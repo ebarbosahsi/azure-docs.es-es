@@ -7,16 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123344"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629077"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
 
 *Este tema se aplica a administradores y desarrolladores de soluciones.*
+
+> [!Note] 
+> Esta solución utiliza [características de exportación de datos heredados](./howto-export-data-legacy.md). Manténgase atento a las instrucciones actualizadas sobre cómo conectarse a Power BI con la exportación de datos más reciente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Canalización de las soluciones de Power BI":::
 
@@ -27,7 +30,7 @@ Use la solución de Power BI para Azure IoT Central V3 a fin de crear un panel e
 - Filtrar por los datos enviados por dispositivos específicos
 - Visualización de los datos de telemetría más recientes en una tabla
 
-Esta solución configura una canalización que lee datos de la cuenta de Azure Blob Storage de la [Exportación de datos continua](./howto-export-data.md). La canalización utiliza Azure Functions, Azure Data Factory y Azure SQL Database para procesar y transformar los datos. Puede visualizar y analizar los datos en un informe de Power BI que puede descargar como archivo PBIX. Todos los recursos se crean en la suscripción de Azure, para que pueda personalizar cada componente de acuerdo con sus necesidades.
+Esta solución configura una canalización que lee datos de la cuenta de Azure Blob Storage de la [Exportación de datos heredados](./howto-export-data-legacy.md). La canalización utiliza Azure Functions, Azure Data Factory y Azure SQL Database para procesar y transformar los datos. Puede visualizar y analizar los datos en un informe de Power BI que puede descargar como archivo PBIX. Todos los recursos se crean en la suscripción de Azure, para que pueda personalizar cada componente de acuerdo con sus necesidades.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,7 +39,7 @@ Recuerde que para completar los pasos de esta guía paso a paso, necesita una su
 Para configurar la solución, son necesarios los recursos siguientes:
 
 - Una versión 3 de la aplicación de IoT Central. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md). Para obtener información sobre cómo crear una aplicación de IoT Central, vea [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md).
-- Exportación de datos continua configurada para exportar datos de telemetría, dispositivos y plantillas de dispositivo a Azure Blog Storage. Para obtener más información, consulte [Exportación de datos de IoT a destinos en Azure](howto-export-data.md).
+- La exportación continua de datos heredados configurada para exportar datos de telemetría, dispositivos y plantillas de dispositivo a Azure Blog Storage. Para obtener más información, consulte la [documentación de exportación de datos heredados](howto-export-data-legacy.md).
   - Asegúrese de que solo la aplicación de IoT Central exporte datos al contenedor de blobs.
   - Los [dispositivos deben enviar mensajes codificados por JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Los dispositivos deben especificar `contentType:application/JSON` y `contentEncoding:utf-8` o `contentEncoding:utf-16` o `contentEncoding:utf-32` en las propiedades del sistema de mensajes.
 - Power BI Desktop (versión más reciente). Consulte [Descargas de Power BI](https://powerbi.microsoft.com/downloads/).

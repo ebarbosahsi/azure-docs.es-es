@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3828d5288c730e8fc0595a0deb6f1cb3267e885e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e288e4490916a7ee03371baa8e7cc3b798e272b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608787"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961717"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Crear y supervisar eventos de Media Services con Event Grid mediante Azure Portal
 
@@ -35,7 +35,7 @@ Cuando haya terminado, verá que los datos del evento se han enviado a la aplica
 ## <a name="prerequisites"></a>Prerrequisitos 
 
 * Tener una suscripción de Azure activa.
-* Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](../create-account-howto.md).
+* Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](../account-create-how-to.md).
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 

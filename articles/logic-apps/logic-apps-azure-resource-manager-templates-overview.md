@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772950"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110009"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -67,7 +67,7 @@ En el caso de una plantilla de aplicación lógica, principalmente debe trabajar
 |-----------|-------------|
 | `parameters` | Declara los [parámetros de plantilla](../azure-resource-manager/templates/template-syntax.md#parameters) para aceptar los valores que se van a usar al crear y personalizar los recursos para la implementación en Azure. Por ejemplo, estos parámetros aceptan los valores del nombre y la ubicación de la aplicación lógica, las conexiones y otros recursos necesarios para la implementación. Puede almacenar estos valores de parámetros en un [archivo de parámetros](#template-parameter-files), que se describe más adelante en este tema. Para obtener información general, consulte la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Define los [recursos](../azure-resource-manager/templates/template-syntax.md#resources) que se crean o actualizan e implementan en un grupo de recursos de Azure, como la aplicación lógica, las conexiones, las cuentas de Azure Storage, etc. Para obtener información general, consulte la sección [Recursos del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+|||
 
 La plantilla de la aplicación lógica usa este formato de nombre de archivo:
 

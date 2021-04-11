@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 82a2c3047f851c9fbc273cd13e730572c38b6bcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775942"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640375"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Uso de Azure DevOps para crear una canalización de CI/CD para un trabajo de Stream Analytics
 
@@ -26,21 +26,21 @@ En los pasos de este artículo se usa un proyecto de Visual Studio Code para St
 
 ## <a name="create-a-build-pipeline"></a>Creación de una canalización de compilación
 
-En esta sección, aprenderá a crear una canalización de compilación. Puede hacer referencia a la [canalización de compilación y prueba automática](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) de este ejemplo en Azure DevOps.
+En esta sección, aprenderá a crear una canalización de compilación. 
 
 1. Abra un explorador web y vaya al proyecto en Azure DevOps.  
 
-1. En **Pipelines**, en el menú de navegación izquierdo, seleccione **Compilaciones**. Luego, seleccione **Nueva canalización**.
+2. En **Pipelines**, en el menú de navegación izquierdo, seleccione **Compilaciones**. Luego, seleccione **Nueva canalización**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Creación de una instancia de Azure Pipeline":::
 
-1. Seleccione **Usar el editor clásico** para crear una canalización sin YAML.
+3. Seleccione **Usar el editor clásico** para crear una canalización sin YAML.
 
-1. Seleccione el tipo de origen, el proyecto del equipo y el repositorio. Después, seleccione **Continuar**.
+4. Seleccione el tipo de origen, el proyecto del equipo y el repositorio. Después, seleccione **Continuar**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Selección del proyecto de Azure Stream Analytics":::
 
-1. En la página **Elegir una plantilla**, seleccione **Trabajo vacío**.
+5. En la página **Elegir una plantilla**, seleccione **Trabajo vacío**.
 
 ## <a name="install-npm-package"></a>Instalación del paquete de npm
 
@@ -155,7 +155,7 @@ El archivo de resumen de pruebas y los archivos de la plantilla de Azure Resourc
 
 ## <a name="release-with-azure-pipelines"></a>Publicación con Azure Pipelines
 
-En esta sección, aprenderá a crear una canalización de versión. Puede hacer referencia a la [canalización de versión](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) de este ejemplo en Azure DevOps.
+En esta sección, aprenderá a crear una canalización de versión. 
 
 Abra un explorador web y vaya al proyecto de Visual Studio Code de Azure Stream Analytics.
 

@@ -2,21 +2,21 @@
 title: Uso de Azure Stream Analytics en un grupo de SQL dedicado
 description: Sugerencias para usar Azure Stream Analytics con un grupo de SQL dedicado en Azure Synapse para el desarrollo de soluciones en tiempo real.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 9/25/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 023cf55a01f34277dd5c5707d0d123f54c1674df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "96458227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600095"
 ---
 # <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Uso de Azure Stream Analytics con un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -52,8 +52,8 @@ Escriba los siguientes valores:
 
 * *Alias de salida*: escriba un nombre descriptivo para esta salida de trabajo.
 * *Suscripción*:
-  * Si el grupo de SQL dedicado está en la misma suscripción que el trabajo de Stream Analytics, haga clic en ***Seleccionar Azure Synapse Analytics de las suscripciones** _.
-  _ Si el grupo de SQL dedicado está en otra suscripción, haga clic en Proporcionar configuración de Azure Synapse Analytics de forma manual.
+  * Si el grupo de SQL dedicado está en la misma suscripción que el trabajo de Stream Analytics, haga clic en ***Seleccionar Azure Synapse Analytics de las suscripciones***.
+  * Si el grupo de SQL dedicado está en otra suscripción, haga clic en Proporcionar configuración de Azure Synapse Analytics de forma manual.
 * *Base de datos*: Seleccione la base de datos de destino en la lista desplegable.
 * *Nombre de usuario*: especifique el nombre de usuario de una cuenta que tenga permisos de escritura para la base de datos.
 * *Contraseña*: proporcione la contraseña de la cuenta de usuario especificada.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>Paso 5
 
-En Azure Portal para su trabajo de Stream Analytics, haga clic en el nombre del trabajo.  Haga clic en el botón **_Probar_* _ en el panel _*_Detalles de salida_*_.
+En Azure Portal para su trabajo de Stream Analytics, haga clic en el nombre del trabajo.  Haga clic en el botón ***Probar** _ en el panel _ *_Detalles de salida_**.
 
 ![Botón Probar en Detalles de salida](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) Cuando la conexión a la base de datos se realice correctamente, verá una notificación en el portal.
 
 ### <a name="step-6"></a>Paso 6
 
-Haga clic en el menú _*_Consulta_*_ en _*_Topología de trabajo_*_ y cambie la consulta para insertar datos en la salida de flujo que ha creado.  Haga clic en el botón _*_Probar consulta seleccionada_*_ para probar la consulta.  Haga clic en el botón _*_Guardar consulta_*_ cuando la prueba de la consulta sea correcta.
+Haga clic en el menú ***Consulta** _ en _*_Topología de trabajo_*_ y cambie la consulta para insertar datos en la salida de flujo que ha creado.  Haga clic en el botón _*_Probar consulta seleccionada_*_ para probar la consulta.  Haga clic en el botón _ *_Guardar consulta_** cuando la prueba de la consulta sea correcta.
 
 ![Guardar consulta](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Paso 7
 
-Inicie el trabajo de Azure Stream Analytics.  Haga clic en el botón _*_Iniciar_*_ en el menú _*_Información general_*_.
+Inicie el trabajo de Azure Stream Analytics.  Haga clic en el botón ***Iniciar** en el menú _ *_Información general_**.
 
 ![Inicio del trabajo de Stream Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-Haga clic en el botón _ *_Iniciar_** en el panel Iniciar trabajo.
+Haga clic en el botón ***Iniciar*** en el panel Iniciar trabajo.
 
 ![Hacer clic en Iniciar](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

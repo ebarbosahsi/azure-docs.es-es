@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96452426"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639483"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorización del acceso de base de datos a SQL Database, Instancia administrada de SQL y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ En este momento, el servidor o la instancia administrada está configurada para 
 
   - Cree un inicio de sesión de SQL adicional en la base de datos maestra.
   - Agregue el inicio de sesión al [rol fijo de servidor sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) usando la instrucción [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql). Este inicio de sesión tendrá permisos administrativos completos.
-  - También puede crear un [inicio de sesión de Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando la sintaxis [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  - También puede crear un [inicio de sesión de Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando la sintaxis [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - **En SQL Database, cree inicios de sesión de SQL con permisos administrativos limitados.**
 
@@ -122,9 +122,9 @@ Se pueden crear cuentas para los usuarios no administrativos recurriendo a uno d
 
 Para obtener ejemplos que reflejan cómo crear inicios de sesión y usuarios, vea:
 
-- [Crear inicio de sesión para Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Crear inicio de sesión para Instancia administrada de SQL de Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Crear inicio de sesión para Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Crear inicio de sesión para Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Crear inicio de sesión para Instancia administrada de SQL de Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Crear inicio de sesión para Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Crear usuario](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creación de usuarios independientes de Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
@@ -142,7 +142,7 @@ Después de crear una cuenta de usuario en una base de datos, ya sea basada en u
   - Para agregar un usuario a un rol fijo de base de datos:
 
     - En Azure SQL Database, use la instrucción [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql). Para obtener ejemplos, vea [Ejemplos de ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql#examples).
-    - En Azure Synapse, use la instrucción [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Para obtener ejemplos, vea [Ejemplos de sp_addrolemember](/sql/t-sql/statements/alter-role-transact-sql).
+    - En Azure Synapse, use la instrucción [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Para obtener ejemplos, vea [Ejemplos de sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples).
 
 - **Rol de base de datos personalizado**
 

@@ -1,17 +1,17 @@
 ---
 title: Configuración de alertas de un servidor flexible de Azure Database for PostgreSQL mediante Azure Portal
 description: En este artículo se describe cómo configurar alertas de métricas para un servidor flexible de Azure Database for PostgreSQL y cómo acceder a ellas mediante Azure Portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3c6f1dd581f7b07bb7892cbfe23dd76348124f9a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 365cb5604c1f9ddc2c0d7f3cc63daff96b043515
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579059"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608058"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Uso de Azure Portal para configurar alertas en las métricas de un servidor flexible de Azure Database for PostgreSQL
 

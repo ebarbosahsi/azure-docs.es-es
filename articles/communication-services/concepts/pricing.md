@@ -9,23 +9,20 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5f7b1e6d600f5d3652ce6a66a72cbfbf33b336c4
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495800"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091878"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Los precios de Azure Communication Services se suelen basar en un modelo de pago por uso. Los precios de los siguientes ejemplos solo tienen fines ilustrativos y puede que no reflejen los precios más recientes de Azure.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Llamadas de voz o vídeo y uso compartido de pantalla
 
-Azure Communication Services permite agregar llamadas de voz o vídeo a las aplicaciones, así como uso compartido de pantalla. Puede insertar la experiencia en sus aplicaciones mediante las bibliotecas cliente de JavaScript, Objective-C (Apple), Java (Android) o .NET. Consulte nuestra [lista completa de bibliotecas cliente disponibles](./sdk-options.md).
+Azure Communication Services permite agregar llamadas de voz o vídeo a las aplicaciones, así como uso compartido de pantalla. Puede insertar la experiencia en sus aplicaciones mediante los SDK para JavaScript, Objective-C (Apple), Java (Android) o .NET. Consulte nuestra [lista completa de SDK disponibles](./sdk-options.md).
 
 ### <a name="pricing"></a>Precios
 
@@ -33,9 +30,9 @@ Los servicios de llamadas y uso compartido de pantalla se cobran por minuto a ca
 
 Cada participante de la llamada se contará en la facturación por cada minuto que esté conectado a la llamada. Este principio se aplica independientemente de si el usuario está realizando llamadas por vídeo o voz, o si está compartiendo su pantalla.
 
-### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-client-libraries"></a>Ejemplo de precios: Llamada grupal de audio o vídeo mediante las bibliotecas cliente de JS y iOS
+### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-sdks"></a>Ejemplo de precios: llamada grupal de audio o vídeo mediante los SDK para JS e iOS
 
-Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie. Alice y Bob usaron las bibliotecas cliente de JS, y Charlie las bibliotecas cliente de iOS.
+Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie. Alice y Bob han utilizado los SDK para JS y Charlie, los SDK para iOS.
 
 - La llamada duró un total de 60 minutos.
 - Alice y Bob participaron durante la llamada completa. Alicia activó su vídeo durante cinco minutos y compartió su pantalla durante 23 minutos. Bob mantuvo encendido el vídeo durante la llamada completa (60 minutos) y compartió su pantalla durante 12 minutos.
@@ -48,9 +45,44 @@ Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie.
 
 **Costo total de la llamada grupal**: 0,48 USD + 0,172 USD = 0,652 USD
 
-### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Ejemplo de precios: un usuario de la biblioteca cliente JS de Communication Services participa en una reunión programada de Microsoft Teams
 
-Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conectará a la visita desde la aplicación de escritorio Teams. Bob recibirá un vínculo para conectarse mediante el sitio web del proveedor de atención sanitaria, que usa la biblioteca cliente de JS de Communication Services para conectarse a la cita. Bob usará su teléfono móvil para entrar en la reunión mediante un explorador web (iPhone con Safari). El chat estará disponible durante la visita virtual.
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-to-a-pstn-number"></a>Ejemplo de precios: llamada saliente de la aplicación que usa el SDK para JS a un número de RTC
+
+Alice hace una llamada RTC desde una aplicación a Bob en su número de teléfono de EE. UU. que comienza por `+1-425`.
+
+- Alice usó el SDK para JS para compilar la aplicación.
+- La llamada dura un total de 5 minutos.
+
+**Cálculos de costos**
+
+- Un participante en el tramo VoIP (Alice) de la aplicación a los servidores de Communication Services x 10 minutos x 0,004 USD por tramo de participante por minuto = 0,04 USD
+- Un participante en el tramo saliente PSTN (Charlie) de los servidores de Communication Services a un número de teléfono de EE. UU. x 10 minutos x 0,013 USD por tramo de participante por minuto = 0,13 USD.
+
+Nota: las tarifas mixtas de Estados Unidos a `+1-425` es 0,013 USD. Consulte el vínculo siguiente para más detalles: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Costo total de la llamada grupal**: 0,04 USD + 0,13 USD = 0,17 USD
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Ejemplo de precios: llamada de audio de grupo mediante el SDK para JS y un tramo de PSTN
+
+Alice y Bob se encuentran en una llamada de VOIP. Bob escaló la llamada a Charlie en el número PSTN de Charlie, un número de teléfono de EE. UU. que comienza por `+1-425`.
+
+- Alice usó el SDK para JS para compilar la aplicación. Habló durante 10 minutos antes de llamar a Charlie en el número PSTN.
+- Cuando Bob escaló la llamada a Charlie en su número PSTN, los tres hablaron durante otros 10 minutos.
+
+**Cálculos de costos**
+
+- Dos participantes en el tramo VoIP (Alice y Bob) de la aplicación a los servidores de Communication Services x 20 minutos x 0,004 USD por tramo de participante por minuto = 0,16 USD
+- Un participante en el tramo saliente PSTN (Charlie) de los servidores de Communication Services a un número de teléfono de EE. UU. x 10 minutos x 0,013 USD por tramo de participante por minuto = 0,13 USD.
+
+Nota: las tarifas mixtas de Estados Unidos a `+1-425` es 0,013 USD. Consulte el vínculo siguiente para más detalles: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Costo total de la llamada de escalado + VoIP**: 0,16 USD + 0,13 USD = 0,29 USD
+
+
+### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Ejemplo de precios: un usuario del SDK para JS de Communication Services participa en una reunión programada de Microsoft Teams
+
+Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conectará a la visita desde la aplicación de escritorio Teams. Bob recibirá un vínculo para conectarse mediante el sitio web del proveedor de atención sanitaria, que usa el SDK para JavaScript de Communication Services para conectarse a la cita. Bob usará su teléfono móvil para entrar en la reunión mediante un explorador web (iPhone con Safari). El chat estará disponible durante la visita virtual.
 
 - La llamada dura un total de 30 minutos.
 - Alice y Bob participan durante toda la llamada. Alice activa su vídeo 5 minutos después de que se inicie la llamada y comparte la pantalla durante 13 minutos. Bob tiene su vídeo activado durante toda la llamada.
@@ -67,13 +99,13 @@ Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conect
 \* La participación de Alice está incluida en su licencia de Teams. Para su comodidad, en la factura de Azure se mostrarán los minutos y mensajes de chat que los usuarios de Teams tenían con los usuarios de Communication Services, pero los minutos y mensajes que se originan en el cliente de Teams no costarán nada.
 
 **Costo total de la visita**:
-- Conexión del usuario mediante la biblioteca cliente JS de Communication Services: 0,12 USD + 0,0024 USD = 0,1224 USD
+- Conexión del usuario mediante el SDK para JavaScript de Communication Services: 0,12 USD + 0,0024 USD = 0,1224 USD
 - Conexión del usuario en la aplicación de escritorio Teams: 0 USD (incluido en la licencia de Teams)
 
 
 ## <a name="chat"></a>Chat
 
-Con Communication Services puede mejorar su aplicación, puede permitirle enviar y recibir mensajes de chat entre dos o más usuarios. Hay bibliotecas cliente de chat disponibles para JavaScript, .NET, Python y Java. Consulte [esta página para obtener información acerca de las bibliotecas cliente](./sdk-options.md)
+Con Communication Services puede mejorar su aplicación, puede permitirle enviar y recibir mensajes de chat entre dos o más usuarios. Hay SDK de chat disponibles para JavaScript, .NET, Python y Java. Consulte [esta página para obtener información sobre los SDK](./sdk-options.md).
 
 ### <a name="price"></a>Price
 

@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425709"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773086"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -46,7 +46,7 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Valor|Descripción|
+|Clave|Value|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
@@ -55,7 +55,7 @@ De forma predeterminada, [Functions Proxies](functions-proxies.md) usará acceso
 
 Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end. 
 
-|Clave|Valor|Descripción|
+|Clave|Value|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -109,7 +109,7 @@ Cuando esta configuración de la aplicación se omite o se establece en `false`,
 
 ![Página de aterrizaje de la aplicación de función](media/functions-app-settings/function-app-landing-page.png)
 
-## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
+## <a name="azurewebjobsdotnetreleasecompilation&quot;></a>AzureWebJobsDotNetReleaseCompilation
 
 `true` significa utilizar el modo de versión cuando se compila código .NET y `false` significa utilizar el modo de depuración. El valor predeterminado es `true`.
 
@@ -117,7 +117,7 @@ Cuando esta configuración de la aplicación se omite o se establece en `false`,
 |---|------------|
 |AzureWebJobsDotNetReleaseCompilation|true|
 
-## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
+## <a name=&quot;azurewebjobsfeatureflags&quot;></a>AzureWebJobsFeatureFlags
 
 Una lista delimitada por comas de características de la versión beta que se van a habilitar. Las características de la versión beta habilitadas por estas marcas no están listas para la producción, pero se pueden habilitar para su uso experimental antes de su publicación.
 
@@ -125,9 +125,9 @@ Una lista delimitada por comas de características de la versión beta que se va
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
-## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
+## <a name=&quot;azurewebjobssecretstoragetype&quot;></a>AzureWebJobsSecretStorageType
 
-Especifica el repositorio o el proveedor que se utilizará para el almacenamiento de claves. Actualmente, los repositorios admitidos son almacenamiento de blobs ("Blob") y sistema de archivos local ("Files"). El valor predeterminado es blob en la versión 2 y sistema de archivos en la versión 1.
+Especifica el repositorio o el proveedor que se utilizará para el almacenamiento de claves. Actualmente, los repositorios admitidos son almacenamiento de blobs (&quot;Blob") y sistema de archivos local ("Files"). El valor predeterminado es blob en la versión 2 y sistema de archivos en la versión 1.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -186,22 +186,24 @@ Especifica el número máximo de procesos de trabajo de lenguaje, con un valor p
 |---|------------|
 |FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
 
-## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
-
-Especifica el número máximo de subprocesos que un trabajo de lenguaje Python usaría para ejecutar invocaciones de función, con un valor predeterminado de `1` para la versión de Python `3.8` y anteriores. En el caso de la versión de Python `3.9` y posteriores, el valor se establece en `None`. Tenga en cuenta que esta configuración no garantiza el número de subprocesos que se establecerán durante las ejecuciones. La configuración permite que Python amplíe el número de subprocesos al valor especificado. La configuración solo se aplica a las aplicaciones de funciones de Python. Además, la configuración se aplica a la invocación de funciones sincrónicas y no a las corrutinas.
-
-|Clave|Valor de ejemplo|Valor máximo|
-|---|------------|---------|
-|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Se corresponderá con el lenguaje usado en la aplicación (por ejemplo, "dotnet"). Para las funciones en varios lenguajes deberá publicarlas en varias aplicaciones, cada una con un valor de tiempo de ejecución de trabajo correspondiente.  Los valores válidos son `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) y `python` (Python).
+Tiempo de ejecución del trabajo del lenguaje que se cargará en la aplicación de función.  Esto corresponde al lenguaje usado en la aplicación (por ejemplo, `dotnet`). A partir de la versión 2.x del entorno de ejecución de Azure Functions, una aplicación de funciones determinada solo puede admitir un único lenguaje.   
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
+|FUNCTIONS\_WORKER\_RUNTIME|Nodo|
+
+Valores válidos:
+
+| Valor | Lenguaje |
+|---|---|
+| `dotnet` | [C# (biblioteca de clases)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (proceso aislado)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
@@ -212,6 +214,14 @@ El valor de esta configuración indica una dirección URL de índice de paquetes
 |PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
 Para más información, vea [Dependencias personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) en la referencia para desarrolladores de Python.
+
+## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
+
+Especifica el número máximo de subprocesos que un trabajo de lenguaje Python usaría para ejecutar invocaciones de función, con un valor predeterminado de `1` para la versión de Python `3.8` y anteriores. En el caso de la versión de Python `3.9` y posteriores, el valor se establece en `None`. Tenga en cuenta que esta configuración no garantiza el número de subprocesos que se establecerán durante las ejecuciones. La configuración permite que Python amplíe el número de subprocesos al valor especificado. La configuración solo se aplica a las aplicaciones de funciones de Python. Además, la configuración se aplica a la invocación de funciones sincrónicas y no a las corrutinas.
+
+|Clave|Valor de ejemplo|Valor máximo|
+|---|------------|---------|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
@@ -257,9 +267,17 @@ Solo se usa cuando se implementa en un plan prémium o en un plan de consumo que
 
 Al usar una instancia de Azure Resource Manager para crear una aplicación de funciones durante la implementación, no incluya WEBSITE_CONTENTSHARE en la plantilla. Esta configuración de aplicación se genera durante la implementación. Para más información, consulte [Automatización de la implementación de recursos para una aplicación de funciones](functions-infrastructure-as-code.md#windows).   
 
+## <a name="website_dns_server"></a>SERVIDOR \_DNS\_ DEL SITIO WEB
+
+Establece el servidor DNS que usa una aplicación al resolver direcciones IP. Esta configuración suele ser necesaria cuando se usa cierta funcionalidad de red, como [ zonas privadas de Azure DNS](functions-networking-options.md#azure-dns-private-zones) y [puntos de conexión privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|SERVIDOR \_DNS\_ DEL SITIO WEB|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>ESCALABILIDAD\_HORIZONTAL\_MÁXIMA\_DE LA\_APLICACIÓN\_DINÁMICA
 
-Número máximo de instancias al que se puede escalar horizontalmente la aplicación de función. El valor predeterminado es sin límite.
+Número máximo de instancias al que se puede escalar horizontalmente la aplicación. El valor predeterminado es sin límite.
 
 > [!IMPORTANT]
 > Esta opción está en versión preliminar.  Se ha agregado una [propiedad de aplicación para la escalabilidad horizontal máxima de la función](./event-driven-scaling.md#limit-scale-out) y es la manera recomendada de limitar la escalabilidad horizontal.
@@ -297,6 +315,14 @@ Permite establecer la zona horaria para la aplicación de funciones.
 |WEBSITE\_TIME\_ZONE|Linux|América/Nueva_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>SITIO WEB\_VNET\_ROUTE\_ALL
+
+Indica si todo el tráfico saliente de la aplicación se enruta a través de la red virtual. Un valor de configuración de `1` indica que todo el tráfico se enruta a través de la red virtual. Debe usar esta opción al usar las características de la [Integración de red virtual regional](functions-networking-options.md#regional-virtual-network-integration). También se usa cuando [se usa una puerta de enlace NAT de red virtual para definir una dirección IP de salida estática](functions-how-to-use-nat-gateway.md). 
+
+|Clave|Valor de ejemplo|
+|---|------------|
+|SITIO WEB\_VNET\_ROUTE\_ALL|1|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

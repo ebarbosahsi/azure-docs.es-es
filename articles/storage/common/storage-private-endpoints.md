@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600469"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
@@ -53,6 +53,16 @@ Puede proteger la cuenta de almacenamiento para que acepte solo las conexiones q
 
 ## <a name="creating-a-private-endpoint"></a>Creación de un punto de conexión privado
 
+Para crear un punto de conexión privado mediante Azure Portal, consulte el artículo sobre la [conexión privada a una cuenta de almacenamiento desde la experiencia de cuenta de almacenamiento en Azure Portal](../../private-link/tutorial-private-endpoint-storage-portal.md).
+
+Para crear un punto de conexión privado mediante PowerShell o la CLI de Azure, consulte uno de estos artículos. Ambos presentan una aplicación web de Azure como servicio de destino, pero los pasos para crear un vínculo privado son los mismos que para una cuenta de Azure Storage.
+
+- [Creación de un punto de conexión privado mediante la CLI de Azure](../../private-link/create-private-endpoint-cli.md)
+
+- [Creación de un punto de conexión privado mediante Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Al crear un punto de conexión privado, debe especificar la cuenta de almacenamiento y el servicio de almacenamiento al que se conecta. 
 
 Necesita un punto de conexión privado independiente para cada recurso de almacenamiento al que necesite acceder, concretamente, [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) o [Static Websites](../blobs/storage-blob-static-website.md). En el punto de conexión privado, estos servicios de almacenamiento se definen como el **recurso secundario de destino** de la cuenta de almacenamiento asociada. 
@@ -64,13 +74,6 @@ Si crea un punto de conexión privado para el recurso de almacenamiento de Data 
 > Asegúrese de crear una cuenta de almacenamiento de uso general v2 (Estándar o Premium).
 
 Para obtener acceso de lectura a la región secundaria con una cuenta de almacenamiento configurada para el almacenamiento con redundancia geográfica se necesitan puntos de conexión privados para las instancias principal y secundaria del servicio. No es preciso crear un punto de conexión privado para la instancia secundaria para la **conmutación por error**. El punto de conexión privado se conectará automáticamente a la nueva instancia principal después de la conmutación por error. Para más información sobre las opciones de redundancia de almacenamiento, consulte [Redundancia de Azure Storage](storage-redundancy.md).
-
-Para obtener información más detallada sobre la creación de un punto de conexión privado para la cuenta de almacenamiento, consulte los siguientes artículos:
-
-- [Conexión privada a una cuenta de almacenamiento desde la experiencia de Cuentas de almacenamiento en Azure Portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Creación de un punto de conexión privado mediante Private Link Center en Azure Portal](../../private-link/create-private-endpoint-portal.md)
-- [Creación de un punto de conexión privado mediante la CLI de Azure](../../private-link/create-private-endpoint-cli.md)
-- [Creación de un punto de conexión privado mediante Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -104,7 +107,7 @@ Los registros de recursos DNS de StorageAccountA, cuando los resuelve un cliente
 | Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Un     | 10.1.1.5                                              |
 
 Este enfoque permite el acceso a la cuenta de almacenamiento **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 
@@ -139,7 +142,7 @@ Tenga en cuenta los siguientes problemas conocidos relacionados con los puntos d
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restricciones de acceso al almacenamiento para los clientes de redes virtuales con puntos de conexión privados
 
-Los clientes de redes virtuales con puntos de conexión privados existentes se enfrentan a ciertas restricciones al acceder a otras cuentas de almacenamiento que tienen puntos de conexión privados. Por ejemplo, imagine que la red virtual N1 tiene un punto de conexión privado para una cuenta de almacenamiento A1 para el almacenamiento de blobs. Si la cuenta de almacenamiento A2 tiene un punto de conexión privado en una red virtual N2 para el almacenamiento de blobs, los clientes de la red virtual N1 también deben acceder a al almacenamiento de blobs de la cuenta A2 mediante un punto de conexión privado. Si la cuenta de almacenamiento A2 no tiene puntos de conexión privados para el almacenamiento de blobs, los clientes de la red virtual N1 pueden acceder al almacenamiento de blobs sin ningún punto de conexión privado.
+Los clientes de redes virtuales con puntos de conexión privados existentes se enfrentan a ciertas restricciones al acceder a otras cuentas de almacenamiento que tienen puntos de conexión privados. Por ejemplo, imagine que la red virtual N1 tiene un punto de conexión privado para una cuenta de almacenamiento A1 con el fin de almacenar blobs. Si la cuenta de almacenamiento A2 tiene un punto de conexión privado en una red virtual N2 para el almacenamiento de blobs, los clientes de la red virtual N1 también deben acceder a al almacenamiento de blobs de la cuenta A2 mediante un punto de conexión privado. Si la cuenta de almacenamiento A2 no tiene puntos de conexión privados para el almacenamiento de blobs, los clientes de la red virtual N1 pueden acceder al almacenamiento de blobs sin ningún punto de conexión privado.
 
 Esta restricción es el resultado de los cambios de DNS realizados cuando la cuenta A2 crea un punto de conexión privado.
 

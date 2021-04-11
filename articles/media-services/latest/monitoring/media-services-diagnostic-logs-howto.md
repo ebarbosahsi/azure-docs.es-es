@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0719fede4147943e76ddfea1c5e77388c7c5cc9f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 13dadd9665f2d66861e00d769086fb23a4dea115
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608796"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961700"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
@@ -31,7 +31,7 @@ En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamien
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree una cuenta de Media Services](../create-account-howto.md).
+- [Cree una cuenta de Media Services](../account-create-how-to.md).
 - Consulte [Supervisión de Media Services](monitor-media-services.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Enrutamiento de datos a la cuenta de almacenamiento mediante el portal

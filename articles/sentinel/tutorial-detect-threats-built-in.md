@@ -1,6 +1,6 @@
 ---
-title: Investigación de alertas con Azure Sentinel | Microsoft Docs
-description: Aprenda a usar las plantillas de detección de amenazas de Azure integradas y listas para usar, que le avisan cuando ocurre algo sospechoso.
+title: Detección de amenazas con reglas de análisis integradas en Azure Sentinel | Microsoft Docs
+description: Aprenda a usar las reglas de detección de amenazas listas para usar, basadas en plantillas integradas, que le avisan cuando ocurre algo sospechoso.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
-ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726978"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773562"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detección de amenazas integrada
 
@@ -57,7 +57,9 @@ Están disponibles los siguientes tipos de plantilla:
     Estas plantillas se basan en algoritmos de aprendizaje automático de Microsoft, por lo que no se puede ver la lógica interna de cómo funcionan y cuándo se ejecutan. Dado que la lógica está oculta y, por lo tanto, no se puede personalizar, solo puede crear una regla con cada plantilla de este tipo.
 
     > [!IMPORTANT]
-    > Las plantillas de reglas de análisis de comportamiento de aprendizaje automático se encuentran actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+    > - Las plantillas de reglas de análisis de comportamiento de aprendizaje automático se encuentran actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+    >
+    > - Mediante la creación y la habilitación de reglas basadas en las plantillas de análisis de comportamiento de ML, **se concede permiso a Microsoft para copiar los datos ingeridos fuera de la geografía del área de trabajo de Azure Sentinel** según sea necesario para el procesamiento por parte de los modelos y motores de aprendizaje automático.
 
 - **Programado**
 
@@ -78,4 +80,3 @@ Están disponibles los siguientes tipos de plantilla:
 En este tutorial ha aprendido a detectar amenazas casos mediante Azure Sentinel. 
 
 Para aprender a automatizar las respuestas a las amenazas, consulte [Configuración de respuestas automatizadas frente a amenazas en Azure Sentinel](tutorial-respond-threats-playbook.md).
-
