@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673694"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104952344"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
@@ -94,7 +94,7 @@ uname -r
     Si no puede abrir el puerto 445 en su red corporativa o si un ISP le impide hacerlo, puede utilizar una conexión VPN o ExpressRoute para solucionar el puerto 445. Para más información, consulte [Consideraciones de red para el acceso directo a los recursos compartidos de archivos de Azure](storage-files-networking-overview.md).
 
 ## <a name="mounting-azure-file-share"></a>Montando el recurso compartido de archivos de Azure
-Para usar un recurso compartido de archivos de Azure con la distribución de Linux, debe crear un directorio para que sirva como punto de montaje para el recurso compartido de archivos de Azure. El punto de montaje se puede crear en cualquier parte del sistema de Linux, pero es habitual crearlo en /mnt. Después del punto de montaje, use el comando `mount` para tener acceso al recurso compartido de archivos de Azure.
+Para usar un recurso compartido de archivos de Azure con la distribución de Linux, debe crear un directorio para que sirva como punto de montaje para el recurso compartido de archivos de Azure. El punto de montaje se puede crear en cualquier parte del sistema de Linux, pero es habitual crearlo en /mount. Después del punto de montaje, use el comando `mount` para tener acceso al recurso compartido de archivos de Azure.
 
 Si lo desea, puede montar el mismo recurso compartido de archivos de Azure en varios puntos de montaje.
 
@@ -106,7 +106,7 @@ Si lo desea, puede montar el mismo recurso compartido de archivos de Azure en va
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -135,14 +135,14 @@ Si lo desea, puede montar el mismo recurso compartido de archivos de Azure en va
 Cuando haya terminado de usar el recurso compartido de archivos de Azure, puede usar `sudo umount $mntPath` para desmontarlo.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Creación de un punto de montaje persistente para el recurso compartido de archivos de Azure con `/etc/fstab`
-1. **Cree una carpeta para un punto de montaje**: La carpeta para el punto de montaje se puede crear en cualquier parte del sistema de archivos, pero es habitual crearla en la carpeta /mnt. Por ejemplo, con el siguiente comando se crea un directorio; reemplace `<your-resource-group>`, `<your-storage-account>` y `<your-file-share>` por la información de su entorno correspondiente:
+1. **Cree una carpeta para un punto de montaje**: la carpeta para el punto de montaje se puede crear en cualquier parte del sistema de archivos, pero es habitual crearla en la carpeta /mount. Por ejemplo, con el siguiente comando se crea un directorio; reemplace `<your-resource-group>`, `<your-storage-account>` y `<your-file-share>` por la información de su entorno correspondiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```

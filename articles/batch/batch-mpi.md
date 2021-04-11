@@ -3,12 +3,12 @@ title: Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI
 description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Azure Batch.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 51fc580e0bb31e0e975c53b44887a5889a784eea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605678"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219862"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
@@ -21,7 +21,7 @@ Las tareas de instancias múltiples le permiten ejecutar una tarea de Azure Batc
 
 En Batch, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Batch programa la ejecución de cada tarea en un nodo. No obstante, si establece la **configuración de instancias múltiples** en una tarea, le estará diciendo a Batch que cree una tarea principal y varias tareas secundarias que se ejecutarán después en varios nodos.
 
-:::image type="content" source="media/batch-mpi/batch_mpi_01.png" alt-text="Diagrama que muestra información general de la configuración de instancias múltiples.":::
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagrama que muestra información general de la configuración de instancias múltiples.":::
 
 Al enviar una tarea con configuración de instancias múltiples a un trabajo, el servicio Batch realiza  varios pasos que son específicos de las tareas de instancias múltiples:
 

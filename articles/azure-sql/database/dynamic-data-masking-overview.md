@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918101"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551652"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -72,13 +72,13 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 ### <a name="data-masking-policies"></a>Directivas de enmascaramiento de datos
 
-- [Crear o actualizar](/rest/api/sql/datamaskingpolicies/createorupdate): crea o actualiza una directiva de enmascaramiento de datos para la base de datos.
-- [Obtener](/rest/api/sql/datamaskingpolicies/get): obtiene una directiva de enmascaramiento de datos para la base de datos. 
+- [Crear o actualizar](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate): crea o actualiza una directiva de enmascaramiento de datos para la base de datos.
+- [Obtener](/rest/api/sql/2014-04-01/datamaskingpolicies/get): obtiene una directiva de enmascaramiento de datos para la base de datos. 
 
 ### <a name="data-masking-rules"></a>Reglas de enmascaramiento de datos
 
-- [Crear o actualizar](/rest/api/sql/datamaskingrules/createorupdate): crea o actualiza una regla de enmascaramiento de datos para la base de datos.
-- [Lista por base de datos](/rest/api/sql/datamaskingrules/listbydatabase): obtiene una lista de reglas de enmascaramiento de datos para la base de datos.
+- [Crear o actualizar](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate): crea o actualiza una regla de enmascaramiento de datos para la base de datos.
+- [Lista por base de datos](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): obtiene una lista de reglas de enmascaramiento de datos para la base de datos.
 
 ## <a name="permissions"></a>Permisos
 

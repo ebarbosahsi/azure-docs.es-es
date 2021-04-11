@@ -1,17 +1,17 @@
 ---
 title: 'Información general sobre redes: Servidor flexible de Azure Database for MySQL'
 description: Obtenga información sobre las opciones de conectividad y redes en la opción de implementación Servidor flexible para Azure Database for MySQL
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec835073a1fe447490f6965fe41478319a47f503
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96906155"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106843"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceptos de conectividad y redes para Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -29,9 +29,9 @@ Tiene dos opciones de red para el Servidor flexible de Azure Database for MySQL.
 * **Acceso privado (Integración con red virtual)** : puede implementar el servidor flexible en la instancia de [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Las redes virtuales de Azure proporcionan una comunicación de red privada y segura. Los recursos de una red virtual se pueden comunicar mediante direcciones IP privadas.
 
    Elija la opción Integración con red virtual si quiere las funcionalidades siguientes:
-   * Conexión desde recursos de Azure en la misma red virtual a un servidor flexible mediante direcciones IP privadas
+   * Conexión desde los recursos de Azure en la misma red virtual o [red virtual emparejada](../../virtual-network/virtual-network-peering-overview.md) a su servidor flexible
    * Uso de VPN o ExpressRoute para conectarse desde recursos que no son de Azure al servidor flexible
-   * El servidor flexible no tiene un punto de conexión público
+   * Ningún punto de conexión público
 
 * **Acceso público (direcciones IP permitidas)** : se accede al servidor flexible a través de un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall**. 
 
@@ -57,13 +57,32 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 
     La red virtual debe estar en la misma región de Azure que el servidor flexible.
 
-
 * **Subred delegada**: una red virtual contiene subredes. Las subredes permiten segmentar la red virtual en espacios de direcciones más pequeños. Los recursos de Azure se implementan en subredes específicas dentro de una red virtual. 
 
    El servidor flexible de MySQL debe estar en una subred **delegada** para uso exclusivo del servidor flexible de MySQL. Esta delegación significa que solo los servidores flexibles de Azure Database for MySQL pueden utilizar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada. Puede delegar una subred si asigna su propiedad de delegación como Microsoft.DBforMySQL/flexibleServers.
 
 * **Grupos de seguridad de red (NSG)** Las reglas de seguridad de grupos de seguridad de red permiten filtrar el tipo de tráfico de red que puede fluir dentro y fuera de las interfaces de red y las subredes de redes virtuales. Revise la [Introducción a los grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md) para obtener más información.
 
+* **Emparejamiento de red virtual:** el emparejamiento de red virtual permite conectar sin problemas dos o más redes virtuales en Azure. A efectos de conectividad las redes virtuales emparejadas aparecen como una sola. El tráfico entre las máquinas virtuales de la red virtual emparejada usa la infraestructura de la red troncal de Microsoft. El tráfico entre la aplicación cliente y el servidor flexible en redes virtuales emparejadas se enruta a través de la red privada de Microsoft únicamente y está aislado a esa red únicamente.
+
+El servidor flexible admite el emparejamiento de redes virtuales dentro de la misma región de Azure. **No se admite** el emparejamiento de redes virtuales entre regiones. Revise los [conceptos de emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md) para obtener más información.
+
+### <a name="connecting-from-peered-vnets-in-same-azure-region"></a>Conexión desde redes virtuales emparejadas en la misma región de Azure
+Si la aplicación cliente que intenta conectarse al servidor flexible está en la red virtual emparejada, es posible que no pueda conectarse mediante el nombre de servidor del servidor flexible, ya que no puede resolver el nombre DNS para el servidor flexible de la red virtual emparejada. Hay dos opciones de autoservicio para resolver esto:
+* Usar dirección IP privada (recomendado para el escenario de desarrollo/pruebas): esta opción se puede usar con fines de desarrollo o prueba. Puede usar nslookup para deshacer la búsqueda inversa de la dirección IP privada para el nombre de servidor flexible (nombre de dominio completo) y usar la dirección IP privada para conectarse desde la aplicación cliente. No se recomienda usar la dirección IP privada para la conexión con el servidor flexible para su uso en producción, ya que puede cambiar durante un evento planeado o no planeado.
+* Usar zona DNS privada (recomendado para producción): esta opción es adecuada para fines de producción. Debe aprovisionar una [zona DNS privada](../../dns/private-dns-getstarted-portal.md) y vincularla a la red virtual del cliente. En la zona DNS privada, se agrega un [registro A](../../dns/dns-zones-records.md#record-types) para el servidor flexible mediante su dirección IP privada. Después, puede usar el registro A para conectarse desde la aplicación cliente en una red virtual emparejada a un servidor flexible.
+
+### <a name="connecting-from-on-premises-to-flexible-server-in-virtual-network-using-expressroute-or-vpn"></a>Conexión de un servidor local a un servidor flexible en Virtual Network mediante ExpressRoute o VPN
+En el caso de cargas de trabajo que requieran acceso a un servidor flexible en la red virtual desde la red local, necesitará [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute/) o [VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn/) y la red virtual [conectados al entorno local](/azure/architecture/reference-architectures/hybrid-networking/). Con esta configuración en su lugar, necesitará un reenviador DNS para resolver el nombre de servidor flexible si desea conectarse desde la aplicación cliente (como MySQL Workbench) que se ejecuta en una red virtual local. Este reenviador DNS es responsable de resolver todas las consultas de DNS a través de un reenviador de nivel de servidor en el servicio DNS proporcionado por Azure [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+Para realizar la configuración correctamente, necesitaría los siguientes recursos:
+
+- Red local
+- Servidor flexible de MySQL aprovisionado con acceso privado (integración con red virtual)
+- Red virtual [conectada al entorno local](/azure/architecture/reference-architectures/hybrid-networking/)
+- Uso del reenviador de DNS [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) implementado en Azure
+
+Después, puede usar el nombre de servidor flexible (FQDN) para conectarse desde la aplicación cliente en una red virtual emparejada o en una red local a un servidor flexible.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Escenarios de red virtual no admitidos
 * Punto de conexión público (o dirección IP pública o DNS): un servidor flexible implementado en una red virtual no puede tener un punto de conexión público
@@ -119,11 +138,10 @@ Ejemplo
 * Siempre que sea posible, evite usar `hostname = 10.0.0.4` (una dirección privada) o `hostname = 40.2.45.67` (una dirección IP pública)
 
 
-
 ## <a name="tls-and-ssl"></a>TLS y SSL
 Servidor flexible de Azure Database for MySQL admite la conexión de las aplicaciones cliente al servicio MySQL mediante Seguridad de la capa de transporte (TLS). TLS es un protocolo estándar del sector que garantiza conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente. TLS es un protocolo actualizado de Capa de sockets seguros (SSL).
 
-Servidor flexible de Azure Database for MySQL solo admite conexiones cifradas con Seguridad de la capa de transporte (TLS 1.2). Se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1. No se puede deshabilitar o cambiar la versión de TLS para conectarse al servidor flexible de Azure Database for MySQL.
+Servidor flexible de Azure Database for MySQL solo admite conexiones cifradas con Seguridad de la capa de transporte (TLS 1.2). Se denegarán todas las conexiones entrantes con TLS 1.0 y TLS 1.1. No se puede deshabilitar o cambiar la versión de TLS para conectarse al servidor flexible de Azure Database for MySQL. Consulte cómo [conectarse mediante SSL/TLS](how-to-connect-tls-ssl.md) para obtener más información. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

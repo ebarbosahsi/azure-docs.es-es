@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 4ee3e9e7d2aa0247011415b43517147fd421902a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094939"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076894"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -209,7 +209,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
 
 1. En la pantalla **Configurar los valores de la migración**, proporcione los detalles siguientes:
 
-    | | |
+    | Parámetro | Descripción |
     |--------|---------|
     |**Recurso compartido de la ubicación de la red SMB** | El recurso compartido de red SMB o recurso compartido de archivos de Azure que contiene los archivos de la copia de seguridad de la base de datos completa y los archivos de la copia de seguridad del registro de transacciones que Azure Database Migration Service puede usar para la migración. La cuenta de servicio que ejecuta la instancia de SQL Server de origen debe tener privilegios de lectura y escritura en este recurso compartido de red. Proporcione un FQDN o direcciones IP del servidor en el recurso compartido de red como, por ejemplo, "\\\servername.domainname.com\backupfolder" o "\\\IP address\backupfolder". Para mejorar el rendimiento, se recomienda usar una carpeta independiente para cada base de datos que se va a migrar. Puede proporcionar la ruta de acceso del recurso compartido de archivos de nivel de base de datos mediante la opción **Configuración avanzada**. Si tiene problemas para conectarse al recurso compartido de SMB, consulte el apartado sobre los[recursos compartidos de SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nombre de usuario** | Asegúrese de que el usuario de Windows tiene privilegio de control total sobre el recurso compartido de red que especificó anteriormente. Azure Database Migration Service suplanta la credencial de usuario para cargar los archivos de copia de seguridad en el contenedor de Azure Storage para la operación de restauración. Si va a usar el recurso compartido de archivos de Azure, use el nombre de la cuenta de almacenamiento que lleva antepuesto AZURE\ como nombre de usuario. |

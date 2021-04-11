@@ -3,16 +3,16 @@ title: Variables del sistema en Azure Data Factory
 description: En este artículo se describen las variables del sistema compatibles con Azure Data Factory. Puede usar estas variables en las expresiones a la hora de definir entidades de Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b85efa7ac4481ab9eb2b2637aee7d9e5e76e8f3f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201233"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786063"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables del sistema compatibles con Azure Data Factory
 
@@ -66,6 +66,20 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del J
 | @triggerBody().fileName  |Nombre del archivo cuya creación o eliminación hizo que se activara el desencadenador.   |
 | @triggerBody().folderName  |Ruta de acceso a la carpeta que contiene el archivo especificado en `@triggerBody().fileName`. El primer segmento de la ruta de acceso de la carpeta es el nombre del contenedor de Azure Blob Storage.  |
 | @trigger().startTime |Hora a la que se activó el desencadenador para invocar la ejecución de la canalización. |
+
+## <a name="custom-event-trigger-scope"></a>Ámbito de desencadenador de eventos de personalización
+
+Se puede hacer referencia a estas variables del sistema en cualquier parte del JSON de desencadenador para los desencadenadores de tipo [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>Azure Data Factory espera que el evento personalizado esté formateado con el [esquema de eventos de Azure Event Grid](../event-grid/event-schema.md).
+
+| Nombre de la variable | Descripción
+| --- | --- |
+| @triggerBody().event.eventType | Tipo de eventos que desencadenaron la ejecución del desencadenador de eventos personalizados. El tipo de evento es el campo definido por el cliente y toma cualquier valor de tipo de cadena. |
+| @triggerBody().event.subject | Asunto del evento personalizado que activó el desencadenador. |
+| @triggerBody().event.data._keyName_ | El campo de datos de evento personalizado es un blob de JSON gratuito, que el cliente puede usar para enviar mensajes y datos. Use data._keyName_ para hacer referencia a cada campo. Por ejemplo, @triggerBody().event.data.callback devuelve el valor del campo de _devolución de llamada_ almacenado en _datos_. |
+| @trigger().startTime | Hora a la que se activó el desencadenador para invocar la ejecución de la canalización. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

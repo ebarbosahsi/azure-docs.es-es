@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5fa19e23767af0e121d07872970199a2a1705ea8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618865"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951947"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Deshabilitación de los cifrados poco seguros y de la sincronización de hash de contraseñas para proteger un dominio administrado de Azure Active Directory Domain Services
 
@@ -34,14 +34,25 @@ Para completar este artículo, necesita los siguientes recursos:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Instale y configure Azure PowerShell.
-    * Si es necesario, siga las instrucciones para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](/powershell/azure/install-az-ps).
-    * Asegúrese de que inicia sesión en su suscripción de Azure con el cmdlet [Connect-AzAccount][Connect-AzAccount].
-* Instale y configure Azure AD PowerShell.
-    * Si es necesario, siga las instrucciones para [instalar el módulo de Azure AD PowerShell y conectarse a Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Asegúrese de iniciar sesión en el inquilino de Azure AD mediante el cmdlet [Connect-AzureAD][Connect-AzureAD].
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Deshabilitación de cifrados poco seguros y de la sincronización de hash de contraseña de NTLM
+## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Uso de la configuración de seguridad para deshabilitar los cifrados débiles y la sincronización de hash de contraseñas de NTLM
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En Azure Portal, seleccione **Azure AD Domain Services**.
+1. Elija el dominio administrado como, por ejemplo, *aaddscontoso.com*.
+1. En el lado izquierdo, seleccione **Configuración de seguridad**.
+1. Haga clic en **Deshabilitar** para realizar la configuración siguiente:
+   - **Modo de solo TLS 1.2**
+   - **Autenticación NTLM**
+   - **Sincronización de contraseñas de NTLM desde el entorno local**
+
+   ![Captura de pantalla de la configuración de seguridad para deshabilitar los cifrados débiles y la sincronización de hash de contraseñas de NTLM](media/secure-your-domain/security-settings.png)
+
+## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Uso de PowerShell para deshabilitar cifrados poco seguros y la sincronización de hash de contraseñas de NTLM
+
+Si lo necesita, [instale y configure Azure PowerShell](/powershell/azure/install-az-ps). Asegúrese de que inicia sesión en su suscripción de Azure con el cmdlet [Connect-AzAccount][Connect-AzAccount]. 
+
+Igualmente, [instale y configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) si fuera necesario. Asegúrese de iniciar sesión en el inquilino de Azure AD mediante el cmdlet [Connect-AzureAD][Connect-AzureAD].
 
 Para deshabilitar los conjuntos de cifrados poco seguros y la sincronización de hash de credenciales de NTLM, inicie sesión en su cuenta de Azure y, luego, obtenga el recurso de Azure AD DS con el cmdlet [Get-AzResource][Get-AzResource]:
 

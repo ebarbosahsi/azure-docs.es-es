@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 77c84e4b4a8129a95ee18b4ae89b48a687e9fce1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951596"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046220"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
 
 * Se espera un comportamiento diferente con respecto a los valores explícitos `null`:
   * Los grupos de Spark en Azure Synapse leerán estos valores como `0` (cero).
-  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `NULL` si el primer documento de la colección tiene, para la misma propiedad, un valor con un tipo de valor de DataType diferente de `integer`.
-  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `0` (cero) si el primer documento de la colección tiene, para la misma propiedad, un valor que sea un entero.
+  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `NULL` si el primer documento de la colección tiene, para la misma propiedad, un valor con el tipo de datos `non-numeric`.
+  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `0` (cero) si el primer documento de la colección tiene, para la misma propiedad, un valor con el tipo de datos `numeric`.
 
 * Se espera un comportamiento diferente con respecto a las columnas que faltan:
   * Los grupos de Spark en Azure Synapse representarán estas columnas como `undefined`.

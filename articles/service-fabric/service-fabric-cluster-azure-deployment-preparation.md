@@ -3,19 +3,19 @@ title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109630"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046324"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
 La planeación y preparación para la implementación de un clúster de producción son muy importantes.  Existen muchos factores a tener en cuenta.  Este artículo le guiará por los pasos de preparación de la implementación del clúster.
 
 ## <a name="read-the-best-practices-information"></a>Lectura de información de procedimientos recomendados
-Para administrar clústeres y aplicaciones de Azure Service Fabric correctamente, existen una serie de procedimientos que le recomendamos realizar para optimizar la fiabilidad de su entorno de producción.  Para obtener más información, consulte [Procedimientos recomendados para aplicaciones y clústeres de Service Fabric](service-fabric-best-practices-overview.md).
+Para administrar clústeres y aplicaciones de Azure Service Fabric correctamente, existen una serie de procedimientos que le recomendamos realizar para optimizar la fiabilidad de su entorno de producción.  Para obtener más información, consulte [Procedimientos recomendados para aplicaciones y clústeres de Service Fabric](./service-fabric-best-practices-security.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Selección del sistema operativo del clúster
 Service Fabric permite la creación de clústeres de Service Fabric en cualquier máquina virtual o equipo con Windows Server o Linux.  Antes de implementar el clúster, debe elegir el sistema operativo:  Windows o Linux.  Todos los nodos (máquina virtual) del clúster utilizan el mismo sistema operativo. No puede combinar máquinas virtuales de Windows y Linux en el mismo clúster.
@@ -117,7 +117,7 @@ Una parte fundamental de la entrega de alta disponibilidad es garantizar que los
 ¿La aplicación y el clúster están preparados para asumir el tráfico de producción? Antes de realizar la implementación del clúster en la producción, ejecute la [lista de comprobación sobre la preparación de producción](service-fabric-production-readiness-checklist.md). Revise los elementos de la siguiente lista de comprobación para que la aplicación y el clúster se ejecuten sin problemas. Se recomienda encarecidamente comprobar todos estos elementos antes de pasar a la producción.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un clúster de Service Fabric que ejecuta Windows](service-fabric-best-practices-overview.md)
+* [Creación de un clúster de Service Fabric que ejecuta Windows](./service-fabric-best-practices-security.md)
 * [Creación de un clúster de Service Fabric que ejecuta Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

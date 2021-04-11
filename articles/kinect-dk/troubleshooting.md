@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: solución de problemas, actualización, error, Kinect, comentarios, recuperación, registro, sugerencias
-ms.openlocfilehash: ecd0fe9021642b27438b0e5d3d140e50c8073f29
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: da5242a09934a756093a9e02b6d474e6c75fecda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108747"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conocidos y solución de problemas de Azure Kinect
 
@@ -193,12 +193,12 @@ El SDK de seguimiento de cuerpos es compatible con los entornos de ejecución de
 > El tiempo de ejecución de ONNX muestra advertencias de códigos de tiempo que no se aceleran. Se pueden omitir sin ningún problema.
 
 El tiempo de ejecución de ONNX incluye variables de entorno para controlar el almacenamiento en caché del modelo TensorRT. Los valores recomendados son:
-- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
 - ORT_TENSORRT_CACHE_PATH="pathname"
 
 La carpeta debe crearse antes de iniciar el seguimiento del cuerpo.
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > TensorRT procesa previamente el modelo antes de la inferencia, lo que genera tiempos de inicio extendidos en comparación con otros entornos de ejecución. El almacenamiento en caché del motor limita esto a la primera ejecución, pero es experimental y es específica del modelo, la versión del Runtime de ONNX, la versión de TensorRT y el modelo de GPU.
 
 El entorno de ejecución de TensorRT admite tanto FP32 (predeterminado) como FP16. El FP16 ofrece un aumento de rendimiento de ~2 veces a cambio de una disminución mínima de la precisión. Para especificar FP16:

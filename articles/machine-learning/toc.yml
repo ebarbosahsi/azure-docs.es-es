@@ -556,6 +556,9 @@
             - name: Transformación de datos
               displayName: pipeline
               href: how-to-designer-transform-data.md
+            - name: Uso de parámetros de canalización
+              displayName: 'designer, pipeline parameters'
+              href: how-to-use-pipeline-parameter.md
             - name: Reentrenamiento mediante canalizaciones publicadas
               displayName: 'retrain, designer, published pipeline'
               href: how-to-retrain-designer.md
@@ -621,6 +624,8 @@
     - name: Entornos mantenidos
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-cli-ml/ml
 - name: Recursos
   items:
     - name: Notas de la versión

@@ -1,0 +1,53 @@
+---
+title: Detalles del grupo de Apache Spark
+description: Introducción a los tamaños y configuraciones del grupo de Apache Spark en Azure Synapse Analytics.
+services: synapse-analytics
+author: mlee3gsd
+ms.service: synapse-analytics
+ms.topic: conceptual
+ms.subservice: spark
+ms.date: 12/2/2020
+ms.author: martinle
+ms.reviewer: euang
+ms.openlocfilehash: 6422c33f17879aa8ec4844cc6de63411528a388b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606164"
+---
+# <a name="apache-spark-pool-configurations-in-azure-synapse-analytics"></a>Configuraciones del grupo de Apache Spark en Azure Synapse Analytics
+
+Un grupo de Spark es un conjunto de metadatos que define los requisitos de recursos de proceso y las características de comportamiento asociadas cuando se crean instancias de una instancia de Spark. Estas características incluyen, entre otras, el nombre, el número de nodos, el tamaño del nodo, el comportamiento de escalado y el período de vida. Un grupo de Spark no consume ningún recurso por sí mismo. La creación de grupos de Spark no conlleva ningún costo. Solo se incurre en cargos una vez que se ejecuta un trabajo de Spark en el grupo de Spark de destino y se crean instancias de la instancia de Spark a petición.
+
+Puede consultar cómo crear un grupo de Spark y ver todas sus propiedades en [Introducción a los grupos de Spark en Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md).
+
+## <a name="nodes"></a>Nodos
+
+La instancia del grupo de Apache Spark consta de un nodo principal y dos o más nodos de trabajo con un mínimo de tres nodos en una instancia de Spark.  El nodo principal ejecuta servicios de administración adicionales, como Livy, Yarn Resource Manager, Zookeeper y el controlador de Spark.  Todos los nodos ejecutan servicios como Node Agent y Yarn Node Manager. Todos los nodos de trabajo ejecutan el servicio Spark Executor.
+
+## <a name="node-sizes"></a>Tamaño de nodo
+
+Un grupo de Spark puede definirse con tamaños de nodo que van desde un nodo de ejecución pequeño con 8 núcleos virtuales y 64 GB de memoria hasta un nodo de ejecución XXGrande con 64 núcleos virtuales y 432 GB de memoria por nodo. Los tamaños de nodo se pueden modificar después de que se cree el grupo, aunque es posible que sea necesario reiniciar la instancia.
+
+|Size | vCore | Memoria|
+|-----|------|-------|
+|Small|4|32 GB|
+|Media|8|64 GB|
+|grande|16|128 GB|
+|XGrande|32|256 GB|
+|XXGrande|64|432 GB|
+
+## <a name="autoscale"></a>Escalado automático
+
+Los grupos de Apache Spark proporcionan la capacidad de escalar y reducir verticalmente los recursos de proceso en función de la cantidad de actividad.  Cuando se habilita la característica de escalabilidad automática, puede establecer el número mínimo y máximo de nodos que se van a escalar.
+Cuando la característica de escalabilidad automática está deshabilitada, el número de nodos establecido permanecerá fijo.  Esta configuración se puede modificar después de que se cree el grupo, aunque es posible que sea necesario reiniciar la instancia.
+
+## <a name="automatic-pause"></a>Pausa automática
+
+La característica de pausa automática libera recursos después de un período de inactividad establecido, lo que reduce el costo general de un grupo de Apache Spark.  El número de minutos de inactividad se puede configurar una vez que se habilita esta característica.  La característica de pausa automática es independiente de la característica de escalabilidad automática. Los recursos se pueden pausar si la escalabilidad automática está habilitada o deshabilitada.  Esta configuración se puede modificar después de que se cree el grupo, aunque es posible que sea necesario reiniciar la instancia.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Azure Synapse Analytics](../index.yml)
+* [Documentación de Apache Spark](https://spark.apache.org/docs/2.4.5/)

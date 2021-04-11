@@ -3,19 +3,14 @@ title: Restauración de Azure Managed Disks
 description: Aprenda a restaurar Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94adc8512987b50a8df07d295215ffcff873162f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101703756"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108594"
 ---
-# <a name="restore-azure-managed-disks-in-preview"></a>Restauración de Azure Managed Disks (en versión preliminar)
-
->[!IMPORTANT]
->Azure Disk Backup está en su versión preliminar y se ofrece sin Acuerdo de Nivel de Servicio, por lo que no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para ver la disponibilidad de la región, consulte la [matriz de compatibilidad](disk-backup-support-matrix.md).
->
->[Rellene este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para suscribirse a la versión preliminar.
+# <a name="restore-azure-managed-disks"></a>Restauración de Azure Managed Disks
 
 En este artículo se explica cómo restaurar [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) desde un punto de restauración que haya creado Azure Backup.
 

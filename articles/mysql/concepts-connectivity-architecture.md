@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655264"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046477"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitectura de conectividad en Azure Database for MySQL
 En este artículo se explica la arquitectura de conectividad de Azure Database for MySQL y cómo se dirige el tráfico a la instancia de Azure Database for MySQL desde clientes internos y externos de Azure.
@@ -110,7 +110,7 @@ Solo se retirarán los nodos de puerta de enlace. Cuando los usuarios se conecta
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>¿Cómo puede validar si las conexiones van a los nodos de puerta de enlace antiguos o a los nuevos nodos de puerta de enlace?
 Haga ping al FQDN del servidor, por ejemplo, ``ping xxx.mysql.database.azure.com``. Si la dirección IP devuelta es una de las que aparecen en la lista de direcciones IP de puerta de enlace (que se retiran) en el documento anterior, significa que la conexión pasa a través de la puerta de enlace antigua. De lo contrario, si la dirección IP devuelta es una de las que aparecen en las direcciones IP de puerta de enlace, significa que la conexión pasa a través de la nueva puerta de enlace.
 
-También puede probar de hacer [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) o TCPPing en el servidor de base de datos desde la aplicación cliente con el puerto 3306 y asegurarse de que la dirección IP devuelta no sea una de las direcciones IP de retiradas.
+También puede probar de hacer [PSPing](/sysinternals/downloads/psping) o TCPPing en el servidor de base de datos desde la aplicación cliente con el puerto 3306 y asegurarse de que la dirección IP devuelta no sea una de las direcciones IP de retiradas.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>¿Cómo puedo saber cuándo ha finalizado el mantenimiento? ¿Recibiré otra notificación cuando se retiren las direcciones IP antiguas?
 Recibirá un correo electrónico en el que se le informará de cuándo se iniciará el trabajo de mantenimiento. El mantenimiento puede tardar hasta un mes, en función del número de servidores que se necesiten migrar en todas las regiones. Prepare el cliente para que establezca conexión con el servidor de base de datos mediante el FQDN o con la nueva dirección IP de la tabla anterior. 
