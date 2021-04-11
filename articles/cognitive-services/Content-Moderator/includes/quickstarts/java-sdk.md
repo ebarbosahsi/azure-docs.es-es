@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 17acd11b6ebb651be170135ab9789f788d4d8077
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444905"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105264"
 ---
 Introducción a la biblioteca cliente de Azure Content Moderator para Java. Siga estos pasos para instalar el paquete Maven y probar el código de ejemplo para realizar tareas básicas. 
 
@@ -238,6 +238,3 @@ En este inicio rápido, ha aprendido a usar la biblioteca Java de Content Modera
 
 > [!div class="nextstepaction"]
 > [Conceptos de moderación de imágenes](../../image-moderation-api.md)
-
-* [¿Qué es Azure Content Moderator?](../../overview.md)
-* El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java).

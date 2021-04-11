@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669492"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark sin servidor en Azure Synapse Analytics mediante herramientas web
@@ -82,9 +82,9 @@ Un cuaderno es un entorno interactivo que admite varios lenguajes de programaci�
 
     Si se usa el explorador de almacenamiento, es posible ver el impacto de las dos formas diferentes de escribir un archivo usadas anteriormente. Cuando no se especifica ningún sistema de archivos, se usa el valor predeterminado, en este caso `default>user>trusted-service-user>demo_df`. Los datos se guardan en la ubicación del sistema de archivos especificado.
 
-    Observe que en los formatos "csv" y "parquet", las operaciones de escritura crean un directorio con muchos archivos con particiones.
+    Observe que en los formatos "csv&quot; y &quot;parquet&quot;, las operaciones de escritura crean un directorio con muchos archivos con particiones.
 
-    ![Vista del explorador de Storage de la salida](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Vista del explorador de Storage de la salida")
+    ![Vista del explorador de Storage de la salida](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;Vista del explorador de Storage de la salida")
 
     ![Captura de pantalla que resalta la ruta de acceso default > demodata > demo_df.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Vista del explorador de Storage de la salida")
 

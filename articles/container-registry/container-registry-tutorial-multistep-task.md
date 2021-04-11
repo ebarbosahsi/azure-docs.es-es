@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a configurar una tarea de Azure Contai
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: be5c8c4012267dc7ce6362502c806a9f238732b7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 71440a8bd18029c913a61633fc3e1941338040b0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98920280"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066439"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente
 
@@ -120,7 +120,7 @@ La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecu
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status": "Enabled"
+      "status&quot;: &quot;Enabled"
     },
     "sourceTriggers": [
       {
@@ -129,16 +129,16 @@ La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecu
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType&quot;: &quot;Github"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status": "Enabled"
+        "status&quot;: &quot;Enabled"
       }
     ]
   },
-  "type": "Microsoft.ContainerRegistry/registries/tasks"
+  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
