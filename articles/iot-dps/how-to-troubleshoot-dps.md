@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: xujing
-ms.openlocfilehash: ba81be54592e591f734b05235bb3ce183a07a11c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fd7d4407f7ea552409599946d1c13a7e9d1d7268
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101709893"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062546"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solución de problemas con Azure IoT Hub Device Provisioning Service
 
@@ -44,7 +44,7 @@ En el procedimiento siguiente se describe cómo ver y configurar alertas en las 
 
 7. Seleccione **Agregar condición** y, después, siga las indicaciones para seleccionar la métrica y el umbral deseados.
 
-Para más información, vea la información sobre [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md).
+Para más información, vea la información sobre [alertas en Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Uso de Log Analytics para ver y resolver errores
 
