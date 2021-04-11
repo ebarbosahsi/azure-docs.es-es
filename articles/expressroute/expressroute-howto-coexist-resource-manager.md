@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/11/2019
+ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651520"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574176"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -36,16 +36,18 @@ En este artículo, se explican los pasos para configurar ambos escenarios. Este 
 >
 
 ## <a name="limits-and-limitations"></a>Límites y limitaciones
-* **No se admite el enrutamiento transitorio.** No se puede realizar un enrutamiento (a través de Azure) entre una red local conectada a través de una VPN sitio a sitio y una red local conectada a través de ExpressRoute.
-* **No se admite la puerta de enlace de la SKU de nivel Básico.** Debe utilizar una puerta de enlace de la SKU que no sea de nivel Básico tanto para la [puerta de enlace de ExpressRoute](expressroute-about-virtual-network-gateways.md) como para la [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas. También puede usar una VPN Gateway basada en rutas con una conexión VPN configurada para "selectores de tráfico basados en directivas", tal y como se describe en [Conexión a varios dispositivos VPN basados en directivas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
-* **Se debe configurar una ruta estática para VPN Gateway.** Si la red local está conectada tanto a ExpressRoute como a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
-* **VPN Gateway se configura de manera predeterminada en ASN 65515 si no se especifica.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para especificar el ASN (número AS) de la red virtual, agregue el modificador - Asn. Si no se especifica este parámetro, el número AS predeterminado es 65515. Puede usar cualquier ASN para la configuración, pero si selecciona un valor distinto de 65515, debe restablecer la puerta de enlace para que la configuración surta efecto.
+* **El ASN de Azure VPN Gateway debe establecerse en 65515.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para que ExpressRoute y la VPN de Azure funcionen juntos, debe mantener el número de sistema autónomo de la puerta de enlace de VPN de Azure en su valor predeterminado, 65515. Si previamente ha seleccionado un ASN que no sea 65515 y cambia el valor a 65515, debe restablecer la puerta de enlace de VPN para que la configuración surta efecto.
 * **La subred de la puerta de enlace debe ser /27 o un prefijo más corto**, (como /26, /25). De lo contrario, recibirá un mensaje de error al agregar la puerta de enlace de red virtual de ExpressRoute.
+* **No se admite la coexistencia en una red virtual de doble pila.** Si usa la compatibilidad con IPv6 de ExpressRoute y una puerta de enlace de ExpressRoute de doble pila, la coexistencia con VPN Gateway no será posible.
 
 ## <a name="configuration-designs"></a>Diseños de configuración
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configuración de una VPN de sitio a sitio como una ruta de acceso de conmutación por error para ExpressRoute
 Puede configurar una conexión VPN de sitio a sitio como una copia de seguridad para ExpressRoute. Esta conexión se aplica únicamente a las redes virtuales vinculadas a la ruta de acceso de emparejamiento privado de Azure. No hay ninguna solución de conmutación por error basada en VPN para servicios que sea accesible mediante el emparejamiento de Microsoft Azure. El circuito ExpressRoute siempre es el vínculo principal. Los datos fluyen a través de la ruta de acceso de la VPN de sitio a sitio solo si se produce un error en el circuito ExpressRoute. Para evitar el enrutamiento asimétrico, la configuración de red local también debería preferir el circuito ExpressRoute a través de la VPN de sitio a sitio. Si prefiere utilizar la ruta de ExpressRoute, dé mayor preferencia local a las rutas que reciben ExpressRoute. 
+
+>[!NOTE]
+> Si tiene habilitado el emparejamiento de Microsoft para ExpressRoute, puede recibir la dirección IP pública de la puerta de enlace de VPN de Azure en la conexión de ExpressRoute. Para configurar la conexión VPN de sitio a sitio como copia de seguridad, debe configurar la red local para que la conexión VPN se enrute a Internet.
+>
 
 > [!NOTE]
 > Si bien se prefiere el circuito ExpressRoute a la VPN de sitio a sitio cuando ambas rutas son las mismas, Azure utilizará la coincidencia de prefijo más larga para elegir la ruta hacia el destino del paquete.
@@ -248,9 +250,9 @@ Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en
 
    ```azurepowershell-interactive
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. En Azure, cargue el certificado raíz de VPN de la puerta de enlace de VPN. En este ejemplo, se supone que el certificado raíz se almacena en la máquina local donde se ejecutan los siguientes cmdlets de PowerShell y que el usuario está ejecutando PowerShell localmente. También puede cargar el certificado con Azure Portal.
+2. En Azure, cargue el [certificado raíz](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#Certificates) de VPN de la puerta de enlace de VPN. En este ejemplo, se supone que el certificado raíz se almacena en la máquina local donde se ejecutan los siguientes cmdlets de PowerShell y que el usuario está ejecutando PowerShell localmente. También puede cargar el certificado con Azure Portal.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 
@@ -260,8 +262,11 @@ Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en
    $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
    ```
-
 Para más información sobre la VPN de punto a sitio, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
+
+## <a name="to-enable-transit-routing-between-expressroute-and-azure-vpn"></a>Habilitación del enrutamiento de tránsito entre ExpressRoute y VPN de Azure
+Si desea habilitar la conectividad entre una de las redes locales que está conectada a ExpressRoute y otra de la red local que está conectada a una conexión VPN de sitio a sitio, debe configurar [Azure Route Server](../route-server/expressroute-vpn-support.md).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

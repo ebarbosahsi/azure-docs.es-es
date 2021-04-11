@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0eaa73fa7e0a9896a875af7e3a3aab22db2a37d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036609"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657066"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos del registro de eventos de Windows con el agente de Log Analytics
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](../agents/agent-data-sources.md) más comunes para los agentes de Log Analytics en máquinas virtuales Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -28,6 +28,10 @@ Azure Monitor solo recopila eventos de los registros de eventos de Windows que s
 A medida que escribe el nombre de un registro de eventos, Azure Monitor da sugerencias de nombres comunes de este tipo de registros. Aun cuando el registro que desea agregar no aparezca en la lista, puede incluirlo escribiendo su nombre completo. Encontrará el nombre completo del registro en el Visor de eventos. En el Visor de eventos, abra la página *Propiedades* del registro y copie la cadena del campo *Nombre completo*.
 
 [![Configurar eventos de Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+
+> [!IMPORTANT]
+> No puede configurar la recopilación de eventos de seguridad en el área de trabajo. Para recopilar eventos de seguridad, es preciso usar [Azure Security Center](../../security-center/security-center-enable-data-collection.md) o [Azure Sentinel](../../sentinel/connect-windows-security-events.md).
+
 
 > [!NOTE]
 > Los eventos críticos del registro de eventos de Windows tendrán una gravedad de "error" en los registros de Azure Monitor.

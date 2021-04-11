@@ -11,10 +11,10 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel
 ms.openlocfilehash: 8cb92407954ab5376850e57b0ee91d934480b025
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104786896"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Acceso a los almacenes de datos y los recursos compartidos de archivos con la autenticación de Windows desde paquetes SSIS en Azure
@@ -126,7 +126,7 @@ Para comprobar que puede conectarse a un recurso compartido de archivos local, h
 
 3. Compruebe que se devuelve la lista de directorios del recurso compartido de archivos local.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para acceder a un recurso compartido de archivos en el entorno local desde paquetes que se ejecutan en Azure, realice lo siguiente:
 

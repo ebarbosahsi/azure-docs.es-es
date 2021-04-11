@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726434"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729514"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -218,7 +218,7 @@ Por convención, la sección `FeatureManagement` de este documento JSON se usa p
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Uso de la inyección de dependencias para acceder a IFeatureManager 
 
-En algunas operaciones, como la comprobación manual de los valores de marcas de características, es necesario obtener una instancia de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias. En el ejemplo siguiente, se agrega un argumento de tipo `IFeatureManager` a la firma del constructor para un controlador. El tiempo de ejecución resuelve automáticamente la referencia y proporciona un de la interfaz al llamar al constructor. Si utiliza una plantilla de aplicación en la que el controlador ya tiene uno o más argumentos de inyección de dependencias en el constructor, como `ILogger`, puede agregar `IFeatureManager` como argumento adicional:
+En algunas operaciones, como la comprobación manual de los valores de marcas de características, es necesario obtener una instancia de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). En ASP.NET Core MVC, puede acceder al administrador de características `IFeatureManager` mediante la inserción de dependencias. En el ejemplo siguiente, se agrega un argumento de tipo `IFeatureManager` a la firma del constructor para un controlador. El tiempo de ejecución resuelve automáticamente la referencia y proporciona un de la interfaz al llamar al constructor. Si utiliza una plantilla de aplicación en la que el controlador ya tiene uno o más argumentos de inyección de dependencias en el constructor, como `ILogger`, puede agregar `IFeatureManager` como argumento adicional:
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     
@@ -322,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está *desactivada*, se llama a una interfaz [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) registrada. La interfaz predeterminada `IDisabledFeaturesHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
+Cuando una acción o controlador MVC está bloqueado porque la marca de característica de control está *desactivada*, se llama a una interfaz [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) registrada. La interfaz predeterminada `IDisabledFeaturesHandler` devuelve un código de estado 404 al cliente sin cuerpo de respuesta.
 
 ## <a name="mvc-views"></a>Vistas de MVC
 

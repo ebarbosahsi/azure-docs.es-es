@@ -1,18 +1,18 @@
 ---
 title: 'Versiones admitidas en Azure Database for PostgreSQL: servidor único'
 description: 'Aquí se describen las versiones principales y secundarias de Postgres admitidas en Azure Database for PostgreSQL: servidor único.'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 41662c5e4cc0ed9458f8b1b1279e2753daed789f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b372c9d8be31ab6f51d737cd00c692ac9242e4db
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100518460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605279"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versiones principales de PostgreSQL admitidas
 

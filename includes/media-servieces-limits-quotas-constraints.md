@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558294"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125915"
 ---
 > [!NOTE]
 > En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -66,9 +66,9 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 | --- | --- |
 | Eventos en directo <sup>(4)</sup> por cuenta de Media Services |5|
 | Salidas en directo por evento en directo |3 <sup>(5)</sup> |
-| Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Para obtener información detallada sobre las limitaciones de eventos en directo, consulte [Comparación de tipos de objetos LiveEvent](../articles/media-services/latest/live-event-types-comparison.md).
+<sup>4</sup> Para obtener información detallada sobre las limitaciones de eventos en directo, consulte [Comparación de tipos de objetos LiveEvent](../articles/media-services/latest/live-event-types-comparison-reference.md).
 
 <sup>5</sup> Los objetos LiveOutput comienzan cuando se crean y se detienen cuando se eliminan.
 

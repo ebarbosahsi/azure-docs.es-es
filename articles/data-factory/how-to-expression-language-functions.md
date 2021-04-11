@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 090c738d06b9b8acd53a4c194e97fa3a0515e1d6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783394"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566666"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Procedimientos para usar parámetros, expresiones y funciones en Azure Data Factory
 
@@ -25,7 +25,7 @@ En este documento, nos centraremos principalmente en aprender conceptos fundamen
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Interfaz de usuario y parámetros de Azure Data Factory
 
-Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) para obtener una explicación visual.
+Si no está familiarizado con el uso de parámetros de Azure Data Factory en la interfaz de usuario de ADF, revise [Interfaz de usuario de Data Factory para los servicios vinculados con parámetros](./parameterize-linked-services.md#data-factory-ui) e [Interfaz de usuario de Data Factory para la canalización controlada por metadatos con parámetros](./how-to-use-trigger-parameterization.md#data-factory-ui) para obtener una explicación visual.
 
 ## <a name="parameter-and-expression-concepts"></a>Conceptos de parámetros y expresiones 
 
@@ -313,11 +313,11 @@ Este [tutorial para pasar parámetros de canalización de copia de Azure Data Fa
 
 ### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>Canalización detallada de flujo de datos de asignación con parámetros 
 
-Siga el [flujo de datos de asignación con parámetros](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) para obtener un ejemplo completo sobre cómo usar los parámetros en el flujo de datos.
+Siga el [flujo de datos de asignación con parámetros](./parameters-data-flow.md) para obtener un ejemplo completo sobre cómo usar los parámetros en el flujo de datos.
 
 ### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>Canalización detallada controlada por metadatos con parámetros
 
-Siga la [canalización controlada por metadatos con parámetros](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) para obtener más información sobre cómo usar los parámetros para diseñar canalizaciones controladas por metadatos. Este es un caso de uso popular para los parámetros.
+Siga la [canalización controlada por metadatos con parámetros](./how-to-use-trigger-parameterization.md) para obtener más información sobre cómo usar los parámetros para diseñar canalizaciones controladas por metadatos. Este es un caso de uso popular para los parámetros.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

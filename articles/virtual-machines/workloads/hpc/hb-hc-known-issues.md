@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889831"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604845"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
@@ -24,9 +24,18 @@ En Ubuntu-18.04, Mellanox OFED mostró incompatibilidad con la versión de kerne
 La solución temporal consiste en usar la imagen de marketplace **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** o anteriores y no actualizar el kernel.
 Se espera que este problema se resuelva con un MOFED más reciente (TBD).
 
-## <a name="known-issues-on-hbv3"></a>Problemas conocidos de HBv3
-- Actualmente, InfiniBand solo se admite en la máquina virtual 120-Core (Standard_HB120rs_v3).
-- Las redes aceleradas de Azure no son compatibles en este momento con la serie HBv3 en todas las regiones.
+## <a name="mpi-qp-creation-errors"></a>Errores de creación de QP de MPI
+Si durante la ejecución de cualquier carga de trabajo de MPI se producen errores de creación de InfiniBand QP, tal como se muestra a continuación, se recomienda reiniciar la VM y volver a intentar la carga de trabajo. Este problema se corregirá en un futuro.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+Puede comprobar los valores del número máximo de pares de cola cuando se observa el problema, tal como se indica a continuación.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Redes aceleradas en HB, HC, HBv2 y NDv2
 

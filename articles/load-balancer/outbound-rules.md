@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033160"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590218"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reglas de salida en Azure Load Balancer
 
@@ -36,11 +36,11 @@ Con las reglas de salida, puede definir explícitamente un comportamiento **SNAT
 Las reglas de salida permiten controlar:
 
 * **Qué máquinas virtuales se deben traducir a qué direcciones IP públicas.**
-     * Dos reglas, donde el grupo de back-end A usa las direcciones IP A y B, el grupo de back-end B usa las direcciones IP C y D.
+     * Dos reglas en las que el grupo de back-end 1 usa la dirección IP azul 1 y 2, el grupo de back-end 2 usa el prefijo de IP amarillo.
 * **Cómo se asignan los puertos de SNAT de salida.**
-     * El grupo de back-end B es el único grupo que realiza conexiones salientes, concede todos los puertos SNAT al grupo de back-end B y ninguno al grupo de back-end A.
+     * Si el grupo de back-end 2 es el único grupo que realiza conexiones salientes, concede todos los puertos SNAT al grupo de back-end 2 y ninguno al grupo de back-end 1.
 * **A qué protocolos se proporciona traducción de salida.**
-     * El grupo de back-end B necesita puertos UDP para la salida. El grupo de back-end A necesita TCP. Asigne los puertos TCP a A y los puertos UDP a B.
+     * Si el grupo de back-end 2 necesita puertos UDP para salida, y el grupo de back-end 1 necesita TCP, asigne puertos TCP a 1 y puertos UDP a 2.
 * **Qué duración se debe usar para el tiempo de espera de inactividad de conexión (de 4 a 120 minutos).**
      * Si hay conexiones de larga ejecución con Keepalives, reserve puertos inactivos para las conexiones de larga ejecución durante un máximo de 120 minutos. Suponga que las conexiones obsoletas se han abandonado y libere los puertos en 4 minutos para las conexiones nuevas. 
 * **Si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad.**

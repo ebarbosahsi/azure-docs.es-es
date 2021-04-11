@@ -3,34 +3,34 @@ title: Funciones del sistema en registros de Azure Monitor
 description: Escribir consultas personalizadas en registros de Azure Monitor mediante funciones del sistema
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510430"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564915"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funciones del sistema en registros de Azure Monitor
 
 Azure Backup proporciona un conjunto de funciones, llamadas funciones del sistema o funciones de la solución, que están disponibles de manera predeterminada en las áreas de trabajo de Log Analytics (LA).
  
-Estas funciones operan sobre los datos de las [tablas de Azure Backup sin formato](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) en LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples. Los usuarios pueden pasar parámetros a estas funciones para filtrar los datos devueltos por estas funciones. 
+Estas funciones operan sobre los datos de las [tablas de Azure Backup sin formato](./backup-azure-reports-data-model.md) en LA y devuelven datos con formato que le ayudan a recuperar fácilmente la información de todas las entidades relacionadas con la copia de seguridad mediante consultas simples. Los usuarios pueden pasar parámetros a estas funciones para filtrar los datos devueltos por estas funciones. 
 
 Se recomienda usar funciones del sistema para consultar los datos de copia de seguridad de las áreas de trabajo de LA para la creación de informes personalizados, ya que proporcionan una serie de ventajas, como se detalla en la sección siguiente.
 
 ## <a name="benefits-of-using-system-functions"></a>Ventajas del uso de las funciones del sistema
 
-* **Consultas más simples**: el uso de funciones le ayuda a reducir el número de combinaciones necesarias en las consultas. De manera predeterminada, las funciones devuelven esquemas "planos" que incorporan toda la información relativa a la entidad (instancia de copia de seguridad, trabajo, almacén, etc.) que se consulta. Por ejemplo, si necesita obtener una lista de trabajos de copia de seguridad correctos por nombre de elemento de copia de seguridad y su contenedor asociado, una llamada simple a la función **_AzureBackup_getJobs()** le proporcionará toda esta información para cada trabajo. Por otro lado, la consulta directa de las tablas sin formato requerirá la realización de varias combinaciones entre las tablas [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) y [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup).
+* **Consultas más simples**: el uso de funciones le ayuda a reducir el número de combinaciones necesarias en las consultas. De manera predeterminada, las funciones devuelven esquemas "planos" que incorporan toda la información relativa a la entidad (instancia de copia de seguridad, trabajo, almacén, etc.) que se consulta. Por ejemplo, si necesita obtener una lista de trabajos de copia de seguridad correctos por nombre de elemento de copia de seguridad y su contenedor asociado, una llamada simple a la función **_AzureBackup_getJobs()** le proporcionará toda esta información para cada trabajo. Por otro lado, la consulta directa de las tablas sin formato requerirá la realización de varias combinaciones entre las tablas [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) y [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup).
 
-* **Transición más fluida desde el evento de diagnóstico heredado**: el uso de funciones del sistema le ayuda a realizar la transición sin problemas desde el [evento de diagnóstico heredado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport en modo AzureDiagnostics) a los [eventos específicos del recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Todas las funciones del sistema proporcionadas por Azure Backup permiten especificar un parámetro que le permite elegir si la función debe consultar los datos solo de las tablas específicas del recurso, o bien consultar los datos de la tabla heredada y de las tablas específicas del recurso (con desduplicación de registros).
+* **Transición más fluida desde el evento de diagnóstico heredado**: el uso de funciones del sistema le ayuda a realizar la transición sin problemas desde el [evento de diagnóstico heredado](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport en modo AzureDiagnostics) a los [eventos específicos del recurso](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Todas las funciones del sistema proporcionadas por Azure Backup permiten especificar un parámetro que le permite elegir si la función debe consultar los datos solo de las tablas específicas del recurso, o bien consultar los datos de la tabla heredada y de las tablas específicas del recurso (con desduplicación de registros).
     * Si ha migrado correctamente a las tablas específicas del recurso, puede optar por excluir la tabla heredada de la consulta de la función.
     * Si actualmente se encuentra en el proceso de migración y tiene algunos datos en las tablas heredadas que necesita para el análisis, puede incluir la tabla heredada. Una vez completada la transición y que ya no necesite los datos de la tabla heredada, puede actualizar el valor del parámetro pasado a la función en las consultas para excluir la tabla heredada.
-    * Si todavía usa solo la tabla heredada, las funciones seguirán funcionando si decide incluir la tabla heredada a través del mismo parámetro. Sin embargo, se recomienda [cambiar a las tablas específicas del recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) lo antes posible.
+    * Si todavía usa solo la tabla heredada, las funciones seguirán funcionando si decide incluir la tabla heredada a través del mismo parámetro. Sin embargo, se recomienda [cambiar a las tablas específicas del recurso](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) lo antes posible.
 
 * **Reduce la posibilidad de que se interrumpan las consultas personalizadas**: si Azure Backup introduce mejoras en el esquema de las tablas de LA subyacentes para adaptarse a futuros escenarios de informes, la definición de las funciones también se actualizará para tener en cuenta los cambios del esquema. Por lo tanto, si usa funciones del sistema para crear consultas personalizadas, las consultas no se interrumpirán, aunque haya cambios en el esquema subyacente de las tablas.
 
 > [!NOTE]
-> Microsoft mantiene las funciones del sistema y los usuarios no pueden editar sus definiciones. Si necesita funciones editables, puede crear [funciones guardadas](https://docs.microsoft.com/azure/azure-monitor/logs/functions) en LA.
+> Microsoft mantiene las funciones del sistema y los usuarios no pueden editar sus definiciones. Si necesita funciones editables, puede crear [funciones guardadas](../azure-monitor/logs/functions.md) en LA.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Tipos de funciones del sistema que Azure Backup ofrece
 
@@ -390,4 +390,4 @@ A continuación, encontrará algunas consultas de ejemplo que le ayudarán a emp
     ````
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre los Informes de Backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Más información sobre los Informes de Backup](./configure-reports.md)

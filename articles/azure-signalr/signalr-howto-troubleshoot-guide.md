@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: bdda89483661eb6f6d006c3d8ea42b46d162de05
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201661"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589179"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -19,14 +19,14 @@ En esta guía se proporcionan instrucciones útiles para la solución de los pro
 
 ## <a name="access-token-too-long"></a>El token de acceso es demasiado largo
 
-### <a name="possible-errors"></a>Errores posibles:
+### <a name="possible-errors"></a>Errores posibles
 
 * `ERR_CONNECTION_` en el lado cliente
 * 414 - URI de solicitud demasiado largo
 * 413 Carga demasiado grande
 * El token de acceso no debe tener más de 4 K. 413 Entidad de solicitud demasiado larga
 
-### <a name="root-cause"></a>Causa principal:
+### <a name="root-cause"></a>Causa principal
 
 Para HTTP/2, la longitud máxima de un solo encabezado es **4 K**, por lo que, si usa el explorador para acceder al servicio de Azure, se producirá un error `ERR_CONNECTION_` para esta limitación.
 
@@ -34,7 +34,7 @@ En el caso de los clientes HTTP/1.1 o C#, la longitud máxima del URI es **12 k
 
 Con la versión del SDK **1.0.6** o posterior, `/negotiate` producirá `413 Payload Too Large` cuando el token de acceso generado sea mayor que **4 K**.
 
-### <a name="solution"></a>Solución:
+### <a name="solution"></a>Solución
 
 De forma predeterminada, las notificaciones de `context.User.Claims` se incluyen al generar el token de acceso JWT a **ASRS**(**A** zure **S** ignal **R** **S** ervice), para que las notificaciones se conserven y se puedan pasar de **ASRS** a `Hub` cuando el cliente se conecta a `Hub`.
 
@@ -45,7 +45,8 @@ El token de acceso generado se pasa a través de la red, y para las conexiones W
 Hay un objeto `ClaimsProvider` para personalizar las notificaciones que se pasan a **ASRS** dentro del token de acceso.
 
 Para ASP.NET Core:
-```cs
+
+```csharp
 services.AddSignalR()
         .AddAzureSignalR(options =>
             {
@@ -55,7 +56,8 @@ services.AddSignalR()
 ```
 
 Para ASP.NET:
-```cs
+
+```csharp
 services.MapAzureSignalR(GetType().FullName, options =>
             {
                 // pick up necessary claims
@@ -67,13 +69,13 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 ## <a name="tls-12-required"></a>TLS 1.2 obligatorio
 
-### <a name="possible-errors"></a>Errores posibles:
+### <a name="possible-errors"></a>Errores posibles
 
 * Error [279](https://github.com/Azure/azure-signalr/issues/279) de ASP.NET que indica que no hay ningún servidor disponible.
 * Error [324](https://github.com/Azure/azure-signalr/issues/324) de ASP.NET que indica que la conexión no está activa y que los datos no se pueden enviar al servicio.
 * Error al realizar la solicitud HTTP a https://<API endpoint>. Este error puede deberse a que el certificado del servidor no está configurado correctamente con HTTP.SYS en el caso de HTTPS. La causa puede ser también una falta de coincidencia del enlace de seguridad entre el cliente y el servidor.
 
-### <a name="root-cause"></a>Causa principal:
+### <a name="root-cause"></a>Causa principal
 
 El servicio de Azure solo admite TLS 1.2 por cuestiones de seguridad. Con .NET Framework, es posible que TLS 1.2 no sea el protocolo predeterminado. Como resultado, las conexiones del servidor a ASRS no se pueden establecer correctamente.
 
@@ -93,16 +95,18 @@ El servicio de Azure solo admite TLS 1.2 por cuestiones de seguridad. Con .NET�
         :::image type="content" source="./media/signalr-howto-troubleshoot-guide/tls-throws.png" alt-text="Excepción generada":::
 
 2. En el caso de ASP.NET, también puede agregar el código siguiente a `Startup.cs` para habilitar el seguimiento detallado y ver los errores del registro.
-```cs
-app.MapAzureSignalR(this.GetType().FullName);
-// Make sure this switch is called after MapAzureSignalR
-GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
-```
 
-### <a name="solution"></a>Solución:
+    ```cs
+    app.MapAzureSignalR(this.GetType().FullName);
+    // Make sure this switch is called after MapAzureSignalR
+    GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
+    ```
+
+### <a name="solution"></a>Solución
 
 Agregue el siguiente código a su página de inicio:
-```cs
+
+```csharp
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
@@ -170,7 +174,7 @@ Se recomienda tener un retraso aleatorio antes de volver a conectarse. Vaya [aqu
 
 [¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
-## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>Error 500 al negociar: Azure SignalR Service no está conectado todavía. Vuelva a intentarlo más tarde.
+## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>Error 500 con NEGOTIATE: Azure SignalR Service no está conectado todavía. Vuelva a intentarlo más tarde.
 
 ### <a name="root-cause"></a>Causa principal
 
@@ -180,18 +184,21 @@ Este error se genera cuando no hay ninguna conexión de servidor a la instancia 
 
 Habilite el seguimiento del lado servidor para averiguar los detalles del error cuando el servidor intenta conectarse a Azure SignalR Service.
 
-#### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Habilitación del registro del lado servidor para ASP.NET Core SignalR
+### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Habilitación del registro del lado servidor para ASP.NET Core SignalR
 
-El registro del lado servidor para ASP.NET Core SignalR se integra con los [registros](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) basados en `ILogger` proporcionado en el marco de ASP.NET Core. Puede habilitar el registro del lado servidor mediante `ConfigureLogging`. A continuación se incluye un ejemplo de uso:
-```cs
+El registro del lado servidor para ASP.NET Core SignalR se integra con los [registros](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1&preserve-view=true) basados en `ILogger` proporcionado en el marco de ASP.NET Core. Puede habilitar el registro del lado servidor mediante `ConfigureLogging`. A continuación se incluye un ejemplo de uso:
+
+```csharp
 .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddConsole();
             logging.AddDebug();
         })
 ```
+
 Las categorías de registrador de Azure SignalR Service siempre comienzan con `Microsoft.Azure.SignalR`. Para habilitar los registros detallados de Azure SignalR Service, configure los prefijos anteriores en el nivel `Debug` del archivo **appsettings.json** como se indica a continuación:
-```JSON
+
+```json
 {
     "Logging": {
         "LogLevel": {
@@ -206,6 +213,7 @@ Las categorías de registrador de Azure SignalR Service siempre comienzan con `M
 #### <a name="enable-server-side-traces-for-aspnet-signalr"></a>Habilitación del seguimiento del lado servidor para ASP.NET SignalR
 
 Cuando use una versión del SDK posterior a la `1.0.0`, podrá habilitar los seguimientos al agregar el siguiente código a `web.config`: ([Detalles](https://github.com/Azure/azure-signalr/issues/452#issuecomment-478858102))
+
 ```xml
 <system.diagnostics>
     <sources>
@@ -235,14 +243,14 @@ Cuando use una versión del SDK posterior a la `1.0.0`, podrá habilitar los seg
 
 Cuando el cliente está conectado a Azure SignalR, la conexión persistente entre el cliente y Azure SignalR a veces puede interrumpirse por distintas razones. En esta sección se describen varias causas posibles de esta interrupción de la conexión y se proporcionan instrucciones sobre cómo identificar la causa principal.
 
-### <a name="possible-errors-seen-from-the-client-side"></a>Posibles errores detectados en el lado cliente
+### <a name="possible-errors-seen-from-the-client-side"></a>Posibles errores detectados en el lado del cliente
 
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
 * `{"type":7,"error":"Connection closed with an error."}`
 * `{"type":7,"error":"Internal server error."}`
 
-### <a name="root-cause"></a>Causa principal:
+### <a name="root-cause"></a>Causa principal
 
 Las conexiones de cliente pueden interrumpirse en varias circunstancias:
 * Cuando `Hub` produce excepciones con la solicitud entrante.
@@ -268,13 +276,13 @@ Las conexiones de cliente aumentan constantemente durante mucho tiempo en las m�
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-guide/client-connection-increasing-constantly.jpg" alt-text="Aumento constante de la conexión de cliente":::
 
-### <a name="root-cause"></a>Causa principal:
+### <a name="root-cause"></a>Causa principal
 
 Nunca se llama a `DisposeAsync` de la conexión de cliente de SignalR, y la conexión se mantiene abierta.
 
 ### <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
-1. Compruebe si el cliente de SignalR nunca se **cierra**.
+Compruebe si el cliente de SignalR **nunca** se cierra.
 
 ### <a name="solution"></a>Solución
 
@@ -282,7 +290,7 @@ Compruebe si se cierra la conexión. Llame a `HubConnection.DisposeAsync()` manu
 
 Por ejemplo:
 
-```C#
+```csharp
 var connection = new HubConnectionBuilder()
     .WithUrl(...)
     .Build();
@@ -324,21 +332,95 @@ Se publican nuevas versiones de Azure SignalR Service con regularidad y, a veces
 
 En esta sección se describen varias causas posibles de esta interrupción de la conexión del servidor y se proporcionan algunas instrucciones sobre cómo identificar la causa principal.
 
-### <a name="possible-errors-seen-from-server-side"></a>Posibles errores detectados en el lado servidor:
+### <a name="possible-errors-seen-from-the-server-side"></a>Posibles errores detectados en el lado del servidor
 
 * `[Error]Connection "..." to the service was dropped`
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
 
-### <a name="root-cause"></a>Causa principal:
+### <a name="root-cause"></a>Causa principal
 
 **ASRS**(**A** zure **S** ignal **R** **S** ervice) cierra la conexión de servicio del servidor.
 
+Para el tiempo de espera de ping, puede deberse a un uso elevado de la CPU o al colapso del grupo de subprocesos en el lado del servidor.
+
+Para ASP.NET SignalR, se corrigió un problema conocido en el SDK 1.6.0. Actualice el SDK a la versión más reciente.
+
+## <a name="thread-pool-starvation"></a>Colapso del grupo de subprocesos
+
+Si el servidor está colapsado, significa que no hay ningún subproceso trabajando en el procesamiento de mensajes. Todos los subprocesos dejan de responder en un método determinado.
+
+Normalmente, este escenario lo causan métodos asincrónico en sincrónicos o `Task.Result`/`Task.Wait()` en los métodos asincrónicos.
+
+Consulte [Procedimientos recomendados para el rendimiento de ASP.NET Core](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
+
+Consulte más información sobre el [colapso del grupo de subprocesos](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
+
+### <a name="how-to-detect-thread-pool-starvation"></a>Detección del colapso del grupo de subprocesos
+
+Compruebe el número de subprocesos. Si no hay picos en ese momento, siga estos pasos:
+* Si utiliza Azure App Service, compruebe el número de subprocesos en las métricas. Compruebe la agregación `Max`:
+    
+  :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Captura de pantalla del panel con el número subprocesos Max en Azure App Service.":::
+
+* Si utiliza .NET Framework, puede encontrar las [métricas](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) en el monitor de rendimiento en la máquina virtual del servidor.
+* Si usa .NET Core en un contenedor, consulte [Recopilación de diagnósticos en contenedores](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
+
+También puede usar código para detectar la colapso del grupo de subprocesos:
+
+```csharp
+public class ThreadPoolStarvationDetector : EventListener
+{
+    private const int EventIdForThreadPoolWorkerThreadAdjustmentAdjustment = 55;
+    private const uint ReasonForStarvation = 6;
+
+    private readonly ILogger<ThreadPoolStarvationDetector> _logger;
+
+    public ThreadPoolStarvationDetector(ILogger<ThreadPoolStarvationDetector> logger)
+    {
+        _logger = logger;
+    }
+
+    protected override void OnEventSourceCreated(EventSource eventSource)
+    {
+        if (eventSource.Name == "Microsoft-Windows-DotNETRuntime")
+        {
+            EnableEvents(eventSource, EventLevel.Informational, EventKeywords.All);
+        }
+    }
+
+    protected override void OnEventWritten(EventWrittenEventArgs eventData)
+    {
+        // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
+        if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
+            eventData.Payload[3] as uint? == ReasonForStarvation)
+        {
+            _logger.LogWarning("Thread pool starvation detected!");
+        }
+    }
+}
+```
+    
+Agréguelo a su servicio:
+    
+```csharp
+service.AddSingleton<ThreadPoolStarvationDetector>();
+```
+
+A continuación, compruebe el registro cuando la conexión del servidor esté desconectada mediante el tiempo de espera de ping.
+
+### <a name="how-to-find-the-root-cause-of-thread-pool-starvation"></a>Búsqueda de la causa principal del colapso del grupo de subprocesos
+
+Para encontrar la causa principal del colapso del grupo de subprocesos:
+
+* Vuelque la memoria y analice la pila de llamadas. Para más información, consulte [Recopilación y análisis del volcado de memoria](https://devblogs.microsoft.com/dotnet/collecting-and-analyzing-memory-dumps/).
+* Use [clrmd](https://github.com/microsoft/clrmd) para volcar la memoria cuando se detecta un colapso del grupo de subprocesos. A continuación, registre la pila de llamadas.
+
 ### <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
-1. Abra el registro del lado servidor de la aplicación para ver si se ha producido alguna anomalía.
-2. Compruebe el registro de eventos del servidor de aplicaciones para ver si se ha reiniciado el servidor de aplicaciones.
-3. Cree un problema para nosotros en el que debe indicar el plazo de tiempo y envíenos el nombre del recurso por correo electrónico.
+1. Abra el registro del lado del servidor de la aplicación para ver si se ha producido alguna anomalía.
+2. Compruebe el registro de eventos del lado del servidor de aplicaciones para ver si el servidor de aplicaciones se ha reiniciado.
+3. Cree una incidencia, indique el período de tiempo y envíenos el nombre del recurso por correo electrónico.
 
 [¿Tiene problemas o comentarios sobre la solución de problemas? Háganoslo saber.](https://aka.ms/asrs/survey/troubleshooting)
 
