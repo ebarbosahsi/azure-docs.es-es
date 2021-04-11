@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c103a7eba2e5da7ac040b50fcc0009a0b7237b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956084"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449875"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuración completa de Azure Media Player #
 
@@ -20,7 +20,7 @@ Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtene
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Paso 1: Incluir los archivos JavaScript y CSS en el encabezado de la página ##
 
-Con Azure Media Player, puede acceder a los scripts desde la versión hospedada de la red CDN. Actualmente, a menudo se recomienda poner JavaScript antes de la etiqueta body final `<body>` en lugar de antes de `<head>`, pero Azure Media Player incluye un elemento “HTML5 Shiv”, que debe estar en el encabezado de las versiones más antiguas de IE para que respete la etiqueta de vídeo como un elemento válido.
+Con Azure Media Player, puede acceder a los scripts desde la versión hospedada de la red CDN. A menudo se recomienda actualmente poner JavaScript antes de la etiqueta BODY final `<body>` en lugar de antes de `<head>`, pero Azure Media Player incluye una modificación de HTML5, que debe estar en el encabezado de las versiones más antiguas de IE para que respete la etiqueta de vídeo como un elemento válido.
 
 > [!NOTE]
 > Si ya usa una modificación de HTML5 como [Modernizr](https://modernizr.com/) puede incluir el JavaScript de Azure Media Player en cualquier lugar. Sin embargo, asegúrese de que la versión de Modernizr incluye shiv para vídeo.
@@ -33,7 +33,7 @@ Con Azure Media Player, puede acceder a los scripts desde la versión hospedada 
 ```
 
 > [!IMPORTANT]
-> **NO** use la versión `latest` en producción, porque está sujeta a cambios a petición. Reemplace `latest` por una versión de Azure Media Player. Por ejemplo, reemplace `latest` por `2.1.1`. Las versiones de Azure Media Player pueden consultarse desde [aquí](azure-media-player-changelog.md).
+> **NO** use la versión `latest` en producción, porque está sujeta a cambios a petición. Reemplace `latest` por una versión de Azure Media Player. Por ejemplo, reemplace `latest` por `2.1.1`. Las versiones de Azure Media Player pueden consultarse desde [aquí](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 > [!NOTE]
 > Desde la versión `1.2.0`, ya no es necesario incluir la ubicación en las tecnologías de reserva (seleccionará automáticamente la ubicación de la ruta de acceso relativa del archivo azuremediaplayer.min.js). Para modificar la ubicación de las tecnologías de reserva, agregue el siguiente script en el `<head>` después de los scripts anteriores.

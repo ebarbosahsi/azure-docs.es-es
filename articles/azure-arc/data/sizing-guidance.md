@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94542684"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077489"
 ---
 # <a name="sizing-guidance"></a>Guía para el ajuste de tamaño
 
@@ -92,9 +92,9 @@ Cada pod de instancia administrada de SQL que se crea tiene tres contenedores:
 
 |Nombre del contenedor|Solicitud de CPU|Solicitud de memoria|Límite de CPU|Límite de memoria|Notas|
 |---|---|---|---|---|---|
-|fluentbit|100 m|100 Mi|No especificado|No especificado|Las solicitudes de recursos de contenedor de fluentbit son _adicionales a_ las solicitudes especificadas para la instancia administrada de SQL.||
-|arc-sqlmi|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.||
-|collectd|No especificado|No especificado|No especificado|No especificado||
+|fluentbit|100 m|100 Mi|No especificado|No especificado|Las solicitudes de recursos de contenedor de fluentbit son _adicionales a_ las solicitudes especificadas para la instancia administrada de SQL.|
+|arc-sqlmi|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.|Especificado o no especificado por el usuario.|
+|collectd|No especificado|No especificado|No especificado|No especificado|
 
 El tamaño de volumen predeterminado para todos los volúmenes persistentes es 5 Gi.
 

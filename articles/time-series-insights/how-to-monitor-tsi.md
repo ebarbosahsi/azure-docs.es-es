@@ -2,7 +2,7 @@
 title: Supervisión de Time Series Insights | Microsoft Docs
 description: Supervise la disponibilidad, el rendimiento y el funcionamiento de Time Series Insights.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 15054cd508ce7a6de51fea86ca02302fba258757
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101737569"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504930"
 ---
 # <a name="monitoring-time-series-insights"></a>Supervisión de Time Series Insights
 
@@ -44,7 +44,7 @@ Las secciones siguientes complementan este artículo mediante la descripción de
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Supervisión de datos de Azure Time Series Insights
 
-Azure Time Series Insights recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Consulte [Referencia de datos de supervisión de Azure Time Series Insights](how-to-monitor-tsi-reference.md) para obtener una referencia detallada de los registros y las métricas que se pueden recopilar.
 

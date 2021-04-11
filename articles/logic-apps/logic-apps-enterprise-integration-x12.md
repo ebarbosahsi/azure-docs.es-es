@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96015203"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077480"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -79,7 +79,6 @@ Una vez definidas las propiedades del contrato, puede configurar cómo este iden
 |----------|-------------|
 | **TA1 esperada** | Devuelva una confirmación técnica (TA1) al remitente del intercambio. |
 | **FA esperada** | Devuelva una confirmación funcional (FA) al remitente del intercambio. <p>Para la propiedad **Versión de FA**, en función de la versión de esquema, seleccione la confirmación 997 o 999. <p>Para activar la generación de bucles AK2 en confirmaciones funcionales para conjuntos de transacciones aceptados, seleccione **Incluir bucle AK2/IK2**. |
-||||
 
 <a name="inbound-schemas"></a>
 
