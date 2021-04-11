@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2020
-ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581310"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627066"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -37,9 +37,9 @@ En la tabla siguiente se muestran las opciones de publicación de las ofertas de
 
 Para más información sobre estas opciones de publicación, consulte [Capacidades de transacción de marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Una vez publicada la oferta, la opción de publicación elegida para ella aparece en forma de un botón en la esquina superior izquierda de la página de descripción de la oferta. Por ejemplo, en la siguiente captura de pantalla se muestra una página de descripción de la oferta en Azure Marketplace con los botones **Ponerse en contacto conmigo** y **Versión de prueba**.
+Una vez publicada la oferta, la opción de publicación elegida para ella aparece en forma de un botón en la esquina superior izquierda de la página de descripción de la oferta. Por ejemplo, en la siguiente captura de pantalla se muestra una página de descripción de la oferta en Azure Marketplace con el botón **Obtenerla ahora**.
 
-![Se muestra la descripción de una oferta en la tienda en línea.](./media/listing-options.png)
+![Se muestra la descripción de una oferta en la tienda en línea.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -68,9 +68,9 @@ Si va a crear una oferta procesable, deberá recopilar la siguiente información
 
 - **Dirección URL de la página de aterrizaje**: la dirección URL del sitio de SaaS (por ejemplo, `https://contoso.com/signup`) a la que se dirigirá a los usuarios después de adquirir la oferta en el marketplace comercial, que desencadena el proceso de configuración de la suscripción de SaaS recién creada. Esta dirección URL recibirá un token que se puede usar para llamar a las API de entrega y obtener los detalles de aprovisionamiento de la página de registro interactivo.
 
-  Se llamará a esta dirección URL con el parámetro del token de identificación de compra de marketplace, que identifica de forma única la compra de SaaS del cliente específico. Este token se debe intercambiar por los detalles de la suscripción de SaaS correspondiente mediante la [API de resolución](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Tanto estos detalles como otros que desee recopilar deben usarse como parte de una página web interactiva del cliente integrada en su experiencia para completar el registro y activar su compra. En esta página, el usuario debe registrarse mediante la autenticación con un solo clic con Azure Active Directory (Azure AD).
+  Se llamará a esta dirección URL con el parámetro del token de identificación de compra de marketplace, que identifica de forma única la compra de SaaS del cliente específico. Este token se debe intercambiar por los detalles de la suscripción de SaaS correspondiente mediante la [API de resolución](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Estos detalles y cualquier otro que quiera recopilar como parte de una página web interactiva del cliente se pueden usar para iniciar la experiencia de incorporación del cliente, que debe concluir en un momento dado con una llamada de activación en la API para iniciar el período de suscripción. En esta página, el usuario debe registrarse mediante la autenticación con un solo clic con Azure Active Directory (Azure AD).
 
-  Esta dirección URL también se llamará con el parámetro del token de identificación de compra de marketplace cuando el cliente inicie la experiencia de SaaS administrada desde Azure Portal o el Centro de administración de M365. Ambos flujos deben administrarse: la primera vez que se proporciona el token después de la compra de un nuevo cliente y cuando se proporciona de nuevo para un cliente existente que administra su solución de SaaS.
+  Esta dirección URL también se llamará con el parámetro del token de identificación de compra de marketplace cuando el cliente inicie la experiencia de SaaS administrada desde Azure Portal o el Centro de administración de Microsoft 365. Ambos flujos deben administrarse: la primera vez que se proporciona el token después de la compra de un nuevo cliente y cuando se proporciona de nuevo para un cliente existente que administra su solución de SaaS.
 
     La página de aterrizaje que configure debe estar en funcionamiento de forma ininterrumpida. Esta es la única vía por la que se le notificarán nuevas compras de las ofertas de SaaS realizadas en el marketplace comercial o las solicitudes de configuración de una suscripción activa a una oferta.
 
@@ -79,7 +79,7 @@ Si va a crear una oferta procesable, deberá recopilar la siguiente información
   El webhook que proporcione debe estar en funcionamiento de forma ininterrumpida. Tenga en cuenta que esta es la única vía por la que se le notificarán las actualizaciones de las suscripciones de SaaS de sus clientes adquiridas a través de Marketplace comercial.
 
   > [!NOTE]
-  > Dentro de Azure Portal, es necesario que cree una [aplicación de Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) de un único inquilino para permitir el uso de un identificador de AzureApp para autenticar la conexión entre los dos servicios. Para encontrar el [identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vaya a su instancia de Azure Active Directory, seleccione **Propiedades** y busque el número del identificador de directorio que se muestra. Por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Dentro de Azure Portal, es necesario que cree un [registro de aplicación de Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) de un único inquilino. Use los detalles del registro de aplicación para autenticar la solución cuando llame a las API del marketplace. Para encontrar el [identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vaya a su instancia de Azure Active Directory, seleccione **Propiedades** y busque el número del identificador de directorio que se muestra. Por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **Id. de inquilino de Azure Active Directory**: (también conocido como identificador de directorio). Dentro de Azure Portal, es necesario [registrar una aplicación de Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para poder agregarla a la lista de control de acceso (ACL) de la API a fin de garantizar que está autorizado para llamarla. Para encontrar el identificador de inquilino de la aplicación de Azure Active Directory (AD), vaya a la hoja [Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) de Azure Active Directory. En la columna **Nombre para mostrar**, seleccione la aplicación. Luego, busque el número de **Id. de directorio (inquilino)** que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
@@ -88,7 +88,7 @@ Si va a crear una oferta procesable, deberá recopilar la siguiente información
   El identificador de la aplicación de Azure AD está asociado a su identificador de editor de la cuenta del Centro de partners. El mismo identificador de aplicación debe usarse con todas las ofertas de esa cuenta.
 
   > [!NOTE]
-  > Si el publicador tiene dos o más cuentas diferentes en el Centro de partners, deben usarse dos o más id. de la aplicación de Azure AD diferentes, uno para cada cuenta. Cada cuenta de partner del Centro de partners debe usar un identificador de aplicación de Azure AD único para todas las ofertas de SaaS publicadas a través de esta cuenta.
+  > Si el publicador tiene dos o más cuentas diferentes en el Centro de partners, los detalles del registro de aplicación de Azure AD solo se pueden usar en una cuenta. No se admite el uso del mismo par de id. de inquilino e id. de la aplicación para una oferta en una cuenta de publicador diferente.
 
 ## <a name="test-drives"></a>Versiones de prueba
 Se puede elegir habilitar una versión de prueba de la aplicación SaaS. Las versiones de prueba proporcionan a los clientes acceso a un entorno preconfigurado durante un número fijo de horas. Aunque puede habilitar las opciones de publicación en cualquier versión de prueba, esta característica conlleva requisitos adicionales. Para más información sobre las versiones de prueba, consulte [¿Qué es una versión de prueba?](what-is-test-drive.md). Para información sobre la configuración de diferentes tipos de versiones de prueba, consulte [Configuración técnica de la versión de prueba](test-drive-technical-configuration.md).
@@ -138,7 +138,7 @@ Si decide usar el contrato estándar, tiene la opción de agregarle términos de
 
 Al [crear una oferta de SaaS](create-new-saas-offer.md) en el Centro de partners, insertará texto, imágenes, vídeos opcionales y otros detalles en la página **Descripción de la oferta**. Esta es la información que verán los clientes cuando descubran la descripción de su oferta en el marketplace comercial, como se muestra en el ejemplo siguiente.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Ilustración de cómo aparece esta oferta en Microsoft AppSource.":::
 
 **Descripciones destacadas**
 
@@ -209,9 +209,6 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
 > [!Note]
 > La oferta debe cumplir las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies#100-general) generales y las [directivas de software como servicio](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) que se van a publicar en el marketplace comercial.
 
-## <a name="preview-audience"></a>Público preliminar
-Una audiencia preliminar puede tener acceso a la oferta antes de publicarla en las tiendas en línea a fin de probar la funcionalidad completa. En la página **Audiencia preliminar**, puede definir una audiencia preliminar limitada. Esta opción no está disponible si elige procesar las transacciones de forma independiente en lugar de vender su oferta mediante Microsoft. En este caso, puede omitir esta sección e ir a [Oportunidades de venta adicionales](#additional-sales-opportunities).
-
 > [!NOTE]
 > Una audiencia preliminar no es lo mismo que un plan privado. Un plan privado es el que solo está disponible para una audiencia determinada de su elección. Esto le permite negociar un plan personalizado con clientes específicos. Para obtener más información, vea la próxima sección: Planes
 
@@ -251,6 +248,50 @@ En el siguiente ejemplo se muestra un desglose de costos y pagos para demostrar 
 |||
 
 **`*` Tarifa reducida del servicio Marketplace**: en determinadas ofertas de SaaS que haya publicado en nuestro marketplace comercial, Microsoft reducirá su tarifa del servicio Marketplace del 20 % (como se describe en el Acuerdo de publicador de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. Una vez que se cumplan los criterios de idoneidad, se concederá el precio reducido del servicio a todas las transacciones vigentes el primer día del mes siguiente y se seguirá aplicando hasta que se pierda el estado Venta conjunta con incentivos de IP de Azure. Para obtener más información sobre la elegibilidad de la venta conjunta de IP, vea [Requisitos para el estado de la venta conjunta](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Las cuotas del servicio Marketplace reducidas también se aplican a VM y aplicaciones administradas con incentivos para realizar una venta conjunta de Azure IP, así como a cualquier otra oferta de IaaS procesable cualificada que esté disponible a través de Marketplace comercial.
+
+## <a name="preview-audience"></a>Público preliminar
+
+Una audiencia de versión preliminar puede acceder a la oferta antes de que se publique en las tiendas en línea. Pueden ver el aspecto que tendrá la oferta en el marketplace comercial y probar la funcionalidad de un extremo a otro antes de publicarla. 
+
+En la página **Audiencia preliminar**, puede definir una audiencia preliminar limitada. Esta opción no está disponible si elige procesar las transacciones de forma independiente en lugar de vender su oferta mediante Microsoft. En este caso, puede omitir esta sección e ir a [Oportunidades de venta adicionales](#additional-sales-opportunities).
+
+## <a name="test-offer"></a>Prueba de la oferta
+
+Antes de publicar la oferta, debe usar la funcionalidad de versión preliminar para desarrollar la implementación técnica, probar y experimentar con diferentes modelos de precios.
+
+Para desarrollar y probar la oferta de SaaS con la menor cantidad de riesgo, se recomienda crear una oferta de prueba y desarrollo (DEV) para experimentación y pruebas. La oferta de desarrollo será independiente de la oferta de producción (PROD).
+
+Para evitar compras accidentales de la oferta de desarrollo, nunca debe presionar el botón **Publicar** para publicar dicha oferta.
+
+![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo. El vínculo Ver informe de validación también aparece en Validación automatizada.](./media/review-publish-offer/publish-status-saas.png)
+
+Estas son algunas de las razones para crear una oferta de desarrollo independiente para que el equipo de desarrollo use para el desarrollo y las pruebas de la oferta de producción:
+
+- Evitar cargos accidentales de clientes
+- Evaluación de los modelos de precios
+- No agregar planes que no tengan como destino clientes reales
+
+### <a name="avoid-accidental-customer-charges"></a>Evitar cargos accidentales de clientes
+
+Mediante el uso de una oferta de desarrollo en lugar de la oferta de producción y su tratamiento como entornos de desarrollo y producción, puede evitar cargos accidentales a los clientes.
+
+Le recomendamos que registre dos aplicaciones de Azure AD diferentes para llamar a las API del marketplace. Los desarrolladores usarán una aplicación de Azure AD con la configuración de la oferta de desarrollo y el equipo de operaciones usará el registro de aplicación de producción. Al hacer esto, puede aislar el equipo de desarrollo de los errores involuntarios, como llamar a la API para cancelar la suscripción de un cliente que paga 100 000 USD al mes. También puede evitar el cargo de un cliente por uso medido que no consumió.
+
+### <a name="evaluate-pricing-models"></a>Evaluación de los modelos de precios
+
+La prueba de modelos de precios en la oferta de desarrollo reduce el riesgo cuando los desarrolladores experimentan con distintos modelos de precios.
+
+Los publicadores pueden crear los planes que necesitan en la oferta de desarrollo para determinar qué modelo de precios funciona mejor para su oferta. Los desarrolladores pueden querer crear varios planes en la oferta de desarrollo para probar diferentes combinaciones de precios. Por ejemplo, puede crear planes con diferentes conjuntos de dimensiones personalizadas de uso medido. Puede crear un plan diferente con una combinación de una tarifa plana y dimensiones personalizadas de uso medido.
+
+Para probar varias opciones de precios, debe crear un plan para cada modelo de precios único. Para más información, consulte [Planes](#plans).
+
+### <a name="not-adding-plans-that-do-not-target-actual-customers"></a>No agregar planes que no tengan como destino clientes reales
+
+Mediante el uso de una oferta de desarrollo para desarrollo y pruebas, puede reducir el desorden innecesario en la oferta de producción. Por ejemplo, no puede eliminar los planes que cree para probar diferentes modelos de precios o configuraciones técnicas (sin rellenar una incidencia de soporte técnico). Por lo tanto, al crear planes para realizar pruebas en la oferta de desarrollo, se reduce el desorden en la oferta de producción.
+
+El desorden de la oferta de producción frustra a los equipos de productos y marketing, ya que esperan que todos los planes se dirijan a clientes reales. Especialmente en el caso de los equipos de gran tamaño inconexos, que quieren diferentes espacios aislados con los que trabajar, la creación de dos ofertas proporcionará dos entornos diferentes para desarrollo y producción. En algunos casos, puede que desee crear varias ofertas de desarrollo para admitir un equipo más grande que tenga distintas personas que ejecuten diferentes escenarios de prueba. Al permitir que los distintos miembros del equipo trabajen en la oferta de desarrollo independientemente de la oferta de producción, ayuda a mantener los planes de producción lo más cerca posible del entorno de producción.
+
+La prueba de una oferta de desarrollo ayuda a evitar el límite de 30 dimensiones personalizadas de uso medido por oferta. Los desarrolladores pueden probar diferentes combinaciones de medidores en la oferta de desarrollo sin que ello afecte al límite de dimensiones personalizadas de uso medido en la oferta de producción.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venta adicionales
 

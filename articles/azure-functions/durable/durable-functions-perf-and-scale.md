@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572806"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626648"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -40,7 +40,7 @@ En Durable Functions hay una cola de elementos de trabajo por central de tareas.
 
 ### <a name="control-queues"></a>Colas de control
 
-Hay varias *colas de control* por central de tareas en Durable Functions. Una *cola de control* es más sofisticada que una cola de elementos de trabajo, más sencilla. Las colas de control se usan para desencadenar las funciones de orquestador y entidad con estado. Dado que las instancias de las funciones de orquestador y entidad son singletons con estado, no es posible usar un modelo de consumidor de competencia para distribuir la carga entre máquinas virtuales. En su lugar, se equilibra la carga de los mensajes del orquestador y la entidad entre las colas de control. Encontrará más detalles sobre este comportamiento en las secciones siguientes.
+Hay varias *colas de control* por central de tareas en Durable Functions. Una *cola de control* es más sofisticada que una cola de elementos de trabajo, más sencilla. Las colas de control se usan para desencadenar las funciones de orquestador y entidad con estado. Dado que las instancias de la función de orquestador y de entidad son singletons con estado, es importante que cada orquestación o entidad solo se procese por un trabajo a la vez. Para ello, cada instancia o entidad de orquestación se asigna a una única cola de control. Estas colas de control tienen equilibrio de carga entre los trabajos para garantizar que cada una de ellas se procese únicamente por un trabajo cada vez. Encontrará más detalles sobre este comportamiento en las secciones siguientes.
 
 Las colas de control contienen una gran variedad de tipos de mensajes del ciclo de vida de la orquestación. Algunos ejemplos son los [mensajes de control del orquestador](durable-functions-instance-management.md), los mensajes de *respuesta* de la función de actividad y los del temporizador. Como máximo, se pueden eliminar 32 mensajes de una cola de control en un único sondeo. Estos mensajes contienen datos de carga, así como metadatos, incluido para qué instancia de orquestación están previstos. Si hay varios mensajes eliminados de la cola previstos para la misma instancia de orquestación, se procesarán como lote.
 
@@ -56,7 +56,7 @@ El retraso de sondeo máximo se configura mediante la propiedad `maxQueuePolling
 ### <a name="orchestration-start-delays"></a>Retrasos en el inicio de la orquestación
 Las instancias de las orquestaciones se inician con la inserción de un mensaje `ExecutionStarted` en una de las colas de control de la central de tareas. En determinadas condiciones, se pueden observar retrasos de varios segundos entre el momento en que se programa la ejecución de una orquestación y el momento en el que se inicia la ejecución. Durante este intervalo de tiempo, la instancia de la orquestación permanece en estado `Pending`. Hay dos causas posibles de este retraso:
 
-1. **Colas de control pendientes**: si la cola de control de esta instancia contiene un gran número de mensajes, puede tardar un tiempo antes de que el entorno de ejecución reciba y procese el mensaje `ExecutionStarted`. Los trabajos pendientes de mensajes se pueden producir cuando las orquestaciones procesan muchos eventos simultáneamente. Entre los eventos que van a la cola de control se incluyen los eventos de inicio de orquestación, finalización de actividad, temporizadores duraderos, terminación y eventos externos. Si este retraso se produce en circunstancias normales, considere la posibilidad de crear una nueva central de tareas con un mayor número de particiones. La configuración de más particiones hará que el entorno de ejecución cree más colas de control para la distribución de la carga.
+1. **Colas de control pendientes**: si la cola de control de esta instancia contiene un gran número de mensajes, puede tardar un tiempo antes de que el entorno de ejecución reciba y procese el mensaje `ExecutionStarted`. Los trabajos pendientes de mensajes se pueden producir cuando las orquestaciones procesan muchos eventos simultáneamente. Entre los eventos que van a la cola de control se incluyen los eventos de inicio de orquestación, finalización de actividad, temporizadores duraderos, terminación y eventos externos. Si este retraso se produce en circunstancias normales, considere la posibilidad de crear una nueva central de tareas con un mayor número de particiones. La configuración de más particiones hará que el entorno de ejecución cree más colas de control para la distribución de la carga. Cada partición se corresponde con una cola de control con una relación de 1:1, con un máximo de 16 particiones.
 
 2. **Retrasos en los sondeos de retroceso**: otra causa común de los retrasos de la orquestación es el [comportamiento de los sondeos de retroceso que se ha descrito anteriormente para las colas de control](#queue-polling). Sin embargo, este retraso solo se espera cuando una aplicación se escala horizontalmente a dos o más instancias. Si solo hay una instancia de la aplicación o si la instancia de la aplicación que inicia la orquestación también es la misma instancia que sondea la cola de control de destino, no habrá un retraso en el sondeo de la cola. Los retrasos de los sondeos de retroceso se pueden reducir mediante la actualización de las opciones del archivo **host.json**, tal y como se ha descrito anteriormente.
 
@@ -94,7 +94,12 @@ Si no se especifica, se utiliza la cuenta de almacenamiento `AzureWebJobsStorage
 
 ## <a name="orchestrator-scale-out"></a>Escalabilidad horizontal del orquestador
 
-Las funciones de actividad no tienen estado y se escalan horizontalmente de manera automática con la incorporación de máquinas virtuales. En cambio, las funciones de orquestador y las entidades tienen *particiones* en una o más colas de control. El número de colas de control se define en el archivo **host.json**. El siguiente fragmento de código de host.json de ejemplo establece la propiedad `durableTask/storageProvider/partitionCount` (o `durableTask/partitionCount` en Durable Functions 1.x) en `3`.
+Aunque las funciones de actividad se pueden escalar horizontalmente de forma infinita mediante la adición de más máquinas virtuales elásticamente, las instancias y entidades de orquestador individuales están limitadas para habitar en una única partición, y el número máximo de particiones está limitado por el valor `partitionCount` de su `host.json`. 
+
+> [!NOTE]
+> En general, las funciones de orquestador se han diseñado para que sean ligeras y no necesiten grandes capacidades de computación. Por tanto, no es necesario crear un gran número de particiones de cola de control para obtener un rendimiento excelente para las orquestaciones. La mayor parte del trabajo pesado se realiza en las funciones de actividad sin estado, que se pueden escalar en horizontal infinitamente.
+
+El número de colas de control se define en el archivo **host.json**. El siguiente fragmento de código de host.json de ejemplo establece la propiedad `durableTask/storageProvider/partitionCount` (o `durableTask/partitionCount` en Durable Functions 1.x) en `3`. Tenga en cuenta que hay tantas colas de control como particiones.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
@@ -124,11 +129,25 @@ Las funciones de actividad no tienen estado y se escalan horizontalmente de mane
 
 Una central de tareas se puede configurar con entre 1 y 16 particiones. Si no se especifica, el número de participaciones predeterminado es **4**.
 
-Mientras se escala horizontalmente a varias instancias de host de función (normalmente en máquinas virtuales diferentes), cada instancia adquiere un bloqueo en una de las colas de control. Estos bloqueos se implementan internamente como concesiones de almacenamiento de blobs y aseguran que solo se ejecuta una instancia de orquestación o entidad en una única instancia de host a la vez. Si una central de tareas está configurada con tres colas de control, se puede equilibrar la carga de las instancias de orquestación y entidades en tres máquinas virtuales como máximo. Se pueden agregar máquinas virtuales adicionales para aumentar la capacidad de ejecución de la función de actividad,
+Durante los escenarios de bajo tráfico, la aplicación se reducirá horizontalmente, por lo que las particiones serán administradas por un pequeño número de trabajos. Como ejemplo, considere el siguiente diagrama.
+
+![Diagrama de orquestaciones de reducción horizontal](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+En el diagrama anterior, vemos que los orquestadores del 1 al 6 tienen equilibrio de carga entre las particiones. Del mismo modo, las particiones, como las actividades, tienen equilibrio de carga entre los trabajos. Las particiones tienen equilibrio de carga entre los trabajos, independientemente del número de orquestadores que se inicien.
+
+Si está ejecutando los planes Consumo o Elástico Premium de Azure Functions, o si tiene configurado el escalado automático basado en la carga, se asignarán más trabajos a medida que aumente el tráfico y las particiones acabarán por equilibrar la carga entre todos los trabajos. Si continuamos escalando horizontalmente, cada partición se administrará finalmente por un único trabajo. Por otro lado, las actividades seguirán teniendo un equilibrio de carga en todos los trabajos. Esto se puede observar en la siguiente imagen.
+
+![Primer diagrama de orquestaciones escaladas horizontalmente](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+El límite superior del número máximo de orquestaciones simultáneas _activas_ en *un momento dado* es igual al número de trabajos asignados a su aplicación _por_ su valor para `maxConcurrentOrchestratorFunctions`. Este límite superior puede ser más preciso cuando las particiones se escalan de manera horizontal por completo entre los trabajos. Cuando se hayan escalado por completo de manera horizontal, y dado que cada trabajo tendrá solo una instancia de host de Functions, el número máximo de instancias de orquestador simultáneas _activas_ será igual al número de particiones _por_ su valor para `maxConcurrentOrchestratorFunctions`. En la imagen siguiente se muestra un escenario con un escalado horizontal completo en el que se agregan más orquestadores pero algunos están inactivos (en gris).
+
+![Segundo diagrama de orquestaciones escaladas horizontalmente](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+Durante el escalado horizontal, se pueden redistribuir los bloqueos de la cola de control entre las instancias de host de Functions para asegurarse de que las particiones se distribuyen uniformemente. Estos bloqueos se implementan internamente como concesiones de almacenamiento de blobs y aseguran que solo se ejecuta una instancia o entidad de orquestación individual en una única instancia de host a la vez. Si una central de tareas está configurada con tres particiones (y, por lo tanto, tres colas de control), las entidades y las instancias de orquestación pueden tener equilibrio de carga en las tres instancias de host que albergan las concesiones. Se pueden agregar máquinas virtuales adicionales para aumentar la capacidad de ejecución de la función de actividad,
 
 El siguiente diagrama ilustra cómo interactúa el host de Azure Functions con las entidades de almacenamiento en un entorno de escalado horizontal.
 
-![Diagrama de escalado](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagrama de escalado](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Tal como se muestra en el diagrama anterior, todas las máquinas virtuales compiten por los mensajes en la cola de elementos de trabajo. Sin embargo, solo tres de ellas pueden adquirir mensajes de las colas de control y cada una bloquea una sola cola de control.
 

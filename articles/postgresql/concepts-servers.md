@@ -1,17 +1,17 @@
 ---
 title: 'Servidores en Azure Database for PostgreSQL: servidor único'
 description: En este artículo se incluyen consideraciones e instrucciones para configurar y administrar Azure Database for PostgreSQL con un único servidor.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d1751ed56f63105ce7775ceaed9ea2dcca1f8bf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91710471"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628142"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL: Un solo servidor
 En este artículo se incluyen consideraciones e instrucciones para trabajar con Azure Database for PostgreSQL con un único servidor.
@@ -36,7 +36,7 @@ Dentro del servidor de Azure Database for PostgreSQL, puede crear una o varias b
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>¿Cómo conectarse a un servidor de Azure Database for PostgreSQL y autenticarse en él?
 Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos:
 
-|||
+|Concepto de seguridad|Descripción|
 |:--|:--|
 | **Autenticación y autorización** | El servidor de Azure Database for PostgreSQL admite la autenticación nativa de PostgreSQL. Puede conectarse al servidor y autenticarse en él con el inicio de sesión de administrador del servidor. |
 | **Protocolo** | El servicio admite un protocolo basado en mensajes utilizado por PostgreSQL. |

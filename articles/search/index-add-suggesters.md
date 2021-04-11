@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604413"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626833"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creación de un proveedor de sugerencias para habilitar la función autocompletar y los resultados sugeridos en una consulta
 
-En Azure Cognitive Search, la función de búsqueda mientras escribe se habilita a través de un *proveedor de sugerencias*. Un proveedor de sugerencias es una estructura de datos interna que consta de una colección de campos. Los campos se someten a tokenización adicional y generan secuencias de prefijos para admitir coincidencias en términos parciales.
+En Azure Cognitive Search, la función de escritura anticipada o de búsqueda mientras escribe se habilita a través de un *proveedor de sugerencias*. Un proveedor de sugerencias proporciona una lista de campos que se someten a tokenización adicional y generan secuencias de prefijos para admitir coincidencias en términos parciales. Por ejemplo, un proveedor de sugerencias que incluya un campo Ciudad con un valor para "Seattle" tendrá las combinaciones de prefijos "sea", "seat", "seatt" y "seattl" para admitir la escritura anticipada.
 
-Por ejemplo, si un proveedor de sugerencias incluye un campo Ciudad, para el término "Seattle" se crearán combinaciones de prefijos de "sea", "seat", "seatt" y "seattl". Los prefijos se almacenan en índices invertidos, uno por cada campo especificado en una colección de campos del proveedor de sugerencias.
+Las coincidencias en términos parciales pueden ser una consulta autocompletada o una coincidencia sugerida. El mismo proveedor de sugerencias admite ambas experiencias.
 
 ## <a name="typeahead-experiences-in-cognitive-search"></a>Experiencias de escritura anticipada en Cognitive Search
 
-Un proveedor de sugerencias admite dos experiencias: *autocompletar*, que completa una entrada parcial para una consulta de un término completo, y *sugerencias*, que invita a hacer clic en una coincidencia concretar. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
+Las opciones de escritura anticipada pueden ser *autocompletar*, que completa una entrada parcial para una consulta de un término completo, y *sugerencias*, que invita a hacer clic en una coincidencia concreta. Autocompletar genera una consulta. Las sugerencias producen un documento coincidente.
 
 En la siguiente captura de pantalla del artículo [Creación de la primera aplicación en C#](tutorial-csharp-type-ahead-and-suggestions.md), se muestran ambas experiencias. Autocompletar anticipa un posible término, agregando a "met" la terminación "ro" por ejemplo. Las sugerencias son resultados de búsquedas en miniatura, donde un campo como el nombre de un hotel representa un documento de búsqueda de hoteles coincidentes del índice. Para obtener sugerencias, puede mostrar cualquier campo que proporcione información descriptiva.
 
@@ -40,11 +40,11 @@ La compatibilidad con la búsqueda al escribir está habilitada por cada campo p
 
 ## <a name="how-to-create-a-suggester"></a>Creación de un proveedor de sugerencias
 
-Para crear un proveedor de sugerencias, agregue uno a una [definición de índice](/rest/api/searchservice/create-index). Un proveedor de sugerencias obtiene un nombre y una colección de campos en los que está habilitada la experiencia de escritura automática. Y [establezca cada propiedad](#property-reference). El mejor momento para crear un proveedor de sugerencias es durante la definición del campo que va a usarlo.
+Para crear un proveedor de sugerencias, agregue uno a una [definición de índice](/rest/api/searchservice/create-index). Un proveedor de sugerencias obtiene un nombre y una colección de campos en los que está habilitada la experiencia de escritura anticipada. El mejor momento para crear un proveedor de sugerencias es durante la definición del campo que va a usarlo.
 
 + Use solo campos de cadena.
 
-+ Si el campo de cadena forma parte de un tipo complejo (por ejemplo, un campo Ciudad dentro de Dirección), incluya el elemento primario en el campo: `"Address/City"` (REST y C# y Python) o `["Address"]["City"]` (JavaScript).
++ Si el campo de cadena forma parte de un tipo complejo (por ejemplo, un campo Ciudad dentro de Dirección), incluya el elemento primario en la ruta de acceso del campo: `"Address/City"` (REST y C# y Python) o `["Address"]["City"]` (JavaScript).
 
 + Use el analizador Lucene estándar predeterminado (`"analyzer": null`) o un [analizador de idioma](index-add-language-analyzers.md) (por ejemplo, `"analyzer": "en.Microsoft"`) en el campo.
 
@@ -58,7 +58,7 @@ La ventaja de autocompletar es que tiene un grupo de campos mayor, ya que el con
 
 Por su parte, las sugerencias generan mejores resultados cuando la elección de campo es selectiva. Recuerde que la sugerencia es un proxy para un documento de búsqueda, por lo que deseará los campos que mejor se representen como un resultado individual. Los nombres, títulos u otros campos únicos que distinguen entre varias coincidencias son los que mejor funcionan. Si los campos se componen de valores repetitivos, las sugerencias consistirán en resultados idénticos y el usuario no sabrá en cuál hacer clic.
 
-Para satisfacer las experiencias de buscar mientras se escribe, agregue todos los campos que necesita para autocompletar y, después, use **$select**, **$top**, **$filter** y **searchFields** para controlar los resultados de las sugerencias.
+Para satisfacer las experiencias de buscar mientras se escribe, agregue todos los campos que necesita para autocompletar y, después, use "$select", "$top", "$filter" y "searchFields" para controlar los resultados de las sugerencias.
 
 ### <a name="choose-analyzers"></a>Elección de analizadores
 
@@ -142,9 +142,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Propiedad      |Descripción      |
 |--------------|-----------------|
-|`name`        | Se especifica en la definición del proveedor de sugerencias, pero también se la llama en una solicitud Autocompletar o Sugerencias. |
-|`sourceFields`| Se especifica en la definición del proveedor de sugerencias. Es una lista de uno o más campos en el índice que son el origen del contenido para obtener sugerencias. Los campos deben ser de tipo `Edm.String` y `Collection(Edm.String)`. Si se especifica un analizador en el campo, debe ser un analizador léxico con nombre de [esta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (no un analizador personalizado).<p/> Como procedimiento recomendado, especifique solo los campos que se prestan a una respuesta adecuada y esperada, ya sea una cadena completa en una barra de búsqueda o una lista desplegable.<p/>Un nombre de hotel es buen candidato porque tiene precisión. Los campos detallados, como las descripciones y los comentarios, son demasiado densos. De forma similar, los campos repetitivos, como las categorías y las etiquetas, son menos eficaces. En los ejemplos, se incluye "categoría" de todos modos para demostrar que puede incluir varios campos. |
-|`searchMode`  | Parámetro solo de REST, pero también visible en el portal. Este parámetro no está disponible en el SDK de .NET. Indica la estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que actualmente coincide en el principio de un término.|
+| name        | Se especifica en la definición del proveedor de sugerencias, pero también se la llama en una solicitud Autocompletar o Sugerencias. |
+| sourceFields | Se especifica en la definición del proveedor de sugerencias. Es una lista de uno o más campos en el índice que son el origen del contenido para obtener sugerencias. Los campos deben ser de tipo `Edm.String` y `Collection(Edm.String)`. Si se especifica un analizador en el campo, debe ser un analizador léxico con nombre de [esta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (no un analizador personalizado). </br></br>Como procedimiento recomendado, especifique solo los campos que se prestan a una respuesta adecuada y esperada, ya sea una cadena completa en una barra de búsqueda o una lista desplegable. </br></br>Un nombre de hotel es buen candidato porque tiene precisión. Los campos detallados, como las descripciones y los comentarios, son demasiado densos. De forma similar, los campos repetitivos, como las categorías y las etiquetas, son menos eficaces. En los ejemplos, se incluye "categoría" de todos modos para demostrar que puede incluir varios campos. |
+| searchMode  | Parámetro solo de REST, pero también visible en el portal. Este parámetro no está disponible en el SDK de .NET. Indica la estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que actualmente coincide en el principio de un término.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -157,9 +157,9 @@ El proveedor de sugerencias se utiliza en una consulta. Después de que se crea 
 + [Método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync)
 + [Método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
-En una aplicación de búsqueda, el código de cliente debería aprovechar una biblioteca como [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recopilar la consulta parcial y ofrecer la coincidencia. Para más información acerca de esta tarea, consulte [Incorporación de sugerencias o de la función de autocompletar al código de cliente](search-autocomplete-tutorial.md).
+En una aplicación de búsqueda, el código de cliente debería aprovechar una biblioteca como [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) para recopilar la consulta parcial y ofrecer la coincidencia. Para más información acerca de esta tarea, consulte [Incorporación de sugerencias o de la función de autocompletar al código de cliente](search-add-autocomplete-suggestions.md).
 
-El uso de la API se ilustra en la siguiente llamada a la API REST de autocompletar. De este ejemplo se pueden extraer dos conclusiones: En primer lugar, al igual que en todas las consultas, la operación se realiza con una colección de documentos de un índice y la consulta incluye un parámetro **search**, que en este caso proporciona la consulta parcial. En segundo lugar, debe agregar **suggesterName** a la solicitud. Si no se define un proveedor de sugerencias en el índice, se producirá un error en la llamada a autocompletar o sugerencias.
+El uso de la API se ilustra en la siguiente llamada a la API REST de autocompletar. De este ejemplo se pueden extraer dos conclusiones: En primer lugar, al igual que en todas las consultas, la operación se realiza con una colección de documentos de un índice y la consulta incluye un parámetro "search", que en este caso proporciona la consulta parcial. En segundo lugar, debe agregar "suggesterName" a la solicitud. Si no se define un proveedor de sugerencias en el índice, se producirá un error en la llamada a autocompletar o sugerencias.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-+ En el ejemplo de [Creación de la primera aplicación en C# (lección 3: Incorporación de buscar mientras se escribe)](tutorial-csharp-type-ahead-and-suggestions.md) se muestran consultas sugeridas, autocompletar y navegación por facetas. Este ejemplo de código se ejecuta en un servicio de espacio aislado de Azure Cognitive Search y se usa un índice de hoteles cargado previamente con un proveedor de sugerencias ya creado, por lo que todo lo que tiene que hacer es presionar F5 para ejecutar la aplicación. No se necesita ninguna suscripción o inicio de sesión.
++ [La adición de búsqueda a un sitio web (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) usa un paquete de sugerencias de código abierto para la finalización parcial de los términos en la aplicación cliente.
+
++ En el ejemplo de [Creación de la primera aplicación en C# (lección 3: Incorporación de buscar mientras se escribe)](tutorial-csharp-type-ahead-and-suggestions.md) se muestran consultas sugeridas, autocompletar y navegación por facetas. Este código proporciona compatibilidad nativa con la escritura anticipada en lugar de usar un widget.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo se solicita la formulación, se recomienda el siguiente artículo.
+Más información sobre las solicitudes o la formulación.
 
 > [!div class="nextstepaction"]
-> [Incorporación de sugerencias y de la función de autocompletar al código de cliente](search-autocomplete-tutorial.md)
+> [Incorporación de sugerencias y de la función de autocompletar al código de cliente](search-add-autocomplete-suggestions.md)
