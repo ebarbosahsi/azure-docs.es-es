@@ -3,12 +3,12 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630476"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078781"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
@@ -160,7 +160,7 @@ Cree los puntos de conexión privados para Azure File Storage y Azure Blob Sto
     | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
-    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Elija el grupo de recursos que ha creado con la aplicación de funciones. | |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Elija el grupo de recursos que ha creado con la aplicación de funciones. |
     | **Nombre** | file-endpoint | El nombre del punto de conexión privado para los archivos de la cuenta de almacenamiento. |
     | **[Región](https://azure.microsoft.com/regions/)** | myFunctionRegion | Elija la región en la que creó la cuenta de almacenamiento. |
 
@@ -332,7 +332,7 @@ Felicidades. Implementó correctamente la aplicación de funciones de ejemplo.
 
 Ahora cree el punto de conexión privado para bloquear la aplicación de funciones. Este punto de conexión privado conectará la aplicación de funciones de manera privada y segura a la red virtual mediante una dirección IP privada. 
 
-Para más información, consulte la [documentación sobre los puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Para más información, consulte la [documentación sobre los puntos de conexión privados](../private-link/private-endpoint-overview.md).
 
 1. En el menú de la izquierda de la aplicación de funciones, seleccione **Redes**.
 

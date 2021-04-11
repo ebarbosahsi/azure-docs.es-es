@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dc084da6ef7f26b9e434acf8985c7077f5eaffe2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95992940"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078373"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Crear y administrar acuerdos entre socios comerciales en Azure Logic Apps
 
@@ -60,14 +60,13 @@ En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro
    | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre** | Sí | <*agreement-name*> | Escriba el nombre del acuerdo. |
-   | **Tipo de contrato** | Sí | **AS2**, **X12** o **EDIFACT** | El tipo de protocolo para el acuerdo. Al crear el archivo de contrato, el contenido del archivo debe coincidir con el tipo de contrato. | |  
+   | **Tipo de contrato** | Sí | **AS2**, **X12** o **EDIFACT** | El tipo de protocolo para el acuerdo. Al crear el archivo de contrato, el contenido del archivo debe coincidir con el tipo de contrato. |
    | **Asociado host** | Sí | <*host-partner-name*> | El asociado host representa la organización que especifica el acuerdo. |
    | **Identidad del host** | Sí | <*host-partner-identifier*> | El identificador del asociado host. |
    | **Asociado invitado** | Sí | <*guest-partner-name*> | El asociado invitado representa la organización que está haciendo negocios con el asociado del host. |
    | **Identidad del invitado** | Sí | <*guest-partner-identifier*> | El identificador del asociado invitado. |
    | **Configuración de recepción** | Varía | Varía | Estas propiedades especifican de qué manera el asociado host recibe todos los mensajes entrantes del asociado invitado en el acuerdo. Para más información, consulte el tipo de contrato correspondiente: <p>- [Configuración de mensajes AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configuración de mensajes EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configuración de mensajes X12](logic-apps-enterprise-integration-x12.md) |
    | **Configuración de envío** | Varía | Varía | Estas propiedades especifican de qué manera el asociado host envía todos los mensajes salientes al asociado invitado en el acuerdo. Para más información, consulte el tipo de contrato correspondiente: <p>- [Configuración de mensajes AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configuración de mensajes EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configuración de mensajes X12](logic-apps-enterprise-integration-x12.md) |
-   |||||
 
    > [!IMPORTANT]
    > La resolución de un contrato depende de la coincidencia de estos elementos definidos en el asociado y el mensaje entrante:

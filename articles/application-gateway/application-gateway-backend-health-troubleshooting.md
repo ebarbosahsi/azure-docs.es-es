@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592762"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078509"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 ==================================================
@@ -176,12 +176,12 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 | **Error** | **Acciones** |
 | --- | --- |
-| Error de coincidencia de código de estado de sondeo: Recibido 401 | Compruebe si el servidor back-end necesita autenticación. Los sondeos de Application Gateway no pueden pasar credenciales para la autenticación. Permita \"HTTP 401\" en una coincidencia de código de estado de sondeo o sondee en una ruta de acceso en la que el servidor no requiera autenticación. | |
-| Error de coincidencia de código de estado de sondeo: Recibido 403 | Acceso prohibido. Compruebe si se permite el acceso a la ruta de acceso en el servidor back-end. | |
-| Error de coincidencia de código de estado de sondeo: Recibido 404 | Página no encontrada. Compruebe si la ruta de acceso del nombre de host es accesible en el servidor back-end. Cambie el nombre de host o el parámetro de ruta de acceso por un valor accesible. | |
-| Error de coincidencia de código de estado de sondeo: Recibido 405 | Las solicitudes de sondeo de Application Gateway usan el método HTTP GET. Compruebe si el servidor lo permite. | |
-| Error de coincidencia de código de estado de sondeo: Recibido 500 | Error interno del servidor Compruebe el estado del servidor back-end y si los servicios se están ejecutando. | |
-| Error de coincidencia de código de estado de sondeo: Recibido 503 | Servicio no disponible. Compruebe el estado del servidor back-end y si los servicios se están ejecutando. | |
+| Error de coincidencia de código de estado de sondeo: Recibido 401 | Compruebe si el servidor back-end necesita autenticación. Los sondeos de Application Gateway no pueden pasar credenciales para la autenticación. Permita \"HTTP 401\" en una coincidencia de código de estado de sondeo o sondee en una ruta de acceso en la que el servidor no requiera autenticación. |
+| Error de coincidencia de código de estado de sondeo: Recibido 403 | Acceso prohibido. Compruebe si se permite el acceso a la ruta de acceso en el servidor back-end. |
+| Error de coincidencia de código de estado de sondeo: Recibido 404 | Página no encontrada. Compruebe si la ruta de acceso del nombre de host es accesible en el servidor back-end. Cambie el nombre de host o el parámetro de ruta de acceso por un valor accesible. |
+| Error de coincidencia de código de estado de sondeo: Recibido 405 | Las solicitudes de sondeo de Application Gateway usan el método HTTP GET. Compruebe si el servidor lo permite. |
+| Error de coincidencia de código de estado de sondeo: Recibido 500 | Error interno del servidor Compruebe el estado del servidor back-end y si los servicios se están ejecutando. |
+| Error de coincidencia de código de estado de sondeo: Recibido 503 | Servicio no disponible. Compruebe el estado del servidor back-end y si los servicios se están ejecutando. |
 
 O bien, si cree que la respuesta es legítima y desea que Application Gateway acepte otros códigos de estado como correctos, puede crear un sondeo personalizado. Este enfoque es útil en situaciones en las que el sitio web de back-end necesita autenticación. Dado que las solicitudes de sondeo no incluyen ninguna credencial de usuario, generarán un error y el servidor back-end devolverá un código de estado HTTP 401.
 

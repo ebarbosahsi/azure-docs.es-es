@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afe56bb8637c9b2a88bda23944fd5097413fce97
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91537640"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077727"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
@@ -161,7 +161,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
  El cuerpo del perfil de puntuación se construye a partir de campos ponderados y funciones.  
 
-|||  
+|Propiedades |Descripción|  
 |-|-|  
 |**Pesos**|Especifique pares nombre-valor que asignen un peso relativo a un campo. En el [ejemplo](#bkmk_ex), los campos albumTitle, genre y artistName se han potenciado 1,5, 5 y 2 respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza sobre datos en cierto modo homogéneos (como es el caso de "genre" en `musicstoreindex`), es posible que necesite una mayor variación en los pesos relativos. Por ejemplo, en `musicstoreindex`, "rock" aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor.|  
 |**Funciones**|Se usan cuando se requieren cálculos adicionales para contextos concretos. Los valores válidos son `freshness`, `magnitude`, `distance` y `tag`. Cada función tiene parámetros que son exclusivos de ella.<br /><br /> -   `freshness` debe usarse cuando se quiere potenciar en función de lo nuevo o antiguo que sea un artículo. Esta función solo puede usarse con campos `datetime` (edm.DataTimeOffset). Tenga en cuenta que el atributo `boostingDuration` solo se usa con la función `freshness`.<br />-   `magnitude` debe usarse cuando se quiere potenciar en función de lo alto o bajo que sea un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y de número entero.<br />     Para la función `magnitude`, puede invertir el rango, de mayor a menor, si quiere el patrón inverso (por ejemplo, potenciar los artículos de precio inferior más que los de precio superior). Dado un intervalo de precios de 100 $ a 1 $, establezca `boostingRangeStart` en 100 y `boostingRangeEnd` en 1 para potenciar los elementos de menor precio.<br />-   `distance` debe usarse cuando quiera potenciar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `Edm.GeographyPoint` .<br />-   `tag` debe usarse cuando quiera potenciar por etiquetas en común entre documentos y consultas de búsqueda. Esta función solo puede usarse con campos `Edm.String` y `Collection(Edm.String)`.<br /><br /> **Reglas de uso de funciones**<br /><br /> El tipo de función (`freshness`, `magnitude`, `distance`), `tag` debe estar en minúsculas.<br /><br /> Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.<br /><br /> Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de un índice &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/create-index) para más información sobre los campos que se pueden filtrar.<br /><br /> Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.|  
