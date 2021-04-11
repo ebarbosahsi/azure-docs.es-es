@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3370aac242fb47a133a5f7d6dc9b3444c65e3691
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573122"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605015"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualización de un modelo representado de forma remota
 
@@ -33,10 +33,7 @@ Para este tutorial, necesitará:
 * Windows SDK 10.0.18362.0 [(descargar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * La versión más reciente de Visual Studio 2019 [(descargar)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(descargar)](https://git-scm.com/downloads)
-* La versión de Unity más reciente (2019.3); en este tutorial, se recomienda el uso de Unity Hub [(descargar)](https://unity3d.com/get-unity/download)
-  * Instale estos módulos en Unity:
-    * **UWP**: compatibilidad con la compilación de la Plataforma universal de Windows
-    * **IL2CPP**: compatibilidad con la compilación de Windows (IL2CPP)
+* Unity (consulte los [requisitos del sistema](../../../overview/system-requirements.md#unity) para versiones compatibles).
 * Conocimientos intermedios de Unity y del lenguaje C# (por ejemplo, creación de scripts y objetos, uso de elementos prefabricados, configuración de eventos de Unity, etc.)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Aprovisionar una instancia de Azure Remote Rendering (ARR)
@@ -428,8 +425,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     private async Task<bool> IsSessionAvailable(string sessionID)
     {
-        var allSessions = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
-        return allSessions.SessionProperties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+        bool sessionAvailable = false;
+        try
+        {
+            RenderingSessionPropertiesArrayResult result = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
+            if (result.ErrorCode == Result.Success)
+            {
+                RenderingSessionProperties[] properties = result.SessionProperties;
+                if (properties != null)
+                {
+                    sessionAvailable = properties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+                }
+            }
+            else
+            {
+                Debug.LogError($"Failed to get current rendering sessions. Error: {result.Context.ErrorMessage}");
+            }
+        }
+        catch (RRException ex)
+        {
+            Debug.LogError($"Failed to get current rendering sessions. Error: {ex.Message}");
+        }
+        return sessionAvailable;
     }
 
     /// <summary>
@@ -756,7 +773,7 @@ El código anterior está realizando los pasos siguientes:
 1. Crear una [entidad remota](../../../concepts/entities.md)
 1. Crear un elemento GameObject local para representar la entidad remota
 1. Configurar el elemento GameObject local para sincronizar su estado (es decir, transformarlo) con la entidad remota con cada fotograma
-1. Establecer un nombre y agregar un objeto [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) para ayudar a la estabilización
+1. Establecer un nombre y agregar un objeto [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) para ayudar a la estabilización
 1. Cargar los datos del modelo de Blob Storage en la entidad remota
 1. Devolver la entidad primaria, para hacer referencia a ella posteriormente
 

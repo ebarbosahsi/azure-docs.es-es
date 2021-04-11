@@ -2,14 +2,14 @@
 title: Configuración de identidades administradas en grupos de Batch
 description: Obtenga información sobre cómo habilitar identidades administradas asignadas por el usuario en grupos de Batch y cómo usar identidades administradas en los nodos.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416780"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950168"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configuración de identidades administradas en grupos de Batch
 
@@ -100,3 +100,4 @@ Para obtener más información, consulte [Cómo usar identidades administradas d
 
 - Obtenga más información sobre las [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 - Aprenda a usar [claves administradas por el cliente con identidades administradas por el usuario](batch-customer-managed-key.md).
+- Aprenda a [habilitar la rotación automática de certificados en un grupo de Batch](automatic-certificate-rotation.md).

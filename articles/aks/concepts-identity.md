@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181455"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949998"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -73,6 +73,7 @@ La identidad de clúster necesita los siguientes permisos adicionales al crear u
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Se requiere cando se usa una subred en otro grupo de recursos (por ejemplo, una red virtual personalizada). |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Se requiere cuando se usa una subred asociada a una tabla de rutas en otro grupo de recursos (por ejemplo, una red virtual personalizada con una tabla de rutas personalizada). Se requiere para comprobar si ya existe una subred para la subred en el otro grupo de recursos. |
 | Microsoft.Network/virtualNetworks/subnets/read | Se requiere cuando se usa un equilibrador de carga interno en otro grupo de recursos. Se requiere para comprobar si ya existe una subred para el equilibrador de carga interno en el grupo de recursos. |
+| Microsoft.Network/privatednszones/* | Se requiere cuando se usa una subred en otro grupo de recursos (por ejemplo, una red privateDNSZone personalizada). |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Control de acceso basado en rol de Kubernetes (RBAC de Kubernetes)
 

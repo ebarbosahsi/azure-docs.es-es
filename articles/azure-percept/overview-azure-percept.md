@@ -1,18 +1,18 @@
 ---
 title: Introducción a Azure Percept
 description: Más información sobre la plataforma Azure Percept.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953607"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567668"
 ---
 # <a name="introduction-to-azure-percept"></a>Introducción a Azure Percept
 
@@ -28,21 +28,21 @@ Los problemas de integración a los que alguien se enfrenta al intentar implemen
 
 Los componentes principales de Azure Percept son:
 
-1. [Azure Percept DK](./overview-azure-percept-dk.md).
+- [Azure Percept DK](./overview-azure-percept-dk.md).
 
     - Un kit de desarrollo que sea lo suficientemente flexible como para admitir una amplia variedad de escenarios de creación de prototipos para creadores de dispositivos, creadores de soluciones y clientes.
 
         > [!div class="nextstepaction"]
         > [Comprar ahora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Servicios y flujos de trabajo que aceleran el desarrollo de soluciones y modelos de inteligencia artificial perimetral.
+- Servicios y flujos de trabajo que aceleran el desarrollo de soluciones y modelos de inteligencia artificial perimetral.
 
     - Flujos de trabajo de desarrollo y modelos pregenerados accesibles desde [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Servicios de desarrollo de modelos.
     - Servicios de administración de dispositivos para el escalado.
     - Seguridad global.
 
-1. Programas de certificación y diseño de referencia de hardware de inteligencia artificial.
+- Programas de certificación y diseño de referencia de hardware de inteligencia artificial.
 
     - Proporciona al ecosistema de desarrolladores de hardware patrones y procedimientos recomendados para el desarrollo de hardware de inteligencia artificial perimetral que se pueden integrar fácilmente con los servicios de Azure AI e IoT.
 

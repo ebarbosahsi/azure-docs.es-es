@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520785"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773120"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -91,6 +91,8 @@ weighted_accuracy|La precisión ponderada es la precisión en la que cada muestr
 El aprendizaje automático automatizado no distingue entre las métricas binarias y multiclase. Se informan las mismas métricas de validación así un conjunto de datos tenga dos clases o más de dos clases. Sin embargo, algunas métricas están pensadas para la clasificación multiclase. Cuando estas métricas se aplican a un conjunto de datos binario, no tratarán a ninguna clase como clase `true`, como cabría esperar. Las métricas que se han diseñado claramente para multiclase tienen como sufijo `micro`, `macro` o `weighted`. Entre los ejemplos se incluyen `average_precision_score`, `f1_score`, `precision_score`, `recall_score` y `AUC`.
 
 Por ejemplo, en lugar de calcular la recuperación como `tp / (tp + fn)`, la recuperación media multiclase (`micro`, `macro` o `weighted`) promedia ambas clases de un conjunto de datos de clasificación binaria. Esto es equivalente a calcular la recuperación de la clase `true` y de la clase `false` por separado y, a continuación, tomar la media de ambas.
+
+Las ML automatizadas no calculan métricas binarias, que son métricas para los conjuntos de datos de clasificación binaria. Sin embargo, estas métricas se pueden calcular manualmente mediante la [matriz de confusión](#confusion-matrix) que generaba ML automatizada para esa ejecución en particular. Por ejemplo, puede calcular la precisión, `tp / (tp + fp)`, con los valores verdaderos positivos y falsos positivos mostrados en un gráfico de matriz de confusión de 2 x 2.
 
 ## <a name="confusion-matrix"></a>Matriz de confusión
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172086"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043740"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Compilación de una aplicación de Flask con Azure Cognitive Services
 
@@ -49,7 +49,7 @@ Si desea obtener información detallada después de este tutorial, consulte esto
 
 Para este tutorial, se necesita el software y las claves de suscripción siguientes.
 
-* [Python 3.5.2 o versiones posteriores](https://www.python.org/downloads/)
+* [Python 3.6 o versiones posteriores](https://www.python.org/downloads/)
 * [Herramientas de Git](https://git-scm.com/downloads)
 * Un editor de texto o IDE, como [Visual Studio Code](https://code.visualstudio.com/) o [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) o [Firefox](https://www.mozilla.org/firefox)

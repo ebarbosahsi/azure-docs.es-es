@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
-ms.openlocfilehash: 7f89780f2ed440898f5a28d78ec541c48a958b90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4be182b3eee59f7f9d2ef704a3d0f57c6718b45d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743563"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044981"
 ---
 # <a name="connect-your-broadcom-symantec-data-loss-prevention-dlp-to-azure-sentinel"></a>Conexión de la prevención de pérdida de datos (DLP) de Broadcom Symantec con Azure Sentinel
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo conectar el dispositivo de Broadcom Symantec 
 
 - Debe tener permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 
-- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Debe tener permisos de lectura para las claves compartidas del área de trabajo. [Obtenga más información sobre las claves del área de trabajo](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-broadcom-symantec-dlp-logs-to-azure-sentinel"></a>Envío de registros de Broadcom Symantec DLP a Azure Sentinel
 

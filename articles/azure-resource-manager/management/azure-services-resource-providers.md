@@ -2,17 +2,17 @@
 title: Proveedores de recursos por servicios de Azure
 description: Se enumeran todos los espacios de nombres de proveedor de recursos para Azure Resource Manager y se muestra el servicio de Azure para ese espacio de nombres.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: f33017713d8154fb56472ad5f53b97b22d32e0e3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008712"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167879"
 ---
 # <a name="resource-providers-for-azure-services"></a>Proveedores de recursos para servicios de Azure
 
-En este artículo se muestra cómo se asignan los espacios de nombres de proveedor de recursos a servicios de Azure.
+En este artículo se muestra cómo se asignan los espacios de nombres de proveedor de recursos a servicios de Azure. Si no conoce el proveedor de recursos, consulte [Búsqueda del proveedor de recursos](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Coincidencia del proveedor de recursos con el servicio
 
@@ -28,7 +28,7 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [API Management](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Attestation | Servicio de atestación de Azure |
 | Microsoft.Authorization: [registrado](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
@@ -103,7 +103,7 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
-| microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -125,7 +125,7 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering: [registrado](#registration) | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
@@ -155,7 +155,7 @@ Los proveedores de recursos con la marca **registrado** se registran de forma pr
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Centro de seguridad](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole: [registrado](#registration) | [Consola serie de Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole: [registrado](#registration) | [Consola serie de Azure para Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -192,6 +192,42 @@ Los proveedores de recursos anteriores que llevan la marca **registrado** están
 
 > [!IMPORTANT]
 > Solo debe registrar un proveedor de recursos cuando esté listo para usarlo. El paso de registro permite mantener los privilegios mínimos dentro de la suscripción. Un usuario malintencionado no puede usar proveedores de recursos que no están registrados.
+
+## <a name="find-resource-provider"></a>Búsqueda del proveedor de recursos
+
+Si tiene una infraestructura existente en Azure, pero no está seguro de qué proveedor de recursos se usa, puede utilizar la CLI de Azure o PowerShell para buscar el proveedor de recursos. Especifique el nombre del grupo de recursos que contiene el recurso que desea encontrar.
+
+En el ejemplo siguiente se usa la CLI de Azure:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Los resultados incluyen el tipo de recurso. El espacio de nombres del proveedor de recursos es la primera parte del tipo de recurso. En el ejemplo siguiente se muestra el proveedor de recursos **Microsoft.KeyVault**.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+En el ejemplo siguiente se usa PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Los resultados incluyen el tipo de recurso. El espacio de nombres del proveedor de recursos es la primera parte del tipo de recurso. En el ejemplo siguiente se muestra el proveedor de recursos **Microsoft.KeyVault**.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,13 +3,13 @@ title: Uso de identidades administradas del pod de Azure Active Directory en Azu
 description: Aprenda a utilizar identidades administradas del pod de AAD en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: f3d0db5b085fcdb9a24310cb2fe310d390b1790a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176321"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103574380"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Uso de identidades administradas del pod de Azure Active Directory en Azure Kubernetes Service (versión preliminar)
 
@@ -24,13 +24,13 @@ Las identidades administradas del pod de Azure Active Directory usan primitivas 
 
 Debe tener instalado el siguiente recurso:
 
-* La CLI de Azure, versión 2.8.0 o posterior
-* La versión de la extensión `azure-preview` 0.4.68 o posterior
+* CLI de Azure, versión 2.20.0 o posterior
+* Extensión `azure-preview`, versión 0.5.5 o posterior
 
 ### <a name="limitations"></a>Limitaciones
 
-* Se permite un máximo de 50 identidades de pod para un clúster.
-* Se permite un máximo de 50 excepciones de identidades de pod para un clúster.
+* Se permite un máximo de 200 identidades de pod para un clúster.
+* Se permite un máximo de 200 excepciones de identidades de pod para un clúster.
 * Las identidades administradas del pod solo están disponibles en grupos de nodos de Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registro de `EnablePodIdentityPreview`
@@ -53,19 +53,75 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>Creación de un clúster de AKS con identidades administradas
+## <a name="create-an-aks-cluster-with-azure-cni"></a>Creación de un clúster de AKS con Azure CNI
 
-Cree un clúster de AKS con una identidad administrada y una identidad administrada del pod habilitadas. Los siguientes comandos usan [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* y el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*.
+> [!NOTE]
+> Esta es la configuración recomendada predeterminada.
+
+Cree un clúster de AKS con Azure CNI y una identidad administrada del pod habilitada. Los siguientes comandos usan [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* y el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
+az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 Use [az aks get-credentials][az-aks-get-credentials] para iniciar sesión en el clúster de AKS. Este comando también descarga y configura el certificado de cliente `kubectl` en el equipo de desarrollo.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+
+## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Actualización de un clúster de AKS existente con Azure CNI
+
+Actualice un clúster de AKS existente con Azure CNI para incluir la identidad administrada del pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+```
+## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Uso del complemento de red Kubenet con identidades administradas del pod de Azure Active Directory 
+
+> [!IMPORTANT]
+> La ejecución de aad-pod-identity en un clúster con Kubenet no es una configuración recomendada debido a la implicación que conlleva en materia de seguridad. Siga los pasos de mitigación y configure las directivas antes de habilitar aad-pod-identity en un clúster con Kubenet.
+
+## <a name="mitigation"></a>Mitigación
+
+Para mitigar la vulnerabilidad en el nivel de clúster, puede usar el controlador de admisión de OpenPolicyAgent junto con el webhook de validación de Gatekeeper. Si ya tiene instalado Gatekeeper en el clúster, agregue un elemento ConstraintTemplate del tipo K8sPSPCapabilities:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/capabilities/template.yaml
+```
+Agregue una plantilla para limitar la generación de pods con la funcionalidad NET_RAW:
+
+```
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPCapabilities
+metadata:
+  name: prevent-net-raw
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - "kube-system"
+  parameters:
+    requiredDropCapabilities: ["NET_RAW"]
+```
+
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Creación de un clúster de AKS con el complemento de red Kubenet
+
+Cree un clúster de AKS con complemento de red Kubenet y una identidad administrada del pod habilitada.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Actualización de un clúster de AKS existente con el complemento de red Kubenet
+
+Actualice un clúster de AKS existente con el complemento de red Kubnet para incluir la identidad administrada del pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Creación de una identidad

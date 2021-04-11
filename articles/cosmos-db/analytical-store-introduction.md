@@ -4,15 +4,15 @@ description: Obtenga información sobre el almacén transaccional (basado en fil
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 77c84e4b4a8129a95ee18b4ae89b48a687e9fce1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452851"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951596"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,61 @@ La sincronización automática hace referencia a la funcionalidad totalmente adm
 
 La funcionalidad de sincronización automática, junto con el almacén analítico, proporciona las siguientes ventajas clave:
 
-#### <a name="scalability--elasticity"></a>Escalabilidad y elasticidad
+### <a name="scalability--elasticity"></a>Escalabilidad y elasticidad
 
 Mediante la creación de partición horizontal, el almacén transaccional de Azure Cosmos DB puede escalar elásticamente el almacenamiento y el rendimiento sin tiempo de inactividad. La creación de partición horizontal en el almacén transaccional proporciona escalabilidad y elasticidad en la sincronización automática para garantizar que los datos se sincronicen con el almacén analítico casi en tiempo real. La sincronización de datos se produce independientemente del rendimiento del tráfico transaccional, ya sean 1000 operaciones/s o 1 millón de operaciones/s, y no afecta al rendimiento aprovisionado en el almacén transaccional. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
 
 El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia de esquemas en las actualizaciones más recientes del almacén transaccional.  También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
 
 A medida que evoluciona el esquema, y se agregan propiedades nuevas con el tiempo, el almacén analítico presenta automáticamente un esquema unificado de todos los esquemas históricos del almacén de transacciones.
 
-##### <a name="schema-constraints"></a>Restricciones del esquema
+#### <a name="schema-constraints"></a>Restricciones del esquema
 
 Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos DB al habilitar el almacén analítico para que realice la inferencia automáticamente y represente el esquema correctamente:
 
-* Puede tener 200 propiedades como máximo en cualquier nivel de anidamiento del esquema y una profundidad de anidamiento máxima de 5.
+* Puede tener 1000 propiedades como máximo en cualquier nivel de anidamiento del esquema y una profundidad de anidamiento máxima de 127.
+  * En el almacén analítico solo se representan las primeras 1000 propiedades.
+  * En el almacén analítico solo se representan los primeros 127 niveles anidados.
+
+* Mientras que los documentos JSON (y colecciones o contenedores de Cosmos DB) distinguen mayúsculas de minúsculas de la perspectiva de exclusividad, el almacén analítico no lo es.
+
+  * **En el mismo documento:** los nombres de propiedades del mismo nivel deben ser únicos cuando se comparan mayúsculas y minúsculas. Por ejemplo, el siguiente documento JSON tiene "Name" y "name" en el mismo nivel. Aunque es un documento JSON válido, no satisface la restricción de exclusividad y, por lo tanto, no se representará por completo en el almacén analítico. En este ejemplo, "Name" y "name" son iguales al compararlos sin hacer distinción de mayúsculas y minúsculas. Solo `"Name": "fred"` se representará en el almacén analítico, ya que es el primer resultado. Asimismo, `"name": "john"` no se representarán en absoluto.
   
-  * Un elemento con 201 propiedades en el nivel superior no cumple esta restricción y, por lo tanto, no se representará en el almacén analítico.
-  * Un elemento con más de cinco niveles anidados en el esquema tampoco cumple esta restricción, por lo que tampoco se representaría en el almacén analítico. Por ejemplo, el elemento siguiente no cumple el requisito:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **En documentos diferentes:** las propiedades del mismo nivel y con el mismo nombre, pero en casos diferentes, se representarán dentro de la misma columna, con el formato de nombre de la primera aparición. Por ejemplo, los siguientes documentos JSON tienen `"Name"` y `"name"` en el mismo nivel. Dado que el primer formato de documento es `"Name"`, esto es lo que se usará para representar el nombre de la propiedad en el almacén analítico. En otras palabras, el nombre de columna del almacén analítico será `"Name"`. Tanto `"fred"` como `"john"` se representarán en la columna `"Name"`.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Los nombres de propiedad deben ser únicos al compararlos sin distinción de mayúsculas y minúsculas. Por ejemplo, los elementos siguientes no cumplen esta restricción y, por lo tanto, no se representarán en el almacén analítico:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}`: "Name" y "name" son iguales al compararlos sin hacer distinción de mayúsculas y minúsculas.
 
-##### <a name="schema-representation"></a>Representación del esquema
+* El primer documento de la colección define el esquema de almacenamiento analítico inicial.
+  * Las propiedades del primer nivel del documento se representarán como columnas.
+  * Los documentos que tengan más propiedades que el esquema inicial generarán nuevas columnas en el almacén analítico.
+  * No se pueden quitar las columnas.
+  * La eliminación de todos los documentos de una colección no restablece el esquema del almacén analítico.
+  * No hay control de versiones de esquema. La última versión inferida del almacén de transacciones es lo que verá en el almacén analítico.
+
+* Actualmente no se admiten los nombres de la columna de lectura de Azure Synapse Spark que contengan espacios en blanco.
+
+* Se espera un comportamiento diferente con respecto a los valores explícitos `null`:
+  * Los grupos de Spark en Azure Synapse leerán estos valores como `0` (cero).
+  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `NULL` si el primer documento de la colección tiene, para la misma propiedad, un valor con un tipo de valor de DataType diferente de `integer`.
+  * Los grupos sin servidor de SQL en Azure Synapse leerán estos valores como `0` (cero) si el primer documento de la colección tiene, para la misma propiedad, un valor que sea un entero.
+
+* Se espera un comportamiento diferente con respecto a las columnas que faltan:
+  * Los grupos de Spark en Azure Synapse representarán estas columnas como `undefined`.
+  * Los grupos sin servidor de SQL en Azure Synapse representarán estas columnas como `NULL`.
+
+#### <a name="schema-representation"></a>Representación del esquema
 
 En el almacén analítico hay dos maneras de representar el esquema. Estos modos presentan ventajas e inconvenientes en relación con la simplicidad de la representación en columnas, el control de los esquemas polimórficos y la simplicidad de la experiencia de consulta:
 
@@ -106,7 +135,7 @@ La representación de esquemas bien definida crea una representación tabular si
 
 * Las propiedades siempre tienen el mismo tipo en los distintos elementos.
 
-  * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. En este caso, el almacén analítico registra el tipo de datos de `“a”` como tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Los elementos en los que el tipo de datos de `“a”` difiere no se incluirán en el almacén analítico.
+  * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. En este caso, el almacén analítico registra el tipo de datos de `"a"` como tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Aún así, el documento todavía se incluirá en el almacén analítico, pero los elementos cuyo tipo de datos `"a"` sea distinto no lo serán.
   
     Esta condición no se aplica a las propiedades NULL. Por ejemplo, `{"a":123} {"a":null}` sigue estando bien definida.
 
@@ -116,6 +145,11 @@ La representación de esquemas bien definida crea una representación tabular si
 
 > [!NOTE]
 > Si el almacén analítico de Azure Cosmos DB sigue la representación de esquemas bien definida y no se cumplen las especificaciones anteriores en determinados elementos, estos no se incluirán en el almacén analítico.
+
+* Se espera un comportamiento diferente en lo que respecta a los diferentes tipos en el esquema bien definido:
+  * Los grupos de Spark en Azure Synapse representarán estos valores como `undefined`.
+  * Los grupos sin servidor de SQL en Azure Synapse representarán estos valores como `NULL`.
+
 
 **Representación de esquemas con fidelidad total**
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951477"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionamiento e implementación predecibles de microservicios en Azure
@@ -145,10 +145,10 @@ Las cadenas de conexión también se definen como un recurso anidado.
 
 ![Muestra cómo las cadenas de conexión se definen como un recurso anidado en el código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-En el elemento `properties` para `config/connectionstrings`, cada cadena de conexión también se define como un par nombre-valor, con el formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para el elemento `type`, los valores posibles son `MySql`, `SQLServer`, `SQLAzure` y `Custom`.
+En el elemento `properties` para `config/connectionstrings`, cada cadena de conexión también se define como un par nombre-valor, con el formato específico de `"<name>&quot; : {&quot;value&quot;: &quot;…&quot;, &quot;type&quot;: &quot;…&quot;}`. Para el elemento `type`, los valores posibles son `MySql`, `SQLServer`, `SQLAzure` y `Custom`.
 
 > [!TIP]
-> Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando en Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando en Azure PowerShell: \[Enum]::GetNames(&quot;Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492615"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044301"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutorial: Firma y realización de solicitudes con Postman
 En este tutorial, vamos a configurar y usar Postman para realizar una solicitud a los servicios de Azure Communication Services (ACS) mediante HTTP. Al final de este tutorial, habrá enviado correctamente un mensaje SMS mediante ACS y Postman y podrá usar Postman para explorar otras API de ACS.
@@ -68,7 +68,7 @@ Para más información acerca de las variables, consulte la [documentación de P
 
 ### <a name="creating-a-pre-request-script"></a>Creación de un script previo a la solicitud
 
-El siguiente paso consiste en crear un script previo a la solicitud en Postman. Un script previo a la solicitud es un script que se ejecuta antes de cada solicitud en Postman y puede modificar o cambiar los parámetros de la solicitud en su nombre. Lo usaremos para firmar las solicitudes HTTP de modo que los servicios de ACS la puedan autorizar. Para más información sobre los requisitos de firma, consulte la [guía sobre autenticación](https://docs.microsoft.com/rest/api/communication/authentication).
+El siguiente paso consiste en crear un script previo a la solicitud en Postman. Un script previo a la solicitud es un script que se ejecuta antes de cada solicitud en Postman y puede modificar o cambiar los parámetros de la solicitud en su nombre. Lo usaremos para firmar las solicitudes HTTP de modo que los servicios de ACS la puedan autorizar. Para más información sobre los requisitos de firma, consulte la [guía sobre autenticación](/rest/api/communication/authentication).
 
 Vamos a crear este script dentro de la colección para que se ejecute en todas las solicitudes de la colección. Para ello, en la pestaña de la colección, haga clic en la pestaña secundaria "Pre-request Script" (Script previo a la solicitud).
 
@@ -186,7 +186,7 @@ Ahora que todo está configurado, estamos listos para crear una solicitud de ACS
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Botón de signo más de Postman.":::
 
-Se creará una nueva pestaña para nuestra solicitud en Postman. Una vez creada, es necesario configurarla. Realizaremos una solicitud a la API de envío de SMS, por tanto, asegúrese de consultar la [documentación de esta API para obtener ayuda](https://docs.microsoft.com/rest/api/communication/sms/send). Vamos a configurar la solicitud de Postman.
+Se creará una nueva pestaña para nuestra solicitud en Postman. Una vez creada, es necesario configurarla. Realizaremos una solicitud a la API de envío de SMS, por tanto, asegúrese de consultar la [documentación de esta API para obtener ayuda](/rest/api/communication/sms/send). Vamos a configurar la solicitud de Postman.
 
 Para empezar, establezca el tipo de solicitud en `POST` y escriba `{{endpoint}}/sms?api-version=2021-03-07` en el campo de la dirección URL de la solicitud. Esta dirección URL usa la variable `endpoint` creada anteriormente para enviarla automáticamente al recurso de ACS.
 
@@ -238,8 +238,8 @@ El teléfono móvil que posee el número que proporcionó en el valor de "to" (P
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Explorar las API de ACS](https://docs.microsoft.com/rest/api/communication/)
-> [Más información sobre la autenticación](https://docs.microsoft.com/rest/api/communication/authentication)
+> [Explorar las API de ACS](/rest/api/communication/)
+> [Más información sobre la autenticación](/rest/api/communication/authentication)
 > [Más información sobre Postman](https://learning.postman.com/)
 
 También puede que desee consultar:

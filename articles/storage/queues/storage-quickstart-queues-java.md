@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Azure Queue Storage v12: .Java'
 description: Aprenda a usar la biblioteca cliente de Azure Queue Storage v12 para Java para crear una cola y agregarle mensajes. Luego, aprenda a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
-ms.openlocfilehash: 814531adc9dafa524797d0c2674a1e600e407bed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79b10e8281fe8189b490fe97dfe896179c8e64fc
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97588223"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275879"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 

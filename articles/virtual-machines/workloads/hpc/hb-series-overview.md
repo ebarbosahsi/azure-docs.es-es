@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b0e8e2e0ee7ce730f6bf00d7e5ef4bd4eae65ce7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f5dddd3d59ebe778d577176e439528a86bb42a7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666946"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802606"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Información general sobre las máquinas virtuales de la serie HB
 
@@ -31,7 +31,7 @@ El anclaje de procesos funcionará en las máquinas virtuales de la serie HB por
 
 En el siguiente diagrama se muestra la segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HB.
 
-![Segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HB](./media/hb-series-overview/segregation-cores.png)
+![Segregación de los núcleos reservados para el hipervisor de Azure y la máquina virtual de la serie HB](./media/architecture/hb-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificaciones del hardware
 
@@ -51,13 +51,13 @@ En el siguiente diagrama se muestra la segregación de los núcleos reservados p
 |-----------------------------|-----------------------|
 | Tamaño de trabajo de MPI máximo            | 18000 núcleos (300 máquinas virtuales en un solo conjunto de escalado de máquinas virtuales con singlePlacementGroup=true)  |
 | Compatibilidad con MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Otros marcos       | Unified Communication X, libfabric, PGAS |
+| Otros marcos       | UCX, libfabric, PGAS |
 | Soporte técnico para Azure Storage       | Discos estándar y premium (cuatro discos como máximo) |
-| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Compatibilidad con Orchestrator        | CycleCloud, Batch  |
+| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Compatibilidad con Orchestrator        | CycleCloud, Batch, AKS; [Opciones de configuración del clúster](../../sizes-hpc.md#cluster-configuration-options) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda sobre la [arquitectura de EPYC AMD](https://bit.ly/2Epv3kC) y las [arquitecturas de varios chips](https://bit.ly/2GpQIMb). Para más información, consulte la [guía de optimización de HPC para procesadores de AMD EPYC](https://bit.ly/2T3AWZ9).
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

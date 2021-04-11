@@ -1,18 +1,18 @@
 ---
 title: Problemas conocidos y solución de problemas de Azure Kinect
 description: Obtenga información sobre algunos de los problemas conocidos y sugerencias para solucionar problemas al usar el SDK del sensor con Azure Kinect DK.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: solución de problemas, actualización, error, Kinect, comentarios, recuperación, registro, sugerencias
-ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ecd0fe9021642b27438b0e5d3d140e50c8073f29
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038827"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951528"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conocidos y solución de problemas de Azure Kinect
 
@@ -172,18 +172,60 @@ El motor de profundidad de Azure Kinect en Linux usa OpenGL. OpenGL necesita una
 
 1. Habilite el inicio de sesión automático para la cuenta de usuario que va a usar. Consulte [este artículo](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) para obtener instrucciones sobre cómo habilitar el inicio de sesión automático.
 2. Apague el sistema, desconecte el monitor y encienda el sistema. El inicio de sesión automático fuerza la creación de una sesión x-server.
-2. Conéctese mediante SSH y establezca la variable DISPLAY env `export DISPLAY=:0`
-3. Inicie la aplicación Azure Kinect.
+3. Conéctese mediante SSH y establezca la variable DISPLAY env `export DISPLAY=:0`
+4. Inicie la aplicación Azure Kinect.
 
 La utilidad [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) se puede usar para bloquear inmediatamente la pantalla después del inicio de sesión automático. Agregue el siguiente comando a la aplicación de inicio o al servicio systemd:
 
-`bash -c “xtrlock -b”` 
+`bash -c “xtrlock -b”`
 
 ## <a name="missing-c-documentation"></a>Falta documentación de C#
 
 La documentación de C# para el SDK del sensor se encuentra [aquí](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
 
 La documentación de C# para el SDK de seguimiento de personas se encuentra [aquí](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
+## <a name="specifying-onnx-runtime-execution-environment"></a>Especificar el entorno de ejecución en tiempo de ejecución de ONNX
+
+El SDK de seguimiento de cuerpos es compatible con los entornos de ejecución de CPU, CUDA, DirectML (solo Windows) y TensorRT para inferir el modelo de estimación de supuestos. De `K4ABT_TRACKER_PROCESSING_MODE_GPU` forma predeterminada, la ejecución de CUDA en Linux y DirectML se ejecuta en Windows. Se han agregado tres modos adicionales para seleccionar entornos de ejecución específicos: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA`, `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` y `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`.
+
+> [!NOTE]  
+> El tiempo de ejecución de ONNX muestra advertencias de códigos de tiempo que no se aceleran. Se pueden omitir sin ningún problema.
+
+El tiempo de ejecución de ONNX incluye variables de entorno para controlar el almacenamiento en caché del modelo TensorRT. Los valores recomendados son:
+- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_CACHE_PATH="pathname"
+
+La carpeta debe crearse antes de iniciar el seguimiento del cuerpo.
+
+> [!NOTE]  
+> TensorRT procesa previamente el modelo antes de la inferencia, lo que genera tiempos de inicio extendidos en comparación con otros entornos de ejecución. El almacenamiento en caché del motor limita esto a la primera ejecución, pero es experimental y es específica del modelo, la versión del Runtime de ONNX, la versión de TensorRT y el modelo de GPU.
+
+El entorno de ejecución de TensorRT admite tanto FP32 (predeterminado) como FP16. El FP16 ofrece un aumento de rendimiento de ~2 veces a cambio de una disminución mínima de la precisión. Para especificar FP16:
+- ORT_TENSORRT_FP16_ENABLE=1
+
+## <a name="required-dlls-for-onnx-runtime-execution-environments"></a>Archivos DLL necesarios para entornos de ejecución en tiempo de ejecución de ONNX
+
+|Mode      | CUDA 11.1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
+|----------|----------------------|----------------------|----------------------|
+| CPU      | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| CUDA     | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           | cudnn_ops_infer64_8  |                      |
+|          | cublas64_11          | cudnn_cnn_infer64_8  |                      |
+|          | cublasLt64_11        |                      |                      |
+| DirectML | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| TensorRT | cudart64_110         | cudnn64_8            | nvinfer              |
+|          | cufft64_10           | cudnn_ops_infer64_8  | nvinfer_plugin       |
+|          | cublas64_11          | cudnn_cnn_infer64_8  | myelin64_1           |
+|          | cublasLt64_11        |                      |                      |
+|          | nvrtc64_111_0        |                      |                      |
+|          | nvrtc-builtins64_111 |                      |                      |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

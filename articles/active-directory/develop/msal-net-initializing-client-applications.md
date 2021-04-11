@@ -13,17 +13,19 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600293"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771369"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialización de aplicaciones cliente con MSAL.NET
-En este artículo se describe la inicialización de aplicaciones cliente confidenciales y públicas mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).  Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de la aplicación, lea la [Introducción](msal-client-applications.md).
+En este artículo se describe la inicialización de aplicaciones cliente confidenciales y públicas mediante la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).  Para obtener más información sobre los tipos de aplicación cliente, consulte [Aplicaciones cliente público y cliente confidencial](msal-client-applications.md).
 
 Con MSAL.NET 3.x, el método recomendado para crear una instancia de una aplicación es mediante el uso de los generadores de aplicaciones: `PublicClientApplicationBuilder` y `ConfidentialClientApplicationBuilder`. Ofrecen un mecanismo eficaz para configurar la aplicación, ya sea a partir del código o de un archivo de configuración, o incluso combinando ambos enfoques.
+
+[Documentación de referencia de API](/dotnet/api/microsoft.identity.client) | [Paquete en NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Código fuente de la biblioteca](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Ejemplos de código](sample-v2-code.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de inicializar una aplicación, primero tendrá que [registrarla](quickstart-register-app.md) para que se pueda integrar con la plataforma de identidad de Microsoft.  Después del registro, es posible que necesite la información siguiente (que puede encontrar en Azure Portal):

@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/12/2021
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175879"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802040"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solución de problemas de CI/CD, Azure DevOps y GitHub en ADF 
 
@@ -101,8 +101,7 @@ Al intentar publicar cambios en una instancia de Data Factory, aparece el mensaj
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Síntoma
+### <a name="cause"></a>Causa
 
 Ha desasociado la configuración de Git y la ha configurado de nuevo con la marca de importar recursos seleccionada, que establece la instancia de Data Factory como sincronizada. Esto significa que no hay cambios que publicar.
 
@@ -150,11 +149,7 @@ Ha creado un rol de cliente como usuario y no tenía el permiso necesario. Cuand
 
 Para resolver el problema, debe agregar el siguiente permiso al rol: *Microsoft.DataFactory/factories/queryFeaturesValue/action*. Este permiso se debe incluir de forma predeterminada en el rol "Colaborador de Data Factory".
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicación automática para CI/CD sin hacer clic en el botón Publicar  
-
-#### <a name="issue"></a>Problema
-
-La publicación manual con un clic de botón en el portal de ADF no habilita la operación automática de CI/CD.
+###  <a name="cannot-automate-publishing-for-cicd"></a>No se puede automatizar la publicación de CI/CD 
 
 #### <a name="cause"></a>Causa
 
@@ -178,7 +173,7 @@ Azure Resource Manager restringe el tamaño de la plantilla a 4 MB. Limite el t
 
 En el caso de soluciones pequeñas o medianas, es más fácil entender y mantener una única plantilla. Puede ver todos los recursos y valores en un único archivo. Para los escenarios avanzados, las plantillas vinculadas le permiten desglosar la solución en componentes dirigidos. Siga las prácticas recomendadas en [Uso de plantillas vinculadas y anidadas](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise"></a>No se puede establecer la conexión a GIT Enterprise 
+### <a name="cannot-connect-to-git-enterprise"></a>No se puede establecer la conexión a GIT Enterprise  
 
 ##### <a name="issue"></a>Problema
 
@@ -186,13 +181,14 @@ No se puede conectar a GIT Enterprise debido a problemas de permisos. Puede ver 
 
 #### <a name="cause"></a>Causa
 
-No ha configurado OAuth para ADF. La dirección URL está mal configurada.
+* No ha configurado OAuth para ADF. 
+* La dirección URL está mal configurada.
 
 ##### <a name="resolution"></a>Solución
 
-Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente. Por ejemplo, ADF probará primero *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* y se producirá un error. A continuación, probará *https://hostname/api/v3/orgs/<org>/<repo>...* y la operación se realizará correctamente. 
+Conceda acceso de OAuth a ADF al principio. Después, tiene que usar la dirección URL correcta para conectarse a GIT Enterprise. La configuración debe establecerse en las organizaciones del cliente. Por ejemplo, ADF probará *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* al principio y se producirán errores. A continuación, probará *https://hostname/api/v3/orgs/<org>/<repo>...* y la operación se realizará correctamente. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Recuperación de una factoría de datos eliminada
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>No es posible la recuperación desde una factoría de datos eliminada.
 
 #### <a name="issue"></a>Problema
 El cliente eliminó la instancia de Data Factory o el grupo de recursos que contiene dicha instancia. Le gustaría saber cómo restaurar una factoría de datos eliminada.

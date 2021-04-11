@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c4f76a02a88b91c082106566ca236abe25d4ed88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721904"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567355"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutorial: Creación y modificación del emparejamiento de un circuito ExpressRoute mediante Azure Portal.
 
@@ -124,7 +124,7 @@ Puede seleccionar la fila del emparejamiento que desee modificar y, después, mo
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento privado de Azure para un circuito ExpressRoute.
 
 > [!IMPORTANT]
-> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](../virtual-network/ipv6-overview.md).
 > 
 > 
 

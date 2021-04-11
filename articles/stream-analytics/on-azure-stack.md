@@ -1,23 +1,20 @@
 ---
-title: Ejecución de Azure Stream Analytics en Azure Stack (versión preliminar)
+title: Ejecución de Azure Stream Analytics en Azure Stack
 description: Cree un trabajo perimetral de Azure Stream Analytics e impleméntelo en Azure Stack Hub mediante el entorno de ejecución de IoT Edge.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020135"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589810"
 ---
-# <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Ejecución de Azure Stream Analytics en Azure Stack (versión preliminar)
-
-> [!IMPORTANT]
-> Esta funcionalidad se encuentra en versión preliminar y su uso no se recomienda en producción.
+# <a name="run-azure-stream-analytics-on-azure-stack"></a>Ejecución de Azure Stream Analytics en Azure Stack 
 
 Puede ejecutar Azure Stream Analytics en Azure Stack Hub como módulo de IoT Edge. Se han agregado configuraciones al módulo de IoT Edge, que le permiten interactuar con Blob Storage, Event Hubs e IoT Hub que se ejecutan en una suscripción de Azure Stack Hub ya que permiten las direcciones URL personalizadas que se encuentran en cada empleo de Azure Stack Hub.
 

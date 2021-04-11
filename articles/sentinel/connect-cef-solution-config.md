@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 368bae515697599dba35a913ebdb9f2b4065c152
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 60ce503d4a89f245f28d5034924cb8c89c926b3f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711916"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771301"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASO 2: Configurar la solución de seguridad para enviar mensajes CEF
 
@@ -80,5 +80,7 @@ Si no existe un conector para su solución de seguridad específica, use las sig
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, ha aprendido a conectar dispositivos CEF a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+
+- Obtenga información sobre la [asignación de campos de CEF y CommonSecurityLog](cef-name-mapping.md).
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](./tutorial-detect-threats-built-in.md).

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100363209"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168168"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -59,7 +59,7 @@ Algunas [plantillas de aplicación](concepts-app-templates.md) ya incluyen plant
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Creación de una plantilla de dispositivo desde el catálogo de dispositivos
 
-Como desarrollador, puede empezar a crear rápidamente la solución mediante un dispositivo certificado. Consulte la lista en el [catálogo de dispositivos IoT de Azure](https://catalog.azureiotsolutions.com/alldevices). IoT Central se integra con el catálogo de dispositivos para que pueda importar un modelo de dispositivo desde cualquiera de los dispositivos certificados. Para crear una plantilla de dispositivo desde uno de estos dispositivos en IoT Central:
+Como desarrollador, puede empezar a crear rápidamente la solución mediante un dispositivo certificado. Consulte la lista en el [catálogo de dispositivos IoT de Azure](https://devicecatalog.azure.com). IoT Central se integra con el catálogo de dispositivos para que pueda importar un modelo de dispositivo desde cualquiera de los dispositivos certificados. Para crear una plantilla de dispositivo desde uno de estos dispositivos en IoT Central:
 
 1. Vaya a la página **Device Templates** (Plantillas de dispositivo) de la aplicación de IoT Central.
 1. Seleccione **+ Nuevo** y, después, seleccione cualquiera de los dispositivos certificados del catálogo. IoT Central crea una plantilla de dispositivo basada en este modelo de dispositivo.

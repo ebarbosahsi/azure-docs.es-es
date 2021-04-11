@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86529257"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950525"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Procedimientos recomendados de supervisión y diagnóstico para Azure Service Fabric
 
@@ -34,7 +34,7 @@ Los [registros de Azure Monitor](./service-fabric-diagnostics-oms-agent.md) se 
 
 ## <a name="watchdogs"></a>Guardianes
 
-Por lo general, un guardián es un servicio independiente que vigila el mantenimiento y la carga de los servicios, hace ping a los puntos de conexión e informa acerca de los eventos de mantenimiento inesperados del clúster. Esto puede ayudar a evitar errores que se podrían pasar pasan por alto si solo se tuviera en cuenta el rendimiento de un servicio. Los guardianes son también un buen lugar para hospedar código que realiza acciones de subsanación que no requieran interacción del usuario, como limpiar los archivos de registro de almacenamiento a determinados intervalos de tiempo. Vea la implementación de un servicio guardián de ejemplo en [Eventos de clúster Linux de Service Fabric en Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+Por lo general, un guardián es un servicio independiente que vigila el mantenimiento y la carga de los servicios, hace ping a los puntos de conexión e informa acerca de los eventos de mantenimiento inesperados del clúster. Esto puede ayudar a evitar errores que se podrían pasar pasan por alto si solo se tuviera en cuenta el rendimiento de un servicio. Los guardianes son también un buen lugar para hospedar código que realice acciones de subsanación que no requieran interacción del usuario, como limpiar los archivos de registro de almacenamiento a determinados intervalos de tiempo. Si quiere un servicio de vigilancia de SF de código abierto totalmente implementado que incluya un modelo de extensibilidad de vigilancia fácil de usar y que se ejecute en clústeres de Windows y Linux, consulte el proyecto [FabricObserver](https://aka.ms/sf/FabricObserver). FabricObserver es un software listo para producción. Le recomendamos que implemente FabricObserver en los clústeres de producción y de prueba, y que lo amplíe para satisfacer sus necesidades, ya sea a través de su modelo de complementos o mediante su bifurcación y la escritura de sus propios observadores integrados. El primero (complementos) es el enfoque recomendado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

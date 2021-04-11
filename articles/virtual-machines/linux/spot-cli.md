@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a7be682f921efdfae486e8f6545758964a941ae
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098866"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802444"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementación de máquinas virtuales de acceso puntual de Azure con la CLI de Azure
 
@@ -33,7 +33,7 @@ Para crear máquinas virtuales de acceso puntual de Azure, debe ejecutar la vers
 
 Inicie sesión en Azure mediante [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -41,7 +41,7 @@ az login
 
 En este ejemplo se muestra cómo implementar una máquina virtual de acceso puntual de Azure en Linux que no se expulse en función del precio. La directiva de expulsión se establece para desasignar la VM, de modo que se pueda reiniciar en otro momento. Si quiere eliminar la VM y el disco subyacente cuando se expulsa la VM, establezca `--eviction-policy` en `Delete`.
 
-```azurecli
+```azurecli-interactive
 az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
@@ -58,7 +58,7 @@ az vm create \
 
 Una vez creada la máquina virtual, puede realizar una consulta para ver el precio máximo de facturación de todas las máquinas virtuales del grupo de recursos.
 
-```azurecli
+```azurecli-interactive
 az vm list \
    -g mySpotGroup \
    --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
@@ -67,21 +67,55 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Simulación de una expulsión
 
-Puede [simular una expulsión](/rest/api/compute/virtualmachines/simulateeviction) de una máquina virtual de acceso puntual de Azure para probar de qué manera la aplicación responderá a una expulsión repentina. 
+Puede simular la expulsión de una máquina virtual de acceso puntual de Azure usando REST, PowerShell o la CLI para probar la capacidad de respuesta de una aplicación ante una expulsión repentina.
 
-Reemplazar lo siguiente por su propia información: 
+En la mayoría de los casos, querrá usar la API de REST [Máquinas virtuales: simulación de expulsión](/rest/api/compute/virtualmachines/simulateeviction) para facilitar las pruebas automatizadas de las aplicaciones. En REST un `Response Code: 204` significa que la expulsión simulada se ha realizado correctamente. Puede combinar expulsiones simuladas con el [servicio de eventos programados](scheduled-events.md) para automatizar el modo en que responderá la aplicación cuando se expulse la máquina virtual.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Para ver los eventos programados en acción, consulte [Azure Friday: uso de eventos programados de Azure para preparar el mantenimiento de la VM](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Prueba rápida
+
+Para realizar una prueba rápida para mostrar cómo funcionará una expulsión simulada, vamos a consultar el servicio de eventos programados para ver su aspecto cuando se simula una expulsión mediante la CLI de Azure.
+
+El servicio de eventos programados se habilita para su servicio la primera vez que se realiza una solicitud de eventos. 
+
+Conéctese de forma remota a la VM y, a continuación, abra un símbolo del sistema. 
+
+En el símbolo del sistema de la VM, escriba:
+
 ```
-`Response Code: 204` significa que la expulsión simulada se ha realizado correctamente. 
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
 
-**Pasos siguientes**
+Esta primera respuesta podría tardar hasta 2 minutos. A partir ahora, se deben mostrar los resultados de salida casi de inmediato.
+
+En un equipo que tenga instalada la CLI de Azure (por ejemplo, su equipo local), simule una expulsión mediante [az vm simulate-eviction](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Reemplace el nombre del grupo de recursos y el nombre de la VM con los suyos. 
+
+```azurecli-interactive
+az vm simulate-eviction --resource-group mySpotRG --name mySpot
+```
+
+La salida de respuesta tendrá el valor `Status: Succeeded` si la solicitud se realizó correctamente.
+
+Vuelva rápidamente a la conexión remota de la máquina virtual de acceso puntual y vuelva a consultar el punto de conexión de Scheduled Events. Repita el siguiente comando hasta que obtenga un resultado que contenga más información:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Cuando el servicio de eventos programados obtiene la notificación de expulsión, recibirá una respuesta similar a la siguiente:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Puede ver que `"EventType":"Preempt"` y el recurso es el recurso de la VM `"Resources":["myspotvm"]`. 
+
+También puede ver cuándo se expulsará la MV comprobando `"NotBefore"`: la MV no se expulsará antes del tiempo dado y ese será el margen que tiene la aplicación para cerrarse correctamente.
+
+
+## <a name="next-steps"></a>Pasos siguientes
 
 También puede crear una máquina virtual de acceso puntual de Azure mediante [Azure PowerShell](../windows/spot-powershell.md), el [portal](../spot-portal.md) o una [plantilla](spot-template.md).
 

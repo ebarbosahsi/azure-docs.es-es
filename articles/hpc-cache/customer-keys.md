@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471964"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772712"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Uso de claves de cifrado administradas por el cliente para Azure HPC Cache
 
@@ -21,8 +21,6 @@ Puede usar Azure Key Vault para controlar la titularidad de las claves usadas pa
 > Todos los datos almacenados en Azure, incluidos los discos de caché, se cifran en reposo mediante claves administradas por Microsoft de forma predeterminada. Solo tiene que seguir los pasos de este artículo si desea administrar las claves usadas para cifrar los datos.
 
 Azure HPC Cache también está protegida por el [cifrado del host de la máquina virtual](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) en los discos administrados que contienen los datos almacenados en caché, incluso si agrega una clave de cliente para los discos de caché. La adición de una clave administrada por el cliente para el cifrado doble proporciona un nivel de seguridad adicional a los clientes con necesidades de alta seguridad. Consulte el artículo [Cifrado del lado servidor de Azure Disk Storage](../virtual-machines/disk-encryption.md) para más información.
-
-<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Hay tres pasos para habilitar el cifrado de claves administradas por el cliente para Azure HPC Cache:
 
@@ -69,14 +67,14 @@ En el momento de la creación de la memoria caché, debe especificar un almacén
 Para más detalles, consulte la [documentación de Azure Key Vault](../key-vault/general/overview.md).
 
 > [!NOTE]
-> Azure Key Vault debe usar la misma suscripción y estar en la misma región que Azure HPC Cache. Asegúrese de que la región que elija [admita la característica de claves administradas por el cliente](hpc-cache-overview.md#region-availability).
+> Azure Key Vault debe usar la misma suscripción y estar en la misma región que Azure HPC Cache. Asegúrese de que la región que elija [sea compatible con ambos productos](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. Creación de la memoria caché con claves administradas por el cliente habilitadas
 
 Debe especificar el origen de la clave de cifrado al crear su instancia de Azure HPC Cache. Siga las instrucciones de [Creación de una instancia de Azure HPC Cache](hpc-cache-create.md) y especifique el almacén de claves y la clave en la página **Disk encryption keys** (Claves de cifrado de disco). Puede crear un almacén de claves y una clave nuevos durante la creación de la memoria caché.
 
 > [!TIP]
-> Si la página **Disk encryption keys** (Claves de cifrado de disco) no aparece, asegúrese de que la memoria caché se encuentre en una de las regiones admitidas.
+> Si la página **Clave de cifrado de disco** no aparece, asegúrese de que la memoria caché se encuentre en una de las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 El usuario que crea la memoria caché debe tener privilegios iguales a los del [rol colaborador de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor) o superior.
 

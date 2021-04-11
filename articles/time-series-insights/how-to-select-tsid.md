@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016758"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950746"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -25,6 +25,11 @@ En este artículo se resume la importancia del identificador de serie temporal e
 
 Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se requiere al crear un entorno de Azure Time Series Insights Gen2.
 
+Vea el tutorial de aprovisionamiento de entorno para obtener una explicación detallada del identificador de serie temporal. Verá dos ejemplos diferentes de carga de telemetría de JSON y la selección del identificador de serie temporal correcto para cada uno.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
+
 > [!IMPORTANT]
 > Los identificadores de serie temporal son los siguientes:
 >
@@ -32,11 +37,11 @@ Es fundamental seleccionar un identificador de serie temporal adecuado. Elegir u
 > * Propiedad *immutable*: una vez creada, no se puede cambiar.
 
 > [!TIP]
-> Si el origen del evento es un centro de IoT, es probable que el identificador de serie temporal sea ***iothub-connection-device-id** _.
+> Si el origen del evento es un centro de IoT, es probable que el identificador de serie temporal sea ***iothub-connection-device-id***.
 
 Los principales procedimientos recomendados que han de seguirse incluyen lo siguiente:
 
-_ Elija una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). En muchos casos, puede ser el identificador de dispositivo, identificador de sensor o identificador de etiqueta de JSON.
+* Elija una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). En muchos casos, puede ser el identificador de dispositivo, identificador de sensor o identificador de etiqueta de JSON.
 * El id. de serie temporal debe ser único en el nivel de nodo hoja de su [Modelo de serie temporal](./concepts-model-overview.md).
 * El límite de caracteres de la cadena de nombre de la propiedad del identificador de serie temporal es 128. En el caso del valor de la propiedad del identificador de serie temporal, el límite de caracteres es 1.024.
 * Si falta un valor de propiedad único para el identificador de serie temporal, se trata como un valor NULL y sigue la misma regla de la restricción de unicidad.
