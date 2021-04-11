@@ -1,19 +1,19 @@
 ---
 title: 'Niveles de rendimiento del almacenamiento de blobs en bloques: Azure Storage'
 description: Describe las diferencias entre los niveles de rendimiento Premium y Estándar para el almacenamiento de blobs en bloques de Azure.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 11/12/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4affed8a1226f02970928b2c227b0295167959de
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880715"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277104"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 

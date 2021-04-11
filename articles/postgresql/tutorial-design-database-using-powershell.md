@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con Azure PowerShell'
 description: 'En este tutorial se muestra cómo crear, configurar y consultar su primera instancia de Azure Database for PostgreSQL: servidor único con Azure PowerShell.'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cf84a8abcc0f1c890a51bf07056ac31d37107e53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 84b52ec43dc5fec4671459720af1b218b7f176d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96749120"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605849"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con PowerShell
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL es un servicio de base de datos relacional de la n
 > - Actualización de datos
 > - Restauración de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573615"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046018"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -88,21 +88,21 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 | Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
 | Centro de Canadá | 2 | 8 | 2 | 3,5 | 20 |
 | Centro de la India | 2 | 3,5 | 2 | 3,5 | 20 |
-| Centro de EE. UU. | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de EE. UU. | 2 | 8 | 2 | 3,5 | 20 |
 | Este de Asia | 2 | 3,5 | 2 | 3,5 | 20 |
-| Este de EE. UU. | 4 | 16 | 2 | 8 | 20 |
-| Este de EE. UU. 2 | 2 | 3,5 | 4 | 16 | 20 |
+| Este de EE. UU. | 2 | 8 | 2 | 8 | 20 |
+| Este de EE. UU. 2 | 2 | 8 | 4 | 16 | 20 |
 | Japón Oriental | 4 | 16 | 4 | 16 | 20 |
 | Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
-| Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 2 | 8 | 4 | 16 | 20 |
 | Norte de Europa | 2 | 8 | 2 | 8 | 20 |
-| Centro-sur de EE. UU. | 2 | 3,5 | 2 | 8 | 20 |
+| Centro-sur de EE. UU. | 2 | 8 | 2 | 8 | 20 |
 | Sudeste de Asia | N/D | N/D | 2 | 3,5 | 20 |
 | Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
-| Centro-Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
+| Centro-Oeste de EE. UU. | 2 | 8 | 2 | 8 | 20 |
 | Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
-| Oeste de EE. UU. | 4 | 16 | 2 | 8 | 20 |
+| Oeste de EE. UU. | 2 | 8 | 2 | 8 | 20 |
 | Oeste de EE. UU. 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 

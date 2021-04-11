@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89002715"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606341"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Actualización a la versión 9 del SDK de .NET para Azure Search
 
@@ -40,7 +40,7 @@ La versión 9 del SDK de .NET de Azure Search tiene como destino la versión 20
 
 * El [enriquecimiento con inteligencia artificial](cognitive-search-concept-intro.md) es la capacidad de extraer el texto de imágenes, blobs y otros orígenes de datos no estructurados, enriqueciendo el contenido para facilitar las búsquedas en un índice de Azure Search.
 * La compatibilidad con [tipos complejos](search-howto-complex-data-types.md) le permite modelar casi cualquier estructura anidada JSON en un índice de Azure Search.
-* [Autocomplete](search-autocomplete-tutorial.md) proporciona una alternativa a la API de la función **Sugerir** para implementar el comportamiento de búsqueda mientras se escribe. Autocomplete "finaliza" la palabra o frase que un usuario está escribiendo actualmente.
+* [Autocomplete](search-add-autocomplete-suggestions.md) proporciona una alternativa a la API de la función **Sugerir** para implementar el comportamiento de búsqueda mientras se escribe. Autocomplete "finaliza" la palabra o frase que un usuario está escribiendo actualmente.
 * El [modo de análisis de JsonLines](search-howto-index-json-blobs.md), parte de la indexación de Azure Blob, crea un documento de búsqueda por entidad JSON que está separado por una línea nueva.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>Nuevas características de vista previa en la versión 8.0-preview

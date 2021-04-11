@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881029"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606970"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Seguridad física de HSM dedicado de Azure
 
@@ -25,7 +25,7 @@ HSM dedicado de Azure le ayuda a cumplir los requisitos de seguridad avanzada pa
 
 ## <a name="security-through-procurement"></a>Seguridad en las adquisiciones
 
-Microsoft sigue un proceso de compra segura. Se administra la cadena de custodia y se asegura que el dispositivo específico pedido y enviado es el que llega a nuestros centros de datos. Los dispositivos se encuentran en el fondo plástico para evitar la manipulación. Se almacenan en un área de almacenamiento seguro hasta que se inician en la galería de datos del centro de datos.  Los bastidores que contienen los dispositivos HSM se consideran de alta repercusión empresarial. Los dispositivos están bloqueados y bajo vigilancia por vídeo en todo momento y circunstancia.
+Microsoft sigue un proceso de compra segura. Se administra la cadena de custodia y se asegura que el dispositivo específico pedido y enviado es el que llega a nuestros centros de datos. Los dispositivos están en bolsas y contenedores de plástico contra alteraciones serializados. Se almacenan en un área de almacenamiento seguro hasta que se inician en la galería de datos del centro de datos.  Los bastidores que contienen los dispositivos HSM se consideran de alta repercusión empresarial. Los dispositivos están bloqueados y bajo vigilancia por vídeo en todo momento y circunstancia.
 
 ## <a name="security-through-deployment"></a>Seguridad en la implementación
 
@@ -49,7 +49,7 @@ Si un ingeniero de Microsoft debe acceder al bastidor usado por los dispositivos
 
 ## <a name="logical-level-security-considerations"></a>Consideraciones sobre la seguridad con respecto a la lógica
 
-Los HSM se aprovisionan en una red virtual creada por el cliente. Se trata de un espacio de direcciones de IUP privado de un cliente.  Esta configuración proporciona un valioso aislamiento de nivel de red lógica y garantiza el acceso únicamente a los clientes. Esto implica que todos los controles de seguridad de nivel lógico son responsabilidad del cliente.
+Los HSM se aprovisionan en una red virtual creada por el cliente en el espacio de direcciones IP privadas del cliente.  Esta configuración proporciona un valioso aislamiento de nivel de red lógica y garantiza el acceso únicamente a los clientes. Esto implica que todos los controles de seguridad de nivel lógico son responsabilidad del cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

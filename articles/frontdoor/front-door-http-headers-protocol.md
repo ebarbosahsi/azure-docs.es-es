@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97511151"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167811"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.
@@ -40,7 +40,7 @@ Front Door incluye encabezados de una solicitud entrante a menos que se quite d
 | X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Representa la dirección IP del socket asociada con la conexión TCP de la que se originó la solicitud actual. Una dirección IP del cliente de la solicitud podría no ser igual a su dirección IP de socket porque se puede sobrescribir arbitrariamente por un usuario.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Una cadena de referencia única que identifica una solicitud atendida por Front Door. Se usa para buscar los registros de acceso y es esencial para la solución de problemas.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> Un encabezado que Front Door usa para detectar bucles de solicitudes, y los usuarios no deben generar ninguna dependencia de él. |
-| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Una cadena de referencia que identifica la solicitud venía de un recurso de Front Door específico. El valor puede verse en Azure Portal o recuperarse mediante la API de administración. Puede usar este encabezado en combinación con ACL de IP para bloquear el punto de conexión y aceptar únicamente las solicitudes de un recurso de Front Door específico. Consulte las preguntas más frecuentes para obtener [información más detallada](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) |
+| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Una cadena de referencia que identifica la solicitud venía de un recurso de Front Door específico. El valor puede verse en Azure Portal o recuperarse mediante la API de administración. Puede usar este encabezado en combinación con ACL de IP para bloquear el punto de conexión y aceptar únicamente las solicitudes de un recurso de Front Door específico. Consulte las preguntas más frecuentes para obtener [información más detallada](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> A menudo, el campo de encabezado X-Forwarded-For (XFF) identifica la dirección IP de origen de un cliente que se conecta a un servidor web a través de un equilibrador de carga o proxy HTTP. Si hay un encabezado XFF existente, Front Door le anexa la dirección IP de socket de cliente o agrega el encabezado XFF con la dirección IP de socket de cliente. |
 | X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> El campo de encabezado HTTP X-Forwarded-Host es un método común utilizado para identificar el host original solicitado por el cliente en el encabezado de solicitud HTTP del host. Esto es porque el nombre de host de Front Door puede diferir del servidor back-end que controla la solicitud. |
 | X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> El campo de encabezado HTTP X-Forwarded-Proto se usa a menudo para identificar el protocolo de origen de una solicitud HTTP. Según la configuración, Front Door puede comunicarse con el back-end mediante el uso de HTTPS. Esto es cierto incluso si la solicitud para el proxy inverso es HTTP. |

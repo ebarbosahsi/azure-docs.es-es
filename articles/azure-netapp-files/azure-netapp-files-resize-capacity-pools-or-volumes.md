@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012483"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594485"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Cambiar el tamaño de un grupo de capacidad o de un volumen
 Puede cambiar el tamaño de un grupo de capacidad o de un volumen según sea necesario. 
@@ -39,6 +39,21 @@ Puede cambiar el tamaño de un volumen según sea necesario. El consumo de la ca
 1. En la hoja de administración de cuenta de NetApp, haga clic en **Volúmenes**. 
 2. Haga clic con el botón derecho en el nombre del volumen cuyo tamaño desee cambiar o haga clic en el icono "…" al final de la fila del volumen para mostrar el menú contextual.
 3. Use las opciones del menú contextual para cambiar el tamaño del volumen o eliminarlo.
+
+## <a name="resize-a-cross-region-replication-destination-volume"></a>Cambio de tamaño de un volumen de destino de replicación entre regiones 
+
+En una relación de [replicación entre regiones](cross-region-replication-introduction.md), el tamaño de un volumen de destino se cambia automáticamente en función del tamaño del volumen de origen. De este modo, no es necesario cambiar el tamaño del volumen de destino por separado. Este cambio de tamaño automático es aplicable cuando los volúmenes establecen una relación de replicación activa, o cuando el emparejamiento de replicación se interrumpe con la [operación de resincronización](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+
+En la tabla siguiente se describe el comportamiento de cambio de tamaño del volumen de destino en función del [estado del reflejo](cross-region-replication-display-health-status.md):
+
+|  Estado del reflejo  | Comportamiento de cambio de tamaño del volumen de destino |
+|-|-|
+| *Reflejado* | Cuando el volumen de destino se ha inicializado y está listo para recibir actualizaciones de creación de reflejo, el cambio de tamaño del volumen de origen cambia automáticamente el tamaño de los volúmenes de destino. |
+| *Interrumpido* | Cuando se cambia el tamaño del volumen de origen y el estado del reflejo se *interrumpe*, el tamaño del volumen de destino se cambia automáticamente con la [operación de resincronización](cross-region-replication-manage-disaster-recovery.md#resync-replication).  |
+| *Sin inicializar* | Al cambiar el tamaño del volumen de origen y el estado del reflejo es aún *inicializar*, el cambio de tamaño del volumen de destino debe realizarse manualmente. Como tal, se recomienda esperar a que finalice la inicialización (es decir, cuando el estado del reflejo sea *reflejado*) para cambiar el tamaño del volumen de origen. | 
+
+> [!IMPORTANT]
+> Asegúrese de que dispone de suficiente espacio en los grupos de capacidad para los volúmenes de origen y de destino de la replicación entre regiones. Al cambiar el tamaño del volumen de origen, se cambia automáticamente el tamaño del volumen de destino. Sin embargo, si el grupo de capacidad que hospeda el volumen de destino no tiene suficiente espacio, se producirá un error al cambiar de tamaño los volúmenes de origen y de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: d35535c87ca20bfc573995bf15f79bc149619776
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1a94bdfd03d4e48495601b5c494204ac1ad50378
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102611596"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168338"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -41,7 +41,7 @@ Conozca las [ventajas de desarrollar con los SDK de Azure IoT](https://azure.mic
 
 Para encontrar las plataformas admitidas para los SDK, consulte [Compatibilidad de plataformas de SDK de IoT de Azure](iot-hub-device-sdk-platform-support.md).
 
-Para más información sobre la compatibilidad del SDK con dispositivos de hardware concretos, consulte el [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/) o el repositorio individual.
+Para más información sobre la compatibilidad del SDK con dispositivos de hardware concretos, consulte el [catálogo de dispositivos Azure Certified for IoT](https://devicecatalog.azure.com/) o el repositorio individual.
 
 ## <a name="azure-iot-hub-device-sdks"></a>SDK de dispositivos de Azure IoT Hub
 

@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un servidor mediante la CLI de Azure en Azure Database for PostgreSQL: Servidor flexible'
 description: En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una instancia de Azure Database for PostgreSQL con la opción Servidor flexible en un grupo de recursos de Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 49c98905d99e5895dd0d2aa7e6a06e7a3605897e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94842828"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606137"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Inicio rápido: Administración de una instancia de Azure Database for PostgreSQL con la opción Servidor flexible mediante la CLI de Azure
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: jeedes
 ms.openlocfilehash: 827a05a8dfbf05b0dacb0bd812fb964567f39b3f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar SAML SSO for Jira by resolution GmbH con
 * Permitir que los usuarios inicien sesión automáticamente en SAML SSO for Jira by resolution GmbH con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

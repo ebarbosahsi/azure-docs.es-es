@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788628"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639854"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad en Instancia administrada de Azure SQL mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Consulte los artículos siguientes para ver ejemplos de conexión a Instancia ad
 
     ![Captura de pantalla de la pestaña de resultados del Explorador de objetos de SSMS, que muestra el nombre, principal_id, el identificador de seguridad, el tipo y type_desc para el inicio de sesión recién agregado.](./media/aad-security-configure-tutorial/native-login.png)
 
-Para más información, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Para más información, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="grant-permissions-to-create-logins"></a>Concesión de permisos para crear inicios de sesión
 
@@ -182,7 +182,7 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
     GO
     ```
 
-1. Cree una base de datos en la instancia administrada con la sintaxis [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esta base de datos se usará para probar los inicios de sesión de usuario en la sección siguiente.
+1. Cree una base de datos en la instancia administrada con la sintaxis [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Esta base de datos se usará para probar los inicios de sesión de usuario en la sección siguiente.
     1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
     1. En la ventana de consulta, utilice la siguiente sintaxis para crear una base de datos denominada **MyMITestDB**.
 
@@ -264,7 +264,7 @@ Para más información sobre la concesión de permisos de base de datos, consult
     > [!IMPORTANT]
     > Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique valor de user_name igual que el valor de login_name que se obtiene de **LOGIN**.
 
-    Para más información, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Para más información, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. En una nueva ventana de consulta, cree una tabla de prueba con el siguiente comando T-SQL:
 

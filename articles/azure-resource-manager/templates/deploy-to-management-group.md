@@ -2,13 +2,13 @@
 title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/18/2021
+ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491616"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889814"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implementaciones de grupos de administración con plantillas de Resource Manager
 
@@ -104,7 +104,7 @@ Para obtener información más detallada sobre los comandos de implementación y
 * [Implementación de recursos con Azure Portal y plantillas de Resource Manager](deploy-portal.md)
 * [Implementación de recursos con plantillas de ARM y la CLI de Azure](deploy-cli.md)
 * [Implementación de recursos con las plantillas de ARM y Azure PowerShell](deploy-powershell.md)
-* [Implementación de recursos con plantillas de Resource Manager y la API de REST de Azure Resource Manager](deploy-rest.md)
+* [Implementación de recursos con plantillas de Resource Manager y la API REST de Azure Resource Manager](deploy-rest.md)
 * [Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub](deploy-to-azure-button.md)
 * [Implementación de plantillas de Resource Manager desde Cloud Shell](deploy-cloud-shell.md)
 
@@ -220,6 +220,16 @@ En el ejemplo siguiente se crea un grupo de administración en el grupo de admin
 }
 ```
 
+## <a name="subscriptions"></a>Suscripciones
+
+Para usar una plantilla de ARM para crear una nueva suscripción de Azure en un grupo de administración, consulte:
+
+* [Creación de suscripciones de Contrato Enterprise de Azure mediante programación con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Creación de suscripciones de Azure mediante programación para el Contrato de cliente de Microsoft con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Creación de suscripciones de Azure mediante programación para Microsoft Partner Agreement con las API más recientes](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+
+Para implementar una plantilla que mueve una suscripción de Azure existente a un nuevo grupo de administración, consulte [Traslado de las suscripciones de la plantilla de ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template).
+
 ## <a name="azure-policy"></a>Azure Policy
 
 Las definiciones de directivas personalizadas que se implementan en un grupo de administración son extensiones del grupo de administración. Para obtener el identificador de una definición de directiva personalizada, use la función [extensionResourceId()](template-functions-resource.md#extensionresourceid). Las definiciones de directivas integradas son recursos del nivel de inquilino. Para obtener el identificador de una definición de directiva integrada, use la función [tenantResourceId](template-functions-resource.md#tenantresourceid).
@@ -317,7 +327,7 @@ En una implementación de nivel de grupo de administración, puede establecer co
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedSub",
             "location": "[parameters('nestedLocation')]",
             "subscriptionId": "[parameters('nestedSubId')]",
@@ -333,7 +343,7 @@ En una implementación de nivel de grupo de administración, puede establecer co
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('nestedRG')]",
                             "location": "[parameters('nestedLocation')]"
                         }
@@ -343,7 +353,7 @@ En una implementación de nivel de grupo de administración, puede establecer co
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedRG",
             "subscriptionId": "[parameters('nestedSubId')]",
             "resourceGroup": "[parameters('nestedRG')]",

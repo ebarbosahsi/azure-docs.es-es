@@ -3,12 +3,12 @@ title: Variables de entorno de tiempo de ejecución de tareas
 description: Instrucciones y referencia de las variable de entorno de tiempo de ejecución de tareas para Azure Batch Analytics.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830894"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669991"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables de entorno de tiempo de ejecución de Azure Batch
 
@@ -61,6 +61,8 @@ Las líneas de comandos que ejecutan las tareas en nodos de proceso no se ejecut
 | AZ_BATCH_TASK_ID                | El identificador de la tarea actual. | Todas las tareas excepto la tarea de inicio. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Una ruta de acceso de directorio que es idéntica para la tarea principal y cada tarea secundaria de una [tarea de varias instancias](batch-mpi.md). La ruta de acceso existe en cada nodo en el que se ejecuta la tarea de varias instancias y es accesible en modo lectura/escritura para los comandos de tarea que se ejecutan en ese nodo (tanto el [comando de coordinación](batch-mpi.md#coordination-command) como el [comando de la aplicación](batch-mpi.md#application-command). Las tareas secundarias o la tarea principal que se ejecutan en otros nodos no tienen acceso remoto a este directorio (no es un directorio de red "compartido"). | Tareas principales y secundarias de varias instancias. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | La ruta de acceso completa del [directorio de trabajo en tareas](files-and-directories.md) en el nodo. La tarea que se está ejecutando tiene acceso de lectura/escritura a este directorio. | Todas las tareas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | La ruta de acceso completa del [directorio de trabajo en tareas](files-and-directories.md) en el nodo. La tarea que se está ejecutando tiene acceso de lectura/escritura a este directorio. | Todas las tareas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | El umbral actual del espacio en disco en el que se marcará la máquina virtual como `DiskFull`. | Todas las tareas. | 1000000 |
 | CCP_NODES                       | La lista de nodos y el número de núcleos por nodo que se asignan a una [tarea de varias instancias](batch-mpi.md). Los nodos y núcleos se muestran en el formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, donde el número de nodos es seguido de una o varias direcciones IP de nodo y el número de núcleos para cada una. |  Tareas principales y secundarias de varias instancias. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616407"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058959"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Azure CDN
 
@@ -172,15 +172,18 @@ Conceda permisos de Azure CDN para acceder a los certificados (secretos) de su c
 
 3. En el tipo de administración de certificados, seleccione **Use my own certificate** (Usar mi propio certificado). 
 
-    ![Configuración del certificado](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Captura de pantalla de cómo configurar el certificado para el punto de conexión de CDN":::
 
-4. Seleccione un almacén de claves, un certificado (secreto) y la versión del certificado.
+4. Seleccione un almacén de claves, un certificado o secreto y la versión del certificado o secreto.
 
     Azure CDN muestra la siguiente información: 
     - Las cuentas del almacén de claves de su identificador de suscripción. 
-    - Los certificados (secretos) en el almacén de claves seleccionado. 
-    - Las versiones de certificado disponibles. 
+    - Los certificados o secretos en el almacén de claves seleccionado. 
+    - Las versiones del certificado o secreto disponibles.
  
+    > [!NOTE]
+    > Para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una última versión del certificado en la instancia de Key Vault, establezca la versión del certificado o del secreto en "latest". Si se selecciona una versión específica, tendrá que volver a seleccionar la nueva versión manualmente para la rotación de certificados. La nueva versión del certificado o el secreto tarda hasta 24 horas en implementarse. 
+   
 5. Seleccione **On** (Activado) para habilitar HTTPS.
   
 6. Si usa su certificado, no se requiere la validación del dominio. Continúe con [Esperar a la propagación](#wait-for-propagation).

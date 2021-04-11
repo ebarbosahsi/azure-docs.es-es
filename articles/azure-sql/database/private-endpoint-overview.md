@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097285"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567719"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ Los clientes pueden conectarse al punto de conexión privado desde la misma red 
 
  ![Diagrama de las opciones de conectividad][1]
 
-Además, los servicios que no se ejecutan directamente en la red virtual, sino que se integran con ella (por ejemplo, las aplicaciones web de App Service o Functions) también pueden lograr conectividad privada con la base de datos. Para más información sobre este caso de uso específico, consulte el escenario de arquitectura [Conectividad privada de una aplicación web a Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app).
+Además, los servicios que no se ejecutan directamente en la red virtual, sino que se integran con ella (por ejemplo, las aplicaciones web de App Service o Functions) también pueden lograr conectividad privada con la base de datos. Para más información sobre este caso de uso específico, consulte el escenario de arquitectura [Conectividad privada de una aplicación web a Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app).
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Prueba de la conectividad con SQL Database desde una VM de Azure que se encuentre en la misma red virtual
 
@@ -185,7 +185,7 @@ PolyBase y la instrucción COPY se suelen usar para cargar datos en Azure Synaps
 
 - Para obtener información general sobre la seguridad de Azure SQL Database, vea [Protección de bases de datos SQL](security-overview.md).
 - Para obtener información general sobre la conectividad de Azure SQL Database, consulte [Arquitectura de conectividad de Azure SQL](connectivity-architecture.md)
-- Puede que también le interese el escenario de arquitectura [Conectividad privada de una aplicación web a Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app), que conecta una aplicación web situada fuera de la red virtual con el punto de conexión privado de una base de datos.
+- Puede que también le interese el escenario de arquitectura [Conectividad privada de una aplicación web a Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app), que conecta una aplicación web situada fuera de la red virtual con el punto de conexión privado de una base de datos.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

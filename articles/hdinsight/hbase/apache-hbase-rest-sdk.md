@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
 ms.openlocfilehash: 70c1dcc133f01cf72392f444192d977440c55cf4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866631"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Uso del SDK de .NET para Apache HBase
@@ -18,7 +18,7 @@ ms.locfileid: "104866631"
 
 Para las aplicaciones de C# y .NET, la [biblioteca cliente de REST de Microsoft HBase para .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) proporciona una biblioteca cliente, además de la API de REST de HBase.
 
-## <a name="install-the-sdk"></a>Instalación del SDK
+## <a name="install-the-sdk"></a>Instalar el SDK
 
 El SDK de .NET para HBase se proporciona como un paquete de NuGet, que puede instalarse desde la **Consola del Administrador de paquetes de NuGet** de Visual Studio con el siguiente comando:
 

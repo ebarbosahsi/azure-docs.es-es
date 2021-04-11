@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo configurar directivas de Apache Ra
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15c406576b373577a2a3a50108acad7ccbf36699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705711"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863265"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configuración de directivas de Apache Hive en HDInsight con Enterprise Security Package
 
@@ -30,7 +30,7 @@ Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este a
 
 2. Inicie sesión con el nombre de usuario y la contraseña del dominio del administrador de clúster:
 
-    ![Página principal de HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="Página principal de HDInsight ESP Ranger" border="true":::
 
     Actualmente, Ranger solo funciona con Yarn y Hive.
 
@@ -57,7 +57,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
     |Seleccionar usuario|hiveuser1|
     |Permisos|select|
 
-    ![Configuración de directivas de Hive para HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="Configuración de directivas de Hive para HDInsight ESP Ranger" border="true":::.
 
     > [!NOTE]  
     > Si un usuario de dominio no se rellena en Seleccionar usuario, espere unos instantes para que Ranger se sincronice con AAD.
@@ -101,7 +101,7 @@ En la última sección ha configurado dos directivas.  hiveuser1 tiene el permis
 
 1. Desde la pestaña **Datos**, vaya a **Obtener datos** > **Desde otros orígenes** > **Desde ODBC** para iniciar la ventana **Desde ODBC**.
 
-    ![Abrir el Asistente para la conexión de datos](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Abrir el Asistente para la conexión de datos" border="true":::
 
 1. De la lista desplegable, seleccione el nombre del origen de datos que creó en la sección anterior y luego seleccione **Aceptar**.
 

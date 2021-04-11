@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880108"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953483"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -20,11 +20,15 @@ ms.locfileid: "98880108"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>¿Puedo conectar redes virtuales en diferentes regiones de Azure?
 
-Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red virtual a otra red virtual en la misma región o en una región distinta de Azure. 
+Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red virtual a otra red virtual en la misma región o en una región distinta de Azure.
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>¿Puedo conectar redes virtuales en diferentes suscripciones?
 
 Sí.
+
+### <a name="can-i-specify-private-dns-servers-in-my-vnet-when-configuring-vpn-gateway"></a>¿Puedo especificar servidores DNS privados en mi red virtual al configurar VPN Gateway?
+
+Si especificó un servidor o varios servidores DNS cuando creó la red virtual, VPN Gateway usará los servidores DNS que especificara. Si especifica un servidor DNS, compruebe que el servidor DNS pueda resolver los nombres de dominio necesarios para Azure.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>¿Puedo conectar a varios sitios desde una única red virtual?
 
@@ -32,7 +36,7 @@ Puede conectarse a varios sitios mediante el uso de Windows PowerShell y las API
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>¿Hay un costo adicional para configurar una puerta de enlace VPN como activa-activa?
 
-No. 
+No.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>¿Cuáles son mis opciones de conexión entre locales?
 
@@ -66,17 +70,20 @@ Las puertas de enlace basadas en directivas implementan VPN basadas en directiva
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>¿Qué es una puerta de enlace basada en enrutamiento (de enrutamiento dinámico)?
 
-Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o el selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo cualquiera a cualquier (o caracteres comodín).
+Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o los selectores de tráfico para las VPN basadas en enrutamiento se configuran como conectividad de tipo cualquiera a cualquiera (o caracteres comodín).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
 
-No.  No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
-1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
-1. Elimine la puerta de enlace:
-   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](./tutorial-site-to-site-portal.md#VNetGateway)
+No. Un tipo de puerta de enlace no puede cambiarse de basado en directiva a basado en ruta, o de basado en ruta a basado en directiva. Para cambiar un tipo de puerta de enlace, la puerta de enlace debe eliminarse y volver a crearse. Este proceso tarda aproximadamente 60¹minutos. Cuando se crea la nueva puerta de enlace, no se puede conservar la dirección IP de la puerta de enlace original.
+
+1. Elimine las conexiones asociadas a la puerta de enlace.
+
+1. Elimine la puerta de enlace con uno de los siguientes artículos:
+
+   * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Cree una nueva puerta de enlace utilizando el tipo de puerta de enlace que desee y, a continuación, complete la configuración de la VPN. Para conocer los pasos, consulte el [tutorial de sitio a sitio](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
 
@@ -102,7 +109,7 @@ En el caso de las puertas de enlace que no tengan redundancia de zona y que no s
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>¿Cómo se autentica mi túnel VPN?
 
-VPN de Azure usa autenticación PSK (clave previamente compartida). Se genera una clave previamente compartida (PSK) cuando se crea el túnel VPN. Puede cambiar la clave PSK generada automáticamente con la suya propia a través del cmdlet de PowerShell o la API de REST para establecer la clave precompartida.
+VPN de Azure usa autenticación PSK (clave previamente compartida). Se genera una clave previamente compartida (PSK) cuando se crea el túnel VPN. Puede cambiar la clave PSK generada automáticamente por la suya propia a través del cmdlet de PowerShell o la API de REST para establecer la clave precompartida.
 
 ### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>¿Puedo usar la API para establecer la clave precompartida y configurar mi VPN basada en directivas (enrutamiento estático) de la puerta de enlace?
 
@@ -121,11 +128,7 @@ Las opciones están limitadas al uso de claves precompartidas (PSK) para la aute
 
 #### <a name="classic-deployment-model"></a>Modelo de implementación clásica
 
-* Azure Portal: navegue a la red virtual clásica > Conexiones VPN > Conexiones VPN de sitio a sitio > Nombre del sitio local > Sitio local > Espacio de direcciones del cliente. 
-
-### <a name="can-i-configure-force-tunneling"></a>¿Puedo configurar una tunelización forzada?
-
-Sí. Consulte [Configuración de una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
+* Azure Portal: navegue a la red virtual clásica > Conexiones VPN > Conexiones VPN de sitio a sitio > Nombre del sitio local > Sitio local > Espacio de direcciones del cliente.
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>¿Puedo usar NAT-T en las conexiones VPN?
 
@@ -225,10 +228,13 @@ Sí, se admite, Para más información, consulte [Configurar conexiones VPN Expr
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp-and-routing"></a><a name="bgp"></a>BGP y enrutamiento
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### <a name="can-i-configure-forced-tunneling"></a>¿Puedo configurar una tunelización forzada?
+
+Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Conectividad entre locales y máquinas virtuales
 
@@ -245,7 +251,6 @@ No. Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Cómo se solucionan los problemas de una conexión RDP a una máquina virtual
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Preguntas más frecuentes sobre Virtual Network
 

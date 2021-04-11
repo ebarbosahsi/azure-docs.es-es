@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e5053bd0c3d63b13b1021476a09dca39dd08f581
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798721"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108764"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronización piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -35,11 +35,11 @@ Antes de empezar con este tutorial, considere los siguientes elementos:
 
 4. Este es un escenario avanzado. Asegúrese de que sigue los pasos de este tutorial con precisión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un entorno de prueba con la versión 1.4.32.0, o cualquier versión posterior, de la sincronización de Azure AD Connect.
 - Una unidad organizativa o un grupo que estén en el ámbito de la sincronización y que pueda usar en la prueba piloto. Se recomienda empezar con un pequeño conjunto de objetos.
-- Un servidor que ejecuta Windows Server 2012 R2, o cualquier versión posterior, que hospedará el agente de aprovisionamiento.  El servidor no puede ser el servidor de Azure AD Connect.
+- Un servidor que ejecuta Windows Server 2012 R2, o cualquier versión posterior, que hospedará el agente de aprovisionamiento.
 - El delimitador de origen para la sincronización de Azure AD Connect debe ser *objectGuid* o *ms-ds-consistencyGUID*.
 
 ## <a name="update-azure-ad-connect"></a>Actualización de Azure AD Connect

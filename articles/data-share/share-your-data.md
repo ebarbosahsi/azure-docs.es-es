@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659631"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639540"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Uso compartido de datos mediante Azure Data Share  
 
@@ -42,23 +42,10 @@ En este tutorial, aprenderá a:
 A continuación se muestra la lista de requisitos previos para compartir datos desde el origen de SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Requisitos previos para el uso compartido desde Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW)
-Puede seguir la [demostración paso a paso](https://youtu.be/hIE-TjJD8Dc) para configurar los requisitos previos.
 
 * Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL DW) con las tablas y vistas que quiera compartir.
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de **colaborador**.
-* Permiso para que la identidad administrada del recurso de Data Share tenga acceso a la base de datos. Esto se puede hacer mediante los siguientes pasos: 
-    1. En Azure Portal, vaya al servidor SQL Server y establézcase como **administrador de Azure Active Directory**.
-    1. Conéctese a Azure SQL Database/Data Warehouse con el [Editor de consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio mediante la autenticación de Azure Active Directory. 
-    1. Ejecute el siguiente script para agregar la identidad administrada del recurso de Data Share como db_datareader. Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Tenga en cuenta que *<share_acc_name>* es el nombre del recurso de Data Share. Si aún no ha creado un recurso de Data Share, puede volver a este requisito previo más adelante.  
-
-* Un usuario de Azure SQL Database con acceso **"db_datareader"** para explorar y seleccionar las tablas o vistas que quiera compartir. 
-
+* **Administrador de Azure Active Directory** del servidor SQL Server
 * Acceso al firewall de SQL Server. Esto se puede hacer mediante los siguientes pasos: 
     1. En Azure Portal, vaya a SQL Server. Seleccione *Firewalls y redes virtuales* en el panel de navegación izquierdo.
     1. Haga clic en **Sí** en *Permitir que los servicios y recursos de Azure accedan a este servidor*.
@@ -90,7 +77,6 @@ Puede seguir la [demostración paso a paso](https://youtu.be/hIE-TjJD8Dc) para c
 ### <a name="share-from-azure-data-explorer"></a>Uso compartido desde Azure Data Explorer
 * Un clúster de Azure Data Explorer con las bases de datos que desea compartir.
 * Permisos para escribir en el clúster de Azure Data Explorer, que se encuentra en *Microsoft.Kusto/clusters/write*. Este permiso existe en el rol de **colaborador**.
-* Permisos para agregar la asignación de roles al clúster de Azure Data Explorer, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de **propietario**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -186,7 +172,7 @@ Use estos comandos para crear el recurso:
 
     ![Adición de conjuntos de datos al recurso compartido](./media/datasets.png "Conjuntos de datos")
 
-1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure Synapse Analytics (anteriormente conocido como Azure SQL DW), se le pedirán credenciales de SQL para mostrar las tablas.
+1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure Synapse Analytics (anteriormente conocido como Azure SQL DW), se le pedirá el método de autenticación para mostrar las tablas. Seleccione la autenticación de AAD y active la casilla **Allow Data Share to run the above 'create user' script on my behalf** (Permitir que Data Share se ejecute en el script de "creación de usuario" anterior). 
 
     ![AddDatasets](./media/add-datasets.png "Incorporación de conjuntos de datos")    
 

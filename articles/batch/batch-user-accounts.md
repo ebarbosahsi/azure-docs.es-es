@@ -2,21 +2,22 @@
 title: Ejecución de tareas en cuentas de usuario
 description: Obtenga información acerca de los tipos de cuentas de usuario y cómo configurarlas.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88719366"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606613"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
 > [!NOTE]
 > Las cuentas de usuario descritas en este artículo son distintas a las que se usan con el Protocolo de escritorio remoto (RDP) o Secure Shell (SSH) por motivos de seguridad.
 >
-> Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Uso del escritorio remoto a una máquina virtual Linux en Azure](../virtual-machines/linux/use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Instalación y configuración de xrdp para usar Escritorio remoto con Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en esta](../virtual-machines/windows/connect-logon.md).
+>
 > Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 En Azure Batch, las tareas siempre se ejecutan en una cuenta de usuario. De forma predeterminada, las tareas se ejecutan en cuentas de usuario estándar, sin permisos de administrador. Para determinados escenarios, es posible que quiera configurar la cuenta de usuario en la que quiere que se ejecute una tarea. En este artículo se describen los tipos de cuentas de usuario y se configuran para su escenario.
@@ -30,7 +31,7 @@ Azure Batch proporciona dos tipos de cuentas de usuario para ejecutar tareas:
 - **Una cuenta de usuario con nombre.** Puede especificar una o varias cuentas de usuario con nombre para un grupo cuando lo crea. Se crea una cuenta de usuario en cada nodo del grupo. Además del nombre de la cuenta, especifique la contraseña de la cuenta de usuario, el nivel de elevación y, para grupos de Linux, la clave privada SSH. Cuando agregue una tarea, puede especificar la cuenta de usuario con nombre en que la tarea se debe ejecutar.
 
 > [!IMPORTANT]
-> La versión 2017-01-01.4.0 del servicio Batch incluye un cambio importante que requiere que se actualice el código para llamar a esa versión. Si va a migrar código desde una versión anterior de Batch, tenga en cuenta que la propiedad **runElevated** ya no se admite en las bibliotecas de cliente de la API de REST o Batch. Use la nueva propiedad **userIdentity** de una tarea para especificar el nivel de elevación. Consulte [Actualización del código a la biblioteca de cliente de Batch más reciente](#update-your-code-to-the-latest-batch-client-library) para ver instrucciones rápidas para actualizar el código de Batch si usa una de las bibliotecas de cliente.
+> La versión 2017-01-01.4.0 del servicio Batch presentó un cambio importante que requiere que se actualice el código para llamar a esa versión o una posterior. Consulte [Actualización del código a la biblioteca de cliente de Batch más reciente](#update-your-code-to-the-latest-batch-client-library) para ver instrucciones rápidas para actualizar el código de Batch desde una versión anterior.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Acceso de la cuenta de usuario a archivos y directorios
 
@@ -77,6 +78,7 @@ En los fragmentos de código siguientes, se muestra cómo configurar la especifi
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Java de Batch
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Actualización del código a la biblioteca de cliente de Batch más reciente
 
-La versión 2017-01-01.4.0 del servicio Batch incluye un cambio importante: se reemplaza la propiedad **runElevated** disponible en versiones anteriores por la propiedad **userIdentity**. En las siguientes tablas se proporciona una asignación sencilla que sirve para actualizar el código de versiones anteriores de las bibliotecas de cliente.
+La versión 2017-01-01.4.0 del servicio Batch presentó un cambio importante: se reemplazó la propiedad **runElevated** disponible en versiones anteriores por la propiedad **userIdentity**. En las siguientes tablas se proporciona una asignación sencilla que sirve para actualizar el código de versiones anteriores de las bibliotecas de cliente.
 
 ### <a name="batch-net"></a>.NET de Batch
 
