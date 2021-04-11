@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e43c472c939049e5dfd4ec4df909a3178ef8e2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100388590"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553267"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -44,7 +44,7 @@ Después de registrarse para obtener la cuenta de Azure, debe crear un recurso d
 La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez completada la implementación, puede iniciar el recorrido de creación de contenido de audio. 
 
  >[!NOTE]
-   > Si tiene previsto usar voces neuronales, asegúrese de crear el recurso en [una región que admita este tipo de voces](regions.md#standard-and-neural-voices).
+   > Si tiene previsto usar voces neuronales, asegúrese de crear el recurso en [una región que admita este tipo de voces](regions.md#neural-and-standard-voices).
  
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Paso 3: Inicio de sesión en Creación de contenido de audio con la cuenta de Azure y el recurso de voz
 

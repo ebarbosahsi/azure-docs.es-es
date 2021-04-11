@@ -4,12 +4,12 @@ description: 'Comparativa de los servicios en la nube de Microsoft optimizados p
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e6bd97469a6b7b6c42427e130ac103954377c652
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98685568"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643371"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Elección de los servicios de integración y automatización adecuados en Azure
 
@@ -57,7 +57,7 @@ Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a
 | **Conectividad** | [Con una docena de tipos de enlaces integrados](functions-triggers-bindings.md#supported-bindings), puede escribir código para los enlaces personalizados | [Gran colección de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para escenarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [creación de conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | **Acciones** | Cada actividad es una función de Azure; puede escribir código para las funciones de actividad |[Gran colección de acciones listas para usar](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Supervisión** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [registros de Azure Monitor](../logic-apps/monitor-logic-apps.md)|
-| **Administración** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2019) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
+| **Administración** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Contexto de ejecución** | Se puede ejecutar [localmente](functions-runtime-overview.md) o en la nube | Solo se ejecuta en la nube|
 
 <a name="function"></a>

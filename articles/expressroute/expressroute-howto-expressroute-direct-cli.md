@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d68011afe044535783dd8a8c56ed5d950c6d06b1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 9f35a698510f8637c3fe66528e6d64e5cd87b693
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099886"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553828"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
@@ -226,6 +226,14 @@ Una vez inscrito, compruebe que el proveedor de recursos **Microsoft.Network** e
    "type": "Microsoft.Network/expressRoutePorts"
    }  
    ```
+
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="resources"></a>Generación de la Carta de autorización (LOA)
+
+Escriba el nombre del recurso de ExpressRoute Direct creado recientemente, el nombre del grupo de recursos y un nombre de cliente para escribir en la LOA y, opcionalmente, defina una ubicación de archivo para almacenar el documento. Si no se hace referencia a una ruta de acceso de archivo, el documento se descargará en el directorio actual.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
 
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Cambio de AdminState para vínculos
 

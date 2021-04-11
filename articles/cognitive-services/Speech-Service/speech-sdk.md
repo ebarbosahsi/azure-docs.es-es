@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434519"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608092"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
@@ -67,17 +67,17 @@ Los **asistentes para voz** están disponibles en las siguientes plataformas:
   - Java/Windows, Linux, macOS y Android (SDK de dispositivos de voz)
   - Go
 
-#### <a name="keyword-spotting"></a>Detección de palabras clave
+#### <a name="keyword-recognition"></a>Reconocimiento de palabras clave
 
-El concepto de [detección de palabras clave](./custom-keyword-basics.md) es compatible con el SDK de voz. La detección de palabras clave es el acto de identificar una palabra clave en el habla, seguido de una acción al escuchar la palabra clave. Por ejemplo, "Hola Cortana" activa el asistente Cortana.
+El concepto de [reconocimiento de palabras clave](./custom-keyword-basics.md) es compatible con el SDK de Voz. El reconocimiento de palabras clave es el acto de identificar una palabra clave en el habla, seguido de una acción al escuchar la palabra clave. Por ejemplo, "Hola Cortana" activa el asistente Cortana.
 
-La **detección de palabras clave (KWS)** está disponible en las siguientes plataformas:
+El **reconocimiento de palabras clave** está disponible en las siguientes plataformas:
 
   - C++/Windows y Linux
   - C#/Windows & Linux
   - Python/Windows y Linux
   - Java/Windows, Linux y Android (SDK de dispositivos de voz)
-  - La funcionalidad de detección de palabras clave (KWS) podría funcionar con cualquier tipo de micrófono; no obstante, la compatibilidad oficial de KWS está limitada actualmente a las matrices de micrófonos que se encuentran en el hardware de Azure Kinect DK o el SDK de dispositivos de voz.
+  - La funcionalidad de reconocimiento de palabras clave podría funcionar con cualquier tipo de micrófono; no obstante, la compatibilidad oficial del reconocimiento de palabras clave está limitada actualmente a las matrices de micrófonos que se encuentran en el hardware de Azure Kinect DK o el SDK de dispositivos de voz.
 
 ### <a name="meeting-scenarios"></a>Escenarios de reuniones
 
@@ -114,7 +114,7 @@ La **transcripción del centro de llamadas** está disponible a través del serv
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de audio comprimido con códec
 
-Algunos de los lenguajes de programación del SDK de voz admiten flujos de entrada de audio comprimido con códecs. Para más información, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Uso de entradas de audio comprimido con códec con el SDK de voz</a>.
+Algunos de los lenguajes de programación del SDK de voz admiten flujos de entrada de audio comprimido con códecs. Para más información, consulte <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Uso de entradas de audio comprimido con códec con el SDK de voz</a>.
 
 La **entrada de audio comprimido con códecs** está disponible en las siguientes plataformas:
 

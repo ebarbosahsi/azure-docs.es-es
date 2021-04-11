@@ -3,16 +3,16 @@ title: 'Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azu
 description: En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics, configurar las entradas y salidas y definir una consulta.
 author: enkrumah
 ms.author: ebnkruma
-ms.date: 06/21/2019
+ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: c585cedce677599528e036525dead13a85c8b102
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b5e6ba551f8f02aa93d157fa39e6b951d977ab8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98012383"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092388"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 

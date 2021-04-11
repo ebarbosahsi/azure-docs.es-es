@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608153"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605644"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Solución de problemas de Azure Percept DK (kit de desarrollo)
+# <a name="azure-percept-dk-troubleshooting"></a>Solución de problemas de Azure Percept DK
 
 Consulte las instrucciones siguientes para obtener sugerencias de solución de problemas generales de Azure Percept DK.
 
 ## <a name="general-troubleshooting-commands"></a>Comandos de solución de problemas generales
 
-Para ejecutar estos comandos, 
-1. Conéctese a la [Wi-Fi AP del kit de desarrollo](./quickstart-percept-dk-set-up.md).
-1. [Conéctese mediante SSH al kit de desarrollo](./how-to-ssh-into-percept-dk.md)
-1. Escriba los comandos en el terminal de SSH.
+Para ejecutar estos comandos, [use SSH en el kit de desarrollo](./how-to-ssh-into-percept-dk.md) y escriba los comandos en el símbolo del sistema del cliente de SSH.
 
 Para redirigir cualquier salida a un archivo .txt para su posterior análisis, use la sintaxis siguiente:
 
@@ -43,9 +40,9 @@ Después de redirigir la salida a un archivo .txt, copie el archivo en el equipo
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. ```[remote username]``` es el nombre de usuario de SSH elegido durante la [experiencia de instalación](./quickstart-percept-dk-set-up.md). Si no ha configurado un inicio de sesión de SSH durante la configuración rápida, el nombre del usuario remoto es ```root```.
+```[local host file path]``` hace referencia a la ubicación del equipo host en el que desea copiar el archivo .txt. ```[remote username]``` es el nombre de usuario de SSH elegido durante la [experiencia de instalación](./quickstart-percept-dk-set-up.md).
 
-Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para más información sobre los comandos de Azure IoT Edge, consulte la [documentación de solución de problemas de dispositivos de Azure IoT Edge](../iot-edge/troubleshoot.md).
 
 |Categoría:         |Comando:                    |Función:                  |
 |------------------|----------------------------|---------------------------|
@@ -88,11 +85,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[quita todas las imágenes pendientes](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |comprueba el estado de descarga del contenedor de Docker |
 
-## <a name="usb-updating"></a>Actualización de USB
+## <a name="usb-updates"></a>Actualizaciones de USB
 
 |Error:                                    |Solución:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX en la unidad flash a través de UUU |Este error es el resultado de un error de conexión USB durante la actualización de UUU. Si el cable USB no está conectado correctamente a los puertos USB del equipo o a la unidad PE-10X, se producirá un error con este formato. Intente desconectar y volver a conectar ambos extremos del cable USB y mueva el cable para garantizar una conexión segura. Esto casi siempre soluciona el problema. |
+|LIBUSB_ERROR_XXX en la unidad flash a través de UUU |Este error es el resultado de un error de conexión USB durante la actualización de UUU. Si el cable USB no está conectado correctamente a los puertos USB del equipo o a la placa base de Percept DK, se producirá un error con este formato. Intente desconectar y reconectar ambos extremos del cable USB y mueva el cable para garantizar una conexión segura. Esto casi siempre soluciona el problema. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Estados de los indicadores LED de la placa base de Azure Percept DK
 
@@ -105,5 +102,3 @@ Hay tres pequeños indicadores LED en la parte superior de la carcasa de la plac
 |LED 2 (Wi-Fi)   |Luz intermitente rápida |La autenticación se realizó correctamente y la asociación del dispositivo está en curso. |
 |LED 2 (Wi-Fi)   |Encendido (luz fija) |La autenticación y la asociación se realizaron correctamente; el dispositivo está conectado a una red Wi-Fi. |
 |LED 3           |N/D         |El indicador LED no está en uso. |
-
-

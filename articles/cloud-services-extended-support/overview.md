@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618481"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169290"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Acerca de Azure Cloud Services (soporte extendido)
 
@@ -48,12 +48,9 @@ Las principales diferencias entre Cloud Services (clásico) y Cloud Services (so
 - Todos los recursos implementados a través de [Azure Resource Manager](../azure-resource-manager/templates/overview.md) deben estar dentro de una red virtual. Las redes virtuales y las subredes se crean en Azure Resource Manager con las API de Azure Resource Manager existentes y se debe hacer referencia a ellas en la sección NetworkConfiguration de .cscfg al implementar Cloud Services (soporte extendido).   
 
 - Cada servicio de Cloud Services (soporte extendido) es una única implementación independiente. Cloud Services (soporte extendido) no admite varias ranuras dentro de un único servicio en la nube.  
-    - La capacidad de intercambio de VIP<sup>*</sup> se puede utilizar para intercambiar entre dos servicios de Cloud Services (soporte extendido). Para probar y ensayar una nueva versión de un servicio en la nube, implemente un servicio de Cloud Services (soporte extendido) y etiquételo como "con intercambio de VIP" con otro servicio de Cloud Services (soporte extendido)  
+    - La capacidad de intercambio de VIP se puede utilizar para intercambiar entre dos servicios de Cloud Services (soporte extendido). Para probar y ensayar una nueva versión de un servicio en la nube, implemente un servicio de Cloud Services (soporte extendido) y etiquételo como "con intercambio de VIP" con otro servicio de Cloud Services (soporte extendido)  
 
 - La etiqueta del servicio de nombres de dominio (DNS) es opcional para un servicio de Cloud Services (soporte extendido). En Azure Resource Manager, la etiqueta DNS es una propiedad del recurso de dirección IP pública asociada al servicio en la nube. 
-
-
-<sup>*</sup> El intercambio de VIP para Cloud Services (soporte extendido) no está disponible durante la versión preliminar pública.  
 
 ## <a name="migration-to-azure-resource-manager"></a>Migración a Azure Resource Manager
 

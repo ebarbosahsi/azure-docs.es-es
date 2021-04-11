@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bb14d5227204a69f8a2ef9e0bf2da05bd7bde51c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93324418"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169103"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configuración de flujos de salida y de mensajes de runbooks
 
@@ -37,7 +37,7 @@ Para que el runbook escriba datos en el flujo de salida, utilice [Write-Output](
 
 ```powershell
 #The following lines both write an object to the output stream.
-Write-Output –InputObject $object
+Write-Output -InputObject $object
 $object
 ```
 
@@ -139,8 +139,8 @@ Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](/
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
-Write-Warning –Message "This is a warning message."
-Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+Write-Warning -Message "This is a warning message."
+Write-Error -Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
 ### <a name="write-output-to-debug-stream"></a>Escritura de la salida en el flujo de depuración
@@ -198,7 +198,7 @@ En el código siguiente se crea un mensaje detallado mediante el cmdlet [Write-V
 ```powershell
 #The following line creates a verbose message.
 
-Write-Verbose –Message "This is a verbose message."
+Write-Verbose -Message "This is a verbose message."
 ```
 
 ## <a name="handle-progress-records"></a>Control de los registros de progreso
@@ -242,22 +242,22 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
 
 ```powershell
 $job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+  -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
   $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+    -AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+  -AutomationAccountName "MyAutomationAccount" -Id $job.JobId -Stream Output
 
 # For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
+  -AutomationAccountName "MyAutomationAccount" -Id $job.JobId -Stream Any | Get-AzAutomationJobOutputRecord
 ```
 
 ### <a name="retrieve-runbook-output-and-messages-in-graphical-runbooks"></a>Recuperación de salidas de runbook y mensajes en runbooks gráficos

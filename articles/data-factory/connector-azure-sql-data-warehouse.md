@@ -5,13 +5,13 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364297"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104597528"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Synapse Analytics mediante Azure Data Factory
 
@@ -390,6 +390,7 @@ Para copiar datos en Azure Synapse Analytics, establezca el tipo de receptor de 
 | preCopyScript     | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure Synapse Analytics en cada ejecución. Esta propiedad se usa para limpiar los datos cargados previamente. | No                                            |
 | tableOption | Especifica si [se crea automáticamente la tabla de receptores](copy-activity-overview.md#auto-create-sink-tables) según el esquema de origen, si no existe. Los valores permitidos son: `none` (valor predeterminado), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory recopila métricas, como las DWU de Azure Synapse Analytics, para la optimización del rendimiento de copia y la obtención de recomendaciones, que proporcionan acceso adicional a la base de datos maestra. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Ejemplo de receptor Azure Synapse Analytics
 
@@ -520,7 +521,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
    4. `nullValue` se deja con el valor predeterminado o se establece en **empty string** ("") y `treatEmptyAsNull` se deja con el valor predeterminado o se establece en True.
    5. `encodingName` se deja con el valor predeterminado o se establece en **utf-8**.
    6. `quoteChar`, `escapeChar` y `skipLineCount` no están especificados. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
-   7. `compression` puede ser **no compression**, **GZip** o **Deflate**.
+   7. `compression` puede ser **no compression**, **``GZip``** o **Deflate**.
 
 3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True.
 
@@ -615,7 +616,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Blob Storag
 
 ### <a name="best-practices-for-using-polybase"></a>Prácticas recomendadas para usar PolyBase
 
-En las secciones siguientes se describen procedimientos recomendados, además de los mencionados en [Procedimientos recomendados para Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+En las secciones siguientes se describen procedimientos recomendados, además de los mencionados en [Procedimientos recomendados para Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Permiso de base de datos necesario
 
@@ -709,7 +710,7 @@ La instrucción COPY es compatible con esta configuración:
 
 2. Esta es la configuración de formato:
 
-   1. Para **Parquet**: `compression` puede ser **sin compresión**, **Snappy** o **GZip**.
+   1. Para **Parquet**: `compression` puede ser **no compression**, **Snappy** o **``GZip``** .
    2. Para **ORC**: `compression` puede ser **sin compresión**, **```zlib```** o **Snappy**.
    3. Para **Texto delimitado**:
       1. `rowDelimiter` se establece explícitamente como **carácter único** o " **\r\n**"; no se admite el valor predeterminado.
@@ -717,7 +718,7 @@ La instrucción COPY es compatible con esta configuración:
       3. `encodingName` se deja con el valor predeterminado o se establece en **utf-8 o utf-16**.
       4. `escapeChar` debe ser igual que `quoteChar` y no está vacío.
       5. `skipLineCount` se deja como valor predeterminado o se establece en 0.
-      6. `compression` puede ser **sin compresión** o **GZip**.
+      6. `compression` puede ser **no compression** o **``GZip``** .
 
 3. Si el origen es una carpeta, `recursive` de la actividad de copia se debe establecer en True y `wildcardFilename` tiene que ser `*`. 
 
@@ -821,7 +822,7 @@ La configuración específica de Azure Synapse Analytics está disponible en la 
 - Recreate (Volver a crear): se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.
 - Truncate (Truncar): se quitarán todas las filas de la tabla de destino.
 
-**Enable staging** (Permitir almacenamiento provisional): determina si se debe usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) al escribir en Azure Synapse Analytics. El almacenamiento provisional se configura en [Actividad de ejecución de Data Flow](control-flow-execute-data-flow-activity.md). 
+**Permitir almacenamiento provisional:** permite la carga en grupos de SQL de Azure Synapse Analytics mediante el comando copy y se recomienda para la mayoría de los receptores de Synpase. El almacenamiento provisional se configura en [Actividad de ejecución de Data Flow](control-flow-execute-data-flow-activity.md). 
 
 - Cuando use la autenticación de identidad administrada para el servicio vinculado de almacenamiento, obtenga información sobre las configuraciones necesarias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) y [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity), respectivamente.
 - Si Azure Storage está configurado con el punto de conexión de servicio de red virtual, tiene que utilizar la autenticación de identidad administrada con la opción para permitir el servicio de Microsoft de confianza habilitada en la cuenta de almacenamiento; consulte [Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).

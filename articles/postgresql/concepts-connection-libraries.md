@@ -1,17 +1,17 @@
 ---
 title: 'Bibliotecas de conexiones en Azure Database for PostgreSQL: servidor único'
 description: 'En este artículo se describen varias bibliotecas y controladores que pueden usarse al codificar aplicaciones para conectarse a Azure Database for PostgreSQL: servidor único y realizar consultas en este servicio.'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 45081c6ba161686498398f2c4ccae8b4cff4c0d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e182ef6c5fb7bf1b76424fffdbc862775e93e29c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91704317"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606307"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliotecas de conexiones de Azure Database for PostgreSQL con un único servidor
 En este artículo se enumeran las bibliotecas y los controladores que pueden usar los desarrolladores para desarrollar aplicaciones con el fin de conectarse a Azure Database for PostgreSQL y realizar ahí consultas.

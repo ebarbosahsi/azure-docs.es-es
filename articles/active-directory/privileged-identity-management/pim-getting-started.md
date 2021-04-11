@@ -14,12 +14,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c00824e7fb0529cd14e3d7b757d513ee739fe283
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90600728"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504420"
 ---
 # <a name="start-using-privileged-identity-management"></a>Empiece a usar Privileged Identity Management
 
@@ -70,7 +70,7 @@ Una vez que se haya configurado Privileged Identity Management, puede aprender a
 | Tarea y administrar | Descripción |
 | --- | --- |
 | **Mis roles**  | Muestra una lista de los roles elegibles y activos que tiene asignados. Aquí es donde puede activar cualquier función elegible asignada. |
-| **Mis solicitudes** | Muestra las solicitudes pendientes para activar las asignaciones de rol elegibles. |
+| **Solicitudes pendientes** | Muestra las solicitudes pendientes para activar las asignaciones de rol elegibles. |
 | **Aprobar solicitudes** | Muestra una lista de las solicitudes realizadas por los usuarios de su directorio para activar roles elegibles que usted tiene designados para aprobar. |
 | **Revisar acceso** | Enumera las revisiones de acceso activas que tiene asignadas para completar, tanto si revisa el acceso usted mismo como si lo hace otro usuario. |
 | **Roles de Azure AD** | Muestra un panel y la configuración de los administradores de rol con privilegios para administrar las asignaciones de roles de Azure AD. Este panel está deshabilitado para todos aquellos que no sean administradores de roles con privilegios. Estos usuarios tienen acceso a un panel especial denominado My view (Mi vista). El panel Mi vista solo muestra información sobre el acceso al panel del usuario, no de la organización completa. |

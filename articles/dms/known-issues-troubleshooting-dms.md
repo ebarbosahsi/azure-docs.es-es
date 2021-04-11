@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962287"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639800"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas y errores comunes de Azure Database Migration Service
 
@@ -102,7 +102,7 @@ Al intentar conectarse al origen en el Asistente para proyectos de servicio de A
 
 | Causa         | Solución    |
 | ------------- | ------------- |
-| Cuando se usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiere](./tutorial-sql-server-azure-sql-online.md) que se aprovisionen tres puntos de conexión de servicio en la subred de Virtual Network asociada con el servicio:<br> --Punto de conexión de Service Bus<br> --Punto de conexión de Storage<br> --Punto de conexión de base de datos de destino (p. ej., punto de conexión de SQL, punto de conexión de Cosmos DB)<br><br><br><br><br> | [Habilite](./tutorial-sql-server-azure-sql-online.md) los puntos de conexión de servicio necesarios para la conectividad de ExpressRoute entre el origen y Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| Cuando se usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiere](./tutorial-sql-server-to-azure-sql.md) que se aprovisionen tres puntos de conexión de servicio en la subred de Virtual Network asociada con el servicio:<br> --Punto de conexión de Service Bus<br> --Punto de conexión de Storage<br> --Punto de conexión de base de datos de destino (p. ej., punto de conexión de SQL, punto de conexión de Cosmos DB)<br><br><br><br><br> | [Habilite](./tutorial-sql-server-to-azure-sql.md) los puntos de conexión de servicio necesarios para la conectividad de ExpressRoute entre el origen y Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Error de tiempo de espera de bloqueo al migrar una base de datos MySQL a Azure DB for MySQL
 
@@ -126,13 +126,13 @@ Cuando intenta conectar Azure Database Migration Service al origen de SQL Server
 
 ## <a name="additional-known-issues"></a>Otros problemas conocidos
 
-* [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database](./known-issues-azure-sql-online.md)
+* [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL Database](./index.yml)
 * [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el artículo [PowerShell en Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Consulte el artículo [PowerShell en Azure Database Migration Service](/powershell/module/azurerm.datamigration#data_migration).
 * Consulte el artículo [Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal](../mysql/howto-server-parameters.md).
 * Consulte el artículo [Introducción a los requisitos previos para usar Azure Database Migration Service](./pre-reqs.md).
 * Consulte las [preguntas más frecuentes sobre el uso de Azure Database Migration Service](./faq.md).

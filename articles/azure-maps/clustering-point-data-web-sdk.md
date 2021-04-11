@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044194"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608364"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres de datos de punto
 
@@ -26,7 +26,7 @@ Cuando se visualizan muchos puntos de datos en el mapa, los puntos pueden superp
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitar la agrupación en clústeres en un origen de datos
 
-Habilite la agrupación en clústeres en la clase `DataSource` estableciendo la opción `cluster` en true. Establezca `clusterRadius` para seleccionar puntos cercanos y combinarlos en un clúster. El valor de `clusterRadius` está expresado en píxeles. Use `clusterMaxZoom` para especificar el nivel de zoom en el que se debe deshabilitar la lógica de agrupación en clústeres. Este es un ejemplo de cómo habilitar la agrupación en clústeres en un origen de datos.
+Habilite la agrupación en clústeres en la clase `DataSource` estableciendo la opción `cluster` en `true`. Establezca `clusterRadius` para seleccionar puntos cercanos y combinarlos en un clúster. El valor de `clusterRadius` está expresado en píxeles. Use `clusterMaxZoom` para especificar el nivel de zoom en el que se debe deshabilitar la lógica de agrupación en clústeres. Este es un ejemplo de cómo habilitar la agrupación en clústeres en un origen de datos.
 
 ```javascript
 //Create a data source and enable clustering.
