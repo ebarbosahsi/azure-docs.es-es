@@ -3,12 +3,12 @@ title: Automatizar la adición de un usuario de laboratorio en Azure DevTest Lab
 description: En este artículo se muestra cómo automatizar la incorporación de un usuario a un laboratorio en Azure DevTest Labs mediante plantillas de Azure Resource Manager, PowerShell y la CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dc5522cfe694f193b9bbeeb3145808a367a62c12
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1168e00960c35e2ac1e4a660efba63d30c63a575
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519408"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727712"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar la adición de un usuario de laboratorio a un laboratorio en Azure DevTest Labs
 Azure DevTest Labs le permite crear rápidamente entornos de desarrollo y pruebas de autoservicio mediante Azure Portal. Pero si tiene varios equipos y varias instancias de DevTest Labs, automatizar el proceso de creación puede ahorrar tiempo. Las [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) le permiten crear laboratorios, máquinas virtuales de laboratorio, imágenes personalizadas, fórmulas y agregar usuarios de forma automática. Este artículo se centra específicamente en la adición de usuarios a una instancia de DevTest Labs.
@@ -115,13 +115,13 @@ El identificador de rol se define en la sección de variables y se denomina `dev
 ### <a name="principal-id"></a>Identificador de entidad de seguridad
 El identificador de entidad de seguridad es el identificador de objeto del usuario, grupo o entidad de servicio de Active Directory que quiere agregar como usuario de laboratorio para el laboratorio. La plantilla usa `ObjectId` como un parámetro.
 
-Puede obtener el valor de ObjectId mediante los cmdlets de PowerShell [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0), [Get-AzureRMADGroup o [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0). Estos cmdlets devuelven un objeto único o unas listas de objetos de Active Directory que tienen una propiedad de identificador, que es el identificador de objeto que necesita. El ejemplo siguiente muestra cómo obtener el identificador de objeto de un usuario único en una empresa.
+Puede obtener el valor de ObjectId mediante los cmdlets de PowerShell [Get-AzureRMADUser](/powershell/module/azurerm.resources/get-azurermaduser?view=azurermps-6.13.0&preserve-view=true), [Get-AzureRMADGroup o [Get-AzureRMADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.13.0&preserve-view=true). Estos cmdlets devuelven un objeto único o unas listas de objetos de Active Directory que tienen una propiedad de identificador, que es el identificador de objeto que necesita. El ejemplo siguiente muestra cómo obtener el identificador de objeto de un usuario único en una empresa.
 
 ```powershell
-$userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
+$userObjectId = (Get-AzureRmADUser -UserPrincipalName 'email@company.com').Id
 ```
 
-También puede usar los cmdlets de PowerShell de Azure Active Directory que incluyen [Get-MsolUser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0), [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) y [Get-MsolServicePrincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0).
+También puede usar los cmdlets de PowerShell de Azure Active Directory que incluyen [Get-MsolUser](/powershell/module/msonline/get-msoluser?preserve-view=true&view=azureadps-1.0), [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?preserve-view=true&view=azureadps-1.0) y [Get-MsolServicePrincipal](/powershell/module/msonline/get-msolserviceprincipal?preserve-view=true&view=azureadps-1.0).
 
 ### <a name="scope"></a>Ámbito
 El ámbito especifica el recurso o grupo de recursos para el que se debe aplicar la asignación de roles. Para los recursos, el ámbito tiene el formato: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`. La plantilla usa la función `subscription().subscriptionId` para rellenar el apartado `subscription-id` y la función de plantilla `resourceGroup().name` para rellenar el apartado `resource-group-name`. El uso de estas funciones implica que el laboratorio al que va a asignar un rol debe existir en la suscripción actual y en el mismo grupo de recursos en el que se realiza la implementación de plantilla. El último apartado, `resource-name`, es el nombre del laboratorio. Este valor se recibe a través del parámetro de plantilla de este ejemplo. 
@@ -153,7 +153,7 @@ En primer lugar, cree un archivo de parámetros (por ejemplo: azuredeploy.parame
 }
 ```
 
-Después, use el cmdlet de PowerShell [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0) para implementar la plantilla de Resource Manager. El comando de ejemplo siguiente asigna una persona, grupo o una entidad de servicio al rol de usuario de DevTest Labs para un laboratorio.
+Después, use el cmdlet de PowerShell [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) para implementar la plantilla de Resource Manager. El comando de ejemplo siguiente asigna una persona, grupo o una entidad de servicio al rol de usuario de DevTest Labs para un laboratorio.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
@@ -168,7 +168,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 ```
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-Como se describe en la introducción, crea una nueva asignación de roles de Azure para agregar un usuario al rol de **usuario de DevTest Labs** para el laboratorio. En PowerShell, lo hace mediante el cmdlet [New-AzureRMRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-6.13.0). Este cmdlet tiene muchos parámetros opcionales para permitir flexibilidad. Se puede especificar `ObjectId`, `SigninName` o `ServicePrincipalName` como el objeto al que se va a conceder permisos.  
+Como se describe en la introducción, crea una nueva asignación de roles de Azure para agregar un usuario al rol de **usuario de DevTest Labs** para el laboratorio. En PowerShell, lo hace mediante el cmdlet [New-AzureRMRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Este cmdlet tiene muchos parámetros opcionales para permitir flexibilidad. Se puede especificar `ObjectId`, `SigninName` o `ServicePrincipalName` como el objeto al que se va a conceder permisos.  
 
 A continuación se muestra un comando de Azure PowerShell de ejemplo que agrega un usuario al rol de usuario de DevTest Labs en el laboratorio especificado.
 
@@ -186,7 +186,7 @@ Se puede especificar el objeto al que se va a conceder acceso mediante los pará
 En el siguiente ejemplo de la CLI de Azure se muestra cómo agregar a una persona al rol de usuario de DevTest Labs del laboratorio de pruebas especificado.  
 
 ```azurecli
-az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type “Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
+az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type "Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

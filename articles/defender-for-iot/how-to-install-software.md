@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo instalar un sensor y la consola de
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782255"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT

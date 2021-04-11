@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83ed5af00bb61d7a8929e710b52e60c33c0f479b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713378"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559220"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -130,7 +130,7 @@ Actualmente, esta característica está disponible para las instancias de servid
 - Error de Backup (para obtener alertas de error de Backup, debe registrar la marca AFEC denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** a través del Portal de vista previa).
 - Error de restauración (para obtener alertas de error de restauración, debe registrar la marca AFEC denominada **EnableAzureBackupJobFailureAlertsToAzureMonitor** a través del Portal de vista previa).
 
-Para más información sobre las alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+Para más información sobre las alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

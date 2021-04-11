@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101678867"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561243"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Introducción al agente de Device Update para IoT Hub
 
 El agente de Device Update consta de dos niveles conceptuales:
 
-* El nivel de interfaz se basa en [Azure IoT Plug and Play (PNP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play), lo que permite que la mensajería fluya entre el agente de Device Update y los servicios de Device Update.
+* El nivel de interfaz se basa en [Azure IoT Plug and Play (PNP)](../iot-pnp/overview-iot-plug-and-play.md), lo que permite que la mensajería fluya entre el agente de Device Update y los servicios de Device Update.
 * El nivel de plataforma es responsable de las acciones de actualización Descargar, Instalar y Aplicar de alto nivel, que pueden ser específicas de la plataforma o del dispositivo.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implementaciones del agente." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ APT Update Handler procesa un manifiesto de actualización específico de APT e 
 
 ## <a name="self-update-device-update-agent"></a>Agente de Device Update de actualización automática
 
-El agente de Device Update y sus dependencias se pueden actualizar a través de la canalización de Device Update para IoT Hub. Si usa una actualización basada en imágenes, incluya el agente de Device Update más reciente en la nueva imagen. Si usa una actualización basada en paquetes, incluya el agente de Device Update y su versión deseada en el manifiesto APT como cualquier otro paquete. [Obtenga más información](device-update-apt-manifest.md) sobre el manifiesto APT. Puede comprobar la versión instalada del agente de Device Update y el agente de Optimización de distribución en la sección Propiedades del dispositivo de su [dispositivo gemelo de IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Obtenga más información sobre las propiedades del dispositivo en la interfaz ADU Core](device-update-plug-and-play.md#device-properties).
+El agente de Device Update y sus dependencias se pueden actualizar a través de la canalización de Device Update para IoT Hub. Si usa una actualización basada en imágenes, incluya el agente de Device Update más reciente en la nueva imagen. Si usa una actualización basada en paquetes, incluya el agente de Device Update y su versión deseada en el manifiesto APT como cualquier otro paquete. [Obtenga más información](device-update-apt-manifest.md) sobre el manifiesto APT. Puede comprobar la versión instalada del agente de Device Update y el agente de Optimización de distribución en la sección Propiedades del dispositivo de su [dispositivo gemelo de IoT](../iot-hub/iot-hub-devguide-device-twins.md). [Obtenga más información sobre las propiedades del dispositivo en la interfaz ADU Core](device-update-plug-and-play.md#device-properties).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción del archivo de configuración del agente de Device Update](device-update-configuration-file.md)
-

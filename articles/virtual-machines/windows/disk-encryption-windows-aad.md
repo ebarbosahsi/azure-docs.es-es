@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555285"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption con Azure AD para máquinas virtuales Windows (versión anterior)
@@ -64,7 +64,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | subnetName | Nombre de la subred en la red virtual a la que debería pertenecer la NIC de la máquina virtual. |
 | AADClientID | Identificador de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | AADClientSecret | Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
-| keyVaultURL | Dirección URL del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerla mediante el cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` o la CLI de Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | Dirección URL del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerla mediante el cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` o la CLI de Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker (opcional). </br> </br>KeyEncryptionKeyURL es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (frase de contraseña secreta) en el almacén de claves. |
 | keyVaultResourceGroup | Grupo de recursos del almacén de claves. |
 | vmName | Nombre de la máquina virtual en que se va a realizar la operación de cifrado. |

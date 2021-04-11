@@ -1,5 +1,5 @@
 ---
-title: 'Administración de contraseñas y números de teléfono con Mi personal (versión preliminar): Azure AD | Microsoft Docs'
+title: 'Administración de contraseñas y números de teléfono con Mi personal: Azure AD | Microsoft Docs'
 description: Administración de las contraseñas y los números de teléfono para sus usuarios con Mi personal
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537097"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104583605"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegación de la administración de usuarios con Mi personal (versión preliminar)
+# <a name="delegate-user-management-with-my-staff"></a>Delegación de la administración de usuarios con Mi personal
 
 Una organización puede usar **Mi personal** para delegar las tareas de administración de usuarios a figuras de autoridad, como un administrador de tienda o un líder de equipo, para ayudar a que los miembros de su personal accedan a las aplicaciones que necesitan. Si un miembro del equipo no puede acceder a una aplicación porque olvidó una contraseña, se pierde la productividad. Esto también impulsa los costos de soporte técnico y genera un cuello de botella en los procesos administrativos.  Con Mi personal, un miembro del equipo que no puede tener acceso a su cuenta puede recuperar el acceso con tan solo un par de clics, sin necesidad de ayuda por parte del administrador.
 

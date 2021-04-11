@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503920"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604665"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
 Después de crear uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Para obtener detalles completos sobre la característica, consulte [Registro de Azure Key Vault](logging.md).
+
+Esto es lo que se registra:
+
+* Todas las solicitudes de la API REST autenticadas, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas.
+* Las operaciones en el almacén de claves, incluidas la creación, la eliminación, la definición de políticas de acceso del almacén de claves y la actualización de los atributos del almacén de claves, como las etiquetas.
+* Las operaciones en claves y secretos del almacén de claves, incluido lo siguiente:
+  * Crear, modificar o eliminar estas claves o secretos.
+  * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
+* Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
+* Los eventos de notificación de Event Grid para la expiración cercana, ya expirado y la directiva de acceso al almacén han cambiado (no se registra el evento de la nueva versión). Los eventos se registran independientemente de si hay una suscripción de eventos creada en el almacén de claves. Para más información, consulte [Esquema de eventos de Event Grid](../../event-grid/event-schema-key-vault.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,7 +68,7 @@ Para una mayor facilidad de administración, también usaremos el grupo de recur
 
 También será necesario indicar un nombre de cuenta de almacenamiento. Los nombres de cuentas de almacenamiento deben ser únicos, tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.  Por último, vamos a crear una cuenta de almacenamiento de la SKU "Standard_LRS".
 
-Con la CLI de Azure, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Con la CLI de Azure, use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,15 +110,31 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 El identificador de recurso del almacén de claves tendrá el formato "/subscriptions/<su-id.-de-suscripción>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<su-nombre-único-de-almacén-de-claves>". Guárdelo para el siguiente paso.
 
-## <a name="enable-logging-using-azure-powershell"></a>Habilitación del registro con Azure PowerShell
+## <a name="enable-logging"></a>Habilitación del registro
 
-Para habilitar el registro de Key Vault, usaremos el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) de la CLI de Azure, o el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
+Puede habilitar el registro de Key Vault mediante la CLI de Azure, Azure PowerShell o Azure Portal.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+### <a name="azure-cli"></a>Azure CLI
+
+Use el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) de la CLI de Azure junto con el identificador de la cuenta de almacenamiento y el identificador de recurso del almacén de claves.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Con Azure PowerShell, usaremos el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), con la marca **-Enabled** establecida en **$true** y la categoría establecida en `AuditEvent` (la única categoría para el registro de Key Vault):
+Si lo desea, puede establecer una directiva de retención para los registros, de forma que los registros más antiguos se eliminen automáticamente tras un período de tiempo especificado. Por ejemplo, podría establecer una directiva de retención que elimine automáticamente los registros que tengan más de 90 días.
+
+Con la CLI de Azure, use el comando [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update). 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), con la marca **-Enabled** establecida en **$true** y la categoría establecida en `AuditEvent` (la única categoría del registro de Key Vault):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
@@ -116,28 +142,35 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Si lo desea, puede establecer una directiva de retención para los registros, de forma que los registros más antiguos se eliminen automáticamente tras un período de tiempo especificado. Por ejemplo, podría establecer una directiva de retención que elimine automáticamente los registros que tengan más de 90 días.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Con Azure PowerShell, use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). 
+Con Azure PowerShell, use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Esto es lo que se registra:
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-* Todas las solicitudes de la API REST autenticadas, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas.
-* Las operaciones en el almacén de claves, incluidas la creación, la eliminación, la definición de políticas de acceso del almacén de claves y la actualización de los atributos del almacén de claves, como las etiquetas.
-* Las operaciones en claves y secretos del almacén de claves, incluido lo siguiente:
-  * Crear, modificar o eliminar estas claves o secretos.
-  * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
-* Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
-* Los eventos de notificación de Event Grid para la expiración cercana, ya expirado y la directiva de acceso al almacén han cambiado (no se registra el evento de la nueva versión). Los eventos se registran independientemente de si hay una suscripción de eventos creada en el almacén de claves. Para más información, consulte [Esquema de eventos de Event Grid](../../event-grid/event-schema-key-vault.md).
+Para establecer la configuración de diagnóstico en el portal, siga estos pasos.
+
+1. Seleccione la configuración de diagnóstico en el menú de la hoja de recursos.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Portal de diagnóstico 1":::
+
+1. Haga clic en "+ Agregar configuración de diagnóstico".
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Portal de diagnóstico 2":::
+ 
+1. Seleccione un nombre para llamar a la configuración de diagnóstico. Para configurar el registro de Azure Monitor para Key Vault, seleccione la opción "AuditEvent" y "Envío al área de trabajo de Log Analytics". A continuación, elija la suscripción y el área de trabajo de Log Analytics a la que quiere enviar los registros.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Portal de diagnóstico 3":::
+
+    De lo contrario, seleccione las opciones correspondientes a los registros que desea seleccionar.
+
+1. Una vez que haya seleccionado las opciones deseadas, seleccione Guardar.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Portal de diagnóstico 4":::
+
+---
 
 ## <a name="access-your-logs"></a>Acceso a los registros
 

@@ -3,16 +3,16 @@ title: Entornos de proceso compatibles con Azure Data Factory versión 1
 description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5f6fbcb73b4139c0a80ea8352071d8683c401d6e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377200"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104782952"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Entornos de proceso compatibles con Azure Data Factory versión 1
 > [!NOTE]
@@ -362,7 +362,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | servicePrincipalKey | La clave de la aplicación.           | Sí      |
 | tenant              | La información del inquilino (nombre de dominio o identificador de inquilino) en el que se ubica la aplicación. Para obtener esta información, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
 
-**Ejemplo: Autenticación de entidad de servicio**
+**Ejemplo: autenticación de la entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -389,7 +389,7 @@ Para la autenticación de credenciales de usuario de Data Lake Analytics, especi
 | authorization | En el Editor de Data Factory, seleccione el botón **Autorizar**. Escriba la credencial que asigna la dirección URL de autorización generada automáticamente a esta propiedad. | Sí      |
 | sessionID     | El identificador de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar el Editor de Data Factory. | Sí      |
 
-**Ejemplo: Autenticación de credenciales de usuario**
+**Ejemplo: autenticación de credenciales de usuario**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",

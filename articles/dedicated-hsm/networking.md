@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91359161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611844"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de Azure Dedicated HSM
 
@@ -84,6 +84,60 @@ Para aplicaciones distribuidas globalmente o para escenarios de conmutación por
 > El emparejamiento de red virtual global no está disponible en escenarios de conectividad entre regiones con HSM dedicados en este momento y, en su lugar, debe utilizarse VPN Gateway. 
 
 ![En el diagrama se muestran dos regiones conectadas por dos puertas de enlace V P N. Cada región contiene redes virtuales emparejadas.](media/networking/global-vnet.png)
+
+## <a name="networking-restrictions"></a>Restricciones de redes
+> [!NOTE]
+> Una restricción del servicio Dedicated HSM mediante delegación de subredes impone restricciones que deben tenerse en cuenta a la hora de diseñar la arquitectura de red de destino para una implementación de HSM. El uso de la delegación de subredes significa que los NSG, UDR y el emparejamiento de VNet global no se admiten para Dedicated HSM. En las secciones siguientes encontrará técnicas alternativas para lograr el mismo resultado u otro similar para estas funcionalidades. 
+
+La NIC de HSM que reside en la red virtual de Dedicated HSM no puede usar grupos de seguridad de red ni rutas definidas por el usuario. Esto significa que no es posible establecer directivas de denegación predeterminadas desde el punto de vista de la red virtual de Dedicated HSM, y que otros segmentos de red deben incluirse en la lista de permitidos para acceder al servicio Dedicated HSM. 
+
+La adición de la solución de proxy de aplicaciones virtuales de red (NVA) también permite que un firewall de NVA en el concentrador de tránsito/DMZ se coloque lógicamente delante de la NIC de HSM, lo que proporciona la alternativa necesaria a los NSG y UDR.
+
+### <a name="solution-architecture"></a>Arquitectura de la solución
+Este diseño de redes requiere los elementos siguientes:
+1.  Una red virtual de centro de conectividad de tránsito o DMZ con un nivel de proxy de NVA. Idealmente, hay dos NVA o más. 
+2.  Un circuito ExpressRoute con un emparejamiento privado habilitado y una conexión a la red virtual del centro de tránsito.
+3.  Un emparejamiento de VNet entre la red virtual del centro de tránsito y la red virtual de Dedicated HSM.
+4.  Como opción, se puede implementar un firewall de NVA o Azure Firewall para ofrecer servicios de DMZ en el centro de conectividad. 
+5.  Se pueden emparejar redes virtuales radiales de carga de trabajo adicionales a la red virtual del centro. El cliente de Gemalto puede acceder al servicio Dedicated HSM a través de la red virtual del centro.
+
+![En el diagrama se muestra una red virtual de centro de conectividad DMZ con un nivel de proxy de NVA como solución para los NSG y UDR.](media/networking/network-architecture.png)
+
+Dado que agregar la solución de proxy de NVA también permite que un firewall de NVA en el centro de tránsito/DMZ se coloque lógicamente delante de la NIC de HSM, se proporcionan las directivas de denegación predeterminadas necesarias. En nuestro ejemplo, usaremos Azure Firewall para este propósito y necesitaremos los siguientes elementos:
+1. Una instancia de Azure Firewall implementada en la subred "AzureFirewallSubnet" en la red virtual del centro de DMZ.
+2. Una tabla de enrutamiento con una UDR que dirija hacia Azure Firewall el tráfico que se envía al punto de conexión privado de Azure ILB. Esta tabla de enrutamiento se aplicará a GatewaySubnet donde reside la puerta de enlace virtual de ExpressRoute del cliente.
+3. Reglas de seguridad de red dentro de Azure Firewall para permitir el reenvío entre un intervalo de orígenes de confianza y el punto de conexión privado de Azure IBL escuchando en el puerto TCP 1792. Esta lógica de seguridad agregará la directiva de "denegación predeterminada" necesaria en el servicio Dedicated HSM. Es decir, solo se permitirán los intervalos IP de origen de confianza en el servicio Dedicated HSM. Se quitarán todos los demás intervalos.  
+4. Una tabla de enrutamiento con una UDR que dirija hacia Azure Firewall el tráfico que se envía al entorno local. Esta tabla de enrutamiento se aplicará a la subred de proxy de NVA. 
+5. Un NSG aplicado a la subred de NVA del proxy para confiar solo en el intervalo de subredes de Azure Firewall como origen, y para permitir el reenvío solo a la dirección IP de la NIC de HSM a través del puerto TCP 1792. 
+
+> [!NOTE]
+> Dado que el nivel de proxy de NVA aplicará SNAT a la dirección IP del cliente a medida que se reenvía a la NIC de HSM, no se requiere ninguna UDR entre la red virtual de HSM y la red virtual del centro de conectividad de DMZ.  
+
+### <a name="alternative-to-udrs"></a>Alternativa a las UDR
+La solución al nivel de NVA mencionada anteriormente funciona como alternativa a las UDR. Hay algunos puntos importantes que se deben destacar.
+1.  La traducción de direcciones de red debe configurarse en NVA para permitir que el tráfico de retorno se enrute correctamente.
+2. Los clientes deben deshabilitar la configuración de Luna HSM de comprobación de IP de cliente para usar VNA para NAT. Los siguientes comandos sirven de ejemplo.
+```
+Disable:
+[hsm01] lunash:>ntls ipcheck disable
+NTLS client source IP validation disabled
+Command Result : 0 (Success)
+
+Show:
+[hsm01] lunash:>ntls ipcheck show
+NTLS client source IP validation : Disable
+Command Result : 0 (Success)
+```
+3.  Implementación de UDR para el tráfico de entrada en el nivel de NVA. 
+4. Por diseño, las subredes de HSM no iniciarán una solicitud de conexión saliente a nivel de la plataforma.
+
+### <a name="alternative-to-using-global-vnet-peering"></a>Alternativa al uso del Emparejamiento de VNET global
+Hay un par de arquitecturas que puede usar como alternativa al Emparejamiento de VNET global.
+1.  Use la [conexión de VPN Gateway de red virtual a red virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal). 
+2.  Conecte la red virtual de HSM con otra red virtual con un circuito ER. Esto funciona mejor cuando se requiere una ruta de acceso local directa o una red virtual de VPN. 
+
+#### <a name="hsm-with-direct-express-route-connectivity"></a>HSM con conectividad directa ExpressRoute
+![Diagrama que muestra HSM con conectividad directa ExpressRoute](media/networking/expressroute-connectivity.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

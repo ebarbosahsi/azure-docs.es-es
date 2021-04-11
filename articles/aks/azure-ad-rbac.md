@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre cómo usar la pertenencia a grupos de Azure Active Directory para restringir el acceso a recursos de clúster mediante el control de acceso basado en roles de Kubernetes (RBAC de Kubernetes) en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 585e51f5131bf20d39cf43ab2e843774d61a708f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/17/2021
+ms.openlocfilehash: 72b2c456d62b899f2b04041929434da668cad82d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178242"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583537"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Administración del acceso a recursos de clúster mediante el control de acceso basado en roles de Kubernetes y las identidades de Azure Active Directory en Azure Kubernetes Service
 
@@ -81,15 +81,27 @@ az role assignment create \
 
 Con dos grupos de ejemplo creados en Azure AD para nuestros desarrolladores de aplicaciones y SRE, ahora permite crear dos usuarios de ejemplo. Para probar la integración de RBAC de Kubernetes al final del artículo, inicie sesión en el clúster de AKS con estas cuentas.
 
+Establezca el nombre principal de usuario (UPN) y la contraseña de los desarrolladores de aplicaciones. El comando siguiente le solicita un UPN y lo establece en *AAD_DEV_UPN* para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH). El UPN debe incluir el nombre de dominio comprobado del inquilino, por ejemplo `aksdev@contoso.com`.
+
+```azurecli-interactive
+echo "Please enter the UPN for application developers: " && read AAD_DEV_UPN
+```
+
+El siguiente comando le pide la contraseña y la establece en *AAD_DEV_PW* para su uso en un comando posterior.
+
+```azurecli-interactive
+echo "Please enter the secure password for application developers: " && read AAD_DEV_PW
+```
+
 Cree la primera cuenta de usuario en Azure AD mediante el comando [az ad user create][az-ad-user-create].
 
-En el ejemplo siguiente se crea un usuario con el nombre para mostrar *AKS Dev* y el nombre principal de usuario (UPN) de `aksdev@contoso.com`. Actualice el UPN para incluir un dominio comprobado para su inquilino de Azure AD (reemplace *contoso.com* por su propio dominio) y proporcione su propia credencial `--password` segura:
+En el ejemplo siguiente se crea un usuario con el nombre para mostrar *AKS Dev* y el UPN y la contraseña segura usando los valores de *AAD_DEV_UPN* y *AAD_DEV_PW*:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
   --display-name "AKS Dev" \
-  --user-principal-name aksdev@contoso.com \
-  --password P@ssw0rd1 \
+  --user-principal-name $AAD_DEV_UPN \
+  --password $AAD_DEV_PW \
   --query objectId -o tsv)
 ```
 
@@ -99,14 +111,26 @@ Ahora agregue el usuario al grupo *appdev* creado en la sección anterior median
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-Cree una nueva cuenta de usuario. En el ejemplo siguiente se crea un usuario con el nombre para mostrar *AKS SRE* y el nombre principal de usuario (UPN) de `akssre@contoso.com`. Actualice de nuevo el UPN para incluir un dominio comprobado para su inquilino de Azure AD (reemplace *contoso.com* por su propio dominio) y proporcione su propia credencial `--password` segura:
+Establezca el UPN y la contraseña de SRE. El comando siguiente le solicita un UPN y lo establece en *AAD_SRE_UPN* para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH). El UPN debe incluir el nombre de dominio comprobado del inquilino, por ejemplo `akssre@contoso.com`.
+
+```azurecli-interactive
+echo "Please enter the UPN for SREs: " && read AAD_SRE_UPN
+```
+
+El siguiente comando le pide la contraseña y la establece en *AAD_SRE_PW* para su uso en un comando posterior.
+
+```azurecli-interactive
+echo "Please enter the secure password for SREs: " && read AAD_SRE_PW
+```
+
+Cree una nueva cuenta de usuario. El siguiente ejemplo crea un usuario con el nombre para mostrar *AKS SRE* y el UPN y la contraseña segura utilizando los valores de *AAD_SRE_UPN* y *AAD_SRE_PW*:
 
 ```azurecli-interactive
 # Create a user for the SRE role
 AKSSRE_ID=$(az ad user create \
   --display-name "AKS SRE" \
-  --user-principal-name akssre@contoso.com \
-  --password P@ssw0rd1 \
+  --user-principal-name $AAD_SRE_UPN \
+  --password $AAD_SRE_PW \
   --query objectId -o tsv)
 
 # Add the user to the opssre Azure AD group
@@ -266,13 +290,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Programación de un pod NGINX básico mediante el comando [kubectl run][kubectl-run] en el espacio de nombres *dev*:
 
 ```console
-kubectl run nginx-dev --image=nginx --namespace dev
+kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 ```
 
 Cuando se le solicite iniciar sesión, escriba las credenciales de su cuenta `appdev@contoso.com` personal creada al principio del artículo. Una vez que se haya iniciado sesión correctamente, el token de la cuenta se almacena en caché para futuros comandos `kubectl`. NGINX se programa correctamente, como se muestra en la siguiente salida de ejemplo:
 
 ```console
-$ kubectl run nginx-dev --image=nginx --namespace dev
+$ kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B24ZD6FP8 to authenticate.
 
@@ -313,7 +337,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 De la misma manera, intente programar un pod en un espacio de nombres diferente, como el espacio de nombres *sre*. La pertenencia a grupos del usuario no es compatible con un rol y un enlace de rol de Kubernetes para conceder estos permisos, como se muestra en la salida de ejemplo siguiente:
 
 ```console
-$ kubectl run nginx-dev --image=nginx --namespace sre
+$ kubectl run nginx-dev --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace sre
 
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot create resource "pods" in API group "" in the namespace "sre"
 ```
@@ -331,14 +355,14 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ov
 Intente programar y ver los pods en el espacio de nombres *sre* asignado. Cuando se le solicite, inicie sesión con sus credenciales personales de `opssre@contoso.com` creadas al principio del artículo:
 
 ```console
-kubectl run nginx-sre --image=nginx --namespace sre
+kubectl run nginx-sre --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace sre
 kubectl get pods --namespace sre
 ```
 
 Como se muestra en la siguiente salida de ejemplo, puede crear y ver los pods correctamente:
 
 ```console
-$ kubectl run nginx-sre --image=nginx --namespace sre
+$ kubectl run nginx-sre --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace sre
 
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BM4RHP3FD to authenticate.
 
@@ -354,7 +378,7 @@ Ahora, pruebe ver o programar los pods fuera del espacio de nombres de SRE asign
 
 ```console
 kubectl get pods --all-namespaces
-kubectl run nginx-sre --image=nginx --namespace dev
+kubectl run nginx-sre --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 ```
 
 No se pueden ejecutar estos comandos `kubectl`, como se muestra en la salida de ejemplo siguiente. La pertenencia a grupos del usuario y el rol y los enlaces de roles de Kubernetes no conceden permisos para crear o administrar recursos en otros espacios de nombres:
@@ -363,7 +387,7 @@ No se pueden ejecutar estos comandos `kubectl`, como se muestra en la salida de 
 $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot list pods at the cluster scope
 
-$ kubectl run nginx-sre --image=nginx --namespace dev
+$ kubectl run nginx-sre --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --namespace dev
 Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cannot create pods in the namespace "dev"
 ```
 
