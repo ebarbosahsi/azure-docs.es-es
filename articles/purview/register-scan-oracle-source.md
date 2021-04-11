@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010479"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045508"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registro y examen de un origen de Oracle (versión preliminar)
 
@@ -25,7 +25,7 @@ El origen de Oracle admite un **examen completo** para extraer metadatos de una 
 ## <a name="prerequisites"></a>Requisitos previos
 
 1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-    Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
@@ -105,7 +105,7 @@ En la pantalla **Register sources (Oracle)** (Registrar orígenes (Oracle)), hag
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) para crear un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 

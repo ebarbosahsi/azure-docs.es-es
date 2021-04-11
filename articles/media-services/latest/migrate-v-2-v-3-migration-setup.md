@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503171"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959677"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Paso 3: Configuración para migrar a la API REST v3 o SDK de cliente
 
@@ -45,7 +45,7 @@ Los clientes que anteriormente usaban la versión 2015-10-01 de la API de admini
 
 Siga los pasos de inicio rápido para [configurar el entorno](how-to-set-azure-subscription.md?tabs=portal) mediante Azure Portal. Seleccione acceso de API y autenticación de entidad de servicio para generar un nuevo id. de aplicación y secretos de Azure AD usarlos con esta cuenta de prueba.
 
-[Cree una cuenta de Media Services](create-account-howto.md?tabs=portal).
+[Cree una cuenta de Media Services](account-create-how-to.md?tabs=portal).
 [Obtenga credenciales para acceder a la API de Media Services](access-api-howto.md?tabs=portal).
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Descarga del SDK de cliente que prefiera y configuración del entorno
@@ -143,7 +143,3 @@ Lea el artículo [Conexión a la API de Azure Media Services v3: Node.js](confi
 Descargue el SDK de [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media).
 
 ---
-
-## <a name="next-steps"></a>Pasos siguientes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

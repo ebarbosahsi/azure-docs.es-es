@@ -10,13 +10,13 @@ ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: f3c20774accf9e0b589b898cb903d6da4516e553
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92780819"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058925"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -76,7 +76,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 | Cantidad máxima de sesiones simultáneas por grupo <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de DTU mínima por base de datos | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opciones de DTU máxima por base de datos | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
-| Almacenamiento máximo por base de datos (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
+| Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
 <sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
@@ -97,7 +97,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 | Cantidad máxima de sesiones simultáneas por grupo <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de DTU mínima por base de datos | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opciones de DTU máxima por base de datos | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Almacenamiento máximo por base de datos (GB) | 1024 | 1536 | 1792 | 2304 | 2816 |
 |||||||
 
 <sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
@@ -118,7 +118,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 | Cantidad máxima de sesiones simultáneas por grupo <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Cantidad mínima de eDTU por base de datos | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Cantidad máxima de eDTU por base de datos | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
-| Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
 |||||||
 
 <sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
@@ -139,7 +139,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 | Cantidad máxima de sesiones simultáneas por grupo <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opciones de DTU mínima por base de datos | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Opciones de DTU máxima por base de datos | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Almacenamiento máximo por base de datos (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Almacenamiento máximo por base de datos (GB) | 2048 | 2560 | 3072 | 3584 | 4096 |
 |||||||
 
 <sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
@@ -154,7 +154,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 
 > [!NOTE]
-> Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 

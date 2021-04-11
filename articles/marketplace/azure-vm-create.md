@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
-ms.openlocfilehash: ffc09daa15e742ca2b5b8a2fa9323e33fe317c60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200389"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551331"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -58,20 +58,7 @@ Para habilitar una versión de prueba, seleccione la casilla **Habilitar una ver
 
 ## <a name="configure-customer-leads-management"></a>Configuración de la administración de clientes potenciales
 
-Al publicar una oferta en el marketplace comercial con el Centro de partners, conéctela a un sistema de administración de relaciones con clientes (CRM). Esto le permite recibir información de contacto del cliente en cuanto alguien expresa interés en el producto o lo usa. Es necesario conectarse a un CRM si desea habilitar una versión de prueba (consulte la sección anterior). De lo contrario, la conexión a CRM es opcional.
-
-1. En **Clientes potenciales**, seleccione el vínculo **Conectar**.
-1. En el cuadro de diálogo **Detalles de conexión**, seleccione un destino de cliente potencial.
-1. Rellene los campos que aparecen. Para más información, consulte los siguientes artículos:
-
-   - [Configuración de la oferta para enviar clientes potenciales a la tabla de Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Configuración de la oferta para enviar clientes potenciales a Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (antes Dynamics CRM Online)
-   - [Configuración de la oferta para enviar clientes potenciales al punto de conexión HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-   - [Configuración de la oferta para enviar clientes potenciales al Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-   - [Configurar la oferta para enviar clientes potenciales a Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
-
-1. Para validar la configuración proporcionada, seleccione el vínculo **Validar**.
-1. Seleccione **Conectar**.
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
 Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo, **Propiedades**.
 

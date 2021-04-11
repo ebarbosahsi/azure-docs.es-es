@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca cliente de Azure Queue Storage v12: Python'
 description: Aprenda a usar la biblioteca cliente de Azure Queue Storage v12 para Python para crear una cola y agregarle mensajes. Luego, aprenda a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
-ms.openlocfilehash: b4c25ceb2e7b3f224dccdd7d24d86389100c8a2e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1881af372c1f4e1c5cbb4ea7be0ede4c96bbf4ee
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801917"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276151"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python
 

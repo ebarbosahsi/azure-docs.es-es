@@ -4,14 +4,14 @@ description: Debate y análisis de posibles causas y soluciones para las alertas
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 22985f295e504a2d73015f1dc96064f89be47bd7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946713"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866937"
 ---
-# <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Escenario: Alertas obsoletas de Apache Ambari en Azure HDInsight
+# <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Escenario: alertas obsoletas de Apache Ambari en Azure HDInsight
 
 En este artículo se describen los pasos de solución de problemas y las posibles soluciones para los problemas que se producen al usar clústeres de Azure HDInsight.
 
@@ -19,7 +19,7 @@ En este artículo se describen los pasos de solución de problemas y las posible
 
 En la interfaz de usuario de Apache Ambari, es posible que vea una alerta similar a esta:
 
-![Ejemplo de alertas obsoletas de Apache Ambari](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Ejemplo de alertas obsoletas de Apache Ambari" border="true":::
 
 ## <a name="cause"></a>Causa
 

@@ -3,15 +3,15 @@ title: 'Private Link: Azure Database for MariaDB'
 description: Obtenga información sobre cómo funciona Private Link para Azure Database for MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98665147"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867464"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link para Azure Database for MariaDB
 
@@ -73,19 +73,20 @@ Después de crear el punto de conexión privado (PE), el administrador puede adm
 
 * Seleccione una conexión del punto de conexión privado en la lista.
 
-![selección del punto de conexión privado pendiente de aprobación](media/concepts-data-access-and-security-private-link/select-private-link.png)
+![Selección del punto de conexión privado pendiente de aprobación](media/concepts-data-access-and-security-private-link/select-private-link.png)
 
 * El administrador de servidor de MariaDB puede optar por aprobar o rechazar un punto de conexión privado y, además, tiene la opción de agregar una respuesta con un texto breve.
 
-![selección del mensaje del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+![Selección del mensaje del punto de conexión privado](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
 
 * Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 
-![selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+![Selección del estado final del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Casos de uso de Private Link para Azure Database for MariaDB
 
-Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una red virtual emparejada de la misma región o a través de una conexión entre redes virtuales de distintas regiones. Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
+
+Los clientes se pueden conectar al punto de conexión privado desde la misma red virtual, desde una [red virtual emparejada](../virtual-network/virtual-network-peering-overview.md) de la misma región o a través de una conexión entre [redes virtuales de distintas regiones](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Además, los clientes pueden conectarse de forma local mediante ExpressRoute, emparejamiento privado o tunelización de VPN. A continuación, puede ver un diagrama simplificado que muestra los casos de uso habituales.
 
 ![Información general sobre la selección del punto de conexión privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

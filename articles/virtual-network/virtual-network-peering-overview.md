@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216757"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778296"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -25,8 +25,8 @@ El emparejamiento de red virtual permite conectar sin problemas dos o más [rede
 
 La directiva admite los siguientes tipos de emparejamiento:
 
-* Emparejamiento de redes virtuales: conecte redes virtuales que se encuentren en la misma región de Azure.
-* Emparejamiento global de redes virtuales: conexión de redes virtuales en distintas regiones de Azure.
+* **Emparejamiento de red virtual**: conecte redes virtuales que se encuentren en la misma región de Azure.
+* **Emparejamiento global de redes virtuales**: conexión de redes virtuales en distintas regiones de Azure.
 
 Las ventajas del uso del emparejamiento de redes virtuales, ya sean locales o globales, son las siguientes:
 

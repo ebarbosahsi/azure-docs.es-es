@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946668"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866733"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -20,7 +20,7 @@ HDInsight proporciona la capacidad de obtener información valiosa de grandes ca
 
 ## <a name="advanced-analytics-process"></a>Proceso de análisis avanzado
 
-![Flujo de proceso de análisis avanzado](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="Flujo de proceso de análisis avanzado" border="false":::
 
 Una vez que haya identificado el problema empresarial y haya empezado a recopilar y procesar los datos, debe crear un modelo que represente la pregunta que quiera predecir. Su modelo usará uno o varios algoritmos de aprendizaje automático para realizar el tipo de predicción que mejor se adapte a sus necesidades empresariales.  Se debe usar la mayoría de los datos para entrenar el modelo, y la parte restante para probarlo o evaluarlo.
 
@@ -30,7 +30,7 @@ Después de crear, cargar, probar y evaluar el modelo, en el siguiente paso se d
 
 Las soluciones de análisis avanzado proporcionan un conjunto de algoritmos de aprendizaje automático. Este es un resumen de las categorías de los algoritmos y los casos de uso empresariales comunes asociados.
 
-![Resúmenes de las categorías de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Resúmenes de las categorías de Machine Learning" border="false":::
 
 Además de seleccionar los algoritmos más adecuados, debe considerar si debe proporcionar o no datos para el aprendizaje. Los algoritmos de aprendizaje automático se clasifican como se indica a continuación:
 
@@ -92,7 +92,7 @@ Hay tres tareas clave en este escenario de análisis avanzado:
 
 En este ejemplo se utiliza el conjunto de imágenes de CIFAR-10 que compilan y distribuyen Alex Krizhevsky, Vinod Nair y Geoffrey Hinton. El conjunto de datos de CIFAR-10 contiene 60 000 imágenes 32 x 32 que pertenecen a 10 clases mutuamente exclusivas de color:
 
-![Imágenes de ejemplo de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Imágenes de ejemplo de Machine Learning" border="false":::
 
 Para más información sobre el conjunto de datos, vea [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) (Entrenamiento de varias capas de características a partir de imágenes muy pequeñas) de Alex Krizhevsky.
 
@@ -105,7 +105,7 @@ El conjunto de datos se dividió en particiones para formar un conjunto de apren
 
 El proceso completo del procesamiento previo o la puntuación de 10 000 imágenes tarda menos de un minuto en un clúster con 4 nodos de trabajo. El modelo predice con precisión las etiquetas de aproximadamente 9100 imágenes (91 %). Una matriz de confusión muestra los errores más comunes de clasificación. Por ejemplo, la matriz muestra que el etiquetado incorrecto de perros como gatos y viceversa se produce con mayor frecuencia que con otros pares de etiquetas.
 
-![Gráfico de resultados de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Gráfico de resultados de Machine Learning" border="false":::
 
 ### <a name="try-it-out"></a>¡Pruébelo!
 

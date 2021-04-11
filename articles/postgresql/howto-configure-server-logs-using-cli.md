@@ -1,19 +1,19 @@
 ---
 title: 'Administración de registros de Azure Database for PostgreSQL: servidor único mediante la CLI de Azure'
 description: 'En este artículo se describe cómo configurar los registros de servidor (archivos .log) de Azure Database for PostgreSQL: servidor único, y acceder a ellos, mediante la CLI de Azure.'
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 71dac0b6ea2202e712280607a73e860ae68bdb73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 64582e7655ef2a3cf72547bfa8c3269f1624c890
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96005595"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604182"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
 Puede descargar los registros de error del servidor de PostgreSQL mediante la interfaz de la línea de comandos (CLI de Azure). Sin embargo, no se admite el acceso a los registros de transacciones. 

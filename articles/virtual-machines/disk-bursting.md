@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677477"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568722"
 ---
 # <a name="managed-disk-bursting"></a>Seguridad de disco administrado
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ Además, el [nivel de rendimiento de los discos administrados puede cambiar](dis
 
 |  |Expansión basada en crédito  |Expansión a petición  |Cambio del nivel de rendimiento  |
 |---------|---------|---------|---------|
-| Escenarios|Ideal para el escalado a corto plazo (30 minutos o menos).|Ideal para el escalado a corto plazo (sin restricción de tiempo).|Ideal si la carga de trabajo se ejecutaría continuamente en la expansión.|
-|Coste     |Gratuito         |El costo es variable; para más información, consulte la sección de [facturación](#billing).        |El costo de cada nivel de rendimiento es fijo, para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).         |
-|Disponibilidad     |Solo está disponible para SSD Prémium con un tamaño de 512 GiB, y menores.         |Solo está disponible para SSD Prémium de más dé que 512 GiB.         |Disponible para todos los tamaños de SSD Prémium.         |
-|Habilitación     |Habilitado de forma predeterminada en los discos aptos.         |Debe habilitarlo el usuario.         |El usuario debe cambiar su nivel de forma manual.         |
+| **Escenarios**|Ideal para el escalado a corto plazo (30 minutos o menos).|Ideal para el escalado a corto plazo (sin restricción de tiempo).|Ideal si la carga de trabajo se ejecutaría continuamente en la expansión.|
+|**Costee**     |Gratuito         |El costo es variable; para más información, consulte la sección de [facturación](#billing).        |El costo de cada nivel de rendimiento es fijo, para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).         |
+|**Disponibilidad**     |Solo está disponible para SSD Prémium con un tamaño de 512 GiB, y menores.         |Solo está disponible para SSD Prémium de más dé que 512 GiB.         |Disponible para todos los tamaños de SSD Prémium.         |
+|**Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure**     |Habilitado de forma predeterminada en los discos aptos.         |Debe habilitarlo el usuario.         |El usuario debe cambiar su nivel de forma manual.         |
 
 ## <a name="common-scenarios"></a>Escenarios frecuentes
 Los siguientes escenarios pueden beneficiarse en gran medida de la expansión:

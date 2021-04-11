@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
-ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b88ed44632aa255837d8fb499782e11c716d443
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89568785"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048194"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conexión a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local 
 
@@ -62,7 +62,7 @@ Después de la conmutación por error, haga lo siguiente en las máquinas virtua
 
 1. Para conectarse a la máquina virtual desde Internet, asígnele una dirección IP pública. No puede usar la misma dirección IP pública para la máquina virtual de Azure que usó para la máquina local. [Más información](../virtual-network/virtual-network-public-ip-address.md)
 2. Compruebe que las reglas del grupo de seguridad de red (NSG) en la máquina virtual permiten las conexiones entrantes al puerto RDP o SSH.
-3. Haga clic en [Diagnósticos de arranque](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para ver la máquina virtual.
+3. Haga clic en [Diagnósticos de arranque](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) para ver la máquina virtual.
 
 
 > [!NOTE]

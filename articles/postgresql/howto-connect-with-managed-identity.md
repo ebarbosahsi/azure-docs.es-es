@@ -1,18 +1,18 @@
 ---
 title: 'Conexión con identidad administrada: Azure Database for PostgreSQL (servidor único)'
 description: Obtenga información sobre la conexión y autenticación mediante identidad administrada para la autenticación con Azure Database for PostgreSQL.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b0d6b083228ddab9d958bf3480b592f7ee0d892d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092642"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604165"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Conexión con identidad administrada a Azure Database for PostgreSQL
 

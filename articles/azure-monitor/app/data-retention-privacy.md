@@ -4,12 +4,12 @@ description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a7545d4d927418e6153ce3bf439fc8c3e2dc702
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579581"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774922"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -294,6 +294,10 @@ También puede [desactivar algunos de los datos mediante la edición de Applicat
 
 > [!NOTE]
 > La IP del cliente se usa para deducir la ubicación geográfica, pero de forma predeterminada ya no se almacenan datos de IP y todos los ceros se escriben en el campo asociado. Para más información sobre el control de los datos personales, se recomienda leer este [artículo](../logs/personal-data-mgmt.md#application-data). Si necesita almacenar datos de direcciones IP, nuestro [artículo sobre la colección de direcciones IP](./ip-collection.md) le guiará por las opciones.
+
+## <a name="can-i-modify-or-update-data-after-it-has-been-collected"></a>¿Puedo modificar o actualizar los datos una vez recopilados?
+
+No, los datos son de solo lectura y solo se pueden eliminar a través de la funcionalidad de purga. Para obtener más información, consulte [Guía sobre datos personales almacenados en Log Analytics y Application Insights](../logs/personal-data-mgmt.md#delete).
 
 ## <a name="credits"></a>Créditos
 Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [https://www.maxmind.com](https://www.maxmind.com).

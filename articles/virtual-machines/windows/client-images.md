@@ -1,19 +1,19 @@
 ---
 title: Uso de imágenes de cliente de Windows en Azure
 description: Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo/pruebas
-author: cynthn
+author: mimckitt
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: cynthn
-ms.openlocfilehash: d09f27eebba5db2edb56185b658c8ae2b06e42d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.author: mimckitt
+ms.openlocfilehash: 7879e355573d2b9952728828bd3780094a919fe3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552276"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869062"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
 Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). 
@@ -29,6 +29,9 @@ Algunas imágenes de clientes Windows están disponibles en Azure Marketplace. L
 ## <a name="eligible-offers-and-client-images"></a>Ofertas válidas e imágenes de clientes
 En la tabla siguiente se muestran los detalles de los id. de oferta idóneos para implementar imágenes de clientes Windows a través de Azure Marketplace. Las imágenes de clientes Windows solo son visibles para las ofertas siguientes. 
 
+> [!NOTE]
+> Las ofertas de imágenes se encuentran en el **cliente de Windows** en Azure Marketplace. Use el **cliente de Windows** al buscar imágenes de cliente disponibles para los suscriptores de Visual Studio. 
+
 | Nombre de la oferta | Número de la oferta | Imágenes de cliente disponibles | 
 |:--- |:---:|:---:|
 | [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
@@ -41,10 +44,10 @@ En la tabla siguiente se muestran los detalles de los id. de oferta idóneos par
 | [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Compruebe la suscripción a Azure
-Si no conoce el identificador de su oferta, puede obtenerlo en Azure Portal de una de estas dos formas:  
+Si no conoce el id. de su oferta, puede obtenerlo en Azure Portal.  
 - En la ventana *Suscripciones*: ![Detalles del id. de oferta de Azure Portal](./media/client-images/offer-id-azure-portal.png) 
-- O bien, haga clic en **Facturación** y, a continuación, haga clic en el identificador de suscripción. El identificador de oferta aparece en la ventana de *facturación*.
-También puede ver el id. de la oferta en la pestaña ["Suscripciones"](https://account.windowsazure.com/Subscriptions) del portal de la cuenta de Azure: ![Detalles del id. de oferta de la cuenta en Azure Portal](./media/client-images/offer-id-azure-account-portal.png) 
+- O bien, haga clic en **Facturación** y, a continuación, haga clic en el identificador de suscripción. El identificador de oferta aparece en la ventana de *facturación*. 
+- También puede ver el id. de la oferta en la pestaña ["Suscripciones"](https://account.windowsazure.com/Subscriptions) del portal de la cuenta de Azure: ![Detalles del id. de oferta de la cuenta en Azure Portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede implementar las máquinas virtuales con [PowerShell](quick-create-powershell.md), [plantillas de Resource Manager](ps-template.md) o [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

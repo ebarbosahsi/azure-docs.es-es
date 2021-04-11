@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95999168"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integración de Azure Active Directory con iQualify LMS
 
@@ -88,44 +88,41 @@ Para configurar el inicio de sesión único de Azure AD con iQualify LMS, siga e
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **iQualify LMS**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
+   ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
 2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
+   ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
 3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
+   ![Captura de pantalla que muestra la configuración básica de SAML, donde se puede escribir el identificador y la dirección U R L de respuesta y seleccionar Guardar.](common/idp-intiated.png)
+   
+   1. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
-    | |
-    |--|--|
-    | Entorno de producción: `https://<yourorg>.iqualify.com/`|
-    | Entorno de prueba: `https://<yourorg>.iqualify.io`|
+      * Entorno de producción: `https://<yourorg>.iqualify.com/`
+      * Entorno de prueba: `https://<yourorg>.iqualify.io`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
-    | |
-    |--|--|
-    | Entorno de producción: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | Entorno de prueba: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+   2. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
+
+      * Entorno de producción: `https://<yourorg>.iqualify.com/auth/saml2/callback` 
+      * Entorno de prueba: `https://<yourorg>.iqualify.io/auth/saml2/callback`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
+   ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    | |
-    |--|--|
-    | Entorno de producción: `https://<yourorg>.iqualify.com/login` |
-    | Entorno de prueba: `https://<yourorg>.iqualify.io/login` |
+   En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de iQualify LMS](https://www.iqualify.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+      * Entorno de producción: `https://<yourorg>.iqualify.com/login`
+      * Entorno de prueba: `https://<yourorg>.iqualify.io/login`
+
+   > [!NOTE]
+   > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de iQualify LMS](https://www.iqualify.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. La aplicación iQualify LMS espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2922e9620f558e072cfc1264f7e661efd11a90fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437015"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568348"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU mediante plantillas
 
@@ -110,7 +110,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Con Azure Resource Manager solo se pueden crear cuentas de almacenamiento local, como las cuentas de almacenamiento con redundancia local (Standard_LRS o Premium_LRS). Para crear cuentas de almacenamiento en capas, vea los pasos que se describen en el tema sobre [incorporación y conexión a cuentas de almacenamiento en el dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Con Azure Resource Manager solo se pueden crear cuentas de almacenamiento local, como las cuentas de almacenamiento con redundancia local (Standard_LRS o Premium_LRS). Para crear cuentas de almacenamiento en capas, vea los pasos que se describen en el tema sobre [incorporación y conexión a cuentas de almacenamiento en el dispositivo Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 A continuación se muestra una salida de ejemplo.
 

@@ -3,12 +3,12 @@ title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 83383411ec317e228dabb14273e2b566792c774c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951970"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732472"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -104,7 +104,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Para API REST, use [Características - Registrar](/rest/api/resources/features/register).
+Para API REST, use [Características - Registrar](/rest/api/resources/features/features/register).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -116,7 +116,7 @@ Para ver el estado actual de la suscripción, use:
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-Para volver a habilitar las eliminaciones automáticas, use [Características - Anular el registro](/rest/api/resources/features/unregister)
+Para volver a habilitar las eliminaciones automáticas, use [Características - Anular el registro](/rest/api/resources/features/features/unregister)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

@@ -4,12 +4,12 @@ description: 'Tutorial: Obtenga información sobre cómo configurar directivas d
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933683"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866988"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -33,7 +33,7 @@ Un [clúster de Kafka de HDInsight con Enterprise Security Package](./apache-dom
 
 2. Inicie sesión con sus credenciales de administrador de Azure Active Directory (AD). Las credenciales de administrador de Azure AD no son las mismas que las credenciales del clúster de HDInsight ni las credenciales SSH del nodo de HDInsight Linux.
 
-   ![Interfaz de usuario de Apache Ranger de HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="Interfaz de usuario de Apache Ranger de HDInsight" border="true":::
 
 ## <a name="create-domain-users"></a>Crear usuarios de dominio
 
@@ -61,7 +61,7 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
    * ’*’ indica ninguna o más repeticiones de caracteres.
    * ’?’ indica cualquier carácter individual.
 
-   ![Apache Ranger Admin UI Create Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Apache Ranger Admin UI Create Policy1" border="true":::
 
    Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
 
@@ -76,7 +76,7 @@ Cree una directiva de Ranger para **sales_user** y **marketing_user**.
    |Seleccionar usuario  |  marketing_user1 |
    |Permisos  | publicar, consumir, crear |
 
-   ![Apache Ranger Admin UI Create Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Apache Ranger Admin UI Create Policy2" border="true":::  
 
 6. Seleccione **Agregar** para guardar la directiva.
 
@@ -177,7 +177,7 @@ Según las directivas de Ranger configuradas, **sales_user** puede producir o co
 
 8. Vea los eventos de acceso de auditoría desde la interfaz de usuario de Ranger.
 
-   ![Eventos de acceso a la auditoría de directivas de la interfaz de usuario de Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Eventos de acceso a la auditoría de directivas de la interfaz de usuario de Ranger" border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Producción y consumo de temas en Kafka de ESP mediante la consola
 

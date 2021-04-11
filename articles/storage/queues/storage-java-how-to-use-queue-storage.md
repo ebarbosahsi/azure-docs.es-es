@@ -1,20 +1,20 @@
 ---
 title: Uso de Queue Storage de Java - Azure Storage
 description: Obtenga información acerca de cómo usar Queue Storage para crear y eliminar colas. Aprenda a insertar, leer, obtener y eliminar mensajes con la biblioteca de cliente de Azure Storage para Java.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 08/19/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
-ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ea00adacff1f76eb5ec81728e3a11f703a5fe8c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97585724"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276270"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso de Queue Storage de Java
 

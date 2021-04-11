@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 9f179981aa39402681b4830d58a29f5b1259c7e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a9a1788473cb31f8e78aac0bbd5979b3d681ad32
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946124"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867600"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
 
@@ -31,7 +31,7 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 > [!NOTE]  
 > Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo:
 >
-> * **Ubicación**: Este de EE. UU. 2
+> * **Ubicación**: este de EE. UU. 2
 > * **Versión del clúster**: 3.6
 > * **Número de nodos de trabajo en el clúster**: 2
 > * **Nombre de la cuenta de almacenamiento predeterminada**: una cadena única
@@ -44,7 +44,7 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 
 1. Seleccione la imagen siguiente para abrir la plantilla en Azure Portal. La plantilla se encuentra en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 1. En el cuadro de diálogo de **Implementación personalizada**, seleccione **Editar plantilla**.
 
@@ -104,26 +104,11 @@ Cuando use una aplicación Java para conectarse a HBase en modo remoto, debe usa
 
 En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Contiene el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
 
-```
+```json
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
 La parte del nombre de dominio que comienza con el nombre del clúster es el sufijo DNS. Por ejemplo, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
-
-<!--
-3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
-
-    To make the configuration change:
-
-    1. RDP into the virtual machine.
-    2. Open **Local Group Policy Editor**. The executable is gpedit.msc.
-    3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
-    - Set **Primary DNS Suffix** to the value obtained in step 2:
-
-        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/hdi-primary-dns-suffix.png)
-    4. Click **OK**.
-    5. Reboot the virtual machine.
--->
 
 ### <a name="verify-communication-inside-virtual-network"></a>Comprobar la comunicación dentro de la red virtual
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 602fa1cab71a797dd25aca263e0c6a9f2aa616bb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929706"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870235"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creación de trabajos de Apache Spark Streaming de alta disponibilidad con YARN
 
@@ -18,7 +18,7 @@ ms.locfileid: "98929706"
 
 Spark Streaming crea trabajos de ejecución prolongada durante los cuales se pueden aplicar transformaciones a los datos y después insertar los resultados en sistemas de archivos, bases de datos, paneles y en la consola. Spark Streaming procesa microlotes de datos al recopilar primero un lote de eventos durante un intervalo de tiempo definido. A continuación, ese lote se envía para su procesamiento y salida. Los intervalos de tiempo de los lotes se definen normalmente en fracciones de segundo.
 
-![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Spark Streaming" border="false":::
 
 ## <a name="dstreams"></a>DStreams
 
@@ -26,13 +26,13 @@ Spark Streaming representa un flujo continuo de datos que utiliza un *flujo disc
 
 El núcleo de Spark utiliza los *conjuntos de datos distribuidos resistentes* (RDD). Estos conjuntos de datos distribuyen los datos en varios nodos del clúster, donde cada nodo suele mantener sus datos completamente en memoria para garantizar un rendimiento óptimo. Cada conjunto de datos distribuido resistente representa los eventos recopilados en un intervalo de lote. Cuando transcurre el intervalo de lote, Spark Streaming produce un nuevo conjunto de datos distribuido resistente que contiene todos los datos en ese intervalo. Este conjunto continuo de datos distribuidos resistentes se recopila en un flujo DStream. Una aplicación de Spark Streaming procesa los datos almacenados en el RDD de cada lote.
 
-![Spark DStream](./media/apache-spark-streaming-high-availability/apache-spark-dstream.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="Spark DStream" border="false":::
 
 ## <a name="spark-structured-streaming-jobs"></a>Trabajos de Spark Structured Streaming
 
 Spark Structured Streaming se introdujo en Spark 2.0 como un motor de análisis para su uso en la transmisión de datos estructurados. Spark Structured Streaming utiliza las API de motor de procesamiento por lotes de SparkSQL. Al igual que Spark Streaming, Spark Structured Streaming ejecuta sus cálculos sobre microlotes de datos que llegan continuamente. Spark Structured Streaming representa el flujo de datos como una tabla de entrada con filas ilimitadas. Es decir, la tabla de entrada sigue aumentando conforme llegan datos nuevos. Esta tabla de entrada se procesa continuamente mediante una consulta de ejecución prolongada y los resultados se escriben en una tabla de salida.
 
-![Spark Structured Streaming](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Spark Structured Streaming" border="false":::
 
 En Structured Streaming, los datos llegan al sistema y se ingieren de inmediato en la tabla de entrada. Las consultas que realizan operaciones se escriben en esta tabla de entrada. La salida de la consulta produce otra tabla, llamada Tabla de resultados. La tabla de resultados contiene los resultados de la consulta, a partir de la cual se extraen datos para enviarlos a un almacén de datos externo, como una base de datos relacional. El *intervalo de desencadenador* establece el momento en el que se procesan los datos desde la tabla de entrada. De forma predeterminada, Structured Streaming procesa los datos tan pronto como llegan. Sin embargo, también puede configurar el desencadenador para que se ejecute en un intervalo más prolongado, de modo que los datos de streaming se procesen en lotes temporales. Los datos de la tabla de resultados pueden actualizarse cada vez que haya nuevos datos, de modo que incluyan todos los datos de salida desde el inicio de la consulta de streaming (*modo completo*) o solo puede contener los datos nuevos desde la última vez que se procesó la consulta (*modo de anexión*).
 
@@ -54,7 +54,7 @@ Para crear una aplicación que procese cada evento una vez (y solo una vez), con
 
 En HDInsight, el trabajo de clústeres se coordina con *Yet Another Resource Negotiator* (YARN). El diseño de alta disponibilidad para Spark Streaming incluye técnicas para Spark Streaming y también para los componentes de YARN.  A continuación se muestra un ejemplo de configuración que utiliza YARN.
 
-![Arquitectura de YARN](./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png)
+:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="Arquitectura de YARN" border="false":::
 
 Las secciones siguientes describen las consideraciones de diseño para esta configuración.
 

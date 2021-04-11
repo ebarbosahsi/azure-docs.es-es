@@ -1,16 +1,14 @@
 ---
 title: Supervisión del nivel de plataforma de Azure Service Fabric
 description: Obtenga información sobre los eventos y los registros de nivel de plataforma que se usan para supervisar y diagnosticar los clústeres de Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: f9db0df9370197190c11b740f1fd1af3fb69f19c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9104c390ab4115c626beb4759c6b6952d691ca9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581410"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626527"
 ---
 # <a name="monitoring-the-cluster"></a>Supervisar el clúster
 

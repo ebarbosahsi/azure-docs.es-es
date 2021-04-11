@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 834df2387d037c19672e3287970300f4e84ca34b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176542"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047990"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisión de la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -31,7 +31,7 @@ Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en A
 |Estado de la versión:|Disponibilidad general (GA)|
 |Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).<br>FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Roles y permisos necesarios:|El **propietario del área de trabajo** puede habilitar o deshabilitar FIM (para obtener más información, consulte [Roles de Azure para Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>El **lector** puede ver los resultados.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>![Sí](./media/icons/yes-icon.png) Dispositivos habilitados para [Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/overview).<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)<br>Solo se admite en las regiones en las que está disponible la solución de seguimiento de cambios de Azure Automation.<br>![Sí](./media/icons/yes-icon.png) Dispositivos habilitados para [Azure Arc](../azure-arc/servers/overview.md).<br>Consulte [Regiones admitidas para el área de trabajo de Log Analytics vinculada](../automation/how-to/region-mappings.md).<br>[Más información sobre el seguimiento de cambios](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>¿Qué la supervisión de la integridad de los archivos (FIM) Security Center?
