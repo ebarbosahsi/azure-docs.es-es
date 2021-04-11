@@ -8,20 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a42cb97d123d0943dab02bf1f70fcf306d6bcd96
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629139"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798366"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+En Azure Active Directory B2C (Azure AD B2C), puede permitir que los usuarios que han iniciado sesión con una cuenta local cambien su contraseña sin tener que demostrar su identidad mediante la comprobación del correo electrónico. El flujo de cambio de contraseña requiere los siguientes pasos:
+
+1. El usuario inicia sesión en su cuenta local. Si la sesión sigue activa, Azure AD B2C autoriza al usuario y pasa al siguiente paso.
+1. El usuario confirma la **contraseña anterior** y, a continuación, crea y confirma la **nueva contraseña**.
+
+![Flujo de cambio de contraseña](./media/add-password-change-policy/password-change-flow.png)  
+
+> [!TIP]
+> El flujo del cambio de contraseña permite a los usuarios cambiar su contraseña solo cuando estos conocen la contraseña y quieren cambiarla. Le recomendamos que habilite también el [autoservicio de restablecimiento de contraseña](add-password-reset-policy.md) para admitir casos en los que el usuario olvida su contraseña.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -30,15 +40,6 @@ ms.locfileid: "97629139"
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-En Azure Active Directory B2C (Azure AD B2C), puede permitir que los usuarios que han iniciado sesión con una cuenta local cambien su contraseña sin tener que demostrar su autenticidad por comprobación de correo electrónico. El flujo de cambio de contraseña requiere los siguientes pasos:
-
-1. Iniciar sesión con una cuenta local. Si la sesión sigue activa, Azure AD B2C autoriza al usuario y va al siguiente paso.
-1. Los usuarios deben comprobar la **contraseña antigua** y, a continuación, crear y confirmar la **contraseña nueva**.
-
-![Flujo de cambio de contraseña](./media/add-password-change-policy/password-change-flow.png)
 
 ## <a name="prerequisites"></a>Prerequisites
 

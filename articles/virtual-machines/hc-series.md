@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e23a6351b26cc35679bc879e2b62dd76c74f9962
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566046"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798347"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -29,14 +29,16 @@ Las máquinas virtuales de la serie HC incluyen la característica MeliBox EDR I
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 [Redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md): compatible ([obtenga más información](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sobre el rendimiento y los posibles problemas)<br>
 [Discos de sistema operativo efímero](ephemeral-os-disks.md): Compatible <br>
-
 <br>
 
 | Size | vCPU | Procesador | Memoria (GiB) | Ancho de banda de memoria, en GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de cada núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GiB) | Discos de datos máx. | vNIC Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | All | 700 | 4 | 8 |
 
-Obtenga más información sobre la [arquitectura, la topología de las máquinas virtuales](./workloads/hpc/hc-series-overview.md) y el [rendimiento](./workloads/hpc/hc-series-performance.md) esperado de la máquina virtual de la serie HC.
+Más información sobre:
+- La [arquitectura y la topología de máquinas virtuales](./workloads/hpc/hc-series-overview.md)
+- La [pila de software](./workloads/hpc/hc-series-overview.md#software-specifications) compatible que incluye el sistema operativo admitido.
+- El [rendimiento ](./workloads/hpc/hc-series-performance.md) esperado de la VM de la serie HC.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

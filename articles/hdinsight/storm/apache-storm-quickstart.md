@@ -1,16 +1,16 @@
 ---
-title: 'Inicio rápido: creación y administración de la topología de Apache Storm: Azure HDInsight'
+title: 'Inicio rápido: Creación y administración de la topología de Apache Storm: Azure HDInsight'
 description: En la guía de inicio rápido, aprenda a crear y supervisar una topología de Apache Storm en Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
 ms.custom: mvc
-ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 73b0434065b06f25320a0666937fd7969c863b33
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928849"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870218"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Inicio rápido: Creación y supervisión de una topología de Apache Storm en Azure HDInsight
 
@@ -18,7 +18,7 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 
 En esta guía de inicio rápido, usará un ejemplo del proyecto [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) de Apache para crear y supervisar una topología de Apache Storm en un clúster de Apache Storm existente.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Storm en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Storm** como **Tipo de clúster**.
 
@@ -48,7 +48,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 2. En **Topology Summary** (Resumen de la topología), seleccione la entrada **wordcount** de la columna **Nombre**. Se muestra información sobre la topología.
 
-    ![Panel de Storm con la información de topología de WordCount de Storm-Starter.](./media/apache-storm-quickstart/hdi-topology-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-topology-summary.png" alt-text="Panel de Storm con la información de topología de WordCount de Storm-Starter." border="true":::
 
     En esta nueva página se ofrece la siguiente información:
 
@@ -65,7 +65,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 3. En esta página, seleccione una entrada en la sección **Spouts** o **Bolts**. Se muestra información sobre el componente seleccionado.
 
-    ![Panel de Storm con información acerca de los componentes seleccionados.](./media/apache-storm-quickstart/hdi-component-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-component-summary.png" alt-text="Panel de Storm con información acerca de los componentes seleccionados." border="true":::
 
     En la nueva página se muestra la siguiente información:
 

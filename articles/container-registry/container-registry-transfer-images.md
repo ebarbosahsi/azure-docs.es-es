@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935341"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785825"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -368,8 +368,9 @@ IMPORT_RUN_RES_ID=$(az deployment group show \
   --name importPipelineRun \
   --query 'properties.outputResources[0].id' \
   --output tsv)
+```
 
-When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
+Cuando la implementación finalice correctamente, compruebe la importación de artefactos; para ello, registre los repositorios en el registro de contenedor de destino. Por ejemplo, ejecute [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -426,7 +427,8 @@ az resource delete \
   * No se transfieren todos los artefactos o ninguno. Confirme la ortografía de los artefactos en la ejecución de la exportación y el nombre del blob en las ejecuciones de exportación e importación. Confirme que está transfiriendo un máximo de 50 artefactos.
   * Es posible que no se haya completado la ejecución de canalización. Una ejecución de exportación o importación puede tardar algún tiempo. 
   * Para otros problemas de canalización, proporcione el [id. de correlación](../azure-resource-manager/templates/deployment-history.md) de implementación de la ejecución de la exportación o la ejecución de la importación al equipo de Azure Container Registry.
-
+* **Problemas al extraer la imagen en un entorno físicamente aislado**
+  * Si ve errores relacionados con las capas externas o intenta resolver mcr.microsoft.com al intentar extraer una imagen en un entorno físicamente aislado, es probable que el manifiesto de imagen tenga capas no redistribuibles. Debido a la naturaleza de un entorno físicamente aislado, estas imágenes no se pueden extraer a menudo. Puede confirmar que este es el caso comprobando el manifiesto de la imagen para las referencias a registros externos. En este caso, tendrá que enviar las capas no redistribuibles al ACR de la nube pública antes de implementar una canalización de exportación: ejecute la imagen. Para obtener instrucciones sobre cómo hacerlo, consulte [¿Cómo enviar capas no redistribuibles a un registro?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

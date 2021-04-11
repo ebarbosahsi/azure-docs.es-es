@@ -8,16 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447935"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798400"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -34,6 +35,9 @@ El [recorrido de registro e inicio de sesión](add-sign-up-and-sign-in-policy.md
 ![Flujo de restablecimiento de contraseña](./media/add-password-reset-policy/password-reset-flow.png)
 
 El flujo de restablecimiento de contraseña se aplica a las cuentas locales de Azure AD B2C que utilizan una [dirección de correo electrónico](identity-provider-local.md#email-sign-in) o un [nombre de usuario](identity-provider-local.md#username-sign-in) con una contraseña para el inicio de sesión.
+
+> [!TIP]
+> El flujo del autoservicio de restablecimiento de contraseña permite a los usuarios cambiar su contraseña cuando el usuario la olvida y quiere restablecerla. Considere la posibilidad de configurar un [flujo de cambio de contraseña](add-password-change-policy.md) para admitir casos en los que un usuario conoce su contraseña y quiere cambiarla.
 
 Una práctica común después de migrar los usuarios a Azure AD B2C con contraseñas aleatorias es que los usuarios comprueben sus direcciones de correo electrónico y restablezcan sus contraseñas durante el primer inicio de sesión. También es habitual obligar al usuario a restablecer su contraseña después de que un administrador la cambie; consulte cómo [forzar el restablecimiento de contraseña](force-password-reset.md) para habilitar esta característica.
 

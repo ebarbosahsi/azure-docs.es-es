@@ -4,14 +4,14 @@ description: Creación de rutas de acceso orientadas al cliente para el almacena
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760547"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798534"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configuración del espacio de nombres agregado
 
@@ -30,6 +30,8 @@ Puede ordenar las columnas de la tabla para entender mejor el espacio de nombres
 ## <a name="add-or-edit-namespace-paths"></a>Incorporación o edición de rutas de acceso de espacio de nombres
 
 Debe crear al menos una ruta de acceso de espacio de nombres para que los clientes puedan acceder al destino de almacenamiento. Lea [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md) para obtener más información sobre el acceso de los clientes.
+
+Si agregó recientemente un destino de almacenamiento o personalizó una directiva de acceso, es posible que tarde un minuto o dos antes de poder crear una ruta de acceso de espacio de nombres.
 
 ### <a name="blob-namespace-paths"></a>Rutas de acceso del espacio de nombres de blobs
 
@@ -132,6 +134,30 @@ Para actualizar la ruta de acceso del espacio de nombres del destino o para agre
 Las opciones que se usan en el comando "update" son similares al comando "create", salvo que no se pasa la información del sistema de almacenamiento (dirección IP o nombre de host) y el modelo de uso es opcional. Lea [Incorporación de un nuevo destino de almacenamiento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obtener más detalles sobre la sintaxis de la opción ``--junction``.
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>Rutas de acceso de espacio de nombres de ADLS-NFS (versión preliminar)
+
+Al igual que un destino de almacenamiento de blobs normal, un destino de almacenamiento de ADLS-NFS solo tiene una exportación, por lo que solo puede tener una ruta de acceso de espacio de nombres.
+
+Siga las instrucciones que se incluyen a continuación para establecer o cambiar la ruta de acceso con Azure Portal.
+
+Cargue la página de configuración del **espacio de nombres**.
+
+* **Agregar una nueva ruta de acceso**: haga clic en el botón **+ Add** (Agregar) en la parte superior y rellene la información en el panel de edición.
+
+  ![Captura de pantalla de los campos de edición de Agregar espacio de nombres con un destino de almacenamiento de ADLS-NFS seleccionado. Las rutas de acceso de exportación y subdirectorios están establecidos como "/" y no se pueden editar.](media/namespace-add-adls.png)
+
+  * Escriba la ruta de acceso que usarán los clientes para acceder a este destino de almacenamiento.
+
+  * Seleccione la directiva de acceso que se va a usar para esta ruta. Obtenga más información sobre cómo personalizar el acceso de cliente en [Uso de directivas de acceso de cliente](access-policies.md).
+
+  * Seleccione el destino de almacenamiento en la lista desplegable. Si un destino de almacenamiento de ADLS-NFS ya tiene una ruta de acceso de espacio de nombres, no se puede seleccionar.
+
+  * En un destino de almacenamiento de ADLS-NFS, las rutas de acceso de exportación y subdirectorio se establecen automáticamente en ``/``.
+
+* **Cambiar una ruta de acceso existente**: haga clic en la ruta de acceso del espacio de nombres. Se abre el panel de edición. Puede modificar la ruta de acceso y la directiva de acceso, pero no puede cambiar a un destino de almacenamiento diferente.
+
+* **Eliminar un espacio de nombres**: active la casilla situada a la izquierda de la ruta de acceso y haga clic en el botón **Delete** (Eliminar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

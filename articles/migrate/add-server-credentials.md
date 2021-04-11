@@ -1,28 +1,28 @@
 ---
-title: Proporción de credenciales de servidor para detectar aplicaciones, dependencias e instancias y bases de datos de SQL Server
+title: Proporcionar credenciales de servidor para detectar el inventario de software, dependencias e instancias y bases de datos de SQL Server
 description: Obtenga información sobre cómo proporcionar credenciales de servidor en el administrador de configuración del dispositivo
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 01/26/2021
-ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: 990ca661eb6ec17c7f8aca246c15f89fcf8975a8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054227"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785230"
 ---
-# <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Proporción de credenciales de servidor para detectar aplicaciones, dependencias e instancias y bases de datos de SQL Server
+# <a name="provide-server-credentials-to-discover-software-inventory-dependencies-and-sql-server-instances-and-databases"></a>Proporcionar credenciales de servidor para detectar el inventario de software, dependencias e instancias y bases de datos de SQL Server
 
 Siga este artículo para aprender a agregar varias credenciales de servidor en el administrador de configuración del dispositivo a fin de realizar el inventario de software (detectar aplicaciones instaladas) y el análisis de dependencia sin agente, y detectar instancias y bases de datos de SQL Server.
 
 > [!Note]
-> La detección y evaluación de las instancias y bases de datos de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
+> La herramienta de detección y evaluación de las bases de datos e instancias de SQL Server que se ejecutan en el entorno de VMware se encuentran ahora en versión preliminar. Para probar esta característica, use [**este vínculo**](https://aka.ms/AzureMigrate/SQL) para crear un proyecto en la región **Este de Australia**. Si ya tiene un proyecto en la región Este de Australia y desea probar esta característica, asegúrese de que ha completado estos [**requisitos previos**](how-to-discover-sql-existing-project.md) en el portal.
 
-El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que Azure Migrate: evaluación de servidores usa para detectar los servidores locales que se ejecutan en el entorno de VMware y enviar los metadatos de configuración y rendimiento del servidor a Azure. El dispositivo también se puede usar para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server.
+El [dispositivo de Azure Migrate](migrate-appliance.md) es un dispositivo ligero que Azure Migrate: detección y evaluación usa para detectar los servidores locales que se ejecutan en el entorno de VMware y enviar los metadatos de configuración y rendimiento del servidor a Azure. El dispositivo también se puede usar para realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server.
 
-Si quiere aprovechar estas características, puede proporcionar las credenciales del servidor siguiendo los pasos que se indican a continuación. El dispositivo intentará asignar automáticamente las credenciales a los servidores para ejecutar las características de detección.
+Si quiere aprovechar estas características, proporcione las credenciales del servidor siguiendo los pasos que se indican a continuación. El dispositivo intentará asignar automáticamente las credenciales a los servidores para ejecutar las características de detección.
 
 ## <a name="add-credentials-for-servers-running-in-vmware-environment"></a>Agregar credenciales para servidores que se ejecutan en el entorno de VMware
 
@@ -55,7 +55,7 @@ Característica | Credenciales de Windows | Credenciales de Linux
 - Se recomienda crear una cuenta de usuario de dominio dedicada con los [permisos necesarios](add-server-credentials.md#required-permissions), cuyo ámbito sea realizar el inventario de software, el análisis de dependencias sin agente y la detección de instancias y bases de datos de SQL Server en los servidores deseados.
 - Se recomienda proporcionar al menos una credencial de dominio validada correctamente o al menos una credencial no de dominio para iniciar el inventario de software.
 - Para detectar las instancias y bases de datos de SQL Server, puede proporcionar credenciales de dominio, si ha configurado el modo de autenticación de Windows en las instancias de SQL Server.
--  También puede proporcionar credenciales de autenticación de SQL Server si ha configurado el modo de autenticación de SQL Server en las instancias de SQL Server, pero se recomienda proporcionar al menos una credencial de dominio validada correctamente o al menos una credencial de Windows (no de dominio) para que el dispositivo pueda completar primero el inventario de software.
+- También puede proporcionar credenciales de autenticación de SQL Server si ha configurado el modo de autenticación de SQL Server en las instancias de SQL Server, pero se recomienda proporcionar al menos una credencial de dominio validada correctamente o al menos una credencial de Windows (no de dominio) para que el dispositivo pueda completar primero el inventario de software.
 
 ## <a name="credentials-handling-on-appliance"></a>Control de credenciales en el dispositivo
 

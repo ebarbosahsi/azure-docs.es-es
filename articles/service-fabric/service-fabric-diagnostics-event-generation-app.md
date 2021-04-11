@@ -1,16 +1,14 @@
 ---
 title: Supervisión del nivel de aplicación de Azure Service Fabric
 description: Obtenga información sobre los eventos y los registros de nivel de servicio y aplicación usados para supervisar y diagnosticar los clústeres de Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a60eef008afae4185acc266c74c4fb0ce694d560
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791280"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627496"
 ---
 # <a name="application-logging"></a>Registro de aplicaciones
 

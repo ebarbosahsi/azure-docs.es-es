@@ -1,25 +1,15 @@
 ---
 title: Configuración local del agente de seguridad de Defender para IoT (C#)
 description: Obtenga más información sobre el archivo de configuración local del agente de seguridad y del servicio de seguridad Defender para IoT en C#.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42cf7f129005f057a9d51ce2e09db735e825f476
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851240"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104784788"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Información sobre el archivo de configuración local (agente de C#)
 
@@ -84,7 +74,7 @@ Para Windows:
 
 | Nombre de la configuración | Valores posibles | Detalles |
 |:-----------|:---------------|:--------|
-| moduleName | string | Nombre de la identidad del módulo de seguridad. Este nombre debe corresponderse con el nombre de identidad del módulo del dispositivo. |
+| moduleName | string | Nombre de la identidad de Defender-IoT-micro-agent. Este nombre debe corresponderse con el nombre de identidad del módulo del dispositivo. |
 | deviceId | string | Identificador del dispositivo (como está registrado en Azure IoT Hub). |
 | schedulerInterval | Cadena TimeSpan | Intervalo del programador interno. |
 | gatewayHostname | string | Nombre de host de Azure IoT Hub. Normalmente, <my-hub>.azure-devices.net |
@@ -131,7 +121,7 @@ Para Windows:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea la [información general](overview.md) del servicio Defender para IoT.
+- Lea la [información general](overview.md) del servicio Defender for IoT.
 - Obtenga más información sobre la [arquitectura](architecture.md) de Defender para IoT.
 - Habilite el [servicio](quickstart-onboard-iot-hub.md) Defender para IoT.
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md) del servicio Defender para IoT.
