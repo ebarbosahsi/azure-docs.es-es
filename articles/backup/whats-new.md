@@ -3,12 +3,12 @@ title: Novedades de Azure Backup
 description: Obtenga información acerca de las nuevas características de Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095721"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612490"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novedades de Azure Backup
 
@@ -19,6 +19,7 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
 ## <a name="updates-summary"></a>Resumen de actualizaciones
 
 - Marzo de 2021
+  - [Azure Disk Backup ya está disponible con carácter general](#azure-disk-backup-is-now-generally-available).
   - [El centro de Backup ya está disponible de forma general](#backup-center-is-now-generally-available).
   - [Compatibilidad del nivel de acceso de archivo para Azure Backup (en versión preliminar)](#archive-tier-support-for-azure-backup-in-preview)
 - Febrero de 2021
@@ -39,6 +40,12 @@ Para obtener más información acerca de las nuevas versiones, puede marcar esta
   - [Copia de seguridad de SAP HANA en Azure Virtual Machines de RHEL (en versión preliminar)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Almacenamiento con redundancia de zona para datos de copia de seguridad (en versión preliminar)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminación temporal de las cargas de trabajo de SQL Server y SAP HANA en máquinas virtuales de Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>Azure Disk Backup ya está disponible con carácter general.
+
+Azure Backup ofrece administración del ciclo de vida de las instantáneas a Azure Managed Disks, ya que automatiza la creación periódica de instantáneas y las conserva durante el tiempo configurado mediante la directiva de copia de seguridad.
+
+Para obtener más información, consulte [Información general sobre Azure Disk Backup](disk-backup-overview.md).
 
 ## <a name="backup-center-is-now-generally-available"></a>El centro de Backup ya está disponible de forma general.
 

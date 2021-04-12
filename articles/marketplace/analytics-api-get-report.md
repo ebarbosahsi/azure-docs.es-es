@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 3383af447f40ea984bce9cbc956f22ee6c5af200
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583593"
 ---
 # <a name="get-report-api"></a>Obtención de API de informe
@@ -28,7 +28,7 @@ Esta API obtiene todos los informes que se han programado.
 
 | **Header** | **Tipo** | **Descripción** |
 | --- | --- | --- |
-| Authorization | string | Necesario. El token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>`. |
+| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
 **Parámetro de ruta de acceso**
@@ -92,7 +92,7 @@ En esta tabla se indican las definiciones clave de los elementos de la respuesta
 | `Description` | Descripción dada cuando se creó el informe. |
 | `QueryId` | Id. de consulta pasado en el momento en que se creó el informe. |
 | `Query` | Texto de la consulta que se ejecutará para este informe. |
-| `User` | Id. de usuario usado para crear el informe. |
+| `User` | Identificador de usuario usado para crear el informe |
 | `CreatedTime` | Hora de creación del informe. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
 | `ModifiedTime` | Hora en que se modificó el informe por última vez. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |
 | `StartTime` | Se iniciará la ejecución de la hora. El formato de la hora es aaaa-MM-ddTHH:mm:ssZ. |

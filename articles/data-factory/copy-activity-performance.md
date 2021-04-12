@@ -1,18 +1,23 @@
 ---
 title: Guía de escalabilidad y rendimiento de la actividad de copia
 description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia.
+services: data-factory
+documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
+ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387672"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102616084"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guía de escalabilidad y rendimiento de la actividad de copia
 
@@ -48,8 +53,8 @@ ADF ofrece una arquitectura sin servidor que permite el paralelismo en diferente
 
 Esta arquitectura hace posible el desarrollo de canalizaciones que maximizan el rendimiento del movimiento de datos para su entorno. Estas canalizaciones hacen un uso completo de los siguientes recursos:
 
-* Ancho de banda de red
-* Operaciones de entrada/salida por segundo (IOPS) de almacenamiento y ancho de banda
+* Ancho de banda de red entre los almacenes de datos de origen y destino
+* Operaciones de entrada/salida por segundo (IOPS) y ancho de banda del almacén de datos de origen o destino
 
 Este uso completo significa que puede calcular el rendimiento general midiendo el rendimiento mínimo disponible con los siguientes recursos:
 
@@ -57,7 +62,7 @@ Este uso completo significa que puede calcular el rendimiento general midiendo e
 * Almacén de datos de destino
 * Ancho de banda de red entre los almacenes de datos de origen y de destino
 
-En la tabla siguiente se calcula la duración de la copia. La duración se basa en el tamaño de los datos y el límite de ancho de banda de su entorno.
+En la tabla siguiente se calcula la duración de la copia. La duración se basa en el tamaño de los datos, y el límite de ancho de banda del almacén de datos o de red de su entorno.
 
 &nbsp;
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 262987b5d5cdccec967193d855b17c5c74e16575
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 116c12900f015c849c9492ed67bc11d116286c43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563399"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611936"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registros de recursos para el firewall de aplicaciones web de Azure
 
@@ -232,7 +232,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|action     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
+|action     |  Acción realizada en la solicitud. Los valores disponibles son Bloqueados y Permitidos (para reglas personalizadas), Coincidentes (cuando una regla coincide con una parte de la solicitud) y Detectados y Bloqueados (ambos son para las reglas obligatorias, en función de si WAF está en modo de detección o prevención).      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |detalles     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |

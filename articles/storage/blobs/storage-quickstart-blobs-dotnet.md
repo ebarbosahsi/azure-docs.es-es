@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12 para .NET'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la versión 12 de la biblioteca cliente de Azure Blob Storage para .NET para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/03/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 82dcfa0942f21f01424c4744aa0b23f4672a135f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ab7c52f6fe392cfebd056a86f0566705fb2b8e6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106724"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280673"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET
 
@@ -36,7 +36,7 @@ Recursos adicionales:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)

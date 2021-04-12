@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8aba6f13957d37f843114572f001029baf41ded6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095670"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889355"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selección de un dominio para un proyecto de Custom Vision
 
@@ -25,12 +25,17 @@ Desde la pestaña de configuración del proyecto de Custom Vision, puede selecci
 
 |Domain|Propósito|
 |---|---|
-|__General__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado o si no está seguro de cuál elegir, seleccione el dominio General. Identificador: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__General__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios específicos es adecuado o si no está seguro de cuál elegir, seleccione uno de los dominios Generales. Identificador: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
 |__General [A1]__| Optimizado para una mejor precisión con un tiempo de inferencia comparable al del dominio General. Se recomienda para conjuntos de datos más grandes o escenarios de usuario más difíciles. Este dominio requiere más tiempo de entrenamiento. Identificador: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__General [A2]__| Optimizado para mejorar la precisión con un tiempo de inferencia más rápido que los dominios generales [A1] y general. Recomendado para la mayoría de los conjuntos de datos. Este dominio requiere menos tiempo de entrenamiento que los dominios generales y generales [A1]. Identificador: `2e37d7fb-3a54-486a-b4d6-cfc369af0018` |
 |__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos. Identificador: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Puntos de referencia__|Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión. Identificador: `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio. Identificador: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Dominios compactos__| Optimizado para las restricciones de clasificación en tiempo real en dispositivos perimetrales.|
+
+
+> [!NOTE]
+> Los dominios General[A1] y General[A2] se pueden usar para un amplio conjunto de escenarios y se optimizan para que sean más precisos. Use el modelo General[A2] para mejorar la velocidad de inferencia y el tiempo de entrenamiento más corto. En el caso de conjuntos de valores de mayor tamaño, es posible que desee usar General[A1] para representar una mejor precisión que el General[A2], aunque requiere más aprendizaje y tiempo de inferencia. El modelo general requiere más tiempo de inferencia que General [A1] y General[A2].
 
 ## <a name="object-detection"></a>Detección de objetos
 

@@ -3,15 +3,15 @@ title: 'Preguntas frecuentes acerca de Windows Virtual Desktop: Azure'
 description: Preguntas frecuentes y procedimientos recomendados para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720280"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582143"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -110,7 +110,7 @@ Una vez que se crea un grupo de hosts, no se puede cambiar el tipo. Sin embargo,
 
 Las limitaciones o cuotas de FSLogix dependen del tejido de almacenamiento usado para almacenar los archivos VHD(X) de perfil de usuario.
 
-En la tabla siguiente se muestra un ejemplo de los recursos que necesita un perfil de FSLogix para admitir cada usuario. Los requisitos pueden variar enormemente en función del usuario, las aplicaciones y la actividad de cada perfil.
+En la tabla siguiente se muestra un ejemplo de las operaciones de E/S que necesita un perfil de FSLogix para admitir cada usuario. Los requisitos pueden variar enormemente en función del usuario, las aplicaciones y la actividad de cada perfil.
 
 | Resource | Requisito |
 |---|---|
@@ -140,3 +140,22 @@ Por último, si ha habilitado el proveedor de recursos de la cuenta de propietar
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>¿Con qué frecuencia debo activar mis máquinas virtuales para evitar problemas de registro?
 
 Después de registrar una máquina virtual en un grupo de hosts en el servicio Windows Virtual Desktop, el agente actualiza periódicamente el token de la máquina virtual cada vez que la máquina virtual está activa. El certificado para el token de registro es válido durante 90 días. Debido a este límite de 90 días, se recomienda iniciar las máquinas virtuales cada 90 días. La activación de la máquina virtual en este límite de tiempo impedirá que su token de registro expire o deje de ser válido. Si ha iniciado la máquina virtual después de 90 días y está experimentando problemas de registro, siga las instrucciones de la [guía de solución de problemas del agente de Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para quitar la máquina virtual del grupo de hosts, reinstalar el agente y volver a registrarlo en el grupo.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>¿Se pueden establecer las opciones de disponibilidad al crear grupos de hosts?
+
+Sí. Los grupos hosts de Windows Virtual Desktop tienen una opción para seleccionar el conjunto de disponibilidad o las zonas de disponibilidad cuando se crea una máquina virtual. Estas opciones de disponibilidad son las mismas que usa Azure Compute. Si selecciona una zona para la máquina virtual que crea en un grupo de hosts, la configuración se aplica automáticamente a todas las máquinas virtuales que cree en esa zona. Si prefiere distribuir las máquinas virtuales del grupo de hosts en varias zonas, deberá seguir las instrucciones de [Agregar máquinas virtuales con el Azure Portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para seleccionar manualmente una zona nueva para cada nueva máquina virtual que cree.
+
+## <a name="which-availability-option-is-best-for-me"></a>¿Qué opción de disponibilidad es la más adecuada para mí?
+
+La opción de disponibilidad que debe usar para las máquinas virtuales depende de la ubicación de la imagen y de sus campos de disco administrado. En la tabla siguiente se explica la relación que tiene cada valor de configuración con estas variables para ayudarle a averiguar qué opción es la mejor para su implementación. 
+
+| Opción de disponibilidad | Ubicación de las imágenes | Botón de opción usar disco administrado (botón de radio) |
+|---|---|---|
+| None | Galería | Deshabilitado con "Sí" como predeterminado |
+| None | Blob Storage | Habilitado con "No" como predeterminado |
+| Zona de disponibilidad | Galería (opción de almacenamiento de blob deshabilitada) | Deshabilitado con "Sí" como predeterminado |
+| Conjunto de disponibilidad con SKU administrada (disco administrado) | Galería | Deshabilitado con "Sí" como predeterminado |
+| Conjunto de disponibilidad con SKU administrada (disco administrado) | Blob Storage | Habilitado con "No" como predeterminado |
+| Conjunto de disponibilidad con SKU administrada (disco administrado) | Almacenamiento Blob (opción de la Galería deshabilitada) | Deshabilitado con "No" como valor predeterminado |
+| Conjunto de disponibilidad (creado recientemente por el usuario) | Galería | Deshabilitado con "Sí" como predeterminado |
+| Conjunto de disponibilidad (creado recientemente por el usuario) | Blob Storage | Habilitado con "No" como predeterminado |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6648f77c5eacf40f848bc9b24aa6e257d8adf626
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674638"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721154"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HBv2 
 
@@ -53,14 +53,16 @@ El anclaje de procesos funcionará en las máquinas virtuales de la serie HBv2 p
 |-----------------------------|-----------------------------------------------------------|
 | Tamaño de trabajo de MPI máximo            | 36000 núcleos (300 máquinas virtuales en un solo conjunto de escalado de máquinas virtuales con singlePlacementGroup=true) |
 | Compatibilidad con MPI                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Otros marcos       | Unified Communication X, libfabric, PGAS                  |
-| Soporte técnico para Azure Storage       | Discos Estándar y Premium (un máximo de ocho discos)              |
-| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+           |
-| Compatibilidad con Orchestrator        | CycleCloud, Batch                                         | 
+| Otros marcos       | UCX, libfabric, PGAS |
+| Soporte técnico para Azure Storage       | Discos Estándar y Premium (un máximo de ocho discos) |
+| Soporte técnico de sistemas operativos para SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Compatibilidad con Orchestrator        | CycleCloud, Batch, AKS; [Opciones de configuración del clúster](../../sizes-hpc.md#cluster-configuration-options)  |
 
+> [!NOTE] 
+> Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos). Obtenga más información [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda sobre la [arquitectura de EPYC AMD](https://bit.ly/2Epv3kC) y las [arquitecturas de varios chips](https://bit.ly/2GpQIMb). Para más información, consulte la [guía de optimización de HPC para procesadores de AMD EPYC](https://bit.ly/2T3AWZ9).
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos de HPC.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).
