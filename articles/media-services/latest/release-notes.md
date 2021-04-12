@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121105"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279041"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -150,7 +150,7 @@ El valor preestablecido del análisis de audio ahora incluye un plan de tarifa d
 
 Los clientes que usan el indexador v1 y el indexador v2 deben migrar al valor preestablecido de análisis de audio básico.
 
-Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyze-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](how-to-create-basic-audio-transform.md).
+Para obtener más información acerca del modo básico del analizador de audio, consulte [Análisis de archivos de audio y vídeo](analyze-video-audio-files-concept.md).  Para aprender a usar el modo básico del analizador de audio con la API REST, consulte [Creación de una transformación de audio básica](transform-create-basic-audio-how-to.md).
 
 ### <a name="live-events"></a>Eventos en vivo
 
@@ -324,8 +324,8 @@ Esta funcionalidad se puede usar con cualquier elemento [Transformación](/rest/
 
 Ver ejemplos:
 
-* [Creación de un subclip de vídeo con .NET](subclip-video-dotnet-howto.md)
-* [Creación de un subclip de vídeo con REST](subclip-video-rest-howto.md)
+* [Creación de un subclip de vídeo con .NET](transform-subclip-video-dotnet-how-to.md)
+* [Creación de un subclip de vídeo con REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="may-2019"></a>Mayo de 2019
 
@@ -334,7 +334,7 @@ Ver ejemplos:
 Ya se puede usar Azure Monitor para ver los datos de telemetría emitidos por Media Services.
 
 * Use los registros de diagnóstico de Azure Monitor para supervisar las solicitudes enviadas por el punto de conexión de la entrega de claves de Media Services. 
-* Supervise las métricas emitidas por los [punto de conexión de streaming](streaming-endpoint-concept.md) de Media Services.   
+* Supervise las métricas emitidas por los [punto de conexión de streaming](stream-streaming-endpoint-concept.md) de Media Services.   
 
 Para obtener más información, consulte [Supervisión de los registros de diagnóstico y las métricas de Media Services](monitoring/monitor-media-services-data-reference.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452380"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641377"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Base de referencia de seguridad de Azure para Azure Stack Edge
 
@@ -38,7 +38,7 @@ El tráfico interno se protege mejor de la manera siguiente:
 
 Información adicional disponible en los vínculos indicados.
  
-- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Inicio rápido: Introducción a Azure Stack Edge Pro con GPU](azure-stack-edge-gpu-quickstart.md)
 
@@ -54,7 +54,7 @@ Los clientes pueden configurar una red privada virtual en su dispositivo de Azur
 
 - [Configuración de VPN de Azure mediante el script de Azure PowerShell para Azure Stack Edge Pro R y Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configuración de certificados para un dispositivo Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -68,7 +68,7 @@ Los clientes pueden configurar una red privada virtual en su dispositivo de Azur
 
 - [Configuración de VPN de Azure mediante el script de Azure PowerShell para Azure Stack Edge Pro R y Azure Stack Edge Mini R](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configuración de certificados para un dispositivo Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -298,7 +298,7 @@ Es posible que se requieran permisos adicionales para obtener visibilidad sobre 
 
 **Guía**: Solo los usuarios autorizados (por ejemplo, "EdgeArmUser") pueden acceder a las API de dispositivos de Azure Stack Edge a través de la instancia local de Azure Resource Manager. Las contraseñas de cuentas de usuario solo se pueden administrar en Azure Portal. 
 
-- [Establecimiento de la contraseña de Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Establecimiento de la contraseña de Azure Resource Manager](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

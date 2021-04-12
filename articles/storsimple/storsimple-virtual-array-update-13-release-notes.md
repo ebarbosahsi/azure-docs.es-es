@@ -4,14 +4,14 @@ description: Se describen los problemas críticos por resolver y las soluciones 
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452567"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657559"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notas de la versión de StorSimple Virtual Array Update 1.3
 
@@ -31,6 +31,11 @@ Update 1.3 se corresponde con la versión 10.0.10319.0 del software.
 Esta actualización contiene las siguientes mejoras: KB4540725
 
 - Seguridad de la capa de transporte (TLS) 1.2 es una actualización obligatoria y debe instalarse inmediatamente. A partir de esta versión, TLS 1.2 se convierte en el protocolo estándar para todas las comunicaciones de Azure Portal.
+  
+   Si observa la siguiente advertencia, debe actualizar el software del dispositivo antes de continuar:
+
+   Uno o varios dispositivos StorSimple están ejecutando una versión de software anterior. La actualización más reciente disponible para TLS 1.2 es obligatoria y debe instalarse inmediatamente en estos dispositivos. El protocolo TLS 1.2 se usa en todas las comunicaciones de Azure Portal. Sin esta actualización, el dispositivo no podrá comunicarse con el servicio StorSimple.
+
 - Las correcciones de errores de la recolección de elementos no utilizados mejoran el rendimiento del ciclo de recolección de elementos no utilizados cuando la cuenta de almacenamiento y el dispositivo se encuentran en dos regiones lejanas.
 - Corrección de errores de copia de seguridad debido a tiempos de espera de blobs.
 - Parches de seguridad del sistema operativo/.NET Framework actualizados:
@@ -65,4 +70,4 @@ Descargar KB4575898 y [aplicar la actualización a través de la interfaz de usu
 - [Notas de la versión de StorSimple Virtual Array Update 0.4](./storsimple-virtual-array-update-04-release-notes.md)
 - [Notas de la versión de StorSimple Virtual Array Update 0.3](./storsimple-ova-update-03-release-notes.md)
 - [Notas de la versión de la matriz virtual de StorSimple Update 0.1 y 0.2](./storsimple-ova-update-01-release-notes.md)
-- [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](/azure/storsimple/storsimple-ova-pp-release-notes)
+- [Notas de la versión de disponibilidad general de la matriz Virtual de StorSimple](./storsimple-virtual-array-update-06-release-notes.md)

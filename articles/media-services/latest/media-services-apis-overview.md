@@ -21,7 +21,7 @@ Para ser autorizado a acceder a recursos de Media Services y a Media Services AP
 * **Autenticación de la entidad de servicio**: se usa para autenticar un servicio (por ejemplo: aplicaciones web, aplicaciones de funciones, aplicaciones lógicas, API y microservicios). Las aplicaciones que normalmente utilizan este método de autenticación son las que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados. Por ejemplo, para las aplicaciones web, siempre debe haber un nivel intermedio que se conecte a Media Services con una entidad de servicio.
 * **Autenticación de usuarios**: se usa para autenticar a una persona que usa la aplicación para interactuar con recursos de Media Services. La aplicación interactiva debe pedir primero al usuario sus credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo.
 
-La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de API REST tengan acceso al recurso de la cuenta de Media Services y usen un rol de **Colaborador** o **Propietario**. Se puede acceder a la API con la función **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar**.Para obtener más información, vea [Control de acceso basado en rol de Azure (RBAC de Azure) para cuentas de Media Services](rbac-overview.md).
+La API de Media Services requiere que el usuario o la aplicación que realiza las solicitudes de API REST tengan acceso al recurso de la cuenta de Media Services y usen un rol de **Colaborador** o **Propietario**. Se puede acceder a la API con la función **Lector** pero solo estarán disponibles las operaciones **Obtener** o **Enumerar**.Para obtener más información, vea [Control de acceso basado en rol de Azure (RBAC de Azure) para cuentas de Media Services](security-rbac-concept.md).
 
 En lugar de crear una entidad de servicio, use las identidades administradas de los recursos de Azure para acceder a la API de Media Services a través de Azure Resource Manager. Para obtener más información sobre las identidades administradas para los recursos de Azure, consulte [¿Qué es Managed Identities for Azure Resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,7 +52,7 @@ En la ilustración siguiente, los números representan el flujo de las solicitud
 
 Consulte los siguientes ejemplos que muestran cómo conectarse con la entidad de servicio de Azure AD:
 
-* [Conexión con REST](media-rest-apis-with-postman.md)  
+* [Conexión con REST](setup-postman-rest-how-to.md)  
 * [Conexión con Java](configure-connect-java-howto.md)
 * [Conexión con .NET](configure-connect-dotnet-howto.md)
 * [Conexión con Node.js](configure-connect-nodejs-howto.md)

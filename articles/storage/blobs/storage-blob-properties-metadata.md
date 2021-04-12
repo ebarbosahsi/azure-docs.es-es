@@ -2,19 +2,19 @@
 title: Administración de propiedades y metadatos de un blob con .NET en Azure Storage
 description: Aprenda a establecer y recuperar propiedades del sistema y a almacenar metadatos personalizados de blobs en su cuenta de Azure Storage mediante la biblioteca cliente de .NET.
 services: storage
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24ec646c2928570c67a7f71481f2ca0191f1c8b9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95521536"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280214"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 

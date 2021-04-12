@@ -9,17 +9,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c45a48e6cafa722945400554f2f81916da13775
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691933"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627615"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configuración de la conectividad de Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Este artículo presenta los valores que controlan la conectividad con el servidor para Azure SQL Database y Azure Synapse Analytics. Estos valores se aplican a todas las bases de datos de SQL Database y Azure Synapse Analytics asociadas al servidor.
+Este artículo presenta los valores que controlan la conectividad con el servidor para Azure SQL Database y [grupo de SQL dedicado (anteriormente, SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) en Azure Synapse Analytics. Estos valores se aplican a todas las bases de datos de SQL Database y de grupo de SQL dedicado (anteriormente, SQL DW) asociadas al servidor.
 
 > [!IMPORTANT]
 > Este artículo no se aplica a Azure SQL Managed Instance.

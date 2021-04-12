@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094563"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644190"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rol Lectores de directorios en Azure Active Directory para Azure SQL
 
@@ -25,13 +25,13 @@ ms.locfileid: "99094563"
 
 Azure Active Directory (Azure AD) ha presentado el [uso de grupos en la nube para administrar las asignaciones de roles en Azure Active Directory (versión preliminar)](../../active-directory/roles/groups-concept.md). Esto permite asignar roles de Azure AD a los grupos.
 
-Al habilitar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para Azure SQL Database, Instancia administrada de SQL de Azure o Azure Synapse Analytics, el rol [**Lectores de directorios**](../../active-directory/roles/permissions-reference.md#directory-readers) de Azure AD debe estar asignado a la identidad para permitir el acceso de lectura a [Azure AD Graph API](../../active-directory/develop/active-directory-graph-api.md). La identidad administrada de SQL Database y Azure Synapse se conoce como identidad del servidor. La identidad administrada de la Instancia administrada de SQL se conoce como identidad de la instancia administrada y se asigna automáticamente cuando se crea la instancia. Para más información sobre cómo asignar una identidad del servidor a SQL Database o Azure Synapse, consulte [Habilitación de entidades de servicio para crear usuarios de Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+Al habilitar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para Azure SQL Database, Instancia administrada de SQL de Azure o Azure Synapse Analytics, el rol [**Lectores de directorios**](../../active-directory/roles/permissions-reference.md#directory-readers) de Azure AD debe estar asignado a la identidad para permitir el acceso de lectura a [Azure AD Graph API](/graph/migrate-azure-ad-graph-planning-checklist). La identidad administrada de SQL Database y Azure Synapse se conoce como identidad del servidor. La identidad administrada de la Instancia administrada de SQL se conoce como identidad de la instancia administrada y se asigna automáticamente cuando se crea la instancia. Para más información sobre cómo asignar una identidad del servidor a SQL Database o Azure Synapse, consulte [Habilitación de entidades de servicio para crear usuarios de Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 El rol **Lectores de directorios** es necesario para:
 
 - Creación de un administrador de Azure AD para la Instancia administrada de SQL de Azure
 - Suplantación de usuarios de Azure AD en Azure SQL
-- Migración de usuarios de SQL Server que utilizan autenticación de Windows a la Instancia administrada de SQL con autenticación de Azure AD (mediante el comando [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
+- Migración de usuarios de SQL Server que utilizan autenticación de Windows a la Instancia administrada de SQL con autenticación de Azure AD (mediante el comando [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
 - Cambio del administrador de Azure AD en la Instancia administrada de SQL
 - Habilitación de [entidades de servicio (aplicaciones)](authentication-aad-service-principal.md) para crear usuarios de Azure AD en Azure SQL
 

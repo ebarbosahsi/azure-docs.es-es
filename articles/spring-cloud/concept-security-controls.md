@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 62a0bd19f6b10bbe6561f5587ed85d4d1e5880b3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1447e7eec9909c8af33005aab00c267e1a251720
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877689"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966833"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
 
@@ -34,7 +34,7 @@ Un control de seguridad es una cualidad o característica de un servicio de Azur
 
 | Control de seguridad | Sí/No | Notas | Documentación |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md) para permitir el tráfico a las aplicaciones de Azure Spring Cloud.<br><br>*Nota:* Actualmente, solo las instancias del servicio Azure Spring Cloud creadas después del 14/07/2020 admiten la etiqueta de servicio **AzureSpringCloud**. | [Etiquetas de servicio](../virtual-network/service-tags-overview.md) |
+| Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md) para permitir el tráfico a las aplicaciones de Azure Spring Cloud. | [Etiquetas de servicio](../virtual-network/service-tags-overview.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

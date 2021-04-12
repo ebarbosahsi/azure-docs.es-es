@@ -4,13 +4,13 @@ description: En este inicio rápido creará las partes básicas de una aplicaci�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/30/2020
-ms.openlocfilehash: a5443dce9fc8bc028232f66f45b537a46858f35a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 03/26/2021
+ms.openlocfilehash: c2f2bafe68dd3f3dad704ba12cdd4d01bf4f6588
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436681"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278769"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
@@ -164,4 +164,4 @@ Si ha terminado con este inicio rápido y no va a seguir con el siguiente, selec
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [2. Implementación de una aplicación](get-started-portal-deploy-app.md)
+> [Implementación de una aplicación](get-started-portal-deploy-app.md)
