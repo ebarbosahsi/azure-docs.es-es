@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2021
-ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 04/05/2021
+ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462923"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490342"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -120,11 +120,13 @@ Estos son los límites de ejecución de una única aplicación lógica:
 | Tiempo de espera de Until | - Predeterminadas: PT1H (1 hora) | La cantidad máxima de tiempo que se puede ejecutar el bucle "Until" antes de que se cierre, y se especifica en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. <p><p>Para cambiar este límite, en la forma de bucle "Until", seleccione **Cambiar límites** y especifique el valor de la propiedad **Tiempo de espera**. |
 ||||
 
+<a name="concurrency-debatching"></a>
+
 ### <a name="concurrency-and-debatching"></a>Simultaneidad y separación de lotes
 
 | Nombre | Límite | Notas |
 | ---- | ----- | ----- |
-| Simultaneidad de desencadenadores | Con la simultaneidad desactivada: Sin límite <p><p>Con la simultaneidad activada, que no se puede deshacer después de habilitar: <p><p>- Predeterminadas: 25 <br>- Mín.: 1 <br>- Máx.: 50 | Este límite es el número máximo de instancias de aplicación lógica que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos para [desagrupación de matrices](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para cambiar este límite, consulte [Cambio en el límite de simultaneidad del desencadenador](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Simultaneidad de desencadenadores | Con la simultaneidad desactivada: Sin límite <p><p>Con la simultaneidad activada, que no se puede deshacer después de habilitar: <p><p>- Predeterminadas: 25 <br>- Mín.: 1 <br>- Máx.: 100 | Este límite es el número máximo de instancias de aplicación lógica que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos para [desagrupación de matrices](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para cambiar este límite, consulte [Cambio en el límite de simultaneidad del desencadenador](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Número máximo de ejecuciones en espera | Con la simultaneidad desactivada: <p><p>- Mín.: 1 <br>- Máx.: 50 <p><p>Con la simultaneidad activada: <p><p>- Mín.: 10 más el número de ejecuciones simultáneas (simultaneidad del desencadenador) <br>- Máx.: 100 | Este límite es el número máximo de instancias de aplicación lógica que pueden ponerse en espera de ejecución cuando la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar este límite, consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementos SplitOn | Con la simultaneidad desactivada: 100 000 <p><p>Con la simultaneidad activada: 100 | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que use la propiedad "SplitOn", la cual [divide o desagrupa los elementos de matriz en varias instancias de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para su procesamiento, en lugar de usar un bucle "foreach". Esta expresión hace referencia a la matriz que se usará para crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos. |
 ||||

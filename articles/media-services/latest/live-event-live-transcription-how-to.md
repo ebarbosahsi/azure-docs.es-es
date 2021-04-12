@@ -172,7 +172,7 @@ PATCH: ```https://management.azure.com/subscriptions/:subscriptionId/resourceGro
 
 ## <a name="transcription-delivery-and-playback"></a>Entrega y reproducción de la transcripción
 
-Revise el artículo [Introducción al empaquetado dinámico](encode-dynamic-packaging-concept.md#to-prepare-your-source-files-for-delivery) que describe cómo usa el servicio el empaquetado dinámico para ofrecer vídeo, audio y texto en diferentes protocolos. Cuando publica el streaming en vivo mediante MPEG-DASH o HLS/CMAF, el servicio proporcionará junto con el vídeo y el audio, el texto transcrito en formato IMSC1.1 compatible con TTML. La entrega se empaqueta en fragmentos MPEG-4 parte 30 (ISO/IEC 14496-30). Si la entrega se realiza mediante HLS/TS, el texto se proporcionará como VTT fragmentado. Puede usar un reproductor web como [Azure Media Player](use-azure-media-player.md) para reproducir la secuencia.  
+Revise el artículo [Introducción al empaquetado dinámico](encode-dynamic-packaging-concept.md#to-prepare-your-source-files-for-delivery) que describe cómo usa el servicio el empaquetado dinámico para ofrecer vídeo, audio y texto en diferentes protocolos. Cuando publica el streaming en vivo mediante MPEG-DASH o HLS/CMAF, el servicio proporcionará junto con el vídeo y el audio, el texto transcrito en formato IMSC1.1 compatible con TTML. La entrega se empaqueta en fragmentos MPEG-4 parte 30 (ISO/IEC 14496-30). Si la entrega se realiza mediante HLS/TS, el texto se proporcionará como VTT fragmentado. Puede usar un reproductor web como [Azure Media Player](player-use-azure-media-player-how-to.md) para reproducir la secuencia.  
 
 > [!NOTE]
 > Si usa Azure Media Player, use la versión 2.3.3 o posterior.

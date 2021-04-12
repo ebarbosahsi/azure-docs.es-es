@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 15f5f24400e4618b679d3a40bdc363ed06c085af
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: e98f45989e3ded1eb485c3f8f6eb95aa51592a9a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123297"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278072"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición
 
@@ -56,5 +56,5 @@ Para más información, consulte:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de subclips de los vídeos](subclip-video-rest-howto.md).
+* [Creación de subclips de los vídeos](transform-subclip-video-rest-how-to.md).
 * [Definición de filtros para los recursos](filters-dynamic-manifest-rest-howto.md).

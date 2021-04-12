@@ -3,12 +3,12 @@ title: 'Reproducción de vídeo: Azure'
 description: Marcador de posición
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87042975"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063379"
 ---
 # <a name="video-playback"></a>Reproducción de vídeo 
 
@@ -28,7 +28,7 @@ Puede usar Azure Media Services para [transmitir por secuencias](terminology.md#
 
 ## <a name="streaming-policy"></a>Directiva de streaming 
 
-Azure Media Services ofrece distintos métodos para proteger las secuencias de vídeo, como se describe en el artículo [Protección del contenido mediante el cifrado dinámico de Media Services](../latest/content-protection-overview.md). En general, las opciones de protección del contenido son:
+Azure Media Services ofrece distintos métodos para proteger las secuencias de vídeo, como se describe en el artículo [Protección del contenido mediante el cifrado dinámico de Media Services](../latest/drm-content-protection-concept.md). En general, las opciones de protección del contenido son:
 
 * **In-the-clear streaming** (Streaming sin cifrado): donde no se aplica ningún cifrado durante el streaming.
 * **Use Estándar de cifrado avanzado (AES-128)** (Usar Estándar de cifrado avanzado [AES-128]): para implementar un método de entrega de las claves para descifrar el vídeo solo para espectadores autenticados.

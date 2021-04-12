@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Storage
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Storage. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 483eacc4278772d50470f937c36eff6c1104dd8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7872a5ca34c474c702e7f8cb0a72bb50bf71f563
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588328"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095600"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definiciones integradas de Azure Policy para Azure Storage
 
