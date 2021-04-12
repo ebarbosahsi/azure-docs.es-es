@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467364"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285304"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo creado previamente de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de recibos de ventas mediante sus modelos de recibos creados previamente. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/concept-recognizing-text.md) con modelos de aprendizaje profundo para extraer información clave de recibos escritos en inglés.
+Azure Form Recognizer puede analizar y extraer información de recibos de ventas mediante sus modelos de recibos creados previamente. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con modelos de aprendizaje profundo para extraer información clave de recibos escritos en inglés.
 
 ## <a name="understanding-receipts"></a>Descripción de los recibos
 

@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: ba50fbd28ac5d5f66533eec76b51dfb3b8c0cf5d
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c2ffda7400109e16cf1110a4e14ecbc3604a7ecf
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121241"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492314"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetado dinámico en Media Services v3
 
@@ -22,7 +22,7 @@ ms.locfileid: "106121241"
 
 Microsoft Azure Media Services se puede usar para codificar muchos formatos de archivos de origen multimedia. Los entrega a través de diferentes protocolos de streaming, con o sin protección de contenido, para llegar a todos los dispositivos principales (como dispositivos iOS y Android). Estos clientes entienden los distintos protocolos. Por ejemplo, iOS requiere que los flujos se entreguen en formato HTTP Live Streaming (HLS) mientras que los dispositivos Android admiten HLS y MPEG DASH.
 
-En Media Services, un [punto de conexión de streaming](streaming-endpoint-concept.md) (origen) representa un empaquetado dinámico (Just-In-Time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes que se mencionan en la sección siguiente. El *empaquetado dinámico* es una característica incluida en todos los puntos de conexión de streaming.
+En Media Services, un [punto de conexión de streaming](stream-streaming-endpoint-concept.md) (origen) representa un empaquetado dinámico (Just-In-Time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes que se mencionan en la sección siguiente. El *empaquetado dinámico* es una característica incluida en todos los puntos de conexión de streaming.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar los archivos de origen para su entrega
 
@@ -33,7 +33,7 @@ El empaquetado dinámico de Azure Media Services solo admite archivos de audio y
 > [!TIP]
 > Una manera de obtener los archivos de configuración de streaming y MP4 consiste en [codificar su archivo intermedio con Media Services](#encode-to-adaptive-bitrate-mp4s). 
 
-Para que los vídeos del recurso codificado estén disponibles para que los clientes puedan reproducirlos, tiene que crear un [localizador de streaming](streaming-locators-concept.md) y generar direcciones URL de streaming. Después, según el formato especificado en el manifiesto del cliente de streaming (HLS, MPEG DASH o Smooth Streaming), recibirá la transmisión en el protocolo que haya elegido.
+Para que los vídeos del recurso codificado estén disponibles para que los clientes puedan reproducirlos, tiene que crear un [localizador de streaming](stream-streaming-locators-concept.md) y generar direcciones URL de streaming. Después, según el formato especificado en el manifiesto del cliente de streaming (HLS, MPEG DASH o Smooth Streaming), recibirá la transmisión en el protocolo que haya elegido.
 
 Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Media Services creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
@@ -81,14 +81,14 @@ En los pasos siguientes se muestra un flujo de trabajo común de streaming de Me
 1. [Codifique](#encode-to-adaptive-bitrate-mp4s) el archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable H.264/AAC.
 
     Si ya ha codificado los archivos y solo quiere copiar y transmitir los archivos, use: [CopyVideo API](/rest/api/media/transforms/createorupdate#copyvideo) y [CopyAudio API](/rest/api/media/transforms/createorupdate#copyaudio). Como resultado, se creará un archivo MP4 con un manifiesto de streaming (archivo .ism).
-1. Publicar el recurso de salida que contiene el conjunto de MP4 de velocidad de bits adaptable. Publicar mediante la creación de un [localizador de streaming](streaming-locators-concept.md).
+1. Publicar el recurso de salida que contiene el conjunto de MP4 de velocidad de bits adaptable. Publicar mediante la creación de un [localizador de streaming](stream-streaming-locators-concept.md).
 1. Generar direcciones URL que tienen como destino diferentes formatos (HLS, MPEG-DASH y Smooth Streaming). El *punto de conexión de streaming* se encarga de atender el manifiesto correcto y las solicitudes de todos estos formatos.
     
 En el siguiente diagrama se muestra el flujo de trabajo para streaming a petición con empaquetado dinámico.
 
 ![Diagrama de un flujo de trabajo para streaming a petición con empaquetado dinámico](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
-La ruta de acceso de descarga aparece en la imagen anterior solo para mostrarle que puede descargar un archivo MP4 directamente a través del *punto de conexión de streaming* (origen) (debe especificar la [directiva de streaming](streaming-policy-concept.md) descargable en el localizador de streaming).<br/>El empaquetador dinámico no está modificando el archivo. Opcionalmente puede usar las API de Azure Blob Storage para acceder a un MP4 directamente para la descarga progresiva si desea omitir las características del *punto de conexión de streaming* (origen). 
+La ruta de acceso de descarga aparece en la imagen anterior solo para mostrarle que puede descargar un archivo MP4 directamente a través del *punto de conexión de streaming* (origen) (debe especificar la [directiva de streaming](stream-streaming-policy-concept.md) descargable en el localizador de streaming).<br/>El empaquetador dinámico no está modificando el archivo. Opcionalmente puede usar las API de Azure Blob Storage para acceder a un MP4 directamente para la descarga progresiva si desea omitir las características del *punto de conexión de streaming* (origen). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificación en archivos MP4s de velocidad de bits adaptable
 
@@ -96,7 +96,7 @@ Los artículos siguientes muestran ejemplos de [cómo codificar un vídeo con Me
 
 * [Codificación desde una dirección URL de HTTPS con valores preestablecidos integrados](job-input-from-http-how-to.md).
 * [Codificación de un archivo local con valores preestablecidos integrados](job-input-from-local-file-how-to.md).
-* [Compilación de un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo](encode-custom-presets-how-to.md).
+* [Compilación de un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo](transform-custom-presets-how-to.md).
 
 Consulte la lista de [códecs y formatos de Standard Encoder](encode-media-encoder-standard-formats-reference.md).
 

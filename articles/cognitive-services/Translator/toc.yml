@@ -1,17 +1,19 @@
 - name: Documentación del servicio Translator
   href: index.yml
 - name: Información general
+  expanded: true
   items:
-    - name: ¿Qué es Translator?
-      href: translator-info-overview.md
     - name: Compatibilidad con idiomas
       href: language-support.md
     - name: Precios y límites
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
+- name: Traducción del texto
+  expanded: true
+  items:
+    - name: ¿Qué es Translator?
+      href: translator-info-overview.md
     - name: Preguntas frecuentes sobre la aplicación de traductor
       href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: Traducción del texto
-  items:
     - name: Guía de inicio rápido
       href: quickstart-translator.md
     - name: Ejemplos
@@ -84,10 +86,10 @@
   items:
     - name: ¿Qué es Custom Translator?
       href: custom-translator/overview.md
-    - name: Guía de inicio rápido
-      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: Preguntas más frecuentes
       href: custom-translator/faq.md
+    - name: Guía de inicio rápido
+      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: Guías paso a paso
       items:
         - name: Crear un proyecto
@@ -112,7 +114,7 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Conceptos
       items:
-        - name: Terminología
+        - name: Términos clave
           href: custom-translator/terminology.md
         - name: Personalizar y mejorar la traducción del texto
           href: customization.md
@@ -132,8 +134,6 @@
           href: custom-translator/training-and-model.md
         - name: Puntuación BLEU
           href: custom-translator/what-is-bleu-score.md
-        - name: Cifrado
-          href: encrypt-data-at-rest.md
 - name: Traducción de documentos
   items:
     - name: ¿Qué es la traducción de documentos?
@@ -146,8 +146,6 @@
           href: document-translation/create-sas-tokens.md
     - name: Referencia
       items:
-        - name: API REST de traducción de documentos
-          href: /rest/api/cognitiveservices/translator/documenttranslation
         - name: Obtención de formatos de documento
           href: document-translation/reference/get-document-formats.md
         - name: Obtención de formatos de glosario
@@ -164,11 +162,15 @@
           href: document-translation/reference/get-operations.md
         - name: Cancelar operación
           href: document-translation/reference/cancel-operation.md
-- name: Recursos de Translator
+- name: Recursos
   items:
     - name: Opciones de ayuda y soporte técnico
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
+    - name: Cifrado
+      href: encrypt-data-at-rest.md
     - name: Ejemplos de código en GitHub
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: Privacidad y cookies
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

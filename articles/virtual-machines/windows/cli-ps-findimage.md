@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 34fd6720b93a1462836b51856d73573a86809367
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 282eaa6e966ff458dfb1dfdd32ef6ec1f2cdc151
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022830"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443753"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell
 
@@ -31,7 +31,7 @@ Una imagen de Marketplace de Azure tiene los atributos siguientes:
 * **SKU**: instancia de una oferta, por ejemplo, una versión principal de una distribución. Ejemplos: 18.04-LTS, 2019-Datacenter
 * **Versión**: número de versión de una SKU de imagen. 
 
-Estos valores se pueden pasar individualmente o como un *URN* de imagen al combinar los valores separados por dos puntos (:). Por ejemplo: *Editor*:*Oferta*:*SKU*:*Versión*. Puede reemplazar el número de versión del URN por `latest` para usar la versión más reciente de la imagen. 
+Estos valores se pueden pasar individualmente o como un *URN* de imagen, combinando los valores separados por dos puntos (:). Por ejemplo: *Publicador*:*Oferta*:*SKU*:*Versión*. Puede reemplazar el número de versión del URN por `latest` para usar la versión más reciente de la imagen. 
 
 Si el editor de imágenes proporciona una licencia adicional y términos de compra, debe aceptarlos para poder usar la imagen.  Para obtener más información, consulte [Aceptación de los términos del plan de compra](#accept-purchase-plan-terms).
 
@@ -66,7 +66,7 @@ Puede usar PowerShell para reducir la lista de imágenes. Reemplace los valores 
     También puede usar `latest` si quiere usar la imagen más reciente y no una versión anterior específica.
 
 
-Ahora puede combinar el publicador, la oferta, la SKU y la versión que se seleccionó en un URN (valores separados por :). Pase este URN con el parámetro `--image` al crear una VM con el cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). También puede reemplazar el número de versión del URN por `latest` para obtener la versión más reciente de la imagen.
+Ahora puede combinar el publicador, la oferta, la SKU y la versión que se seleccionó en un URN (valores separados por :). Pase este URN con el parámetro `-Image` al crear una VM con el cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). También puede reemplazar el número de versión del URN por `latest` para obtener la versión más reciente de la imagen.
 
 Si implementa una máquina virtual con una plantilla de Resource Manager, establecerá los parámetros de imagen individualmente en las propiedades `imageReference`. Consulte la [referencia de plantilla](/azure/templates/microsoft.compute/virtualmachines).
 
