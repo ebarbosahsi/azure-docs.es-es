@@ -57,4 +57,4 @@ Los siguientes son los principales escenarios que darían lugar a una cuenta de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información sobre cómo adjuntar una cuenta de almacenamiento a la cuenta de Media Services, consulte [Creación de una cuenta](./create-account-howto.md).
+Para información sobre cómo adjuntar una cuenta de almacenamiento a la cuenta de Media Services, consulte [Creación de una cuenta](./account-create-how-to.md).

@@ -2,14 +2,14 @@
 title: Serie de vídeos sobre "procedimientos" de Azure Portal
 description: Vea vídeos de demostración sobre cómo trabajar con los servicios de Azure en el portal. Vea y vincule directamente a los vídeos de procedimientos más recientes.
 keywords: ''
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: aeb80f0ac9b160747d75a50acc7c21b211c9fe28
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550448"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771522"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie de vídeos sobre "procedimientos" de Azure Portal
 
@@ -17,17 +17,17 @@ La serie de vídeos de procedimientos de Azure Portal muestra cómo trabajar con
 
 ## <a name="featured-video"></a>Vídeo destacado
 
-En este vídeo destacado se muestra cómo usar las vistas de Azure Cost Management.
+En este vídeo destacado, le mostramos cómo crear pestañas y alertas en los libros de Azure.
 
-> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[Uso de las vistas de Azure Cost Management](https://www.youtube.com/watch?v=VRJA5bn2VH0)
+[Cómo compilar pestañas y alertas en libros de Azure](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 Póngase al día con estos vídeos recientes que puede que haya perdido:
 
-| [Uso de píldoras para filtrar en Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Obtención de una vista de visualización de los recursos](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Anclaje del contenido al panel de Azure Portal](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [Cómo administrar fácilmente la máquina virtual](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [Uso de píldoras para filtrar en Azure Portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Obtención de una vista de visualización de los recursos](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Imagen del vídeo de YouTube sobre cómo usar los píldoras para filtrar en Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Imagen del vídeo de YouTube sobre cómo obtener una vista de visualización de los recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Imagen del vídeo de YouTube sobre cómo anclar contenido al panel de Azure Portal](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![Imagen del vídeo de YouTube sobre cómo administrar fácilmente la máquina virtual](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Imagen del vídeo de YouTube sobre cómo usar los píldoras para filtrar en Azure Portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Imagen del vídeo de YouTube sobre cómo obtener una vista de visualización de los recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## <a name="video-playlist"></a>Lista de reproducción de vídeo
 

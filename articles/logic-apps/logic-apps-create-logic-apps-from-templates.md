@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593105"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
@@ -34,7 +34,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 ## <a name="create-logic-apps-from-templates"></a>Creación de aplicaciones lógicas a partir de plantillas
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal") si aún no lo ha hecho.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Portal de Azure") si aún no lo ha hecho.
 
 2. En el menú principal de Azure Portal, elija **Crear un recurso** > **Enterprise Integration** > **Logic App**.
 
@@ -97,9 +97,9 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
    > [!NOTE] 
    > Muchas de las plantillas incluyen conectores que puede que ya se hayan rellenado previamente con las propiedades necesarias. Sin embargo, es posible que algunas plantillas todavía necesiten proporcionar valores antes de que pueda implementar correctamente la aplicación lógica. Si intenta implementar sin completar los campos de propiedades que faltan, recibirá un mensaje de error. 
 
-## <a name="update-logic-apps-with-templates"></a>Actualizar aplicaciones lógicas con plantillas
+## <a name="update-logic-apps-with-templates&quot;></a>Actualizar aplicaciones lógicas con plantillas
 
-1. En [Azure Portal](https://portal.azure.com "Azure Portal"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. En [Azure Portal](https://portal.azure.com &quot;Portal de Azure"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
 2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo:
 

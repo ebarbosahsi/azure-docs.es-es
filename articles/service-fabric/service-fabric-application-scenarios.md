@@ -3,12 +3,12 @@ title: Escenarios y diseño de aplicaciones
 description: Información general de las categorías de las aplicaciones de nube en Service Fabric. Describe el diseño de la aplicación que usa servicios con estado y sin estado.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575676"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045763"
 ---
 # <a name="service-fabric-application-scenarios"></a>Escenarios de aplicación de Service Fabric
 
@@ -68,7 +68,7 @@ A continuación se muestra una aplicación de ejemplo que usa servicios con esta
 
 * Empiece a crear servicios sin y con estado con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
 * Visite el Centro de arquitectura de Azure para una guía sobre la [compilación de microservicios en Azure](/azure/architecture/microservices/).
-* Vaya a [Procedimientos recomendados para aplicaciones y clústeres de Azure Service Fabric](service-fabric-best-practices-overview.md) para una guía de diseño de aplicaciones.
+* Vaya a [Procedimientos recomendados para aplicaciones y clústeres de Azure Service Fabric](./service-fabric-best-practices-security.md) para una guía de diseño de aplicaciones.
 
 * Consulte también:
   * [Descripción de los microservicios](service-fabric-overview-microservices.md)

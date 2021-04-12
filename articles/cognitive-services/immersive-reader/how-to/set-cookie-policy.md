@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 02901e6b4a75257b2cda8dee84dbe3438dc15c18
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91332379"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048653"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Cómo establecer la directiva de cookies del Lector inmersivo
 
@@ -47,7 +47,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte el [inicio rápido de Node.js](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver qué más puede hacer con el SDK del Lector inmersivo con Node.js
-* Vea el [tutorial de Android](../tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android
-* Vea el [tutorial de iOS](../tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS
-* Vea el [tutorial para Python](../tutorial-python.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
+* Vea el [tutorial de Android](../how-to-launch-immersive-reader.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android
+* Vea el [tutorial de iOS](../how-to-launch-immersive-reader.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS
+* Vea el [tutorial para Python](../how-to-launch-immersive-reader.md) para consultar qué más puede hacer con el SDK del Lector inmersivo con Python.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../reference.md)

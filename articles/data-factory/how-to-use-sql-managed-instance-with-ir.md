@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451734"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564159"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Uso de Instancia administrada de Azure SQL con SQL Server Integration Services (SSIS) en Azure Data Factory
 
@@ -39,7 +39,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
             - Dentro de la misma red virtual que la instancia administrada, con una **subred diferente**.
             - Dentro de una red virtual diferente a la de la instancia administrada, a través del emparejamiento de redes virtuales (que está limitado a la misma región debido a las restricciones de emparejamiento de VNet global) o una conexión de red virtual a red virtual.
 
-            Para más información sobre la conectividad de la instancia administrada de Azure SQL, vea [Conexión de la aplicación a Instancia administrada de Azure SQL](/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para más información sobre la conectividad de la instancia administrada de Azure SQL, vea [Conexión de la aplicación a Instancia administrada de Azure SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure la red virtual](#configure-virtual-network).
 

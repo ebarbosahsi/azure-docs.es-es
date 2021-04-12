@@ -3,14 +3,14 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en otro proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633315"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167267"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -56,10 +56,10 @@ Las instancias de Hybrid Runbook Worker en máquinas virtuales de Azure pueden u
 Realice los pasos siguientes para usar una identidad administrada para los recursos de Azure en una instancia de Hybrid Runbook Worker:
 
 1. Cree una máquina virtual de Azure.
-2. Configure identidades administradas para los recursos de Azure en la máquina virtual. Consulte [Configuración de identidades administradas para recursos de Azure en una máquina virtual mediante Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
-3. Conceda acceso a la máquina virtual a un grupo de recursos en Resource Manager. Consulte [Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
-4. Instale Hybrid Runbook Worker en la máquina virtual. Consulte [Implementación de Hybrid Runbook Worker en Windows](automation-windows-hrw-install.md) o [Implementación de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md).
-5. Actualice el runbook para que use el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) con el parámetro `Identity` para autenticarse en los recursos de Azure. Esta configuración reduce la necesidad de usar una cuenta de ejecución y realizar la administración de las cuentas asociadas.
+1. Configure identidades administradas para los recursos de Azure en la máquina virtual. Consulte [Configuración de identidades administradas para recursos de Azure en una máquina virtual mediante Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+1. Conceda acceso a la máquina virtual a un grupo de recursos en Resource Manager. Consulte [Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
+1. Instale Hybrid Runbook Worker en la máquina virtual. Consulte [Implementación de Hybrid Runbook Worker en Windows](automation-windows-hrw-install.md) o [Implementación de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md).
+1. Actualice el runbook para que use el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) con el parámetro `Identity` para autenticarse en los recursos de Azure. Esta configuración reduce la necesidad de usar una cuenta de ejecución y realizar la administración de las cuentas asociadas.
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -76,20 +76,24 @@ Realice los pasos siguientes para usar una identidad administrada para los recur
 
 En lugar de hacer que el runbook proporcione su propia autenticación a los recursos locales, puede especificar una cuenta de ejecución para un grupo de Hybrid Runbook Worker. Para especificar una cuenta de ejecución, debe definir un [recurso de credencial](./shared-resources/credentials.md) que tenga acceso a los recursos locales. Estos recursos incluyen almacenes de certificados y todos los runbooks se ejecutan con estas credenciales en una instancia de Hybrid Runbook Worker del grupo.
 
-El nombre de usuario de la credencial debe tener uno de los siguientes formatos:
+- El nombre de usuario de la credencial debe tener uno de los siguientes formatos:
 
-* dominio\nombre de usuario
-* username@domain
-* nombre de usuario (para cuentas locales en el equipo local)
+   * dominio\nombre de usuario
+   * username@domain
+   * nombre de usuario (para cuentas locales en el equipo local)
+
+- Para usar el runbook **de PowerShell Export-RunAsCertificateToHybridWorker**, debe instalar AZ modules for Azure Automation en el equipo local.
+
+#### <a name="use-a-credential-asset-to-specify-a-run-as-account"></a>Uso de un recurso de credencial para especificar una cuenta de ejecución
 
 Utilice el procedimiento siguiente para especificar una cuenta de ejecución para un grupo de Hybrid Runbook Worker:
 
 1. Cree un [recurso de credencial](./shared-resources/credentials.md) con acceso a los recursos locales.
-2. Abra la cuenta de Automation en Azure Portal.
-3. Seleccione **Grupos de Hybrid Worker** y elija el grupo concreto.
-4. Seleccione **Toda la configuración** y luego **Configuración del grupo de Hybrid Worker**.
-5. Cambie el valor de **Ejecutar como** de **Predeterminado** a **Personalizado**.
-6. Seleccione la credencial y haga clic en **Guardar**.
+1. Abra la cuenta de Automation en Azure Portal.
+1. Seleccione **Grupos de Hybrid Worker** y elija el grupo concreto.
+1. Seleccione **Toda la configuración** y luego **Configuración del grupo de Hybrid Worker**.
+1. Cambie el valor de **Ejecutar como** de **Predeterminado** a **Personalizado**.
+1. Seleccione la credencial y haga clic en **Guardar**.
 
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Instalación del certificado de cuentas de ejecución
 
@@ -178,11 +182,11 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 Para finalizar la preparación de la cuenta de ejecución:
 
 1. Guarde el runbook **Export-RunAsCertificateToHybridWorker** en el equipo con la extensión **.ps1**.
-2. Impórtelo en la cuenta de Automation.
-3. Edite el runbook y cambie el valor de la variable `Password` por su propia contraseña.
-4. Publique el runbook.
-5. Ejecute el runbook y establezca como destino el grupo de Hybrid Runbook Worker que ejecuta y autentica los runbooks con la cuenta de ejecución. 
-6. Examine el flujo de trabajo para ver si informa del intento de importar el certificado al almacén de la máquina local, seguido de varias líneas. Este comportamiento depende de cuántas cuentas de Automation se definan en la suscripción y del grado de éxito de la autenticación.
+1. Impórtelo en la cuenta de Automation.
+1. Edite el runbook y cambie el valor de la variable `Password` por su propia contraseña.
+1. Publique el runbook.
+1. Ejecute el runbook y establezca como destino el grupo de Hybrid Runbook Worker que ejecuta y autentica los runbooks con la cuenta de ejecución. 
+1. Examine el flujo de trabajo para ver si informa del intento de importar el certificado al almacén de la máquina local, seguido de varias líneas. Este comportamiento depende de cuántas cuentas de Automation se definan en la suscripción y del grado de éxito de la autenticación.
 
 ## <a name="work-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabajo con runbooks firmados en Hybrid Runbook Worker en Windows
 
@@ -264,16 +268,16 @@ Para crear el conjunto de claves y el par de claves de GPG, utilice la [cuenta n
 1. Use la aplicación sudo para iniciar sesión como la cuenta **nxautomation**.
 
     ```bash
-    sudo su – nxautomation
+    sudo su - nxautomation
     ```
 
-2. Una vez que use **nxautomation**, genere el par de claves de GPG. GPG le guía por los pasos. Debe proporcionar el nombre, la dirección de correo electrónico, la hora de expiración y la frase de contraseña. A continuación, espere hasta que haya suficiente entropía en el equipo para que se genere la clave.
+1. Una vez que use **nxautomation**, genere el par de claves de GPG. GPG le guía por los pasos. Debe proporcionar el nombre, la dirección de correo electrónico, la hora de expiración y la frase de contraseña. A continuación, espere hasta que haya suficiente entropía en el equipo para que se genere la clave.
 
     ```bash
     sudo gpg --generate-key
     ```
 
-3. Dado que el directorio de GPG se generó con sudo, debe cambiar el propietario a **nxautomation** con el comando siguiente.
+1. Dado que el directorio de GPG se generó con sudo, debe cambiar el propietario a **nxautomation** con el comando siguiente.
 
     ```bash
     sudo chown -R nxautomation ~/.gnupg
@@ -300,7 +304,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Cuando haya configurado la validación de firmas, use el siguiente comando de GPG para firmar el runbook.
 
 ```bash
-gpg –-clear-sign <runbook name>
+gpg --clear-sign <runbook name>
 ```
 
 El runbook firmado se llama **<runbook name>.asc**.
@@ -316,7 +320,7 @@ Cuando inicie un runbook en Azure Portal, verá la opción **Ejecutar en**, para
 Al iniciar un runbook con PowerShell, use el parámetro `RunOn` con el cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). En el ejemplo siguiente se usa Windows PowerShell para iniciar un runbook llamado **Test-Runbook** en un grupo de Hybrid Runbook Worker llamado MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 ## <a name="logging"></a>Registro

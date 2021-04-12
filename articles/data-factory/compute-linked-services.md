@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: b9f7cce39e4f51aea7fc4db5ca37ee054f42c5cb
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952293"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078679"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 
@@ -21,7 +21,7 @@ En este artículo se explican distintos entornos de procesos que se pueden usar 
 
 En la tabla siguiente se proporciona una lista de entornos de proceso compatibles con Data Factory y las actividades que se pueden ejecutar en ellos. 
 
-| Entorno de procesos                                          | activities                                                   |
+| Entorno de procesos                                          | Actividades                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Clúster de HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizada](transform-data-using-dotnet-custom-activity.md)     |
@@ -436,14 +436,15 @@ Un servicio vinculado de Azure Machine Learning se crea para conectar un área d
 ```
 
 ### <a name="properties"></a>Propiedades
+
 | Propiedad               | Descripción                              | Obligatorio                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | La propiedad type se debe establecer en: **AzureMLService**. | Sí                                      |
 | subscriptionId         | Identificador de suscripción de Azure              | Sí                                      |
 | resourceGroupName      | name | Sí                                      |
 | mlWorkspaceName        | Nombre de las áreas de trabajo de Azure Machine Learning | Sí  |
-| servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | No |
-| servicePrincipalKey    | Especifique la clave de la aplicación.           | No |
+| servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Sí |
+| servicePrincipalKey    | Especifique la clave de la aplicación.           | Sí |
 | tenant                 | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Obligatorio si se especifica updateResourceEndpoint |
 | connectVia             | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No |
 

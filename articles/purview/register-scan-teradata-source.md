@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175075"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048109"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registro y examen de un origen de Teradata (versión preliminar)
 
@@ -25,7 +25,7 @@ El origen de Teradata admite **Examen completo** para extraer metadatos de una b
 ## <a name="prerequisites"></a>Requisitos previos
 
 1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-    Para obtener más información, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Para obtener más información, vea [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
@@ -70,7 +70,7 @@ En la pantalla **Registrar orígenes** [Registrar orígenes (Teradata)], haga lo
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en **Integration runtimes** (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) para configurar un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, haga clic en **Integration runtimes** (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 
@@ -90,7 +90,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     -   Proporciona un nombre de usuario para conectarse al servidor de bases de datos en el campo de entrada de nombre de usuario.
     -   Almacena la contraseña del servidor de bases de datos en la clave secreta.
 
-        Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](https://docs.microsoft.com/azure/purview/manage-credentials).
+        Para obtener más información sobre credenciales, vea el vínculo que se indica [aquí](./manage-credentials.md).
 
 6.  **Schema** (Esquema): indique el subconjunto de esquemas que se va a importar expresado como una lista separada por puntos y coma. Por ejemplo, schema1; schema2. Si esa lista está vacía, se importan todos los esquemas del usuario. De forma predeterminada, se ignoran todos los esquemas del sistema (por ejemplo, SysAdmin) y los objetos. Si la lista está vacía, se importan todos los esquemas disponibles.
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589179"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048211"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guía para la solución de problemas comunes de Azure SignalR Service
 
@@ -348,7 +348,7 @@ Para ASP.NET SignalR, se corrigió un problema conocido en el SDK 1.6.0. Actual
 
 ## <a name="thread-pool-starvation"></a>Colapso del grupo de subprocesos
 
-Si el servidor está colapsado, significa que no hay ningún subproceso trabajando en el procesamiento de mensajes. Todos los subprocesos dejan de responder en un método determinado.
+Si el servidor está colapsado, significa que no hay ningún subproceso trabajando en el procesamiento de mensajes. Todos los subprocesos no responden en un método determinado.
 
 Normalmente, este escenario lo causan métodos asincrónico en sincrónicos o `Task.Result`/`Task.Wait()` en los métodos asincrónicos.
 

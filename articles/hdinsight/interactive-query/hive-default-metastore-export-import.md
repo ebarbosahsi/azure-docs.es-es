@@ -7,12 +7,12 @@ ms.reviewer: ''
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: 825204fe40125a65e8e6f27c6973417813700a9e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4a0258d5e448c59baa1cd63e98058fe7116a8485
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743694"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566122"
 ---
 # <a name="migrate-default-hive-metastore-db-to-external-metastore-db"></a>Migración de la base de datos de metastore de Hive predeterminada a una base de datos de metastore externa
 
@@ -46,7 +46,7 @@ La acción es similar a reemplazar los vínculos simbólicos por sus rutas de ac
 
 Solo los clústeres de HDInsight creados después de 2020-10-15 admiten la exportación o importación de SQL para la base de datos de metastore predeterminada de Hive mediante `sqlpackage`.
 
-1. Instale [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) en el clúster.
+1. Instale [sqlpackage](/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) en el clúster.
 
 2. Exporte la base de datos de metastore predeterminada a un archivo BACPAC mediante la ejecución del siguiente comando.
 
@@ -94,7 +94,7 @@ QUERY="SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TB
 sudo python "$SCRIPT" --query "$QUERY" > $OUTPUT_FILE
 ```
 
-## <a name="further-reading"></a>Lecturas adicionales
+## <a name="further-reading"></a>Información adicional
 
 * [Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0](./apache-hive-migrate-workloads.md)
 * [Migración de cargas de trabajo de Hive a una cuenta nueva en Azure Storage](./hive-migration-across-storage-accounts.md)

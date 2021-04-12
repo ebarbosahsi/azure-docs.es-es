@@ -4,10 +4,10 @@ description: En este artículo se describen las diferentes tareas de administrac
 ms.date: 02/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100587633"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine

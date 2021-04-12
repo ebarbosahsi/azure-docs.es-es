@@ -4,15 +4,15 @@ description: Este artículo explica cómo solucionar los problemas asociados a l
 services: automation
 ms.subservice: change-inventory-management
 keywords: change, tracking, change tracking, inventory, automation
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587940"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104775820"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solución de problemas asociados a los cambios en una máquina virtual de Azure
 
@@ -208,15 +208,15 @@ Ver los cambios en Azure Portal puede ser útil, pero poder recibir una alerta c
 
 14. En **Acciones**, escriba un nombre para la acción, como **Administradores de correo electrónico**. 
 
-15. En **TIPO DE ACCIÓN**, seleccione **Correo electrónico/SMS/Inserción/Voz**. 
+15. En **TIPO DE ACCIÓN**, seleccione **Correo electrónico/Mensaje SMS/Inserción/Voz**. 
 
 16. En **DETALLES**, seleccione **Editar detalles**.
 
-    ![Adición del grupo de acciones](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Uso y costos estimados." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. En el panel de Correo electrónico/SMS/Inserción/Voz, escriba un nombre, seleccione la casilla **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida. Cuando haya terminado, haga clic en **Aceptar** en el panel y, a continuación, haga clic en **Aceptar** en la página Agregar grupo de acciones.
+17. En el panel de **Correo electrónico/Mensaje SMS/Inserción/Voz**, escriba un nombre, seleccione la casilla **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida. Cuando haya terminado, haga clic en **Aceptar** en el panel y, a continuación, haga clic en **Aceptar** en la página **Agregar grupo de acciones**.
 
-18. Para personalizar el asunto del correo electrónico de alerta, seleccione **Personalizar acciones**. 
+18. Para personalizar el asunto del correo electrónico de alerta, seleccione **Personalizar acciones**.
 
 19. En **Crear regla**, seleccione **Asunto de correo electrónico** y, a continuación, elija **Crear regla de alertas**. La regla le indica cuando la implementación de una actualización es correcta y qué máquinas formaron parte de la ejecución de la implementación de actualizaciones. La siguiente imagen es un ejemplo de correo electrónico recibido cuando el servicio W3SVC se detiene.
 

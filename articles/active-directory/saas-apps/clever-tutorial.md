@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 29384457f946eff5708c319e14161d670adf6ca8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98729898"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563844"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Clever
 
@@ -118,7 +118,7 @@ En esta sección, va a conceder a B.Simon acceso a Clever utilizando el inicio d
 
 ## <a name="configure-clever-sso"></a>Configuración del inicio de sesión único de Clever
 
-Siga las instrucciones disponibles a través del [vínculo](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) para configurar el inicio de sesión único en Clever.
+Siga las instrucciones disponibles a través del [vínculo](https://support.clever.com/hc/s/articles/205889768) para configurar el inicio de sesión único en Clever.
 
 ### <a name="create-clever-test-user"></a>Creación de un usuario de prueba de Clever
 

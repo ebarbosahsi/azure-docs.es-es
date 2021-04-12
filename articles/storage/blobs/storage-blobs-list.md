@@ -1,26 +1,24 @@
 ---
-title: 'Enumeración de blobs con .NET: Azure Storage'
-description: Obtenga información sobre cómo enumerar los blobs de un contenedor en la cuenta de Azure Storage mediante la biblioteca cliente .NET. En los ejemplos de código se muestra cómo enumerar los blobs en una lista plana o cómo enumerar los blobs de manera jerárquica, como si estuvieran organizados en directorios o carpetas.
+title: Enumeración de blobs con API de Azure Storage
+description: Obtenga información sobre cómo enumerar los blobs de la cuenta de almacenamiento mediante el uso de las bibliotecas de cliente de Azure Storage. En los ejemplos de código se muestra cómo enumerar los blobs en una lista plana o cómo enumerar los blobs de manera jerárquica, como si estuvieran organizados en directorios o carpetas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95543075"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046949"
 ---
-# <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
+# <a name="list-blobs-with-azure-storage-client-libraries"></a>Enumeración de blobs con bibliotecas de cliente de Azure Storage
 
 Al enumerar blobs desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. Puede especificar el número de resultados que se van a devolver en cada conjunto de resultados y luego recuperar los conjuntos subsiguientes. Puede especificar un prefijo para devolver los blobs cuyos nombres comienzan por ese carácter o cadena. También puede enumerar los blobs en una estructura de lista plana o de forma jerárquica. Una lista jerárquica devuelve los blobs como si estuvieran organizados en carpetas.
-
-En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-blob-listing-options"></a>Descripción de las opciones de enumeración de blobs
 
@@ -45,7 +43,9 @@ Para enumerar los blobs de un contenedor, llame a uno de estos métodos:
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-Las sobrecargas de estos métodos proporcionan opciones adicionales para administrar cómo la operación de enumeración devuelve los blobs. Estas opciones se describen en las secciones siguientes.
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -61,13 +61,25 @@ Para filtrar la lista de blobs, especifique una cadena para el parámetro `prefi
 
 Puede devolver metadatos de blob con los resultados.
 
-- Si usa el SDK de .NET V12, especifique el valor **Metadata** para la enumeración [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits).
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-- Si usa el SDK de .NET V11, especifique el valor **Metadata** para la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
+Especifique el valor de **metadatos** para la enumeración [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits).
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Especifique el valor de **metadatos** para la enumeración [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails). Azure Storage incluye metadatos con cada contenedor que se devuelve, por lo que en este contexto no hay que llamar a uno de los métodos **FetchAttributes** para recuperar los metadatos del contenedor.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Especifique `metadata` para el parámetro `include=` al llamar a [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
+
+---
 
 ### <a name="list-blob-versions-or-snapshots"></a>Enumeración de versiones o instantáneas de blob
 
-Para enumerar las versiones o instantáneas de blob con la biblioteca cliente de .NET versión 12, especifique el parámetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con el campo **Version** o **Snapshot**. Las instantáneas y las versiones aparecen ordenadas de más antigua a más reciente. Para obtener más información sobre la enumeración de versiones, consulte [Enumeración de versiones de blob](versioning-enable.md#list-blob-versions).
+- Para enumerar las versiones o instantáneas de blob con la biblioteca cliente de .NET versión 12, especifique el parámetro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con el campo **Version** o **Snapshot**. Las instantáneas y las versiones aparecen ordenadas de más antigua a más reciente. Para obtener más información sobre la enumeración de versiones, consulte [Enumeración de versiones de blob](versioning-enable.md#list-blob-versions).
+
+- Para enumerar el número de instantáneas con la biblioteca de cliente de Python V12, especifique `num_snapshots` en el parámetro `include=` al llamar a [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Lista plana frente a lista jerárquica
 
@@ -135,11 +147,15 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 La salida es parecida a esta:
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -153,7 +169,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## <a name="use-a-hierarchical-listing"></a>Uso de una lista jerárquica
 
-Cuando se llama a una operación de enumeración jerárquicamente, Azure Storage devuelve los directorios virtuales y los blobs en el primer nivel de la jerarquía. La propiedad [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada directorio virtual se establece de manera que pueda pasar el prefijo en una llamada recursiva para recuperar el siguiente directorio.
+Cuando se llama a una operación de enumeración jerárquicamente, Azure Storage devuelve los directorios virtuales y los blobs en el primer nivel de la jerarquía.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
@@ -164,6 +180,8 @@ En el ejemplo siguiente se enumeran los blobs del contenedor especificado median
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+La propiedad [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada directorio virtual se establece de manera que pueda pasar el prefijo en una llamada recursiva para recuperar el siguiente directorio.
 
 Para enumerar los blobs de forma jerárquica, establezca el parámetro `useFlatBlobListing` del método de enumeración en **false**.
 
@@ -222,11 +240,19 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Para enumerar los blobs jerárquicamente, llame al método [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-).
+
+En el ejemplo siguiente se enumeran los blobs del contenedor especificado mediante una lista jerárquica, con un tamaño de segmento opcional especificado, y se escribe el nombre del blob en la ventana de consola.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+
 ---
 
 La salida es parecida a esta:
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt

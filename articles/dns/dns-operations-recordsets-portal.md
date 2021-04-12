@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965738"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Administración de registros y conjuntos de registros DNS mediante el Portal de Azure
@@ -87,13 +87,13 @@ Puede usar el Portal de Azure para quitar registros de un conjunto de registros.
 3. Compruebe que el nombre coincide con el conjunto de registros que desea eliminar y después haga clic en **Sí**.
 4. En la hoja de **Zona DNS** , compruebe que el conjunto de registros ya no está visible.
 
-## <a name="work-with-ns-and-soa-records"></a>Trabajo con registros NS y SOA
+## <a name="work-with-ns-and-soa-records&quot;></a>Trabajo con registros NS y SOA
 
 Los registros NS y SOA creados automáticamente se administran de forma diferente de otros tipos de registros.
 
-### <a name="modify-soa-records"></a>Modificación de registros SOA
+### <a name=&quot;modify-soa-records&quot;></a>Modificación de registros SOA
 
-No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "\@"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
+No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = &quot;\@"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificación de los registros NS en el vértice de zona
 

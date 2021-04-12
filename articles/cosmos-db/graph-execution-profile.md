@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087492"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Uso del paso de perfil de ejecución para evaluar las consultas de Gremlin
@@ -139,12 +139,12 @@ Este es un ejemplo con anotaciones de la salida que se devuelve:
 ## <a name="execution-profile-response-objects"></a>Objetos de respuesta de perfil de ejecución
 
 La respuesta de una función executionProfile() producirá una jerarquía de objetos JSON con la estructura siguiente:
-  - **Objeto de operación de Gremlin** : representa la operación completa de Gremlin que se ejecutó. Contiene las siguientes propiedades:
+  - **Objeto de operaciones Gremlin**: representa la operación completa de Gremlin que se ejecutó. Contiene las siguientes propiedades:
     - `gremlin`: la instrucción de Gremlin explícita que se ejecutó.
     - `totalTime`: el tiempo, en milisegundos, empleado en la ejecución del paso. 
     - `metrics`: una matriz que contiene cada uno de los operadores de tiempo de ejecución de Cosmos DB que se ejecutaron para satisfacer la consulta. Esta lista se clasifica en orden de ejecución.
     
-  - **Operadores de tiempo de ejecución de Cosmos DB** : representa cada uno de los componentes de toda la operación de Gremlin. Esta lista se clasifica en orden de ejecución. Cada objeto contiene las siguientes propiedades:
+  - **Operadores del entorno de ejecución de Cosmos DB**: representa cada uno de los componentes de toda la operación de Gremlin. Esta lista se clasifica en orden de ejecución. Cada objeto contiene las siguientes propiedades:
     - `name`: nombre de la operación. Este es el tipo de paso que se evaluó y ejecutó. Lea más en la tabla siguiente.
     - `time`: cantidad de tiempo, en milisegundos, que tardó un operador determinado.
     - `annotations`: contiene información adicional específica del operador que se ejecutó.
@@ -153,7 +153,7 @@ La respuesta de una función executionProfile() producirá una jerarquía de obj
     - `storeOps`: representa una operación de almacenamiento que puede abarcar una o varias particiones.
     - `storeOps.fanoutFactor`: representa el número de particiones a las que tuvo acceso esta operación de almacenamiento específica.
     - `storeOps.count`: representa el número de resultados que devolvió esta operación de almacenamiento.
-    - `storeOps.size`: representa el tamaño en bytes del resultado de una operación de almacenamiento determinada.
+    - `storeOps.size` :representa el tamaño en bytes del resultado de una operación de almacenamiento determinada.
 
 Operador de tiempo de ejecución de Gremlin de Cosmos DB|Descripción
 ---|---
@@ -177,7 +177,7 @@ Los siguientes son ejemplos de optimizaciones comunes que se pueden observar con
 
 ### <a name="blind-fan-out-query-patterns"></a>Patrones de consulta de distribución ramificada ciega
 
-Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con particiones** :
+Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con particiones**:
 
 ```json
 [

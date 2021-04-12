@@ -3,12 +3,12 @@ title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564312"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -61,7 +61,7 @@ Las siguientes limitaciones generales se aplican al complemento de Azure Policy 
 
 Las siguientes limitaciones generales solo se aplican al complemento de Azure Policy para AKS:
 
-- [La directiva de seguridad de pod de AKS](../../../aks/use-pod-security-policies.md) y el complemento de Azure Policy para AKS no se pueden habilitar simultáneamente. Para obtener más información, consulte [Limitación de seguridad de pod de AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+- [La directiva de seguridad de pod de AKS](../../../aks/use-pod-security-policies.md) y el complemento de Azure Policy para AKS no se pueden habilitar simultáneamente. Para obtener más información, consulte [Limitación de seguridad de pod de AKS](../../../aks/use-azure-policy.md).
 - Los espacios de nombres se excluyen automáticamente mediante el complemento de Azure Policy para la evaluación: _kube-system_, _gatekeeper-system_ y _aks-periscope_.
 
 ## <a name="recommendations"></a>Recomendaciones
@@ -201,7 +201,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
 1. Instale [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
-1. El clúster de Kubernetes habilitado para Azure Arc. Para obtener más información, vea [Incorporación de un clúster de Kubernetes a Azure Arc](../../../azure-arc/kubernetes/connect-cluster.md).
+1. El clúster de Kubernetes habilitado para Azure Arc. Para obtener más información, vea [Incorporación de un clúster de Kubernetes a Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 1. Tener el identificador de recurso completo de Azure del clúster de Kubernetes habilitado para Azure Arc.
 
