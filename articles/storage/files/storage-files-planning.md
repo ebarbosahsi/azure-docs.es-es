@@ -4,16 +4,16 @@ description: Conozca cómo se planea una implementación de Azure Files. Puede m
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879854"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023527"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -65,7 +65,7 @@ Aunque desde una perspectiva técnica es considerablemente más fácil montar lo
 
 - **Tunelización de red mediante ExpressRoute o una VPN de sitio a sitio o de punto a sitio**: la tunelización en una red virtual permite acceder a recursos compartidos de archivos de Azure desde el entorno local, aunque el puerto 445 esté bloqueado.
 - **Puntos de conexión privados**: los puntos de conexión privados proporcionan a su cuenta de almacenamiento una dirección IP dedicada desde el espacio de direcciones de la red virtual. Esto permite la tunelización de red sin necesidad de abrir redes locales en todos los intervalos de direcciones IP que son propiedad de los clústeres de almacenamiento de Azure. 
-- **Reenvío DNS**: configure su DNS local para resolver el nombre de la cuenta de almacenamiento (es decir, `storageaccount.file.core.windows.net` para las regiones de la nube pública) para resolver la dirección IP de sus puntos de conexión privados.
+- **Reenvío DNS**: configure su DNS local para resolver el nombre de la cuenta de almacenamiento (`storageaccount.file.core.windows.net` para las regiones de la nube pública) para resolver la dirección IP de sus puntos de conexión privados.
 
 Para planear las redes asociadas a la implementación de un recurso compartido de archivos de Azure, consulte [Consideraciones de redes para Azure Files](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ Azure Files tiene un enfoque de varias capas para garantizar la copia de segurid
 ### <a name="soft-delete"></a>Eliminación temporal
 La eliminación temporal de recursos compartidos de archivos (versión preliminar) es una configuración de nivel de cuenta de almacenamiento que le permite recuperar el recurso compartido de archivos cuando se elimina accidentalmente. Cuando se elimina un recurso compartido de archivos, pasa a un estado de eliminación temporal, en lugar de borrarse de forma permanente. Se puede configurar el tiempo durante el que los datos eliminados de forma temporal se pueden recuperar antes de que se eliminen permanentemente y durante este período de retención el recurso compartido se puede recuperar en cualquier momento. 
 
-Se recomienda activar la eliminación temporal para la mayoría de los recursos compartidos de archivos. Si tiene un flujo de trabajo en el que la eliminación de recursos compartidos es común y se espera, puede que decida tener un período de retención muy corto o no tener habilitada la eliminación temporal.
+Se recomienda activar la eliminación temporal para la mayoría de los recursos compartidos de archivos. Si tiene un flujo de trabajo en el que la eliminación de recursos compartidos es común y se espera, puede que decida tener un período de retención corto o no tener habilitada la eliminación temporal.
 
 Para obtener más información acerca de la eliminación temporal, consulte [Evitar la eliminación accidental de datos](./storage-files-prevent-file-share-deletion.md).
 
@@ -107,10 +107,10 @@ Puede realizar restauraciones de nivel de elemento y de nivel de recurso compart
 
 Para obtener más información sobre Azure Backup, vea [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection para Azure Files (versión preliminar)
-Advanced Threat Protection (ATP) para Azure Storage ofrece una capa adicional de inteligencia de seguridad que proporciona alertas cuando detecta actividades anómalas en la cuenta de almacenamiento, por ejemplo, intentos no habituales de acceso a la cuenta de almacenamiento. ATP también ejecuta análisis de reputación de hash de malware y generará una alerta sobre malware conocido. Puede configurar ATP en un nivel de suscripción o de cuenta de almacenamiento a través de Azure Security Center. 
+### <a name="azure-defender-for-azure-files"></a>Azure Defender para Azure Files 
+Azure Defender para Azure Storage (antes Protección contra amenazas avanzada para Azure Storage) ofrece una capa adicional de inteligencia de seguridad que proporciona alertas cuando detecta actividades anómalas en la cuenta de almacenamiento; por ejemplo, intentos no habituales de acceso. También ejecuta análisis de reputación de hash de malware y generará una alerta sobre malware conocido. Puede configurar Azure Defender en un nivel de suscripción o de cuenta de almacenamiento a través de Azure Security Center. 
 
-Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/azure-defender-storage-configure.md).
+Para más información, consulte [Introducción a Azure Defender para Storage](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

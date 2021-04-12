@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98937603"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de punto de conexión de Azure AD Connect Sync V2 
@@ -113,11 +113,11 @@ Los siguientes pasos se pueden usar para aumentar el límite de pertenencia:
 
 7. En la ventana emergente de la página **Descripción**, establezca la precedencia en un valor disponible entre 1 y 99 ![Captura de pantalla que muestra la ventana "Edit outbound synchronization rule" (Editar regla de sincronización de salida) con la opción "Precedencia" resaltada.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
-8. En la página **Transformations**, actualice el valor de **Source** por la transformación **member**, reemplazando "50000" por un valor comprendido entre 50001 y 250000. Este cambio aumentará el tamaño máximo de pertenencia de los grupos que se sincronizarán con Azure AD. Se recomienda comenzar con un número de 100 000 para saber el impacto que tendrá la sincronización de grupos grandes en el rendimiento de la sincronización. 
+8. En la página **Transformations**, actualice el valor de **Source** por la transformación **member**, reemplazando "50000&quot; por un valor comprendido entre 50001 y 250000. Este cambio aumentará el tamaño máximo de pertenencia de los grupos que se sincronizarán con Azure AD. Se recomienda comenzar con un número de 100 000 para saber el impacto que tendrá la sincronización de grupos grandes en el rendimiento de la sincronización. 
  
  **Ejemplo** 
  
- `IIF((ValueCount("member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
+ `IIF((ValueCount(&quot;member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
  
  ![Editar regla de sincronización](media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
 

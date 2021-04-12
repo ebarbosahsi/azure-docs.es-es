@@ -3,12 +3,12 @@ title: Creación de un grupo de administración con Azure Portal
 description: En este inicio rápido, se usa Azure Portal para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa9b667079104fe9728ab41ecd87685c35de1b7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592439"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024730"
 ---
 # <a name="quickstart-create-a-management-group"></a>Inicio rápido: Creación de un grupo de administración
 
@@ -32,7 +32,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 1. Seleccione **+ Agregar grupo de administración**.
 
-   :::image type="content" source="./media/main.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios.":::
 
 1. Deje la opción **Crear nuevo** seleccionada y rellene el campo del identificador del grupo de administración.
 

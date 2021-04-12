@@ -4,16 +4,16 @@ description: Use este artículo para obtener información sobre las aptitudes de
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2020
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56eff095cca1b24678f742e4c3ce8dfb1aaea2dd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489464"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275590"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solución de problemas del dispositivo IoT Edge
 
@@ -30,6 +30,8 @@ El primer paso a la hora de solucionar problemas de IoT Edge debe ser usar el co
 
 Puede ejecutar el comando `check` como se indica a continuación, o bien incluir la marca `--help` para ver una lista completa de opciones:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 En Linux:
 
 ```bash
@@ -41,6 +43,19 @@ En Windows:
 ```powershell
 iotedge check
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.1 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge check
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 La herramienta de solución de problemas ejecuta muchas comprobaciones que se clasifican en estas tres categorías:
 
@@ -58,6 +73,9 @@ Cuando necesite recopilar registros de un dispositivo IoT Edge, la manera más c
 
 Ejecute el comando `support-bundle` con la marca `--since` para especificar hasta qué momento en el pasado deben remontarse los registros. Por ejemplo, con `6h` se obtendrán registros de las últimas seis horas, con `6d`, de los últimos seis días y con `6m`, de los últimos seis minutos, etc. Incluya la marca `--help` para ver una lista completa de opciones.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 En Linux:
 
 ```bash
@@ -69,6 +87,19 @@ En Windows:
 ```powershell
 iotedge support-bundle --since 6h
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge support-bundle --since 6h
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 También puede usar una llamada de [método directo](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) al dispositivo para cargar la salida del comando de conjunto de soporte técnico en Azure Blob Storage.
 
@@ -102,10 +133,9 @@ Este comando generará todas las [propiedades notificadas](./module-edgeagent-ed
 
 El [administrador de seguridad de IoT Edge](iot-edge-security-manager.md) es responsable de operaciones como la inicialización del sistema de IoT Edge en los dispositivos de inicio y aprovisionamiento. Si IoT Edge no se inicia, los registros del administrador de seguridad pueden proporcionar información útil.
 
-En Linux:
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+En Linux:
 
 * Vea el estado del administrador de seguridad de IoT Edge:
 
@@ -141,42 +171,6 @@ En Linux:
      sudo systemctl daemon-reload
      sudo systemctl restart iotedge
      ```
-<!--end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-* Vea el estado de los servicios del sistema de IoT Edge:
-
-   ```bash
-   sudo iotedge system status
-   ```
-
-* Vea los registros de los servicios del sistema de IoT Edge:
-
-   ```bash
-   sudo iotedge system logs -- -f
-   ```
-
-* Habilite los registros de nivel de depuración para ver registros más detallados de los servicios del sistema de IoT Edge:
-
-  1. Habilite los registros de nivel de depuración.
-
-     ```bash
-     sudo iotedge system set-log-level debug
-     sudo iotedge system restart
-     ```
-
-  1. Vuelva a los registros de nivel de información predeterminados después de la depuración.
-
-     ```bash
-     sudo iotedge system set-log-level info
-     sudo iotedge system restart
-     ```
-
-<!-- end 1.2 -->
-:::moniker-end
 
 En Windows:
 
@@ -211,6 +205,43 @@ En Windows:
      ```powershell
      Restart-Service iotedge
      ```
+
+:::moniker-end
+<!--end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* Vea el estado de los servicios del sistema de IoT Edge:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* Vea los registros de los servicios del sistema de IoT Edge:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Habilite los registros de nivel de depuración para ver registros más detallados de los servicios del sistema de IoT Edge:
+
+  1. Habilite los registros de nivel de depuración.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Vuelva a los registros de nivel de información predeterminados después de la depuración.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="check-container-logs-for-issues"></a>Comprobación de los registros del contenedor para detectar problemas
 

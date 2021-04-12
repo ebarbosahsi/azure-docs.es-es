@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
 ms.openlocfilehash: 429659d605cdaf8aad978841e486a17da321cce4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929399"
 ---
 # <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Escenario: IllegalArgumentException para una actividad de Apache Spark en Azure HDInsight
@@ -28,7 +28,7 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 Se producirá un error en un trabajo de Spark si el archivo jar de la aplicación no se encuentra en el almacenamiento principal o predeterminado del clúster de Spark.
 
-Este es un problema conocido con el marco de código abierto de Spark, y está registrado en este error: [Se produce un error en el trabajo de Spark si fs.defaultFS y el jar de la aplicación tienen direcciones URL diferentes](https://issues.apache.org/jira/browse/SPARK-22587).
+Se trata de un problema conocido con la plataforma de código abierto de Spark a la que se realiza un seguimiento en este error: se produce un error en el [trabajo de Spark si fs.defaultFS y el jar de la aplicación tienen una dirección URL diferente](https://issues.apache.org/jira/browse/SPARK-22587).
 
 Este problema se resolvió en Spark 2.3.0.
 

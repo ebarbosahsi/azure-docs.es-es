@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001210"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
@@ -29,7 +29,7 @@ Este contenedor tiene las siguientes opciones de configuración:
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
 |Sí|[ApiKey](#apikey-setting)|Se usa para realizar un seguimiento de la información de facturación.|
-|No|[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](/azure/application-insights) al contenedor.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](/azure/application-insights) al contenedor.|
 |Sí|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
 |Sí|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |No|[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
@@ -47,7 +47,7 @@ La opción de configuración `ApiKey` especifica la clave de recurso de Azure us
 Este valor se puede encontrar en los siguientes lugares:
 
 * Azure Portal: Administración de recursos de **Cognitivas Services**, en **Claves**.
-* Portal de LUIS: en la página de configuración **Claves y puntos de conexión**. 
+* Portal de LUIS: página de **configuración de los puntos de conexión y claves** 
 
 No utilice la clave de inicio ni la clave de creación. 
 
@@ -62,7 +62,7 @@ La opción de configuración `Billing` especifica el URI del punto de conexión 
 Este valor se puede encontrar en los siguientes lugares:
 
 * Azure Portal: Información general de **Cognitivas Services**, con la etiqueta `Endpoint`
-* Portal de LUIS: en la página de configuración **Claves y puntos de conexión**, como parte del identificador URI del punto de conexión.
+* Portal LUIS: la página de **configuración de claves y puntos de conexión**, como parte del identificador URI del punto de conexión.
 
 | Obligatorio | Nombre | Tipo de datos | Descripción |
 |----------|------|-----------|-------------|

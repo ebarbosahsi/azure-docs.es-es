@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740790"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067612"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -63,15 +63,16 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 
 2. En la lista de hosts de front-end, seleccione el dominio personalizado donde desea habilitar HTTPS para que contenga el dominio personalizado.
 
-3. En la sección **Custom domain HTTPS** (HTTPS de dominio personalizado), haga clic en **Enabled** (Habilitado) y seleccione **Front Door managed** (Front Door administrado) como origen del certificado.
+3. En la sección **Custom domain HTTPS** (HTTPS de dominio personalizado), seleccione **Enabled** (Habilitado) y **Front Door managed** (Front Door administrado) como origen del certificado.
 
-4. Haga clic en Guardar.
+4. Seleccione Guardar.
 
 5. Continúe y [valide el dominio](#validate-the-domain).
 
 > [!NOTE]
 > En el caso de los certificados administrados por AFD, se aplica el límite de 64 caracteres de DigiCert. Se producirá un error de validación si se supera ese límite.
 
+Tenga en cuenta que no se admite la habilitación de HTTPS mediante un certificado administrado por Front Door (por ejemplo: contoso.com) para los dominios de Apex o raíz. Puede usar su propio certificado para este escenario.  Continúe con la opción 2 para obtener más detalles.
 
 ### <a name="option-2-use-your-own-certificate"></a>Opción 2: Usar su propio certificado
 
@@ -128,19 +129,21 @@ Conceda a Azure Front Door permisos para acceder a los certificados ubicados en 
 
 3. En el tipo de administración de certificados, seleccione **Use my own certificate** (Usar mi propio certificado). 
 
-4. Azure Front Door requiere que la suscripción de la cuenta de Key Vault sea la misma que la de la puerta de entrada. Seleccione un almacén de claves, un certificado (secreto) y la versión del certificado.
+4. Azure Front Door requiere que la suscripción de la cuenta de Key Vault sea la misma que la de la puerta de entrada. Seleccione un almacén de claves, un secreto y una versión del secreto.
 
     Azure Front Door muestra la siguiente información: 
     - Las cuentas del almacén de claves de su identificador de suscripción. 
-    - Los certificados (secretos) en el almacén de claves seleccionado. 
-    - Las versiones de certificado disponibles.
+    - Los secretos en el almacén de claves seleccionado. 
+    - Las versiones de secreto disponibles.
+
+    > [!NOTE]
+    >  Para que el certificado se rote automáticamente a la versión más reciente cuando haya disponible una versión más reciente del certificado en el Key Vault, establezca la versión del secreto en "latest". Si se selecciona una versión específica, tendrá que volver a seleccionar la nueva versión manualmente para la rotación de certificados. La nueva versión del certificado o el secreto tarda hasta 24 horas en implementarse. 
  
 5. Si usa su propio certificado, no se requiere la validación del dominio. Continúe con [Esperar a la propagación](#wait-for-propagation).
 
 ## <a name="validate-the-domain"></a>Validar el dominio
 
-Si ya tiene un dominio personalizado en uso que está asignado a su punto de conexión personalizado con un registro CNAME o usa su propio certificado, continúe con  
-[El dominio personalizado está asignado a su instancia de Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). En caso contrario, si la entrada de registro CNAME para el dominio ya no existe o no contiene el subdominio afdverify, continúe con [El dominio personalizado no está asignado a la instancia de Front Door](#custom-domain-is-not-mapped-to-your-front-door).
+Si ya tiene un dominio personalizado en uso asignado a su punto de conexión personalizado con un registro CNAME o usa su propio certificado, continúe con [El dominio personalizado está asignado a la instancia de Front Door mediante un registro CNAME](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). En caso contrario, si la entrada de registro CNAME para el dominio ya no existe o no contiene el subdominio afdverify, continúe con [El dominio personalizado no está asignado a su instancia de Front Door](#custom-domain-is-not-mapped-to-your-front-door).
 
 ### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>El dominio personalizado está asignado a la instancia de Front Door mediante un registro CNAME
 
@@ -171,7 +174,7 @@ Después de habilitar HTTPS en un dominio personalizado, la entidad de certifica
 
 ![Registro WHOIS](./media/front-door-custom-domain-https/whois-record.png)
 
-DigiCert también envía un mensaje de verificación a direcciones de correo electrónico adicionales. Si la información del usuario inscrito de WHOIS es privada, asegúrese de que puede realizar las aprobaciones directamente desde una de las direcciones siguientes:
+DigiCert también envía un correo electrónico de verificación a otras direcciones de correo. Si la información del usuario inscrito de WHOIS es privada, asegúrese de que puede realizar las aprobaciones directamente desde una de las direcciones siguientes:
 
 admin@&lt;su-nombre-de-dominio.com&gt;  
 administrator@&lt;su-nombre-de-dominio.com&gt;  
@@ -181,7 +184,7 @@ postmaster@&lt;su-nombre-de-dominio.com&gt;
 
 Debería recibir un correo electrónico en unos minutos, de forma similar al ejemplo siguiente, solicitando que apruebe la solicitud. Si utiliza un filtro de correo no deseado, agregue admin@digicert.com a la lista de permitidos. Si no recibe un correo electrónico en 24 horas, póngase en contacto con el equipo de soporte técnico de Microsoft.
 
-Al hacer clic en el vínculo de aprobación, obtendrá acceso a un formulario de aprobación en línea. Siga las instrucciones que aparecen en el formulario; tiene dos opciones de comprobación:
+Al seleccionar el vínculo de aprobación, se le conducirá al siguiente formulario de aprobación en línea: Siga las instrucciones que aparecen en el formulario; tiene dos opciones de comprobación:
 
 - Puede aprobar todos los pedidos futuros realizados a través de la misma cuenta del mismo dominio raíz, por ejemplo, contoso.com. Se recomienda este método si piensa agregar más dominios personalizados al mismo dominio raíz.
 
@@ -195,7 +198,7 @@ Una vez que el nombre de dominio se valide, la característica HTTPS del dominio
 
 ### <a name="operation-progress"></a>Progreso de la operación
 
-En la tabla siguiente se muestra el progreso de la operación que se produce cuando se habilita HTTPS. Después de habilitar HTTPS, los cuatro pasos de la operación aparecen en el cuadro de diálogo del dominio personalizado. A medida que cada paso se activa, aparecen detalles de subpasos adicionales bajo el paso. No se producirán todos estos subpasos. Después de que un paso se completa correctamente, aparece una marca de verificación verde junto a él. 
+En la tabla siguiente se muestra el progreso de la operación que se produce cuando se habilita HTTPS. Después de habilitar HTTPS, los cuatro pasos de la operación aparecen en el cuadro de diálogo del dominio personalizado. A medida que se activa cada paso, aparecen más detalles de subpasos bajo el paso. No se producirán todos estos subpasos. Después de que un paso se completa correctamente, aparece una marca de verificación verde junto a él. 
 
 | Paso de la operación | Detalles del subpaso de la operación | 
 | --- | --- |
@@ -239,7 +242,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 5. *¿Necesito un registro de autorización de entidad de certificación con mi proveedor de DNS?*
 
-    No, actualmente no se requiere un registro de autorización de entidad de certificación. Pero si tiene uno, debe incluir DigiCert como entidad de certificación válida.
+    Actualmente no se requiere un registro de autorización de entidad de certificación. Pero si tiene uno, debe incluir DigiCert como entidad de certificación válida.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

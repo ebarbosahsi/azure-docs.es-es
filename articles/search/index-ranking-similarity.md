@@ -1,39 +1,43 @@
 ---
-title: Configuración del algoritmo de clasificación de similitudes
+title: Configuración del algoritmo de similitud
 titleSuffix: Azure Cognitive Search
-description: Cómo establecer el algoritmo de similitud para probar el nuevo algoritmo de similitud para la clasificación
+description: Obtenga información sobre cómo habilitar BM25 en servicios de búsqueda antiguos y cómo se pueden modificar los parámetros de BM25 para adaptarse mejor al contenido de los índices.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9f806b512ae8e118fca8f32115c8be3b493fd681
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 03/12/2021
+ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677778"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103232841"
 ---
-# <a name="configure-ranking-algorithms-in-azure-cognitive-search"></a>Configuración de algoritmos de clasificación en Azure Cognitive Search
+# <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Configuración del algoritmo de clasificación de similitud en Azure Cognitive Search
 
 Azure Cognitive Search admite dos algoritmos de clasificación de similitudes:
 
 + Un algoritmo de *similitud clásica*, que usan todos los servicios de búsqueda hasta el 15 de julio de 2020.
 + Una implementación del algoritmo *BM25 de Okapi*, que usan todos los servicios de búsqueda creados después del 15 de julio.
 
-La clasificación BM25 es la nueva predeterminada porque tiende a generar clasificaciones de búsqueda que se alinean mejor con las expectativas de los usuarios. También permite opciones de configuración para optimizar los resultados en función de factores como el tamaño del documento. En el caso de los servicios creados después del 15 de julio de 2020, BM25 se usa automáticamente y es el único algoritmo similarity. Si intenta establecer la similitud en ClassicSimilarity en un nuevo servicio, se devolverá un error 400 porque el servicio no admite ese algoritmo.
+La clasificación BM25 es la nueva predeterminada porque tiende a generar clasificaciones de búsqueda que se alinean mejor con las expectativas de los usuarios. Incluye [parámetros](#set-bm25-parameters) para optimizar los resultados en función de factores como el tamaño del documento. 
 
-En el caso de los servicios anteriores creados antes del 15 de julio de 2020, la similitud clásica sigue siendo el algoritmo predeterminado. Estos servicios pueden establecer propiedades en un índice de búsqueda para invocar a BM25, como se explica a continuación. Si va a cambiar de la similitud clásica a BM25, puede que observe algunas diferencias con respecto a cómo se ordenan los resultados de búsqueda.
+En el caso de los servicios creados después del 15 de julio de 2020, BM25 se usa automáticamente y es el único algoritmo similarity. Si intenta establecer la similitud en ClassicSimilarity en un nuevo servicio, se devolverá un error 400 porque el servicio no admite ese algoritmo.
+
+En el caso de los servicios anteriores creados antes del 15 de julio de 2020, la similitud clásica sigue siendo el algoritmo predeterminado. Los servicios antiguos pueden actualizarse a BM25 según el índice, tal y como se explica a continuación. Si va a cambiar de la similitud clásica a BM25, puede que observe algunas diferencias con respecto a cómo se ordenan los resultados de búsqueda.
 
 > [!NOTE]
-> La búsqueda semántica es un algoritmo de reclasificación semántica adicional que reduce aún más la diferencia entre las expectativas y los resultados. A diferencia de los demás algoritmos, es una característica complementaria que recorre en iteración un conjunto de resultados existente. Para usar el algoritmo de búsqueda semántica en versión preliminar, debe crear un servicio y especificar un [tipo de consulta semántica](semantic-how-to-query-request.md). Para más información, consulte [Introducción a la búsqueda semántica](semantic-search-overview.md).
+> La clasificación semántica, que actualmente se encuentra en versión preliminar para los servicios estándar de las regiones seleccionadas, constituye un paso más adelante en la generación de resultados más pertinentes. A diferencia de los demás algoritmos, es una característica complementaria que recorre en iteración un conjunto de resultados existente. Para obtener más información, consulte [Introducción a la búsqueda semántica](semantic-search-overview.md) y [Clasificación semántica](semantic-ranking.md).
 
-## <a name="create-a-search-index-for-bm25-scoring"></a>Creación de un índice de búsqueda para la puntuación BM25
+## <a name="enable-bm25-scoring-on-older-services"></a>Habilitación de la puntuación BM25 en servicios antiguos
 
-Si ejecuta un servicio de búsqueda que se creó antes del 15 de julio de 2020, puede establecer la propiedad de similitud en BM25Similarity o ClassicSimilarity en la definición del índice. Si se omite la propiedad similarity o se establece en NULL, el índice usará el algoritmo clásico.
+Si ejecuta un servicio de búsqueda que se creó antes del 15 de julio de 2020, puede habilitar BM25 si establece una propiedad de similitud en los nuevos índices. La propiedad solo se expone en los nuevos índices, por lo que, si quiere BM25 en un índice existente, debe quitar y [volver a crear el índice](search-howto-reindex.md) con una nueva propiedad de similitud establecida en "Microsoft.Azure.Search.BM25Similarity".
 
-El algoritmo de similitud solo se puede establecer en el momento de crear el índice. Sin embargo, una vez creado un índice con BM25, puede actualizar el existente para establecer o modificar los parámetros de BM25.
+Una vez que existe un índice con una propiedad de similitud, puede cambiar entre BM25Similarity o ClassicSimilarity. 
+
+En los vínculos siguientes se describe la propiedad de similitud en los SDK de Azure. 
 
 | Biblioteca de cliente | Propiedad de similitud |
 |----------------|---------------------|
@@ -70,7 +74,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## <a name="bm25-similarity-parameters"></a>Parámetros de similitud de BM25
+## <a name="set-bm25-parameters"></a>Establecimiento de parámetros de BM25
 
 La similitud de BM25 agrega dos parámetros personalizables por el usuario para controlar la puntuación de relevancia calculada. Puede establecer los parámetros de BM25 durante la creación del índice o como una actualización de este si durante la creación del índice se especificó el algoritmo BM25.
 
