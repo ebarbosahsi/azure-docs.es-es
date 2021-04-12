@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 002a7c61d6760decf65016870739ab62b15d5c72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 55bf597d8df18085fc9a500a9213a6abe59fd5e3
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013693"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108259"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -27,7 +27,7 @@ ms.locfileid: "103013693"
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Media Services que se está usando:"]
 > * [Versión 2](media-services-dynamic-manifest-overview.md)
-> * [Versión 3](../latest/filters-dynamic-manifest-overview.md)
+> * [Versión 3](../latest/filters-dynamic-manifest-concept.md)
 
 A partir de la versión 2.17, Media Services le permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo) o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las representaciones asociadas al recurso). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos** que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 

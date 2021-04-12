@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 23aac2c94ffd909ca132cbc481998b9eda317156
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583553"
 ---
 # <a name="get-all-datasets-api"></a>API de obtención de todos los conjuntos de datos
@@ -28,7 +28,7 @@ La API Get all datasets obtiene todos los conjuntos de datos disponibles. Los co
 
 | **Header** | **Tipo** | **Descripción** |
 | --- | --- | --- |
-| Authorization | string | Necesario. El token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>`. |
+| Authorization | string | Necesario. Token de acceso de Azure Active Directory (Azure AD) con el formato `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
 **Parámetro de ruta de acceso**

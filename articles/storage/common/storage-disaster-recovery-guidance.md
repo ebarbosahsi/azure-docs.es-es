@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102506708"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800356"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -23,7 +23,7 @@ Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén d
 
 Azure Storage admite la conmutación por error de la cuenta en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
 
-La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta se admite para todas las regiones públicas, pero no está disponible en las nubes soberanas o nacionales en este momento.
+La conmutación por error de la cuenta está disponible para los tipos de cuenta de uso general v1 y v2 y de Blob Storage con implementaciones de Azure Resource Manager. La conmutación por error de la cuenta se admite para todas las regiones públicas, pero no está disponible en las nubes soberanas o nacionales en este momento. La conmutación por error de la cuenta no se admite para las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado.
 
 En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta](storage-initiate-account-failover.md).
 
@@ -67,6 +67,8 @@ Microsoft también recomienda diseñar la aplicación para prepararse para la po
 ## <a name="understand-the-account-failover-process"></a>Descripción del proceso de conmutación por error de una cuenta
 
 La conmutación por error de una cuenta administrada por el cliente le permite conmutar por error toda una cuenta de almacenamiento en la región secundaria si la región principal deja de estar disponible por cualquier motivo. Cuando se fuerza una conmutación por error en la región secundaria, los clientes pueden empezar a escribir datos en el punto de conexión secundario una vez que se completa la conmutación por error. Por lo general, la conmutación por error tarda aproximadamente una hora.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>Funcionamiento de la conmutación por error de una cuenta
 

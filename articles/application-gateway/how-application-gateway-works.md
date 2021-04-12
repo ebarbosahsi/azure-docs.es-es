@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397474"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599670"
 ---
 # <a name="how-an-application-gateway-works"></a>Funcionamiento de una puerta de enlace de aplicaciones
 
@@ -30,7 +30,7 @@ En este artículo se explica el proceso que usa una puerta de enlace de aplicaci
 
 4. Si el firewall de aplicaciones web (WAF) está en uso, la puerta de enlace de aplicaciones comprueba los encabezados y el cuerpo de la solicitud, si están presentes, según las reglas de WAF. Esta acción determina si la solicitud es una solicitud válida o una amenaza de seguridad. Si la solicitud es válida, se enruta al back-end. Si la solicitud no es válida y WAF se encuentra en modo de prevención, se bloquea como una amenaza de seguridad. Si está en modo de detección, la solicitud se evalúa y se registra, pero se reenvía al servidor back-end.
 
-Azure Application Gateway puede usarse como un equilibrador de carga interno de la aplicación o como un equilibrador de carga de aplicación orientado a Internet. Una puerta de enlace de aplicaciones orientada a Internet usa direcciones IP públicas. El nombre DNS de una puerta de enlace de aplicaciones orientada Internet puede resolverse públicamente en su dirección IP pública. Como resultado, las puertas de enlace de aplicaciones orientadas a Internet pueden enrutar las solicitudes de cliente a Internet.
+Azure Application Gateway puede usarse como un equilibrador de carga interno de la aplicación o como un equilibrador de carga de aplicación orientado a Internet. Una puerta de enlace de aplicaciones orientada a Internet usa direcciones IP públicas. El nombre DNS de una puerta de enlace de aplicaciones orientada Internet puede resolverse públicamente en su dirección IP pública. Como consecuencia, las puertas de enlace de aplicaciones orientadas a Internet pueden enrutar las solicitudes de cliente desde Internet.
 
 Las puertas de enlace de aplicaciones internas usan solo las direcciones IP privadas. Si usa una [zona DNS privada](../dns/private-dns-overview.md) o personalizada, el nombre de dominio debe poder resolverse internamente en la dirección IP privada de la instancia de Application Gateway. Por lo tanto, los equilibradores de carga internos solo pueden enrutar las solicitudes de clientes con acceso a una red virtual para la puerta de enlace de aplicaciones.
 
@@ -52,9 +52,9 @@ Cuando una puerta de enlace de la aplicación envía la solicitud original al se
 
  >[!NOTE]
 >Si el grupo de back-end:
-> - **Es un punto de conexión público** , la puerta de enlace de aplicaciones usa su dirección IP pública de front-end para tener acceso al servidor. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
-> - **Contiene un FQDN que se puede resolver internamente o una dirección IP privada** , la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante las direcciones IP privadas de su instancia.
-> - **Contiene un punto de conexión externo o un FQDN que puede resolverse externamente** , la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante la dirección IP pública de su front-end. La resolución de DNS se basa en una zona DNS privada o un servidor DNS personalizado (si está configurado), o bien utiliza el valor predeterminado proporcionado por Azure DNS. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
+> - **Es un punto de conexión público**, la puerta de enlace de aplicaciones usa su dirección IP pública de front-end para tener acceso al servidor. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
+> - **Contiene un FQDN que se puede resolver internamente o una dirección IP privada**, la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante las direcciones IP privadas de su instancia.
+> - **Contiene un punto de conexión externo o un FQDN que puede resolverse externamente**, la puerta de enlace de aplicaciones enruta la solicitud al servidor back-end mediante la dirección IP pública de su front-end. La resolución de DNS se basa en una zona DNS privada o un servidor DNS personalizado (si está configurado), o bien utiliza el valor predeterminado proporcionado por Azure DNS. Si no hay una dirección IP pública de front-end, se asigna una a la conectividad saliente externa.
 
 ### <a name="modifications-to-the-request"></a>Modificaciones a una solicitud
 

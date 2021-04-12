@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724972"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606657"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
@@ -114,7 +114,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
    El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve el siguiente mensaje de error en el campo de nombre, cambie el nombre de la factoría de datos (por ejemplo, suNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
-   ![Nombre de la nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuevo mensaje de error de factoría de datos por nombre duplicado.":::
 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos.
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
@@ -130,7 +130,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Una vez finalizada la creación, verá la página **Data Factory** tal como se muestra en la imagen:
 
-    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::
 1. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
 
 

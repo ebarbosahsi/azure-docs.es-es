@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 5888a5f34ef65fc1015b6e73af1d03368a8329b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098526"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604454"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -34,11 +34,11 @@ La primera opción es pasar el lenguaje y ver la información regional en la cla
 
 ```java
 static {
-    //Set your Azure Maps Key.
-    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
-
     //Alternatively use Azure Active Directory authenticate.
-    //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+    AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+
+    //Set your Azure Maps Key.
+    //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");   
 
     //Set the language to be used by Azure Maps.
     AzureMaps.setLanguage("fr-FR");
@@ -55,11 +55,11 @@ static {
 ```kotlin
 companion object {
     init {
-        //Set your Azure Maps Key.
-        AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
-
         //Alternatively use Azure Active Directory authenticate.
-        //AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+        AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+
+        //Set your Azure Maps Key.
+        //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
     
         //Set the language to be used by Azure Maps.
         AzureMaps.setLanguage("fr-FR");
@@ -118,7 +118,7 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista
 
 [Aquí](supported-languages.md) encontrará una lista completa de los idiomas y vistas regionales admitidos.
 
-## <a name="navigating-the-map"></a>Navegación por el mapa
+## <a name="navigating-the-map&quot;></a>Navegación por el mapa
 
 Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa. A continuación se detallan todas las formas de navegar por el mapa.
 
@@ -141,16 +141,16 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 
 * Toque el mapa con dos dedos y arrástrelos hacia arriba o hacia abajo.
 
-## <a name="azure-government-cloud-support"></a>Compatibilidad con la nube de Azure Government
+## <a name=&quot;azure-government-cloud-support&quot;></a>Compatibilidad con la nube de Azure Government
 
 Android SDK de Azure Maps es compatible con la nube de Azure Government. Se accede a Android SDK de Azure Maps desde el mismo repositorio de Maven. Se deben realizar las siguientes tareas para conectarse a la versión en la nube de Azure Government de la plataforma de Azure Maps.
 
 En el mismo lugar donde se especifican los detalles de autenticación de Azure Maps, agregue la línea de código siguiente para indicar al mapa que use el dominio de nube del gobierno de Azure Maps.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
-AzureMaps.setDomain("atlas.azure.us");
+AzureMaps.setDomain(&quot;atlas.azure.us");
 ```
 
 ::: zone-end

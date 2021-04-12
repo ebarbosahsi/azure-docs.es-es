@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 94a691badf056c8e93f47ae8d052fc1388b34e4c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737479"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601778"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use la CLI de Azure para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
@@ -23,10 +23,6 @@ Cuando se habilita el cifrado en el host, los datos almacenados en el host de m�
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Regiones admitidas
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
-
 ### <a name="supported-vm-sizes"></a>Tamaños de máquinas virtuales que se admiten
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
@@ -35,7 +31,20 @@ También puede encontrar los tamaños de máquina virtual mediante programación
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder usar el cifrado en el host para las máquinas virtuales o los conjuntos de escalado de máquinas virtuales, debe habilitar la característica en la suscripción. Envíe un correo electrónico a encryptionAtHost@microsoft.com con los identificadores de suscripción para que la característica se habilite para sus suscripciones.
+Debe habilitar la característica para su suscripción antes de usar la propiedad EncryptionAtHost para su VM/VMSS. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
+
+1.  Ejecute el siguiente comando para registrar la característica para su suscripción
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+ 
+2.  Compruebe que el estado de registro es Registrado (tarda unos minutos) mediante el comando siguiente antes de probar la característica.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Creación de una instancia de Azure Key Vault y DiskEncryptionSet
 

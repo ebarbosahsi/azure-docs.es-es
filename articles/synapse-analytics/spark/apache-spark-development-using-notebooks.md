@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671590"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612332"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse Studio en Azure Synapse Analytics
 
@@ -41,9 +41,6 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 |%%html| No compatible |&#9745;|
 |Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
 |Salida del parámetro Display() persistente|&#9745;| No disponible |
-|Cancelar todo| &#9745;| No disponible|
-|Ejecutar todas las celdas de arriba|&#9745;| No disponible |
-|Ejecutar todas las celdas de abajo|&#9745;| No disponible |
 |Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No disponible |
 |Deshacer la operación de la celda| &#9745;| No disponible |
 
@@ -115,7 +112,7 @@ La imagen siguiente es un ejemplo de cómo se puede escribir una consulta de PyS
 
    ![Comandos magic de Spark de Synapse](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Uso de tablas temporales para hacer referencia a datos entre lenguajes
+### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Uso de tablas temporales para hacer referencia a datos entre lenguajes
 
 No puede hacer referencia a datos o variables directamente en distintos lenguajes en un cuaderno de Synapse Studio. En Spark, se puede hacer referencia a una tabla temporal entre lenguajes. Este es un ejemplo de cómo leer un DataFrame de `Scala` en `PySpark` y `SparkSQL` mediante una tabla temporal de Spark como solución alternativa.
 
@@ -123,7 +120,7 @@ No puede hacer referencia a datos o variables directamente en distintos lenguaje
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
@@ -273,28 +270,38 @@ Seleccione el botón **Ejecutar todo** para ejecutar todas las celdas del cuader
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Ejecución de todas las celdas encima o debajo
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
 Para tener acceso al menú de acciones de celda adicionales en el extremo derecho, seleccione los puntos suspensivos ( **…** ). A continuación, seleccione **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
+
+Expanda la lista desplegable en el botón **Ejecutar todo** y, a continuación, seleccione **Run cells above** (Ejecutar las celdas encima) para ejecutar todas las celdas situadas encima de la actual en secuencia. Seleccione **Run cells below** (Ejecutar las celdas debajo) para ejecutar todas las celdas situadas debajo de la actual en secuencia.
+
+   ![azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Cancelación de todas las celdas en ejecución
+
+# <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 Seleccione el botón **Cancelar todo** para cancelar las celdas en ejecución o las celdas que esperan en la cola. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-La opción para cancelar todas las celdas en ejecución no está disponible aún para la versión preliminar de la experiencia de cuaderno. 
+Seleccione el botón **Cancelar todo** para cancelar las celdas en ejecución o las celdas que esperan en la cola. 
+   ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Cuaderno de referencia
+### <a name="notebook-reference"></a>Referencia del cuaderno
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
@@ -305,6 +312,11 @@ No compatible.
 Puede usar el comando magic ```%run <notebook path>``` para hacer referencia a otro cuaderno en el contexto del cuaderno actual. Todas las variables definidas en el cuaderno de referencia están disponibles en el cuaderno actual. El comando magic ```%run``` admite llamadas anidadas pero no admite llamadas recursivas. Recibirá una excepción si la profundidad de la instrucción es superior a cinco. Actualmente, el comando ```%run``` solo se admite para pasar una ruta de acceso del cuaderno como parámetro. 
 
 Ejemplo: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> La referencia del cuaderno no se admite en una canalización de Synapse.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ También puede especificar la configuración de la sesión de Spark a través de
     }
 }
 ```
-
+> [!NOTE]
+> El comando magic de configuración de la sesión de Spark no se admite en una canalización de Synapse.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Traslado de los datos a un cuaderno
 
@@ -420,6 +435,11 @@ En las propiedades del cuaderno, puede configurar si incluir la salida de la cel
 ## <a name="magic-commands"></a>Comandos magic
 Puede usar los comandos magic de Jupyter que ya conoce en los cuadernos de Azure Synapse Studio. Revise la lista siguiente para ver los comandos magic disponibles actualmente. Indíquenos [sus casos de uso en GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que podamos seguir generando más comandos magic para satisfacer sus necesidades.
 
+> [!NOTE]
+> Solo se admiten los comandos magic siguientes en una canalización de Synapse: %%pyspark, %%spark, %%csharp, %%sql. 
+>
+>
+
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
 Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Comandos magic de celda disponibles: [%%time](https://ipython.readthedocs.io/en/
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Comandos magic de línea disponibles: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Comandos magic de celda disponibles: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
 
