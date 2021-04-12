@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598191"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121173"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Supervisión de la referencia de datos de Media Services
 
-En este artículo se tratan los datos que son útiles para la supervisión de Media Services. Para más información sobre todas las métricas de la plataforma que se admiten en Azure Monitor, consulte [Métricas compatibles con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+En este artículo se tratan los datos que son útiles para la supervisión de Media Services. Para más información sobre todas las métricas de la plataforma que se admiten en Azure Monitor, consulte [Métricas compatibles con Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Métricas de Media Services
 
@@ -43,7 +44,7 @@ Puede supervisar las siguientes métricas de cuenta.
 |StreamingPolicyQuota|Cuota de directivas de streaming|Cuota de directivas de streaming en su cuenta.|
 |StreamingPolicyQuotaUsedPercentage|Porcentaje usado de la cuota de directiva de streaming|Porcentaje de la cuota de la directiva de streaming ya utilizado.|
 
-También debe revisar las [cuotas y límites](../limits-quotas-constraints.md) de la cuenta.
+También debe revisar las [cuotas y límites](../limits-quotas-constraints-reference.md) de la cuenta.
 
 ### <a name="streaming-endpoint"></a>Punto de conexión de streaming
 
@@ -59,7 +60,7 @@ Se admiten estas métricas de [Puntos de conexión de streaming](/rest/api/media
 
 ## <a name="metric-dimensions"></a>Dimensiones de métricas
 
-Para obtener más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Para obtener más información sobre las dimensiones de métricas, consulte [Métricas multidimensionales](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Para obtener más información sobre las dimensiones de métricas, consulte [Mé
 
 ## <a name="media-services-diagnostic-logs"></a>Registros de diagnóstico de Media Services
 
-Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+Los registros de diagnóstico proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure. Para más información, aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Azure Media Services admite los siguientes registros de diagnóstico:
 
@@ -81,7 +82,7 @@ Azure Media Services admite los siguientes registros de diagnóstico:
 
 ## <a name="schemas"></a>Esquemas
 
-Para obtener una descripción detallada del esquema de registros de diagnóstico de nivel superior, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Para obtener una descripción detallada del esquema de registros de diagnóstico de nivel superior, consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Propiedades del esquema de registro de entrega de claves
 

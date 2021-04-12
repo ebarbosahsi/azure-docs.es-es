@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 357fe1844fabf6ec241d509651b4f0cbcffa3df3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa7bc6b979869a06ba7441ae33a47f82aea0704c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009137"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063974"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Uso de Azure Media Packager para realizar tareas de paquetes estáticos  
 
@@ -715,7 +715,7 @@ En el ejemplo se define el método de UpdatePlayReadyConfigurationXMLFile que pu
 ```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Uso del cifrado estático para proteger HLSv3 con AES-128
-Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinámico (la opción recomendada) o el cifrado estático (como se muestra en esta sección). Si decide usar cifrado dinámico, consulte [Uso del cifrado dinámico de AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
+Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinámico (la opción recomendada) o el cifrado estático (como se muestra en esta sección). Si decide usar cifrado dinámico, consulte [Uso del cifrado dinámico de AES-128 y el servicio de entrega de claves](media-services-playready-license-template-overview.md).
 
 > [!NOTE]
 > Para convertir el contenido en HLS, primero debe convertir o codificar su contenido en Smooth Streaming.
