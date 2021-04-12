@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integración de Azure Active Directory con Wikispaces
@@ -176,17 +176,17 @@ En esta sección, concederá acceso a Britta Simon a Wikispaces para que use el 
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-wikispaces-test-user"></a>Creación de un usuario de prueba de Wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Creación de un usuario de prueba de Wikispaces
 
 Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben aprovisionarse en Wikispaces. En el caso de Wikispaces, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice los siguientes pasos:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Para aprovisionar cuentas de usuario, realice los siguientes pasos:
 
 1. Inicie sesión en su sitio de la compañía de **Wikispaces** como administrador.
 
 2. Vaya a **Miembros**.
    
-    ![Miembros](./media/wikispaces-tutorial/ic787193.png "Members")
+    ![Miembros](./media/wikispaces-tutorial/ic787193.png &quot;Members")
 
 3. Haga clic en **Invitar asistentes**.
    

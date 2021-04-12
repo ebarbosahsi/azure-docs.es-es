@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ded81389fae5954c0e488f634945b4f1c1fe4c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40779e4517b610e52e41caacc46fc613b72023e5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96009048"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567142"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -78,14 +78,14 @@ Puede elegir entre dos opciones de duración de asignación para cada tipo de as
 
 Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignación elegible permanente** | Los administradores de recursos pueden asignar una asignación válida permanente. |
 | **Hacer que las asignaciones elegibles expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
 
 Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
 
-| | |
+| | Descripción |
 | --- | --- |
 | **Permitir asignaciones activas permanentes** | Los administradores de recursos pueden asignar una asignación activa permanente. |
 | **Hacer que las asignaciones activas expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |

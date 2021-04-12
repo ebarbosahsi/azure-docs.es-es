@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
@@ -190,14 +190,14 @@ En esta sección va a permitir que B.Simon acceda a Zscaler Beta mediante el ini
 
     b. Seleccione **Activar**.
 
-## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
+## <a name="configure-proxy-settings&quot;></a>Configuración de los valores de proxy
 Para definir la configuración de proxy en Internet Explorer, siga estos pasos.
 
 1. Inicie **Internet Explorer**.
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el cuadro de diálogo **Opciones de Internet**. 
     
-     ![Cuadro de diálogo Opciones de Internet](./media/zscaler-beta-tutorial/ic769492.png "Opciones de Internet")
+     ![Cuadro de diálogo Opciones de Internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Opciones de Internet")
 
 3. Seleccione la pestaña **Conexiones**. 
   

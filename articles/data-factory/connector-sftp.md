@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592037"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copia de datos hacia y desde un servidor SFTP mediante Azure Data Factory
 
@@ -34,7 +34,7 @@ El conector de SFTP admite las actividades siguientes:
 
 En concreto, el conector de SFTP admite:
 
-- La copia de archivos desde y hacia el servidor SFTP mediante la autenticación *Básica* o *SshPublicKey*.
+- La copia de archivos desde y hacia el servidor SFTP mediante la autenticación **Básica**, de **clave pública SSH** o **multifactor**.
 - La copia de archivos tal cual, o bien el análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -58,7 +58,7 @@ Se admiten las siguientes propiedades para el servicio vinculado de SFTP:
 | port | Puerto en el que escucha el servidor SFTP.<br/>El valor permitido es un entero y el valor predeterminado es *22*. |No |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host.<br/>Los valores permitidos son *true* y *false* (predeterminado).  | No |
 | hostKeyFingerprint | Especifique la huella dactilar de la clave de host. | Sí, si "skipHostKeyValidation" está establecido en false.  |
-| authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son *Básica* y *SshPublicKey*. Para conocer más propiedades, consulte la sección [Uso de la autenticación básica](#use-basic-authentication). Para ver ejemplos de JSON, consulte la sección [Uso de la autenticación de clave pública de SSH](#use-ssh-public-key-authentication). |Sí |
+| authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: *Basic*, *SshPublicKey* y *MultiFactor*. Para conocer más propiedades, consulte la sección [Uso de la autenticación básica](#use-basic-authentication). Para ver ejemplos de JSON, consulte la sección [Uso de la autenticación de clave pública de SSH](#use-ssh-public-key-authentication). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Para más información, consulte la sección [Requisitos previos](#prerequisites). Si no se especifica el entorno de ejecución de integración, el servicio usa la instancia predeterminada de Azure Integration Runtime. |No |
 
 ### <a name="use-basic-authentication"></a>Uso de la autenticación básica
@@ -75,7 +75,6 @@ Para usar la autenticación básica, establezca la propiedad *authenticationType
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Para usar la autenticación de clave pública SSH, establezca la propiedad "auth
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Para usar la autenticación de clave pública SSH, establezca la propiedad "auth
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Usar la autenticación multifactor
+
+Para utilizar la autenticación multifactor, que es una combinación de autenticación básica y de clave pública SSH, especifique la información de nombre de usuario, contraseña y clave privada descrita en las secciones anteriores.
+
+**Ejemplo: autenticación multifactor**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -236,7 +271,7 @@ Se admiten las siguientes propiedades para SFTP en el valor `storeSettings` del 
 | modifiedDatetimeEnd      | Igual que el anterior.                                               | No                                            |
 | enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
 | partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
-| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
+| maxConcurrentConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No                                            |
 
 **Ejemplo**:
 
@@ -289,7 +324,7 @@ Las propiedades siguientes se admiten para SFTP en el valor `storeSettings` del 
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propiedad *type* en `storeSettings` se debe establecer en *SftpWriteSettings*. | Sí      |
 | copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | No       |
-| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No       |
+| maxConcurrentConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas. | No       |
 | useTempFileRename | Indique si desea cargar en archivos temporales y cambiarles el nombre, o bien escribir directamente en la ubicación de la carpeta o archivo de destino. De forma predeterminada, Azure Data Factory primero escribe en archivos temporales y, a continuación, los cambia de nombre cuando finaliza la carga. Esta secuencia ayuda a (1) evitar conflictos que podrían dañar el archivo si tiene otros procesos que escriben en el mismo archivo y (2) asegurarse de que la versión original del archivo existe durante la transferencia. Si el servidor SFTP no admite la operación de cambio de nombre, deshabilite esta opción y asegúrese de que no tiene una escritura simultánea en el archivo de destino. Para más información, consulte la sugerencia de solución de problemas al final de esta tabla. | No. El valor predeterminado es *true*. |
 | operationTimeout | Tiempo de espera máximo de las solicitudes de escritura en el servidor SFTP. El valor predeterminado es 60 min (01:00:00).|No |
 
@@ -422,7 +457,7 @@ Para más información sobre las propiedades de la actividad de eliminación, co
 |:--- |:--- |:--- |
 | type | La propiedad *type* del origen de la actividad de copia debe establecerse en *FileSystemSource*. |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Si recursive se establece en *true* y el receptor es un almacén basado en archivos, no se copiará ni creará una subcarpeta o carpeta vacía en el receptor.<br/>Los valores permitidos son *true* (valor predeterminado) y *false*. | No |
-| maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un número solamente cuando desee limitar la conexión simultánea al almacén de datos. | No |
+| maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
 **Ejemplo**:
 

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467964"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285366"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modelo de tarjeta de identificación (ID) precompilada de Form Recognizer
 
-Azure Form Recognizer puede analizar y extraer información de tarjetas de identificación (ID) expedidas por la Administración mediante alguno de sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/concept-recognizing-text.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en la versión preliminar de Form Recognizer v2.1 como un servicio en la nube y como un contenedor local.
+Azure Form Recognizer puede analizar y extraer información de tarjetas de identificación (ID) expedidas por la Administración mediante alguno de sus modelos de ID precompilados. Combina nuestras eficaces funcionalidades de [reconocimiento óptico de caracteres (OCR)](../computer-vision/overview-ocr.md) con capacidades de reconocimiento de ID para extraer información clave de pasaportes de todo el mundo y de permisos de conducir de EE. UU. (de los 50 estados y del D.C.). La API de ID extrae información clave de estos documentos de identidad, como el nombre, el apellido, la fecha de nacimiento, el número del documento, etc. Esta API está disponible en la versión preliminar de Form Recognizer v2.1 como un servicio en la nube y como un contenedor local.
 
 ## <a name="what-does-the-id-service-do"></a>¿Qué hace el servicio de ID? 
 

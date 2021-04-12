@@ -3,12 +3,12 @@ title: Introducción a la copia de seguridad operativa para blobs de Azure
 description: Obtenga más información sobre la copia de seguridad operativa para blobs de Azure (versión preliminar).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101743575"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558761"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Introducción a la copia de seguridad operativa para blobs de Azure (versión preliminar)
 
@@ -22,7 +22,7 @@ La copia de seguridad operativa de blobs es una solución de **copia de segurida
 
 La copia de seguridad operativa utiliza funcionalidades de la plataforma de blobs para proteger los datos y permitir la recuperación cuando sea necesario:
 
-- **Restauración a un momento dado**: la [restauración de blobs a un momento dado](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) permite restaurar los datos de blobs a un estado anterior. A su vez, esto usa las funciones de **eliminación temporal**, **fuente de cambios** y **control de versiones de blobs** para conservar los datos durante el tiempo especificado. La copia de seguridad operativa se encarga de habilitar la restauración a un momento dado, así como las funcionalidades subyacentes, para que los datos se conserven durante el tiempo especificado.
+- **Restauración a un momento dado**: la [restauración de blobs a un momento dado](../storage/blobs/point-in-time-restore-overview.md) permite restaurar los datos de blobs a un estado anterior. A su vez, esto usa las funciones de **eliminación temporal**, **fuente de cambios** y **control de versiones de blobs** para conservar los datos durante el tiempo especificado. La copia de seguridad operativa se encarga de habilitar la restauración a un momento dado, así como las funcionalidades subyacentes, para que los datos se conserven durante el tiempo especificado.
 
 - **Bloqueo de la eliminación**: el bloqueo de la eliminación impide que usuarios no autorizados eliminen la cuenta de almacenamiento o que se elimine accidentalmente. Cuando se configura la copia de seguridad operativa, también aplica automáticamente un bloqueo de la eliminación para reducir las posibilidades de pérdida de datos debida a la eliminación de la cuenta de almacenamiento.
 
@@ -63,9 +63,9 @@ La copia de seguridad operativa ofrece la opción de restaurar todos los blobs e
 
 No se incurrirá en cargos de administración o tarifas por instancia cuando se use la copia de seguridad operativa para blobs. Sin embargo, incurrirá en cargos por los siguientes motivos:
 
-- Las restauraciones se realizan mediante la restauración de blobs a un momento dado e incurren en cargos en función de la cantidad de datos procesados. Para más información, consulte los [precios de la restauración a un momento dado](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- Las restauraciones se realizan mediante la restauración de blobs a un momento dado e incurren en cargos en función de la cantidad de datos procesados. Para más información, consulte los [precios de la restauración a un momento dado](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- Retención de los datos debida a las funciones de [eliminación temporal de blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), [compatibilidad con la fuente de cambios en Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed) y [control de versiones de blobs](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Retención de los datos debida a las funciones de [eliminación temporal de blobs](../storage/blobs/soft-delete-blob-overview.md), [compatibilidad con la fuente de cambios en Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md) y [control de versiones de blobs](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

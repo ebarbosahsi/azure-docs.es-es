@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: jeedes
 ms.openlocfilehash: b3fbf73ab51092f614a416355477fc552a404fd3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104581818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Jitbit Helpdesk con Azure Active Directo
 * Permitir que los usuarios inicien sesión automáticamente en Jitbit Helpdesk con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 

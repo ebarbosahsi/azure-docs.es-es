@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656557"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584506"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,12 +69,14 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Durante una interrupción en la región de escritura, la cuenta de Azure Cosmos promoverá automáticamente una región secundaria para que sea la nueva región de escritura principal cuando la opción para **habilitar la conmutación por error automática** está configurada en la cuenta de Azure Cosmos. Cuando se habilita, la conmutación por error se producirá en otra región según el orden de prioridad de regiones que especificó.
 
+* Tenga en cuenta que la conmutación por error manual no debería desencadenarse y no se realizará correctamente en presencia de una interrupción en la región de origen o de destino. Esto se debe a la comprobación de coherencia que requiere el procedimiento de conmutación por error, la cual requiere conectividad entre las regiones.
+
 * Cuando la región afectada previamente vuelva a estar en línea, los datos de escritura cuya replicación se anuló al producirse el error en la región se ponen a disposición a través de la [fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed). Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en el contenedor de Azure Cosmos según corresponda.
 
 * Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Puede volver a la región recuperada como la región de escritura. Puede cambiar las regiones con [PowerShell, la CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover). No se produce **ninguna pérdida de datos ni de disponibilidad** antes, durante ni después de cambiar la región de escritura, y la aplicación sigue siendo de alta disponibilidad.
 
 > [!IMPORTANT]
-> Se recomienda encarecidamente configurar las cuentas de Azure Cosmos usadas para que las cargas de trabajo de producción **habiliten la conmutación por error automática**. La conmutación por error manual requiere conectividad entre las regiones de escritura secundaria y primaria para completar una comprobación de coherencia a fin de garantizar que no haya pérdida de datos durante la conmutación por error. Si la región primaria no está disponible, no se puede completar esta comprobación de coherencia y la conmutación por error manual no se realizará correctamente, lo que provocará la pérdida de disponibilidad de escritura durante toda la interrupción regional.
+> Se recomienda encarecidamente configurar las cuentas de Azure Cosmos usadas para que las cargas de trabajo de producción **habiliten la conmutación por error automática**. Esto permite a Cosmos DB conmutar por error las bases de datos de la cuenta a las regiones disponibles automáticamente. En ausencia de esta configuración, la cuenta experimentará la pérdida de la disponibilidad de escritura durante toda la interrupción de la región de escritura, ya que la conmutación por error manual no se realizará correctamente debido a la falta de conectividad con la región.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Cuentas de varias regiones con una sola región de escritura (interrupción de la región de lectura)
 
@@ -138,7 +140,22 @@ Availability Zones se puede habilitar mediante:
 
 * Incluso si su cuenta de Azure Cosmos es de alta disponibilidad, es posible que la aplicación no se haya diseñado correctamente para seguir teniendo alta disponibilidad. Para probar la alta disponibilidad de un extremo a otro de la aplicación, como parte de las pruebas de la aplicación o las exploraciones de recuperación ante desastres (DR), deshabilite temporalmente la conmutación automática por error de la cuenta, invoque la [conmutación por error manual mediante PowerShell, la CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover) y, luego, supervise la conmutación por error de la aplicación. Cuando haya terminado, puede realizar la conmutación por recuperación a la región primaria y restaurar la conmutación automática por error en la cuenta.
 
+> [!IMPORTANT]
+> No invoque la conmutación por error manual durante una interrupción de Cosmos DB en las regiones de origen o de destino, ya que requiere conectividad con las regiones para mantener la coherencia de los datos y no se realizará correctamente.
+
 * En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como "objetivo de tiempo de recuperación (RTO)". También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO). Para ver el RPO y el RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
+
+## <a name="what-to-expect-during-a-region-outage"></a>Qué cabe esperar durante una interrupción de región
+
+En el caso de las cuentas de una sola región, los clientes experimentarán la pérdida de disponibilidad de la lectura y escritura.
+
+Las cuentas de varias regiones experimentarán diferentes comportamientos según la tabla siguiente.
+
+| Regiones de escritura | Conmutación por error automática | Qué esperar | Qué hacer |
+| -- | -- | -- | -- |
+| Una región de escritura | no habilitado. | En caso de interrupción en una región de lectura, todos los clientes se redirigirán a otras regiones. No se produce pérdida de la disponibilidad de lectura o escritura. No se produce pérdida de datos. <p/> En caso de que se produzca una interrupción en la región de escritura, los clientes experimentarán la pérdida de la disponibilidad de escritura. La pérdida de datos dependerá del nivel de coherencia seleccionado. <p/> Cosmos DB restaurará la disponibilidad de escritura automáticamente cuando termine la interrupción. | Durante la interrupción, asegúrese de que haya suficiente capacidad aprovisionada en las regiones restantes para admitir el tráfico de lectura. <p/> *No* desencadene una conmutación por error manual durante la interrupción, ya que no se realizará correctamente. <p/> Cuando termine la interrupción, vuelva a ajustar la capacidad aprovisionada según corresponda. |
+| Una región de escritura | habilitado | En caso de interrupción en una región de lectura, todos los clientes se redirigirán a otras regiones. No se produce pérdida de la disponibilidad de lectura o escritura. No se produce pérdida de datos. <p/> En caso de que se produzca una interrupción en la región de escritura, los clientes experimentarán la pérdida de la disponibilidad de escritura hasta que Cosmos DB elija automáticamente una nueva región como la región de escritura según las preferencias establecidas. La pérdida de datos dependerá del nivel de coherencia seleccionado. | Durante la interrupción, asegúrese de que haya suficiente capacidad aprovisionada en las regiones restantes para admitir el tráfico de lectura. <p/> *No* desencadene una conmutación por error manual durante la interrupción, ya que no se realizará correctamente. <p/> Cuando termine la interrupción, podrá recuperar los datos no replicados en la región con errores desde la [fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed), volver a trasladar la región de escritura a la región original y volver a ajustar la capacidad aprovisionada según corresponda. |
+| Varias regiones de escritura | No aplicable | No se produce pérdida de la disponibilidad de lectura o escritura. <p/> Pérdida de datos según el nivel de coherencia seleccionado. | Durante la interrupción, asegúrese de que haya suficiente capacidad aprovisionada en las regiones restantes para admitir el tráfico adicional. <p/> Cuando termine la interrupción, podrá recuperar los datos no replicados en la región con errores desde la [fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed) y volver a ajustar la capacidad aprovisionada según corresponda. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

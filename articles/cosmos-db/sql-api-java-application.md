@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 01c9a8b62190f3b545169bb5ba6732e6799ff9f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 489f4aad78437edad2184e773d97d35af24f3249
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559815"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286001"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,8 +37,7 @@ Este tutorial de aplicación Java muestra cómo crear una aplicación de adminis
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Aplicación Java My ToDo List":::
 
 > [!TIP]
-> En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las [herramientas de los requisitos previos](#Prerequisites), se recomienda descargar el proyecto de lista de tareas pendientes completo https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) desde GitHub y compilarlo según [las instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.  
->
+> En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las [herramientas de requisitos previos](#Prerequisites), se recomienda que descargue el proyecto completo [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) de GitHub y lo compile mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.  
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
 

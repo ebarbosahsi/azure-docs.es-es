@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 38ec7949b5fc04852568e9e69f35f212b1edee5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201047"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731231"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -57,7 +57,7 @@ Nos complace anunciar que la versión 7.2 del entorno de ejecución de Service F
 
 Debido a la actual crisis de la COVID-19 y teniendo en cuenta los desafíos a los que se enfrentan nuestros clientes, vamos a lanzar la versión 7.1, pero no se actualizarán automáticamente los clústeres configurados para recibir actualizaciones automáticas. Vamos a interrumpir las actualizaciones automáticas hasta próximo aviso para garantizar que los clientes pueden aplicar las actualizaciones cuando les resulte conveniente, con el fin de evitar interrupciones inesperadas.
 
-Podrá actualizar a la versión 7.1 desde [Azure Portal](./service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) o desde una [implementación de Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#set-the-upgrade-mode-using-a-resource-manager-template).
+Podrá actualizar a la versión 7.1 desde [Azure Portal](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) o desde una [implementación de Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Los clústeres de Service Fabric con actualizaciones automáticas habilitadas comenzarán a recibir la actualización 7.1 automáticamente una vez que se reanude el procedimiento de lanzamiento estándar. Realizaremos otro anuncio antes de que comience el lanzamiento estándar en el [sitio de Tech Community de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 También hemos publicado [aquí](./service-fabric-versions.md#supported-versions) actualizaciones sobre la fecha de finalización del soporte para las versiones principales desde la 6.5 hasta la 7.1. 
@@ -72,7 +72,7 @@ También hemos publicado [aquí](./service-fabric-versions.md#supported-versions
       -  Reducen los costos generales (los discos son gratuitos y no hay ningún costo de almacenamiento adicional).
 - Compatibilidad con la declaración de [**certificados de punto de conexión de servicio de aplicaciones de Service Fabric por nombre común del sujeto**](./service-fabric-service-manifest-resources.md).
 - [**Compatibilidad con sondeos de estado para servicios en contenedores**](./probes-codepackage.md): Compatibilidad del mecanismo del sondeo de ejecución para aplicaciones en contenedores. El sondeo de ejecución ayuda a anunciar la vivacidad de aplicaciones en contenedores y, cuando no responden a tiempo, se producirá un reinicio. 
-- [**Compatibilidad con paquetes de código del inicializador**](./initializer-codepackages.md) para [contenedores](/azure/service-fabric/service-fabric-containers-overview) y aplicaciones [ejecutables invitadas](/azure/service-fabric/service-fabric-guest-executables-introduction). Esto permite ejecutar paquetes de código (p.ej., contenedores), en un orden especificado, para realizar la inicialización de un paquete de servicio.
+- [**Compatibilidad con paquetes de código del inicializador**](./initializer-codepackages.md) para [contenedores](./service-fabric-containers-overview.md) y aplicaciones [ejecutables invitadas](./service-fabric-guest-executables-introduction.md). Esto permite ejecutar paquetes de código (p.ej., contenedores), en un orden especificado, para realizar la inicialización de un paquete de servicio.
 - **FabricObserver y ClusterObserver** son aplicaciones sin estado que capturan la telemetría de Service Fabric relacionada con diferentes aspectos de un clúster de Service Fabric. Las dos aplicaciones están listas para implementarse en clústeres de producción de Windows para capturar muchos datos de telemetría con compatibilidad implementada con ApplicationInsights, EventSource y LogAnalytics.
     - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer): se ejecuta en todos los nodos, genera eventos de estado y emite datos de telemetría cuando se alcanzan los niveles de uso de recursos configurados por el usuario. Esta versión contiene varias mejoras en la supervisión, administración de datos, detalles del evento de estado y telemetría estructurada.
      - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver): se ejecuta en un nodo, captura los datos de telemetría del estado del nivel de clúster. En esta versión, ClusterObserver también supervisa el estado del nodo y emite datos de telemetría cuando el nodo está inactivo/deshabilitándose/deshabilitado durante un periodo de tiempo mayor que el especificado por el usuario.

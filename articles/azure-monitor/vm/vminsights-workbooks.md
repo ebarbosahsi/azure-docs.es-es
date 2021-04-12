@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798857"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568807"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Creación de informes interactivos de VM Insights con libros
 
@@ -103,13 +103,13 @@ Cada sección tiene su propia configuración avanzada, a la que se puede acceder
 
 ![Captura de pantalla del cuadro de diálogo Configuración avanzada en la sección Libro de Virtual Machines de Azure Monitor. Se resalta el icono que abre el cuadro de diálogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Configuración | Descripción |
 | ---------------- |:-----|
-| **Ancho personalizado**    | Define un tamaño arbitrario para un elemento, de modo que se puedan ajustar varios elementos en una sola línea. Esto le permitirá organizar mejor los gráficos y las tablas en informes interactivos enriquecidos.  |
-| **Conditionally visible** (Visible condicionalmente) | Especificar para ocultar los pasos en función de un parámetro en el modo de lectura. |
-| **Export a parameter** (Exportar un parámetro)| Permite que una fila seleccionada en la cuadrícula o en el gráfico genere más pasos para cambiar los valores o para hacerlos visibles.  |
-| **Mostrar la consulta cuando no se está editando** | Muestra la consulta por encima del gráfico o la tabla incluso en modo de lectura.
-| **Mostrar el botón Abrir en Analytics cuando no se esté editando** | Agrega el icono azul de Analytics a la esquina derecha del gráfico para permitir el acceso con un solo clic.|
+| Ancho personalizado    | Define un tamaño arbitrario para un elemento, de modo que se puedan ajustar varios elementos en una sola línea. Esto le permitirá organizar mejor los gráficos y las tablas en informes interactivos enriquecidos.  |
+| Conditionally visible (Visible condicionalmente) | Especificar para ocultar los pasos en función de un parámetro en el modo de lectura. |
+| Export a parameter (Exportar un parámetro)| Permite que una fila seleccionada en la cuadrícula o en el gráfico genere más pasos para cambiar los valores o para hacerlos visibles.  |
+| Mostrar la consulta cuando no se está editando | Muestra la consulta por encima del gráfico o la tabla incluso en modo de lectura.
+| Mostrar el botón Abrir en Analytics cuando no se esté editando | Agrega el icono azul de Analytics a la esquina derecha del gráfico para permitir el acceso con un solo clic.|
 
 La mayoría de estas opciones de configuración son bastante intuitivas, pero para comprender la opción **Exportar un parámetro** le recomendamos que examine un libro que use esta funcionalidad.
 
@@ -152,12 +152,12 @@ Los parámetros son lineales, desde la parte superior de un libro y hasta los pa
  
 Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
-|                  |      |
+| Parámetro | Descripción |
 | ---------------- |:-----|
-| **Texto**    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
-| **Lista desplegable** | Permite al usuario elegir entre un conjunto de valores. |
-| **Selector de intervalo de tiempo**| Permite al usuario elegir entre un conjunto predefinido de valores de intervalo de tiempo o seleccionar entre un intervalo de tiempo personalizado.|
-| **Selector de recursos** | Permite al usuario elegir entre los recursos seleccionados para el libro.|
+| Texto    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
+| Desplegable | Permite al usuario elegir entre un conjunto de valores. |
+| Selector de intervalo de tiempo| Permite al usuario elegir entre un conjunto predefinido de valores de intervalo de tiempo o seleccionar entre un intervalo de tiempo personalizado.|
+| Selector de recursos | Permite al usuario elegir entre los recursos seleccionados para el libro.|
 
 ### <a name="using-a-text-parameter"></a>Uso de un parámetro de texto
 

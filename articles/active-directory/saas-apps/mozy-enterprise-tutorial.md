@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92520955"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integración de Azure Active Directory con Mozy Enterprise
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Mozy Enterprise, rea
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Mozy Enterprise](https://support.mozy.com/) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Mozy Enterprise](https://www.safenames.net/about-us/contact-us) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -199,7 +199,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Creación de un usuario de prueba de Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user&quot;></a>Creación de un usuario de prueba de Mozy Enterprise
 
 Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, deben aprovisionarse en Mozy Enterprise. En el caso de Mozy Enterprise, el aprovisionamiento es una tarea manual.
 
@@ -212,7 +212,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, d
 
 2. Haga clic en **Usuarios** y, luego, en **Agregar nuevo usuario**.
    
-    ![Usuarios](./media/mozy-enterprise-tutorial/ic777317.png "Usuarios")
+    ![Usuarios](./media/mozy-enterprise-tutorial/ic777317.png &quot;Usuarios")
    
     >[!NOTE]
     >La opción **Agregar nuevo usuario** solo se muestra si **Mozy** está seleccionado como proveedor en **Directiva de autenticación**. Si la autenticación SAML está configurada, los usuarios se agregan automáticamente al iniciar sesión por primera vez con inicio de sesión único.

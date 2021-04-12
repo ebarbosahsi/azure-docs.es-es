@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98071381"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568666"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -292,7 +292,7 @@ Este problema se produce cuando los agentes de administración de vCenter Server
 
 ### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensaje de error: Error interno. [Snapshot Disk size invalid] ([Tamaño de disco de instantánea no válido])
 
-Se trata de un problema conocido de VMware en el que el tamaño de disco indicado por la instantánea se convierte en cero. Siga la solución que se proporciona en el [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138972).
+Se trata de un problema conocido de VMware en el que el tamaño de disco indicado por la instantánea se convierte en cero. Siga la solución que se proporciona en el [KB de VMware](https://kb.vmware.com/s/).
 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensaje de error: Error interno. [Memory allocation failed. Out of memory.] ([Error de asignación de memoria. Memoria insuficiente.])
 

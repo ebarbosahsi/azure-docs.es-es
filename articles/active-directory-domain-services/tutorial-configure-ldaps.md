@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579559"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933345"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -235,7 +235,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de las ventanas del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
-    | Configuración                           | Value        |
+    | Configuración                           | Valor        |
     |-----------------------------------|--------------|
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |
@@ -298,6 +298,21 @@ Si en este tutorial ha agregado una entrada DNS en el archivo de hosts local del
 1. En el equipo local, abra el *Bloc de notas* como administrador.
 1. Vaya al archivo *C:\Windows\System32\drivers\etc\hosts* y ábralo.
 1. Elimine la línea del registro que ha agregado, como `168.62.205.103    ldaps.aaddscontoso.com`.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si ve un error que indica que LDAP.exe no se puede conectar, intente trabajar con los distintos aspectos de la obtención de la conexión: 
+
+1. Configuración del controlador de dominio
+1. Configuración del cliente
+1. Redes
+1. Establecimiento de la sesión de TLS
+
+Para la coincidencia del nombre del firmante del certificado, el controlador de dominio utilizará el nombre de dominio de Azure ADDS (no el nombre de dominio de Azure AD) para buscar el certificado en su almacén de certificados. Los errores ortográficos, por ejemplo, impiden que el controlador de dominio seleccione el certificado adecuado. 
+
+El cliente intenta establecer la conexión TLS con el nombre proporcionado. El tráfico tiene que llegar hasta el final. El controlador de dominio envía la clave pública del certificado de autenticación del servidor. El certificado debe tener el uso correcto en el certificado, el nombre firmado en el asunto debe ser compatible para que el cliente confíe en que el servidor es el nombre DNS al que se está conectando (es decir, un comodín puede servir, sin errores ortográficos) y el cliente debe confiar en el emisor. Puede comprobar si hay algún problema en esa cadena en el registro del sistema en Visor de eventos y filtrar los eventos donde el origen sea igual a Schannel. Cuando estos elementos están en su lugar, forman una clave de sesión.  
+
+Para más información, consulte [Protocolo de enlace de TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

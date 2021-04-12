@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
 ms.openlocfilehash: 1996024d163a4bf7cfa741110038bb8db5b883e8
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102632753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BeyondTrust Remote Support
