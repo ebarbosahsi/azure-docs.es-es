@@ -5,14 +5,14 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/22/2021
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: f21a2cc8218dde8b0cf7203a1fcb1f5cfb9424a2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f32f58bebc0a7d64443259981590e368b109b19b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790874"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278956"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
@@ -23,6 +23,13 @@ Language Understanding (LUIS) es un servicio conversacional de inteligencia arti
 Una aplicación cliente para LUIS es cualquier aplicación conversacional que se comunique con un usuario en lenguaje natural para completar una tarea. Entre estas aplicaciones cliente se encuentran, por ejemplo, aplicaciones de redes sociales, bots de chat de inteligencia artificial y aplicaciones de escritorio habilitadas para voz.
 
 ![Imagen conceptual de tres aplicaciones cliente que funcionan con Language Understanding (LUIS) de Cognitive Services](./media/luis-overview/luis-entry-point.png "Imagen conceptual de tres aplicaciones cliente que funcionan con Language Understanding (LUIS) de Cognitive Services")
+
+Esta documentación contiene los siguientes tipos de artículos:  
+
+* Los [**inicios rápidos**](luis-get-started-create-app.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.  
+* Las [**guías de procedimientos**](luis-how-to-start-new-app.md) contienen instrucciones para usar el servicio de una manera más específica o personalizada.  
+* Los [**conceptos**](artificial-intelligence.md) proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.  
+* Los [**tutoriales**](tutorial-intents-only.md) son guías más largas que muestran cómo usar el servicio como componente de soluciones empresariales más amplias.  
 
 ## <a name="use-luis-in-a-chat-bot"></a>Uso de LUIS en un bot de chat
 
@@ -139,8 +146,6 @@ Obtenga información sobre LUIS con inicios rápidos prácticos mediante el [por
 
 * [Novedades](whats-new.md "Novedades") con el servicio y la documentación
 * [Planee la aplicación](luis-how-plan-your-app.md "Planeamiento de la aplicación") con [intenciones](luis-concept-intent.md "intenciones") y [entidades](luis-concept-entity-types.md "entities").
-* [Consulte el punto de conexión de predicción](luis-get-started-get-intent-from-browser.md "Consulta del punto de conexión de predicción").
-* [Recursos para el desarrollador](developer-reference-resource.md "Recursos para desarrolladores") de LUIS
 
 [bot-framework]: /bot-framework/
 [flow]: /connectors/luis/

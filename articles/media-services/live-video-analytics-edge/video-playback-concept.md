@@ -3,12 +3,12 @@ title: 'Reproducción de vídeo: Azure'
 description: Marcador de posición
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063379"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278599"
 ---
 # <a name="video-playback"></a>Reproducción de vídeo 
 
@@ -24,7 +24,7 @@ Puede usar [grafos multimedia](media-graph-concept.md) para grabar vídeo en un 
 
 ## <a name="streaming-endpoint"></a>extremo de streaming 
 
-Puede usar Azure Media Services para [transmitir por secuencias](terminology.md#streaming) el recurso a reproductores de vídeo mediante protocolos de streaming multimedia estándar del sector basados en HTTP, como HTTP Live Streaming (HLS) y MPEG-DASH. Esta conversión de contenido multimedia grabado a formatos de streaming se administra mediante un [punto de conexión de streaming](../latest/streaming-endpoint-concept.md), que es un recurso que se debe aprovisionar en la cuenta de Azure Media Services.
+Puede usar Azure Media Services para [transmitir por secuencias](terminology.md#streaming) el recurso a reproductores de vídeo mediante protocolos de streaming multimedia estándar del sector basados en HTTP, como HTTP Live Streaming (HLS) y MPEG-DASH. Esta conversión de contenido multimedia grabado a formatos de streaming se administra mediante un [punto de conexión de streaming](../latest/stream-streaming-endpoint-concept.md), que es un recurso que se debe aprovisionar en la cuenta de Azure Media Services.
 
 ## <a name="streaming-policy"></a>Directiva de streaming 
 
@@ -34,11 +34,11 @@ Azure Media Services ofrece distintos métodos para proteger las secuencias de v
 * **Use Estándar de cifrado avanzado (AES-128)** (Usar Estándar de cifrado avanzado [AES-128]): para implementar un método de entrega de las claves para descifrar el vídeo solo para espectadores autenticados.
 * **Use Digital Rights Management (DRM) systems** (Usar sistemas de Administración de derechos digitales [DRM]): para controlar el uso, la modificación y la entrega de vídeo en dispositivos que aplican estas directivas.
 
-Para lograr la protección del contenido, puede definir y crear una [directiva de streaming](../latest/streaming-policy-concept.md) en su cuenta de Media Services y usarla para transmitir por secuencias todos los recursos (suponiendo que todas las secuencias tengan los mismos requisitos de seguridad). También puede usar cualquiera de las directivas predefinidas (como Predefined_ClearStreamingOnly).
+Para lograr la protección del contenido, puede definir y crear una [directiva de streaming](../latest/stream-streaming-policy-concept.md) en su cuenta de Media Services y usarla para transmitir por secuencias todos los recursos (suponiendo que todas las secuencias tengan los mismos requisitos de seguridad). También puede usar cualquiera de las directivas predefinidas (como Predefined_ClearStreamingOnly).
 
 ## <a name="streaming-locator"></a>Localizador de streaming  
 
-Cuando haya iniciado un punto de conexión de streaming en su cuenta de Media Services y se haya definido la directiva de streaming, puede pasar a la transmisión del contenido multimedia grabado desde un recurso mediante los protocolos HLS o DASH. Los reproductores web y las aplicaciones móviles necesitan una dirección URL que apunte a esa secuencia HLS o DASH. Puede compilar esta dirección URL mediante el [localizador de streaming](../latest/streaming-locators-concept.md). Tal y como se describe en ese artículo y se muestra en el ejemplo [Creación de un localizador de streaming y compilación de direcciones URL](../latest/create-streaming-locator-build-url.md). la dirección URL de streaming se compone del punto de conexión de streaming, la directiva de streaming y el localizador de streaming.
+Cuando haya iniciado un punto de conexión de streaming en su cuenta de Media Services y se haya definido la directiva de streaming, puede pasar a la transmisión del contenido multimedia grabado desde un recurso mediante los protocolos HLS o DASH. Los reproductores web y las aplicaciones móviles necesitan una dirección URL que apunte a esa secuencia HLS o DASH. Puede compilar esta dirección URL mediante el [localizador de streaming](../latest/stream-streaming-locators-concept.md). Tal y como se describe en ese artículo y se muestra en el ejemplo [Creación de un localizador de streaming y compilación de direcciones URL](../latest/create-streaming-locator-build-url.md). la dirección URL de streaming se compone del punto de conexión de streaming, la directiva de streaming y el localizador de streaming.
 
 ## <a name="content-recorded-using-file-sink"></a>Contenido grabado mediante el receptor de archivos  
 

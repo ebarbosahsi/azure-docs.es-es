@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 677c5998d25205f8de9792888af2554674944798
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: e4d1ed0c015b75cc058c7d6136069a8858d835e2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107595"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492535"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conexión a la API de Media Services v3: .NET
 
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Tutorial: Análisis de vídeos con Media Services v3: .NET](analyze-videos-tutorial.md)
 - [Creación de una entrada de trabajo a partir de un archivo local: .NET](job-input-from-local-file-how-to.md)
 - [Creación de una entrada de trabajo a partir de una dirección URL de HTTPS: .NET](job-input-from-http-how-to.md)
-- [Codificación con una transformación personalizada: .NET](encode-custom-presets-how-to.md)
+- [Codificación con una transformación personalizada: .NET](transform-custom-presets-how-to.md)
 - [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves: .NET](drm-playready-license-template-concept.md)
 - [Uso del cifrado dinámico de DRM y el servicio de entrega de licencias: .NET](drm-protect-with-drm-tutorial.md)
 - [Obtención de una clave de firma de la directiva existente: .NET](drm-get-content-key-policy-dotnet-how-to.md)

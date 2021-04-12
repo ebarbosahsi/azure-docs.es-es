@@ -3,12 +3,12 @@ title: 'Tutorial de grabación continua de vídeo en la nube y reproducción des
 description: En este tutorial aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para grabar continuamente vídeo en la nube y transmitir cualquier parte de ese vídeo con Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 2dde1c9d917881d7a16dbc853e4af416dffe5d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702426"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280350"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación continua de vídeo en la nube y reproducción desde la nube
 
@@ -389,7 +389,7 @@ Puede examinar el recurso de Media Services que creó el grafo multimedia; para 
 1. En el asistente que se abre, acepte las opciones predeterminadas y seleccione **Agregar**. Para más información, consulte [Reproducción de vídeo](video-playback-concept.md).
 
     > [!TIP]
-    > Asegúrese de que el [punto de conexión de streaming está en ejecución](../latest/streaming-endpoint-concept.md).
+    > Asegúrese de que el [punto de conexión de streaming está en ejecución](../latest/stream-streaming-endpoint-concept.md).
 1. El reproductor debería cargar el vídeo. Seleccione **Reproducir** para verlo.
 
 > [!NOTE]

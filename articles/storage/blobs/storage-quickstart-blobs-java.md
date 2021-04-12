@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: Java'
 description: En este inicio rápido aprenderá a usar la versión 12 de la biblioteca cliente de Azure Blob Storage para Java con el fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6d42cf26bc128257aa5d0cd7ef01e8fe8749a51
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054710"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280639"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Inicio rápido: Administración de blobs con el SDK de Java v12
 
@@ -26,7 +26,7 @@ Recursos adicionales:
 * [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
 * [Muestras](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
