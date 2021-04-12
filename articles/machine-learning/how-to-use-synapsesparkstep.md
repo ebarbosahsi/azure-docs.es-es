@@ -10,16 +10,18 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455066"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868654"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Uso de Apache Spark (con tecnología de Azure Synapse Analytics) en la canalización de aprendizaje automático (versión preliminar)
 
 En este artículo, aprenderá a usar grupos de Apache Spark con tecnología de Azure Synapse Analytics como destino de proceso en un paso de preparación de datos en una canalización de Azure Machine Learning. Aprenderá cómo una sola canalización puede usar recursos de proceso adecuados para el paso concreto, como la preparación de datos o el entrenamiento. Verá cómo se preparan los datos para el paso con Spark y cómo se pasan al paso siguiente. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -90,6 +92,8 @@ El primer paso consiste en configurar `SynapseCompute`: El argumento `linked_ser
 Una vez creada la configuración, se crea un elemento `ComputeTarget` de aprendizaje automático; para ello, se pasan `Workspace`, `ComputeTargetAttachConfiguration` y el nombre con el que quiere hacer referencia al proceso en el área de trabajo de aprendizaje automático. La llamada a `ComputeTarget.attach()` es asincrónica, por lo que el ejemplo se bloquea hasta que se completa la llamada.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Creación de un elemento `SynapseSparkStep` que usa el grupo de Apache Spark vinculado
+
+El [trabajo de Spark del grupo de Apache Spark](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) del cuaderno de ejemplo define una canalización de aprendizaje automático simple. En primer lugar, el cuaderno define un paso de preparación de los datos con el parámetro `synapse_compute` definido en el paso anterior. Después, define un paso de entrenamiento con un destino de proceso más adecuado para el entrenamiento. El cuaderno de ejemplo usa la base de datos de supervivencia de Titanic para mostrar la entrada y salida de datos; realmente no se limpian los datos ni se crea un modelo predictivo. Dado que no hay ningún entrenamiento real en este ejemplo, el paso de entrenamiento usa un recurso de proceso económico basado en CPU.
 
 Los datos fluyen a una canalización de aprendizaje automático por medio de objetos `DatasetConsumptionConfig`, que pueden contener conjuntos de archivos o datos tabulares. A menudo, los datos proceden de archivos de almacenamiento de blobs de un almacén de datos del área de trabajo. En el código siguiente se muestra código que se usa normalmente para crear una entrada para una canalización de aprendizaje automático:
 

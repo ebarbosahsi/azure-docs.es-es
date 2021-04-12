@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291111"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889304"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual a otra suscripción o grupo de recursos
 Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
@@ -38,6 +38,7 @@ Para mover correctamente una máquina virtual, debe mover la máquina virtual y 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+La salida `table` no está disponible si usa `--interactive`. Cambie la salida a otra opción como `json`.
 
 Para mover una máquina virtual y sus recursos a otro grupo de recursos, use [az resource move](/cli/azure/resource). En el ejemplo siguiente se muestra cómo mover una máquina virtual y los recursos más comunes que necesita. Use el parámetro **-ids** y pase una lista separada por comas (sin espacios) de identificadores de los recursos que se van a mover.
 

@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644853"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443785"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Inicio rápido: Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal
 
@@ -171,6 +171,11 @@ Implemente la [plantilla de aplicación de supervisión continua de pacientes](.
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Conexión de los datos de IoT con el conector de Azure IoT para FHIR (versión preliminar)
 
 Una vez que haya implementado la aplicación de IoT Central, los dos dispositivos simulados listos para usar comenzarán a generar telemetría. En este tutorial, se ingerirá la telemetría del simulador *Smart Vitals Patch* en FHIR a través del conector de Azure IoT para FHIR. Para exportar los datos de IoT al conector de Azure IoT para FHIR, queremos [configurar una exportación de datos continua en IoT Central](../../iot-central/core/howto-export-data.md). En primer lugar, debemos crear una conexión con el destino y, luego, crearemos un trabajo de exportación de datos para ejecutarse continuamente: 
+
+> [!NOTE]
+> Querrá seleccionar **exportación de datos** frente a exportación de **datos (heredado)** en la configuración de la aplicación de IOT central para esta sección.
+
+[![IoT Central la configuración de exportación de datos](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Cree un nuevo destino:
 - Vaya a la pestaña **destinos** y cree un nuevo destino.

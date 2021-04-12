@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e72ff144a56f44ccaa695b7dab328e42052fce39
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0512308fbaa0a725c6ecca573c70c90d8c04e247
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101678864"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558387"
 ---
 # <a name="ports-used-with-device-update-for-iot-hub"></a>Puertos utilizados con Device Update para IoT Hub
 ADU usa varios puertos de red para propósitos diferentes.
@@ -27,4 +27,4 @@ Conexión de ADU Agent a Azure IoT Hub  | 8883 (protocolo MQTT)
 ## <a name="use-azure-iot-hub-supported-protocols"></a>Uso de protocolos admitidos por Azure IoT Hub
 ADU Agent se puede modificar para usar cualquiera de los protocolos admitidos por Azure IoT Hub.
 
-[Más información](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols#:~:text=Table%202%20%20%20,%201%20more%20rows) sobre la lista actual de protocolos admitidos.
+[Más información](../iot-hub/iot-hub-devguide-protocols.md) sobre la lista actual de protocolos admitidos.

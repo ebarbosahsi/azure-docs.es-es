@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309609"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creación de canalizaciones de CI/CD para aplicaciones de inteligencia artificial con Azure Pipelines, Docker y Kubernetes
 
-Una aplicación de inteligencia artificial (IA) es un código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Para una aplicación de inteligencia artificial siempre hay dos flujos de trabajo: Los científicos de datos crean el modelo de ML y los desarrolladores de aplicaciones compilan la aplicación y la exponen a los usuarios finales para su consumo. En este artículo se describe cómo implementar una canalización de integración continua y entrega continua (CI/CD) para una aplicación de inteligencia artificial que inserta el modelo de ML en el código fuente de la aplicación. En el código de ejemplo y el tutorial se usa una aplicación web de Python Flask y se captura un modelo previamente entrenado de una cuenta privada de Azure Blob Storage. También puede usar una cuenta de almacenamiento de AWS S3.
+Una aplicación de inteligencia artificial (IA) es un código de aplicación insertado con un modelo de aprendizaje automático (ML) previamente entrenado. Siempre hay dos flujos de trabajo para una aplicación de inteligencia artificial: los científicos de datos crean el modelo de aprendizaje automático y los desarrolladores de aplicaciones compilan la aplicación y la exponen a los usuarios finales para consumir. En este artículo se describe cómo implementar una canalización de integración continua y entrega continua (CI/CD) para una aplicación de inteligencia artificial que inserta el modelo de ML en el código fuente de la aplicación. En el código de ejemplo y el tutorial se usa una aplicación web de Python Flask y se captura un modelo previamente entrenado de una cuenta privada de Azure Blob Storage. También puede usar una cuenta de almacenamiento de AWS S3.
 
 > [!NOTE]
 > El siguiente proceso es una de las diversas formas de realizar integración continua o entrega continua. Existen alternativas a esta herramienta y a los requisitos previos.

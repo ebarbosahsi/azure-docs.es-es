@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 02/09/2021
 ms.author: aahi
 ms.openlocfilehash: 5b6479d48a51ba962f2f6bfba16dac3b0886a9ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101750662"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Crear un recurso de Text Analytics de Cognitive Services
@@ -28,9 +28,9 @@ ms.locfileid: "101750662"
     |--|--|
     |Nombre|Escriba un nombre (2-64 caracteres).|
     |Suscripción|Seleccione la suscripción adecuada.|
-    |Location|Seleccione una ubicación cercana.|
+    |Ubicación|Seleccione una ubicación cercana.|
     |Plan de tarifa| Escriba **S**, que corresponde al plan de tarifa estándar.|
-    |Resource group|Seleccione un grupo de recursos disponible.|
+    |Grupo de recursos|Seleccione un grupo de recursos disponible.|
 
 1. Seleccione **Crear** y espere a que el recurso se cree. El explorador se redirige automáticamente a la página de recursos recién creada.
 1. Recopile el elemento `endpoint` configurado y una clave de API:

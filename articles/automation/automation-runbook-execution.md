@@ -3,14 +3,14 @@ title: Ejecución de un runbook en Azure Automation
 description: En este artículo se proporciona información general del procesamiento de runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586044"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954350"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -34,7 +34,8 @@ En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook pa
 
 Los runbooks de Azure Automation puede ejecutarse en un espacio aislado de Azure o una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-Cuando los runbooks están diseñados para autenticarse y ejecutarse en recursos de Azure, se ejecutan en un espacio aislado de Azure, que es un entorno compartido que pueden usar varios trabajos. Los trabajos con el mismo espacio aislado están sujetos a las limitaciones de recursos de dicho espacio. El entorno de espacio aislado de Azure no admite operaciones interactivas. Impide el acceso a todos los servidores COM fuera de proceso. También requiere el uso de archivos MOF locales para runbooks que realizan llamadas a Win32.
+Cuando los runbooks están diseñados para autenticarse y ejecutarse en recursos de Azure, se ejecutan en un espacio aislado de Azure, que es un entorno compartido que pueden usar varios trabajos. Los trabajos con el mismo espacio aislado están sujetos a las limitaciones de recursos de dicho espacio. El entorno de espacio aislado de Azure no admite operaciones interactivas. Impide el acceso a todos los servidores COM fuera de proceso y no admite la realización de [llamadas de WMI](/windows/win32/wmisdk/wmi-architecture) al proveedor Win32 en el runbook.  Estos escenarios solo se admiten si se ejecuta el runbook en una instancia de Hybrid Runbook Worker de Windows.
+
 
 También puede usar una instancia de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) para ejecutar runbooks directamente en el equipo que hospeda el rol y en los recursos locales del entorno. Azure Automation almacena y administra los runbooks y después los entrega a uno o más equipos asignados.
 
@@ -137,7 +138,7 @@ Los trabajos que se ejecutan en el mismo proceso de espacio aislado pueden afect
 
 En la tabla siguiente se describen los estados posibles para un trabajo. Puede ver un resumen del estado de todos los trabajos del runbook o profundizar en los detalles de un trabajo específico del runbook en Azure Portal. También puede configurar la integración con el área de trabajo de Log Analytics para reenviar flujos de trabajos y el estado del trabajo del runbook. Para más información sobre la integración con los registros de Azure Monitor, consulte [Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Consulte también [Obtención de estados del trabajo](manage-runbooks.md#obtain-job-statuses) para ver un ejemplo de cómo trabajar con estados en un runbook.
 
-| Status | Descripción |
+| Estado | Descripción |
 |:--- |:--- |
 | En activación |El trabajo se está activando. |
 | Completed |El trabajo se completó correctamente. |

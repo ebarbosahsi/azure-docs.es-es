@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416237"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110260"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 
@@ -26,7 +26,7 @@ En este artículo se describe cómo conmutar por recuperación las máquinas vir
 ## <a name="before-you-start"></a>Antes de comenzar
 
 1. [Revise los tipos de conmutación por recuperación](failover-failback-overview.md#hyper-v-reprotectionfailback) que puede usar: recuperación de ubicación original y recuperación de ubicación alternativa.
-2. Asegúrese de que las máquinas virtuales de Azure usan una cuenta de almacenamiento y no discos administrados. No se admite la conmutación por recuperación de máquinas virtuales de Hyper-V replicadas mediante discos administrados.
+2. Asegúrese de que las máquinas virtuales de Azure usan una cuenta de almacenamiento y no discos administrados. No se admite la conmutación por recuperación de máquinas virtuales de Hyper-V que conmuten por error a máquinas de Azure con discos administrados.
 3. Compruebe que el host de Hyper-V local (o el servidor de System Center VMM si usa Site Recovery) está en ejecución y conectado a Azure. 
 4. Asegúrese de que la conmutación por error y la confirmación se hayan completado para las máquinas virtuales. No es necesario configurar ningún componente de Site Recovery específico para la conmutación por recuperación de máquinas virtuales de Hyper-V de Azure.
 5. El tiempo necesario para completar la sincronización de datos e iniciar la máquina virtual local dependerá de varios factores. Para acelerar la descarga de datos, puede configurar el agente de Microsoft Recovery Services para utilizar más subprocesos a fin de equiparar la descarga. [Más información](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).

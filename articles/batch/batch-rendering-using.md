@@ -3,16 +3,19 @@ title: Uso de las funcionalidades de representación
 description: Forma de usar las funcionalidades de representación de Azure Batch. Pruebe a usar la aplicación Batch Explorer, ya sea directamente o invocada desde un complemento de aplicación cliente.
 author: mscurrell
 ms.author: markscu
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: a5bf4d0ed2173d048d968f60dea72a1a0c25ab05
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429792"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103496633"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso de la representación de Azure Batch
+
+> [!IMPORTANT]
+> Las imágenes de VM de representación y las licencias de pago por uso han [quedado en desuso y se retirarán el 29 de febrero de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar Batch para la representación, [se debe usar una imagen de máquina virtual personalizada y una licencia de aplicación estándar.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 Hay varias formas de usar la representación de Azure Batch:
 

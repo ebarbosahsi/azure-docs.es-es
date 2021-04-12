@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376253"
 ---
 1. Navegue a la [consola de Google Cloud](https://console.developers.google.com/cloud-resource-manager)e inicie sesión con las credenciales de su cuenta de Google+. 
@@ -29,7 +29,7 @@ ms.locfileid: "93376253"
 6. En el icono **API** del panel, seleccione **Go to APIs overview** (Ir a información general de API). 
 
     ![Vínculo a información general de API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
-7. En la página **API** , seleccione **ENABLE APIS AND SERVICES** (HABILITAR API Y SERVICIOS). 
+7. En la página **API**, seleccione **ENABLE APIS AND SERVICES** (HABILITAR API Y SERVICIOS). 
 
     ![Botón para habilitar API y servicios](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
 8. Busque y seleccione **Google Cloud Messaging**. 
