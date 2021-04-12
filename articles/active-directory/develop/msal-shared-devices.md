@@ -13,25 +13,25 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3cd7074467332f89d4d6c60830be34f4e2a638c1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562090"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578781"
 ---
 # <a name="overview-of-shared-device-mode"></a>Introducción al modo de dispositivo compartido
 
 El modo de dispositivo compartido es una característica de Azure Active Directory que permite crear aplicaciones que admiten trabajadores de primera línea y habilitar el modo de dispositivo compartido en los dispositivos implementados.
 
 >[!IMPORTANT]
-> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> Modo de dispositivo compartido para [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)] iOS
 
-## <a name="what-are-firstline-workers"></a>¿Qué son los trabajadores de primera línea?
+## <a name="what-are-frontline-workers"></a>¿Qué son los trabajadores de primera línea?
 
 Los trabajadores de primera línea son los empleados de comercios, los agentes de mantenimiento y de campo, el personal médico y otros usuarios que no se encuentran delante de un equipo ni usan el correo electrónico corporativo para la colaboración. En las secciones siguientes se presentan los aspectos y los desafíos de habilitar los trabajadores de primera línea, seguido de una introducción a las características proporcionadas por Microsoft que habilitan una aplicación para su uso por parte de los trabajadores de primera línea de una organización.
 
-### <a name="challenges-of-supporting-firstline-workers"></a>Desafíos de la compatibilidad para trabajadores de primera línea
+### <a name="challenges-of-supporting-frontline-workers"></a>Desafíos de la compatibilidad para trabajadores de primera línea
 
 La habilitación de flujos de trabajo de trabajadores de primera línea incluye desafíos que normalmente no presentan con los trabajadores de la información típicos. Estos desafíos pueden incluir una alta tasa de rotación y menor familiaridad con las principales herramientas de productividad de la organización. Para dotar de recursos a sus trabajadores de primera línea, las organizaciones adoptan diferentes estrategias. Algunas adoptan la estrategia Traiga su propio dispositivo (BYOD), en la que los empleados usan aplicaciones empresariales en su teléfono personal, mientras que otras proporcionan a sus empleados dispositivos compartidos como iPads o tabletas Android.
 
@@ -49,10 +49,10 @@ Azure Active Directory habilita estos escenarios con una característica llamad
 
 Como se mencionó, el modo de dispositivo compartido es una característica de Azure Active Directory que le permite:
 
-* Crear aplicaciones que admiten trabajadores de primera línea
-* Implementar dispositivos para trabajadores de primera línea y activar el modo de dispositivo compartido
+* Creación de aplicaciones que admiten trabajadores de primera línea
+* Implementación de dispositivos para trabajadores de primera línea y activación del modo de dispositivo compartido
 
-### <a name="build-applications-that-support-firstline-workers"></a>Creación de aplicaciones que admiten trabajadores de primera línea
+### <a name="build-applications-that-support-frontline-workers"></a>Creación de aplicaciones que admiten trabajadores de primera línea
 
 Puede admitir trabajadores de primera línea en sus aplicaciones mediante el uso de la biblioteca de autenticación de Microsoft (MSAL) y la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) para habilitar un estado del dispositivo llamado *modo de dispositivo compartido*. Cuando un dispositivo está en modo de dispositivo compartido, Microsoft proporciona información a la aplicación para que pueda modificar el comportamiento en función del estado del usuario en el dispositivo, protegiendo los datos de usuario.
 
@@ -69,7 +69,7 @@ Los usuarios dependen de usted para asegurarse de que sus datos no se filtran a 
 
 Para más información sobre cómo modificar las aplicaciones para admitir el modo de dispositivo compartido, consulte la sección [Pasos siguientes](#next-steps) al final de este artículo.
 
-### <a name="deploy-devices-to-firstline-workers-and-turn-on-shared-device-mode"></a>Implementación de dispositivos para trabajadores de primera línea y activación del modo de dispositivo compartido
+### <a name="deploy-devices-to-frontline-workers-and-turn-on-shared-device-mode"></a>Implementación de dispositivos para trabajadores de primera línea y activación del modo de dispositivo compartido
 
 Una vez que las aplicaciones admitan el modo de dispositivo compartido e incluyan los datos necesarios y los cambios de seguridad, puede anunciarlas como aptas para su uso por trabajadores de primera línea.
 

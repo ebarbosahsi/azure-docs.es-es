@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899208"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Habilitación de los servidores DNS de la nube privada de CloudSimple para la búsqueda directa de DNS de recursos locales a servidores DNS
@@ -43,11 +43,11 @@ Los puertos de firewall deben estar abiertos en esta conexión para que la búsq
 
 Para habilitar la entrega directa de DNS de la nube privada a un entorno local, envíe una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y proporcione la siguiente información.
 
-* Tipo de problema: **Técnico**
-* Suscripción: **Suscripción en la que se implementa el servicio CloudSimple**
+* Tipo de problema: **técnico**
+* Suscripción: **la suscripción en la que se implementa CloudSimple**
 * Servicio: **VMware Solution by CloudSimple**
-* Tipo de problema: **Aviso o procedimientos**
-* Subtipo de problema: **Necesito ayuda con NW**
+* Tipo de problema: **documento informativo o cómo...**
+* Subtipo de problema: **necesito ayuda con NW**
 * Proporcione el nombre de dominio del dominio local en el panel de detalles.
 * Proporcione la lista de los servidores DNS locales a los que se reenviará la búsqueda desde la nube privada en el panel de detalles.
 

@@ -1,20 +1,16 @@
 ---
 title: Mejora de la resolución de nombres de puerto y VLAN
 description: Personalice los nombres de puerto y VLAN en los sensores para enriquecer la resolución del dispositivo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803574"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784176"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Mejora de la resolución de nombres de puerto y VLAN
+# <a name="enhance-port-vlan-and-os-resolution"></a>Mejora del puerto, VLAN y la resolución del sistema operativo
 
 Puede personalizar los nombres de puerto y VLAN en los sensores para enriquecer la resolución del dispositivo.
 
@@ -72,7 +68,7 @@ Los nombres de VLAN pueden contener hasta 50 caracteres ASCII.
 > Estos nombres no se sincronizan entre el sensor y la consola de administración. También debe definir el nombre en la consola de administración.  
 En el caso de los conmutadores Cisco, agregue la siguiente línea a la configuración del intervalo: `monitor session 1 destination interface XX/XX encapsulation dot1q`. En ese comando, *XX/XX* es el nombre y el número del puerto.
 
-Para configurar redes VLAN:
+Para configurar los nombres de VLAN:
 
 1. En el menú lateral, seleccione **Configuración del sistema**.
 
@@ -81,6 +77,21 @@ Para configurar redes VLAN:
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Uso de la configuración del sistema para editar las VLAN.":::
 
 3. Agregue un nombre único junto a cada identificador de VLAN.
+
+## <a name="improve-device-operating-system-classification-data-enhancement"></a>Mejora de la clasificación del sistema operativo del dispositivo: mejora de datos
+
+Los sensores detectan continuamente nuevos dispositivos, así como los cambios en dispositivos detectados anteriormente, incluidos los tipos de sistema operativo.
+
+En determinadas circunstancias, es posible que se identifiquen conflictos en los sistemas operativos detectados. Esto puede suceder, por ejemplo, si tiene una versión de sistema operativo que se refiere a sistemas de escritorio o de servidor. En ese caso, recibirá una notificación con clasificaciones de sistemas operativos opcionales.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Mejora de los datos.":::
+
+Investigue las recomendaciones para enriquecer la clasificación del sistema operativo. Esta clasificación aparece en el inventario de dispositivos, en los informes de minería de datos y en otras pantallas. Asegurarse de que esta información está actualizada puede mejorar la precisión de las alertas, las amenazas y los informes de análisis de riesgos.
+
+Para obtener acceso a las recomendaciones del sistema operativo:
+
+1. Seleccione **Configuración del sistema**.
+1. Seleccione **Mejora de datos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

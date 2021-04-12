@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322012"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS
@@ -34,16 +34,16 @@ Si desea ver un análisis de los escenarios canónicos que usan SSIS para satisf
 > 
 > 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Para realizar las tareas que se describen en este artículo, debe tener configurada una suscripción a Azure y una cuenta de Azure Storage. El nombre y la clave de la cuenta de Azure Storage se necesitan para cargar o descargar datos.
 
-* Para configurar una **suscripción a Azure** , consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
-* Para obtener instrucciones sobre cómo crear una **cuenta de almacenamiento** , así como para obtener información sobre la cuenta y la clave, consulte [Acerca de las cuentas de Azure Storage](../../storage/common/storage-account-create.md).
+* Para configurar una **suscripción a Azure**, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Para obtener instrucciones sobre cómo crear una **cuenta de almacenamiento**, así como para obtener información sobre la cuenta y la clave, consulte [Acerca de las cuentas de Azure Storage](../../storage/common/storage-account-create.md).
 
-Para usar los **conectores SSIS** , debe descargar:
+Para usar los **conectores SSIS**, debe descargar:
 
-* **SQL Server 2014 o 2016 Standard (o superior)** : la instalación incluye SQL Server Integration Services.
-* **Microsoft SQL Server 2014 o 2016 Integration Services Feature Pack para Azure** : estos conectores se pueden descargar, respectivamente, en las páginas [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) y [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+* **SQL Server 2014 o 2016 Standard (o superior)**: la instalación incluye SQL Server Integration Services.
+* **Feature Pack de Microsoft SQL Server 2014 o 2016 Integration Services para Azure**: se pueden descargar, respectivamente, en las páginas [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) y [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
 > SSIS se instala con SQL Server, pero no está incluido en la versión Express. Para obtener información sobre qué aplicaciones se incluyen en las distintas versiones de SQL Server, consulte [Ediciones de SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Para usar los **conectores SSIS** , debe descargar:
 
 Para obtener materiales de aprendizaje sobre SSIS, consulte [Aprendizaje práctico para SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Si desea obtener información sobre cómo trabajar con SISS para crear paquetes de extracción, transformación y carga (ETL) sencillos, consulte [Tutorial de SSIS: Creación de un paquete ETL sencillo](/sql/integration-services/ssis-how-to-create-an-etl-package).
+Si desea obtener información sobre cómo trabajar con SISS para compilar paquetes de extracción, transformación y carga (ETL) sencillos, consulte [Tutorial de SSIS: Creación de un paquete ETL sencillo](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
 ## <a name="download-nyc-taxi-dataset"></a>Descargar el conjunto de datos de taxis de la ciudad de Nueva York
 El ejemplo aquí descrito usa un conjunto de datos disponible para todo público, el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) (Viajes en taxi en la ciudad de Nueva York). El conjunto de datos consta de alrededor de 173 millones de viajes en taxi que se realizaron en Nueva York durante el año 2013. Existen dos tipos de datos: datos de los detalles de las carreras y datos sobre las tarifas. Como existe un archivo correspondiente a cada mes, hay 24 archivos, cada uno de los cuales tiene un tamaño aproximado de 2 GB sin comprimir.

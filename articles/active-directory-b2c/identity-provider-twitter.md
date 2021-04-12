@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8cb31f57e5403e99e2ef9bfcc5d1042e33516d1d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448156"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579848"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C
 
@@ -45,8 +45,12 @@ Para habilitar el inicio de sesión de los usuarios con una cuenta de Twitter en
 1. En **Authentication settings** (configuración de autenticación), seleccione **Edit** (editar).
     1. Active la casilla **Enable 3-legged OAuth** (habilitar OAuth de 3 fases).
     1. Active la casilla **Request email address from users** (solicitar dirección de correo electrónico de los usuarios).
-    1. En **Callback URLs** (URL de devolución de llamada), escriba `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sustituya `your-tenant` por el nombre del inquilino y `your-user-flow-Id` por el identificador del flujo de usuario. Por ejemplo, `b2c_1a_signup_signin_twitter`. Cuando especifique el nombre de inquilino y el identificador de flujo de usuario, use solo las letras en minúscula, aunque se hayan definido con letras en mayúscula en Azure AD B2C.
-    1. En **Website URL** (dirección URL del sitio web), escriba `https://your-tenant.b2clogin.com`. Reemplace `your-tenant` por el nombre del inquilino. Por ejemplo, `https://contosob2c.b2clogin.com`.
+    1. En **Callback URLs** (URL de devolución de llamada), escriba `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`.  Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Cuando especifique el nombre de inquilino y el identificador de flujo de usuario, use solo las letras en minúscula, aunque se hayan definido con letras en mayúscula en Azure AD B2C. Sustituya:
+        - `your-tenant-name` por el nombre del inquilino.
+        - `your-domain-name` por el dominio personalizado.
+        - `your-user-flow-Id` por el identificador de su flujo de usuario. Por ejemplo, `b2c_1a_signup_signin_twitter`. 
+    
+    1. En **Website URL** (dirección URL del sitio web), escriba `https://your-tenant.b2clogin.com`. Reemplace `your-tenant` por el nombre del inquilino. Por ejemplo, `https://contosob2c.b2clogin.com`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name`.
     1. Escriba una dirección URL para **Terms of service** (términos del servicio), por ejemplo `http://www.contoso.com/tos`. La dirección URL de la directiva es una página que se mantiene para proporcionar los términos y condiciones de la aplicación.
     1. Escriba una dirección URL en **Privacy Policy** (directiva de privacidad), por ejemplo `http://www.contoso.com/privacy`. La dirección URL de directiva es una página que sirve para proporcionar información de privacidad de la aplicación.
     1. Seleccione **Guardar**.
@@ -65,6 +69,8 @@ Para habilitar el inicio de sesión de los usuarios con una cuenta de Twitter en
 1. Seleccione **Guardar**.
 
 ## <a name="add-twitter-identity-provider-to-a-user-flow"></a>Adición del proveedor de identidades de Twitter a un flujo de usuario 
+
+En este momento, el proveedor de identidades de Twitter ya se ha configurado, pero no está disponible en ninguna de las pantallas de inicio de sesión. Adición del proveedor de identidades de Twitter a un flujo de usuario:
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Seleccione el flujo de usuario al que quiera agregar el proveedor de identidades de Twitter.

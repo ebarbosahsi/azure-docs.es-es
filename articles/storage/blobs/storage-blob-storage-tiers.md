@@ -3,17 +3,17 @@ title: 'Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archiv
 description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928800"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656845"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo
 
@@ -100,7 +100,9 @@ Solo los niveles de almacenamiento de acceso frecuente y esporádico se pueden e
 
 El almacenamiento por niveles de blob permite cargar datos en el nivel de acceso preferido mediante las operaciones [Put Blob](/rest/api/storageservices/put-blob) o [Put Block List](/rest/api/storageservices/put-block-list), y cambiar el nivel de los datos en el nivel de objeto mediante la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o la característica de [administración del ciclo de vida](#blob-lifecycle-management). Puede cargar datos a su nivel de acceso necesario y, a continuación, cambiar el nivel de acceso de un blob entre los niveles de acceso frecuente, esporádico y de archivo, a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todas las solicitudes de cambio de nivel se producen inmediatamente y los cambios entre el nivel de acceso frecuente y esporádico son instantáneos. La rehidratación de un blob de un nivel de acceso de archivo puede tardar varias horas.
 
-La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob recién creado hereda el nivel del blob que se ha sobrescrito a menos que el nuevo nivel de acceso del blob se establezca explícitamente en la creación. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario.
+La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. La propiedad **access tier change time** es de nivel de blob y no se actualiza cuando se cambia el nivel de cuenta predeterminado. Las propiedades de cuenta y de blob son independientes. Sería muy costoso actualizar la propiedad **access tier change time** en todos los blobs de una cuenta de almacenamiento cada vez que se cambia el nivel de acceso predeterminado de la cuenta.
+
+Al sobrescribir un blob en el nivel de acceso frecuente o esporádico, el blob recién creado hereda el nivel del blob que se ha sobrescrito a menos que el nuevo nivel de acceso del blob se establezca explícitamente en la creación. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por tanto, la carga del mismo blob no se permite en este escenario.
 
 > [!NOTE]
 > El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques.
