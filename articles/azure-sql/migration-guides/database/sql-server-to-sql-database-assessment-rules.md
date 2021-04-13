@@ -1,5 +1,5 @@
 ---
-title: Reglas de evaluación para la migración de SQL Server a SQL Database
+title: Reglas de evaluación para la migración de SQL Server a Azure SQL Database
 description: Reglas de evaluación para identificar los problemas con la instancia de origen de SQL Server que deben solucionarse antes de migrar a Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054214"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027217"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>Reglas de evaluación para la migración de SQL Server a SQL Database
+# <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Reglas de evaluación para la migración de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Las herramientas de migración validan la instancia de origen de SQL Server mediante la ejecución de una serie de reglas de evaluación para identificar los problemas que deben solucionarse antes de migrar la base de datos de SQL Server a Azure SQL Database. 

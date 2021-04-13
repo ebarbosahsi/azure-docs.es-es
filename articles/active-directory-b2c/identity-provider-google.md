@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a3b0be062025681af2b03dfd2e57f1af2d99d701
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448360"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579967"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -47,7 +47,9 @@ Para permitir el inicio de sesión de los usuarios con una cuenta de Google en A
 Escriba el **nombre** de la aplicación. Escriba *b2clogin.com* en la sección **Authorized domains** (Dominios autorizados) y seleccione **Save** (Guardar).
 1. Seleccione **Credentials** (Credenciales) en el menú izquierdo y, a continuación, seleccione **Create credentials** > **Oauth client ID** (Crear credenciales, Id. de cliente de Oauth).
 1. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).
-1. Escriba un **Name** (nombre) para la aplicación, escriba `https://your-tenant-name.b2clogin.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
+    1. Escriba el **nombre** de la aplicación.
+    1. En el caso de los **orígenes de JavaScript autorizados**, escriba `https://your-tenant-name.b2clogin.com`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name`.
+    1. En el caso de los **URI de redireccionamiento autorizados**, escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-domain-name` por el dominio personalizado, y `your-tenant-name` por el nombre del inquilino. Cuando especifique el nombre de inquilino, escriba todas las letras en minúscula, aunque se haya definido con letras en mayúscula en Azure AD B2C.
 1. Haga clic en **Crear**.
 1. Copie los valores de **Client ID** y **Client Secret**. Necesitará ambos para configurar Google como proveedor de identidades de su inquilino. **Secreto del cliente** es una credencial de seguridad importante.
 
@@ -65,6 +67,9 @@ Escriba el **nombre** de la aplicación. Escriba *b2clogin.com* en la sección *
 1. Seleccione **Guardar**.
 
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Agregación del proveedor de identidades de Google a un flujo de usuario 
+
+En este punto se ha configurado el proveedor de identidades de Google, pero aún no está disponible en ninguna de las páginas de inicio de sesión. Para agregar el proveedor de identidades de Google a un flujo de usuario:
+
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario al que quiera agregar el proveedor de identidades de Google.

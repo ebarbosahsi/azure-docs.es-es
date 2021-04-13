@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098217"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067561"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>¿Qué es un conjunto de reglas de Azure Front Door Estándar/Premium (versión preliminar)?
 
 > [!Note]
 > Esta documentación trata sobre Azure Front Door Estándar/Prémium (versión preliminar). ¿Busca información sobre Azure Front Door? Consulte [aquí](../front-door-overview.md).
 
-Un conjunto de reglas es un motor de reglas personalizado que agrupa una combinación de reglas en un único conjunto que se puede asociar a varias rutas. El conjunto de reglas le permite personalizar el modo en que las solicitudes se procesan en el perímetro y cómo las controla Azure Front Door.
+Un conjunto de reglas es un motor de reglas personalizado que agrupa una combinación de reglas en un único conjunto. Puede asociar un conjunto de reglas con varias rutas. El conjunto de reglas permite personalizar el modo en que las solicitudes se procesan en el borde y cómo las controla Azure Front Door.
 
 > [!IMPORTANT]
 > Azure Front Door Estándar/Prémium (versión preliminar) está disponible actualmente en versión preliminar pública.
@@ -32,7 +32,7 @@ Un conjunto de reglas es un motor de reglas personalizado que agrupa una combina
 
 * Enrute las solicitudes a la versión móvil o de escritorio de la aplicación en función del tipo de dispositivo cliente.
 
-* Use las funcionalidades de redireccionamiento para devolver los redireccionamientos 301, 302, 307 y 308 al cliente para dirigirlos a nuevos nombres de host, rutas de acceso, cadenas de consulta o protocolos.
+* Uso de capacidades de redireccionamiento para devolver los redireccionamientos 301, 302, 307 y 308 al cliente para dirigirlos a nuevos nombres de host, rutas de acceso, cadenas de consulta o protocolos.
 
 * Modifique de forma dinámica la configuración de almacenamiento en caché de la ruta en función de las solicitudes entrantes.
 
@@ -60,16 +60,19 @@ Con un conjunto de reglas de Azure Front Door, puede crear una combinación de c
 
 Para más información sobre el límite de cuota, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Conjunto de reglas*: conjunto de reglas que se asocia a una o varias [rutas](concept-route.md). Cada configuración se limita a 25 reglas. Puede crear hasta 10 configuraciones.
+* *Conjunto de reglas*: conjunto de reglas que se asocia a una o varias [rutas](concept-route.md).
 
-* *Regla del conjunto de reglas*: una regla compuesta de un máximo de 10 condiciones de coincidencia y 5 acciones. Las reglas son locales para un conjunto de reglas y no se pueden exportar para usarlas en conjuntos de reglas. Los usuarios pueden crear la misma regla en varios conjuntos de reglas.
+* *Regla del conjunto de reglas*: regla compuesta de un máximo de 10 condiciones de coincidencia y 5 acciones. Las reglas son locales para un conjunto de reglas y no se pueden exportar para usarlas en conjuntos de reglas. Los usuarios pueden crear la misma regla en varios conjuntos de reglas.
 
-* *Condición de coincidencia*: Se pueden usar varias condiciones de coincidencia para analizar las solicitudes entrantes. Una regla puede contener hasta 10 condiciones de coincidencia. Las condiciones de coincidencia se evalúan con un operador **AND**. *Se admiten las expresiones regulares en las condiciones*. Se puede encontrar una lista completa de las condiciones de coincidencia en [Condiciones de un conjunto de reglas](concept-rule-set-match-conditions.md).
+* *Condición de coincidencia*: se pueden usar varias condiciones de coincidencia para analizar las solicitudes entrantes. Una regla puede contener hasta 10 condiciones de coincidencia. Las condiciones de coincidencia se evalúan con un operador **AND**. *Se admiten las expresiones regulares en las condiciones*. Se puede encontrar una lista completa de condiciones de coincidencia en [Condiciones de coincidencia de un conjunto de reglas](concept-rule-set-match-conditions.md).
 
-* *Acción*: las acciones determinan cómo Azure Front Door controla las solicitudes entrantes en función de las condiciones de coincidencia. Puede modificar los comportamientos de almacenamiento en caché, modificar encabezados de solicitud o de respuesta, realizar la reescritura de direcciones URL y la redirección de direcciones URL. *Se admiten las variables de servidor en la acción*. Una regla puede contener hasta 10 condiciones de coincidencia. En [Acciones de un conjunto de reglas](concept-rule-set-actions.md) encontrará una lista completa de las acciones.
+* *Acción*: las acciones determinan cómo Azure Front Door controla las solicitudes entrantes en función de las condiciones de coincidencia. Puede modificar los comportamientos de almacenamiento en caché, modificar encabezados de solicitud o de respuesta, realizar la reescritura de direcciones URL y la redirección de direcciones URL. *Se admiten las variables de servidor en la acción*. Una regla puede contener hasta 10 condiciones de coincidencia. En [Acciones de un conjunto de reglas](concept-rule-set-actions.md) se puede encontrar una lista completa de acciones.
+
+## <a name="arm-template-support"></a>Compatibilidad con plantillas de ARM
+
+Los conjuntos de reglas se pueden configurar mediante plantillas de Azure Resource Manager. [Vea una plantilla de ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Puede personalizar el comportamiento si usa los fragmentos de código JSON o Bicep incluidos en los ejemplos de la documentación de [condiciones de coincidencia](concept-rule-set-match-conditions.md) y [acciones](concept-rule-set-actions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [crear una instancia de Front Door Estándar o Premium](create-front-door-portal.md).
 * Aprenda a configurar el primer [conjunto de reglas](how-to-configure-rule-set.md).
- 

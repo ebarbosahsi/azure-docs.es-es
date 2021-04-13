@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ed75a7f8c7915645778696282e179af3a4d4091
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0bf7213e5cfdc57194482c6914d4e25b9336832e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493601"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935881"
 ---
 # <a name="communication-services-logs"></a>Registros de Communication Services
 
@@ -97,7 +97,7 @@ Communication Services ofrece tres tipos de registros que se pueden habilitar:
 | OutgoingMessageLength | Número de caracteres del mensaje saliente. |
 | IncomingMessageLength | Número de caracteres del mensaje entrante. |
 | DeliveryAttempts | Número de intentos realizados para entregar el mensaje. |
-| PhoneNumber | Número de teléfono al que se envía el mensaje SMS. |
+| PhoneNumber | Número de teléfono desde el que se envía el mensaje SMS. |
 | SdkType | Tipo de SDK que se usa en la solicitud. |
 | PlatformType | Tipo de plataforma utilizado en la solicitud. |
 | Método | Método usado para realizar la solicitud. |

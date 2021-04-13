@@ -7,14 +7,14 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 02/20/2021
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700981"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936162"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Información general sobre las métricas en Microsoft Azure
 Las métricas en Azure Monitor son una característica de Azure Monitor que recopila datos numéricos de [recursos supervisados](../monitor-reference.md) en una base de datos de serie temporal. Las métricas son valores numéricos que se recopilan a intervalos regulares y describen algún aspecto de un sistema en un momento determinado. Las métricas en Azure Monitor son ligeras y capaces de admitir escenarios casi en tiempo real, lo que hace que sean especialmente útiles para las alertas y una detección rápida de problemas. Puede analizarlas de forma interactiva con el explorador de métricas, recibir una notificación de forma proactiva con una alerta cuando un valor cruza un umbral o visualizarlas en un libro o panel.
@@ -27,13 +27,13 @@ Las métricas en Azure Monitor son una característica de Azure Monitor que reco
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>¿Qué puede hacer con las métricas de Azure Monitor?
 En la tabla siguiente se enumeran las distintas maneras en que se pueden usar las métricas en Azure Monitor.
 
-|  |  |
+|  | Descripción |
 |:---|:---|
 | **Análisis** | Use el [Explorador de métricas](metrics-charts.md) para analizar las métricas recopiladas en un gráfico y compare las métricas de diferentes recursos. |
 | **Alerta** | Configure una [regla de alertas de métricas](../alerts/alerts-metric.md) que envíe una notificación o realice una [acción automatizada](../alerts/action-groups.md) cuando el valor de la métrica cruce un umbral. |
 | **Visualizar** | Ancle un gráfico del Explorador de métricas en un [panel de Azure](../app/tutorial-app-dashboards.md).<br>Cree un [libro](../visualize/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. Exporte los resultados de una consulta a [Grafana](../visualize/grafana-plugin.md) para aprovechar sus paneles y combinarlos con otros orígenes de datos. |
 | **Automatización** |  Use la [escalabilidad automática](../autoscale/autoscale-overview.md) para aumentar o disminuir los recursos según un valor de métrica que cruce un umbral. |
-| **Recuperar** | Obtenga acceso a los valores de métricas desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.applicationinsights).<br>Obtenga acceso a los valores de métricas de aplicaciones personalizadas con [API REST](./rest-api-walkthrough.md).<br>Obtenga acceso a los valores de métricas desde una línea de comandos mediante la [CLI](/cli/azure/monitor/metrics). |
+| **Recuperar** | Obtenga acceso a los valores de métricas desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.monitor).<br>Obtenga acceso a los valores de métricas de aplicaciones personalizadas con [API REST](./rest-api-walkthrough.md).<br>Obtenga acceso a los valores de métricas desde una línea de comandos mediante la [CLI](/cli/azure/monitor/metrics). |
 | **Exportarar** | [Redirija las métricas a los registros](./resource-logs.md#send-to-azure-storage) para analizar los datos en las métricas en Microsoft Azure junto con los datos en los registros de Azure Monitor y para almacenar los valores de las métricas durante un período superior a 93 días.<br>Haga streaming de métricas a un [centro de eventos](./stream-monitoring-data-event-hubs.md) para redirigirlas a sistemas externos. |
 | **Archivar** | [Archivar](./platform-logs-overview.md) el historial de rendimiento o estado del recurso para fines de cumplimiento, auditoría o creación de informes sin conexión. |
 
@@ -104,7 +104,7 @@ Esta métrica puede responder a preguntas como “¿cuál era el rendimiento de 
 Para la mayoría de los recursos en Azure, las métricas se almacenan durante 93 días. Hay algunas excepciones:
 
 **Métricas de SO invitado**
--   **Métricas clásicas de SO invitado**. Estos son los contadores de rendimiento que recopila la [extensión de diagnóstico de Windows (WAD)](../agents/diagnostics-extension-overview.md) o la [extensión de diagnóstico de Linux (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) y que se enrutan a una cuenta de almacenamiento de Azure. La retención de estas métricas es de 14 días.
+-   **Métricas clásicas de SO invitado**. Estos son los contadores de rendimiento que recopila la [extensión de diagnóstico de Windows (WAD)](../agents/diagnostics-extension-overview.md) o la [extensión de diagnóstico de Linux (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) y que se enrutan a una cuenta de almacenamiento de Azure. La retención garantizada de estas métricas es de al menos 14 días, aunque no se escribe ninguna fecha de expiración real en la cuenta de almacenamiento. Por motivos de rendimiento, el portal limita la cantidad de datos que muestra en función del volumen. Por lo tanto, el número real de días recuperado por el portal puede ser superior a 14 días si el volumen de datos que se escribe no es muy grande.  
 -   **Métricas de SO invitado enviadas a las métricas de Azure Monitor**. Estos son los contadores de rendimiento recopilados por [Windows Diagnostic Extension (WAD)](../agents/diagnostics-extension-overview.md) que se envían al [receptor de datos de Azure Monitor](../agents/diagnostics-extension-overview.md#data-destinations) o que se envían mediante el [Agente de InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) en las máquinas Linux. La retención de estas métricas es de 93 días.
 -   **Métricas de SO invitado que recopila el agente de Log Analytics**. Estos son contadores de rendimiento que recopila el agente de Log Analytics y que se envían a un área de trabajo de Log Analytics. La retención de estas métricas es de 31 días y se puede ampliar a un máximo de 2 años.
 
