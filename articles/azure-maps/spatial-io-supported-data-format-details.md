@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91310176"
 ---
 # <a name="supported-data-format-details"></a>Detalles de formatos de datos admitidos
@@ -47,12 +47,12 @@ El módulo de E/S espacial admite los siguientes elementos KML.
 
 | Nombre del elemento         | Lectura    | Escritura   | Notas                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `address`            | parcialmente | sí     | El objeto se analiza, pero no se usa para la forma de posicionamiento.                                                                    |
-| `AddressDetails`     | parcialmente | no      | El objeto se analiza, pero no se usa para la forma de posicionamiento.                                                                    |
+| `address`            | partial | sí     | El objeto se analiza, pero no se usa para la forma de posicionamiento.                                                                    |
+| `AddressDetails`     | partial | no      | El objeto se analiza, pero no se usa para la forma de posicionamiento.                                                                    |
 | `atom:author`        | sí     | sí     |                                                                                                                            |
 | `atom:link`          | sí     | sí     |                                                                                                                            |
 | `atom:name`          | sí     | sí     |                                                                                                                            |
-| `BalloonStyle`       | parcialmente | parcialmente | `displayMode` no se admite. Se convierte a una propiedad `PopupTemplate`. Para escribir, agregue una propiedad `popupTemplate` como una propiedad de la característica para la que desee escribirla. |
+| `BalloonStyle`       | partial | partial | `displayMode` no se admite. Se convierte a una propiedad `PopupTemplate`. Para escribir, agregue una propiedad `popupTemplate` como una propiedad de la característica para la que desee escribirla. |
 | `begin`              | sí     | sí     |                                                                                                                            |
 | `color`              | sí     | sí     | Incluye `#AABBGGRR` y `#BBGGRR`. Analizado en una cadena de color CSS                                                           |
 | `colorMode`          | sí     | no      |                                                                                                                            |
@@ -61,19 +61,19 @@ El módulo de E/S espacial admite los siguientes elementos KML.
 | `description`        | sí     | sí     |                                                                                                                            |
 | `displayName`        | sí     | sí     |                                                                                                                            |
 | `Document`           | sí     | sí     |                                                                                                                            |
-| `drawOrder`          | parcialmente | no      | Se lee para las superposiciones de suelo y se usa para ordenarlas. 
+| `drawOrder`          | partial | no      | Se lee para las superposiciones de suelo y se usa para ordenarlas. 
 | `east`               | sí     | sí     |                                                                                                                            |
 | `end`                | sí     | sí     |                                                                                                                            |
 | `ExtendedData`       | sí     | sí     | Admite `Data`, `SimpleData` o `Schema` sin tipo y los reemplazos de entidad del formulario `$[dataName]`.                      |
-| `extrude`            | parcialmente | parcialmente | Solo se admite para los polígonos. La multigeometría que tenga polígonos de diferentes altos se dividirá en características individuales. No se admiten los estilos de línea. Los polígonos con una altitud de 0 se representarán como un polígono plano. Al leer, la altitud de la primera coordenada del anillo exterior se agregará como una propiedad de alto del polígono. A continuación, se usará la altitud de la primera coordenada para representar el polígono en el mapa. |
+| `extrude`            | partial | partial | Solo se admite para los polígonos. La multigeometría que tenga polígonos de diferentes altos se dividirá en características individuales. No se admiten los estilos de línea. Los polígonos con una altitud de 0 se representarán como un polígono plano. Al leer, la altitud de la primera coordenada del anillo exterior se agregará como una propiedad de alto del polígono. A continuación, se usará la altitud de la primera coordenada para representar el polígono en el mapa. |
 | `fill`               | sí     | sí     |                                                                                                                            |
 | `Folder`             | sí     | sí     |                                                                                                                            |
 | `GroundOverlay`      | sí     | sí     | `color` no se admite.                                                                                                   |
-| `heading`            | parcialmente | no      | Analizado pero no representado por `SimpleDataLayer`. Solo escribe si los datos se almacenan en la propiedad de la forma.                 |
-| `hotSpot`            | sí     | parcialmente | Solo escribe si los datos se almacenan en la propiedad de la forma. Las unidades se configuran solo como "píxeles".                         |
+| `heading`            | partial | no      | Analizado pero no representado por `SimpleDataLayer`. Solo escribe si los datos se almacenan en la propiedad de la forma.                 |
+| `hotSpot`            | sí     | partial | Solo escribe si los datos se almacenan en la propiedad de la forma. Las unidades se configuran solo como "píxeles".                         |
 | `href`               | sí     | sí     |                                                                                                                            |
-| `Icon`               | parcialmente | parcialmente | Analizado pero no representado por `SimpleDataLayer`. Solo escribe la propiedad icon de la forma si contiene un URI de datos. Solo se admite `href`. |
-| `IconStyle`          | parcialmente | parcialmente | Se analizan los valores `icon`, `heading`, `colorMode` y `hotspots`, pero no se representan en `SimpleDataLayer`         |
+| `Icon`               | partial | partial | Analizado pero no representado por `SimpleDataLayer`. Solo escribe la propiedad icon de la forma si contiene un URI de datos. Solo se admite `href`. |
+| `IconStyle`          | partial | partial | Se analizan los valores `icon`, `heading`, `colorMode` y `hotspots`, pero no se representan en `SimpleDataLayer`         |
 | `innerBoundaryIs`    | sí     | sí     |                                                                                                                            |
 | `kml`                | sí     | sí     |                                                                                                                            |
 | `LabelStyle`         | no      | no      |                                                                                                                            |
@@ -83,7 +83,7 @@ El módulo de E/S espacial admite los siguientes elementos KML.
 | `LineString`         | sí     | sí     |                                                                                                                            |
 | `LineStyle`          | sí     | sí     | `colorMode` no se admite.                                                                                         |
 | `Link`               | sí     | no      | Solo se admite la propiedad `href` para los vínculos de red.                                                                   |
-| `MultiGeometry`      | parcialmente | parcialmente | Se puede desglosar en características individuales cuando se lee.                                                                     |
+| `MultiGeometry`      | partial | partial | Se puede desglosar en características individuales cuando se lee.                                                                     |
 | `name`               | sí     | sí     |                                                                                                                            |
 | `NetworkLink`        | sí     | no      | Los vínculos deben estar en el mismo dominio que el documento.                                                                  |
 | `NetworkLinkControl` | no      | no      |                                                                                                                            |
@@ -92,36 +92,36 @@ El módulo de E/S espacial admite los siguientes elementos KML.
 | `outerBoundaryIs`    | sí     | sí     |                                                                                                                            |
 | `outline`            | sí     | sí     |                                                                                                                            |
 | `overlayXY`          | no      | no      |                                                                                                                            |
-| `Pair`               | parcialmente | no      | Solo se admite el estilo `normal` en un `StyleMap`. `highlight` no se admite.                                   |
+| `Pair`               | partial | no      | Solo se admite el estilo `normal` en un `StyleMap`. `highlight` no se admite.                                   |
 | `phoneNumber`        | sí     | sí     |                                                                                                                            |
 | `PhotoOverlay`       | no      | no      |                                                                                                                            |
 | `Placemark`          | sí     | sí     |                                                                                                                            |
 | `Point`              | sí     | sí     |                                                                                                                            |
 | `Polygon`            | sí     | sí     |                                                                                                                            |
 | `PolyStyle`          | sí     | sí     |                                                                                                                            |
-| `Region`             | parcialmente | parcialmente | `LatLongBox` se admite en el nivel de documento.                                                                      |
+| `Region`             | partial | partial | `LatLongBox` se admite en el nivel de documento.                                                                      |
 | `rotation`           | no      | no      |                                                                                                                            |
 | `rotationXY`         | no      | no      |                                                                                                                            |
 | `scale`              | no      | no      |                                                                                                                            |
 | `Schema`             | sí     | sí     |                                                                                                                            |
 | `SchemaData`         | sí     | sí     |                                                                                                                            |
-| `schemaUrl`          | parcialmente | sí     | No admite la carga de estilos de documentos externos que no están incluidos en una KMZ.                             |
+| `schemaUrl`          | partial | sí     | No admite la carga de estilos de documentos externos que no están incluidos en una KMZ.                             |
 | `ScreenOverlay`      | no      | no      |                                                                                                                            |
 | `screenXY`           | no      | no      |                                                                                                                            |
 | `SimpleData`         | sí     | sí     |                                                                                                                            |
 | `SimpleField`        | sí     | sí     |                                                                                                                            |
 | `size`               | no      | no      |                                                                                                                            |
-| `Snippet`            | parcialmente | parcialmente | El atributo `maxLines` se omite.                                                                                  |
+| `Snippet`            | partial | partial | El atributo `maxLines` se omite.                                                                                  |
 | `south`              | sí     | sí     |                                                                                                                            |
 | `Style`              | sí     | sí     |                                                                                                                            |
-| `StyleMap`           | parcialmente | no      | Solo se admite el estilo normal en un `StyleMap`.                                                                        |
-| `styleUrl`           | parcialmente | sí     | No se admiten direcciones URL de estilo externo.                                                                         |
+| `StyleMap`           | partial | no      | Solo se admite el estilo normal en un `StyleMap`.                                                                        |
+| `styleUrl`           | partial | sí     | No se admiten direcciones URL de estilo externo.                                                                         |
 | `text`               | sí     | sí     | No se admite la sustitución de `$[geDirections]`                                                                          |
 | `textColor`          | sí     | sí     |                                                                                                                            |
 | `TimeSpan`           | sí     | sí     |                                                                                                                            |
 | `TimeStamp`          | sí     | sí     |                                                                                                                            |
 | `value`              | sí     | sí     |                                                                                                                            |
-| `viewRefreshMode`    | parcialmente | no      |  Si apunta a un servicio WMS, solo se admite `onStop` para las superposiciones de suelo. Anexará `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` a la dirección URL y se actualizará a medida que se mueva la asignación.  |
+| `viewRefreshMode`    | partial | no      |  Si apunta a un servicio WMS, solo se admite `onStop` para las superposiciones de suelo. Anexará `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` a la dirección URL y se actualizará a medida que se mueva la asignación.  |
 | `visibility`         | sí     | sí     |                                                                                                                            |
 | `west`               | sí     | sí     |                                                                                                                            |
 | `when`               | sí     | sí     |                                                                                                                            |
@@ -172,30 +172,30 @@ El módulo de E/S espacial admite los siguientes elementos GeoRSS.
 | `geourl:longitude`       | sí     | no    | Se escribe como un `georss:point`.                                                                   |
 | `position`               | sí     | no    | Algunas fuentes XML ajustan GML con una etiqueta de posición en lugar de encapsularla con una etiqueta `georss:where`. Leerá esta etiqueta, pero la escribirá con una etiqueta `georss:where`. |
 | `rss`                    | sí     | no    | GeoRSS escrito en formato ATOM.                                                                 |
-| `rss:author`             | sí     | parcialmente | Se escribe como un `atom:author`.                                                                 |
-| `rss:category`           | sí     | parcialmente | Se escribe como un `atom:category`.                                                               |
+| `rss:author`             | sí     | partial | Se escribe como un `atom:author`.                                                                 |
+| `rss:category`           | sí     | partial | Se escribe como un `atom:category`.                                                               |
 | `rss:channel`            | sí     | no    |                                                                                                |
 | `rss:cloud`              | sí     | no    |                                                                                                |
 | `rss:comments`           | sí     | no    |                                                                                                |
-| `rss:copyright`          | sí     | parcialmente | Se escribe como un `atom:rights` si la forma no tiene ya una propiedad `properties` `rights`.       |
-| `rss:description`        | sí     | parcialmente | Se escribe como un `atom:content` si la forma no tiene ya una propiedad `properties` `content`.      |
+| `rss:copyright`          | sí     | partial | Se escribe como un `atom:rights` si la forma no tiene ya una propiedad `properties` `rights`.       |
+| `rss:description`        | sí     | partial | Se escribe como un `atom:content` si la forma no tiene ya una propiedad `properties` `content`.      |
 | `rss:docs`               | sí     | no    |                                                                                                |
 | `rss:enclosure`          | sí     | no    |                                                                                                |
 | `rss:generator`          | sí     | no    |                                                                                                |
-| `rss:guid`               | sí     | parcialmente | Se escribe como un `atom:id` si la forma no tiene ya una propiedad `properties` `id`.         |
-| `rss:image`              | sí     | parcialmente | Se escribe como un `atom:logo` si la forma no tiene ya una propiedad `properties` `logo`.      |
-| `rss:item`               | sí     | parcialmente | Se escribe como un `atom:entry`.                                                                  |
+| `rss:guid`               | sí     | partial | Se escribe como un `atom:id` si la forma no tiene ya una propiedad `properties` `id`.         |
+| `rss:image`              | sí     | partial | Se escribe como un `atom:logo` si la forma no tiene ya una propiedad `properties` `logo`.      |
+| `rss:item`               | sí     | partial | Se escribe como un `atom:entry`.                                                                  |
 | `rss:language`           | sí     | no    |                                                                                                |
-| `rss:lastBuildDate`      | sí     | parcialmente | Se escribe como un `atom:updated` si la forma no tiene ya una propiedad `properties` `updated`.     |
-| `rss:link`               | sí     | parcialmente | Se escribe como un `atom:link`.                                                                   |
-| `rss:managingEditor`     | sí     | parcialmente | Se escribe como un `atom:contributor`.                                                            |
-| `rss:pubDate`            | sí     | parcialmente | Se escribe como un `atom:published` si la forma no tiene ya una propiedad `properties` `published`.  |
+| `rss:lastBuildDate`      | sí     | partial | Se escribe como un `atom:updated` si la forma no tiene ya una propiedad `properties` `updated`.     |
+| `rss:link`               | sí     | partial | Se escribe como un `atom:link`.                                                                   |
+| `rss:managingEditor`     | sí     | partial | Se escribe como un `atom:contributor`.                                                            |
+| `rss:pubDate`            | sí     | partial | Se escribe como un `atom:published` si la forma no tiene ya una propiedad `properties` `published`.  |
 | `rss:rating`             | sí     | no    |                                                                                                |
 | `rss:skipDays`           | sí     | no    |                                                                                                |
 | `rss:skipHours`          | sí     | no    |                                                                                                |
-| `rss:source`             | sí     | parcialmente | Se escribe como un `atom:source` que contiene un `atom:link`.                                       |
+| `rss:source`             | sí     | partial | Se escribe como un `atom:source` que contiene un `atom:link`.                                       |
 | `rss:textInput`          | sí     | no    |                                                                                                |
-| `rss:title`              | sí     | parcialmente | Se escribe como un `atom:title`.                                                                  |
+| `rss:title`              | sí     | partial | Se escribe como un `atom:title`.                                                                  |
 | `rss:ttl`                | sí     | no    |                                                                                                |
 | `rss:webMaster`          | sí     | no    |                                                                                                |
 
@@ -226,7 +226,7 @@ El módulo de E/S espacial admite los siguientes elementos de GML.
 | `gml:lineStringMember`  | sí  | sí   |                                                                                        |
 | `gml:lineStringMembers` | sí  | no    |                                                                                        |
 | `gml:MultiCurve`        | sí  | no    | Solo lee miembros `gml:LineString`. Se escribe como `gml.MultiLineString`                  |
-| `gml:MultiGeometry`     | parcialmente  | parcialmente   | Solo se lee como FeatureCollection.                                              |
+| `gml:MultiGeometry`     | partial  | partial   | Solo se lee como FeatureCollection.                                              |
 | `gml:MultiLineString`   | sí  | sí   |                                                                                        |
 | `gml:MultiPoint`        | sí  | sí   |                                                                                        |
 | `gml:MultiPolygon`      | sí  | sí   |                                                                                        |
@@ -264,7 +264,7 @@ El módulo de E/S espacial admite los siguientes elementos GPX.
 | `gpx:desc`               | sí     | sí     | Se copia en una propiedad description cuando la lectura se alinea con otros formatos XML.               |
 | `gpx:dgpsid`             | sí     | sí     |                                                                                             |
 | `gpx:ele`                | sí     | sí     |                                                                                             |
-| `gpx:extensions`         | parcialmente | parcialmente | Cuando se lee, se extrae la información de estilo. Todas las demás extensiones se acoplarán en un objeto JSON simple. Solo se escribe la información de estilo de la forma. |
+| `gpx:extensions`         | partial | partial | Cuando se lee, se extrae la información de estilo. Todas las demás extensiones se acoplarán en un objeto JSON simple. Solo se escribe la información de estilo de la forma. |
 | `gpx:geoidheight`        | sí     | sí     |                                                                                             |
 | `gpx:gpx`                | sí     | sí     |                                                                                             |
 | `gpx:hdop`               | sí     | sí     |                                                                                             |
@@ -287,13 +287,13 @@ El módulo de E/S espacial admite los siguientes elementos GPX.
 | `gpx:vdop`               | sí     | sí     |                                                                                             |
 | `gpx:wpt`                | sí     | sí     |                                                                                             |
 | `gpx_style:color`        | sí     | sí     |                                                                                             |
-| `gpx_style:line`         | parcialmente | parcialmente | Se admiten `color`, `opacity`, `width` y `lineCap`.                                           |
+| `gpx_style:line`         | partial | partial | Se admiten `color`, `opacity`, `width` y `lineCap`.                                           |
 | `gpx_style:opacity`      | sí     | sí     |                                                                                             |
 | `gpx_style:width`        | sí     | sí     |                                                                                             |
 | `gpxx:DisplayColor`      | sí     | no      | Se utiliza para especificar el color de una forma. Al escribir, en su lugar se utilizará el color `gpx_style:line`.  |
-| `gpxx:RouteExtension`    | parcialmente | no      | Todas las propiedades se leen en `properties`. Solo se utiliza `DisplayColor`.                     |
-| `gpxx:TrackExtension`    | parcialmente | no      | Todas las propiedades se leen en `properties`. Solo se utiliza `DisplayColor`.                     |
-| `gpxx:WaypointExtension` | parcialmente | no      | Todas las propiedades se leen en `properties`. Solo se utiliza `DisplayColor`.                     |
+| `gpxx:RouteExtension`    | partial | no      | Todas las propiedades se leen en `properties`. Sólo se utiliza `DisplayColor`.                     |
+| `gpxx:TrackExtension`    | partial | no      | Todas las propiedades se leen en `properties`. Sólo se utiliza `DisplayColor`.                     |
+| `gpxx:WaypointExtension` | partial | no      | Todas las propiedades se leen en `properties`. Sólo se utiliza `DisplayColor`.                     |
 | `gpx:keywords`           | sí     | sí     |                                                                                             |
 | `gpx:fix`                | sí     | sí     |                                                                                             |
 

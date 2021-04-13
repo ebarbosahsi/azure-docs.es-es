@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: d990deca3f435f0b1e3fbdd3388371a11813662a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98f13df2c4da993147ba3ef4157340910fcbc5d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948237"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719786"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -102,7 +102,7 @@ Para muchos de los escenarios del desarrollo de aplicaciones de voz, es probable
 * Integrar el resultado con otros servicios o API.
 * Modificar los datos de audio, escribir encabezados `.wav` personalizados, etc.
 
-Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite `AudioConfig`, porque a partir de este momento administrará el comportamiento de la salida de forma manual, ya que así obtiene mayor control. Después, use `None` en `AudioConfig` en el constructor `SpeechSynthesizer`. 
+Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite `AudioConfig`, porque a partir de este momento administrará el comportamiento de la salida de forma manual, ya que así obtiene mayor control. Después, use `None` en `AudioConfig` en el constructor `SpeechSynthesizer`.
 
 > [!NOTE]
 > Al usar `None` en `AudioConfig`, en lugar de omitirlo como en el ejemplo de salida del altavoz anterior, el audio no se reproducirá de forma predeterminada en el dispositivo de salida activo actual.
@@ -206,3 +206,11 @@ Para cambiar a una voz neuronal, cambie `name` a una de las [opciones de voz neu
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
+
+La voz puede ser una buena forma de llevar a cabo la animación de las expresiones faciales.
+Con frecuencia se usan [visemas](../../../how-to-speech-synthesis-viseme.md) para representar las posiciones principales en el habla observada, como la colocación de los labios, la mandíbula y la lengua al producir un fonema determinado.
+Puede suscribirse al evento viseme en Speech SDK.
+Después, puede aplicar eventos de visema para animar la cara de un personaje mientras se reproduce el audio de voz.
+Aprenda a [obtener eventos de visema](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

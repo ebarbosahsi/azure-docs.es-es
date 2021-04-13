@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905577"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223215"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutorial: Incorporación de la autenticación a una aplicación web que se ejecuta en Azure App Service
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 Para este tutorial, necesita una aplicación web implementada en App Service. Puede usar una aplicación web existente, o puede seguir las indicaciones del [inicio rápido de ASP.NET Core](quickstart-dotnetcore.md) para crear y publicar una nueva aplicación web en App Service.
 
-Si va a usar una aplicación web existente o a crear una nueva, tome nota del nombre de esta y del nombre del grupo de recursos en el que está implementada. Necesitará estos nombres en este tutorial. En este tutorial, los nombres de ejemplo de los procedimientos y las capturas de pantalla contienen *SecureWebApp*.
+Si va a usar una aplicación web existente o a crear una nueva, tome nota del nombre de esta y del nombre del grupo de recursos en el que está implementada. Necesitará estos nombres en este tutorial. 
 
 ## <a name="configure-authentication-and-authorization"></a>Configuración de la autenticación y la autorización
 
@@ -53,17 +53,19 @@ En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Inform
 
 :::image type="content" alt-text="Captura de pantalla que muestra la selección de la página de administración de la aplicación." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-En el menú de la izquierda de la aplicación, seleccione **Autenticación o autorización** y luego seleccione **Activo** para habilitar la autenticación de App Service.
+En el menú de la izquierda de la aplicación, seleccione **Autenticación** y, luego, haga clic en **Agregar proveedor de identidades**.
 
-En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
+En la página **Agregar un proveedor de identidades**, seleccione **Microsoft** en **Proveedor de identidades** para iniciar sesión en las identidades de Microsoft y Azure AD.
 
-En **Proveedores de autenticación,** seleccione **Azure Active Directory**. Seleccione **Rápido** y, a continuación, acepte la configuración predeterminada para crear una nueva aplicación de Active Directory. Seleccione **Aceptar**.
+En **Registro de aplicación** > **App registration type** (Tipo de registro de aplicación), seleccione **Create new app registration** (Crear registro de aplicación).
 
-:::image type="content" alt-text="Captura de pantalla que muestra la autenticación rápida." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+En **Registro de aplicación** > **Supported account types** (Tipos de cuenta admitidos), seleccione **Current tenant-single tenant** (Inquilino de inquilino único actual).
 
-En la página **Autenticación o autorización**, seleccione **Guardar**.
+En la sección **App Service authentication settings** (Configuración de autenticación de App Service), deje la opción **Autenticación** establecida en **Requerir autenticación** y la opción **Unauthenticated requests** (Solicitudes no autenticadas) establecida en **HTTP 302 Found redirect: recommended for websites** (HTTP 302 Redirección no encontrada: recomendado para sitios web).
 
-Cuando vea la notificación con el mensaje `Successfully saved the Auth Settings for <app-name> App`, actualice la página del portal.
+En la parte inferior de la página **Agregar un proveedor de identidades**, haga clic en **Agregar** para permitir la autenticación de la aplicación web.
+
+:::image type="content" alt-text="Captura de pantalla que muestra la configuración de la autenticación." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Ahora tiene una aplicación que está protegida por la autenticación y la autorización de App Service.
 

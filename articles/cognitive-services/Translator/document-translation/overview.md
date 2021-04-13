@@ -6,16 +6,21 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d9ef13de29ac140d94e9e4c05b14f35b9e5834c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713021"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968176"
 ---
 # <a name="what-is-document-translation-preview"></a>¿Qué es la traducción de documentos (versión preliminar)?
 
 La traducción de documentos es una característica basada en la nube del servicio [Azure Translator](../translator-info-overview.md) y forma parte de la familia de Azure Cognitive Services de las API de REST. La API de traducción de documentos traduce documentos a y desde 90 idiomas y dialectos manteniendo la estructura del documento y el formato de los datos.
+
+Esta documentación contiene los siguientes tipos de artículos:  
+
+* Los [**inicios rápidos**](get-started-with-document-translation.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
+* Las [**guías de procedimientos**](create-sas-tokens.md) contienen instrucciones para usar la característica de una manera más específica o personalizada.  
 
 ## <a name="document-translation-key-features"></a>Características clave de la traducción de documentos
 
@@ -47,9 +52,8 @@ Los siguientes tipos de archivo de documento son compatibles con la traducción 
 |Microsoft Outlook|.msg|Mensaje de correo electrónico creado o guardado en Microsoft Outlook|
 |Microsoft PowerPoint|.pptx| Archivo de presentación utilizado para mostrar contenido en formato de presentación|
 |Microsoft Word|.docx| Archivo de documento de texto|
-|Valores separados por tabulaciones/TAB|.tsv/.tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hojas de cálculo|
+|Valores separados por tabulaciones/TAB|.tsv/.tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hoja de cálculo.|
 |Texto|.txt| Documento de texto sin formato|
-|Intercambio de memoria de traducción|.tmx|Estándar Open XML que se usa para intercambiar los datos de la memoria de traducción (MT) creados mediante aplicaciones de traducción asistida por ordenador (CAT) y localización|
 
 ## <a name="supported-glossary-formats"></a>Formatos de glosario compatibles
 
@@ -58,11 +62,9 @@ Los siguientes tipos de archivo de glosario son compatibles con la traducción d
 | Tipo de archivo| Extensión de archivo|Descripción|
 |---|---|--|
 |Formato de archivo de intercambio de localización|.xlf. , xliff| Formato de documento paralelo que se exporta desde los sistemas de memoria de traducción. Los idiomas utilizados se definen dentro del archivo.|
-|Valores separados por tabulaciones/TAB|.tsv/.tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hojas de cálculo|
+|Valores separados por tabulaciones/TAB|.tsv/.tab| Archivo de datos sin formato delimitado por tabulaciones que usan los programas de hoja de cálculo.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Introducción a la traducción de documentos](get-started-with-document-translation.md)
->
->

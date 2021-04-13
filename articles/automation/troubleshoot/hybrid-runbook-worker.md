@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580989"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169358"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solución de incidencias de Hybrid Runbook Worker
 
@@ -128,7 +128,7 @@ Los siguientes problemas son posibles causas:
 #### <a name="resolution"></a>Solución
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Identificador o clave de área de trabajo mal escritos
-Para comprobar si el identificador o la clave del área de trabajo del agente están escritos de manera incorrecta, consulte el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) para el agente de Windows, o bien el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) para el agente de Linux. Asegúrese de seleccionar la cadena completa de Azure Portal y cópiela y péguela con cuidado.
+Para comprobar si el identificador o la clave del área de trabajo del agente están escritos de manera incorrecta, consulte el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) para el agente de Windows, o bien el artículo sobre cómo [agregar o quitar un área de trabajo: agente de Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para el agente de Linux. Asegúrese de seleccionar la cadena completa de Azure Portal y cópiela y péguela con cuidado.
 
 ##### <a name="configuration-not-downloaded"></a>Configuración no descargada
 

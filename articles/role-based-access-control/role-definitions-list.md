@@ -2,24 +2,19 @@
 title: 'Enumeración de las definiciones de roles de Azure: RBAC de Azure'
 description: Aprenda a enumerar los roles integrados y personalizados de Azure mediante Azure Portal, Azure PowerShell, la CLI de Azure o la API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555952"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629163"
 ---
 # <a name="list-azure-role-definitions"></a>Enumeración de las definiciones de roles de Azure
 
@@ -33,6 +28,10 @@ Para ver la lista de los roles de administrador de Azure Active Directory, consu
 
 Siga estos pasos para enumerar todos los roles de Azure Portal.
 
+Si está interesado en ver una experiencia de roles actualizada, consulte la pestaña **Roles (versión preliminar)** , que se encuentra actualmente en versión preliminar pública. La pestaña **Roles (versión preliminar)** muestra la misma lista de roles que la pestaña **Roles**, pero incluye algunas características adicionales. Puede usar cualquiera de las pestañas de roles para trabajar con los roles; sin embargo, si crea o elimina roles personalizados, es posible que tenga que actualizar manualmente la página para ver los últimos cambios.
+
+#### <a name="roles"></a>[Roles](#tab/roles/)
+
 1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
@@ -43,7 +42,29 @@ Siga estos pasos para enumerar todos los roles de Azure Portal.
 
    Puede ver el número de usuarios y grupos asignados a cada rol en el ámbito actual.
 
-   ![Lista Roles](./media/role-definitions-list/roles-list.png)
+   ![Lista Roles](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[Roles (versión preliminar)](#tab/roles-preview/)
+
+1. En Azure Portal, haga clic en **Todos los servicios** y luego seleccione cualquier ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+
+1. Haga clic en el recurso específico.
+
+1. Haga clic en **Control de acceso (IAM).**
+
+1. Haga clic en la pestaña **Roles (versión preliminar)** para ver una lista de todos los roles integrados y personalizados.
+
+   ![Lista de roles con la experiencia de versión preliminar](./media/role-definitions-list/roles-list.png)
+
+1. Para ver los permisos de un rol determinado, en la columna **Detalles**, haga clic en el vínculo **Ver**.
+
+    Aparece un panel de permisos.
+
+1. Haga clic en la pestaña **Permisos** para ver y buscar los permisos del rol seleccionado.
+
+   ![Permisos de rol con la experiencia de versión preliminar](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

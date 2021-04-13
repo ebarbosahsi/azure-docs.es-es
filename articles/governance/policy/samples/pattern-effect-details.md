@@ -1,18 +1,18 @@
 ---
 title: 'Patrón: efectos de una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los distintos efectos de una definición de directiva.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fa95fdc793e7762c39525a83f38ae952f532a60
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92073043"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092847"
 ---
 # <a name="azure-policy-pattern-effects"></a>Patrón de Azure Policy: efectos
 
-Azure Policy tiene varios [efectos](../concepts/effects.md) que determinan cómo reacciona el servicio ante los recursos no compatibles. Algunos efectos son simples y no requieren ninguna propiedad adicional en la definición de directiva, mientras que otros requieren varias propiedades.
+Azure Policy tiene muchos [efectos](../concepts/effects.md) que determinan cómo reacciona el servicio ante los recursos no compatibles. Algunos efectos son simples y no requieren ninguna propiedad adicional en la definición de directiva, mientras que otros requieren varias propiedades.
 
 ## <a name="sample-1-simple-effect"></a>Muestra 1: Efecto simple
 

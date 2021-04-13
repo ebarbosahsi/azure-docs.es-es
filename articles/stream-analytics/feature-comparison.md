@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98020543"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparación de características de Azure Stream Analytics
@@ -27,7 +27,7 @@ Con Azure Stream Analytics, puede crear soluciones de streaming en la nube y en 
 |---------|---------|---------|---------|
 |Multiplataforma     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Creación de scripts     |Sí         |Sí         |Sí         |
-|Script Intellisense     |Resaltado de sintaxis         |Resaltado de sintaxis</br>Finalización de código</br>Marcador de errores         |Resaltado de sintaxis</br>Finalización de código</br>Marcador de errores         |
+|Script Intellisense     |Resalte de sintaxis         |Resalte de sintaxis</br>Finalización de código</br>Marcador de errores         |Resalte de sintaxis</br>Finalización de código</br>Marcador de errores         |
 |Definir todo tipo de entradas, salidas y configuraciones de trabajos     |Sí         |Sí         |Sí         |
 |Control de código fuente     |No         |Sí         |Sí         |
 |Compatibilidad con CI/CD     |Parcial         |Sí         |Sí         |

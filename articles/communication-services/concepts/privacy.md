@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495715"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728137"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services se compromete a ayudar a nuestros clientes a cumplir sus requisitos sobre privacidad y datos personales. Como desarrollador que usa Communication Services con una relación directa con las personas que usan la aplicación, es posible que actúe como un controlador de sus datos. Dado que Azure Communication Services almacena y cifra estos datos en reposo en su nombre, somo algo así como un procesador de estos datos. En esta página se resume cómo conserva los datos el servicio y cómo puede identificar, exportar y eliminar estos datos.
 
@@ -58,10 +56,12 @@ Azure Communication Services mantiene un directorio de números de teléfono aso
 
 ### <a name="chat"></a>Chat
 
-Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo totalmente inactivo se eliminará automáticamente después de 30 días. Use las [API de chat](/rest/api/communication/chat/chatthread) para obtener, enumerar, actualizar y eliminar mensajes.
+Los mensajes y los hilos de chat se conservan hasta que se eliminan explícitamente. Un hilo completamente inactivo sin participantes se eliminará automáticamente después de 30 días. Use las [API de chat](/rest/api/communication/chat/chatthread) para obtener, enumerar, actualizar y eliminar mensajes.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 

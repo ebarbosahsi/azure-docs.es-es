@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071688"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109856"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -94,7 +94,11 @@ En el diagrama siguiente se muestra dónde se encuentra Azure Digital Twins en e
 
 ## <a name="service-limits"></a>Límites de servicio
 
-Para obtener una lista de los límites de Azure Digital Twins, consulte el artículo en el que se muestran los [*límites del servicio Azure Digital Twins*](reference-service-limits.md).
+Puede leer sobre los **límites de servicio** de Azure Digital Twins aquí: [Límites del servicio Azure Digital Twins](reference-service-limits.md). Esta información puede ser útil al trabajar con el servicio a fin de comprender sus limitaciones funcionales y de velocidad, así como los límites que se pueden ajustar en caso necesario.
+
+## <a name="terminology"></a>Terminología
+
+Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios de Azure IoT, incluido Azure Digital Twins, aquí: [Glosario de Azure IoT](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Este recurso puede ser una referencia útil cuando empiece a trabajar con Azure Digital Twins y a crear una solución de IoT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

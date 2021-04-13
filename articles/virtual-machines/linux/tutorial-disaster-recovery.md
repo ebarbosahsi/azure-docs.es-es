@@ -9,24 +9,23 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5e83f883b5e1e35842ab128e4732e993fb937a0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564754"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383700"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutorial: Configuración de la recuperación ante desastres para máquinas virtuales Linux
-
 
 En este tutorial se muestra cómo configurar la recuperación ante desastres para las máquinas virtuales de Azure que utilizan Linux. En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Habilitar la recuperación ante desastres para máquinas virtuales Linux
-> * Ejecutar una exploración en profundidad de la recuperación ante desastres
+> * Ejecución de un simulacro de recuperación ante desastres para comprobar que funciona según lo esperado
 > * Detener la replicación de la máquina virtual después del simulacro
 
-Cuando se habilita la replicación de una máquina virtual, el servicio Mobility de Site Recovery se instala en la máquina virtual y lo registra en [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Durante la replicación, las escrituras en disco de la máquina virtual VM se envían a una cuenta de almacenamiento en la caché de la región de origen. Desde ahí, los datos se envían a la región de destino y los puntos de recuperación se generan a partir de los datos.  Cuando se realiza la conmutación por error de una máquina virtual a otra región durante la recuperación ante desastres, se usa un punto de recuperación para restaurar la máquina virtual en la región de destino.
+Cuando se habilita la replicación de una máquina virtual, el servicio Mobility de Site Recovery se instala en la máquina virtual y lo registra en [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Durante la replicación, las escrituras en disco de la máquina virtual se envían a una cuenta de almacenamiento en caché de la región de la máquina virtual de origen. Desde ahí, los datos se envían a la región de destino y los puntos de recuperación se generan a partir de los datos.  Cuando se realiza la conmutación por error de una máquina virtual a otra región durante la recuperación ante desastres, se usa un punto de recuperación para crear una máquina virtual en la región de destino.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
@@ -60,26 +59,67 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     GuestAndHybridManagement | Úselo si desea actualizar automáticamente el agente de movilidad de Site Recovery que se ejecuta en las máquinas virtuales habilitadas para la replicación.
 5. Asegúrese de que las máquinas virtuales tienen los certificados raíz más recientes. En las máquinas virtuales Linux, siga las instrucciones proporcionadas por su distribuidor de Linux para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual.
 
-## <a name="enable-disaster-recovery"></a>Habilitación de la recuperación ante desastres
+## <a name="create-a-vm-and-enable-disaster-recovery"></a>Creación de una máquina virtual y habilitación de la recuperación ante desastres
+
+Opcionalmente, puede habilitar la recuperación ante desastres al crear una máquina virtual.
+
+1. [Creación de una máquina virtual Linux](quick-create-portal.md).
+2. En la pestaña **Administración**, en **Site Recovery**, seleccione **Enable disaster recovery** (Habilitar la recuperación ante desastres).
+3. En **Región secundaria**, seleccione la región de destino en la que quiere replicar la máquina virtual para la recuperación ante desastres.
+4. En **Secondary subscription** (Suscripción secundaria), seleccione la suscripción de destino en la que se creará la máquina virtual de destino. La máquina virtual de destino se crea al conmutar por error la máquina virtual de origen de la región de origen a la región de destino.
+5. En **Almacén de Recovery Services**, seleccione el almacén que quiere usar para la replicación. Si no tiene un almacén, seleccione **Crear nuevo**. Seleccione un grupo de recursos en el que colocar el almacén y un nombre de almacén.
+6. En **Site Recovery policy** (Directiva de Site Recovery), deje la directiva predeterminada o seleccione **Crear nueva** para establecer valores personalizados.
+
+    - Los puntos de recuperación se crean a partir de instantáneas de los discos de máquina virtual tomadas en un momento determinado. Al conmutar por error una máquina virtual, se usa un punto de recuperación para restaurarla en la región de destino. 
+    - Cada cinco minutos se crea un punto de recuperación coherente frente a bloqueos. No se puede modificar esta configuración. Una instantánea coherente frente a bloqueos captura los datos que estaban en el disco en el momento de tomarse la instantánea. No incluye nada de la memoria. 
+    - De forma predeterminada, Site Recovery conserva los puntos de recuperación coherentes frente a bloqueos durante 24 horas. Sin embargo, puede establecer un valor personalizado comprendido entre 0 y 72 horas.
+    - Cada cuatro horas se toma una instantánea coherente con la aplicación.
+    - De forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas.
+
+7. En **Opciones de disponibilidad**, especifique si la máquina virtual se implementa como independiente, en una zona de disponibilidad o en un conjunto de disponibilidad.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Habilitación de la replicación en la página de propiedades de administración de máquinas virtuales.":::
+
+8. Termine de crear la máquina virtual.
+
+## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Habilitación de la recuperación ante desastres en una máquina virtual existente
+
+Use este procedimiento si quiere habilitar la recuperación ante desastres en una máquina virtual existente.
 
 1. En Azure Portal, abra la página de propiedades de la máquina virtual.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
-3. En **Aspectos básicos** > **Región de destino**, seleccione la región a la que desea migrar la máquina virtual. Tanto la región de origen como la de destino deben estar en el mismo inquilino de Azure Active Directory.
-4. Haga clic en **Revisar e iniciar replicación**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Habilite la replicación en la página Recuperación ante desastres de las propiedades de la máquina virtual.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Apertura de las opciones de recuperación ante desastres en una máquina virtual existente.":::
 
-5. En **Revisar e iniciar replicación**, compruebe la configuración:
+3. En **Aspectos básicos**, si la máquina virtual se implementa en una zona de disponibilidad, puede seleccionar la recuperación ante desastres entre zonas de disponibilidad.
+4. En **Región de destino**, seleccione la región a la que quiere migrar la máquina virtual. Tanto la región de origen como la de destino deben estar en el mismo inquilino de Azure Active Directory.
 
-    - **Configuración de destino**. De forma predeterminada, Site Recovery crea un espejo de la configuración de origen para crear recursos de destino.
-    - **Configuración de almacenamiento: cuenta de almacenamiento de caché**. Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en la máquina virtual de origen se almacenan en la caché en esta cuenta antes de replicarse en la ubicación de destino.
-    - **Configuración de almacenamiento: disco de réplica**. De forma predeterminada, Site Recovery crea en la región de destino discos administrados de réplica que reflejan los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Estándar o Premium).
-    - **Configuración de la replicación**. Muestra los detalles del almacén e indica que los puntos de recuperación creados por Site Recovery se mantienen durante 24 horas.
-    - **Configuración de la extensión**. Indica que Site Recovery administrará las actualizaciones de la extensión del servicio Mobility de Site Recovery que se instala en las máquinas virtuales que se repliquen. La cuenta de Azure Automation indicada administra el proceso de actualización.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Establecimiento de las opciones básicas de recuperación ante desastres en una máquina virtual.":::
+
+5. Seleccione **Siguiente: Configuración avanzada**.
+6. En **Configuración avanzada**, puede revisar la configuración y modificar los valores para personalizar la configuración. De forma predeterminada, Site Recovery crea un espejo de la configuración de origen para crear recursos de destino.
+
+    - **Suscripción de destino**. La suscripción en la que se crea la máquina virtual de destino después de la conmutación por error.
+    - **Target VM resource group** (Grupo de recursos de la máquina virtual de destino). El grupo de recursos en el que se crea la máquina virtual de destino después de la conmutación por error.
+    - **Red virtual de destino**. La red virtual de Azure en la que se encuentra la máquina virtual de destino cuando se crea después de la conmutación por error.
+    - **Target availability** (Disponibilidad de destino). Cuando la máquina virtual de destino se crea como una instancia única, en un conjunto de disponibilidad o en una zona de disponibilidad.
+    - **Proximity placement** (Selección de ubicación por proximidad). Si procede, elija el grupo de selección de ubicación de proximidad en el que se encuentra la máquina virtual de destino después de la conmutación por error.
+    - **Configuración de almacenamiento: cuenta de almacenamiento de caché**. La recuperación utiliza una cuenta de almacenamiento de la región de origen como almacén de datos temporal. Los cambios en la máquina virtual de origen se almacenan en la caché en esta cuenta antes de replicarse en la ubicación de destino.
+        - De forma predeterminada, se crea una cuenta de almacenamiento en caché por cada almacén y se vuelve a usar.
+        - Si quiere personalizar la cuenta de caché de la máquina virtual, puede seleccionar otra cuenta de almacenamiento.
+    - **Storage settings-Replica managed disk** (Configuración de almacenamiento: réplica de disco administrado). De manera predeterminada, Site Recovery crea réplicas de discos administrados en la región de destino.
+        -  De manera predeterminada, el disco administrado de destino refleja los discos administrados de la máquina virtual de origen, con el mismo tipo de almacenamiento (HDD/SSD estándar o SSD prémium).
+        - Puede personalizar el tipo de almacenamiento según sea necesario.
+    - **Configuración de la replicación**. Muestra el almacén en el que se encuentra la máquina virtual y la directiva de replicación que se usa en ella. De forma predeterminada, los puntos de recuperación creados por Site Recovery en la máquina virtual se mantienen durante 24 horas.
+    - **Configuración de la extensión**. Indica que Site Recovery administra las actualizaciones de la extensión del servicio Mobility de Site Recovery que se instala en las máquinas virtuales que se repliquen.
+        - La cuenta de Azure Automation indicada administra el proceso de actualización.
+        - Puede personalizar la cuenta de Automation.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Página que muestra un resumen de la configuración de la replicación y del destino.":::
 
-2. Seleccione **Iniciar replicación**. La implementación comienza y Site Recovery empieza a crear recursos de destino. El progreso de la replicación se puede supervisar en las notificaciones.
+6. Seleccione **Revisar e iniciar replicación**.
+
+7. Seleccione **Iniciar replicación**. La implementación comienza y Site Recovery empieza a crear recursos de destino. El progreso de la replicación se puede supervisar en las notificaciones.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Notificación del progreso de la replicación.":::
 
@@ -97,7 +137,6 @@ Cuando el trabajo de replicación finalice, puede comprobar el estado de replica
 5. En **Vista de la infraestructura**, obtenga una visión general de las máquinas virtuales de origen y de destino, de los discos administrados y de la cuenta de almacenamiento en la caché.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/infrastructure.png" alt-text="Mapa visual de la infraestructura para la recuperación ante desastres de máquinas virtuales.":::
-
 
 ## <a name="run-a-drill"></a>Ejecución de un simulacro
 

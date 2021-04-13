@@ -1,17 +1,17 @@
 ---
 title: 'Uso de Azure Active Directory: Azure Database for MySQL'
 description: Información sobre cómo configurar Azure Active Directory (Azure AD) para la autenticación con Azure Database for MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: f5890ddb2a4b1599dbcfd1e624c9fbe71a564de7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 492e56e09129f9d47b863624cd72cd508801c143
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442764"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728273"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Uso de Azure Active Directory para la autenticación con MySQL
 
@@ -78,7 +78,6 @@ Ejemplo (para la nube pública):
 ```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
-
 El valor del recurso anterior debe especificarse exactamente como se muestra. En el caso de otras nubes, el valor del recurso se puede buscar usando:
 
 ```azurecli-interactive
@@ -90,6 +89,13 @@ En la versión 2.0.71 de CLI de Azure y posteriores, el comando se puede especif
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
+Con PowerShell puede usar el siguiente comando para adquirir tokens de acceso:
+
+```azurepowershell-interactive
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
+```
+
 
 Una vez que la autenticación se realiza correctamente, Azure AD devolverá un token de acceso:
 
@@ -105,13 +111,17 @@ Una vez que la autenticación se realiza correctamente, Azure AD devolverá un t
 
 El token es una cadena de Base 64 que codifica toda la información sobre el usuario autenticado, y que está dirigida al servicio de Azure Database for MySQL.
 
-> [!NOTE]
-> La validez del token de acceso es de entre 5 y 60 minutos. Se recomienda obtener el token de acceso justo antes del inicio de sesión en Azure Database for MySQL.
+La validez del token de acceso es de entre ***5 y 60 minutos***. Se recomienda obtener el token de acceso justo antes del inicio de sesión en Azure Database for MySQL. Puede usar el siguiente comando de PowerShell para ver la validez del token. 
+
+```azurepowershell-interactive
+$accessToken.ExpiresOn.DateTime
+```
 
 ### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Paso 3: Usar el token como contraseña para iniciar sesión con MySQL
 
-Al conectarse, debe usar el token de acceso como contraseña de usuario de MySQL. Al usar clientes de GUI, como MySQLWorkbench, puede usar el método anterior para recuperar el token. 
+Al conectarse, debe usar el token de acceso como contraseña de usuario de MySQL. Al usar clientes de GUI, como MySQLWorkbench, puede utilizar el método anterior para recuperar el token. 
 
+#### <a name="using-mysql-cli"></a>Uso de la CLI de MySQL
 Al usar la CLI, puede usar este atajo para conectarse: 
 
 **Ejemplo (Linux/macOS):**
@@ -121,8 +131,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+#### <a name="using-mysql-workbench"></a>Uso de MySQL Workbench
+* Inicie MySQL Workbench, haga clic en la opción Base de datos y luego en "Conectar a base de datos"
+* En el campo Nombre de host escriba el FQDN de MySQL, por ejemplo, mydb.mysql.database.azure.com
+* En el campo Nombre de usuario escriba el nombre del administrador de Azure Active Directory de MySQL y anéxelo al nombre del servidor MySQL, no el FQDN, por ejemplo, user@tenant.onmicrosoft.com@mydb
+* En el campo Contraseña haga clic en "Almacenar en almacén" y pegue el token de acceso del archivo, por ejemplo, C:\temp\MySQLAccessToken.txt
+* Haga clic en la pestaña Opciones avanzadas y asegúrese de activar la casilla "Habilitar el complemento de autenticación Cleartext"
+* Haga clic en Aceptar para conectarse a la base de datos
 
-Consideraciones importantes al conectarse:
+#### <a name="important-considerations-when-connecting"></a>Consideraciones importantes al conectarse:
 
 * `user@tenant.onmicrosoft.com` es el nombre del usuario de Azure AD o grupo al que está intentando conectarse.
 * Anexe siempre el nombre del servidor después del nombre del grupo o usuario de Azure AD (por ejemplo, `@mydb`).

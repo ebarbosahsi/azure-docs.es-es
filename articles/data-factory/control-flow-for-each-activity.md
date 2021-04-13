@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d0fd9ab8286496b9801d6c10682761f1264e040a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786216"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120918"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Actividades | Las actividades que se ejecutarán. | Lista de actividades | Sí
 Si **isSequential** está establecido en false, la actividad itera en paralelo con un máximo de 20 iteraciones simultáneas. Esta configuración se debe usar con precaución. Si las iteraciones simultáneas escriben en la misma carpeta pero en distintos archivos, este enfoque es correcto. Si las iteraciones simultáneas escriben al mismo tiempo exactamente en el mismo archivo, es más probable que este enfoque provoque un error. 
 
 ## <a name="iteration-expression-language"></a>Lenguaje de expresión de iteración
-En la actividad ForEach, proporcione una matriz que se iterará para la propiedad **items**. Use `@item()` para iterar una sola enumeración en la actividad ForEach. Por ejemplo, si la propiedad **items** es una matriz: [1, 2, 3], `@item()` devuelve 1 en la primera iteración, 2 en la segunda y 3 en la tercera.
+En la actividad ForEach, proporcione una matriz que se iterará para la propiedad **items**. Use `@item()` para iterar una sola enumeración en la actividad ForEach. Por ejemplo, si la propiedad **items** es una matriz: [1, 2, 3], `@item()` devuelve 1 en la primera iteración, 2 en la segunda y 3 en la tercera. También puede usar `@range(0,10)` como expresión para iterar diez veces comenzando con 0 y terminando con 9.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteración de una sola actividad
 **Escenario:** Copia del mismo archivo de origen en un blob de Azure a varios archivos de destino en un blob de Azure.

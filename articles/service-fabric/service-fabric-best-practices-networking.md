@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de6a80f73a97a5732f00e10107fff2330038210a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732571"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122023"
 ---
 # <a name="networking"></a>Redes
 
@@ -87,7 +87,7 @@ Más información sobre las reglas de seguridad de entrada:
 
 * **Aplicación**. El intervalo de puertos de las aplicaciones debería ser lo suficientemente amplio como para contemplar el requisito de punto de conexión de estas. Este intervalo debería quedar excluido del intervalo de puertos dinámicos de la máquina, es decir, el intervalo ephemeralPorts tal y como se establece en la configuración. Service Fabric usa estos puertos siempre que se requieren nuevos puertos y se ocupa de la apertura del firewall para ellos en los nodos.
 
-* **SMB**. El servicio ImageStore usa el protocolo SMB en dos escenarios. Este puerto es necesario para que los nodos descarguen los paquetes de ImageStore y para replicarlos entre las réplicas. 
+* **SMB**. Opcional, la versión del entorno de ejecución 7.1 y versiones superiores han dejado de usar SMB de forma predeterminada. El servicio ImageStore usa el protocolo SMB en dos escenarios. Este puerto es necesario para que los nodos descarguen los paquetes de ImageStore y para replicarlos entre las réplicas. 
 
 * **RDP**. Opcional, si se requiere RDP desde Internet o VirtualNetwork para escenarios de jumpbox. 
 

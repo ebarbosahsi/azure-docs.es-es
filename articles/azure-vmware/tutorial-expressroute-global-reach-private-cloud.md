@@ -3,12 +3,12 @@ title: 'Tutorial: Emparejamiento de entornos locales con una nube privada'
 description: Aprenda a crear el emparejamiento de Global Reach de ExpressRoute y una nube privada en Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564507"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449569"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparejamiento de entornos locales con una nube privada
 
@@ -55,7 +55,7 @@ Ahora que ha creado una clave de autorización para el circuito ExpressRoute de 
 1. Cree una conexión entre el entorno local y la nube. Realice una de las acciones siguientes y seleccione **Crear**:
 
    - Seleccione el **circuito ExpressRoute** de la lista.
-   - O, si tiene el identificador del circuito, péguelo en el campo y proporcione la clave de autorización.
+   - O, si tiene el identificador del circuito, péguelo en el campo y proporcione la clave de autorización que acaba de crear.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Escriba el identificador de ExpressRoute, la clave de autorización y, a continuación, seleccione Crear.":::   
    

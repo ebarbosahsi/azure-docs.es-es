@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 10e999a7f0662c421d73872448506a9c9ca05975
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92541526"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079036"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 
@@ -62,7 +62,7 @@ Los enriquecimientos se pueden configurar mediante los métodos siguientes:
 
 | **Método** | **Comando** |
 | ----- | -----| 
-| Portal | [Azure Portal](https://portal.azure.com) | Consulte el [tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md). | 
+| Portal | [Azure Portal](https://portal.azure.com) Consulte el [tutorial de enriquecimientos de mensajes](tutorial-message-enrichments.md) | 
 | Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 

@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563511"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385435"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Inicio rápido: Creación de una factoría de datos y una canalización con SDK de .NET
 
@@ -105,12 +105,14 @@ A continuación, cree una aplicación de consola .NET de C# en Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> En el caso de nubes soberanas, debe usar los puntos de conexión adecuados específicos de la nube para ActiveDirectoryAuthority y ResourceManagerUrl (BaseUri). Por ejemplo, en el caso de la nube de Azure de Administración Pública de los Estados Unidos, debería usar la autoridad de https://login.microsoftonline.us en lugar de https://login.microsoftonline.com y https://management.usgovcloudapi.net en lugar de https://management.azure.com/ y, luego, crear el cliente de administración de la factoría de datos. Puede usar PowerShell para obtener fácilmente las direcciones URL de las diversas nubes ejecutando "Get-AzEnvironment | Format-List ", que devolverá una lista de puntos de conexión para cada entorno de nube.
 
 3. Agregue el código siguiente al método **Main** que crea una instancia de la clase **DataFactoryManagementClient**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos y una canalización. También se usa para supervisar los detalles de ejecución de la canalización.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;
@@ -118,6 +120,7 @@ A continuación, cree una aplicación de consola .NET de C# en Visual Studio:
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc054d1294b55ddd3937ebc7b91643aa349cd8ea
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99071579"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122193"
 ---
 # <a name="azure-key-vault-security"></a>Seguridad de Azure Key Vault
 
@@ -46,7 +46,7 @@ Cuando se crea un almacén de claves en una suscripción de Azure, se asocia aut
 
 - **Solo la aplicación**: La aplicación representa una entidad de servicio o una identidad administrada. Esta identidad es el escenario más común para aplicaciones que necesitan acceder periódicamente a certificados, claves o secretos del almacén de claves. Para que este escenario funcione, el elemento `objectId` de la aplicación debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
 - **Solo el usuario**: el usuario accede al almacén de claves desde cualquier aplicación registrada en el inquilino. Los ejemplos de este tipo de acceso incluyen Azure PowerShell y Azure Portal. Para que este escenario funcione, el elemento `objectId` del usuario debe especificarse en la directiva de acceso y el elemento `applicationId` _no_ debe especificarse o debe ser `null`.
-- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Esta opción no está disponible actualmente para Azure RBAC en el plano de datos (versión preliminar)
+- **Aplicación y usuario** (a veces denominado _identidad compuesta_): 4el usuario tiene que acceder al almacén de claves desde una aplicación específica _y_ la aplicación debe usar el flujo de autenticación en nombre de (OBO) para suplantar al usuario. Para que este escenario funcione, se deben especificar ambos objetos `applicationId` y `objectId` en la directiva de acceso. El elemento `applicationId` identifica la aplicación necesaria y el elemento `objectId` identifica al usuario. Actualmente, esta opción no está disponible para Azure RBAC en el plano de datos.
 
 Para todos los tipos de acceso, la aplicación se autentica con Azure AD. La aplicación utiliza cualquiera [método de autenticación compatible](../../active-directory/develop/authentication-vs-authorization.md) según el tipo de aplicación. La aplicación adquiere un token para un recurso del plano para conceder acceso. El recurso es un punto de conexión en el plano de administración o de datos, según el entorno de Azure. La aplicación usa el token y envía la solicitud de una API de REST a Key Vault. Para más información, revise [todo el flujo de autenticación](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -61,14 +61,14 @@ El acceso a los almacenes se realiza a través de dos interfaces o planos. Estos
 - El *plano de administración* es donde se administra Key Vault y es la interfaz utilizada para crear y eliminar almacenes. También puede leer las propiedades del almacén de claves y administrar las directivas de acceso.
 - El *plano de datos* es donde se trabaja con los datos almacenados en un almacén de claves. Puede agregar, eliminar y modificar claves, secretos y certificados.
 
-Las aplicaciones acceden a los planos a través de puntos de conexión. Los controles de acceso para los dos planos funcionan de forma independiente. Para conceder acceso a un aplicación para usar las claves de un almacén de claves, debe conceder acceso al plano de datos mediante una directiva de acceso de Key Vault o Azure RBAC (versión preliminar). Para conceder a un usuario acceso de lectura a las propiedades y etiquetas de Key Vault, pero sin que este pueda acceder a los datos (claves, secretos o certificados), debe conceder acceso al plano de administración con Azure RBAC.
+Las aplicaciones acceden a los planos a través de puntos de conexión. Los controles de acceso para los dos planos funcionan de forma independiente. Para conceder acceso a una aplicación para usar las claves de un almacén de claves, debe conceder acceso al plano de datos mediante una directiva de acceso de Key Vault o Azure RBAC. Para conceder a un usuario acceso de lectura a las propiedades y etiquetas de Key Vault, pero sin que este pueda acceder a los datos (claves, secretos o certificados), debe conceder acceso al plano de administración con Azure RBAC.
 
 En la siguiente tabla se muestran los puntos de conexión para los planos de administración y datos.
 
 | Plano de&nbsp;acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de&nbsp;control de acceso |
 | --- | --- | --- | --- |
 | Plano de administración | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 | Crear, leer, actualizar y eliminar almacenes de claves<br><br>Establecer directivas de acceso de Key Vault<br><br>Establecer etiquetas de Key Vault | Azure RBAC |
-| Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore y purge<br><br> Certificados: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore y purge<br><br>  Secretos: get, list, set, delete, recover, backup, restore y purge | Directiva de acceso de Key Vault o Azure RBAC (versión preliminar)|
+| Plano de datos | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Claves: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore y purge<br><br> Certificados: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore y purge<br><br>  Secretos: get, list, set, delete, recover, backup, restore y purge | Directiva de acceso de Key Vault o Azure RBAC |
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Administración del acceso administrativo a Key Vault
 

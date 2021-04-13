@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 8435cab1855e9df871d17ff7fa393b6ab2cf0cb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f07e9dbd574d8a27e6048154c72b9afc24b6ba4
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736374"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Netskope Administrator Console
 
@@ -37,13 +37,12 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Netskope Administrator Console admite el inicio de sesión único iniciado por **SP e IDP**
+* Netskope Administrator Console admite el inicio de sesión único comenzado por **SP e IDP**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-
-## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Incorporación de Netskope Administrator Console desde la galería
+## <a name="add-netskope-administrator-console-from-the-gallery"></a>Incorporación de Netskope Administrator Console desde la galería
 
 Para configurar la integración de Netskope Administrator Console en Azure AD, debe agregarla desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -142,19 +141,19 @@ En esta sección va a permitir que B.Simon acceda a Netskope Administrator Conso
 
 1. Haga clic en la pestaña **Settings** (Configuración) en el panel de navegación izquierdo.
 
-    ![Captura de pantalla que muestra la opción Setting (Configuración) seleccionada en el panel de navegación.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Captura de pantalla que muestra la opción Setting (Configuración) seleccionada en el panel de navegación.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Haga clic en la pestaña **Administration** (Administración).
 
-    ![Captura de pantalla que muestra la opción Administration (Administración) seleccionada en Settings (Configuración)](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Captura de pantalla que muestra la opción Administration (Administración) seleccionada en Settings (Configuración)](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Haga clic en **SSO** (Inicio de sesión único).
 
-    ![Captura de pantalla que muestra S S O (Inicio de sesión único) seleccionado en Administration (Administración).](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Captura de pantalla que muestra S S O (Inicio de sesión único) seleccionado en Administration (Administración).](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. En la sección **Network Settings** (Configuración de red), lleve a cabo estos pasos:
     
-    ![Captura de pantalla que muestra la opción Network Settings (Configuración de red), donde puede especificar los valores descritos.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Captura de pantalla que muestra la opción Network Settings (Configuración de red), donde puede especificar los valores descritos.](./media/netskope-cloud-security-tutorial/network.png)
 
     a. Copie el valor de **Assertion Consumer Service URL** (URL del Servicio de consumidor de aserciones) y péguelo en el cuadro de texto **URL de respuesta** de **Configuración básica de SAML** en Azure Portal.
 
@@ -162,7 +161,7 @@ En esta sección va a permitir que B.Simon acceda a Netskope Administrator Conso
 
 1. Haga clic en **EDITAR CONFIGURACIÓN** en la sección **SSO/SLO Settings** (Configuración de SSO/SLO).
 
-    ![Captura de pantalla de S S O / S L O Settings (Configuración de S S O/S L O) donde puede seleccionar EDITAR CONFIGURACIÓN.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Captura de pantalla de S S O / S L O Settings (Configuración de S S O/S L O) donde puede seleccionar EDITAR CONFIGURACIÓN.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. En la página emergente **Configuración**, realice los pasos siguientes:
 
@@ -188,11 +187,11 @@ En esta sección va a permitir que B.Simon acceda a Netskope Administrator Conso
 
 1. Haga clic en la pestaña **Settings** (Configuración) en el panel de navegación izquierdo.
 
-    ![Captura de pantalla de la pestaña Settings (Configuración) seleccionada.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Captura de pantalla de la pestaña Settings (Configuración) seleccionada.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Haga clic en la pestaña **Active Platform** (Plataforma activa).
 
-    ![Captura de pantalla que muestra la opción Active Platform (Plataforma activa) seleccionada en Settings (Configuración).](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Captura de pantalla que muestra la opción Active Platform (Plataforma activa) seleccionada en Settings (Configuración).](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Haga clic en la pestaña **Users** (Usuarios).
 

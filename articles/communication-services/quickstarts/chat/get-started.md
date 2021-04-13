@@ -10,42 +10,39 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
-ms.openlocfilehash: a62c25aa5fd9d25b7330dde89c8544e79785b9d0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d3f9f7fd30d2c6b1cbc3882a41546593ee1c156
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495450"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726661"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Inicio rápido: Incorporación de chat a una aplicación
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Comience a usar Azure Communication Services mediante la biblioteca cliente de chat de Communication Services para agregar la función de chat en tiempo real a su aplicación. En esta guía de inicio rápido, usaremos la biblioteca cliente de chat para crear subprocesos de chat que permitan a los usuarios mantener conversaciones entre sí. Para obtener más información acerca de los conceptos de chat, visite la [documentación conceptual de chat](../../concepts/chat/concepts.md).
+Comience a usar Azure Communication Services mediante el SDK de chat de Communication Services para agregar chat en tiempo real a la aplicación. En esta guía de inicio rápido, usaremos el SDK de chat para crear conversaciones de chat que permitan a los usuarios mantener conversaciones entre sí. Para obtener más información acerca de los conceptos de chat, visite la [documentación conceptual de chat](../../concepts/chat/concepts.md).
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Chat with JavaScript client library](./includes/chat-js.md)]
+[!INCLUDE [Chat with JavaScript SDK](./includes/chat-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Chat with Python client library](./includes/chat-python.md)]
+[!INCLUDE [Chat with Python SDK](./includes/chat-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
+[!INCLUDE [Chat with Java SDK](./includes/chat-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-android"
-[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
+[!INCLUDE [Chat with Android SDK](./includes/chat-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
+[!INCLUDE [Chat with C# SDK](./includes/chat-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
+[!INCLUDE [Chat with iOS SDK](./includes/chat-swift.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -69,4 +66,4 @@ En este tutorial, ha aprendido a hacer lo siguiente:
 Puede que también le interese:
 
  - Obtener más información sobre los [conceptos de chat](../../concepts/chat/concepts.md).
- - Familiarizarse con la [biblioteca cliente de chat](../../concepts/chat/sdk-features.md).
+ - Familiarícese con el [SDK de chat](../../concepts/chat/sdk-features.md).

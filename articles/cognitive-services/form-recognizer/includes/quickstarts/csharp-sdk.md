@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: c3d81e0de1c20e77278cb718fdcbc21eb6df455d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6407f6af4b142333d2a52f60eb0b05024e64d88e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444798"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761125"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -66,7 +66,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
 > [!NOTE]
-> El SDK de Form Recognizer 3.1.0 refleja la versión preliminar 2.1 de la API.
+> El SDK de Form Recognizer 3.1.0 refleja la _versión 2.1 preview.2 de la API_. Use la [**API REST**](../../quickstarts/client-library.md) para la _versión 2.1 preview.3 de la API_.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -361,7 +361,7 @@ El valor de `CustomFormModel` devuelto indica los campos que el modelo puede ext
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta respuesta se ha truncado para facilitar la lectura.
 
@@ -578,7 +578,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
-### <a name="output"></a>Resultados 
+### <a name="output"></a>Output 
 
 ```console
 Account has 20 models.

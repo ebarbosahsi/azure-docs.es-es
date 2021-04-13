@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037275"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107204"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Roles de administrador de la suscripción clásica, roles de Azure y roles de Azure AD
 
@@ -115,7 +115,7 @@ En un nivel superior, los roles de Azure controlan los permisos para administrar
 | --- | --- |
 | Administración del acceso de usuarios a los recursos de Azure | Administrar el acceso a recursos de Azure Active Directory |
 | Admite los roles personalizados | Admite los roles personalizados |
-| El ámbito se puede especificar en varios niveles (grupo de administración, suscripción, grupo de recursos, recurso). | El ámbito está en el nivel de inquilino |
+| El ámbito se puede especificar en varios niveles (grupo de administración, suscripción, grupo de recursos, recurso). | El [ámbito](../active-directory/roles/custom-overview.md#scope) se puede especificar en el nivel de inquilino (toda la organización), en la unidad administrativa o en un objeto individual (por ejemplo, una aplicación específica). |
 | Se puede acceder a la información de roles en Azure Portal, CLI de Azure, Azure PowerShell, plantillas de Azure Resource Manager, API REST | Se puede acceder a la información de roles en el portal de administración de Azure, el centro de administración de Microsoft 365, Microsoft Graph y AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>¿Se superponen los roles de Azure y los de Azure AD?

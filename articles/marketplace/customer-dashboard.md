@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555642"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068071"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -76,17 +76,17 @@ En esta sección, encontrará la tendencia y el recuento de todos los clientes, 
 
 [![Muestra el widget Tendencia de los clientes en la página Clientes.](./media/customer-dashboard/customers-trend.png)](./media/customer-dashboard/customers-trend.png#lightbox)
 
-### <a name="customers-by-ordersusage"></a>Clientes por pedidos o uso
+### <a name="customers-by-ordersusage&quot;></a>Clientes por pedidos o uso
 
 El gráfico **Clientes por pedidos o uso** tiene tres pestañas: Pedidos, Uso normalizado y Uso sin procesar. Seleccione la pestaña **Pedidos** para mostrar detalles de pedido.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
+:::image type=&quot;content&quot; source=&quot;./media/customer-dashboard/customers-by-orders-usage.png&quot; alt-text=&quot;Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.&quot;:::
 
 Tenga en cuenta lo siguiente:
 
 - En la tabla de clasificación se presentan los detalles de los clientes clasificados por recuento de pedidos. Después de seleccionar un cliente, los detalles del cliente se presentan en las secciones “Detalles”, “Pedidos por SKU” y “SKU por puestos” adyacentes.
 - Los detalles del perfil Cliente se muestran en este espacio cuando los editores inician sesión con un rol de propietario. Si los editores inician sesión con un rol de colaborador, los detalles de esta sección no estarán disponibles.
-- En el gráfico de anillos **Pedidos por SKU** se muestra el desglose de los pedidos realizados de planes. Se muestran los cinco planes principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en **Rest all** ("Todo el resto").
+- En el gráfico de anillos **Pedidos por SKU** se muestra el desglose de los pedidos realizados de planes. Se muestran los cinco planes principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en **Rest all** (&quot;Todo el resto").
 - En el gráfico de anillos **SKU por puestos** se muestra el desglose de los puestos pedidos de planes. Se muestran los cinco planes principales con el número de puestos más alto, mientras que el resto de los pedidos se agrupan en **Rest All** ("Todo el resto").
 
 También puede seleccionar la tabla **Uso normalizado** o **Uso sin procesar** para ver los detalles de uso.
@@ -163,6 +163,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | CommerceRootCustomer | Cliente raíz comercial | Un identificador de cuenta de facturación se puede asociar a varios identificadores de cliente.<br>Una combinación de un identificador de cuenta de facturación y un identificador de cliente se puede asociar a varias suscripciones a marketplace comercial.<br>El cliente raíz comercial indica el nombre del cliente de la suscripción. | CommerceRootCustomer |
 | Customer ID | Customer ID | Identificador único asignado a un cliente. Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias. | CustomerId |
 | Identificador de la cuenta de facturación | Identificador de la cuenta de facturación | Identificador de la cuenta en la que se genera la facturación. Asigne el **identificador de la cuenta de facturación** a **customerID** para conectar el informe de transacciones de pago con los informes de cliente, pedido y uso. | BillingAccountId |
+| Tipo de cliente | Tipo de cliente | El valor de este campo indica el tipo de cliente. Los valores posibles son:<ul><li>individuo</li> <li>organization</li></ul> | CustomerType |
 |||||
 
 ### <a name="customers-page-filters"></a>Filtros de la página de clientes

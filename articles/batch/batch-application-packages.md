@@ -2,17 +2,17 @@
 title: Implementación de paquetes de aplicación en nodos de proceso
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045797"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -59,6 +59,9 @@ Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que espec
 ## <a name="upload-and-manage-applications"></a>Carga y administración de aplicaciones
 
 Puede usar [Azure Portal](https://portal.azure.com) o las API de Batch Management para administrar los paquetes de aplicaciones en la cuenta de Batch. En las secciones siguientes se explica cómo vincular una cuenta de almacenamiento y cómo agregar y administrar aplicaciones y paquetes de aplicación en Azure Portal.
+
+> [!NOTE]
+> Aunque puede definir los valores de la aplicación en el recurso [Microsoft.BatCH/batchAccounts](/templates/microsoft.batch/batchaccounts) de una [plantilla de ARM](quick-create-template.md), actualmente no es posible usar una de estas plantillas para cargar paquetes de aplicación que se usarán en la cuenta de Batch. Deberá cargarlos en la cuenta de almacenamiento vinculada, como se describe [a continuación](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Vínculo a una cuenta de almacenamiento
 

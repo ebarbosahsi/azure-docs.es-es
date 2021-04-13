@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575133"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641989"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Uso de Azure Firewall para inspeccionar el tráfico destinado a un punto de conexión privado
 
@@ -25,8 +25,8 @@ Es posible que tenga que inspeccionar o bloquear el tráfico de los clientes a l
 
 Se aplican las siguientes limitaciones:
 
-* Los grupos de seguridad de red (NSG) no se aplican a los puntos de conexión privados
-* Las rutas definidas por el usuario (UDR) no se aplican a los puntos de conexión privados
+* El tráfico procedente de puntos de conexión privados pasa por alto los grupos de seguridad de red (NSG)
+* El tráfico procedente de puntos de conexión privados pasa por alto las rutas definidas por el usuario (UDR)
 * Se puede asociar una sola tabla de rutas a una subred
 * Una tabla de rutas admite hasta 400 rutas
 
@@ -35,7 +35,8 @@ Azure Firewall filtra el tráfico mediante:
 * [FQDN en las reglas de red](../firewall/fqdn-filtering-network-rules.md) para los protocolos TCP y UDP
 * [FQDN en las reglas de aplicación](../firewall/features.md#application-fqdn-filtering-rules) para HTTP, HTTPS y MSSQL. 
 
-La mayoría de los servicios expuestos a través de puntos de conexión privados usan HTTPS. Se recomienda el uso de reglas de aplicación a través de reglas de red al utilizar Azure SQL.
+> [!IMPORTANT] 
+> Se recomienda el uso de reglas de aplicación en lugar de reglas de red al inspeccionar el tráfico destinado a puntos de conexión privados para mantener la simetría de flujo. Si se usan reglas de red, o se utiliza NVA en lugar de Azure Firewall, se debe configurar SNAT para el tráfico destinado a puntos de conexión privados.
 
 > [!NOTE]
 > El filtrado por nombre de dominio completo de SQL se admite solo en [modo de proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (puerto 1433). El modo de **proxy** puede traducirse en una mayor latencia en comparación con el modo de *redirección*. Si quiere seguir usando el modo de redirección, que es el valor predeterminado para los clientes que se conectan desde dentro de Azure, puede filtrar el acceso mediante FQDN en reglas de red del firewall.
@@ -46,12 +47,9 @@ La mayoría de los servicios expuestos a través de puntos de conexión privados
 
 Este escenario es la arquitectura más expansible para conectarse de forma privada a varios servicios de Azure mediante puntos de conexión privados. Se crea una ruta que apunta al espacio de direcciones de red donde se implementan los puntos de conexión privados. Esta configuración reduce la sobrecarga administrativa y evita que se ejecute en el límite de 400 rutas.
 
-Las conexiones desde una red virtual de cliente a Azure Firewall en una red virtual de concentrador incurrirán en cargos si las redes virtuales están emparejadas.
+Las conexiones desde una red virtual de cliente a Azure Firewall en una red virtual de concentrador incurrirán en cargos si las redes virtuales están emparejadas. No se cobran las conexiones desde Azure Firewall en una red virtual central a puntos de conexión privados en una red virtual emparejada.
 
 Para obtener más información sobre los cargos relacionados con las conexiones con redes virtuales emparejadas, consulte la sección de preguntas más frecuentes de la página de [precios](https://azure.microsoft.com/pricing/details/private-link/).
-
->[!NOTE]
-> Este escenario se puede implementar con cualquier regla de red de Azure Firewall o NVA de terceros en lugar de reglas de aplicación.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Escenario 2: Arquitectura en estrella tipo hub-and-spoke: red virtual compartida para máquinas virtuales y puntos de conexión privados
 
@@ -69,21 +67,15 @@ La sobrecarga administrativa del mantenimiento de la tabla de rutas aumenta a me
 
 Según la arquitectura global, es posible ejecutar en el límite de 400 rutas. Se recomienda usar el escenario 1 siempre que sea posible.
 
-Las conexiones desde una red virtual de cliente a Azure Firewall en una red virtual de concentrador incurrirán en cargos si las redes virtuales están emparejadas.
+Las conexiones desde una red virtual de cliente a Azure Firewall en una red virtual de concentrador incurrirán en cargos si las redes virtuales están emparejadas. No se cobran las conexiones desde Azure Firewall en una red virtual central a puntos de conexión privados en una red virtual emparejada.
 
 Para obtener más información sobre los cargos relacionados con las conexiones con redes virtuales emparejadas, consulte la sección de preguntas más frecuentes de la página de [precios](https://azure.microsoft.com/pricing/details/private-link/).
-
->[!NOTE]
-> Este escenario se puede implementar con cualquier regla de red de Azure Firewall o NVA de terceros en lugar de reglas de aplicación.
 
 ## <a name="scenario-3-single-virtual-network"></a>Escenario 3: Red virtual única
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Red virtual única" border="true":::
 
-Existen algunas limitaciones en la implementación: no es posible realizar una migración a una arquitectura en estrella tipo hub-and-spoke. Se aplican las mismas consideraciones que en el escenario 2. En este escenario, no se aplican cargos de emparejamiento de red virtual.
-
->[!NOTE]
-> Si desea implementar este escenario mediante reglas de red de Azure Firewall o NVA de terceros, se requieren reglas de red en lugar de reglas de aplicación para el tráfico de SNAT destinado a los puntos de conexión privados. De lo contrario, se producirá un error en la comunicación entre las máquinas virtuales y los puntos de conexión privados.
+Use este patrón cuando no sea posible realizar una migración a una arquitectura de centro y radio. Se aplican las mismas consideraciones que en el escenario 2. En este escenario, no se aplican cargos de emparejamiento de red virtual.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Escenario 4: Tráfico local en puntos de conexión privados
 
@@ -98,10 +90,7 @@ Si los requisitos de seguridad requieren el enrutamiento del tráfico de cliente
 
 Se aplican las mismas consideraciones que en el escenario 2. En este escenario, no hay cargos de emparejamiento de red virtual. Para obtener más información sobre cómo configurar los servidores DNS para permitir que las cargas de trabajo locales tengan acceso a puntos de conexión privados, consulte [Cargas de trabajo locales que utilizan un reenviador DNS](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
->[!NOTE]
-> Si desea implementar este escenario mediante reglas de red de Azure Firewall o NVA de terceros, se requieren reglas de red en lugar de reglas de aplicación para el tráfico de SNAT destinado a los puntos de conexión privados. De lo contrario, se producirá un error en la comunicación entre las máquinas virtuales y los puntos de conexión privados.
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure.
 * Un área de trabajo de Log Analytics.  
@@ -128,6 +117,7 @@ Cree tres redes virtuales y sus subredes correspondientes para:
 Reemplazar los siguientes parámetros de los pasos por la siguiente información:
 
 ### <a name="azure-firewall-network"></a>Red de Azure Firewall
+
 | Parámetro                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -138,6 +128,7 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>Red de máquinas virtuales
+
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -148,13 +139,14 @@ Reemplazar los siguientes parámetros de los pasos por la siguiente información
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>Red de punto de conexión privado
+
 | Parámetro                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | Centro-sur de EE. UU.      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -454,7 +446,7 @@ Esta regla permite la comunicación a través del firewall que creamos en los pa
 
 6. En **Agregar una colección de reglas de aplicación**, escriba o seleccione la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre | Escriba **SQLPrivateEndpoint**. |
     | Prioridad | Escriba **100**. |
@@ -575,7 +567,7 @@ En esta sección, se conectará de manera privada a SQL Database mediante el pun
     Address: 10.2.0.4
     ```
 
-2. Instale [herramientas de línea de comandos de SQL Server](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Instale [herramientas de línea de comandos de SQL Server](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Ejecute el siguiente comando para conectarse a SQL Server. Use el administrador del servidor y la contraseña que definió cuando creó SQL Server en los pasos anteriores.
 

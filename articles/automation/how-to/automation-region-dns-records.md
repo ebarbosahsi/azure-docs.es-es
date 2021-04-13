@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d41d825c7bc33e05815c7528b436c85873859928
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575997"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168933"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registros DNS para regiones de Azure utilizados por Azure Automation
 
@@ -98,7 +98,7 @@ Se recomienda utilizar las direcciones mostradas al definir [excepciones](../aut
 * [Rangos de direcciones IP y etiquetas de servicio de Azure: Azure público](https://www.microsoft.com/download/details.aspx?id=56519)
 * [Rangos de direcciones IP y etiquetas de servicio de Azure: Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Rangos de direcciones IP y etiquetas de servicio de Azure: Azure Alemania](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Rangos de direcciones IP y etiquetas de servicio de Azure: Azure China 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
+* [Intervalos de direcciones IP y etiquetas de servicio de Azure: Azure China 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
 
 El archivo de direcciones IP muestra los intervalos de direcciones IP que se usan en los centros de datos de Microsoft Azure. Incluye intervalos de proceso, SQL y almacenamiento, y refleja los intervalos implementados actualmente y los próximos cambios en los intervalos IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana.
 

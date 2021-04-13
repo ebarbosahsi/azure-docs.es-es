@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 6b75548d6fce7539c2eeb71523a5a045b0b6607b
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: a0f3e3547c38df63bdab77cf378525072d1e9ad4
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495357"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125800"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior.
+- [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Un recurso de Communication Services implementado y una cadena de conexión. [Cree un recurso de Communication Services](../create-communication-resource.md).
 
@@ -44,7 +44,7 @@ Abra el archivo **pom.xml** en el editor de texto. Agregue el siguiente elemento
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -66,8 +66,6 @@ import com.azure.communication.common.*;
 import com.azure.communication.identity.*;
 import com.azure.communication.identity.models.*;
 import com.azure.core.credential.*;
-import com.azure.core.http.*;
-import com.azure.core.http.netty.*;
 
 import java.io.IOException;
 import java.time.*;
@@ -85,7 +83,7 @@ public class App
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree una instancia de `CommunicationIdentityClient` con la clave de acceso y el punto de conexión del recurso. Obtenga información sobre cómo [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string).
+Cree una instancia de `CommunicationIdentityClient` con la clave de acceso y el punto de conexión del recurso. Aprenda a [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string). Además, puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`.
 
 Agregue el código siguiente al método `main`:
 
@@ -94,32 +92,31 @@ Agregue el código siguiente al método `main`:
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 String accessKey = "SECRET";
 
-// Create an HttpClient builder of your choice and customize it
-// Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
-// -> Add "import com.azure.core.http.netty.*;"
-// -> Add azure-core-http-netty dependency to file pom.xml
-
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
         .endpoint(endpoint)
         .credential(new AzureKeyCredential(accessKey))
-        .httpClient(httpClient)
         .buildClient();
 ```
-
-Puede inicializar el cliente con cualquier cliente HTTP personalizado que implemente la interfaz `com.azure.core.http.HttpClient`. En el código anterior se muestra el uso del [cliente HTTP Netty de Azure Core](/java/api/overview/azure/core-http-netty-readme) proporcionado por `azure-core`.
 
 También puede proporcionar toda la cadena de conexión mediante la función `connectionString()`, en vez de proporcionar un punto de conexión y una clave de acceso.
 ```java
 // Your can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
-HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
-    .httpClient(httpClient)
     .buildClient();
+```
+
+Si ha configurado una identidad administrada, consulte [Uso de identidades administradas](../managed-identity.md); también puede autenticarse con la identidad administrada.
+```java
+String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+
+CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
+        .endpoint(endpoint)
+        .credential(credential)
+        .buildClient();
 ```
 
 ## <a name="create-an-identity"></a>Creación de una identidad

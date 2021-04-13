@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fe1b9fc8754ae959abf088526b5d71e0e43c158e
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466232"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958156"
 ---
-En esta categoría, hay **64** recomendaciones.
+Hay **65** recomendaciones en esta categoría.
 
 |Recomendación |Descripción |severity |
 |---|---|---|
@@ -24,6 +24,7 @@ En esta categoría, hay **64** recomendaciones.
 |La retención de la auditoría en los servidores de SQL Server debe establecerse en 90 días, como mínimo |Audite los servidores SQL Server configurados con un período de retención de auditoría de menos de 90 días.<br />(Directiva relacionada: [los servidores de SQL Server se deben configurar con una retención de auditoría de 90 días, o más.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f89099bee-89e0-4b26-a5f4-165451757743)) |Bajo |
 |La auditoría de SQL Server debe estar habilitada |Habilite la auditoría en SQL Server para realizar un seguimiento de las actividades de todas las bases de datos del servidor y guardarlas en un registro de auditoría.<br />(Directiva relacionada: [la auditoría de SQL Server debe estar habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9)) |Bajo |
 |El aprovisionamiento automático del agente de Log Analytics debe estar habilitado en la suscripción |A fin de supervisar las amenazas y vulnerabilidades de seguridad, Azure Security Center recopila datos de las máquinas virtuales de Azure. El agente de Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA), recopila los datos al leer distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copiar los datos en el área de trabajo de Log Analytics para analizarlos. Se recomienda habilitar el aprovisionamiento automático para implementar automáticamente el agente en todas las máquinas virtuales de Azure admitidas y en las nuevas que se creen.<br />(Directiva relacionada: [el aprovisionamiento automático del agente de Log Analytics debe estar habilitado en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f475aae12-b88a-4572-8b36-9b712b2b3a17)) |Bajo |
+|Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada. |La extensión de Azure Defender para Azure Arc proporciona protección contra amenazas para los clústeres de Kubernetes habilitados para Arc. La extensión recopila datos de todos los nodos del plano de control (maestro) del clúster y los envía a Azure Defender para el back-end de Azure Defender para Kubernetes en la nube para su posterior análisis. Puede encontrar más información en https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc.<br />(Ninguna directiva relacionada) |Alto |
 |Azure Cache for Redis debe residir en una red virtual |La implementación de Azure Virtual Network (VNet) proporciona seguridad y aislamiento mejorados para Azure Cache for Redis, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Cuando una instancia de Azure Cache for Redis está configurada con una instancia de VNet, no está disponible públicamente y solo se puede acceder a ella desde máquinas virtuales y aplicaciones de la instancia de VNet.<br />(Directiva relacionada: [Azure Cache for Redis debe residir en una red virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7d092e0a-7acd-40d2-a975-dca21cae48c4)) |Media |
 |Las cuentas de Azure Cosmos DB deben tener reglas de firewall. |Se deben definir reglas de firewall en las cuentas de Azure Cosmos DB para evitar el tráfico desde orígenes no autorizados. Las cuentas que tienen al menos una regla de IP definida con el filtro de red virtual habilitado se consideran compatibles. Las cuentas que deshabilitan el acceso público también se consideran compatibles.<br />(Directiva relacionada: [Las cuentas de Azure Cosmos DB deben tener reglas de firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb)) |Media |
 |Las cuentas de Azure Cosmos DB deben usar claves administradas por el cliente para cifrar los datos en reposo |Use claves administradas por el cliente para administrar el cifrado en reposo de la instancia de Azure Cosmos DB. De manera predeterminada, los datos se cifran en reposo con claves administradas por el servicio, pero las claves administradas por el cliente (CMK) suelen ser necesarias para cumplir estándares de cumplimiento normativo. Las CMK permiten cifrar los datos con una clave de Azure Key Vault creada por el usuario y propiedad de este. Tiene control y responsabilidad totales del ciclo de vida de la clave, incluidos la rotación y administración. Más información sobre el cifrado de CMK en https://aka.ms/cosmosdb-cmk.<br />(Directiva relacionada: [las cuentas de Azure Cosmos DB deben usar claves administradas por el cliente para cifrar los datos en reposo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)) |Alto |

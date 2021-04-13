@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 3beba1db82cc2a618ba7544228975c953b01acd9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064909"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491107"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central
 
 *Este artículo se aplica a generadores de soluciones y desarrolladores de dispositivos.*
 
-En este tutorial se muestra cómo los desarrolladores para dispositivos pueden conectar una aplicación cliente a la aplicación de Azure IoT Central. La aplicación simula el comportamiento de un dispositivo de termostato. Cuando la aplicación se conecta a IoT Central, envía el identificador de modelo del modelo del dispositivo de termostato. IoT Central usa el identificador de modelo para recuperar el modelo de dispositivo y crear una plantilla de dispositivo automáticamente. Agregue personalizaciones y vistas a la plantilla de dispositivo para permitir que un operador interactúe con un dispositivo.
+En este tutorial se muestra cómo los desarrolladores para dispositivos pueden conectar una aplicación cliente a la aplicación de Azure IoT Central. La aplicación simula el comportamiento de un dispositivo de control de la temperatura. Cuando la aplicación se conecta a IoT Central, envía el identificador del modelo de dispositivo de control de temperatura. IoT Central usa el identificador de modelo para recuperar el modelo de dispositivo y crear una plantilla de dispositivo automáticamente. Agregue personalizaciones y vistas a la plantilla de dispositivo para permitir que un operador interactúe con un dispositivo.
 
 En este tutorial, aprenderá a:
 

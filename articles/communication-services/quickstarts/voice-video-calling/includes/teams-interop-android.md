@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: unión a una reunión de Teams desde una aplicación para Android'
-description: En este tutorial, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas telefónicas de Azure Communication Services para Android
+description: En este tutorial aprenderá a unirse a una reunión de Teams mediante el SDK de llamadas de Azure Communication Services para Android.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: e5361b92c2080c724b872be2ad27bc5bd4554e8d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488023"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108213"
 ---
-En este inicio rápido, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas de Azure Communication Services para Android.
+En este inicio rápido aprenderá a unirse a una reunión de Teams mediante el SDK de llamadas de Azure Communication Services para Android.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
 ## <a name="get-the-teams-meeting-link"></a>Obtención del vínculo de la reunión de Teams
 
 El vínculo de la reunión de Teams se puede recuperar mediante las Graph API. Esto se detalla en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-La biblioteca de cliente de llamadas de Communication Services acepta un vínculo completo a la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, al que se puede acceder bajo la [propiedad `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). También puede obtener la información de la reunión necesaria en la dirección URL **Join Meeting** (Unirse a la reunión) de la propia invitación a la reunión en Teams.
+El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, al que se puede acceder bajo la [propiedad `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). También puede obtener la información de la reunión necesaria en la dirección URL **Join Meeting** (Unirse a la reunión) de la propia invitación a la reunión en Teams.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Inicio de la aplicación y unión a una reunión de Teams
 

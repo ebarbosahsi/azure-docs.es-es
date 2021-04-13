@@ -6,123 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 03/31/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92789699"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121938"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas
 
 Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De forma predeterminada, Queue Storage y Table Storage usan una clave cuyo ámbito es el servicio y que administra Microsoft. También puede optar por usar las claves administradas por el cliente para cifrar los datos de la cola o la tabla. Para usar claves administradas por el cliente con colas y tablas, primero debe crear una cuenta de almacenamiento que use una clave de cifrado cuyo ámbito sea la cuenta, en lugar del servicio. Después de crear una cuenta que use la clave de cifrado de la cuenta para los datos de la cola y la tabla, puede configurar las claves administradas por el cliente para esa cuenta de almacenamiento.
 
 En este artículo se describe cómo crear una cuenta de almacenamiento que se basa en una clave cuyo ámbito es la cuenta. Cuando la cuenta se crea por primera vez, Microsoft usa la clave de cuenta para cifrar los datos de la cuenta y administra la clave. Posteriormente, puede configurar las claves administradas por el cliente para la cuenta con el fin de aprovechar estas ventajas, incluida la capacidad de proporcionar sus propias claves, actualizar la versión de la clave, rotar las claves y revocar los controles de acceso.
-
-## <a name="about-the-feature"></a>Sobre la característica
-
-Para crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta para Queue Storage y Table Storage, primero debe registrarse para poder usar esta característica con Azure. Debido a la capacidad limitada, tenga en cuenta que puede tardar varios meses antes de que se aprueben las solicitudes de acceso.
-
-Puede crear una cuenta de almacenamiento que se base en la clave de cifrado de la cuenta para Queue Storage y Table Storage en las siguientes regiones:
-
-- Este de EE. UU.
-- Centro-sur de EE. UU.
-- Oeste de EE. UU. 2  
-
-### <a name="register-to-use-the-account-encryption-key"></a>Registro para usar la clave de cifrado de la cuenta
-
-Para registrarse para usar la clave de cifrado de la cuenta con Queue Storage o Table Storage, use PowerShell o la CLI de Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para registrarse con PowerShell, llame al comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az-feature-register).
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Plantilla](#tab/template)
-
-N/D
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Comprobación del estado del registro
-
-Para comprobar el estado del registro de Queue Storage o Table Storage, use PowerShell o la CLI de Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para comprobar el estado del registro con PowerShell, llame al comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Plantilla](#tab/template)
-
-N/D
-
----
-
-### <a name="re-register-the-azure-storage-resource-provider"></a>Repetición del registro del proveedor de recursos de Azure Storage
-
-Una vez aprobado el registro, debe volver a registrar el proveedor de recursos de Azure Storage. Use PowerShell o la CLI de Azure para volver a registrar el proveedor de recursos.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para volver a registrar el proveedor de recursos con PowerShell, llame al comando [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Para volver a registrar el proveedor de recursos con la CLI de Azure, llame al comando [az provider register](/cli/azure/provider#az-provider-register).
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# <a name="template"></a>[Plantilla](#tab/template)
-
-N/D
-
----
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Creación de una cuenta que use la clave de cifrado de la cuenta
 
@@ -247,6 +147,10 @@ az storage account show /
 N/D
 
 ---
+
+## <a name="pricing-and-billing"></a>Precios y facturación
+
+Una cuenta de almacenamiento que se crea para usar una clave de cifrado en el ámbito de la cuenta se factura por la capacidad de almacenamiento de tablas y las transacciones a una tarifa distinta a la de una cuenta que usa la clave de ámbito de servicio predeterminada. Para más información, consulte [Precios de Azure Table Storage](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,19 +12,19 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055593"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504366"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>¿Qué son las identidades administradas de recursos de Azure?
 
-Un desafío común para los desarrolladores es la administración de secretos y credenciales para proteger la comunicación entre distintos servicios. En Azure, las identidades administradas eliminan la necesidad de que los desarrolladores administren credenciales, al proporcionar una identidad para el recurso de Azure en Azure AD y usarla para obtener tokens de Azure Active Directory (Azure AD). Esto también permite acceder a [Azure Key Vault](../../key-vault/general/overview.md), en donde los desarrolladores pueden almacenar credenciales de forma segura. Las identidades administradas para recursos de Azure solucionan este problema al proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure AD.
+Una dificultad común para los desarrolladores es la administración de los secretos y las credenciales usados para proteger la comunicación entre los distintos componentes que constituyen una solución. Las identidades administradas eliminan la necesidad de que los desarrolladores administren las credenciales. Proporcionan una identidad que usan las aplicaciones al conectarse a recursos que admiten la autenticación de Azure Active Directory (Azure AD). Las aplicaciones pueden usar la identidad administrada para obtener tokens de Azure AD. Por ejemplo, una aplicación puede usar una identidad administrada para acceder a recursos como [Azure Key Vault](../../key-vault/general/overview.md) donde los desarrolladores pueden almacenar credenciales de forma segura o tener acceso a cuentas de almacenamiento.
 
 ¿Para qué se puede usar una identidad administrada?
 
@@ -33,7 +33,7 @@ Un desafío común para los desarrolladores es la administración de secretos y 
 Estas son algunas de las ventajas de usar las identidades administradas:
 
 - No es necesario administrar credenciales. Las credenciales ni siquiera están accesible.
-- Puede usar las identidades administradas para autenticarse en cualquier servicio de Azure que admita la autenticación de Azure AD, como Azure Key Vault.
+- Puede usar identidades administradas para autenticarse en cualquier recurso que admita la [autenticación de Azure Active Directory](../authentication/overview-authentication.md), incluidas sus propias aplicaciones.
 - Las identidades administradas se pueden usar sin ningún costo adicional.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ En la tabla siguiente, se muestran las diferencias entre los dos tipos de identi
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>¿Cómo se usan las identidades administradas de Managed Identities for Azure Resources?
 
-![Algunos ejemplos de cómo un desarrollador puede usar identidades administradas para obtener acceso a los recursos desde el código, sin tener que administrar la información de autenticación.](media/overview/azure-managed-identities-examples.png)
+![Algunos ejemplos de cómo un desarrollador puede usar identidades administradas para obtener acceso a los recursos desde el código, sin tener que administrar la información de autenticación.](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>¿Qué servicios de Azure admiten la característica?<a name="which-azure-services-support-managed-identity"></a>
 

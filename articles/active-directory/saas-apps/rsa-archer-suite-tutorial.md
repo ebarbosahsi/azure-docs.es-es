@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181584"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284995"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con RSA Archer Suite
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar RSA Archer Suite con Azure Active Direct
 * Permitir que los usuarios inicien sesión automáticamente en RSA Archer Suite con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,13 +37,13 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* RSA Archer Suite admite el inicio de sesión único iniciado por **SP**.
+* RSA Archer Suite admite el inicio de sesión único comenzado por **SP**.
 * RSA Archer Suite admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-rsa-archer-suite-from-the-gallery"></a>Adición de RSA Archer Suite desde la galería
+## <a name="add-rsa-archer-suite-from-the-gallery"></a>Adición de RSA Archer Suite desde la galería
 
 Para configurar la integración de RSA Archer Suite en Azure AD, deberá agregar RSA Archer Suite desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -53,7 +53,6 @@ Para configurar la integración de RSA Archer Suite en Azure AD, deberá agrega
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **RSA Archer Suite** en el cuadro de búsqueda.
 1. Seleccione **RSA Archer Suite** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>Configuración y prueba del inicio de sesión único de Azure AD para RSA Archer Suite
 
@@ -74,7 +73,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **RSA Archer Suite**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -141,7 +140,7 @@ En esta sección va a permitir que B.Simon acceda a RSA Archer Suite mediante el
 
 1. En la página siguiente, realice estos pasos.
 
-    ![Configuración del inicio de sesión único de RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+    ![Configuración del inicio de sesión único de RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. Vaya a la pestaña **Single Sign-On** (Inicio de sesión único) y seleccione **SAML** en **Single Sign-On Mode** (Modo de inicio de sesión único) en el desplegable.
 

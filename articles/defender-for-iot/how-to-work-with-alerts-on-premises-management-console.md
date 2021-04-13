@@ -3,12 +3,12 @@ title: Uso de alertas en la consola de administración local
 description: Use la consola de administración local para obtener una vista empresarial de las amenazas recientes de la red y comprender mejor cómo las controlan los usuarios del sensor.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781473"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105032147"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Uso de alertas en la consola de administración local 
 
@@ -242,6 +242,7 @@ Las reglas que se crean con la API aparecen en la ventana **Regla de exclusión*
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Captura de pantalla de la vista de edición de la regla de exclusión":::
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de alertas en el sensor](how-to-work-with-alerts-on-your-sensor.md)
+[Uso de alertas en el sensor](how-to-work-with-alerts-on-your-sensor.md).
+Revise las [Alertas de motores de Defender para IoT](alert-engine-messages.md).

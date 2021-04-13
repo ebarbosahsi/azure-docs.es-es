@@ -10,15 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96487684"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729140"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -34,7 +31,7 @@ Antes de comenzar a desarrollar la aplicación en la nube, dedique tiempo a comp
 
 Utilice los recursos siguientes durante la fase de entrenamiento para familiarizarse con los servicios de Azure disponibles para los desarrolladores y con los procedimientos recomendados en Azure:
 
-  - [Guía de Azure para desarrolladores](https://azure.microsoft.com/campaigns/developer-guide/) le muestra cómo empezar a trabajar con Azure. La guía le muestra los servicios que puede usar para ejecutar las aplicaciones, almacenar los datos, incorporar inteligencia, compilar aplicaciones de IoT e implementar sus soluciones de forma más eficaz y segura.
+  - La [Guía de Azure para desarrolladores](https://azure.microsoft.com/campaigns/developer-guide/) le muestra cómo empezar a trabajar con Azure. La guía le muestra los servicios que puede usar para ejecutar las aplicaciones, almacenar los datos, incorporar inteligencia, compilar aplicaciones de IoT e implementar sus soluciones de forma más eficaz y segura.
 
   - [Guía de introducción para desarrolladores de Azure](../../guides/developer/azure-developer-guide.md) ofrece información esencial para los desarrolladores que quieran comenzar a usar la plataforma Microsoft Azure para sus necesidades de desarrollo.
 
@@ -70,7 +67,7 @@ Formule preguntas de seguridad tales como:
 
   - ¿Mi aplicación recopila o contiene datos confidenciales personales o de clientes que pueden utilizarse, solos o con otra información, para identificar, ponerse en contacto o buscar a una persona?
 
-  - ¿Mi aplicación recopila o contiene datos que se pueden usar para acceder a información médica, educativa, financiera o de empleo de una persona? La identificación de la confidencialidad de los datos durante la fase de requisitos le ayuda a clasificar los datos e identificar el método de protección de datos que va a utilizar para la aplicación.
+  - ¿Mi aplicación recopila o contiene datos que se pueden usar para acceder a información médica, educativa, financiera o laboral de una persona? La identificación de la confidencialidad de los datos durante la fase de requisitos le ayuda a clasificar los datos e identificar el método de protección de datos que va a utilizar para la aplicación.
 
   - ¿Dónde y cómo están los datos almacenados? Tenga en cuenta cómo va a supervisar los servicios de almacenamiento que usa la aplicación para detectar cualquier cambio inesperado de comportamiento (por ejemplo, tiempos de respuesta más lentos). ¿Podrá influir en el registro para recopilar datos más detallados y analizar un problema en profundidad?
 
@@ -126,7 +123,7 @@ Durante el desarrollo, utilice una biblioteca de codificación segura y un marco
 Asegúrese de que utiliza la versión más reciente del marco y todas las características de seguridad disponibles en él. Azure ofrece un completo [conjunto de herramientas de desarrollo](https://azure.microsoft.com/product-categories/developer-tools/) (que funcionan en cualquier plataforma o lenguaje) para que todos los desarrolladores entreguen aplicaciones en la nube. Puede programar con el lenguaje que prefiera mediante la elección de diversos [SDK](https://azure.microsoft.com/downloads/).
 Puede aprovechar entornos de desarrollo integrados (IDE) completos y editores con funcionalidades de depuración avanzadas y Soporte técnico de Azure integrado.
 
-Microsoft ofrece diversos [lenguajes, marcos y herramientas](../../index.yml?panel=sdkstools-all&pivot=sdkstools) que puede usar para desarrollar aplicaciones en Azure. Un ejemplo de ello es [Azure para desarrolladores de .NET y .NET Core](/dotnet/azure/). Para cada idioma y marco que ofrecemos, encontrará inicios rápidos, tutoriales y referencias de API que le ayudarán a empezar a trabajar rápidamente.
+Microsoft ofrece diversos [lenguajes, marcos y herramientas](../../index.yml?panel=sdkstools-all&pivot=sdkstools) que puede usar para desarrollar aplicaciones en Azure. Un ejemplo de ello es [Azure para desarrolladores de .NET y .NET Core](/dotnet/azure/). Para cada lenguaje y marco que ofrecemos, encontrará inicios rápidos, tutoriales y referencias de API que le ayudarán a empezar a trabajar rápidamente.
 
 Azure ofrece diversos servicios que puede usar para hospedar aplicaciones web y sitios web. Estos servicios le permiten desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) es uno de estos servicios.
@@ -153,7 +150,7 @@ El modelado del diseño de aplicaciones y la enumeración de amenazas [STRIDE](h
 
 | Threat | Propiedad de seguridad | Posible mitigación de la plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Suplantación de identidad               | Authentication        | [Requiere conexiones HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Suplantación de identidad               | Authentication        | [Requiere conexiones HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
 | Alteración de datos              | Integridad             | Valida certificados SSL/TLS. Las aplicaciones que utilizan SSL/TLS deben comprobar completamente los certificados X.509 de las entidades a las que se conectan. Usa certificados de Azure Key Vault para [administrar sus certificados x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Rechazo            | No rechazo       | Habilita opciones de [supervisión y diagnóstico](/azure/architecture/best-practices/monitoring) de Azure.|
 | Divulgación de información | Confidencialidad       | Cifra datos confidenciales [en reposo](../fundamentals/encryption-atrest.md) y [en tránsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -192,7 +189,7 @@ El proceso de modelado de amenazas consiste en identificar posibles amenazas de 
 
 ### <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Adoptar una directiva de identidad como perímetro de seguridad principal
 
-Al diseñar aplicaciones en la nube, es importante ampliar el enfoque del perímetro de seguridad de un enfoque centrado en redes a un enfoque centrado en identidades. Históricamente, el perímetro de seguridad local principal era la red de la organización. La mayoría de los diseños de seguridad local utilizan la red como eje de seguridad principal. Para las aplicaciones en la nube, se recomienda considerar la identidad como perímetro de seguridad principal.
+Al diseñar aplicaciones en la nube, es importante ampliar el enfoque de perímetro de seguridad del centrado en redes a uno centrado en identidades. Históricamente, el perímetro de seguridad local principal era la red de la organización. La mayoría de los diseños de seguridad local utilizan la red como eje de seguridad principal. Para las aplicaciones en la nube, se recomienda considerar la identidad como perímetro de seguridad principal.
 
 Lo que puede hacer para desarrollar un enfoque centrado en identidades para el desarrollo de aplicaciones web:
 
@@ -217,7 +214,7 @@ Use los mecanismos de autenticación y autorización proporcionados en la plataf
 
 El concepto de [privilegios mínimos ](https://en.wikipedia.org/wiki/Principle_of_least_privilege) implica conceder a los usuarios el nivel preciso de acceso y control que necesitan para hacer su trabajo y nada más.
 
-¿Necesitará un desarrollador de software derechos de administrador de dominio? ¿Necesitará un auxiliar administrativo acceso a controles administrativos en su equipo personal? La evaluación del acceso al software de evaluación no es diferente. Si usa el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para proporcionar a los usuarios distintas posibilidades y autoridad en la aplicación, no concede a todos los usuarios acceso a todo el contenido. Al limitar el acceso a lo que se requiere para cada rol, se limita el riesgo de que se produzca un problema de seguridad.
+¿Necesitará un desarrollador de software derechos de administrador de dominio? ¿Necesitará un auxiliar administrativo acceso a controles administrativos en su equipo personal? La evaluación del acceso al software de evaluación no es diferente. Si usa el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para proporcionar a los usuarios distintas posibilidades y autoridad en la aplicación, no concederá a todos el acceso a todo. Al limitar el acceso a lo que se requiere para cada rol, se limita el riesgo de que se produzca un problema de seguridad.
 
 Asegúrese de que la aplicación aplica [privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) a lo largo de sus patrones de acceso.
 
@@ -233,7 +230,7 @@ Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de expos
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigencia de reautenticación con transacciones importantes
 
-La [falsificación de solicitud entre sitios](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (también conocida como *XSRF* o *CSRF*) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
+La [falsificación de solicitud entre sitios](/aspnet/core/security/anti-request-forgery) (también conocida como *XSRF* o *CSRF*) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
 Esta forma de aprovechamiento también se conoce como *ataque con un clic* o *montaje en la sesión* porque el ataque aprovecha la sesión del usuario autenticada anteriormente.
 
 La mejor manera de defenderse contra este tipo de ataque es pedirle al usuario algo que solo él puede proporcionar antes de cada transacción importante, como una compra, la desactivación de la cuenta o un cambio de contraseña. Puede pedirle al usuario que vuelva a escribir su contraseña, rellene un captcha o envíe un token secreto que solo él pueda tener. El enfoque más común es el token secreto.
@@ -303,7 +300,7 @@ Asegúrese de que:
 
 ### <a name="use-logging-and-alerting"></a>Uso del registro y las alertas
 
-[Registre](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) sus problemas de seguridad a efectos de investigaciones de seguridad y desencadene alertas sobre los problemas para asegurarse de que la gente conozca los problemas de manera oportuna. Habilite la auditoría y el registro en todos los componentes. Los registros de auditoría deben capturar el contexto de usuario e identificar todos los eventos importantes.
+[Registre](/aspnet/core/fundamentals/logging/) sus problemas de seguridad a efectos de investigaciones de seguridad y desencadene alertas sobre los problemas para asegurarse de que la gente conozca los problemas de manera oportuna. Habilite la auditoría y el registro en todos los componentes. Los registros de auditoría deben capturar el contexto de usuario e identificar todos los eventos importantes.
 
 Compruebe que no se registra ningún dato confidencial que un usuario envíe a su sitio. Ejemplos de datos confidenciales incluyen:
 

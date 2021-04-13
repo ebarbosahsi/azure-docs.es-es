@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Biblioteca de cliente de Computer Vision para Java'
-description: En este inicio rápido, se muestra una introducción a la biblioteca cliente de Computer Vision para Java.
+title: 'Inicio rápido: Biblioteca cliente de reconocimiento óptico de caracteres para Java'
+description: En este inicio rápido empezará a trabajar con la biblioteca cliente de reconocimiento óptico de caracteres para Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 58266e1d41344baf042349ed8b0ca9974a966827
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 84ac8e8309d9f1d0536d0f7a16ab9cd9f3c10a2c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622277"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284814"
 ---
 <a name="HOLTop"></a>
 
-La biblioteca cliente de Computer Vision se usa para:
-
-* Analizar una imagen para ver las etiquetas, la descripción de texto, las caras, el contenido para adultos, etc.
-* Lea texto impreso y manuscrito con Read API.
+Use la biblioteca cliente de reconocimiento óptico de caracteres para leer texto impreso y manuscrito en imágenes.
 
 [Documentación de referencia](/java/api/overview/azure/cognitiveservices/client/computervision) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Ejemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -101,27 +98,29 @@ Defina la clase **ComputerVisionQuickstarts**. Cree variables para la clave de s
 
 En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_beginmain)]
 
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_authinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_readinmain)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_endmain)]
 > [!div class="nextstepaction"]
 > [He configurado el cliente](?success=set-up-client#object-model) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objetos
 
-Las siguientes clases e interfaces controlan algunas de las características principales del SDK de Java para Computer Vision.
+Las siguientes clases e interfaces controlan algunas de las características principales de OCR SDK para Java.
 
 |Nombre|Descripción|
 |---|---|
 | [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | Esta clase es necesaria para todas las funcionalidades de Computer Vision. Cree una instancia de ella con la información de suscripción y úsela para generar instancias de otras clases.|
-|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision)| Esta clase procede del objeto de cliente y controla directamente todas las operaciones de imagen, como el análisis de imágenes, la detección de texto y la generación de miniaturas.|
-|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| Esta enumeración define los diferentes tipos de análisis de imágenes que se pueden realizar en una operación de análisis estándar. Debe especificar un conjunto de valores de VisualFeatureTypes en función de sus necesidades. |
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-En estos fragmentos de código se muestra cómo realizar las siguientes tareas con la biblioteca de cliente de Computer Vision para Java:
+En estos fragmentos de código se muestra cómo realizar las siguientes tareas con la biblioteca cliente de OCR para Java:
 
 * [Autenticar el cliente](#authenticate-the-client)
-* [Analizar una imagen](#analyze-an-image)
 * [Leer texto manuscrito e impreso](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
@@ -131,116 +130,13 @@ En un nuevo método, cree una instancia de un objeto [ComputerVisionClient](/jav
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [He autenticado el cliente](?success=authenticate-client#analyze-an-image) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
+> [He autenticado el cliente](?success=authenticate-client#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
-## <a name="analyze-an-image"></a>Análisis de una imagen
-
-El código siguiente define un método, `AnalyzeLocalImage`, que utiliza el objeto de cliente para analizar una imagen local e imprimir los resultados. El método devuelve una descripción de texto, categorización, lista de etiquetas, caras detectadas, marcas de contenido para adultos, colores principales y tipo de imagen.
-
-> [!TIP]
-> También puede analizar una imagen remota mediante su dirección URL. Consulte los métodos [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision), como **AnalyzeImage**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para escenarios relacionados con imágenes remotas.
-
-### <a name="set-up-test-image"></a>Configuración de una imagen de prueba
-
-En primer lugar, cree una carpeta **recursos/** en la carpeta **src /main/** del proyecto y agregue una imagen que desee analizar. A continuación, agregue la siguiente definición de método a la clase **ComputerVisionQuickstarts**. Cambie el valor de `pathToLocalImage` para que coincida con el archivo de imagen. 
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
-
-### <a name="specify-visual-features"></a>Especificación de características visuales
-
-A continuación, especifique qué características visuales desea extraer en el análisis. Vea la enumeración [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) para obtener una lista completa.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
-
-### <a name="analyze"></a>Analizar
-Este bloque imprime resultados detallados de cada ámbito del análisis de imágenes en la consola. El método **analyzeImageInStream** devuelve un objeto **ImageAnalysis** que contiene toda la información extraída.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
-
-En las secciones siguientes se muestra cómo analizar esta información en detalle.
-
-### <a name="get-image-description"></a>Obtención de la descripción de la imagen
-
-El código siguiente obtiene la lista de títulos generados para la imagen. Para más información, consulte [Descripción de imágenes](../../concept-describing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
-
-### <a name="get-image-category"></a>Obtención de la categoría de imagen
-
-El código siguiente obtiene la categoría detectada de la imagen. Para más información, consulte [Categorización de imágenes](../../concept-categorizing-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
-
-### <a name="get-image-tags"></a>Obtención de etiquetas de imagen
-
-El código siguiente obtiene el conjunto de las etiquetas detectadas en la imagen. Para más información, consulte [Etiquetas de contenido](../../concept-tagging-images.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
-
-### <a name="detect-faces"></a>Detección de caras
-
-El código siguiente devuelve las caras detectadas en la imagen con sus coordenadas de rectángulo y selecciona los atributos de cara. Para más información, consulte [Detección de caras](../../concept-detecting-faces.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
-
-### <a name="detect-objects"></a>Detección de objetos
-
-El código siguiente devuelve los objetos detectados en la imagen con sus coordenadas. Para más información, consulte [Detección de objetos](../../concept-object-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_objects)]
-
-
-### <a name="detect-brands"></a>Detección de marcas
-
-El código siguiente devuelve los logotipos de marca detectados en la imagen con sus coordenadas. Para más información, consulte [Detección de marcas](../../concept-brand-detection.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_brands)]
-
-
-
-### <a name="detect-adult-racy-or-gory-content"></a>Detección de contenido para adultos, explícito o sangriento
-
-El siguiente código imprime la presencia detectada de contenido para adultos en la imagen. Para más información, consulte [Contenido para adultos, subido de tono y sangriento](../../concept-detecting-adult-content.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
-
-### <a name="get-image-color-scheme"></a>Obtención de la combinación de colores de imagen
-
-El código siguiente imprime los atributos de color detectados en la imagen, como los colores dominantes y el color de énfasis. Para más información, consulte [Combinaciones de colores](../../concept-detecting-color-schemes.md).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
-
-### <a name="get-domain-specific-content"></a>Obtención de contenido específico del dominio
-
-Computer Vision puede usar un modelo especializado para realizar análisis adicionales en las imágenes. Para más información, consulte [Contenido específico del dominio](../../concept-detecting-domain-content.md). 
-
-En el código siguiente se analizan los datos sobre las celebridades detectadas en la imagen.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
-
-En el código siguiente se analizan los datos sobre los paisajes detectados en la imagen.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
-
-### <a name="get-the-image-type"></a>Obtención del tipo de imagen
-
-El código siguiente imprime información sobre el tipo de imagen (si es una imagen prediseñada o dibujo lineal).
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
-
-> [!div class="nextstepaction"]
-> [He analizado una imagen](?success=analyze-image#read-printed-and-handwritten-text) [He tenido un problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
-
-### <a name="close-out-the-method"></a>Cierre del método
-
-Complete el bloque try/catch y cierre el método.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyze_catch)]
 
 
 ## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
 
-Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo de caracteres. En esta sección se define un método, `ReadFromFile`, que toma una ruta de acceso de archivo local e imprime el texto de la imagen en la consola.
+El servicio OCR puede leer texto visible de una imagen y convertirlo en una secuencia de caracteres. En esta sección se define un método, `ReadFromFile`, que toma una ruta de acceso de archivo local e imprime el texto de la imagen en la consola.
 
 > [!TIP]
 > También puede leer el texto de una imagen remota referenciada por una dirección URL. Consulte los métodos [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision), como **read**. O bien, consulte el código de ejemplo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para escenarios relacionados con imágenes remotas.
@@ -313,11 +209,11 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido ha aprendido a usar la biblioteca de Computer Vision para Java para realizar tareas básicas. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
+En este inicio rápido ha aprendido a usar la biblioteca de OCR para Java para realizar tareas básicas. A continuación, consulte la documentación de referencia para más información sobre la biblioteca.
 
 > [!div class="nextstepaction"]
->[Referencia de Computer Vision (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
+>[Referencia de OCR SDK (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
-* [¿Qué es Computer Vision?](../../overview.md)
+* [Introducción al OCR](../../overview-ocr.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

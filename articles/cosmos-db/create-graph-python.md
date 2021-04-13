@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 03/29/2021
 ms.author: chrande
 ms.custom: devx-track-python
-ms.openlocfilehash: 342b9c9aae0a523ac770ba78f298c4ba91c434e7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: cef397789d5ebcfa95c01e42dac9a80b9e1564e0
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798755"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106949"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante Python y Azure Portal
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -56,16 +56,16 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "./git-samples"
     ```
 
 2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a una carpeta para instalar la aplicación de ejemplo.  
 
     ```bash
-    cd "C:\git-samples"
+    cd "./git-samples"
     ```
 
-3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
+3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-python-getting-started.git
@@ -73,14 +73,14 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo *connect.py* de la carpeta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-information). 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo *connect.py* de la carpeta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-information).
 
-* El valor de `client` de Gremlin se inicializa en la línea 104 de *connect.py*:
+* El elemento `client` de Gremlin se inicializa en la línea 155 de *connect.py*. Asegúrese de reemplazar `<YOUR_DATABASE>` y `<YOUR_CONTAINER_OR_GRAPH>` por los valores del nombre de la base de datos y el nombre del grafo de la cuenta:
 
     ```python
     ...
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
-        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_CONTAINER_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
     ```
@@ -101,7 +101,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 
     :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
-2. Abra el archivo *connect.py* y, en la línea 104, pegue el valor del identificador URI sobre `<YOUR_ENDPOINT>` aquí:
+2. Abra el archivo *connect.py* y, en la línea 155, pegue el valor del identificador URI sobre `<YOUR_ENDPOINT>` aquí:
 
     ```python
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
@@ -145,7 +145,7 @@ Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela
 1. En la ventana del terminal de Git, use `cd` para cambiar a la carpeta azure-cosmos-db-graph-python-getting-started.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-graph-python-getting-started"
+    cd "./git-samples\azure-cosmos-db-graph-python-getting-started"
     ```
 
 2. En la ventana del terminal de Git, use el comando siguiente para instalar los paquetes Python necesarios.

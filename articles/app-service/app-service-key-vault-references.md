@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100635394"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076792"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -30,8 +30,19 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
 
 1. Cree una [directiva de acceso en Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
 
-   > [!IMPORTANT]
-   > Actualmente, las referencias de Key Vault no pueden resolver los secretos almacenados en un almacén de claves con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md), a menos que la aplicación se hospede en una instancia de [App Service Environment](./environment/intro.md).
+### <a name="access-network-restricted-vaults"></a>Acceso a almacenes restringidos de red
+
+> [!NOTE]
+> Las aplicaciones basadas en Linux no pueden resolver actualmente los secretos de un almacén de claves con restricciones de red a menos que la aplicación esté hospedada en una instancia de [App Service Environment](./environment/intro.md).
+
+Si el almacén está configurado con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md), también deberá asegurarse de que la aplicación tenga acceso a la red.
+
+1. Asegúrese de que la aplicación tenga configuradas funcionalidades de red de salida, tal como se describe en [Características de red de App Service](./networking-features.md) y [Opciones de red de Azure Functions](../azure-functions/functions-networking-options.md).
+
+2. Asegúrese de que la configuración del almacén tenga en cuenta la red o la subred mediante la que cual la aplicación tendrá acceso.
+
+> [!IMPORTANT]
+> El acceso a un almacén mediante la integración de red virtual no es compatible actualmente con las [actualizaciones automáticas de secretos sin una versión especificada](#rotation).
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia
 
@@ -56,6 +67,9 @@ O bien:
 ```
 
 ## <a name="rotation"></a>Rotación
+
+> [!IMPORTANT]
+> El [acceso a un almacén mediante la integración de red virtual](#access-network-restricted-vaults) no es compatible actualmente con las actualizaciones automáticas de secretos sin una versión especificada.
 
 Si no se especifica una versión en la referencia, la aplicación usará la versión más reciente que exista en Key Vault. Cuando haya disponibles versiones más recientes, como con un evento de rotación, la aplicación se actualizará automáticamente y comenzará a usar la versión más reciente en el plazo de un día. Los cambios de configuración realizados en la aplicación actualizarán inmediatamente a las versiones más recientes todos los secretos a los que se hace referencia.
 

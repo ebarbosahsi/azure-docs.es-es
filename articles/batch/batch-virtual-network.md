@@ -2,14 +2,14 @@
 title: Aprovisionamiento de un grupo en una red virtual
 description: Cómo crear un grupo de Batch en una red virtual de Azure para que los nodos de proceso puedan comunicarse de manera segura con otras máquinas virtuales en la red, como un servidor de archivos.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561924"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629315"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -56,6 +56,8 @@ Si desea asegurarse de que los nodos del grupo funcionen en una red virtual con 
 - El servicio Batch debe comunicarse con los nodos para programar tareas. Para habilitar esta comunicación, agregue una ruta definida por el usuario para cada dirección IP usada por el servicio Batch en la región donde existe la cuenta de Batch. Para obtener la lista de direcciones IP del servicio Batch, consulte [Etiquetas de servicio en un entorno local](../virtual-network/service-tags-overview.md).
 
 - Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` y `<account>.blob.core.windows.net`) no está bloqueado por la red local.
+
+- Si usa montajes de archivos virtuales, revise los [requisitos de red](virtual-file-mount.md#networking-requirements) y asegúrese de que no se bloquee el tráfico necesario.
 
 Cuando agregue una ruta definida por el usuario, defina la ruta de cada prefijo de dirección IP de Batch relacionado y establezca **Tipo del próximo salto** en **Internet**.
 

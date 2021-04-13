@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Inicio de sesión a los usuarios en una aplicación web de Node.js y Express | Azure'
+title: 'Tutorial: Inicio de sesión de usuarios en una aplicación web de Node.js y Express | Azure'
 titleSuffix: Microsoft identity platform
 description: En este tutorial, agregará compatibilidad para el inicio de sesión de usuarios en una aplicación web.
 services: active-directory
@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 3f1f26acbba0f5830421e760d6a68a11f618fa85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58132b6d038abe0db02d1e58f8c8a8f64962ff49
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648997"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279721"
 ---
-# <a name="tutorial-sign-in-users-in-a-nodejs--express-web-app"></a>Tutorial: Inicio de sesión a los usuarios en una aplicación web de Node.js y Express
+# <a name="tutorial-sign-in-users-in-a-nodejs--express-web-app"></a>Tutorial: Inicio de sesión de usuarios en una aplicación web de Node.js y Express
 
 En este tutorial, creará una aplicación web que inicia sesión para los usuarios. La aplicación web que cree usa la [biblioteca de autenticación de Microsoft (MSAL) para Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2b4079b6d4eb39b65a7a60cd4d149c7748ab39ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5f9e28ac568f70801b2bd955c201712cfcb80084
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178888"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963346"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure en Azure Kubernetes Service (AKS) (versión preliminar)
 Un controlador de interfaz de almacenamiento de contenedores (CSI) para discos de Azure es un controlador compatible con la [especificación CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) que usa Azure Kubernetes Service (AKS) para administrar el ciclo de vida de los discos de Azure.
@@ -71,9 +71,9 @@ test.txt
 
 Las clases de almacenamiento predeterminadas se adaptan a los escenarios más comunes, pero no a todos. En algunos casos, puede que quiera tener una clase de almacenamiento propia personalizada con sus propios parámetros. Por ejemplo, hay un escenario en el que es posible que quiera cambiar la clase `volumeBindingMode`.
 
-Las clases de almacenamiento predeterminadas usan una clase `volumeBindingMode: Immediate` que garantiza su ejecución inmediatamente después de crear la PVC. En los casos en los que los grupos de nodos tienen restricciones de topología (por ejemplo, mediante zonas de disponibilidad), los PV se enlazarían o aprovisionarían sin conocimiento de los requisitos de programación del pod (en este caso, estar en una zona determinada).
+Puede usar una clase `volumeBindingMode: Immediate` que garantiza su ejecución inmediatamente después de crear la PVC. En los casos en los que los grupos de nodos tienen restricciones de topología (por ejemplo, mediante zonas de disponibilidad), los PV se enlazarían o aprovisionarían sin conocimiento de los requisitos de programación del pod (en este caso, estar en una zona determinada).
 
-Para resolver este escenario, puede usar `volumeBindingMode: WaitForFirstConsumer`, que retrasa el enlace y el aprovisionamiento de un PV hasta que se crea un pod que usa la PVC. De esta manera, el PV se ajusta a la zona de disponibilidad (u otra topología) especificada mediante las restricciones de programación del pod y se aprovisiona en ella.
+Para resolver este escenario, puede usar `volumeBindingMode: WaitForFirstConsumer`, que retrasa el enlace y el aprovisionamiento de un PV hasta que se crea un pod que usa la PVC. De esta manera, el PV se ajusta a la zona de disponibilidad (u otra topología) especificada mediante las restricciones de programación del pod y se aprovisiona en ella. Las clases de almacenamiento predeterminadas usan la clase `volumeBindingMode: WaitForFirstConsumer`.
 
 Cree un archivo denominado `sc-azuredisk-csi-waitforfirstconsumer.yaml` y pegue el siguiente manifiesto.
 La clase de almacenamiento es la misma que la clase de almacenamiento `managed-csi`, pero con una clase `volumeBindingMode` diferente.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471608"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106643"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticación en Azure Active Directory: tokens OATH 
 
@@ -45,19 +45,19 @@ Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
 > Asegúrese de incluir la fila de encabezado en el archivo CSV. Si un UPN tiene una comilla simple, debe aplicar el escape con otra comilla simple. Por ejemplo, si el UPN es my’user@domain.com, cámbielo a my’’user@domain.com al cargar el archivo.
 
-Una vez formateado correctamente como archivo CSV, un administrador puede iniciar sesión en Azure Portal e ir a **Azure Active Directory > Seguridad > MFA > Tokens OATH** y cargar el archivo CSV resultante.
+Una vez formateado correctamente como archivo CSV, un administrador global puede iniciar sesión en Azure Portal e ir a **Azure Active Directory > Seguridad > MFA > Tokens OATH** y cargar el archivo CSV resultante.
 
 En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Seleccione el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, puede descargar un archivo CSV que enumere los errores para poder resolverlos. Los nombres de campo del archivo CSV descargado son diferentes de los de la versión cargada.  
 
 Una vez solucionados los errores, para activar cada clave, el administrador puede seleccionar **Activar** para el token y escribir la OTP que se muestra en el token. Puede activar un máximo de 200 tokens OATH cada 5 minutos. 
 
-Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OATH o aplicaciones de autenticación, como la aplicación Microsoft Authenticator, configurada para utilizarse en cualquier momento.
+Los usuarios pueden tener una combinación de hasta cinco tokens de hardware OATH o aplicaciones de autenticación, como la aplicación Microsoft Authenticator, configurada para utilizarse en cualquier momento. Los tokens OATH de hardware no se pueden asignar a los usuarios invitados en el inquilino de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

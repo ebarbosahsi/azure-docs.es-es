@@ -1,14 +1,14 @@
 ---
 title: 'Patrón: operadores lógicos en una definición de directiva'
 description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar los operadores lógicos en una definición de directiva.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88545597"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093357"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Patrón de Azure Policy: operadores lógicos
 
@@ -16,7 +16,7 @@ Una definición de directiva puede contener varias instrucciones condicionales. 
 
 ## <a name="sample-1-one-logical-operator"></a>Muestra 1: un operador lógico
 
-Esta definición de directiva evalúa las cuentas de CosmosDB para ver si están configuradas las conmutaciones por error automáticas y varias ubicaciones de escritura. Cuando no lo están, se desencadena el efecto [audit](../concepts/effects.md#audit) y crea una entrada de registro cuando se crea o actualiza el recurso no compatible.
+Esta definición de directiva evalúa las cuentas de [Azure Cosmos DB](../../../cosmos-db/introduction.md) para ver si están configuradas las conmutaciones por error automáticas y varias ubicaciones de escritura. Cuando no lo están, se desencadena el efecto [audit](../concepts/effects.md#audit) y crea una entrada de registro cuando se crea o actualiza el recurso no compatible.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Este bloque **policyRule.if** también incluye un único operador **allOf**, per
 
 ## <a name="sample-3-combining-logical-operators"></a>Ejemplo 3: Combinación de operadores lógicos
 
-Esta definición de directiva evalúa las cuentas de Java Spring para ver si el seguimiento no está habilitado o si el seguimiento no se encuentra en un estado correcto.
+Esta definición de directiva evalúa las cuentas de [Spring on Azure](/azure/developer/java/spring-framework) para ver si el seguimiento no está habilitado o no se encuentra en un estado correcto.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

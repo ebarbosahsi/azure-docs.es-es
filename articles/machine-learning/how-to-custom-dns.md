@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: a5224aab8db65cf22e952185d07147f6f007e088
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: how-to, contperf-fy21q3
+ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956288"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169545"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Uso de un área de trabajo con un servidor DNS personalizado
 
-Al usar un área de trabajo de Azure Machine Learning con un punto de conexión privado, hay [varias maneras de controlar la resolución de nombres DNS](../private-link/private-endpoint-dns.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, _usa un servidor DNS personalizado propio_, tendrá que crear manualmente entradas DNS o usar reenviadores condicionales para el área de trabajo.
+Al usar un área de trabajo de Azure Machine Learning con un punto de conexión privado, hay [varias maneras de controlar la resolución de nombres DNS](../private-link/private-endpoint-dns.md). De manera predeterminada, Azure controla automáticamente la resolución de nombres para el área de trabajo y el punto de conexión privado. Si, en cambio, __usa un servidor DNS personalizado propio__, tendrá que crear manualmente entradas DNS o usar reenviadores condicionales para el área de trabajo.
 
 > [!IMPORTANT]
 > En este artículo solo se explica cómo buscar el nombre de dominio completo (FQDN) y las direcciones IP para estas entradas; NO se proporciona información sobre cómo configurar los registros DNS para estos elementos. Consulte la documentación del software de DNS para obtener información sobre cómo agregar registros.
@@ -46,11 +46,12 @@ La lista siguiente contiene los nombres de dominio completos (FQDN) que usa el �
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > El nombre del área de trabajo de este nombre de dominio completo puede estar truncado. El truncamiento se realiza para mantener la longitud del nombre de dominio completo en 63 caracteres como máximo.
+    > El nombre del área de trabajo de este nombre de dominio completo puede estar truncado. El truncamiento se realiza para mantener 63 caracteres `ml-<workspace-name, truncated>-<region>-<workspace-guid>`.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+    > * Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+    > * La dirección IP de este FQDN **no** es la dirección IP de la instancia de proceso. En su lugar, use la dirección IP privada del punto de conexión privado del área de trabajo (la dirección IP de las entradas `*.api.azureml.ms`).
 
 ## <a name="azure-china-21vianet-regions"></a>Regiones de Azure China 21Vianet
 
@@ -61,7 +62,7 @@ Los siguientes nombres de dominio completo son para regiones de Azure China 21Vi
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > El nombre del área de trabajo de este nombre de dominio completo puede estar truncado. El truncamiento se realiza para mantener la longitud del nombre de dominio completo en 63 caracteres como máximo.
+    > El nombre del área de trabajo de este nombre de dominio completo puede estar truncado. El truncamiento se realiza para mantener 63 caracteres `ml-<workspace-name, truncated>-<region>-<workspace-guid>`.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Búsqueda de direcciones IP
 
@@ -108,7 +109,7 @@ La información devuelta por todos los métodos es la misma; una lista de los FQ
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Si tiene una instancia de proceso, use `<instance-name>.<region>.instances.azureml.ms`, donde `<instance-name>` es el nombre de la instancia de proceso. Use la dirección IP privada del punto de conexión privado del área de trabajo. Tenga en cuenta que solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
+> * Si tiene una instancia de proceso, use `<instance-name>.<region>.instances.azureml.ms`, donde `<instance-name>` es el nombre de la instancia de proceso. Use la dirección IP privada del punto de conexión privado del área de trabajo. Solo se puede acceder a la instancia de proceso desde dentro de la red virtual.
 >
 > Para todas estas direcciones IP, use la misma dirección que las entradas `*.api.azureml.ms` devueltas en los pasos anteriores.
 

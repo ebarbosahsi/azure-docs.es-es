@@ -5,26 +5,26 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320487"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166415"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>¿Qué es la versión preliminar de Azure Static Web Apps?
 
-Azure Static Web Apps es un servicio que compila e implementa automáticamente aplicaciones web de pila completa en Azure desde un repositorio de GitHub.
+Azure Static Web Apps es un servicio que compila e implementa automáticamente aplicaciones web de pila completa en Azure desde un repositorio de código.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Información general de Static Web Apps":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagrama de información general de Azure Static Web Apps":::
 
-El flujo de trabajo de Azure Static Web Apps se adapta al flujo de trabajo diario de un desarrollador. Las aplicaciones se compilan e implementan en función de las interacciones de GitHub.
+El flujo de trabajo de Azure Static Web Apps se adapta al flujo de trabajo diario de un desarrollador. Las aplicaciones se compilan e implementan en función de los cambios en el código.
 
-Cuando se crea un recurso de Azure Static Web Apps, Azure configura un flujo de trabajo de Acciones de GitHub en el repositorio de código fuente de la aplicación que supervisa una rama de su elección. Cada vez que inserte confirmaciones o acepte solicitudes de incorporación de cambios en la rama inspeccionada, la acción de GitHub compilará e implementará automáticamente la aplicación y su API en Azure.
+Cuando se crea un recurso de Azure Static Web Apps, Azure interactúa directamente con GitHub o Azure DevOps para supervisar una rama de su elección. Cada vez que inserte confirmaciones o acepte solicitudes de incorporación de cambios en la rama inspeccionada, se ejecuta automáticamente una compilación y la aplicación y la API se implementan en Azure.
 
-Las aplicaciones web estáticas se suelen compilar con bibliotecas y marcos como Angular, React, Svelte, Vue o Blazor. Estas aplicaciones incluyen recursos HTML, CSS, JavaScript y de imagen que componen la aplicación. Con un servidor web tradicional, estos recursos se ofrecen desde un único servidor junto con los puntos de conexión de la API necesarios.
+Las aplicaciones web estáticas se suelen compilar con bibliotecas y marcos como Angular, React, Svelte, Vue o Blazor, en los que no se requiere representación en el servidor. Estas aplicaciones incluyen recursos HTML, CSS, JavaScript y de imagen que componen la aplicación. Con un servidor web tradicional, estos recursos se ofrecen desde un único servidor junto con los puntos de conexión de la API necesarios.
 
 Con Static Web Apps, los recursos estáticos se separan de un servidor web tradicional y, en su lugar, se ofrecen puntos distribuidos geográficamente en todo el mundo. Esta distribución permite ofrecer archivos de forma más rápida, dado que se encuentran físicamente más cerca de los usuarios finales. Además, los puntos de conexión de la API se hospedan mediante una [arquitectura sin servidor](../azure-functions/functions-overview.md), lo que evita la necesidad de usar un servidor back-end completo.
 
@@ -32,7 +32,7 @@ Con Static Web Apps, los recursos estáticos se separan de un servidor web tradi
 
 - **Hospedaje web** para contenido estático como HTML, CSS, JavaScript e imágenes.
 - Compatibilidad con la **API integrada** proporcionada por Azure Functions.
-- **Integración de GitHub de primera clase** donde los cambios de repositorio desencadenan compilaciones e implementaciones.
+- **Integración de primera clase con GitHub y Azure DevOps**, en las que los cambios en el repositorio desencadenan compilaciones e implementaciones.
 - Contenido estático **distribuido globalmente**, lo que permite que el contenido esté más cerca de los usuarios.
 - **Certificados SSL gratuitos**, que se renuevan automáticamente.
 - **Dominios personalizados** para proporcionar personalizaciones de marca a la aplicación.

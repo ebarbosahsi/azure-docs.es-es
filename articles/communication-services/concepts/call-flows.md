@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cc8e0edd1109162f0b426be31eb875ba8465d091
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7651142d1c2b24da64d9f72dd2300dc0c3807e93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490779"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937882"
 ---
 # <a name="call-flow-basics"></a>Conceptos básicos del flujo de llamadas
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
 
 En la sección siguiente se ofrece información general sobre los flujos de llamadas en Azure Communication Services. Los flujos de señalización y multimedia dependen de los tipos de llamadas que realizan los usuarios. Algunos ejemplos de tipos de llamadas son VoIP de uno a uno, RTC de uno a uno y llamadas de grupo que contienen una combinación de participantes de VoIP y conectados a RTC. Revise [Tipos de llamada](./voice-video-calling/about-call-types.md).
 
@@ -26,7 +26,7 @@ En la sección siguiente se ofrece información general sobre los flujos de llam
 
 Cuando se establece una llamada de punto a punto o de grupo, se usan dos protocolos en segundo plano: HTTP (REST) para señalización y el SRTP para los flujos multimedia.
 
-La señalización entre bibliotecas cliente o entre bibliotecas cliente y controladores de señalización de Communication Services se controla con HTTP REST (TLS). Para el tráfico multimedia en tiempo real (RTP), se prefiere el Protocolo de datagramas de usuario (UDP). Si el firewall impide el uso de UDP, la biblioteca cliente usará el protocolo de control de transmisión (TCP) para los flujos multimedia.
+La señalización entre los distintos SDK o entre los SDK y los controladores de señalización de Communication Services se controla con REST HTTP (TLS). Para el tráfico multimedia en tiempo real (RTP), se prefiere el Protocolo de datagramas de usuario (UDP). Si el firewall impide el uso de UDP, el SDK usará el Protocolo de control de transmisión (TCP) para los elementos multimedia.
 
 Vamos a revisar los protocolos de señalización y multimedia en varios escenarios.
 
@@ -34,21 +34,21 @@ Vamos a revisar los protocolos de señalización y multimedia en varios escenari
 
 ### <a name="case-1-voip-where-a-direct-connection-between-two-devices-is-possible"></a>Caso 1: VoIP, donde se puede establecer una conexión directa entre dos dispositivos
 
-En las videollamadas o las llamadas VoIP de uno a uno, el tráfico prefiere la ruta de acceso más directa. "Ruta directa" significa que si dos bibliotecas cliente pueden conectarse entre sí directamente, se establecerá una conexión directa. Normalmente, esto es posible cuando dos bibliotecas cliente están en la misma subred (por ejemplo, en una subred 192.168.1.0/24) o cuando los dispositivos están activos en subredes que se pueden ver entre sí (las bibliotecas cliente de las subredes 10.10.0.0/16 y 192.168.1.0/24 pueden comunicarse entre sí).
+En las videollamadas o las llamadas VoIP de uno a uno, el tráfico prefiere la ruta de acceso más directa. "Ruta directa" significa que si dos SDK pueden conectarse entre sí directamente, se establecerá una conexión directa. Normalmente, esto es posible cuando los dos SDK están en la misma subred (por ejemplo, en una subred 192.168.1.0/24) o cuando los dispositivos están activos en subredes que se pueden ver entre sí (los SDK de las subredes 10.10.0.0/16 y 192.168.1.0/24 pueden comunicarse entre sí).
 
 :::image type="content" source="./media/call-flows/about-voice-case-1.png" alt-text="Diagrama que muestra una llamada VoIP directa entre usuarios y Communication Services.":::
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP donde no es posible una conexión directa entre dispositivos, pero sí una conexión entre dispositivos NAT
 
-Si hay dos dispositivos ubicados en subredes que no se pueden comunicar entre sí (por ejemplo, Alice trabaja desde una cafetería y Roberto trabaja desde su oficina doméstica), pero la conexión entre dispositivos NAT es posible, las bibliotecas cliente del cliente establecerán la conectividad a través de los dispositivos NAT.
+Si hay dos dispositivos ubicados en subredes que no se pueden comunicar entre sí (por ejemplo, Alice trabaja desde una cafetería y Roberto trabaja desde su oficina doméstica), pero la conexión entre dispositivos NAT es posible, los SDK de cliente establecerán la conectividad mediante dispositivos NAT.
 
-En el caso de Alice, será el dispositivo NAT de la cafetería y, para Bob, será el de la oficina doméstica. El dispositivo de Alice enviará la dirección externa de su dispositivo NAT y Bob hará lo mismo. Las bibliotecas cliente aprenden las direcciones externas de un servicio STUN (Session Traversal Utilities for NAT) que Azure Communication Services proporciona de forma gratuita. La lógica que controla el protocolo de enlace entre Alice y Bob se inserta en las bibliotecas cliente que proporciona Azure Communication Services. (No se requiere ninguna configuración adicional)
+En el caso de Alice, será el dispositivo NAT de la cafetería y, para Bob, será el de la oficina doméstica. El dispositivo de Alice enviará la dirección externa de su dispositivo NAT y Bob hará lo mismo. Los SDK aprenden las direcciones externas de un servicio STUN (Session Traversal Utilities for NAT) que Azure Communication Services proporciona de forma gratuita. La lógica que controla el protocolo de enlace entre Alice y Bob está insertada en los SDK que proporciona Azure Communication Services. (No se requiere ninguna configuración adicional)
 
 :::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagrama que muestra una llamada VoIP que emplea una conexión STUN.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Caso 3: VoIP sin posibilidad de una conexión directa ni NAT
 
-Si uno o ambos dispositivos cliente están detrás de un dispositivo NAT simétrico, se requiere un servicio en la nube independiente para retransmitir contenido multimedia entre las dos bibliotecas cliente. Este servicio se denomina TURN (Traversal Use Relays around NAT) y también lo proporciona Communication Services. La biblioteca cliente de llamadas de Communication Services usa automáticamente los servicios TURN en función de las condiciones de red detectadas. El uso del servicio TURN de Microsoft se cobra por separado.
+Si uno o ambos dispositivos cliente están detrás de un dispositivo NAT simétrico, se requiere un servicio en la nube independiente para retransmitir contenido multimedia entre los dos SDK. Este servicio se denomina TURN (Traversal Use Relays around NAT) y también lo proporciona Communication Services. El SDK de llamadas de Communication Services usa automáticamente los servicios TURN en función de las condiciones de red detectadas. El uso del servicio TURN de Microsoft se cobra por separado.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagrama que muestra una llamada VoIP que emplea una conexión TURN.":::
 
@@ -72,15 +72,15 @@ El Protocolo en tiempo real (RTP) predeterminado para las llamadas de grupo es e
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagrama que muestra el flujo del proceso multimedia UDP en Communication Services.":::
 
-Si la biblioteca cliente no puede usar UDP para los flujos multimedia debido a restricciones del firewall, se intentará usar el Protocolo de control de transmisión (TCP). Tenga en cuenta que el componente procesador de multimedia requiere UDP, de modo que, si se da este caso, el servicio TURN de Communication Services se agregará a la llamada de grupo para trasladar TCP a UDP. En este caso, se incurrirá en cargos de TURN, menos que se deshabiliten manualmente las capacidades de dicho servicio.
+Si el SDK no puede usar UDP para los elementos multimedia debido a restricciones del firewall, se intentará usar el Protocolo de control de transmisión (TCP). Tenga en cuenta que el componente procesador de multimedia requiere UDP, de modo que, si se da este caso, el servicio TURN de Communication Services se agregará a la llamada de grupo para trasladar TCP a UDP. En este caso, se incurrirá en cargos de TURN, menos que se deshabiliten manualmente las capacidades de dicho servicio.
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagrama que muestra el flujo del proceso de multimedia TCP en Communication Services.":::
 
-### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: biblioteca cliente de Communication Services y Microsoft Teams en una reunión de Teams programada
+### <a name="case-5-communication-services-sdk-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: SDK de Communication Services y Microsoft Teams en una reunión de Teams programada
 
 Señalización de flujos a través del controlador de señalización. Los elementos multimedia fluyen a través del procesador de multimedia. El controlador de señalización y el procesador de multimedia se comparten entre Communication Services y Microsoft Teams.
 
-:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama que muestra la biblioteca cliente de Communication Services y el cliente de Teams en una reunión de Teams programada.":::
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama que muestra el SDK de Communication Services y el cliente de Teams en una reunión de Teams programada.":::
 
 
 

@@ -1,15 +1,15 @@
 ---
-title: Arquitectura de soluciones sin agente
+title: Qué es la arquitectura de solución sin agente
 description: Obtenga información sobre la arquitectura sin agente de Azure Defender para IoT, así como el flujo de información.
 ms.topic: overview
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 99ccd0597fddaa86a2452160fc2cbfdadab87a1b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd639ca2656b901bd87fccf36fb4a5d90d3bf918
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784873"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383548"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitectura de Azure Defender para IoT
 
@@ -107,7 +107,7 @@ El portal de Defender para IoT de Azure se usa para ayudarle a lo siguiente:
 
 - Actualizar paquetes de inteligencia sobre amenazas
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
 [Preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md)
 

@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 04/06/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889423"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449280"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
 
@@ -75,9 +75,12 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
     ```
     > [!NOTE] 
     > El paquete "azure-identity" puede tener conflictos con "azure-cli" en algunas dependencias comunes. Si encuentra algún problema de autenticación, elimine el paquete "azure-cli" y sus dependencias, o bien use un equipo limpio sin una instalación del paquete "azure-cli" para que funcione.
+    > Para las nubes soberanas, debe usar las constantes específicas de la nube adecuadas.  Consulte [Conexión a todas las regiones con las bibliotecas de Azure para múltiples nubes de Python | Microsoft Docs](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain) para instrucciones de conexión con Python en nubes soberanas.
+    
     
 ## <a name="create-a-data-factory-client"></a>Creación de un cliente de factoría de datos
 
+  
 1. Cree un archivo denominado **datafactory.py**. Agregue las siguientes instrucciones para agregar referencias a espacios de nombres.
 
     ```python
@@ -122,6 +125,7 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
     ```
 3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
+        
     ```python
     def main():
 
@@ -136,6 +140,11 @@ Las canalizaciones pueden ingerir datos de distintos almacenes de datos. Las can
 
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 

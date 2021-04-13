@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 65cc3d2fdcbdea934e80a5f0012ca4f3da157ca3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a63c6f074178794db38b47950e176dd729344a54
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94843441"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492735"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible mediante la CLI de Azure
 
@@ -40,7 +40,7 @@ az login
 
 Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
-```azurecli
+```azurecli-interactive
 az account set --subscription <subscription id>
 ```
 
@@ -54,7 +54,7 @@ az group create --name myresourcegroup --location eastus2
 
 Cree un servidor flexible con el comando `az mysql flexible-server create`. Un servidor puede contener varias bases de datos. El siguiente comando crea un servidor con los valores predeterminados de servicio y los valores del [contexto local](/cli/azure/local-context) de la CLI de Azure: 
 
-```azurecli
+```azurecli-interactive
 az mysql flexible-server create
 ```
 
@@ -95,6 +95,13 @@ Make a note of your password. If you forget, you would have to reset your passwo
 ```
 
 Si quiere cambiar algún valor predeterminado, consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. 
+
+## <a name="create-a-database"></a>Crear una base de datos
+Ejecute el siguiente comando para crear una base de datos, **newdatabase**, si aún no ha creado una.
+
+```azurecli-interactive
+az mysql flexible-server db create -d newdatabase
+```
 
 > [!NOTE]
 > Las conexiones a Azure Database for MySQL se comunican a través del puerto 3306. Si intenta conectarse desde una red corporativa, es posible que no se permita el tráfico saliente a través del puerto 3306. En ese caso no podrá conectarse al servidor, salvo que el departamento de TI abra el puerto 3306.
@@ -140,17 +147,83 @@ El resultado está en formato JSON. Tome nota de los valores de **fullyQualified
 }
 ```
 
+## <a name="connect-and-test-the-connection-using-azure-cli"></a>Conexión y prueba de la conexión mediante la CLI de Azure
+
+El servidor flexible de Azure Database for MySQL le permite conectarse al servidor MySQL con el comando ```az mysql flexible-server connect``` de la CLI de Azure. Este comando permite probar la conectividad al servidor de bases de datos, crear una base de datos de inicio rápido y ejecutar consultas directamente en el servidor sin tener que instalar mysql.exe o MySQL Workbench.  También puede usar ejecutar el comando en modo interactivo para ejecutar varias consultas.
+
+Ejecute el script siguiente para probar y validar la conexión a la base de datos desde el entorno de desarrollo.
+
+```azurecli-interactive
+az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
+```
+**Ejemplo**:
+```azurecli-interactive
+az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase
+```
+Debería ver la siguiente salida para una conexión correcta:
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Connecting to newdatabase database.
+Successfully connected to mysqldemoserver1.
+```
+Si se produjo un error en la conexión, pruebe estas soluciones:
+- Compruebe si el puerto 3306 está abierto en la máquina cliente.
+- Compruebe si el nombre de usuario y la contraseña del administrador del servidor son correctos.
+- Compruebe si ha configurado una regla de firewall para la máquina cliente.
+- Compruebe si ha configurado el servidor con acceso privado en redes virtuales y asegúrese de que la máquina cliente se encuentre en la misma red virtual.
+
+Ejecute el siguiente comando para ejecutar una consulta única con el argumento ```--querytext```, ```-q```.
+
+```azurecli-interactive
+az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
+```
+
+**Ejemplo**:
+```azurecli-interactive
+az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
+```
+Para más información sobre el comando ```az mysql flexible-server connect```, consulte la documentación de [conexión y consulta](connect-azure-cli.md).
+
 ## <a name="connect-using-mysql-command-line-client"></a>Conexión mediante el cliente de línea de comandos mysql
 
-Dado que el servidor flexible se creó con la opción *Acceso privado (integración con red virtual)* , deberá conectarse a su servidor desde un recurso de la misma red virtual que el servidor. Puede crear una máquina virtual y agregarla a la red virtual creada. 
+Si ha creado el servidor flexible con acceso privado (integración con red virtual), deberá conectarse a su servidor desde un recurso en la misma red virtual que el servidor. Puede crear una máquina virtual y agregarla a la red virtual creada con el servidor flexible. Para más información, consulte cómo se configura la [documentación de acceso privado](how-to-manage-virtual-network-portal.md).
 
-Una vez creada la máquina virtual, puede aplicar SSH en la máquina e instalar la herramienta de línea de comandos de cliente conocida **[mysql.exe](https://dev.mysql.com/downloads/)** .
+Si ha creado el servidor flexible con acceso público (direcciones IP permitidas), puede agregar la dirección IP local a la lista de reglas de firewall del servidor. En la [documentación para la creación o administración de reglas de firewall](how-to-manage-firewall-portal.md) encontrará instrucciones paso a paso.
 
-Con mysql.exe, conéctese con el siguiente comando. Reemplace los valores por el nombre real del servidor y la contraseña. 
+Puede usar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) o [MySQL Workbench](./connect-workbench.md) para conectarse al servidor desde su entorno local. Azure Database for MySQL: servidor flexible admite la conexión de las aplicaciones cliente al servicio MySQL mediante la Seguridad de la capa de transporte (TLS), que anteriormente se denominaba Capa de sockets seguros (SSL). TLS es un protocolo estándar del sector que garantiza conexiones de red cifradas entre el servidor de bases de datos y las aplicaciones cliente, lo que le permite satisfacer los requisitos de cumplimiento. Para conectar con el servidor flexible de MySQL, deberá descargar el [certificado SSL público](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) para la comprobación de la entidad de certificación. Para más información sobre la conexión con conexiones cifradas o la deshabilitación de SSL, consulte la documentación [Conexión al servidor flexible de Azure Database for MySQL con conexiones cifradas](how-to-connect-tls-ssl.md).
+
+En el ejemplo siguiente se muestra cómo conectarse al servidor flexible mediante la interfaz de la línea de comandos de MySQL. En primer lugar, instalará la línea de comandos de MySQL si aún no está instalada y descargará el certificado DigiCertGlobalRootCA necesario para las conexiones SSL. Use la configuración de la cadena de conexión --ssl-mode=REQUIRED para aplicar la comprobación de certificados TLS/SSL. Pase la ruta de acceso al archivo del certificado local al parámetro --ssl-ca. Reemplace los valores por el nombre real del servidor y la contraseña.
 
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+sudo apt-get install mysql-client
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
+Si ha aprovisionado un servidor flexible mediante el **acceso público**, también puede usar [Azure Cloud Shell](https://shell.azure.com/bash) para conectarse a dicho servidor flexible mediante el cliente MySQL preinstalado, como se muestra a continuación:
+
+Para usar Azure Cloud Shell para conectarse a un servidor flexible, tendrá que permitir el acceso de red desde Azure Cloud Shell al servidor flexible. Para ello, en Azure Portal, puede ir a la hoja **Redes** del servidor flexible de MySQL y activar la casilla de la sección **Firewall** "Allow public access from any Azure service within Azure to this server" (Permitir el acceso público desde cualquier servicio de Azure a este servidor) que se muestra en la captura de pantalla siguiente y hacer clic en Guardar para conservar la configuración.
+
+ > :::image type="content" source="./media/quickstart-create-server-portal/allow-access-to-any-azure-service.png" alt-text="Captura de pantalla que muestra cómo permitir el acceso de Azure Cloud Shell al servidor flexible de MySQL para la configuración de red de acceso público.":::
+ 
+ 
+> [!NOTE]
+> La comprobación de **Allow public access from any Azure service within Azure to this server** (Permitir el acceso público desde cualquier servicio de Azure a este servidor) solo debe usarse solo para desarrollo o pruebas. Configura el firewall para permitir conexiones desde las direcciones IP asignadas a cualquier servicio o recurso de Azure, incluidas las conexiones de las suscripciones de otros clientes.
+
+Haga clic en **Probar** para iniciar el Azure Cloud Shell y use los siguientes comandos para conectarse a su servidor flexible. Use el nombre del servidor, el nombre de usuario y la contraseña en el comando. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+> [!IMPORTANT]
+> Al conectarse al servidor flexible mediante Azure Cloud Shell, necesitará usar el parámetro --ssl=true y no --ssl-mode=REQUIRED.
+> La razón principal es que Azure Cloud Shell incluye el cliente de mysql.exe preinstalado gracias a la distribución de MariaDB, que requiere el parámetro --ssl, mientras que el cliente de MySQL de la distribución de Oracle requiere el parámetro --ssl-mode.
+
+Si ve el siguiente mensaje de error al conectarse a su servidor flexible después del comando anterior, significa que no ha configurado la regla de firewall mediante la casilla Allow public access from any Azure service within Azure to this server (Permitir el acceso público desde cualquier servicio de Azure a este servidor) mencionada antes o que la opción no se ha guardado. Vuelva a intentar configurar el firewall y reintente la operación.
+
+ERROR 2002 (HY000): No es posible conectarse a un servidor MySQL en <servername> (115)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -168,5 +241,7 @@ az mysql flexible-server delete --resource-group myresourcegroup --name mydemose
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
->[Compilación de una aplicación web PHP (Laravel) con MySQL](tutorial-php-database-app.md)
+>[!div class="nextstepaction"]
+> [Conexión y consulta mediante la CLI de Azure](connect-azure-cli.md)
+> [Conexión al servidor flexible de Azure Database for MySQL con conexiones cifradas](how-to-connect-tls-ssl.md) 
+> [Compilación de una aplicación web PHP (Laravel) con MySQL](tutorial-php-database-app.md)

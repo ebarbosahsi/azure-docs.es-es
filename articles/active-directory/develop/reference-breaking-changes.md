@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647428"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167590"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación
 
@@ -35,9 +35,21 @@ El sistema de autenticación altera y agrega características constantemente par
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 
-### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>El acceso condicional solo se desencadenará para ámbitos solicitados explícitamente
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Corrección del error: Azure AD ya no codificará la dirección URL del parámetro de estado dos veces.
 
 **Fecha de entrada en vigor**: marzo de 2021
+
+**Puntos de conexión afectados**: v1.0 y v2.0 
+
+**Protocolo afectado**: todos los flujos que visitan el punto de conexión `/authorize` (flujo implícito y flujo de código de autorización)
+
+Se encontró un error y se corrigió en la respuesta de autorización de Azure AD. Durante el tramo `/authorize` de autenticación, el parámetro `state` de la solicitud se incluye en la respuesta, con el fin de conservar el estado de la aplicación y ayudar a evitar ataques CSRF. En Azure AD, el parámetro `state` de la dirección URL se ha codificado de manera incorrecta antes de insertarlo en la respuesta, donde se ha codificado una vez más.  Como consecuencia, las aplicaciones podrían rechazar incorrectamente la respuesta de Azure AD. 
+
+Azure AD ya no hará doble codificación de este parámetro, lo que permite que las aplicaciones analicen correctamente el resultado. Este cambio se realizará para todas las aplicaciones. 
+
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>El acceso condicional solo se desencadenará para ámbitos solicitados explícitamente
+
+**Fecha de validez**: mayo de 2021, con lanzamiento gradual a partir de abril. 
 
 **Puntos de conexión afectados**: v2.0
 
@@ -48,6 +60,8 @@ En la actualidad, a las aplicaciones que usan el consentimiento dinámico se les
 Con el fin de reducir el número de mensajes de acceso condicional innecesarios, Azure AD está cambiando la manera en que se proporcionan ámbitos no solicitados a las aplicaciones para que solo aquellos ámbitos solicitados explícitamente desencadenen el acceso condicional. Este cambio puede provocar que las aplicaciones que dependan del comportamiento anterior de Azure AD (es decir, proporcionar todos los permisos incluso aunque no se soliciten) se interrumpan, ya que los tokens que solicitan no tendrán permisos.
 
 Ahora, las aplicaciones recibirán tokens de acceso con una combinación de permisos: los permisos solicitados y aquellos para los que se tiene consentimiento y que no requieren indicaciones de acceso condicional.  Los ámbitos del token de acceso se reflejan en el parámetro `scope` de la respuesta del token. 
+
+Este cambio se realizará en todas las aplicaciones excepto en aquellas con una dependencia observada de este comportamiento.  Se informará a los desarrolladores en caso de estar exentos de este cambio, ya que podrían tener una dependencia de los avisos adicionales de acceso condicional. 
 
 **Ejemplos**
 

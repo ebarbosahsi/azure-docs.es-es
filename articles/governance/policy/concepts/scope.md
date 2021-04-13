@@ -1,20 +1,19 @@
 ---
 title: Descripción del ámbito en Azure Policy
 description: Se describe el concepto de ámbito en Azure Resource Manager y cómo se aplica a Azure Policy para controlar qué recursos evalúa este servicio.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90984431"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167743"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Descripción del ámbito en Azure Policy
 
-Hay una serie de valores que determinan qué recursos se pueden evaluar y qué recursos se evalúan mediante Azure Policy. El concepto principal de estos controles es el _ámbito_.
-Para obtener información general, consulte [Ámbito en Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-En este artículo se explica el impacto del _ámbito_ en Azure Policy, así como sus objetos y propiedades relacionados.
+Hay muchos valores que determinan qué recursos se pueden evaluar y qué recursos se evalúan mediante Azure Policy. El concepto principal de estos controles es el _ámbito_. El ámbito de Azure Policy se basa en cómo funciona el ámbito en Azure Resource Manager. Para obtener información general, consulte [Ámbito en Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+En este artículo se explica la importancia del _ámbito_ en Azure Policy, así como sus objetos y propiedades relacionados.
 
 ## <a name="definition-location"></a>Ubicación de definición
 

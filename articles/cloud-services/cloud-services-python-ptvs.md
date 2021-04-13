@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2822f719928515efc70eeed3d7c182e347627418
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743294"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045525"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
@@ -28,7 +28,7 @@ En este artículo se ofrece información general sobre el uso de roles web y de 
 * [Herramientas de Azure SDK para VS 2013][Azure SDK Tools for VS 2013] o  
 [Herramientas de Azure SDK para VS 2015][Azure SDK Tools for VS 2015] o  
 [Herramientas de Azure SDK para VS 2017][Azure SDK Tools for VS 2017]
-* [Python 2.7 de 32 bits][Python 2.7 32-bit] o [Python 3.5 de 32 bits][Python 3.5 32-bit]
+* [Python 2.7 de 32 bits][Python 2.7 32-bit] o [Python 3.8 de 32 bits][Python 3.8 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -71,7 +71,7 @@ Su servicio en la nube puede contener roles implementados en diferentes lenguaje
 
 El problema principal con los scripts de configuración consiste en que instalan Python. En primer lugar, defina dos [tareas de inicio](cloud-services-startup-tasks.md) en el archivo [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). La primera tarea (**PrepPython.ps1**) descarga e instala el entorno de tiempo de ejecución de Python. La segunda tarea (**PipInstaller.ps1**) ejecuta pip para instalar todas las dependencias que pueda tener.
 
-Los siguientes scripts se escribieron para Python 3.5. Si desea usar la versión 2.x de Python, establezca el archivo de variables **PYTHON2** en **activado** para las dos tareas de inicio y la tarea en tiempo de ejecución: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+Los siguientes scripts se escribieron para Python 3.8. Si desea usar la versión 2.x de Python, establezca el archivo de variables **PYTHON2** en **activado** para las dos tareas de inicio y la tarea en tiempo de ejecución: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -167,7 +167,7 @@ Se deben agregar las variables **PYTHON2** y **PYPATH** a la tarea de inicio del
 A continuación, cree los archivos **PrepPython.ps1** y **PipInstaller.ps1** en la carpeta **./bin** del rol.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Este script instala Python. Si la variable de entorno **PYTHON2** se establece en **on,** (activado) se instala Python 2.7 o, en caso contrario, se instala Python 3.5.
+Este script instala Python. Si la variable de entorno **PYTHON2** se establece en **on** (activado), se instala Python 2.7; de lo contrario, se instala Python 3.8.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -186,12 +186,12 @@ if (-not $is_emulated){
 
     if (-not $?) {
 
-        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.8.8-amd64.exe"
 
         if ($is_python2) {
-            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+            $url = "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.18.amd64.msi"
         }
 
         Write-Output "Not found, downloading $url to $outFile$nl"
@@ -214,7 +214,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Este script se llama pip e instala todas las dependencias en el archivo **requirements.txt**. Si la variable de entorno **PYTHON2** se establece en **on,** (activado) se usa Python 2.7 o, en caso contrario, se usa Python 3.5.
+Este script se llama pip e instala todas las dependencias en el archivo **requirements.txt**. Si la variable de entorno **PYTHON2** se establece en **on** (activado) se usa Python 2.7; de lo contrario, se usa Python 3.8.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -249,7 +249,7 @@ if (-not $is_emulated){
 
 El archivo **bin\LaunchWorker.ps1** se creó originalmente para hacer una gran cantidad de trabajo de preparación pero realmente no funciona. Reemplace el contenido del archivo por el script siguiente.
 
-Este script llama al archivo **worker.py** desde el proyecto de Python. Si la variable de entorno **PYTHON2** se establece en **on,** (activado) se usa Python 2.7 o, en caso contrario, se usa Python 3.5.
+Este script llama al archivo **worker.py** desde el proyecto de Python. Si la variable de entorno **PYTHON2** se establece en **on** (activado) se usa Python 2.7; de lo contrario, se usa Python 3.8.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -364,4 +364,4 @@ Para más información sobre el uso de servicios de Azure desde roles web y de t
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 3.8 32-bit]: https://www.python.org/downloads/

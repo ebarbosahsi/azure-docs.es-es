@@ -1,5 +1,5 @@
 ---
-title: include file description: include file services: event-hubs author: spelluru ms.service: event-hubs ms.topic: include ms.date: 02/01/2021 ms.author: spelluru ms.custom: "include file","fasttrack-edit","iot","event-hubs"
+title: include file description: include file services: event-hubs author: spelluru ms.service: event-hubs ms.topic: include ms.date: 03/31/2021 ms.author: spelluru ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
@@ -13,13 +13,12 @@ Los límites siguientes son comunes en todos los niveles.
 | Número de espacios de nombres de Event Hubs por suscripción |- |100 |
 | Número de centros de eventos por espacio de nombres | Las solicitudes posteriores para la creación de un nuevo centro de eventos se rechazan. |10 |
 | Tamaño del nombre de un centro de eventos |- | 256 caracteres |
-| Tamaño del nombre de un grupo de consumidores |- | 256 caracteres |
+| Tamaño del nombre de un grupo de consumidores | El protocolo de Kafka no requiere la creación de un grupo de consumidores. | <p>Kafka: 256 caracteres</p><p>AMQP: 50 caracteres |
 | Número de destinatarios no de época por grupo de consumidores |- |5 |
 | Número de reglas de autorización por espacio de nombres | Las solicitudes posteriores de creación de reglas de autorización se rechazan.|12 |
 | Número de llamadas al método GetRuntimeInformation |  - | 50 por segundo | 
 | Número de redes virtuales (VNet) | - | 128 | 
 | Número de reglas de configuración de IP | - | 128 | 
-
 
 ### <a name="basic-vs-standard-tiers"></a>Niveles Básico y Estándar
 En la tabla siguiente se muestran los límites que pueden ser diferentes para los niveles básico y estándar. 

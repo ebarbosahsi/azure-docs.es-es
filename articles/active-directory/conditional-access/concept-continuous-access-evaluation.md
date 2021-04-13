@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524675"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055780"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
 La expiración y actualización de los tokens es un mecanismo estándar del sector. Cuando una aplicación cliente como Outlook se conecta a un servicio como Exchange Online, las solicitudes de API se autorizan mediante tokens de acceso de OAuth 2.0. De forma predeterminada, los tokens de acceso son válidos durante una hora; cuando expiran, se redirige al cliente de nuevo a Azure AD para actualizarlos. Ese período de actualización proporciona una oportunidad para volver a evaluar las directivas de acceso de los usuarios. Por ejemplo: podemos optar por no actualizar el token debido a una directiva de acceso condicional o porque el usuario se ha deshabilitado en el directorio. 
 
-Los clientes han manifestado dudas sobre el retraso entre el momento en que cambian las condiciones para el usuario, como la ubicación de red o el robo de credenciales y cuándo se pueden aplicar directivas relacionadas con ese cambio. Aunque hemos experimentado con el enfoque directo de duraciones de tokens reducidas, hemos descubierto que pueden degradar las experiencias de usuario y la confiabilidad y no eliminan los riesgos.
+Los clientes han manifestado dudas sobre el retraso entre el momento en que cambian las condiciones para el usuario, como la ubicación de red o el robo de credenciales y cuándo se pueden aplicar directivas relacionadas con ese cambio. Aunque hemos experimentado con el enfoque directo de duraciones de tokens reducidas, hemos descubierto que pueden degradar las experiencias y la confiabilidad de los usuarios y no eliminan los riesgos.
 
 La respuesta oportuna a las infracciones de las directivas o a los problemas de seguridad requiere realmente una "conversación" entre el emisor del token, como Azure AD, y el usuario de confianza, como Exchange Online. Esta conversación bidireccional nos proporciona dos funcionalidades importantes. El usuario de confianza puede advertir cuándo han cambiado las cosas, como un cliente que procede de una nueva ubicación, e indicárselo al emisor del token. También proporciona al emisor del token una manera de indicar al usuario de confianza que deje de respetar los tokens de un usuario determinado debido a que la cuenta esté en peligro, se haya deshabilitado u otros problemas. El mecanismo para esta conversación es la evaluación continua de acceso (CAE). Aunque el objetivo es que la respuesta sea casi en tiempo real, en algunos casos se puede observar una latencia de hasta 15 minutos debido al tiempo de propagación de los eventos.
 
@@ -52,6 +52,9 @@ La evaluación continua de acceso se implementa mediante la habilitación de ser
 
 Este proceso habilita el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de SharePoint Online de la organización y Teams desde las aplicaciones cliente de Microsoft 365 en cuestión de minutos después de uno de estos eventos críticos. 
 
+> [!NOTE] 
+> Teams no admite todavía eventos de riesgo de usuario.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Evaluación de directivas de acceso condicional (versión preliminar)
 
 Exchange y SharePoint pueden sincronizar las directivas de acceso condicional principales para que se puedan evaluar dentro del propio servicio.
@@ -63,7 +66,7 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Compatible | Compatible | No compatible | No compatible | Compatible |
+| **SharePoint Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
 | **Exchange Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
 
 | | Aplicaciones web de Office | Aplicaciones Win32 de Office | Office para iOS | Office para Android | Office para Mac |
@@ -71,23 +74,20 @@ Este proceso habilita el escenario en el que los usuarios pierden el acceso a lo
 | **SharePoint Online** | No compatible | Compatible | Compatible | Compatible | Compatible |
 | **Exchange Online** | No compatible | Compatible | Compatible | Compatible | Compatible |
 
+| | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
+
 ### <a name="client-side-claim-challenge"></a>Desafío de notificaciones del lado cliente
 
 Antes de la evaluación continua de acceso, los clientes siempre intentaban reproducir el token de acceso desde su memoria caché, siempre y cuando no haya expirado. Con CAE, presentamos un nuevo caso en el que un proveedor de recursos puede rechazar un token aunque no haya expirado. Para informar a los clientes de que omitan su memoria caché aunque los tokens almacenados en caché no hayan expirado, presentamos un mecanismo llamado **desafío de notificaciones** para indicar que se ha rechazado el token y que Azure AD debe emitir un nuevo token de acceso. CAE requiere una actualización de cliente para comprender el desafío de notificaciones. La versión más reciente de las siguientes aplicaciones es compatible con el desafío de notificaciones:
 
-- Outlook en Windows
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Teams para Windows (solo para los recursos de Teams)
-- Teams para iOS (solo para los recursos de Teams)
-- Teams para Android (solo para los recursos de Teams)
-- Teams para Mac (solo para los recursos de Teams)
-- Word, Excel y PowerPoint para Windows
-- Word, Excel y PowerPoint para iOS
-- Word, Excel y PowerPoint para Android
-- Word, Excel y PowerPoint para Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **Teams** | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **Office** | No compatible | Compatible | Compatible | Compatible | Compatible |
+| **OneDrive** | Compatible | Compatible | Compatible | Compatible | Compatible |
 
 ### <a name="token-lifetime"></a>Duración del token
 
@@ -163,17 +163,17 @@ Si se produce este escenario en el entorno, Azure AD emitirá un token de CAE d
 
 Para obtener una explicación de los canales de actualización de Office, consulte [Información general sobre los canales de actualización de Aplicaciones de Microsoft 365](/deployoffice/overview-update-channels). Se recomienda que las organizaciones no deshabiliten el Administrador de cuentas web (WAM).
 
-### <a name="policy-change-timing"></a>Tiempos de cambio de directivas
+### <a name="group-membership-and-policy-update-effective-time"></a>Tiempo válido de actualización de las directivas y de la pertenencia a grupos
 
-Debido a la posibilidad de que se produzca un retraso en la replicación entre Azure AD y los proveedores de recursos, los cambios de directivas realizados por los administradores pueden tardar hasta 2 horas en ser eficaces para Exchange Online.
+La actualización de las directivas y de la pertenencia a grupos realizada por los administradores puede tardar hasta un día en aplicarse. Se han realizado algunas optimizaciones de las actualizaciones de directivas que reducen el retraso a dos horas. Sin embargo, no cubren aún todos los escenarios. 
 
-Ejemplo: el administrador agrega una directiva para bloquear el acceso al correo electrónico desde un intervalo de direcciones IP a las 11:00 AM, un usuario que venía antes de ese intervalo de direcciones IP podría seguir con acceso al correo electrónico hasta la 1:00 PM.
+Si se produce una emergencia y necesita actualizar las directivas o que el cambio de la pertenencia a un grupo se aplique a determinados usuarios inmediatamente, debe usar este [comando de PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) o "Revocar sesión" en la página del perfil de usuario para revocar la sesión de los usuarios, lo que garantizará que las directivas actualizadas se apliquen inmediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Coautoría en aplicaciones de Office
 
-Cuando varios usuarios colaboran en el mismo documento al mismo tiempo, es posible que CAE no revoque inmediatamente el acceso del usuario al documento en función de la revocación del usuario o los eventos de cambio de directiva. En este caso, el usuario pierde el acceso por completo después de cerrar el documento, cerrar Word, Excel o PowerPoint o después de un período de 10 horas.
+Cuando varios usuarios colaboran en el mismo documento al mismo tiempo, es posible que CAE no pueda revocar inmediatamente el acceso del usuario al documento en función de la revocación del usuario o los eventos de cambio de directiva. En este caso, el usuario pierde el acceso por completo después de cerrar el documento, cerrar Word, Excel o PowerPoint o después de un período de 10 horas.
 
-Para reducir este tiempo, un administrador de SharePoint puede reducir opcionalmente la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos y se puede ajustar más mediante el comando de PowerShell de SharePoint Online "Set-SPOTenant –IPAddressWACTokenLifetime".
+Para reducir este tiempo, un administrador de SharePoint puede reducir opcionalmente la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos, pero se puede ajustar más mediante el comando de PowerShell de SharePoint Online "Set-SPOTenant –IPAddressWACTokenLifetime".
 
 ### <a name="enable-after-a-user-is-disabled"></a>Habilitar después de deshabilitar un usuario
 

@@ -6,15 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
-Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615574"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385180"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -55,7 +54,6 @@ Azure Firewall presenta los siguientes problemas conocidos:
 
 |Problema  |Descripción  |Mitigación  |
 |---------|---------|---------|
-|Si actualiza una regla de una dirección IP a un grupo de direcciones IP, o viceversa, desde el portal, ambos tipos se guardan, pero en el portal solo se muestra uno de ellos.|Este problema se produce con las reglas clásicas.<br><br>Si se usa el portal para actualizar un tipo de origen de regla NAT de una dirección IP a un grupo de direcciones IP, o viceversa, ambos tipos se guardan en el back-end, pero solo se muestra el que acaba de actualizarse.<br><br>El mismo problema se produce cuando el tipo de destino de regla Red o Aplicación se actualiza de una dirección IP a un grupo de IP, o viceversa.|Está previsto que en marzo de 2021 se realice una revisión del portal.<br><br>Entretanto, use Azure PowerShell, la CLI de Azure o la API para modificar cualquier regla de una dirección IP a un grupo de direcciones IP, o viceversa.|
 |Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](../load-balancer/load-balancer-overview.md). Se están examinando opciones para admitir este escenario en una versión futura.|
 |Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y la CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y la CLI.|
 |Las etiquetas FQDN requieren que se establezca una combinación protocolo: puerto|Las reglas de aplicaciones con las etiquetas FQDN requieren la definición de puerto: protocolo.|Puede usar **https** como valor de puerto: protocolo. Estamos trabajando para que este campo sea opcional cuando se usen etiquetas FQDN.|
@@ -81,6 +79,7 @@ StatusCode: 400
 ReasonPhrase: solicitud incorrecta).|Bajo investigación.<br><br>Como solución alternativa, puede eliminar el firewall existente y crear otro con los mismos parámetros.|
 |No se pueden agregar etiquetas de directiva de firewall mediante el portal.|La directiva de Azure Firewall tiene una limitación de compatibilidad de revisión que impide agregar una etiqueta mediante Azure Portal. Se genera el siguiente error: *No se pudieron guardar las etiquetas del recurso*.|Se está investigando una solución. O bien, puede usar el cmdlet de Azure PowerShell `Set-AzFirewallPolicy` para actualizar las etiquetas.|
 |IPv6 no se admite aún.|Si agrega una dirección IPv6 a una regla, se produce un error en el firewall.|Use solo direcciones IPv4. La compatibilidad con IPv6 está en proceso de investigación.|
+|La actualización de varios grupos de IP produce un error de conflicto.|Cuando se actualizan dos o más grupos de IP conectados al mismo firewall, uno de los recursos entra en estado de error.|Es un problema conocido, una limitación. <br><br>Al actualizar un grupo de IP, se desencadena una actualización en todos los firewalls a los que está conectado el grupo de IP. Si se inicia la actualización en otro grupo de IP con el firewall aún en estado *Actualizando*, se produce un error en la actualización del grupo de IP.<br><br>Para evitar el error, los grupos de IP conectados al mismo firewall deben actualizarse de uno en uno. Deje tiempo suficiente entre las actualizaciones para que el firewall pueda salir del estado *Actualizando*.| 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

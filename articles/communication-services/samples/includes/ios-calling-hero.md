@@ -2,28 +2,32 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: 1318c47bcded47159006977db09604bb53674973
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.author: dademath
+ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487956"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498776"
 ---
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
 
-El **ejemplo de elementos principales de llamada de grupo para iOS** de Azure Communication Services muestra cómo usar la biblioteca cliente de iOS de llamadas de Communication Services para crear una experiencia de llamada de grupo que incluya voz y vídeo. En este inicio rápido de ejemplo, aprenderá a configurar y ejecutar el ejemplo. Se proporciona información general del ejemplo con fines de contextualización.
+El **ejemplo de elementos principales de llamada de grupo para iOS** de Azure Communication Services muestra cómo usar Calling SDK de Communication Services para iOS para crear una experiencia de llamada de grupo que incluya voz y vídeo. En este inicio rápido de ejemplo, aprenderá a configurar y ejecutar el ejemplo. Se proporciona información general del ejemplo con fines de contextualización.
+
+## <a name="download-code"></a>Descarga de código
+
+Busque el proyecto de este ejemplo en [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). Se puede encontrar una versión del ejemplo con la [interoperabilidad de Teams](../../concepts/teams-interop.md) en una [rama](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop) independiente.
 
 ## <a name="overview"></a>Información general
 
-El ejemplo consiste en una aplicación iOS nativa que usa las bibliotecas cliente de iOS de Azure Communication Services para crear una experiencia de llamada que incluya llamadas de voz y de vídeo. La aplicación usa un componente de servidor para aprovisionar tokens de acceso que, posteriormente, se usan para inicializar la biblioteca cliente de Azure Communication Services. Para configurar este componente de servidor, siga el tutorial [Creación de un servicio de autenticación de confianza mediante Azure Functions](../../tutorials/trusted-service-tutorial.md).
+El ejemplo consiste en una aplicación iOS nativa que usa los SDK de Azure Communication Services para iOS para crear una experiencia de llamada que incluya llamadas de voz y vídeo. La aplicación usa un componente de servidor para aprovisionar los tokens de acceso que, posteriormente, se usan para inicializar el SDK de Azure Communication Services. Para configurar este componente de servidor, siga el tutorial [Creación de un servicio de autenticación de confianza mediante Azure Functions](../../tutorials/trusted-service-tutorial.md).
 
 El ejemplo tendrá una apariencia similar a la siguiente:
 
@@ -51,7 +55,7 @@ A continuación encontrará más información sobre los requisitos previos y los
 - Una cuenta de Azure con una suscripción activa. Para más información, consulte [Creación de una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Mac con [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), junto con un certificado de desarrollador válido instalado en el Llavero.
 - Un recurso de Azure Communication Services. Para obtener más información, consulte [Creación de un recurso de Azure Communication Services](../../quickstarts/create-communication-resource.md).
-- Una función de Azure que se ejecute la [lógica de servicio de confianza](../../tutorials/trusted-service-tutorial.md) para capturar tokens de acceso.
+- Una función de Azure que ejecuta el [punto de conexión de autenticación](../../tutorials/trusted-service-tutorial.md) para capturar tokens de acceso.
 
 ## <a name="running-sample-locally"></a>Ejecución local del ejemplo
 
@@ -60,8 +64,8 @@ El ejemplo de llamada de grupo se puede ejecutar localmente mediante XCode. Los 
 ### <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
 
 1. Instale las dependencias mediante la ejecución de `pod install`.
-2. Abra `ACSCall.xcworkspace` en XCode.
-3. Actualice `AppSettings.plist`. Establezca el valor de la clave de `acsTokenFetchUrl` para que sea la dirección URL del punto de conexión de autenticación.
+2. Abra `AzureCalling.xcworkspace` en XCode.
+3. Actualice `AppSettings.plist`. Establezca el valor de la clave de `communicationTokenFetchUrl` para que sea la dirección URL del punto de conexión de autenticación.
 
 ### <a name="run-sample"></a>Ejecución del ejemplo
 
@@ -69,9 +73,9 @@ Compile y ejecute el ejemplo en XCode.
 
 ## <a name="optional-securing-an-authentication-endpoint"></a>(Opcional) Protección de un punto de conexión de autenticación
 
-Con fines de demostración, este ejemplo usa un punto de conexión de acceso público de forma predeterminada para capturar un token de Azure Communication Services. En escenarios de producción, se recomienda usar un punto de conexión propio protegido para aprovisionar los tokens.
+Con fines de demostración, en este ejemplo se usa de forma predeterminada un punto de conexión de acceso público para capturar un token de acceso de Azure Communication Services. En escenarios de producción, se recomienda usar un punto de conexión propio protegido para aprovisionar los tokens.
 
-Mediante configuración adicional, este ejemplo permite conectarse a un punto de conexión protegido de **Azure Active Directory** (Azure AD) de manera que se solicite el inicio de sesión de usuario para que la aplicación capture un token de Azure Communication Services. Consulte los siguientes pasos:
+Mediante alguna configuración adicional, este ejemplo permite conectarse a un punto de conexión protegido de **Azure Active Directory** (Azure AD) de manera que se solicite el inicio de sesión de usuario para que la aplicación capture un token de acceso de Azure Communication Services. Consulte los siguientes pasos:
 
 1. Habilite la autenticación de Azure Active Directory en la aplicación.  
    - [Registro de la aplicación en Azure Active Directory (con la configuración de la plataforma iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
@@ -81,7 +85,7 @@ Mediante configuración adicional, este ejemplo permite conectarse a un punto de
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Configuración de Azure Active Directory en Azure Portal.":::
 
 3. Abra `AppSettings.plist` en Xcode y agregue los siguientes valores de clave:
-   - `acsTokenFetchUrl`: la dirección URL para solicitar el token de Azure Communication Services. 
+   - `communicationTokenFetchUrl`: la dirección URL para solicitar el token de Azure Communication Services. 
    - `isAADAuthEnabled`: un valor booleano que indica si se requiere o no la autenticación de token de Azure Communication Services.
    - `aadClientId`: el identificador de la aplicación (cliente).
    - `aadTenantId`: el identificador del directorio (inquilino).
@@ -94,11 +98,16 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+>[!div class="nextstepaction"]
+>[Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+
 Para más información, consulte los siguientes artículos.
 
-- Familiarícese con [el uso de la biblioteca cliente de llamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarícese con el [uso de Calling SDK](../../quickstarts/voice-video-calling/calling-client-samples.md).
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
+- [GitHub de Azure Communication](https://github.com/Azure/communication): encuentre más ejemplos e información en la página oficial de GitHub.
 - [Ejemplos](./../overview.md): encuentre más ejemplos en nuestra página de información general de ejemplos.
+- [Características de llamada de Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features): para más información sobre el SDK de llamada para iOS, consulte [Calling SDK de Azure Communication Services](https://github.com/Azure/Communication/releases/).

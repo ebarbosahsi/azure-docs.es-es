@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 68114893ed3db858d00ca7811b1a83395ff02507
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: db6e4a9c6d2829c7980164d5b79bd33e4b3fb6eb
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495354"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113423"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5 o versiones posteriores
+- [Python](https://www.python.org/downloads/) 2.7 o 3.6+.
 - Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../create-communication-resource.md).
 
 ## <a name="setting-up"></a>Instalación
@@ -40,16 +40,16 @@ ms.locfileid: "103495354"
    from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
-      print('Azure Communication Services - Access Tokens Quickstart')
+      print("Azure Communication Services - Access Tokens Quickstart")
       # Quickstart code goes here
    except Exception as ex:
-      print('Exception:')
+      print("Exception:")
       print(ex)
    ```
 
 ### <a name="install-the-package"></a>Instalar el paquete
 
-En el directorio de aplicaciones, instale el paquete de la biblioteca de identidades de Azure Communication Services para Python usando el comando `pip install`.
+En el directorio de aplicaciones, instale Identity SDK de Azure Communication Services para Python con el comando `pip install`.
 
 ```console
 pip install azure-communication-identity
@@ -57,14 +57,14 @@ pip install azure-communication-identity
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Cree una instancia de un objeto `CommunicationIdentityClient` con su cadena de conexión. El código siguiente recupera la cadena de conexión para el recurso de una variable de entorno denominada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Obtenga información sobre cómo [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string).
+Cree una instancia de un objeto `CommunicationIdentityClient` con su cadena de conexión. El código siguiente recupera la cadena de conexión para el recurso de una variable de entorno denominada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Aprenda a [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string).
 
 Agregue este código dentro del bloque `try`:
 
 ```python
 # This code demonstrates how to fetch your connection string
 # from an environment variable.
-connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
+connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 
 # Instantiate the identity client
 client = CommunicationIdentityClient.from_connection_string(connection_string)
@@ -72,8 +72,8 @@ client = CommunicationIdentityClient.from_connection_string(connection_string)
 
 Como alternativa, si ha configurado una identidad administrada, consulte [Uso de identidades administradas](../managed-identity.md); también puede autenticarse con la identidad administrada.
 ```python
-const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
-var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
+endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
+client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
 ```
 
 ## <a name="create-an-identity"></a>Creación de una identidad
@@ -92,7 +92,7 @@ Use el método `get_token` para emitir un token de acceso para la identidad de C
 ```python
 # Issue an access token with the "voip" scope for an identity
 token_result = client.get_token(identity, ["voip"])
-expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
+expires_on = token_result.expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
 ```
@@ -101,14 +101,14 @@ Los tokens de acceso son credenciales de corta duración que deben volver a emit
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Cree una identidad y emita un token de acceso dentro de la misma solicitud.
 
-Use el método `create_user_with_token` para crear una identidad de Communication Services y emitir un token de acceso para ella. El parámetro `scopes` define un conjunto de primitivas que autorizará este token de acceso. Consulte la [lista de plataformas admitidas](../../concepts/authentication.md).
+Use el método `create_user_and_token` para crear una identidad de Communication Services y emitir un token de acceso para ella. El parámetro `scopes` define un conjunto de primitivas que autorizará este token de acceso. Consulte la [lista de plataformas admitidas](../../concepts/authentication.md).
 
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
-identity_token_result = client.create_user_with_token(["voip"])
+identity_token_result = client.create_user_and_token(["voip"])
 identity = identity_token_result[0].identifier
 token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nCreated an identity with ID: " + identity)
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)

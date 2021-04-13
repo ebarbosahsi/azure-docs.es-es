@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734096"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271548"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
 Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
@@ -73,12 +73,12 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Reglas por NIC (en todas las direcciones IP de una NIC) | 300                           |
 | Configuraciones de direcciones IP de front-end              | 600                           |
 | Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
-| Recursos de back-end por Load Balancer <sup>1<sup> | 250                   |
+| Recursos de back-end por Load Balancer <sup>1<sup> | 1,200                   |
 | Puertos de alta disponibilidad                 | 1 por front-end interno       |
 | Reglas de salida por Load Balancer        | 600                           |
 | Instancias de Load Balancer por máquina virtual                   | 2 (1 público y 1 interno)   |
 
-<sup>1</sup>El límite es de hasta 150 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y grupos de ubicación de conjuntos de escalado de máquinas virtuales.
+<sup>1</sup> El límite es de 1200 recursos, en cualquier combinación de recursos de máquinas virtuales independientes, recursos de conjuntos de disponibilidad y grupos de ubicación de conjuntos de escalado de máquinas virtuales.
 
 **Load Balancer básico**
 

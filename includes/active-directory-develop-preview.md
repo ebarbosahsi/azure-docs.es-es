@@ -5,11 +5,11 @@ ms.date: 10/22/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
-ms.openlocfilehash: 9998fc6a1b37562c55e366c47d404d0668231cfe
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ea53e8148744bdb5934c0d1bc853edff005ccc3f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995170"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104674529"
 ---
-está en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+está en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla en las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan funcionalidades limitadas. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

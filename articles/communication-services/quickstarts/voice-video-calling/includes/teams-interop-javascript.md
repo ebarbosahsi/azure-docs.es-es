@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: unión a una reunión de Teams desde una aplicación web'
-description: En este tutorial, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas telefónicas de Azure Communication Services para JavaScript
+description: En este tutorial, aprenderá a unirse a una reunión de Teams mediante Calling SDK de Azure Communication Services para JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 43f6241f0da0ecc9c68cf60e9f1a0482509374f3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 4b6cf48c577bb6f22f497007c4b1c1b57ab6f187
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488022"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108214"
 ---
-En este inicio rápido, aprenderá a unirse a una reunión de Teams mediante la biblioteca de cliente de llamadas telefónicas de Azure Communication Services para JavaScript.
+En este inicio rápido, aprenderá a unirse a una reunión de Teams mediante Calling SDK de Azure Communication Services para JavaScript.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -4,15 +4,15 @@ description: Aprenda a usar la inserción de dependencias para el registro y uso
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955095"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608126"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -21,6 +21,11 @@ Azure Functions admite el modelo de diseño de software de inserción de depende
 - La inserción de dependencias en Azure Functions se basa en las características de inserción de dependencias de .NET Core. Se recomienda estar familiarizado con la [inserción de dependencias de .NET Core](/aspnet/core/fundamentals/dependency-injection). Hay diferencias en el modo en que se invalidan las dependencias y cómo se leen los valores de configuración con Azure Functions en el plan de consumo.
 
 - La compatibilidad con la inserción de dependencias comienza con Azure Functions 2.x.
+
+- Los patrones de inserción de dependencias varían en función de si las funciones de C# se ejecutan [en proceso](functions-dotnet-class-library.md) o [fuera de proceso](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> La guía de este artículo se aplica solo a las [funciones de la biblioteca de clases de C#](functions-dotnet-class-library.md) que se ejecutan en proceso con el entorno de ejecución. Este modelo de inserción de dependencias personalizado no se aplica a las [funciones aisladas de .NET](dotnet-isolated-process-guide.md), lo que permite ejecutar funciones de .NET 5.0 fuera de proceso. El modelo de procesos aislados de .NET se basa en los patrones normales de inyección de dependencia de ASP.NET Core. Para más información, consulte [Inserción de dependencias](dotnet-isolated-process-guide.md#dependency-injection) en la guía de procesos aislados de .NET.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

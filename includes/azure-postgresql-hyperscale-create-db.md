@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97665174"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>Creación de un grupo de servidores Hiperescala (Citus)
@@ -39,7 +39,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
    > Se precisa la contraseña de administrador del servidor que especifique aquí para iniciar sesión en el servidor y sus bases de datos. Recuerde o grabe esta información para su uso posterior.
 
 5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Siguiente: Redes >**  en la parte inferior de la pantalla.
+6. Haga clic en **Siguiente: Redes >** en la parte inferior de la pantalla.
 
 7. En la pestaña **Redes**, haga clic en el botón de radio **Punto de conexión público**.
    ![Punto de conexión público seleccionado](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
@@ -50,7 +50,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
    > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En este caso, no se podrá conectar al clúster de Hiperscala (Citus), salvo que el departamento de TI abra el puerto 5432.
    >
 
-9. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
+9. Haga clic en **Revisar y crear** y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
 10. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
 11. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
 

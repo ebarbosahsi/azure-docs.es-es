@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 120bfe2eefae3c1721073060231c6c2a1962b7c8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739065"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110281"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con PowerShell
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 | Nombre de IP pública de puerta de enlace  | *gwpip* |
 
 > [!IMPORTANT]
-> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si quiere conectar la red virtual a un circuito ExpressRoute con emparejamiento privado basado en IPv6, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si quiere conectar la red virtual a un circuito ExpressRoute con emparejamiento privado basado en IPv6, asegúrese de que la red virtual es de doble pila y sigue las instrucciones que se describen [aquí](../virtual-network/ipv6-overview.md).
 > 
 > 
 
@@ -77,7 +77,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-1. Agregue una subred de puerta de enlace a su red virtual. A la subred de puerta de enlace debe asignarle el nombre "GatewaySubnet". La subred de puerta de enlace debe ser /27 o superior (/26, /25, etc.).
+1. Agregue una subred de puerta de enlace a su red virtual. A la subred de puerta de enlace debe asignarle el nombre "GatewaySubnet". La subred de puerta de enlace debe ser /27 o superior (/26, /25, etc.). Si planea conectar 16 circuitos ExpressRoute a la puerta de enlace, **debe** crear una subred de puerta de enlace de tamaño /26 o mayor.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26

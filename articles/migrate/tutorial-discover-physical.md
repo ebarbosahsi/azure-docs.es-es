@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771420"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382716"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores físicos con Azure Migrate: Discovery and assessment
 
@@ -80,6 +80,9 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 Configure una cuenta que el dispositivo pueda usar para acceder a los servidores físicos.
 
 - En **Servidores Windows**, use una cuenta de dominio para los servidores que se hayan unido a un dominio y una cuenta local para el servidor que no se haya unido a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+    > [!Note]
+    > En Windows Server 2008 y 2008 R2, asegúrese de que WMF 3.0 esté instalado en los servidores y de que el dominio o la cuenta local usados para acceder a los servidores se hayan agregado a estos grupos: Usuarios del monitor de sistema, Usuarios del registro de rendimiento y WinRMRemoteWMIUsers.
+
 - Con **servidores Linux**, necesita una cuenta raíz en los servidores Linux que quiera detectar. Como alternativa, puede establecer una cuenta que no sea raíz con las funcionalidades necesarias mediante los siguientes comandos:
 
 **Comando** | **Propósito**
@@ -92,7 +95,7 @@ chmod a+r /sys/class/dmi/id/product_uuid | Recopilar el GUID del BIOS
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
 
-Configure un proyecto nuevo.
+Configure un nuevo proyecto.
 
 1. En Azure Portal > **Todos los servicios**, busque **Azure Migrate**.
 2. En **Servicios**, seleccione **Azure Migrate**.
@@ -103,7 +106,7 @@ Configure un proyecto nuevo.
    ![Cuadros de nombre de proyecto y región](./media/tutorial-discover-physical/new-project.png)
 
 7. Seleccione **Crear**.
-8. Espere unos minutos para que se implemente el proyecto. La herramienta **Azure Migrate: Discovery and assessment** se agrega de forma predeterminada al nuevo proyecto.
+8. Espere unos minutos a que se implemente el proyecto. La herramienta **Azure Migrate: Discovery and assessment** se agrega de forma predeterminada al nuevo proyecto.
 
 ![Página que muestra la herramienta Server Assessment agregada de forma predeterminada](./media/tutorial-discover-physical/added-tool.png)
 
@@ -116,17 +119,17 @@ El dispositivo de Azure Migrate realiza la detección del servidor y envía los 
 
 Para configurar el dispositivo:
 
-1. Proporcione un nombre de dispositivo y genere una clave del proyecto en el portal.
+1. Proporcione un nombre de dispositivo y genere una clave de proyecto en el portal.
 2. Descargue un archivo comprimido con el script del instalador de Azure Migrate desde Azure Portal.
 3. Extraiga el contenido del archivo comprimido. Inicie la consola de PowerShell con privilegios administrativos.
 4. Ejecute el script de PowerShell para iniciar la aplicación web del dispositivo.
-5. Configure el dispositivo por primera vez y regístrelo en el proyecto, para lo que debe utilizar la clave del proyecto.
+5. Configure el dispositivo por primera vez y regístrelo en el proyecto mediante la clave del proyecto.
 
 ### <a name="1-generate-the-project-key"></a>1. Generación de la clave del proyecto
 
 1. En **Migration Goals** > **Servers** >  **Azure Migrate: Discovery and assessment** (Objetivos de migración > Servidores > Azure Migrate: Discovery and assessment), seleccione **Discover** (Detectar).
 2. En **Discover Servers** > **Are your servers virtualized?** (Detectar servidores > ¿Están virtualizados sus servidores?), seleccione **Physical or other (AWS, GCP, Xen, etc.)** [Físicos u otros (AWS, GCP, Xen, etc.)].
-3. En **1:Generate project key** (Generar la clave del proyecto), especifique un nombre para el dispositivo de Azure Migrate que configurará para la detección de los servidores virtuales o físicos. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
+3. En **1: Generar la clave del proyecto**, proporcione un nombre para el dispositivo de Azure Migrate que configurará para la detección de los servidores virtuales o físicos de GCP. Este nombre debe ser alfanumérico y no puede tener más de 14 caracteres.
 1. Haga clic en **Generar clave** para iniciar la creación de los recursos de Azure necesarios. No cierre la página Detectar servidores durante la creación de los recursos.
 1. Después de la creación correcta de los recursos de Azure, se genera una **clave de proyecto**.
 1. Copie la clave, ya que la necesitará para completar el registro del dispositivo durante su configuración.
@@ -206,11 +209,11 @@ Configure el dispositivo por primera vez.
         - Solo se admite un proxy HTTP.
         - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
     - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección del servidor funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
-    - **Instalar actualizaciones**: Azure Migrate: Discovery and assessment comprueba que el dispositivo tiene instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
+    - **Instalación de actualizaciones**: la herramienta Azure Migrate: Discovery and assessment comprueba que el dispositivo tenga instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
-1. Pegue la **clave del proyecto** copiada del portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment > Discover> Manage existing appliances** (Azure Migrate: Discovery and assessment > Detectar > Administrar dispositivos existentes), seleccione el nombre de dispositivo que proporcionó en el momento de la generación de la clave y copie la clave correspondiente.
+1. Pegue la **clave de proyecto** copiada desde el portal. Si no tiene la clave, vaya a **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances** (Azure Migrate: Discovery and assessment > Detectar > Administrar los dispositivos existentes), seleccione el nombre del dispositivo que proporcionó al generar la clave y copie la clave correspondiente.
 1. Necesitará un código de dispositivo para autenticarse con Azure. Al hacer clic en **Iniciar sesión** se abrirá un modal con el código del dispositivo, tal como se muestra a continuación.
 
     ![Modal que muestra el código del dispositivo](./media/tutorial-discover-vmware/device-code.png)
@@ -230,7 +233,7 @@ Configure el dispositivo por primera vez.
 Ahora, conecte desde el dispositivo a los servidores físicos que se van a detectar e inicie la detección.
 
 1. En **Paso 1: proporcionar credenciales para la detección de servidores físicos o virtuales de Windows y Linux**, haga clic en **Agregar credenciales**.
-1. En el caso de Windows Server, seleccione el tipo de origen **Windows Server**, especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
+1. En el caso de Windows Server, seleccione el tipo de origen **Windows Server**, especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
 1. Si usa la autenticación basada en contraseña para el servidor Linux, seleccione el tipo de origen **Servidor Linux (basado en contraseña)** , especifique un nombre descriptivo para las credenciales y agregue el nombre de usuario y la contraseña. Haga clic en **Guardar**.
 1. Si usa la autenticación basada en clave SSH para el servidor Linux, puede seleccionar el tipo de origen como **Servidor Linux (basado en clave SSH)** , especifique un nombre descriptivo para las credenciales, agregue el nombre de usuario. busque el archivo de clave privada SSH y selecciónela. Haga clic en **Guardar**.
 
@@ -247,7 +250,7 @@ Ahora, conecte desde el dispositivo a los servidores físicos que se van a detec
 
 
     - Si elige **Agregar un solo elemento**, puede elegir el tipo de sistema operativo, especificar el nombre descriptivo de las credenciales, agregar la **dirección IP o el FQDN** del servidor y hacer clic en **Guardar**.
-    - Si elige **Add multiple items** (Agregar varios elementos), puede agregar varios registros a la vez mediante la especificación de la **dirección IP o el nombre de dominio completo** del servidor con el nombre descriptivo de las credenciales en el cuadro de texto. Compruebe** los registros agregados y haga clic en **Guardar**.
+    - Si elige **Agregar varios elementos**, puede agregar varios registros a la vez mediante la especificación de la **dirección IP o el FQDN** del servidor con el nombre descriptivo de las credenciales en el cuadro de texto. Compruebe los registros agregados y haga clic en **Guardar**.
     - Si elige **importar CSV** _(opción seleccionada de manera predeterminada)_ , puede descargar un archivo de plantilla CSV, rellenar el archivo con la **dirección IP o el FQDN** del servidor y el nombre descriptivo de las credenciales. A continuación, importe el archivo en el dispositivo, **compruebe** los registros del archivo y haga clic en **Guardar**.
 
 1. Al hacer clic en Guardar, el dispositivo intentará validar la conexión a los servidores agregados y mostrar el **estado de validación** en la tabla en cada servidor.

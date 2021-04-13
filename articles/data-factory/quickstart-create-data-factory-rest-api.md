@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517640"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385265"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 
@@ -37,7 +37,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 * Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps). Esta guía de inicio rápido usa PowerShell para invocar llamadas a la API de REST.
 * **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota de los valores siguientes; los usará en pasos posteriores:**application ID**, **clientSecrets** y **tenant ID**. Asigne la aplicación al rol "**Colaborador**".
-
+>[!NOTE]
+>   En el caso de nubes soberanas, debe usar los puntos de conexión adecuados específicos de la nube para ActiveDirectoryAuthority y ResourceManagerUrl (BaseUri). Puede usar PowerShell para obtener fácilmente las direcciones URL de las diversas nubes ejecutando "Get-AzEnvironment | Format-List ", que devolverá una lista de puntos de conexión para cada entorno de nube.  
+>    
 ## <a name="set-global-variables"></a>Definición de variables globales
 
 1. Inicie **PowerShell**. Mantenga Azure PowerShell abierto hasta el final de esta guía de inicio rápido. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.

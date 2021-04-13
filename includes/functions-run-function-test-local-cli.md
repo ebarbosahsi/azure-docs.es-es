@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 11d426016cfe1a8a9ff843da518f57c08881be5d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d400533039ea74a878cb8e543c22de02ee77e4f5
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842274"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283256"
 ---
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
@@ -37,10 +37,6 @@ ms.locfileid: "96842274"
     >[!NOTE]  
     > Si HttpExample no aparece como se ha mostrado arriba, es probable que haya iniciado el host desde fuera de la carpeta raíz del proyecto. En ese caso, use **Ctrl**+**C** para detener el host, vaya a la carpeta raíz del proyecto y vuelva a ejecutar el comando anterior.
 
-1. Copie la dirección URL de la función `HttpExample` de esta salida en un explorador y anexe la cadena de consulta `?name=<YOUR_NAME>`, lo que hará que la dirección URL completa sea `http://localhost:7071/api/HttpExample?name=Functions`. El explorador debe mostrar un mensaje como este `Hello Functions`:
-
-    ![Resultado de la ejecución de la función localmente en el explorador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
-
-1. El terminal en el que inició el proyecto también muestra la salida del registro cuando realiza solicitudes.
+1. Copie la dirección URL de la función `HttpExample` de esta salida en un explorador y anexe la cadena de consulta `?name=<YOUR_NAME>`, lo que hará que la dirección URL completa sea `http://localhost:7071/api/HttpExample?name=Functions`. El explorador debe mostrar un mensaje de respuesta que devuelve el valor de la cadena de consulta. El terminal en el que inició el proyecto también muestra la salida del registro cuando realiza solicitudes.
 
 1. Cuando termine, presione **Ctrl**+**C** y seleccione `y` para detener el host de Functions.

@@ -1,14 +1,14 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente de Computer Vision'
+title: 'Inicio rápido: Uso de la biblioteca cliente o la API REST de Read'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar Azure Computer Vision en su aplicación mediante una biblioteca cliente nativa en el idioma que prefiera.
+description: Aprenda a usar el reconocimiento óptico de caracteres (OCR) en su aplicación mediante una biblioteca cliente nativa en el idioma que prefiera.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/15/2020
+ms.date: 03/21/2020
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,16 +17,16 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
-ms.openlocfilehash: 50976de4a60e5330740bcbf387d74c505316c0cf
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 865002fbc9e492b43b9c572468f722c85c6cc4b8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560821"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284821"
 ---
-# <a name="quickstart-use-the-computer-vision-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Computer Vision
+# <a name="quickstart-use-the-read-client-library-or-rest-api"></a>Inicio rápido: Uso de la biblioteca cliente o la API REST de Read
 
-Introducción a la API REST o bibliotecas cliente de Computer Vision. El servicio Computer Vision proporciona algoritmos de inteligencia artificial para procesar imágenes y devolver información sobre sus características visuales. Siga estos pasos para instalar un paquete en la aplicación y probar el código de ejemplo en tareas básicas.
+Introducción a la API REST o las bibliotecas cliente de Read. El servicio Read le proporciona algoritmos de inteligencia artificial para extraer el texto visible de las imágenes y devolverlo como cadenas estructuradas. Siga estos pasos para instalar un paquete en la aplicación y probar el código de ejemplo en tareas básicas.
 
 
 

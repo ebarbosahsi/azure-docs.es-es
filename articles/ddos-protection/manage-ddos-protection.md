@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b38f2831136b0ccec4aa241135f2fd342c939845
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100535248"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936893"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Inicio rápido: Creación y configuración de Azure DDoS Protection Estándar
 
@@ -42,7 +42,7 @@ En este inicio rápido, creará un plan de protección contra DDoS y lo vincular
 3. Seleccione **Crear**.
 4. Especifique o seleccione los siguientes valores y, a continuación, seleccione **Crear**:
 
-    |Configuración        |Value                                              |
+    |Configuración        |Valor                                              |
     |---------      |---------                                          |
     |Nombre           | Escriba _MyDdosProtectionPlan_.                     |
     |Subscription   | Seleccione su suscripción.                         |
@@ -57,7 +57,7 @@ En este inicio rápido, creará un plan de protección contra DDoS y lo vincular
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione los siguientes valores, acepte los valores predeterminados restantes y seleccione **Crear**:
 
-    | Configuración         | Value                                           |
+    | Configuración         | Valor                                           |
     | ---------       | ---------                                       |
     | Nombre            | Escriba _MyVnet_.                                 |
     | Subscription    | Seleccione su suscripción.                                    |
@@ -70,10 +70,9 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Habilitación de la protección contra DDoS para una red virtual existente
 
 1. Cree un plan de protección contra DDoS con los pasos descritos en [Creación de un plan de protección contra DDoS](#create-a-ddos-protection-plan), si no tiene un plan de protección de DDoS existente.
-2. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-3. Escriba el nombre de la red virtual para la que desea habilitar DDoS Protection Standard en el cuadro **Buscar recursos, servicios y documentos** en la parte superior del portal. Seleccione el nombre de la red virtual cuando aparezca en los resultados de la búsqueda.
-4. Seleccione **Protección DDoS** en **CONFIGURACIÓN**.
-5. Seleccione **Estándar**. En **Plan de protección contra DDoS**, seleccione un plan de protección contra DDoS existente o el plan que creó en el paso 1 y, luego, seleccione **Guardar**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.
+2. Escriba el nombre de la red virtual en la que quiere habilitar DDoS Protection Standard en el cuadro **Buscar recursos, servicios y documentos** de la parte superior de Azure Portal. Seleccione el nombre de la red virtual cuando aparezca en los resultados de la búsqueda.
+3. Seleccione **Protección DDoS** en **CONFIGURACIÓN**.
+4. Seleccione **Estándar**. En **Plan de protección contra DDoS**, seleccione un plan de protección contra DDoS existente o el plan que creó en el paso 1 y, luego, seleccione **Guardar**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Habilitación de la protección contra DDoS en todas las redes virtuales
 
@@ -112,7 +111,7 @@ Puede mantener los recursos para el tutorial siguiente. Si ya no lo necesita, el
 Para deshabilitar la protección contra DDoS en una red virtual: 
 
 1. Escriba el nombre de la red virtual para la que desea deshabilitar DDoS Protection Standard en el cuadro **Buscar recursos, servicios y documentos** en la parte superior del portal. Seleccione el nombre de la red virtual cuando aparezca en los resultados de la búsqueda.
-2. Seleccione **En DDoS Protection estándar**, seleccione **Deshabilitar**.
+2. En **DDoS Protection Standard**, seleccione **Deshabilitar**.
 
 Si quiere eliminar un plan de protección contra DDoS, primero debe desasociar todas las redes virtuales que tenga. 
 

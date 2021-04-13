@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Creación de un grupo de administración con Go'
 description: En este inicio rápido se usa Go para crear un grupo de administración para organizar los recursos en una jerarquía.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b6ca4d10f2a86ecb55fec2afe72b4aabfbb94f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bf2d2c556cfd6ada6d31fc6ee797888ed0899573
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100101677"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091453"
 ---
 # <a name="quickstart-create-a-management-group-with-go"></a>Inicio rápido: Creación de un grupo de administración con Go
 
@@ -57,7 +57,7 @@ Para habilitar Go para administrar grupos de administración, el paquete debe ag
 
 ## <a name="application-setup"></a>Configuración de la aplicación
 
-Con los paquetes de Go agregados al entorno elegido, es el momento de configurar la aplicación Go para crear un grupo de administración.
+Con los paquetes de Go agregados al entorno elegido, es el momento de configurar la aplicación de Go para crear un grupo de administración.
 
 1. Cree la aplicación Go y guarde el siguiente origen como `mgCreate.go`:
 

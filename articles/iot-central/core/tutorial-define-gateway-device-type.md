@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdace22072e4122150c878d43b99765cd6fd59e1
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832393"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490784"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -29,7 +29,7 @@ En este tutorial va a crear una plantilla de dispositivo de puerta de enlace **S
 Además de permitir que los dispositivos de nivel inferior se comuniquen con la aplicación de IoT Central, un dispositivo de puerta de enlace también puede:
 
 * Enviar sus propios datos de telemetría como, por ejemplo, la temperatura.
-* Responder a las actualizaciones de propiedades grabables que realiza un operador. Por ejemplo, un operador podría cambiar el intervalo de envío de datos de telemetría.
+* Responder a las actualizaciones de propiedades de escritura que realiza un operador. Por ejemplo, un operador podría cambiar el intervalo de envío de datos de telemetría.
 * Responder a comandos como, por ejemplo, el reinicio del dispositivo.
 
 > [!div class="checklist"]
