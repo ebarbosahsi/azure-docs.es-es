@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 108f81be678eb666b6f79ebbecc93f7bc88dc1d6
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426797"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107918"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este artículo se describen los requisitos previos y los requisitos de hardware de Azure Active Directory (Azure AD) Connect.
@@ -37,7 +37,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * Un inquilino de Azure AD admite 50 000 objetos de forma predeterminada. Al comprobar el dominio, el límite se incrementa a 300 000 objetos. Si todavía necesita más objetos en Azure AD, abra una incidencia de soporte técnico para aumentar el límite aún más. Si necesita más de 500 000 objetos, necesitará una licencia, como Microsoft 365, Azure AD Premium o Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Preparación de los datos locales
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar errores tales como duplicados y problemas de formato en el directorio antes de sincronizar con Azure AD y Microsoft 365.
+* Use [IdFix](https://github.com/Microsoft/idfix) para identificar errores como duplicados y problemas de formato en el directorio antes de [sincronizar con Azure AD y Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Revise [las características de sincronización opcionales que se pueden habilitar en Azure AD](how-to-connect-syncservice-features.md) y valore cuáles son las que debe habilitar.
 
 ### <a name="on-premises-active-directory"></a>Active Directory local

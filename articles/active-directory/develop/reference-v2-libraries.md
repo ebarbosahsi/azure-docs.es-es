@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 590e57d587c8e6e254811892b5c5e740b511c302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 321a5c473df30dd6f00bbcd1294d48ce8da34009
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104690660"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060387"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticación de la Plataforma de identidad de Microsoft
 
@@ -29,7 +29,7 @@ Si decide codificar manualmente su propia implementación de nivel de protocolo 
 
 ## <a name="single-page-application-spa"></a>Aplicación de página única (SPA)
 
-Una aplicación de una sola página se ejecuta completamente en la superficie del explorador y captura los datos de la página (HTML, CSS y JavaScript) dinámicamente o en el momento de la carga de la aplicación. Puede llamar a las API web para interactuar con los orígenes de datos de back-end.
+Una aplicación de una sola página se ejecuta completamente en el explorador y captura los datos de la página (HTML, CSS y JavaScript) dinámicamente o en el momento de la carga de la aplicación. Puede llamar a las API web para interactuar con los orígenes de datos de back-end.
 
 Dado que el código de SPA se ejecuta completamente en el explorador, se considera un *cliente público* que no puede almacenar secretos de forma segura.
 

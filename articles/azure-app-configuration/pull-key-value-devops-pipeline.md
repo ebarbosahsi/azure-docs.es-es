@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1c01984f6a359c0fd1f5d06d26d97d4a84973f57
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99979579"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056794"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extracción de configuraciones a App Configuration con Azure Pipelines
 
@@ -33,7 +33,10 @@ Una [conexión de servicio](/azure/devops/pipelines/library/service-endpoints) p
 1. En **Canalizaciones**, seleccione **Conexiones de servicio**.
 1. Si no tiene ninguna conexión de servicio, haga clic en el botón **Crear una conexión de servicio** en el centro de la pantalla. Si no, haga clic en **Nueva conexión de servicio** en la parte superior derecha de la página.
 1. Seleccione **Azure Resource Manager**.
-1. Seleccione **Entidad de servicio (automática)** .
+![Captura de pantalla que muestra la selección de Azure Resource Manager en la lista desplegable Nueva conexión de servicio.](./media/new-service-connection.png)
+1. En el cuadro de diálogo **Método de autenticación**, seleccione **Entidad de servicio (automática)** .
+    > [!NOTE]
+    > Actualmente no se admite la autenticación de **identidad administrada** para la tarea de App Configuration.
 1. Rellene la suscripción y el recurso. Asigne un nombre a la conexión del servicio.
 
 Ahora que ha creado la conexión de servicio, busque el nombre de la entidad de servicio asignada a ella. En el paso siguiente, agregará una nueva asignación de roles a esta entidad de servicio.
@@ -49,9 +52,11 @@ Asigne el rol de App Configuration adecuado a la conexión de servicio que se va
 
 1. Navegue al almacén de App Configuration de destino. Para ver un tutorial sobre cómo configurar un almacén de App Configuration, consulte [Creación de un almacén de App Configuration](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) en una de las guías de inicio rápido de Azure App Configuration.
 1. En el lado izquierdo, seleccione **Control de acceso (IAM)** .
-1. En la parte superior, seleccione **+ Agregar** y elija **Agregar asignación de roles**.
+1. En el lado derecho, haga clic en el botón **Agregar asignaciones de roles**.
+![Captura de pantalla que muestra el botón Agregar asignaciones de roles.](./media/add-role-assignment-button.png)
 1. En **Rol**, seleccione **Lector de los datos de App Configuration**. Este rol permite que la tarea lea en el almacén de App Configuration. 
 1. Seleccione la entidad de servicio asociada con la conexión de servicio que creó en la sección anterior.
+![Captura de pantalla que muestra el cuadro de diálogo Agregar asignación de roles.](./media/add-role-assignment-reader.png)
 
 > [!NOTE]
 > Para resolver unas referencias de Azure Key Vault en App Configuration, también se debe conceder permiso a la conexión de servicio para leer secretos en las instancias de Azure Key Vault a las que se hace referencia.
@@ -61,12 +66,17 @@ Asigne el rol de App Configuration adecuado a la conexión de servicio que se va
 En esta sección se explicará cómo usar la tarea Azure App Configuration en una canalización de compilación de Azure DevOps.
 
 1. Vaya a la página de canalización de compilación al hacer clic en **Canalizaciones** > **Canalizaciones**. Para obtener documentación sobre la canalización de compilación, consulte [Creación de su primera canalización](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
-      - Si va a crear una nueva canalización de compilación, haga clic en **Nueva canalización** y seleccione el repositorio para la canalización. Seleccione **Mostrar el asistente** en el lado derecho de la canalización y busque la tarea **Azure App Configuration**.
-      - Si utiliza una canalización de compilación existente, seleccione **Editar** para editar la canalización. En la pestaña **Tareas**, busque la tarea **Azure App Configuration**.
+      - Si va a crear una nueva canalización de compilación, en el último paso del proceso, en la pestaña **Revisar**, seleccione **Mostrar asistente** en el lado derecho de la canalización.
+      ![Captura de pantalla que muestra el botón Mostrar asistente de una nueva canalización.](./media/new-pipeline-show-assistant.png)
+      - Si usa una canalización de compilación existente, haga clic en el botón **Editar** en la parte superior derecha.
+      ![Captura de pantalla que muestra el botón Editar de una canalización existente.](./media/existing-pipeline-show-assistant.png)
+1. Busque la tarea **Azure App Configuration**.
+![Captura de pantalla que muestra el cuadro de diálogo Agregar tarea con Azure App Configuration en el cuadro de búsqueda.](./media/add-azure-app-configuration-task.png)
 1. Configure los parámetros necesarios para que la tarea extraiga los pares clave-valor del almacén de App Configuration. Las descripciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
       - Establezca el parámetro **Suscripción de Azure** en el nombre de la conexión de servicio creada en un paso anterior.
       - Establezca **App Configuration name** (Nombre de App Configuration) en el nombre del recurso del almacén de App Configuration.
       - Deje los valores predeterminados en los restantes parámetros.
+![Captura de pantalla que muestra los parámetros de la tarea de App Configuration.](./media/azure-app-configuration-parameters.png)
 1. Guarde y ponga en cola una compilación. El registro de compilación mostrará los errores que se produjeron durante la ejecución de la tarea.
 
 ## <a name="use-in-releases"></a>Uso en versiones
@@ -76,8 +86,12 @@ En esta sección se explicará cómo usar la tarea Azure App Configuration en la
 1. Vaya a la página de canalización de versión; para ello, seleccione **Canalizaciones** > **Versiones**. Para obtener documentación sobre la canalización de versión, consulte [Canalizaciones de versión](/azure/devops/pipelines/release).
 1. Elija una canalización de versión existente. Si no tiene una, seleccione **Nueva canalización** para crear una.
 1. Seleccione el botón **Editar** en la esquina superior derecha para editar la canalización de versión.
-1. Elija la **Fase** para agregar la tarea. Para más información acerca de las fases, consulte [Incorporación de fases, dependencias y condiciones](/azure/devops/pipelines/release/environments).
-1. Haga clic en **+** para "Ejecutar en el agente" y, a continuación, agregue la tarea **Azure App Configuration** en la pestaña **Agregar tareas**.
+1. En el menú desplegable **Tareas**, seleccione la **Fase** en la que quiere agregar la tarea. Puede encontrar más información sobre las fases [aquí](/azure/devops/pipelines/release/environments).
+![Captura de pantalla que muestra la fase seleccionada en el menú desplegable Tareas.](./media/pipeline-stage-tasks.png)
+1. Haga clic en **+** junto al trabajo al que quiere agregar una nueva tarea.
+![Captura de pantalla que muestra el botón de signo más junto al trabajo.](./media/add-task-to-job.png)
+1. Busque la tarea **Azure App Configuration**.
+![Captura de pantalla que muestra el cuadro de diálogo Agregar tarea con Azure App Configuration en el cuadro de búsqueda.](./media/add-azure-app-configuration-task.png)
 1. Configure los parámetros necesarios dentro de la tarea para extraer los pares clave-valor del almacén de App Configuration. Las descripciones de los parámetros están disponibles en la sección **Parámetros** siguiente y en la información sobre herramientas junto a cada parámetro.
       - Establezca el parámetro **Suscripción de Azure** en el nombre de la conexión de servicio creada en un paso anterior.
       - Establezca **App Configuration name** (Nombre de App Configuration) en el nombre del recurso del almacén de App Configuration.

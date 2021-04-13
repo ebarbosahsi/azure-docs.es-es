@@ -1,28 +1,25 @@
 ---
-title: 'Inicio rápido: Uso de la biblioteca cliente para llamadas de Azure Communication Services'
+title: 'Inicio rápido: Uso del kit de desarrollo de software para llamadas de Azure Communication Services'
 titleSuffix: An Azure Communication Services quickstart
-description: Obtenga información sobre las funcionalidades de la biblioteca cliente para llamadas de Communication Services.
-author: mikben
-manager: jken
+description: Obtenga información sobre las funcionalidades del kit de desarrollo de software para llamadas de Communication Services.
+author: rinarish
+manager: rinarish
 services: azure-communication-services
-ms.author: mikben
+ms.author: arturk
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: b4689f9777cee99b5bd85f733812ba986162360c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87808cfd97be5fb38ee64ef57540aada255f6ca5
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488132"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110349"
 ---
-# <a name="quickstart-use-the-communication-services-calling-client-library"></a>Inicio rápido: Uso de la biblioteca cliente para llamadas de Communication Services
+# <a name="quickstart-use-the-communication-services-calling-sdk"></a>Inicio rápido: Uso del kit de desarrollo de software para llamadas de Communication Services
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-
-Para empezar a usar Azure Communication Services, utilice la biblioteca cliente para llamadas de Communication Services para agregar llamadas de voz y vídeo a la aplicación.
+Para empezar a usar Azure Communication Services, utilice el SDK de llamadas de Communication Services para agregar llamadas de voz y vídeo a la aplicación.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]

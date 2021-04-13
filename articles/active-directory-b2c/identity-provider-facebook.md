@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7e7a99daa169c994a0b9656786926f0715fa17a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104580069"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 
@@ -55,7 +55,8 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Facebook
 1. Seleccione **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Use ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de la aplicación** es una credencial de seguridad importante.
 1. En el menú, seleccione el signo **más** junto a **PRODUCTOS**. En **Add Products to Your App** (Agregar productos a la aplicación), seleccione **Set up** (Configurar) en **Facebook Login** (Inicio de sesión de Facebook).
 1. En el menú, seleccione **Facebook Login** (Inicio de sesión de Facebook) y después **Settings** (Configuración).
-1. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino. Seleccione **Save Changes** (Guardar cambios) en la parte inferior de la página.
+1. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si usa un [dominio personalizado](custom-domain.md), escriba `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino y `your-domain-name` por el dominio personalizado. 
+1. Seleccione **Save Changes** (Guardar cambios) en la parte inferior de la página.
 1. Para que la aplicación de Facebook esté disponible para Azure AD B2C, seleccione el selector de Estado situado en la parte superior derecha de la página y **actívelo** para hacer que la aplicación sea pública y, después, seleccione **Switch Mode** (Modo de conmutador).  En este momento el estado debería cambiar de **Desarrollo** a **Activo**.
 
 ::: zone pivot="b2c-user-flow"
@@ -73,13 +74,19 @@ Para habilitar el inicio de sesión para los usuarios con una cuenta de Facebook
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adición de un proveedor de identidades de Facebook a un flujo de usuario 
 
+En este punto se ha configurado el proveedor de identidades de Facebook, pero aún no está disponible en ninguna de las páginas de inicio de sesión. Para agregar el proveedor de identidades de Facebook a un flujo de usuario:
+
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en el flujo de usuario que quiera agregar al proveedor de identidades de Facebook.
 1. En **Social identity providers** (Proveedores de identidades sociales), seleccione **Facebook**.
 1. Seleccione **Guardar**.
 1. Para probar la directiva, seleccione **Ejecutar flujo de usuario**.
 1. En **Aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Haga clic en **Ejecutar flujo de usuario**.
+1. Seleccione el botón **Ejecutar flujo de usuario**.
+1. En la página de registro o de inicio de sesión, seleccione **Facebook** para iniciar sesión con la cuenta de Facebook.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
+
 
 ::: zone-end
 
@@ -118,7 +125,10 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 1. Cargue el archivo *TrustFrameworkExtensions.xml* en el inquilino.
 1. En **Directivas personalizadas**, seleccione **B2C_1A_signup_signin**.
 1. En **Seleccionar aplicación**, seleccione la aplicación web denominada *testapp1* que registró anteriormente. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
-1. Seleccione **Ejecutar ahora** y elija Facebook para iniciar sesión con Facebook y probar la directiva personalizada.
+1. Seleccione el botón **Ejecutar ahora**.
+1. En la página de registro o de inicio de sesión, seleccione **Facebook** para iniciar sesión con la cuenta de Facebook.
+
+Si el proceso de inicio de sesión se completa correctamente, el explorador se redirige a `https://jwt.ms`, que muestra el contenido del token devuelto por Azure AD B2C.
 
 ::: zone-end
 

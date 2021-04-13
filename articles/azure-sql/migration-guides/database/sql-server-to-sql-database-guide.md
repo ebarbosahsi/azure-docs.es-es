@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server a SQL Database: Guía de migración'
+title: 'SQL Server a Azure SQL Database: guía de migración'
 description: Siga esta guía para migrar las bases de datos de SQL Server a Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563851"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564932"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>Guía de migración: SQL Server a SQL Database
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guía de migración: SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Esta guía le ayuda a migrar la instancia de SQL Server a Azure SQL Database. 
@@ -30,7 +30,7 @@ Puede migrar las instancias de SQL Server que se ejecutan de forma local o en:
 - Compute Engine (Google Cloud Platform o GCP)  
 - SQL en la nube para SQL Server (Google Cloud Platform o GCP) 
 
-Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-sql-database-overview.md). Para ver otros escenarios, consulte la [Guía de migración de bases de datos](https://datamigration.microsoft.com/).
+Para más información acerca de la migración, consulte [Introducción a la migración: SQL Server a SQL Database](sql-server-to-sql-database-overview.md). Para ver otras guías de migración, consulte [Migración de bases de datos](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Flujo del proceso de migración":::
 
@@ -38,9 +38,11 @@ Para más información acerca de la migración, consulte [Introducción a la mig
 
 Para migrar la instancia de SQL Server a Azure SQL Database, asegúrese de que tiene los siguientes requisitos previos: 
 
-- Un [método de migración](sql-server-to-sql-database-overview.md#compare-migration-options) elegido y las herramientas correspondientes 
-- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado en un equipo que pueda conectarse a la instancia de SQL Server de origen
-- Una instancia de [Azure SQL Database](../../database/single-database-create-quickstart.md) de destino
+- Un [método de migración](sql-server-to-sql-database-overview.md#compare-migration-options) seleccionado y las herramientas correspondientes.
+- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado en una máquina que pueda conectarse a la instancia de SQL Server de origen.
+- Una instancia de [Azure SQL Database](../../database/single-database-create-quickstart.md) de destino. 
+- Conectividad y permisos adecuados para acceder tanto al origen como al destino. 
+
 
 
 ## <a name="pre-migration"></a>Antes de la migración
@@ -73,7 +75,7 @@ Para evaluar su entorno con la evaluación de migración de bases de datos, real
 1. Abra [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). 
 1. Seleccione **Archivo** y, a continuación, elija **Evaluación nueva**. 
 1. Especifique un nombre de proyecto, seleccione SQL Server como tipo de servidor de origen y, luego, elija Azure SQL Database como tipo de servidor de destino. 
-1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
+1. Seleccione los tipos de informes de evaluación que quiere generar. Por ejemplo, compatibilidad de bases de datos y paridad de características. Según el tipo de evaluación, los permisos necesarios en la instancia de SQL Server de origen pueden ser diferentes.  DMA resaltará los permisos necesarios para el asesor elegido antes de ejecutar la evaluación.
     - La categoría **Paridad de características** proporciona un conjunto completo de recomendaciones, alternativas disponibles en Azure y pasos de mitigación para ayudarle a planear el proyecto de migración. (Se necesitan permisos de administrador del sistema).
     - La categoría **Problemas de compatibilidad** identifica problemas de compatibilidad de características no compatibles o parcialmente compatibles que podrían impedir la migración y las recomendaciones para resolverlos (se requieren los permisos `CONNECT SQL`, `VIEW SERVER STATE` y `VIEW ANY DEFINITION`).
 1. Especifique los detalles de la conexión de origen para su instancia de SQL Server y conéctese a la base de datos de origen.
@@ -150,7 +152,7 @@ Al usar las opciones de migración que replican o sincronizan continuamente los 
 Después de comprobar que los datos son los mismos en el origen y en el destino, puede realizar la transición del entorno de origen al de destino. Es importante planear el proceso de transición con los equipos empresariales y de aplicaciones para garantizar que la interrupción mínima durante la transición no afecte a la continuidad empresarial. 
 
 > [!IMPORTANT]
-> Para más información sobre los pasos específicos asociados con la realización de una operación de transición como parte de las migraciones con DMS, consulte [Realización de migración total](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Para más información sobre los pasos específicos asociados con la realización de una operación de transición como parte de las migraciones con DMS, consulte [Realización de migración total](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Recomendaciones sobre migración
 

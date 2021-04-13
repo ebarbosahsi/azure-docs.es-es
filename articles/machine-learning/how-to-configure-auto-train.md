@@ -1,7 +1,7 @@
 ---
 title: Creación de experimentos de ML automatizados
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo definir orígenes de datos, procesos y valores de configuración para los experimentos de aprendizaje automático automatizado.
+description: Aprenda a definir orígenes de datos, procesos y valores de configuración para los experimentos de aprendizaje automático automatizado.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 755386bfa36b18796eccec0020efe9136e0215cd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563494"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068156"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 
@@ -47,6 +47,9 @@ Para realizar este artículo, necesitará lo siguiente
     * Crear una instancia de proceso, que instala automáticamente el SDK y está preconfigurada para flujos de trabajo de aprendizaje automático. Consulte [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md) para obtener más información. 
 
     * [Instale el paquete `automl`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), que incluye la [instalación predeterminada](/python/api/overview/azure/ml/install#default-install) del SDK.
+    
+    > [!WARNING]
+    > Python 3 8 no es compatible con `automl`. 
 
 ## <a name="select-your-experiment-type"></a>Seleccione el tipo de experimento
 
@@ -217,7 +220,7 @@ Obtenga información acerca de las definiciones específicas de estas métricas 
 
 ### <a name="primary-metrics-for-classification-scenarios"></a>Métricas principales para los escenarios de clasificación 
 
-Las métricas con umbrales de publicación, como `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`y `precision_score_weighted` podrían no optimizarse adecuadamente para los conjuntos de valores muy pequeños, los que tienen un sesgo de clase muy grande (desequilibrio de clases) o cuando el valor de métrica esperado esté muy cerca de 0,0 o 1,0. En esos casos, `AUC_weighted` puede ser una mejor opción de métrica principal. Una vez completado el aprendizaje automático automatizado, puede elegir el modelo ganador en función de la métrica que mejor se adapte a sus necesidades empresariales.
+Las métricas con umbrales de publicación, como `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`y `precision_score_weighted`, podrían no optimizarse adecuadamente para los conjuntos de datos que son pequeños, tienen un sesgo de clase muy grande (desequilibrio de clases) o si el valor de métrica esperado está muy cerca de 0,0 o 1,0. En esos casos, `AUC_weighted` puede ser una mejor opción de métrica principal. Una vez completado el aprendizaje automático automatizado, puede elegir el modelo ganador en función de la métrica que mejor se adapte a sus necesidades empresariales.
 
 | Métrica | Ejemplo de casos de uso |
 | ------ | ------- |
@@ -386,16 +389,113 @@ Configure `max_concurrent_iterations` en el objeto `AutoMLConfig`. Si no se conf
 
 ## <a name="explore-models-and-metrics"></a>Exploración de modelos y métricas
 
-Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Seguimiento y evaluación de modelos](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obtener más información.
+El aprendizaje automático automatizado ofrece opciones para supervisar y evaluar los resultados del entrenamiento. 
 
-Consulte [Evaluación de los resultados de los experimentos de aprendizaje automático automatizado](how-to-understand-automated-ml.md) para ver definiciones y ejemplos de los gráficos de rendimiento y las métricas proporcionadas para cada ejecución. 
+* Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Supervisar las ejecuciones automatizadas de aprendizaje automático](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obtener más detalles.
 
-Para obtener un resumen de la caracterización y comprender las características que se agregaron a un modelo determinado, consulte [Transparencia de caracterización](how-to-configure-auto-features.md#featurization-transparency). 
+* Para obtener definiciones y ejemplos de los gráficos de rendimiento y las métricas proporcionadas en cada ejecución, vea [Evaluación de los resultados del experimento de aprendizaje automático automatizado](how-to-understand-automated-ml.md). 
 
+* Para obtener un resumen de la caracterización y comprender las características que se agregaron a un modelo determinado, consulte [Transparencia de caracterización](how-to-configure-auto-features.md#featurization-transparency). 
+
+Puede ver los hiperparámetros, las técnicas de escalado y normalización, y el algoritmo que se aplica a una ejecución específica de aprendizaje automático automatizado con la siguiente solución de código personalizado. 
+
+A continuación se define el método personalizado, `print_model()`, que imprime los hiperparámetros de cada paso de la canalización de entrenamiento de aprendizaje automático automatizado.
+ 
+```python
+from pprint import pprint
+
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()   
+```
+
+En el caso de una ejecución local o remota que se acaba de enviar y entrenar desde el mismo cuaderno de experimento, puede pasar el mejor modelo mediante el método `get_output()`. 
+
+```python
+best_run, fitted_model = run.get_output()
+print(best_run)
+         
+print_model(fitted_model)
+```
+
+La siguiente salida indica que:
+ 
+* Se ha usado la técnica StandardScalerWrapper para escalar y normalizar los datos antes del entrenamiento.
+
+* Se ha identificado el algoritmo XGBoostClassifier como la mejor ejecución, y también muestra los valores de hiperparámetro. 
+
+```python
+StandardScalerWrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing.data',
+ 'with_mean': False,
+ 'with_std': False}
+
+XGBoostClassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.6,
+ 'eta': 0.4,
+ 'gamma': 0,
+ 'learning_rate': 0.1,
+ 'max_delta_step': 0,
+ 'max_depth': 8,
+ 'max_leaves': 0,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'n_estimators': 400,
+ 'n_jobs': 1,
+ 'nthread': None,
+ 'objective': 'multi:softprob',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 1.6666666666666667,
+ 'scale_pos_weight': 1,
+ 'seed': None,
+ 'silent': None,
+ 'subsample': 0.8,
+ 'tree_method': 'auto',
+ 'verbose': -10,
+ 'verbosity': 1}
+```
+
+En el caso de una ejecución existente desde otro experimento del área de trabajo, obtenga el identificador de ejecución específico que quiere explorar y páselo en el método `print_model()`. 
+
+```python
+from azureml.train.automl.run import AutoMLRun
+
+ws = Workspace.from_config()
+experiment = ws.experiments['automl-classification']
+automl_run = AutoMLRun(experiment, run_id = 'AutoML_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')
+
+automl_run
+best_run, model_from_aml = automl_run.get_output()
+
+print_model(model_from_aml)
+
+```
 > [!NOTE]
 > Los algoritmos que el aprendizaje automático automatizado emplea llevan inherente la aleatoriedad, que puede provocar una ligera variación en la puntuación de las métricas finales del modelo recomendado, como la precisión. El aprendizaje automático automatizado también realiza operaciones en datos, como la división de la prueba de entrenamiento, la división de la validación de entrenamiento o la validación cruzada cuando es necesario. Por lo tanto, si ejecuta un experimento con las mismas opciones de configuración y métricas principales varias veces, es probable que vea una variación en las puntuaciones de las métricas finales de los experimentos debido a estos factores. 
 
 ## <a name="register-and-deploy-models"></a>Registro e implementación de modelos
+
 Puede registrar un modelo, y así volver a él para usarlo más tarde. 
 
 Para registrar un modelo a partir de una ejecución de aprendizaje automático automatizado, use el método [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-). 

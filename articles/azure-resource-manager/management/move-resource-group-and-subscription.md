@@ -2,14 +2,14 @@
 title: Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 800e605571ae18b008a86b4add4b0b2adce9c140
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670212"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078390"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -18,6 +18,12 @@ En este artículo se explica cómo trasladar recursos de Azure a otra suscripci�
 Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos. Pero no significa que los recursos estén inmovilizados. Por ejemplo, si mueve un servidor lógico de Azure SQL y sus bases de datos a un nuevo grupo de recursos o a una nueva suscripción, las aplicaciones que usan las bases de datos no experimentan tiempo de inactividad. Seguirá pudiendo leer y escribir en estas bases de datos. El bloqueo puede durar un máximo de cuatro horas, pero la mayoría de los movimientos se completan en mucho menos tiempo.
 
 Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos o suscripción. No cambia la ubicación del recurso.
+
+## <a name="changed-resource-id"></a>Cambio en el identificador de recurso
+
+Cuando se mueve un recurso, cambia su identificador de recurso. El formato estándar para un identificador de recurso es `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. Al trasladar un recurso a un nuevo grupo de recursos o a una nueva suscripción, cambia uno o varios valores de esa ruta de acceso.
+
+Si usa el identificador de recurso en cualquier lugar, deberá cambiar dicho valor. Por ejemplo, si tiene un [panel personalizado](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) en el portal que hace referencia a un identificador de recurso, deberá actualizar dicho valor. Busque scripts o plantillas que deban actualizarse para el nuevo identificador de recurso.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de comprobación antes de mover recursos
 
@@ -36,7 +42,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
    * [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
    * Para trasladar una suscripción de Azure a un nuevo grupo de administración, consulte [Movimiento de suscripciones](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Si mueve un recurso que tiene un rol de Azure asignado directamente al recurso (o a un recurso secundario), la asignación de roles no se mueve y queda huérfana. Después de moverlo, debe volver a crear asignaciones de roles. Finalmente, la asignación de roles huérfana se quitará automáticamente, pero se recomienda quitar la asignación de roles antes de mover el recurso.
+1. Si mueve un recurso que tiene un rol de Azure asignado directamente al recurso (o a un recurso secundario), la asignación de roles no se mueve y queda huérfana. Después de moverlo, debe volver a crear asignaciones de roles. Finalmente, la asignación de roles huérfana se quita automáticamente, pero se recomienda quitar la asignación de roles antes del cambio.
 
     Para más información sobre cómo administrar las asignaciones de roles, consulte [Enumeración de asignaciones de roles de Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) y [Asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -118,7 +124,7 @@ Con fines ilustrativos, solo tenemos un recurso dependiente.
 
 ## <a name="validate-move"></a>Validar el movimiento
 
-La [operación de validación del movimiento](/rest/api/resources/resources/validatemoveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para comprobar si el movimiento se realizará correctamente. La validación se llama automáticamente cuando se envía una solicitud de traslado. Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
+La [operación de validación del movimiento](/rest/api/resources/resources/moveresources) le permite probar el escenario de movimiento sin mover realmente los recursos. Use esta operación para comprobar si el movimiento se realizará correctamente. La validación se llama automáticamente cuando se envía una solicitud de traslado. Use esta operación solo cuando necesite determinar de antemano los resultados. Para ejecutar esta operación, necesita el:
 
 * nombre del grupo de recursos de origen
 * identificador de recurso del grupo de recursos de destino
@@ -235,7 +241,7 @@ Si se produce un error, consulte [Troubleshoot moving Azure resources to new res
 
 ## <a name="use-rest-api"></a>Use la API de REST
 
-Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use la operación [Mover recursos](/rest/api/resources/Resources/MoveResources).
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use la operación [Mover recursos](/rest/api/resources/resources/moveresources).
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -260,7 +266,7 @@ Mover un recurso es una operación compleja que tiene distintas fases. Pueden ex
 
 **Pregunta: ¿Por qué mi grupo de recursos se bloquea durante 4 horas mientras se realiza el movimiento de recursos?**
 
-Se permite que una solicitud de movimiento tarde hasta 4 horas en completarse. Para evitar que se muevan las modificaciones de los recursos, los grupos de recursos de origen y de destino se bloquean mientras dura el movimiento de recursos.
+Se permite que una solicitud de movimiento tarde hasta 4 horas en completarse. Para evitar que se muevan las modificaciones de los recursos, los grupos de recursos de origen y de destino se bloquean durante el movimiento de recursos.
 
 Hay dos fases en una solicitud de movimiento. En la primera fase, se mueve el recurso. En la segunda fase, se envían notificaciones a otros proveedores de recursos que dependen del recurso que se está moviendo. Un grupo de recursos puede bloquearse durante las 4 horas completas cuando se produce un error en un proveedor de recursos en cualquiera de las fases. Durante el tiempo permitido, Resource Manager reintenta el paso con el error.
 

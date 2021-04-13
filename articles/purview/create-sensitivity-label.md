@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5f6e2474a533f5619d5544b674a87b6412323cc3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502453"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166741"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etiquetado automático de los datos en Azure Purview
 
@@ -96,7 +96,7 @@ Para aplicar etiquetas de confidencialidad de MIP a recursos de Azure en Azure P
 Mediante la extensión de las etiquetas de confidencialidad de MIP con Azure Purview, las organizaciones ya pueden detectar, clasificar y obtener información sobre la confidencialidad a través de una variedad más amplia de orígenes de datos, lo que minimiza el riesgo de cumplimiento.
 
 > [!NOTE]
-> Como Microsoft 365 y Azure Purview son servicios independientes, existe la posibilidad de que se implementen en regiones diferentes. Los nombres de etiqueta y los nombres de tipo de información confidencial se consideran datos de cliente y se mantienen dentro de la misma ubicación geográfica de manera predeterminada para proteger la confidencialidad de los datos y para evitar la legislación de RGPD.
+> Como Microsoft 365 y Azure Purview son servicios independientes, existe la posibilidad de que se implementen en regiones diferentes. Los nombres de etiqueta y los nombres de tipo de información confidencial se consideran datos de cliente y se mantienen dentro de la misma ubicación geográfica de manera predeterminada para proteger la confidencialidad de los datos y para cumplir con la normativa de privacidad.
 >
 > Por este motivo, las etiquetas y los tipos de información confidencial personalizada no se comparten en Azure Purview de manera predeterminada y requieren su consentimiento para usarlos en Azure Purview.
 

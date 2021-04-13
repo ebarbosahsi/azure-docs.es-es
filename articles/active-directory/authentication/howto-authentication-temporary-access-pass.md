@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/31/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579389"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167369"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configuración de un Pase de acceso temporal en Azure AD para registrar métodos de autenticación sin contraseña (versión preliminar)
 
 Los métodos de autenticación sin contraseña, como FIDO2 y el inicio de sesión telefónico sin contraseña a través de la aplicación Microsoft Authenticator, permiten a los usuarios iniciar sesión de manera segura sin una contraseña. Los usuarios pueden arrancar métodos sin contraseña de una de dos maneras:
 
-- Usando los métodos de autenticación multifactor de Azure AD existentes 
-- Uso de un Pase de acceso temporal 
+- Con los métodos de autenticación multifactor de Azure AD existentes 
+- Usando un Pase de acceso temporal (TAP) 
 
 Un Pase de acceso temporal es un código de acceso de tiempo limitado que emite un administrador, que satisface los requisitos de autenticación sólida y que se puede usar para incorporar otros métodos de autenticación, incluidos aquellos sin contraseña. Asimismo, el Pase de acceso temporal facilita la recuperación cuando un usuario ha perdido u olvidado su factor de autenticación sólida, como una clave de seguridad FIDO2 o la aplicación Microsoft Authenticator, pero debe iniciar sesión para registrar nuevos métodos de autenticación sólida.
 
@@ -49,15 +49,15 @@ Para configurar la directiva del método de autenticación del Pase de acceso te
    En la tabla siguiente se describen el valor predeterminado y el intervalo de valores permitidos.
 
 
-   | Configuración          | Valores predeterminados | Valores permitidos               | Comentarios                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Duración mínima | 1 hora         | De 10 a 43 200 minutos (30 días) | Número mínimo de minutos que el Pase de acceso temporal es válido.                                                                                                                                                                                                                         |   |
-   | Duración máxima | 24 horas       | De 10 a 43 200 minutos (30 días) | Número máximo de minutos que el Pase de acceso temporal es válido.                                                                                                                                                                                                                         |   |
-   | Duración predeterminada | 1 hora         | De 10 a 43 200 minutos (30 días) | Los valores predeterminados se pueden invalidar mediante pases individuales, dentro de la vigencia mínima y máxima configurada por la directiva.                                                                                                                                                |   |
-   | Uso único     | False          | True o False                 | Cuando la directiva se establece en False, se pueden usar los pases en el inquilino una vez o más de una vez durante su validez (vigencia máxima). Al aplicar un uso único en la directiva del Pase de acceso temporal, todos los pases creados en el inquilino se crearán como de un solo uso. |   |
-   | Length           | 8              | De 8 a 48 caracteres              | Define la longitud del código de acceso.                                                                                                                                                                                                                                      |   |
+   | Configuración | Valores predeterminados | Valores permitidos | Comentarios |
+   |---|---|---|---|
+   | Duración mínima | 1 hora | De 10 a 43 200 minutos (30 días) | Número mínimo de minutos que el Pase de acceso temporal es válido. |
+   | Duración máxima | 24 horas | De 10 a 43 200 minutos (30 días) | Número máximo de minutos que el Pase de acceso temporal es válido. |
+   | Duración predeterminada | 1 hora | De 10 a 43 200 minutos (30 días) | Los valores predeterminados se pueden invalidar mediante los pases individuales, dentro de la vigencia mínima y máxima configurada por la directiva. |
+   | Uso único | False | True o False | Cuando la directiva se establece en False, se pueden usar los pases en el inquilino una vez o más de una vez durante su validez (vigencia máxima). Al aplicar un uso único en la directiva del Pase de acceso temporal, todos los pases creados en el inquilino se crearán como de un solo uso. |
+   | Length | 8 | De 8 a 48 caracteres | Define la longitud del código de acceso. |
 
-## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Creación de un Pase de acceso temporal en el portal de Azure AD
+## <a name="create-a-temporary-access-pass"></a>Creación de un Pase de acceso temporal
 
 Después de habilitar una directiva, puede crear un Pase de acceso temporal para un usuario en Azure AD. Estos roles pueden realizar las siguientes acciones relacionadas con un Pase de acceso temporal.
 
@@ -66,9 +66,7 @@ Después de habilitar una directiva, puede crear un Pase de acceso temporal para
 - Los Administradores de autenticación pueden crear, eliminar y ver el Pase de acceso temporal en miembros (excepto el suyo).
 - El Administrador global puede ver los detalles del Pase de acceso temporal en el usuario (sin tener que leer el propio código).
 
-Para crear un Pase de acceso temporal:
-
-1. Inicie sesión en el portal como Administrador global, Administrador de autenticación con privilegios o Administrador de autenticación. 
+1. Inicie sesión en Azure Portal como Administrador global, Administrador de autenticación con privilegios o Administrador de autenticación. 
 1. Haga clic en **Azure Active Directory**, vaya a Usuarios, seleccione un usuario, como *Chris Green*, y, a continuación, elija **Métodos de autenticación**.
 1. Si es necesario, seleccione la opción para **Try the new user authentication methods experience** (Probar la nueva experiencia de métodos de autenticación de usuario).
 1. Seleccione la opción para **Add authentication methods** (Agregar métodos de autenticación).
@@ -80,6 +78,30 @@ Para crear un Pase de acceso temporal:
 1. Una vez que se agregue, se muestran los detalles del Pase de acceso temporal. Tome nota del valor real del Pase de acceso temporal. Este valor se proporcionará al usuario. No puede ver este valor después de hacer clic en **Aceptar**.
    
    ![Captura de pantalla de los detalles del Pase de acceso temporal.](./media/how-to-authentication-temporary-access-pass/details.png)
+
+Los comandos siguientes muestran cómo crear y obtener un Pase de acceso temporal mediante PowerShell:
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## <a name="use-a-temporary-access-pass"></a>Uso de un Pase de acceso temporal
 
@@ -108,6 +130,13 @@ No se puede usar un Pase de acceso temporal que haya expirado. En la opción **M
 1. En el portal de Azure AD, vaya a **Usuarios**, seleccione un usuario, por ejemplo, *Usuario de TAP* y, después, elija **Métodos de autenticación**.
 1. En el lado derecho del método de autenticación **Temporary Access Pass (Preview)** (Pase de acceso temporal [vista previa]) que se muestra en la lista, seleccione **Eliminar**.
 
+También puede usar PowerShell:
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
+
 ## <a name="replace-a-temporary-access-pass"></a>Reemplazo de un Pase de acceso temporal 
 
 - Un usuario solo puede tener un Pase de acceso temporal. El código de acceso se puede usar durante las horas de inicio y finalización del Pase de acceso temporal.
@@ -123,8 +152,8 @@ Tenga en cuenta las limitaciones siguientes:
 
 - Cuando se usa un Pase de acceso temporal de un solo uso para registrar un método sin contraseña, como FIDO2 o el inicio de sesión telefónico, el usuario debe completar el registro en un plazo de 10 minutos a partir del inicio de sesión con el Pase de acceso temporal de un solo uso. Esta limitación no se aplica a un Pase de acceso temporal que se pueda usar más de una vez.
 - Tenga en cuenta que los usuarios invitados no pueden iniciar sesión con un Pase de acceso temporal.
-- Los usuarios en el ámbito de la directiva de registro de autoservicio de restablecimiento de contraseña (SSPR) tendrán que registrar uno de los métodos de SSPR después de haber iniciado sesión con el Pase de acceso temporal. Si el usuario solo va a usar una llave FIDO2, exclúyalo de la directiva SSPR o deshabilite la directiva de registro de SSPR. 
-- Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) y el adaptador de los Servicios de federación de Active Directory (AD FS).
+- Los usuarios en el ámbito de la directiva de registro de autoservicio de restablecimiento de contraseña (SSPR) *o* la [directiva de registro de autenticación multifactor de protección de identidades](../identity-protection/howto-identity-protection-configure-mfa-policy.md) tienen que registrar los métodos de autenticación una vez que han iniciado sesión con un Pase de acceso temporal. Los usuarios en el ámbito de estas directivas se redirigen al [modo de interrupción del registro combinado](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Esta experiencia no admite actualmente el registro con FIDO2 e inicio de sesión telefónico. 
+- Un Pase de acceso temporal no se puede usar con la extensión del servidor de directivas de redes (NPS) ni el adaptador de los Servicios de federación de Active Directory (AD FS), ni durante el programa de instalación de Windows/experiencia de serie (OOBE) y AutoPilot. 
 - Cuando el inicio de sesión único de conexión directa está habilitado en el inquilino, se pide a los usuarios que escriban una contraseña. El vínculo **Use el Pase de acceso temporal en su lugar** estará disponible para que el usuario inicie sesión con un Pase de acceso temporal.
 
   ![Captura de pantalla de la opción Use un Pase de acceso temporal en su lugar.](./media/how-to-authentication-temporary-access-pass/alternative.png)

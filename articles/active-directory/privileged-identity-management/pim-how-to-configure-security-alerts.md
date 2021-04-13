@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 26b519ce11747ab3374d9bd286800a6c93129019
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96180496"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565238"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de seguridad para roles de Azure AD en Privileged Identity Management
 
@@ -50,9 +50,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Los administradores no están usando sus roles con privilegios
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | El hecho de que los usuarios tengan asignados roles con privilegios que no necesitan aumenta la probabilidad de un ataque. También es más fácil para los atacantes permanecer desapercibidos en cuentas que no se usan activamente. |
 | **Solución** | Revise los usuarios de la lista y quítelos de los roles con privilegios que no necesitan. |
 | **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación empresarial. </br>Programe [revisiones de acceso](pim-how-to-start-security-review.md) periódicas para comprobar que los usuarios todavía necesitan el acceso. |
@@ -62,9 +63,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>No se necesita la autenticación multifactor para la activación de los roles
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | Sin autenticación multifactor, los usuarios en peligro pueden activar roles con privilegios. |
 | **Solución** | Revise la lista de roles y [pida autenticación multifactor](pim-how-to-change-default-settings.md) para cada rol. |
 | **Prevención** | [Exija MFA](pim-how-to-change-default-settings.md) para cada rol.  |
@@ -72,17 +74,19 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>La organización no tiene Azure AD Premium P2
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | La organización de Azure AD actual no tiene Azure AD Premium P2. |
 | **Solución** | Revise la información sobre las [ediciones de Azure AD](../fundamentals/active-directory-whatis.md). Actualice a Azure AD Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Posibles cuentas obsoletas en un rol con privilegios
 
-| | |
+Gravedad: **Media**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Media |
 | **¿Por qué se recibe esta alerta?** | Las cuentas de un rol con privilegios no han cambiado su contraseña en los últimos 90 días. Estas cuentas podrían ser cuentas de servicio o compartidas que no se mantienen y son vulnerables a los atacantes. |
 | **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
 | **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](pim-how-to-start-security-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
@@ -91,9 +95,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Los roles se están asignando fuera de Privileged Identity Management
 
-| | |
+Gravedad: **Alta**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Alto |
 | **¿Por qué se recibe esta alerta?** | Las asignaciones de roles con privilegios realizadas fuera de Privileged Identity Management no se supervisan correctamente y pueden indicar un ataque activo. |
 | **Solución** | Revise los usuarios de la lista y quítelos de los roles con privilegios asignados fuera de Privileged Identity Management. |
 | **Prevención** | Investigue a qué usuarios se les asignan roles con privilegios fuera de Privileged Identity Management y que prohíben las asignaciones futuras desde allí. |
@@ -101,9 +106,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="there-are-too-many-global-administrators"></a>Hay demasiados administradores globales
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | El administrador global es el rol con más privilegios. Si un administrador global está en peligro, el atacante obtiene acceso a todos sus permisos, lo que pone en riesgo todo el sistema. |
 | **Solución** | Revise los usuarios de la lista y quite los que no necesite para nada el rol de administrador global. </br>En su lugar, asigne roles con privilegios inferiores a estos usuarios. |
 | **Prevención** | Asigne a los usuarios el rol con privilegios mínimos que necesiten. |
@@ -114,9 +120,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Se activan roles con demasiada frecuencia
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | Varias activaciones del mismo rol con privilegios por el mismo usuario es un signo de un ataque. |
 | **Solución** | Revise los usuarios de la lista y asegúrese de que la [duración de la activación](pim-how-to-change-default-settings.md) de su rol con privilegios se establezca con tiempo suficiente para realizar sus tareas. |
 | **Prevención** | Asegúrese de que la [duración de la activación](pim-how-to-change-default-settings.md) de roles con privilegios se establezca con el tiempo suficiente para que los usuarios realicen sus tareas.</br>[Pida autenticación multifactor](pim-how-to-change-default-settings.md) para roles con privilegios que tengan cuentas compartidas por varios administradores. |
@@ -149,9 +156,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Los administradores no están usando sus roles con privilegios
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | El hecho de que los usuarios tengan asignados roles con privilegios que no necesitan aumenta la probabilidad de un ataque. También es más fácil para los atacantes permanecer desapercibidos en cuentas que no se usan activamente. |
 | **Solución** | Revise los usuarios de la lista y quítelos de los roles con privilegios que no necesitan. |
 | **Prevención** | Asigne roles con privilegios solo a los usuarios que tengan una justificación empresarial. </br>Programe [revisiones de acceso](pim-how-to-start-security-review.md) periódicas para comprobar que los usuarios todavía necesitan el acceso. |
@@ -161,9 +169,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>No se necesita la autenticación multifactor para la activación de los roles
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | Sin autenticación multifactor, los usuarios en peligro pueden activar roles con privilegios. |
 | **Solución** | Revise la lista de roles y [pida autenticación multifactor](pim-how-to-change-default-settings.md) para cada rol. |
 | **Prevención** | [Exija MFA](pim-how-to-change-default-settings.md) para cada rol.  |
@@ -171,17 +180,19 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>La organización no tiene Azure AD Premium P2
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | La organización de Azure AD actual no tiene Azure AD Premium P2. |
 | **Solución** | Revise la información sobre las [ediciones de Azure AD](../fundamentals/active-directory-whatis.md). Actualice a Azure AD Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Posibles cuentas obsoletas en un rol con privilegios
 
-| | |
+Gravedad: **Media**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Media |
 | **¿Por qué se recibe esta alerta?** | Las cuentas de un rol con privilegios no han cambiado su contraseña en los últimos 90 días. Estas cuentas podrían ser cuentas de servicio o compartidas que no se mantienen y son vulnerables a los atacantes. |
 | **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
 | **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](pim-how-to-start-security-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
@@ -190,9 +201,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Los roles se están asignando fuera de Privileged Identity Management
 
-| | |
+Gravedad: **Alta**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Alto |
 | **¿Por qué se recibe esta alerta?** | Las asignaciones de roles con privilegios realizadas fuera de Privileged Identity Management no se supervisan correctamente y pueden indicar un ataque activo. |
 | **Solución** | Revise los usuarios de la lista y quítelos de los roles con privilegios asignados fuera de Privileged Identity Management. |
 | **Prevención** | Investigue a qué usuarios se les asignan roles con privilegios fuera de Privileged Identity Management y que prohíben las asignaciones futuras desde allí. |
@@ -200,9 +212,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="there-are-too-many-global-administrators"></a>Hay demasiados administradores globales
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | El administrador global es el rol con más privilegios. Si un administrador global está en peligro, el atacante obtiene acceso a todos sus permisos, lo que pone en riesgo todo el sistema. |
 | **Solución** | Revise los usuarios de la lista y quite los que no necesite para nada el rol de administrador global. </br>En su lugar, asigne roles con privilegios inferiores a estos usuarios. |
 | **Prevención** | Asigne a los usuarios el rol con privilegios mínimos que necesiten. |
@@ -213,9 +226,10 @@ En esta sección se enumeran todas las alertas de seguridad para roles de Azure 
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Se activan roles con demasiada frecuencia
 
-| | |
+Gravedad: **Baja**
+
+| | Descripción |
 | --- | --- |
-| **Gravedad** | Bajo |
 | **¿Por qué se recibe esta alerta?** | Varias activaciones del mismo rol con privilegios por el mismo usuario es un signo de un ataque. |
 | **Solución** | Revise los usuarios de la lista y asegúrese de que la [duración de la activación](pim-how-to-change-default-settings.md) de su rol con privilegios se establezca con tiempo suficiente para realizar sus tareas. |
 | **Prevención** | Asegúrese de que la [duración de la activación](pim-how-to-change-default-settings.md) de roles con privilegios se establezca con el tiempo suficiente para que los usuarios realicen sus tareas.</br>[Pida autenticación multifactor](pim-how-to-change-default-settings.md) para roles con privilegios que tengan cuentas compartidas por varios administradores. |

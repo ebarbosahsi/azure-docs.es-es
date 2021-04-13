@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 139b543160b679ba063a0633f9091e7bc0ef1fc1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436539"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074848"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure Portal
 
@@ -52,7 +51,7 @@ El resumen general del flujo de trabajo de implementación es el siguiente:
 
 Antes de empezar a crear y administrar máquinas virtuales en el dispositivo a través de Azure Portal, debe asegurarse de lo siguiente:
 
-1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. Ha habilitado una interfaz de red para el proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. En la interfaz de usuario local del dispositivo, vaya a **Proceso**. Seleccione la interfaz de red que va a usar para crear un conmutador virtual.
 
@@ -127,9 +126,10 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
     |Parámetro |Descripción  |
     |---------|---------|
     |Nombre de la máquina virtual     |         |
+    |Grupo de recursos de Edge     | Cree un nuevo grupo de recursos para todos los recursos asociados a la máquina virtual.        |
     |Imagen     | Seleccione de las imágenes de VM disponibles en el dispositivo.        |
     |Size     | Elija entre los [tamaños de VM compatibles](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
-    |Nombre de usuario     | Use el nombre de usuario predeterminado *azureuser*.        |
+    |Nombre de usuario     | Use el nombre de usuario predeterminado *azureuser* para que el administrador inicie sesión en la máquina virtual.        |
     |Tipo de autenticación    | Elija una clave pública SSH o una contraseña definida por el usuario.       |
     |Contraseña     | Escriba una contraseña para iniciar sesión en la máquina virtual. La contraseña debe tener un mínimo de 12 caracteres y cumplir los [requisitos de complejidad](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) definidos.        |
     |Confirmar contraseña    | Vuelva a escribir la contraseña.        |
@@ -149,11 +149,7 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
 
         ![Agregar VM 4](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
-    1.  Repita el procedimiento anterior para agregar más discos. Una vez creados los discos, aparecerán en la pestaña **Discos**.
-
-        ![Agregar VM 5](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-3.png)
-
-        Seleccione **Siguiente: Redes**.
+    1.  Repita el procedimiento anterior para agregar más discos. Una vez creados los discos, aparecen en la pestaña **Discos**. Seleccione **Siguiente: Redes**.
 
 1. En la pestaña **Redes**, configurará la conectividad de red para la VM.
 
@@ -168,26 +164,32 @@ Siga estos pasos para crear una máquina virtual después de crear una imagen de
 
     Seleccione **Siguiente: Revisar y crear**.
 
+1. En la pestaña **Opciones avanzadas** puede especificar los datos personalizados o cloud-init para personalizar la máquina virtual. 
+
+    Puede usar cloud-init para personalizar una máquina virtual en su primer arranque. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar usuarios y seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no se requieren pasos adicionales para aplicar la configuración. Para obtener información detallada sobre cloud-init, vea [Introducción a cloud-init](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+
+    ![Agregar VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-1.png)    
+
 1. En la pestaña **Revisar y crear**, revise las especificaciones de la VM y seleccione **Crear**.
 
-    ![Agregar VM 7](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Agregar VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. Se inicia la creación de la VM y puede tardar hasta 20 minutos. Puede ir a **Implementaciones** para administrar la creación de la VM.
 
-    ![Agregar VM 8](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
+    ![Agregar VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
     
 1. Una vez que la VM se crea correctamente, la página de **información general** se actualizará para mostrar la VM nueva.
 
-    ![Agregar VM 9](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Agregar VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Seleccione la VM recién creada para ir a **Máquinas virtuales**.
 
-    ![Agregar VM 10](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Agregar VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Seleccione la máquina virtual para ver los detalles. 
 
-    ![Agregar VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
+    ![Agregar VM 12](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
 ## <a name="connect-to-a-vm"></a>Conexión a una máquina virtual
 
