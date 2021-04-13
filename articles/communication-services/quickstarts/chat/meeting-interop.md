@@ -1,25 +1,27 @@
 ---
 title: Introducción a la interoperabilidad con Teams en Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: En este inicio rápido aprenderá a unirse a una reunión de Teams con la biblioteca cliente de Azure Communication Chat
+description: En esta guía de inicio rápido aprenderá a unirse a una reunión de Teams con el SDK de chat de Azure Communication Services.
 author: askaur
 ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 75580931b2df33b02b9759b6faaa5bec548daaae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ba3a589c5d0f09f24950bd3fee8edc7f4dcd4601
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496188"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169069"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > Para habilitar o deshabilitar la [interoperabilidad de los inquilinos de equipos](../../concepts/teams-interop.md), complete [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Comience a usar Azure Communication Services mediante la conexión de la solución de chat a Microsoft Teams con la biblioteca cliente de JavaScript. 
+Comience a usar Azure Communication Services mediante la conexión de la solución de chat a Microsoft Teams con el SDK para JavaScript. 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

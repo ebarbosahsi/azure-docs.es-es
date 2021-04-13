@@ -9,24 +9,24 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368209"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284641"
 ---
-# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Creación de una aplicación iOS que inicia el Lector inmersivo con contenido de una foto (Swift)
+# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Creación de una aplicación iOS que inicia el Lector inmersivo con el contenido de una foto (Swift)
 
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 
-La [API Read de Computer Vision de Microsoft Cognitive Services](../computer-vision/concept-recognizing-text.md) detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento de Microsoft y convierte el texto identificado en una secuencia de caracteres legible por una máquina.
+La [API Read de Computer Vision de Microsoft Cognitive Services](../computer-vision/overview-ocr.md) detecta el contenido de texto de una imagen con los últimos modelos de reconocimiento de Microsoft y convierte el texto identificado en una secuencia de caracteres legible por una máquina.
 
 En este tutorial, creará una aplicación iOS desde cero e integrará la API Read, así como el Lector inmersivo mediante su SDK. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Un recurso del Lector inmersivo configurado para la autenticación de Azure Active Directory. Siga [estas instrucciones](./how-to-create-immersive-reader.md) para realizar la configuración. Al configurar las propiedades del proyecto de ejemplo, necesitará algunos de los valores creados aquí. Guarde la salida de la sesión en un archivo de texto para futuras referencias.

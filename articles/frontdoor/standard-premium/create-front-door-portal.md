@@ -4,20 +4,19 @@ description: En este inicio rápido se muestra cómo usar Azure Front Door Servi
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100758"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552876"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Inicio rápido: Creación de un perfil de Azure Front Door Estándar/Premium: Azure Portal
 
@@ -31,7 +30,7 @@ En este inicio rápido, aprenderá a crear un perfil de Azure Front Door Estánd
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -58,7 +57,7 @@ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](http
     | **Nombre del extremo** | Escriba un nombre único global para el punto de conexión. |
     | **Tipo de origen** | Seleccione el tipo de recurso del origen. En este ejemplo, se selecciona como origen una instancia de App Service que tiene Private Link habilitado. |
     | **Nombre de host del origen** | Escriba el nombre de host del origen. |
-    | **Habilitación de Private Link** | Si desea tener una conexión privada entre Azure Front Door y su origen. Para más información, consulte la [guía de Private Link](concept-private-link.md) y el artículo sobre la [habilitación de Private Link](how-to-enable-private-link.md).
+    | **Habilitación de Private Link** | Si desea tener una conexión privada entre Azure Front Door y su origen. Para más información, consulte la [guía de Private Link](concept-private-link.md) y el artículo sobre la [habilitación de Private Link](./how-to-enable-private-link-web-app.md).
     | **Almacenamiento en caché** | Active la casilla si desea almacenar en caché el contenido más cerca de los usuarios de forma global mediante los POP perimetrales de Azure Front Door y la red de Microsoft. |
     | **Directiva de WAF** | Si desea habilitar esta característica, seleccione **Crear** o seleccione una directiva de WAF existente en la lista desplegable. |
 
@@ -148,7 +147,7 @@ Configure Azure Front Door Estándar/Premium (versión preliminar) para dirigir 
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Captura de pantalla de la página para agregar un punto de conexión.":::
 
-1. A continuación, agregue un grupo de orígenes que contenga sus dos aplicaciones web. Seleccione **+ Agregar**   para abrir la página **Add an origin group** (Agregar un grupo de orígenes). En Nombre, escriba *myOrignGroup* y, después, seleccione **+ Agregar un origen**.
+1. A continuación, agregue un grupo de orígenes que contenga sus dos aplicaciones web. Seleccione **+ Agregar**   para abrir la página **Add an origin group** (Agregar un grupo de orígenes). En Nombre, escriba *myOriginGroup* y, después, seleccione **+ Agregar un origen**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Captura de pantalla de la página para agregar un grupo de orígenes.":::
 

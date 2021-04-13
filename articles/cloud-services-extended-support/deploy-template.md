@@ -8,36 +8,35 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865594"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381781"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
 En este tutorial se explica cómo crear la implementación de una instancia de Cloud Service (soporte extendido) mediante [plantillas de ARM](../azure-resource-manager/templates/overview.md). 
 
-> [!IMPORTANT]
-> Cloud Services (soporte extendido) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 ## <a name="before-you-begin"></a>Antes de comenzar
 
 1. Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de Cloud Services (soporte extendido) y cree los recursos asociados.
 
-2. Cree un nuevo grupo de recursos con [Azure Portal](/azure/azure-resource-manager/management/manage-resource-groups-portal) o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este paso es opcional si se usa un grupo de recursos existente.
+2. Cree un nuevo grupo de recursos con [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Este paso es opcional si se usa un grupo de recursos existente.
+
+3. Cree una dirección IP pública y establezca su propiedad de etiqueta DNS. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU básica (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+Si usa una dirección IP estática, se debe hacer referencia a ella como IP reservada en el archivo de configuración del servicio (.cscfg). Si usa una dirección IP existente, omita este paso y agregue la información de la dirección IP directamente en la configuración del equilibrador de carga de la plantilla de ARM.
+
+4. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma Azure crea automáticamente un recurso de equilibrador de carga de SKU "clásico" en la misma suscripción que el recurso de servicio en la nube. El recurso de equilibrador de carga es un recurso de solo lectura en ARM. Todas las actualizaciones del recurso solo se admiten mediante los archivos de implementación de servicios en la nube (.cscfg y csdef).
  
-3. Cree una cuenta de almacenamiento mediante [Azure Portal](/azure/storage/common/storage-account-create?tabs=azure-portal) o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
+5. Cree una cuenta de almacenamiento mediante [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Este paso es opcional si se usa una cuenta de almacenamiento existente.
 
-4. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
+6. Cargue los archivos de definición de servicio (.csdef) y de configuración del servicio (.cscfg) en la cuenta de almacenamiento mediante [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenga los URI de SAS de ambos archivos que se van a agregar a la plantilla de ARM más adelante en este tutorial.
 
-5. (Opcional) Cree un almacén de claves y cargue los certificados.
+6. (Opcional) Cree un almacén de claves y cargue los certificados.
 
-    -  Los certificados pueden adjuntarse a los servicios en la nube para permitir la comunicación segura hacia el servicio, y desde él. Para poder usar certificados, se deben especificar sus huellas digitales en el archivo de configuración del servicio (.cscfg) y cargarse en un almacén de claves. Un almacén de claves se puede crear mediante [Azure Portal](/azure/key-vault/general/quick-create-portal) o [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  Los certificados pueden adjuntarse a los servicios en la nube para permitir la comunicación segura hacia el servicio, y desde él. Para poder usar certificados, se deben especificar sus huellas digitales en el archivo de configuración del servicio (.cscfg) y cargarse en un almacén de claves. Un almacén de claves se puede crear mediante [Azure Portal](../key-vault/general/quick-create-portal.md) o [PowerShell](../key-vault/general/quick-create-powershell.md).
     - El almacén de claves asociado se debe crear en la misma región y suscripción que el servicio en la nube.
     - El almacén de claves asociado debe tener los permisos adecuados para que el recurso de Cloud Services (soporte extendido) pueda recuperar certificados de la instancia de Key Vault. Para más información, consulte [Certificados y Key Vault](certificates-and-key-vault.md).
     - Se debe hacer referencia al almacén de claves en la sección OsProfile de la plantilla de ARM que se muestra en los pasos siguientes.
@@ -351,7 +350,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

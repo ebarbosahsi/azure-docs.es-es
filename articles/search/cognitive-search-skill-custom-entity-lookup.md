@@ -8,17 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0f233bdff54822037d15fde9ac62e34193794ad3
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97844936"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110315"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Aptitud cognitiva de búsqueda de entidades personalizadas (versión preliminar)
-
-> [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el portal ni con el SDK de .NET.
+#     <a name="custom-entity-lookup-cognitive-skill"></a>Aptitud cognitiva de búsqueda de entidades personalizadas
 
 La aptitud de **búsqueda de entidades personalizadas** busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas.  
 

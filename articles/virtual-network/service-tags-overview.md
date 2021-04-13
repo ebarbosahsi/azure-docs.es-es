@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 18b79b105bcc4b5b0b65fc6f7d6b602ffff55561
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455829"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607123"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
 
 Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red.
 
-Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](./network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio, como **ApiManagement**, en el campo de *origen* o *destino* apropiados de una regla, puede permitir o denegar el tráfico del servicio correspondiente.
+Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](./network-security-groups-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio, como **ApiManagement**, en el campo de *origen* o *destino* apropiados de una regla, puede permitir o denegar el tráfico del servicio correspondiente. 
+
+> [!NOTE] 
+> A partir de marzo de 2021, también puede usar etiquetas de servicio en lugar de intervalos de IP explícitos en las [rutas definidas por el usuario](./virtual-networks-udr-overview.md). Esta característica está actualmente en versión preliminar pública 
 
 Puede usar etiquetas de servicio para lograr el aislamiento de red y proteger los recursos de Azure de Internet general mientras accede a los servicios de Azure que tienen puntos de conexión públicos. Cree reglas de grupo de seguridad de red de entrada y salida para denegar el tráfico hacia y desde **Internet** y permitir el tráfico desde y hacia **AzureCloud** u otras [etiquetas de servicio disponibles](#available-service-tags) de servicios específicos de Azure.
 
@@ -75,7 +78,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory**. | Salida | Sí | Sí |
 | **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Aquí solo se incluye el tráfico de sondeo, no el tráfico real al recurso de back-end. Si no usa Azure Load Balancer, puede reemplazar esta regla. | Ambos | No | No |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | No | Sí |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon y métricas personalizadas (puntos de conexión GiG).<br/><br/>*Nota:* Para Log Analytics, esta etiqueta tiene dependencia en la etiqueta **Storage**. | Salida | No | Sí |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon y métricas personalizadas (puntos de conexión GiG).<br/><br/>*Nota:* En Log Analytics, también se requiere la etiqueta **Storage**. Si se usan agentes de Linux, también se requiere la etiqueta **GuestAndHybridManagement**. | Salida | No | Sí |
 | **AzureOpenDatasets** | Azure Open Datasets.<br/><br/>*Nota:* Esta etiqueta tiene dependencia de las etiquetas **AzureFrontDoor.Frontend** y **Storage**. | Salida | No | No |
 | **AzurePlatformDNS** | El servicio DNS de infraestructura básica (predeterminado).<br/><br>Puede usar esta etiqueta para deshabilitar el DNS predeterminado. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](./network-security-groups-overview.md#azure-platform-considerations). También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), que es un servicio de infraestructura básico.<br/><br/>Puede usar esta etiqueta para deshabilitar el IMDS predeterminado. Tenga cuidado al usar esta etiqueta. Se recomienda leer las [consideraciones sobre la plataforma Azure](./network-security-groups-overview.md#azure-platform-considerations). También se recomienda realizar pruebas antes de usar esta etiqueta. | Salida | No | No |

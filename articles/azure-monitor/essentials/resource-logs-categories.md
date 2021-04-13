@@ -2,13 +2,13 @@
 title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
 ms.topic: reference
-ms.date: 01/29/2021
-ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/30/2021
+ms.openlocfilehash: a4ab4a2e425b752198223da5efd1b07466ab83d1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033153"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166945"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -33,7 +33,8 @@ A continuación, se muestra una lista de los tipos de registros disponibles para
 Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Consulte la documentación específica de recurso si cree que falta un recurso. Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Si le parece que falta algo, puede escribir un comentario de GitHub en la parte inferior de este artículo.
-## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/domainServices
+
+## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
@@ -46,6 +47,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |PolicyChange|PolicyChange|No|
 |PrivilegeUse|PrivilegeUse|No|
 |SystemSecurity|SystemSecurity|No|
+
+
+## <a name="microsoftaadiamtenants"></a>microsoft.aadiam/tenants
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Inicio de sesión|Inicio de sesión|Sí|
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
@@ -97,6 +105,14 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |JobStreams|Flujos de trabajo|No|
 
 
+## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft.AutonomousDevelopmentPlatform/accounts
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Auditoría|Auditoría|Sí|
+|Operativos|Operativos|Sí|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -135,7 +151,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |BotRequest|Solicitudes de los canales al bot|No|
-|DependencyRequest|Solicitudes a dependencias|No|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -182,6 +197,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
+|AuthOperational|Registros de autenticación operativos|Sí|
 |ChatOperational|Registros de chat operativos|No|
 |SMSOperational|Registros de SMS operativos|No|
 |Uso|Registros de uso|No|
@@ -256,6 +272,8 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |ActivityRuns|Registro de ejecuciones de actividad de canalización|No|
 |PipelineRuns|Registro de ejecuciones de canalización|No|
+|SandboxActivityRuns|Registro de ejecuciones de actividad de espacio aislado|Sí|
+|SandboxPipelineRuns|Registro de ejecuciones de canalización de espacio aislado|Sí|
 |SSISIntegrationRuntimeLogs|Registros de SQL Server Integration Services|No|
 |SSISPackageEventMessageContext|Contexto de mensaje de evento del paquete SSIS|No|
 |SSISPackageEventMessages|Mensajes de evento del paquete SSIS|No|
@@ -320,6 +338,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |PostgreSQLLogs|Registros del servidor PostgreSQL|No|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|PostgreSQLLogs|Registros del servidor PostgreSQL|Sí|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
@@ -531,18 +556,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AppTraces|Traces|No|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Category|Nombre para mostrar de categoría|Costos de exportación|
-|---|---|---|
-|Auditoría|Auditoría|No|
-|Salida|Salida|No|
-|Entrada|Entrada|No|
-|Operativos|Operativos|No|
-|Seguimiento|Seguimiento|No|
-|UserDefinedFunction|UserDefinedFunction|No|
-
-
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -747,13 +760,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Motor|Motor|No|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/accounts
-
-|Category|Nombre para mostrar de categoría|Costos de exportación|
-|---|---|---|
-|ScanStatusLogEvent|ScanStatus|No|
-
-
 ## <a name="microsoftpurviewaccounts"></a>microsoft.purview/accounts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -808,6 +814,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AllLogs|Registros de Azure SignalR Service|No|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft.SignalRService/WebPubSub
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|AllLogs|Registros del servicio Azure Web PubSub.|Sí|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -901,6 +914,9 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |BuiltinSqlReqsEnded|Solicitudes finalizadas de grupo de SQL integrado|No|
 |GatewayApiRequests|Solicitudes de API de puerta de enlace de Azure Synapse|No|
+|IntegrationActivityRuns|Ejecuciones de actividad de integración|Sí|
+|IntegrationPipelineRuns|Ejecuciones de canalización de integración|Sí|
+|IntegrationTriggerRuns|Ejecuciones de desencadenador de integración|Sí|
 |SQLSecurityAuditEvents|Evento de auditoría de seguridad de SQL|No|
 |SynapseRbacOperations|Operaciones de RBAC de Synapse|No|
 
@@ -975,7 +991,6 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |AppServiceIPSecAuditLogs|Registros de auditoría de IPSecurity|No|
 |AppServicePlatformLogs|Registros de la plataforma App Service|No|
 |FunctionAppLogs|Registros de aplicaciones de función|No|
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

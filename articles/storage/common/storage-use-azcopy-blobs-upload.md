@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cdc10720b6fa93cf1893d2040fd1c1f3e9e1f02
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97358765"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728869"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Carga de archivos en Azure Blob Storage con AzCopy v10
 
@@ -37,7 +37,7 @@ Para crear un contenedor puede usar el comando [azcopy make](storage-ref-azcopy-
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-|    |     |
+| Ejemplo de sintaxis | Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'` |
 | **Ejemplo** | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
@@ -52,7 +52,7 @@ Cargue un archivo mediante el comando [azcopy copy](storage-ref-azcopy-copy.md).
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
@@ -69,7 +69,7 @@ En este ejemplo se copia un directorio (y todos sus archivos) en un contenedor d
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
@@ -77,7 +77,7 @@ En este ejemplo se copia un directorio (y todos sus archivos) en un contenedor d
 
 Para copiar un directorio dentro el contenedor, simplemente especifique el nombre de ese directorio en la cadena de comandos.
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Ejemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
 | **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
@@ -91,7 +91,7 @@ Cargue el contenido de un directorio mediante el comando [azcopy copy](storage-r
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
@@ -111,7 +111,7 @@ Puede cargar archivos específicos mediante nombres de archivo completos, nombre
 
 Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-path`. Separe los nombres de archivo individuales mediante punto y coma (`;`).
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
@@ -125,7 +125,7 @@ También puede excluir archivos mediante la opción `--exclude-path`. Para más 
 
 Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-pattern`. Especifique nombres parciales que incluyan los caracteres comodín. Separe los nombres con punto y coma (`;`). 
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
@@ -141,7 +141,7 @@ Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--inclu
 
 En los siguientes ejemplos se cargan archivos que se modificaron en la fecha especificada o después de esta.
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
 | **Ejemplo** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
@@ -164,7 +164,7 @@ En el siguiente ejemplo, se muestra cómo usar la opción `--blob-tags`.
 > [!TIP]
 > En este ejemplo los argumentos de ruta de acceso se encierran entre comillas simples ('). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Carga de un archivo** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
 | **Subir un directorio** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|

@@ -3,13 +3,13 @@ title: Creación de un clúster privado de Azure Kubernetes Service
 description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 3/5/2021
-ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 3/31/2021
+ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556543"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120374"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -72,12 +72,12 @@ Se pueden aprovechar los siguientes parámetros para configurar la zona DNS priv
 
 - "System" es el valor predeterminado. Si se omite el argumento --private-dns-zone, AKS creará una zona DNS privada en el grupo de recursos del nodo.
 - El valor "None" significa que AKS no creará una zona DNS privada.  Esto requiere que Traiga su propio servidor DNS y configure la resolución DNS para el FQDN privado.  Si no configura la resolución DNS, el DNS solo se podrá resolver dentro de los nodos del agente y provocará problemas en el clúster después de la implementación. 
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requiere la creación de una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga al menos el rol `private dns zone contributor`.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requiere la creación de una zona DNS privada en este formato para la nube global de Azure: `privatelink.<region>.azmk8s.io`. A partir de ahora, necesitará el identificador de recurso de esa zona DNS privada.  También necesitará una identidad asignada por el usuario o una entidad de servicio que tenga como mínimo los roles `private dns zone contributor` y `vnet contributor`.
 - "fqdn-subdomain" solo se puede usar con "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" para proporcionar capacidades de subdominio a `privatelink.<region>.azmk8s.io`.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-* La versión preliminar 0.5.3 de AKS o posterior.
+* La versión preliminar 0.5.7 de AKS o posterior.
 * La API, versión 2020-11-01 o posterior
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Creación de un clúster de AKS privado con zona de DNS privado (versión preliminar)
@@ -91,6 +91,7 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
+
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opciones para conectarse al clúster privado
 
 El punto de conexión del servidor de la API no tiene ninguna dirección IP pública. Para administrar el servidor de API, necesitará una máquina virtual que tenga acceso a la red virtual de Azure (VNet) del clúster de AKS. Hay varias opciones para establecer la conectividad de red con el clúster privado.
@@ -98,8 +99,61 @@ El punto de conexión del servidor de la API no tiene ninguna dirección IP pú
 * Crear una máquina virtual en la misma red virtual de Azure (VNet) que el clúster de AKS.
 * Usar una máquina virtual de una red diferente y configurar el [emparejamiento de red virtual][virtual-network-peering].  Consulte la sección siguiente para más información sobre esta opción.
 * Usar una conexión de [ExpressRoute o VPN][express-route-or-VPN].
+* Use la [característica Ejecutar comando de AKS](#aks-run-command-preview).
 
 La opción más sencilla es crear una máquina virtual en la misma red virtual que el clúster de AKS.  ExpressRoute y las VPN incrementan los costos y requieren redes más complejas.  Para utilizar el emparejamiento de red virtual, debe planear los intervalos CIDR de la red para asegurarse de que no haya intervalos superpuestos.
+
+### <a name="aks-run-command-preview"></a>Ejecutar comando de AKS (versión preliminar)
+
+En la actualidad, cuando necesite tener acceso a un clúster privado, debe hacerlo dentro de la red virtual del clúster o en una red o una máquina cliente emparejadas. Normalmente, para ello es necesario que la máquina se conecte a través de VPN o ExpressRoute a la red virtual del clúster o que se cree un JumpBox en dicha red. Ejecutar comando de AKS le permite invocar comandos de forma remota en un clúster de AKS mediante la API de AKS. Esta característica proporciona una API que le permite, por ejemplo, ejecutar comandos Just-in-Time desde un equipo portátil remoto de un clúster privado. Esta API le puede ayudar considerablemente con el acceso rápido Just-In-Time a un clúster privado cuando la máquina cliente no está en la red privada del clúster y, al mismo tiempo, conserva y aplica los mismos controles de RBAC y el servidor de API privado.
+
+### <a name="register-the-runcommandpreview-preview-feature"></a>Registro de la característica en vista previa (GB) `RunCommandPreview`
+
+Para usar la nueva API Ejecutar comando, también debe habilitar la marca de característica `RunCommandPreview` en la suscripción.
+
+Registre la marca de la característica `RunCommandPreview` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "RunCommandPreview"
+```
+
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/RunCommandPreview')].{Name:name,State:properties.state}"
+```
+
+Cuando haya terminado, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="use-aks-run-command"></a>Uso de Ejecutar comando de AKS
+
+Comando sencillo
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl get pods -n kube-system"
+```
+
+Implementación de un manifiesto adjuntando el archivo específico
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f deployment.yaml
+```
+
+Implementación de un manifiesto adjuntando una carpeta completa
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f .
+```
+
+Realización de una instalación de Helm y paso del manifiesto de valores específico
+
+```azurecli-interactive
+az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
+```
 
 ## <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 

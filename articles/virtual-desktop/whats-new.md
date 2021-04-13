@@ -3,17 +3,17 @@ title: Novedades de Windows Virtual Desktop - Azure
 description: Nuevas características y actualizaciones de productos para Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499890"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505423"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novedades de Windows Virtual Desktop
 
@@ -35,6 +35,18 @@ Consulte estos artículos para obtener información acerca de las actualizacione
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Actualizaciones del agente de Windows Virtual Desktop
+
+El agente de Windows Virtual Desktop se actualiza al menos una vez al mes.
+
+Estos son los cambios que se han realizado en el agente Windows Virtual Desktop:
+
+- Versión 1.0.2866.1500: esta actualización se publicó el 26 de marzo de 2021 y corrigió un problema con la comprobación del estado de la pila.
+- Versión 1.0.2800.2802: esta actualización se publicó el 10 de marzo de 2021 e incluye mejoras generales y correcciones de errores.
+- Versión 1.0.2800.2800: esta actualización se publicó el 2 marzo de 2021 y corrigió un problema de conexión inversa.
+- Versión 1.0.2800.2700: esta actualización se publicó el 10 de febrero de 2021 e incluye mejoras generales y correcciones de errores.
+- Versión 1.0.2800.2700: esta actualización se publicó el 4 de febrero de 2021 y corrigió un problema de orquestación de acceso denegado.
 
 ## <a name="fslogix-updates"></a>Actualizaciones de FSLogix
 

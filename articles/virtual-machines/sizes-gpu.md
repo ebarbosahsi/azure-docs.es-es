@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a63a468301a5b0d54abd474fd9bb62212b890f76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09d62ea5f2db77c14e8faff44de7fb3ce759c6fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102554422"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709742"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 
@@ -31,11 +31,13 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de AMD o NVIDIA.
 
-- Para las máquinas virtuales en las que las GPU de NVIDIA realizan la copia de seguridad, la [extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](./extensions/overview.md).   
+- Para las máquinas virtuales en las que las GPU de NVIDIA realizan la copia de seguridad, la [extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](./extensions/overview.md).
 
    Como alternativa, puede instalar controladores de GPU de NVIDIA manualmente. Consulte [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows](./windows/n-series-driver-setup.md) o [Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux](./linux/n-series-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
 
-- Para las máquinas virtuales en las que las GPU de AMD realizan la copia de seguridad, consulte [Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows](./windows/n-series-amd-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
+- En el caso de las máquinas virtuales respaldadas por GPU de AMD, la [extensión de controlador de GPU de AMD](./extensions/hpccompute-amd-gpu-windows.md) instala los controladores de AMD adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](./extensions/overview.md).
+
+   Como alternativa, puede instalar controladores de GPU de AMD manualmente. Para conocer los sistemas operativos y los controladores admitidos, así como los pasos de instalación y comprobación, consulte [Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows](./windows/n-series-amd-driver-setup.md).
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 

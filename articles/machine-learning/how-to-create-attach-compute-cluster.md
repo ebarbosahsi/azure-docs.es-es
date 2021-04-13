@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506946"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169579"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -44,11 +44,9 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 ## <a name="limitations"></a>Limitaciones
 
-* **No cree varios datos adjuntos simultáneos en el mismo proceso** desde su área de trabajo. Por ejemplo, adjuntar un clúster de proceso a un área de trabajo con dos nombres diferentes. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
-
-    Si quiere volver a adjuntar un destino de proceso, por ejemplo, para cambiar la configuración del clúster, primero debe eliminar los datos adjuntos existentes.
-
 * Algunos de los escenarios que se enumeran en este documento se marcan como __versión preliminar__. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Actualmente solo se admite la creación (y no la actualización) de clústeres a través de plantillas de ARM [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Para actualizar el proceso, se recomienda usar el SDK, la CLI o la experiencia del usuario por ahora.
 
 * Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](how-to-manage-quotas.md).
 

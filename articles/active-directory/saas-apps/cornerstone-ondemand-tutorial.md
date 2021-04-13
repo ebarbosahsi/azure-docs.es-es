@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950390"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone Single Sign-On
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Cornerstone Single Sign-On con Azure Act
 * Permitir que los usuarios inicien sesión automáticamente en Cornerstone Single Sign-On con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -123,49 +123,11 @@ En esta sección, va a permitir que B.Simon acceda a Cornerstone Single Sign-On 
 
 ## <a name="configure-cornerstone-single-sign-on-sso"></a>Configuración de Cornerstone Single Sign-On SSO
 
-1. Inicie sesión en Cornerstone Single Sign-On como administrador.
-
-1. Vaya a **Administración -> Herramientas**.
-
-    ![Captura de pantalla de la página de administración.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Seleccione el panel **BORDE** en **Herramientas de configuración**.
-
-    ![Captura de pantalla del panel BORDE.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Seleccione Inicio de sesión único en la sección de **integración**.
-
-    ![Captura de pantalla de la opción Inicio de sesión único.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Haga clic en el botón **Add SSO** (Agregar inicio de sesión único). Seleccione **Inbound SAML** (SAML de entrada) en la ventana que se muestra a continuación y haga clic en **Agregar**.
-
-    ![Captura de pantalla de SAML de entrada.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Realice los pasos que se indican en la página siguiente:
-
-    ![Captura de pantalla de la sección de configuración de Cornerstone.](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. En **Propiedades generales**, haga clic en **Cargar archivo** para cargar el archivo **Certificado (Base64)** , que ha descargado de Azure Portal.
-
-    b. Seleccione el cuadro de texto **Habilitar** y en **IDP URL** (URL de IDP) pegue la **URL de inicio de sesión** que ha copiado de Azure Portal.
-
-    c. Haga clic en **Save**(Guardar).
+Para configurar el inicio de sesión único en **Cornerstone Single Sign-On**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Cornerstone Single Sign-On](mailto:moreinfo@csod.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Creación de un usuario de prueba de Cornerstone Single Sign-On
 
 El objetivo de esta sección es crear un usuario llamado B.Simon en Cornerstone Single Sign-On. Cornerstone Single Sign-On admite el aprovisionamiento automático de usuarios, que está habilitado de forma predeterminada. [Aquí](./cornerstone-ondemand-provisioning-tutorial.md) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
-
-**Para crear un usuario manualmente, siga los pasos siguientes:**
-
-1. Inicie sesión en Cornerstone Single Sign-On como administrador.
-
-1. Vaya a **Administración -> Usuarios** y haga clic en **Agregar usuario** en la parte inferior de la página.
-
-    ![Captura de pantalla sobre la creación del usuario de prueba de Cornerstone.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Rellene los campos obligatorios en la página **Agregar nuevo usuario** y haga clic en **Guardar**.
-
-    ![Captura de pantalla sobre la creación del usuario de prueba, con los campos obligatorios.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

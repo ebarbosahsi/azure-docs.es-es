@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: f6ec14c577d1203b92085b791f89e4873a97c41a
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 33184a9a9afaf05b093b8495fddd3b2c97fbd09a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786110"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492484"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -24,6 +24,91 @@ Para obtener información sobre los cambios *planeados* que están próximos a m
 
 > [!TIP]
 > Si busca elementos de más de 6 meses, puede encontrarlos en las [Novedades de Azure Security Center](release-notes-archive.md).
+
+## <a name="april-2021"></a>Abril de 2021
+
+Las actualizaciones de abril incluyen:
+- [Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [11 alertas de Azure Defender se han puesto en desuso](#11-azure-defender-alerts-deprecated).
+- [Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entraron en desuso](#two-recommendations-from-apply-system-updates-security-control-were-deprecated).
+
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Cuatro nuevas recomendaciones relacionadas con la configuración de invitado (versión preliminar)
+
+La [extensión de configuración de invitado](../governance/policy/concepts/guest-configuration.md) de Azure informa a Security Center para ayudar a garantizar la protección de la configuración de invitado de las máquinas virtuales. La extensión no es necesaria para los servidores habilitados para Arc porque está incluida en el agente Connected Machine de Arc. La extensión requiere una identidad administrada por el sistema en la máquina.
+
+Hemos agregado cuatro nuevas recomendaciones a Security Center para sacar el máximo partido a esta extensión.
+
+- En dos recomendaciones se le pide que instale la extensión y su identidad administrada por el sistema requerida:
+    - **La extensión "Configuración de invitado" debe estar instalada en las máquinas**
+    - **La extensión "Configuración de invitado" de las máquinas virtuales debe implementarse con una identidad administrada asignada por el sistema**
+
+- Cuando la extensión esté instalada y en ejecución, comenzará a auditar las máquinas y se le pedirá que refuerce la configuración del sistema operativo y la del entorno. Estas dos recomendaciones le pedirán que proteja sus máquinas Windows y Linux como se describe a continuación:
+    - **La Protección contra vulnerabilidades de seguridad de Windows Defender debe estar habilitada en las máquinas**.
+    - **La autenticación en máquinas Linux debe requerir claves SSH.**
+
+Puede encontrar más información en [Información sobre Guest Configuration de Azure Policy](../governance/policy/concepts/guest-configuration.md).
+
+
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Use Azure Defender para Kubernetes para proteger implementaciones de Kubernetes híbridas y de varias nubes (versión preliminar)
+
+Azure Defender para Kubernetes está expandiendo sus funcionalidades de protección contra amenazas para defender los clústeres dondequiera que estén implementados. Esto se ha habilitado mediante la integración con [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md) y las nuevas funcionalidades de sus extensiones. 
+
+Una vez habilitado Azure Arc en los clústeres de Kubernetes que no son de Azure, una nueva recomendación de Azure Security Center ofrece la implementación de la extensión de Azure Defender en ellos con solo unos clics.
+
+Use la recomendación (los **clústeres de Kubernetes habilitados para Azure Arc deben tener instalada la extensión de Azure Defender**) y la extensión para proteger los clústeres de Kubernetes implementados en otros proveedores de nube, aunque no en los servicios administrados de Kubernetes.
+
+Esta integración entre Azure Security Center, Azure Defender y Kubernetes habilitado para Azure Arc ofrece:
+
+- Aprovisionamiento sencillo de la extensión de Azure Defender en clústeres de Kubernetes habilitado para Azure Arc sin protección (manualmente y a escala)
+- Supervisión de la extensión de Azure Defender y su estado de aprovisionamiento desde el portal de Azure Arc
+- Las recomendaciones de seguridad de Security Center se muestran en la nueva página de seguridad del portal de Azure Arc.
+- Las amenazas de seguridad identificadas de Azure Defender se muestran en la nueva página de seguridad del portal de Azure Arc.
+- Los clústeres de Kubernetes habilitados para Azure Arc están integrados en la plataforma y la experiencia de Azure Security Center
+
+Puede encontrar más información en [Uso de Azure Defender para Kubernetes con los clústeres de Kubernetes locales y de varias nubes](defender-for-kubernetes-azure-arc.md).
+
+### <a name="11-azure-defender-alerts-deprecated"></a>11 alertas de Azure Defender se han puesto en desuso.
+
+Las once alertas de Azure Defender que se enumeran a continuación han quedado en desuso.
+
+- Las nuevas alertas reemplazarán estas dos y proporcionarán una mejor cobertura:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | VERSIÓN PRELIMINAR: Se detectó la ejecución de la función "Get-AzureDomainInfo" del kit de herramientas de MicroBurst. |
+    | ARM_MicroBurstRunbook    | VERSIÓN PRELIMINAR: Se detectó la ejecución de la función "Get-AzurePasswords" del kit de herramientas de MicroBurst.  |
+    |                          |                                                                          |
+
+- Estas nueve alertas se refieren a un conector de Azure Active Directory Identity Protection (IPC) que ya está en desuso:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Propiedades de inicio de sesión desconocidas |
+    | AnonymousLogin      | Dirección IP anónima          |
+    | InfectedDeviceLogin | Dirección IP vinculada al malware     |
+    | ImpossibleTravel    | Viaje atípico               |
+    | MaliciousIP         | Dirección IP malintencionada          |
+    | LeakedCredentials   | Credenciales con fugas            |
+    | PasswordSpray       | Difusión de contraseñas                |
+    | LeakedCredentials   | Inteligencia de Azure AD sobre amenazas  |
+    | AADAI               | IA de Azure AD                   |
+    |                     |                               |
+ 
+    > [!TIP]
+    > Estas nueve alertas de IPC nunca fueron alertas de Security Center. Forman parte del conector de Azure Active Directory Identity Protection que las envía a Security Center. Durante los últimos dos años, los únicos clientes que han estado viendo esas alertas son las organizaciones que han configurado la exportación (del conector a ASC) en 2019 o versiones anteriores. El conector de Azure Active Directory Identity Protection ha continuado mostrando sus propios sistemas de alertas y ha continuado estando disponible en Azure Sentinel. El único cambio es que ya no aparecen en Security Center.
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>Dos recomendaciones del control de seguridad "Aplicar actualizaciones del sistema" entraron en desuso. 
+
+Las dos recomendaciones siguientes estaban en desuso y los cambios pueden dar lugar a un leve impacto en la puntuación de seguridad:
+
+- **Las máquinas deben reiniciarse para aplicar las actualizaciones del sistema**
+- **El agente de supervisión debe instalarse en las máquinas**. Esta recomendación solo está relacionada con máquinas locales y parte de su lógica se transferirá a otra recomendación, **Se deben resolver los problemas de estado del agente de Log Analytics en las máquinas**.
+
+Se recomienda comprobar las configuraciones de exportación continua y de automatización del flujo de trabajo para ver si estas recomendaciones están incluidas en ellas. Además, los paneles u otras herramientas de supervisión que puedan estar usándolas se deben actualizar en consecuencia.
+
+Más información sobre estas recomendaciones en la [página de referencia de las recomendaciones de seguridad](recommendations-reference.md).
 
 
 ## <a name="march-2021"></a>Marzo de 2021
@@ -753,154 +838,3 @@ La recomendación **Las actualizaciones del sistema deben estar instaladas en la
 Ahora puede ver si las suscripciones tienen la directiva de Security Center predeterminada asignada, en la página **Directiva de seguridad** de Security Center en Azure Portal.
 
 :::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="En la página de administración de directivas de Azure Security Center se muestran las asignaciones de directivas predeterminadas":::
-
-## <a name="october-2020"></a>Octubre de 2020
-
-Las actualizaciones de octubre incluyen:
-- [Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
-- [Recomendación sobre Azure Firewall agregada (versión preliminar)](#azure-firewall-recommendation-added-preview)
-- [La recomendación de que los intervalos IP autorizados deben definirse en los servicios de Kubernetes se ha actualizado con una corrección rápida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
-- [El panel de cumplimiento normativo ahora incluye la opción para eliminar estándares](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
-- [Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)
-
-El analizador de evaluación de vulnerabilidades integrado de [Azure Defender para servidores](defender-for-servers-introduction.md) (con tecnología de Qualys) ahora analiza los servidores habilitados para Azure Arc.
-
-Al habilitar Azure Arc en máquinas que no son de Azure, Security Center le ofrecerá la opción de implementar en ellas el analizador de vulnerabilidades integrado, manualmente y a escala.
-
-Con esta actualización, puede aprovechar toda la capacidad de **Azure Defender para servidores** para consolidar su programa de administración de vulnerabilidades en todos sus recursos, tanto si son de Azure como si no.
-
-Principales funcionalidades:
-
-- Supervisión del estado de aprovisionamiento del analizador de evaluación de vulnerabilidades en máquinas de Azure Arc.
-- Aprovisionamiento del agente de evaluación de vulnerabilidades integrado en máquinas de Azure Arc Windows y Linux (manualmente y a escala).
-- Recepción y análisis de vulnerabilidades detectadas por agentes implementados (manualmente y a escala).
-- Experiencia unificada para máquinas virtuales de Azure y máquinas de Azure Arc.
-
-[Obtenga más información sobre la implementación del analizador de vulnerabilidades integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
-
-[Obtenga más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
-
-
-### <a name="azure-firewall-recommendation-added-preview"></a>Recomendación sobre Azure Firewall agregada (versión preliminar)
-
-Se ha agregado una nueva recomendación para proteger todas las redes virtuales con Azure Firewall.
-
-La recomendación **Azure Firewall debe proteger las redes virtuales** le aconseja restringir el acceso a las redes virtuales y evitar posibles amenazas mediante el uso de Azure Firewall.
-
-Más información acerca de [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
-
-
-### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>La recomendación de que los intervalos IP autorizados deben definirse en los servicios de Kubernetes se ha actualizado con una corrección rápida
-
-La recomendación **Authorized IP ranges should be defined on Kubernetes Services** (Los intervalos IP autorizados deben definirse en los servicios de Kubernetes) ahora tiene una opción de corrección rápida.
-
-Para más información sobre esta y todas las demás recomendaciones de Security Center, consulte [Guía de referencia sobre las recomendaciones de seguridad](recommendations-reference.md).
-
-:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="La recomendación Authorized IP ranges should be defined on Kubernetes Services (Los intervalos IP autorizados deben definirse en los servicios de Kubernetes) con la opción de corrección rápida":::
-
-
-### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>El panel de cumplimiento normativo ahora incluye la opción para eliminar estándares
-
-En el panel de cumplimiento normativo de Security Center se proporciona información sobre su postura de cumplimiento en función de cómo cumple los requisitos y controles de cumplimiento específicos.
-
-El panel incluye un conjunto predeterminado de estándares normativos. Si alguno de ellos no es pertinente para su organización, quitarlo de la interfaz de usuario ahora es un proceso sencillo en una suscripción. Los estándares se pueden quitar solo en el nivel de *suscripción*, no en el ámbito del grupo de administración.
-
-Encontrará más información en [Eliminación de un estándar del panel](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
-
-
-### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)
-
-Azure Resource Graph es un servicio de Azure diseñado para proporcionar una exploración de recursos eficaz con la capacidad de consultar a escala a través de un conjunto especificado de suscripciones para que pueda controlar eficazmente el entorno. 
-
-Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad. Por ejemplo:
-
-- El inventario de recursos utiliza ARG.
-- Hemos documentado una consulta de ARG de ejemplo sobre la [Identificación de cuentas sin Multi-Factor Authentication (MFA) habilitado](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled).
-
-En ARG hay tablas de datos que se pueden usar en las consultas.
-
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles":::
-
-> [!TIP]
-> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
-
-A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses**. La API securityStatuses sigue estando disponible.
-
-La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
-
-La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
-
-Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
-
-```
-{
-id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
-name: "mico-rg-vnet",
-type: "Microsoft.Security/securityStatuses",
-properties:  {
-    policyAssessments: [
-        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
-        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
-    ],
-    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
-    name: "GenericResourceHealthProperties",
-    type: "VirtualNetwork",
-    securitystate: "High"
-}
-```
-Por su parte, Microsoft.Security/Assessments contendrá un registro para cada una de estas evaluaciones de directivas como se indica a continuación:
-
-```
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
-name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
-properties:  {
-    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
-    displayName: "Azure DDOS Protection Standard should be enabled",
-    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
-}
-
-{
-type: "Microsoft.Security/assessments",
-id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
-name: "8efac66a-1ec5-be63-a824-eb28671dc527",
-properties: {
-    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
-    displayName: "Audit diagnostic setting",
-    status:  {code: "Unhealthy"}
-}
-```
-
-**Ejemplo de conversión de una consulta de ARG existente usando securityStatuses para usar ahora la tabla Assessments:**
-
-Consulta que hace referencia a SecurityStatuses:
-
-```kusto
-SecurityResources 
-| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
-| where name in ({vmnames}) 
-| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
-```
-
-Consulta de sustitución para la tabla Assessments:
-
-```kusto
-securityresources
-| where type == "microsoft.security/assessments" and id contains "virtualMachine"
-| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
-| extend source = tostring(properties.resourceDetails.Source)
-| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
-source =~ "aws", properties.additionalData.AzureResourceId,
-source =~ "gcp", properties.additionalData.AzureResourceId,
-extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
-| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
-| where resourceName in ({vmnames}) 
-| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
-```
-
-Para más información, consulte los siguientes vínculos:
-- [Creación de consultas con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
-- [Lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/)

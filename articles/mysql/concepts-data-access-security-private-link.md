@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e239b6b00c5a5e993834a10fca30de02b9f715ff
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863571"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065521"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link para Azure Database for MySQL
 
@@ -118,7 +118,7 @@ Si quiere depender únicamente de puntos de conexión privados para acceder a su
 Si esta opción está establecida en *YES* (SÍ), solo se permiten conexiones a la instancia de Azure Database for MySQL mediante puntos de conexión privados. Si esta opción está establecida en *NO*, los clientes pueden conectarse a su instancia de Azure Database for MySQL en función de la configuración del firewall o del punto de conexión de servicio de red virtual. Además, una vez establecido el valor de acceso a la red privada, los clientes no pueden agregar ni actualizar las "reglas de firewall" ni la "regla de punto de conexión de servicio de red virtual" existentes.
 
 > [!Note]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL: servidor único admite los planes de tarifa de uso general y optimizados para memoria.
 >
 > Esta configuración no afecta a las configuraciones de SSL y TLS de su instancia de Azure Database for MySQL.
 

@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b4c8ab55a9b2afc9c1a215236fa1276a630a5cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a6bc9bfb06f1c80b719bdda686ae111a8884ab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963628"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks - Aperture
 
-En este tutorial, obtendrá información sobre cómo integrar Palo Alto Networks - Aperture con Azure Active Directory (Azure AD).
-La integración de Palo Alto Networks - Aperture con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Palo Alto Networks - Aperture con Azure Active Directory (Azure AD). Al integrar Palo Alto Networks - Aperture con Azure AD, puede:
 
-* Puede controlar en Azure AD quién tiene acceso a Palo Alto Networks - Aperture.
-* Puede permitir que los usuarios inicien sesión automáticamente en Palo Alto Networks - Aperture (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Palo Alto Networks - Aperture.
+* Permitir que los usuarios inicien sesión automáticamente en Palo Alto Networks - Aperture con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Palo Alto Networks - Aperture, se necesitan los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción con inicio de sesión único de Palo Alto Networks - Aperture
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en Palo Alto Networks - Aperture.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Palo Alto Networks - Aperture admite el inicio de sesión único iniciado por **SP** e **IDP**.
+* Palo Alto Networks - Aperture admite el inicio de sesión único comenzado por **SP** e **IDP**.
 
-## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Adición de Palo Alto Networks - Aperture desde la galería
+## <a name="add-palo-alto-networks---aperture-from-the-gallery"></a>Adición de Palo Alto Networks - Aperture desde la galería
 
 Para configurar la integración de Palo Alto Networks - Aperture en Azure AD, es preciso agregar Palo Alto Networks - Aperture desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -59,10 +58,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Palo Alto Networks - Aperture, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 2. **[Configuración del inicio de sesión único de Palo Alto Networks - Aperture](#configure-palo-alto-networks---aperture-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Palo Alto Networks - Aperture](#create-palo-alto-networks---aperture-test-user)**: para tener un homólogo de Britta Simon en Palo Alto Networks - Aperture que esté vinculado a la representación del usuario en Azure AD.
+    1. **[Creación de un usuario de prueba de Palo Alto Networks - Aperture](#create-palo-alto-networks---aperture-test-user)**: para tener un homólogo de Britta Simon en Palo Alto Networks - Aperture que esté vinculado a la representación del usuario en Azure AD.
 3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -77,15 +76,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra la sección "Configuración básica de S A M L" con los cuadros de texto "Identificador" y "Dirección U R L de respuesta" resaltados y la acción "Guardar" seleccionada.](common/idp-intiated.png)
-
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
-
-    ![SP de información de dominio y direcciones URL de inicio de sesión único de Palo Alto Networks - Aperture](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
@@ -130,15 +125,15 @@ En esta sección, va a permitir que B.Simon acceda a Palo Alto Networks - Apertu
 
 2. En la barra de menús superior, haga clic en **SETTINGS** (CONFIGURACIÓN).
 
-    ![La pestaña Configuración](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+    ![La pestaña Configuración](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. Vaya a la sección **APPLICATION** (APLICACIÓN) y haga clic en el formulario **Authentication** (Autenticación) en el lado izquierdo del menú.
 
-    ![La pestaña Autenticación](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+    ![La pestaña Autenticación](./media/paloaltonetworks-aperture-tutorial/authentication.png)
     
 4. En la página **Authentication** (Autenticación), realice los siguientes pasos:
     
-    ![La pestaña Autenticación](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+    ![La pestaña Autenticación](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
     a. Active **Enable Single Sign-On(Supported SSP Providers are Okta, One login)** (Habilitar inicio de sesión único [Los proveedores SSP admitidos son Okta, One login]) en el campo **Single Sign-On** (Inicio de sesión único).
 

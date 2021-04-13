@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 0d083d856138d7895a6e03f4d290ef3c4ddebd05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4379c8f43bbfa539179b821bf6b18a01518afad6
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629653"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384313"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Uso de OpenSSL para crear certificados de prueba
 
@@ -101,6 +101,13 @@ authorityKeyIdentifier   = keyid:always
 basicConstraints         = critical,CA:true,pathlen:0
 extendedKeyUsage         = clientAuth,serverAuth
 keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[client_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:false
+extendedKeyUsage         = clientAuth
+keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 
 ```
@@ -244,13 +251,19 @@ Ahora tiene un certificado de entidad de certificación raíz y un certificado d
 
 1. Seleccione **Generar código de verificación**. Para más información, consulte [Demostración de la posesión de un certificado de entidad de certificación](tutorial-x509-prove-possession.md).
 
-1. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como firmante del certificado. Por ejemplo, si el código de verificación es BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, agréguelo como firmante del certificado, tal como se muestra en el paso siguiente.
+1. Copie este código de verificación en el portapapeles. Debe establecer el código de verificación como asunto del certificado. Por ejemplo, si el código de verificación es BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, agréguelo como firmante del certificado, tal como se muestra en el paso 9.
 
 1. Genere una clave privada.
 
   ```bash
-    $ openssl req -new -key pop.key -out pop.csr
+    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+  ```
 
+9. Genere una solicitud de firma de certificado (CSR) para una clave privada existente. Agregue el código de verificación como firmante del certificado.
+
+  ```bash
+  openssl req -new -key pop.key -out pop.csr
+  
     -----
     Country Name (2 letter code) [XX]:.
     State or Province Name (full name) []:.
@@ -267,16 +280,16 @@ Ahora tiene un certificado de entidad de certificación raíz y un certificado d
  
   ```
 
-9. Cree un certificado con el archivo de configuración de la entidad de certificación raíz y la solicitud de firma de certificado.
+10. Cree un certificado con el archivo de configuración de la entidad de certificación raíz y el CSR como certificado de prueba de posesión.
 
   ```bash
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
-10. Seleccione el nuevo certificado en la vista **Detalles del certificado**.
+11. Seleccione el nuevo certificado en la vista **Detalles de certificado**. Para buscar el archivo PEM, vaya a la carpeta certs.
 
-11. Una vez cargado el certificado, seleccione **Comprobar**. El estado del certificado de la entidad de certificación debe cambiar a **Comprobado**.
+12. Una vez que el certificado se carga, seleccione **Comprobar**. El estado del certificado de la entidad de certificación debe cambiar a **Comprobado**.
 
 ## <a name="step-8---create-a-device-in-your-iot-hub"></a>Paso 8: Creación de un dispositivo en la instancia de IoT Hub
 
@@ -331,4 +344,4 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya a [Prueba de la autenticación de certificados](tutorial-x509-test-certificate.md) para determinar si el certificado puede autenticar el dispositivo en la instancia de IoT Hub.
+Vaya a la [prueba de la autenticación de certificados](tutorial-x509-test-certificate.md) para determinar si el certificado puede autenticar el dispositivo en el IoT Hub.

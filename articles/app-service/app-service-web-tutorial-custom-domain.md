@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 216c96579944661ecf248e4e8676ac45021c53e6
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182594"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293964"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -51,6 +51,8 @@ Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
+  > [!NOTE]
+  > Al quitar o agregar un dominio personalizado a la aplicación web, el sitio se reiniciará.
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
@@ -209,7 +211,7 @@ Para asignar un registro D a una aplicación, normalmente al dominio raíz, cree
 >
 > | Tipo de registro | Host | Value |
 > | - | - | - |
-> | Un | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | A | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 > | TXT | `asuid.www` | [El identificador de comprobación que obtuvo anteriormente](#get-a-domain-verification-id). |
 >
 

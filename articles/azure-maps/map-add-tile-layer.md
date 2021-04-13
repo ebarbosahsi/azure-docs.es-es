@@ -3,33 +3,33 @@ title: Adición de una capa de mosaico a un mapa | Microsoft Azure Maps
 description: Aprenda a superponer imágenes en mapas. Vea un ejemplo en el que se usa el SDK web de Azure Maps para agregar una capa de mosaico que contenga una superposición de radar meteorológico a un mapa.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 07/29/2019
+ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e0fda77be23f6ea16d5e64b5d4796813c53f0e94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92890984"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608109"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adición de una capa de mosaico a un mapa
 
 En este artículo se explica cómo puede superponer una capa de mosaico en el mapa. Las capas de mosaico permiten superponer imágenes encima de los mosaicos de mapa base de Azure Maps. Para más información sobre el sistema de mosaicos de Azure Maps, consulte [Niveles de zoom y cuadrícula de mosaico](zoom-levels-and-tile-grid.md).
 
-Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes se pueden representar previamente o se pueden representar de forma dinámica. Las imágenes representadas previamente se almacenan como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entienda la capa de mosaico. Las imágenes representadas de forma dinámica usan un servicio para cargar las imágenes casi en tiempo real. Hay tres convenciones diferentes de nomenclatura de servicio de mosaico compatibles con la clase [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) de Azure Maps: 
+Una capa de mosaico carga los mosaicos desde un servidor. Estas imágenes se pueden representar previamente o se pueden representar de forma dinámica. Las imágenes representadas previamente se almacenan como cualquier otra imagen en un servidor mediante una convención de nomenclatura que entienda la capa de mosaico. Las imágenes representadas de forma dinámica usan un servicio para cargar las imágenes casi en tiempo real. Hay tres convenciones diferentes de nomenclatura de servicio de mosaico compatibles con la clase [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) de Azure Maps:
 
 * X, Y, notación Zoom: X es la columna, Y es la posición de fila del mosaico en la cuadrícula de mosaico y la notación Zoom es un valor basado en el nivel de zoom.
 * Notación Quadkey: combina la información de zoom, x e y en un valor de cadena único. Este valor de cadena se convierte en un identificador único para un solo mosaico.
-* Cuadro de límite: especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* Cuadro de límite: especifique una imagen en el formato de coordenadas del cuadro de límite: `{west},{south},{east},{north}`. Este formato se usa normalmente en [servicios de mapas web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > Un elemento [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) es una excelente manera de visualizar grandes conjuntos de datos en el mapa. No solo puede generarse una capa de mosaico a partir de una imagen, sino que también se pueden representar datos de vector como una capa de mosaico. Con la representación de datos de vectores como una capa de mosaico, el control de mapa solo necesita cargar los mosaicos que tienen un tamaño de archivo bastante más reducido que los datos de vector que representan. Esta técnica se usa normalmente para representar millones de filas de datos en el mapa.
 
-La dirección URL del mosaico pasada a una capa de mosaico debe ser una dirección URL HTTP/HTTPS que apunte a un recurso TileJSON o a una plantilla de URL de mosaico que use los siguientes parámetros: 
+La dirección URL del mosaico pasada a una capa de mosaico debe ser una dirección URL HTTP/HTTPS que apunte a un recurso TileJSON o a una plantilla de URL de mosaico que use los siguientes parámetros:
 
 * `{x}`: posición del mosaico en X. También necesita `{y}` y `{z}`.
 * `{y}`: posición del mosaico en Y. También necesita `{x}` y `{z}`.
@@ -41,15 +41,16 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 
 ## <a name="add-a-tile-layer"></a>Adición de una capa de icono
 
- En este ejemplo se muestra cómo crear una capa de mosaico que señale a un conjunto de mosaicos. En este ejemplo se usa el sistema de mosaicos de zoom, x e y. La fuente de esta capa de mosaico es una superposición de radar meteorológico de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Al examinar los datos de radar, idealmente los usuarios verán claramente las etiquetas de las ciudades mientras se desplazan por el mapa. Este comportamiento se puede implementar mediante la inserción de una capa de mosaico debajo de la capa `labels`.
+ En este ejemplo se muestra cómo crear una capa de mosaico que señale a un conjunto de mosaicos. En este ejemplo se usa el sistema de mosaicos de zoom, x e y. El origen de esta capa de mosaico es el [proyecto OpenSeaMap](https://openseamap.org/index.php), que contiene cartas náuticas financiadas por la comunidad. Al examinar los datos de radar, idealmente los usuarios verán claramente las etiquetas de las ciudades mientras se desplazan por el mapa. Este comportamiento se puede implementar mediante la inserción de una capa de mosaico debajo de la capa `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
-//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
 map.layers.add(new atlas.layer.TileLayer({
-    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    tileUrl: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',
     opacity: 0.8,
-    tileSize: 256
+    tileSize: 256,
+    minSourceZoom: 7,
+    maxSourceZoom: 17
 }), 'labels');
 ```
 
@@ -58,6 +59,34 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 <br/>
 
 <iframe height='500' scrolling='no' title='Capa de mosaico que usa X, Y y Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>capa de mosaico que usa X, Y y Z</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-an-ogc-web-mapping-service-wms"></a>Adición de un servicio de mapa web (WMS) de OGC
+
+Un servicio de mapa web (WMTS) es un estándar de Open Geospatial Consortium (OGC) para suministrar imágenes de datos de mapa. Hay muchos conjuntos de datos abiertos disponibles en este formato que puede usar con Azure Maps. Este tipo de servicio se puede usar con una capa de mosaico si el servicio admite el sistema de referencia de coordenadas (CRS) `EPSG:3857`. Al usar un servicio WMS, establezca los parámetros de ancho y alto en el mismo valor que admita el servicio y asegúrese de establecer este mismo valor en la opción `tileSize`. En la dirección URL con formato, establezca el parámetro `BBOX` del servicio con el marcador de posición `{bbox-epsg-3857}`.
+
+En la captura de pantalla siguiente se muestra el código anterior que superpone un servicio de mapa web de datos geológicos de [U.S. Geological Survey (USGS)](https://mrdata.usgs.gov/) encima de un mapa, debajo de las etiquetas.
+
+<br/>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="Capa de mosaico de WMS" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+Consulte el pen <a href='https://codepen.io/azuremaps/pen/BapjZqr'>Capa de mosaico de WMS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>Adición de un servicio de mosaico de mapa web de OGC (WMTS)
+
+Un servicio de mosaico de mapa web (WMTS) es un estándar de Open Geospatial Consortium (OGC) para suministrar superposiciones basadas en mosaicos para los mapas. Hay muchos conjuntos de datos abiertos disponibles en este formato que puede usar con Azure Maps. Este tipo de servicio se puede usar con una capa de mosaico si el servicio admite el sistema de referencia de coordenadas (CRS) `EPSG:3857` o `GoogleMapsCompatible`. Al usar un servicio WMS, establezca los parámetros de ancho y alto en el mismo valor que admita el servicio y asegúrese de establecer este mismo valor en la opción `tileSize`. En la dirección URL con formato, reemplace los siguientes marcadores de posición según corresponda:
+
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
+
+En la captura de pantalla siguiente se muestra el código anterior que superpone un servicio de mosaico de mapa web de imágenes de [U.S. Geological Survey (USGS)](https://viewer.nationalmap.gov/services/) encima de un mapa, debajo de las carreteras y etiquetas.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Capa de mosaico de WMTS" src="https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+Consulte el pen <a href='https://codepen.io/azuremaps/pen/BapjZVY'>Capa de mosaico de WMTS</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-tile-layer"></a>Personalizar una capa de mosaico

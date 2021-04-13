@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646561"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639744"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: Configuración de Microsoft Dynamics 365 Fraud Protection con Azure Active Directory B2C
 
-En este tutorial de ejemplo, se proporcionan instrucciones sobre cómo integrar [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) con Azure Active Directory (AD) B2C.
+En este tutorial de ejemplo, se proporcionan instrucciones sobre cómo integrar [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) con Azure Active Directory (AD) B2C.
 
-Microsoft DFP proporciona a los clientes la capacidad de evaluar los riesgos de que se intenten crear cuentas nuevas e iniciar sesión en el ecosistema del cliente si son fraudulentos. El cliente puede usar la evaluación de Microsoft DFP para bloquear o cuestionar los intentos sospechosos de crear nuevas cuentas falsas o poner en peligro las cuentas existentes. La protección de cuentas incluye inteligencia artificial con huellas digitales de dispositivos, API para la evaluación de riesgos en tiempo real, reglas y experiencias de lista para optimizar la estrategia de riesgos según las necesidades empresariales de cada cliente, y un cuadro de mandos para supervisar la eficacia y las tendencias de protección contra fraudes en el ecosistema del cliente.
+Microsoft DFP proporciona a los clientes la posibilidad de evaluar si los intentos de crear cuentas e iniciar sesión en el ecosistema del cliente son fraudulentos. El cliente puede usar la evaluación de Microsoft DFP para bloquear o cuestionar los intentos sospechosos de crear nuevas cuentas falsas o poner en peligro las cuentas existentes. La protección de cuentas incluye inteligencia artificial con huellas digitales de dispositivos, API para la evaluación de riesgos en tiempo real, experiencia de reglas y listas para optimizar la estrategia de riesgos según las necesidades empresariales de cada cliente, y un cuadro de mandos para supervisar la eficacia y las tendencias de protección contra fraudes en el ecosistema del cliente.
 
 En este ejemplo, se van a integrar las características de protección de cuentas de Microsoft DFP con un flujo de usuario de Azure AD B2C. El servicio toma huellas digitales de todos los inicios de sesión o los intentos de inicio de sesión y supervisará cualquier comportamiento sospechoso anterior o presente. Azure AD B2C invoca un punto de conexión de decisión de Microsoft DFP, que devuelve un resultado en función de todos los comportamientos pasados y presentes del usuario identificado, así como las reglas personalizadas especificadas en el servicio de Microsoft DFP. Azure AD B2C toma una decisión de aprobación según este resultado y la vuelve a pasar a Microsoft DFP.
 
@@ -85,7 +85,7 @@ La [huella digital de dispositivos de Microsoft DFP](/dynamics365/fraud-protecti
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Implementación del código de la API de Azure AD B2C
 
-Implemente el [código de la API proporcionado](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) en un servicio de Azure. El código se puede [publicar desde Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implemente el [código de la API proporcionado](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) en un servicio de Azure. El código se puede [publicar desde Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 Configure CORS y agregue **Origen permitido** `https://{your_tenant_name}.b2clogin.com`
 
@@ -102,8 +102,8 @@ Ajuste la configuración de la aplicación en [App Service en Azure](../app-serv
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings:InstanceId | Configuración de Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Id. de cliente de huellas digitales de dispositivos de Microsoft |     |
-| FraudProtectionSettings:ApiBaseUrl |  La dirección URL base del portal de Microsoft DFP   | Quite "-int" para llamar a la API de producción en su lugar
-|  TokenProviderConfig: Recurso | https://api.dfp.dynamics-int.com |   Quite "-int" para llamar a la API de producción en su lugar  |
+| FraudProtectionSettings:ApiBaseUrl |  La dirección URL base del portal de Microsoft DFP   | Quite "-int" para llamar a la API de producción en su lugar|
+|  TokenProviderConfig: Recurso  | La dirección URL base: https://api.dfp.dynamics-int.com     | Quite "-int" para llamar a la API de producción en su lugar|
 |   TokenProviderConfig:ClientId       |Id. de la aplicación cliente de Azure AD del comerciante de Fraud Protection      |       |
 | TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Autoridad de inquilino de Azure AD del comerciante de Fraud Protection |
 | TokenProviderConfig:CertificateThumbprint* | La huella digital del certificado que se va a usar para autenticarse en la aplicación cliente de Azure AD del comerciante |
@@ -119,12 +119,12 @@ En las [directivas personalizadas](https://github.com/azure-ad-b2c/partner-integ
 
 | Marcador de posición | Reemplazar por | Notas |
 | :-------- | :------------| :-----------|
-|{your_tenant_name} | Su nombre corto de inquilino |  "yourtenant" de yourtenant.onmicrosoft.com   |
+|{your_tenant_name} | Su nombre corto de inquilino |  "suinquilino" de suinquilino.onmicrosoft.com   |
 |{your_tenantId} | Id. de inquilino del inquilino de Azure AD B2C |  01234567-89ab-cdef-0123-456789abcdef   |
 |  {your_tenant_IdentityExperienceFramework_appid}    |   Identificador de aplicación de la aplicación IdentityExperienceFramework configurada en el inquilino de Azure AD B2C    |  01234567-89ab-cdef-0123-456789abcdef   |
 |  {your_tenant_ ProxyIdentityExperienceFramework _appid}     |  Identificador de aplicación de la aplicación ProxyIdentityExperienceFramework configurada en el inquilino de Azure AD B2C      |   01234567-89ab-cdef-0123-456789abcdef     |
 |  {your_tenant_extensions_appid}   |  Identificador de aplicación de la aplicación de almacenamiento del inquilino   |  01234567-89ab-cdef-0123-456789abcdef  |
-|   {your_tenant_extensions_app_objectid}  | Id. de objeto de la aplicación de almacenamiento del inquilino    | 01234567-89ab-cdef-0123-456789abcdef   |
+|   {your_tenant_extensions_app_objectid}  | Identificador de objeto de la aplicación de almacenamiento del inquilino    | 01234567-89ab-cdef-0123-456789abcdef   |
 |   {your_app_insights_instrumentation_key}  |   Clave de instrumentación de la instancia de App Insights*  |   01234567-89ab-cdef-0123-456789abcdef |
 |  {your_ui_base_url}   | Punto de conexión en la instancia de App Service desde donde se atienden los archivos de la interfaz de usuario    | https://yourapp.azurewebsites.net/B2CUI/GetUIPage   |
 |   {your_app_service_url}  | Dirección URL de su instancia de App Service    |  https://yourapp.azurewebsites.net  |

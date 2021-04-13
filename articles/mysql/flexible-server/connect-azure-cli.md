@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: b28c4457129985a1d5c47d251873eaa52a253f72
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d40dfa9c8a79625910414409ac3a6df7045c31f2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102607975"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490920"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>Inicio rápido: Conexión y consulta mediante la CLI de Azure a Azure Database for MySQL Servidor flexible
 
@@ -157,5 +157,6 @@ Your preference of  are now saved to local context. To learn more, type in `az l
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración del servidor](./how-to-manage-server-cli.md)
+* [Conexión al servidor flexible de Azure Database for MySQL con conexiones cifradas](how-to-connect-tls-ssl.md)
+* [Administración del servidor](./how-to-manage-server-cli.md)
 

@@ -8,44 +8,63 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 28f676892967abbd0da63d7a75ea3d164b87ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77fdaf297fff0e145b1dd53908887bc14f9d3f14
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017515"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491133"
 ---
+<!-- All needs updating -->
 Como operador de la aplicación de Azure IoT Central, puede:
 
-* Ver la telemetría enviada por el dispositivo en la página **Overview** (Información general):
+* Ver la telemetría enviada por los dos componentes del termostato en la página **Overview** (Información general):
 
     :::image type="content" source="media/iot-central-monitor-thermostat/view-telemetry.png" alt-text="Visualización de datos de telemetría de dispositivo":::
 
-* Ver las propiedades del dispositivo en la página **About** (Acerca de):
+* Consulte las propiedades del dispositivo en la página **About** (Acerca de). En esta página se muestran las propiedades del componente de información del dispositivo y los dos componentes del termostato:
 
     :::image type="content" source="media/iot-central-monitor-thermostat/about-properties.png" alt-text="Visualización de las propiedades del dispositivo":::
 
 ## <a name="customize-the-device-template"></a>Personalización de la plantilla de dispositivo
 
-Como desarrollador de soluciones, puede personalizar la plantilla de dispositivo que IoT Central creó automáticamente cuando al conectar el termostato.
+Como desarrollador de soluciones, puede personalizar la plantilla de dispositivo que IoT Central creó automáticamente al conectar el dispositivo de control de la temperatura.
 
 Para agregar una propiedad de nube para almacenar el nombre de cliente asociado al dispositivo:
 
-1. En la aplicación de IoT Central, vaya a **Device templates** (Plantillas de dispositivo) y seleccione la plantilla de dispositivo **Thermostat**.
+1. En la aplicación de IoT Central, vaya a la plantilla del dispositivo **Temperature Controller** (Controlador de temperatura) en la página **Device templates** (Plantillas de dispositivo).
 
-1. Seleccione **Cloud Properties** (Propiedades de la nube) en la plantilla del dispositivo **Thermostat**.
+1. Seleccione **Cloud Properties** (Propiedades de la nube) en la plantilla del dispositivo **Temperature Controller** (Controlador de temperatura).
 
 1. Seleccione **Add Cloud Property** (Agregar propiedad de la nube). Escriba *Customer name* como **Display name** (Nombre para mostrar) y elija **String** en **Schema** (Esquema). Después, seleccione **Guardar**.
 
-Para personalizar la forma en que se muestra el comando **Get Max-Min report** en la aplicación de IoT Central, seleccione **Customize** (Personalizar) en la plantilla del dispositivo. Reemplace **Get Max-Min report** por *Get status report*. Después, seleccione **Guardar**.
+Para personalizar cómo se muestran los comandos **Get Max-Min report** cen la aplicación de IoT Central:
 
-El modelo **Thermostat** incluye la propiedad de escritura **Target Temperature**, la plantilla de dispositivo incluye la propiedad de nube **Customer Name**. Cree una vista que pueda usar el operador para editar estas propiedades:
+1. En la plantilla de dispositivo, seleccione **Customize** (Personalizar).
+
+1. Para **getMaxMinReport (thermostat1)** , reemplace *Get Max-Min report* por *Get thermostat1 status report*.
+
+1. Para **getMaxMinReport (thermostat2)** , reemplace *Get Max-Min report* por *Get thermostat2 status report*.
+
+1. Seleccione **Guardar**.
+
+Para personalizar cómo se muestran las propiedades de escritura **Target Temperature** en la aplicación de IoT Central:
+
+1. En la plantilla de dispositivo, seleccione **Customize** (Personalizar).
+
+1. Para **targetTemperature (thermostat1)** , reemplace *Target Temperature* por *Target Temperature (1)* .
+
+1. Para **targetTemperature (thermostat2)** , reemplace *Target Temperature* por *Target Temperature (2)* .
+
+1. Seleccione **Guardar**.
+
+Los componentes del termostato del modelo **Thermostat Controller** (Controlador del termostato) incluyen la propiedad de escritura **Target Temperature**; la plantilla de dispositivo incluye la propiedad de nube **Customer Name**. Cree una vista que pueda usar el operador para editar estas propiedades:
 
 1. Seleccione **Views** (Vistas) y el icono **Editing device and cloud data** (Edición de los datos del dispositivo y de la nube).
 
 1. Escriba _Properties_ (Propiedades) como nombre del formulario.
 
-1. Seleccione las propiedades **Target Temperature** y **Customer Name**. Después, seleccione **Add section** (Agregar sección).
+1. Seleccione las propiedades **Target Temperature (1)** , **Target Temperature (2)** y **Customer Name**. Después, seleccione **Add section** (Agregar sección).
 
 1. Guarde los cambios.
 
@@ -57,7 +76,7 @@ Para que un operador pueda ver y usar las personalizaciones realizadas, debe pub
 
 Seleccione **Publish** (Publicar) en la plantilla del dispositivo **Thermostat**. En el panel **Publicar esta plantilla de dispositivo en la aplicación**, seleccione **Publicar**.
 
-Ahora los operadores podrán usar la vista **Properties** (Propiedades) para actualizar los valores de propiedad y llamar a un comando llamado **Get status report** en la página comandos del dispositivo:
+Ahora los operadores podrán usar la vista **Properties** (Propiedades) para actualizar los valores de propiedad y llamar a comandos denominados **Get thermostat1 status report** y **Get thermostat2 status report** en la página de comandos del dispositivo:
 
 * Actualizar los valores de las propiedades con posibilidad de escritura en la página **Properties** (Propiedades):
 

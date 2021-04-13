@@ -3,12 +3,12 @@ title: Traslado de recursos de red de Azure a una suscripción o un grupo de rec
 description: Use Azure Resource Manager para trasladar redes virtuales y otros recursos de red a un nuevo grupo de recursos o a una nueva suscripción.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b7aaf01b696b13136a0f4077f315b137c8917906
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75476602"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120136"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Directrices para el traslado de recursos de red
 
@@ -16,7 +16,10 @@ En este artículo, se explica cómo trasladar las redes virtuales y otros recurs
 
 ## <a name="dependent-resources"></a>Recursos dependientes
 
-Si mueve una red virtual, también deberá mover sus recursos dependientes. En el caso de las instancias de VPN Gateway, debe mover las direcciones IP, las puertas de enlace de red virtuales y todos los recursos de conexión asociados. Las puertas de enlace de red local pueden estar en otro grupo de recursos.
+> [!NOTE]
+> Tenga en cuenta que las puertas de enlace de VPN asociadas con direcciones IP públicas no pueden moverse entre grupos de recursos o suscripciones.
+
+Al mover un recurso, también debe mover sus recursos dependientes (por ejemplo, direcciones IP públicas, puertas de enlace de red virtual, todos los recursos de conexión asociados). Las puertas de enlace de red local pueden estar en otro grupo de recursos.
 
 Para mover una máquina virtual con una tarjeta adaptadora de red a una suscripción nueva, debe mover también todos los recursos dependientes. Mueva la red virtual de la tarjeta de interfaz de red, todas las demás tarjetas de interfaz de la red virtual y las puertas de enlace VPN.
 

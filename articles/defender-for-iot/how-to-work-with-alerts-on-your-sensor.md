@@ -1,14 +1,14 @@
 ---
-title: Acerca de las alertas del sensor
+title: Descripción de alertas de sensor
 description: Use alertas para mejorar la seguridad y el funcionamiento de la red.
-ms.date: 11/30/2020
+ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781354"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729429"
 ---
 # <a name="about-sensor-alerts"></a>Acerca de las alertas del sensor
 
@@ -64,9 +64,10 @@ Por ejemplo:
 
   - Los eventos de malware detectados en los dispositivos de red se notifican en los informes de evaluación de riesgos. Cuando las alertas sobre eventos de malware se *desactivan*, los dispositivos afectados no se calcularán en el informe de evaluación de riesgos.
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprendizaje y modos de aprendizaje de TI inteligente](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Visualización de la información proporcionada en las alertas](how-to-view-information-provided-in-alerts.md)
-- [Administración del evento de alertas](how-to-manage-the-alert-event.md)
-- [Aceleración de los flujos de trabajo de alertas](how-to-accelerate-alert-incident-response.md)
+[Modos de aprendizaje y aprendizaje de TI inteligente](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+[Visualización de la información proporcionada en las alertas](how-to-view-information-provided-in-alerts.md)
+[Administrar eventos de alerta](how-to-manage-the-alert-event.md)
+[Aceleración de los flujos de trabajo de alertas](how-to-accelerate-alert-incident-response.md)
+[Tipos y descripciones de alertas](alert-engine-messages.md)

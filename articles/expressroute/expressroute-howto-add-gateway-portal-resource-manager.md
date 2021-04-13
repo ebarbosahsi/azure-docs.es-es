@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038924"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110332"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
 
 > [!IMPORTANT]
-> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones de [IPv6 para Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones de [IPv6 para Azure Virtual Network](../virtual-network/ipv6-overview.md).
 > 
 > 
 
@@ -63,7 +63,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Agregue la subred de puerta de enlace":::
 
-1. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.).
+1. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.). Si planea conectar 16 circuitos ExpressRoute a la puerta de enlace, **debe** crear una subred de puerta de enlace de tamaño /26 o mayor.
 
     Si usa una red virtual de pila dual y planea usar el emparejamiento privado basado en IPv6 a través de ExpressRoute, haga clic en **Agregar un espacio de direcciones IPv6** e indique los valores del **Intervalo de direcciones IPv6**.
 
@@ -76,7 +76,7 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 1. En el portal, a la izquierda, seleccione **Crear un recurso** y escriba "Virtual Network Gateway" en la búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y seleccione la entrada. En la página **Puerta de enlace de red virtual**, seleccione **Crear**.
 1. En la página **Crear puerta de enlace de red virtual**, escriba o seleccione estos valores:
 
-    | Parámetro | Value |
+    | Parámetro | Valor |
     | --------| ----- |
     | Suscripción | compruebe que se selecciona la suscripción correcta. |
     | Grupo de recursos | El grupo de recursos se elegirá automáticamente una vez seleccionada la red virtual. | 

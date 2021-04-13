@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728222"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220806"
 ---
 # <a name="communication-services-notifications"></a>Notificaciones de Communication Services
 
@@ -67,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Uso de Azure Portal para vincular una instancia de Notification Hubs
 
-En el portal, navegue hasta el recurso de Azure Communication Services. En el recurso de Communication Services, seleccione Notificaciones push en el menú de la izquierda de la página Communication Services y conecte la instancia de Notification Hubs que aprovisionó anteriormente. Tanto la cadena de conexión como el identificador de recurso se deben especificar aquí:
+1. En el portal, vaya al recurso de Azure Communication Services.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración de notificaciones push en Azure Portal.":::
+1. En el recurso de Communication Services, seleccione **Notificaciones push** en el menú de la izquierda de la página Communication Services y conecte la instancia de Notification Hubs que aprovisionó anteriormente.
+
+1. Seleccione **Connect notification hub** (Conectar el centro de notificaciones). Verá una lista de centros de notificaciones disponibles para conectarse.
+ 
+1. Seleccione el centro de notificaciones que desee usar para este recurso.
+ 
+   - Si necesita crear un nuevo centro de notificaciones, seleccione **Crear un nuevo Centro de notificaciones** para obtener un nuevo centro aprovisionado para este recurso.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Captura de pantalla que muestra la configuración de notificaciones push en Azure Portal.":::
+
+Ahora verá el centro de notificaciones vinculado con el estado conectado.
+
+Si desea usar otro centro para el recurso, seleccione **Desconectar** y, a continuación, repita los pasos para vincular el otro centro de notificaciones.
 
 > [!NOTE]
-> Si se actualiza la cadena de conexión del centro de notificaciones de Azure, también se debe actualizar el recurso de Communication Services.
-Cualquier cambio en la forma en que se vincula el centro se reflejará en el plano de datos (es decir, al enviar una notificación) en un período máximo de ``10`` minutos. Esto es aplicable también cuando el centro se vincula por primera vez **si** se enviaron notificaciones antes.
+> Cualquier cambio en la forma en que se vincula el centro se reflejará en el plano de datos (es decir, al enviar una notificación) en un período máximo de 10 minutos. Este mismo comportamiento es aplicable cuando el centro se vincula por primera vez, **si** se enviaron notificaciones antes del cambio.
 
 ### <a name="device-registration"></a>Registro de dispositivos
 

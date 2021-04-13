@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec83d8d56ad67d8c64c6ac3151ca3819e88c0616
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121480"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449603"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutorial: Implementación de configuraciones mediante GitOps en un clúster de Kubernetes habilitado para Azure Arc 
 
@@ -30,6 +30,14 @@ En este tutorial, aplicará configuraciones mediante GitOps en un clúster de Ku
 - Un clúster conectado de Kubernetes habilitado para Azure Arc.
     - Si no ha conectado aún un clúster, siga las indicaciones de [Inicio rápido: Conexión a un clúster de Kubernetes habilitado para Azure Arc](quickstart-connect-cluster.md).
 - Entender las ventajas y la arquitectura de esta característica. Más información en el artículo [Configuraciones y GitOps: Kubernetes habilitado para Azure Arc](conceptual-configurations.md).
+- Instale la extensión `k8s-configuration` de la CLI de Azure, versión 1.0.0 o posteriores:
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > Si la extensión `k8s-configuration` ya está instalada, puede actualizarla a su versión más reciente con el siguiente comando: `az extension update --name k8s-configuration`
 
 ## <a name="create-a-configuration"></a>Creación de una configuración
 
@@ -141,7 +149,7 @@ Al igual que con las claves privadas, puede proporcionar el contenido de known_h
 >[!NOTE]
 >* La versión 1.2.0+ del gráfico del operador Helm es compatible con la autenticación privada de la versión de Helm de HTTPS.
 >* La versión de Helm de HTTPS no está admitida en los clústeres administrados por AKS.
->* Si necesita Flux para acceder al repositorio de Git mediante el proxy, tendrá que actualizar los agentes de Azure Arc con la configuración de proxy. Para obtener más información, consulte [Conexión mediante un servidor proxy de salida](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* Si necesita Flux para acceder al repositorio de Git mediante el proxy, tendrá que actualizar los agentes de Azure Arc con la configuración de proxy. Para obtener más información, consulte [Conexión mediante un servidor proxy de salida](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Parámetros adicionales

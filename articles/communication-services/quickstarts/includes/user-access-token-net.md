@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a0f8744061853e8bd81d3435c1f007e96a7d5783
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 653692812507c05c6cfc58b00d3c93ece19019bb
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495341"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113064"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- La versión más reciente de la [biblioteca cliente de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
+- La versión más reciente del [SDK de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
 - Un recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../create-communication-resource.md).
 
 ## <a name="setting-up"></a>Instalación
@@ -45,7 +45,7 @@ dotnet build
 En el directorio de aplicaciones, instale el paquete de la biblioteca de identidades de Azure Communication Services para .NET usando el comando `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Identity --version 1.0.0
 ```
 
 ### <a name="set-up-the-app-framework"></a>Instalación del marco de la aplicación
@@ -78,7 +78,7 @@ namespace AccessTokensQuickstart
 ```
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Inicialice un objeto `CommunicationIdentityClient` con su cadena de conexión. El código siguiente recupera la cadena de conexión para el recurso de una variable de entorno denominada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Obtenga información sobre cómo [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string).
+Inicialice un objeto `CommunicationIdentityClient` con su cadena de conexión. El código siguiente recupera la cadena de conexión para el recurso de una variable de entorno denominada `COMMUNICATION_SERVICES_CONNECTION_STRING`. Aprenda a [administrar la cadena de conexión del recurso](../create-communication-resource.md#store-your-connection-string).
 
 Agregue el código siguiente al método `Main`:
 
@@ -150,8 +150,7 @@ Console.WriteLine(token);
 Para actualizar un token de acceso, pase una instancia del objeto `CommunicationUserIdentifier` en `GetTokenAsync`. Si ha almacenado este `Id` y necesita crear un objeto `CommunicationUserIdentifier`, puede hacerlo pasando el `Id` almacenado al constructor `CommunicationUserIdentifier` como se indica a continuación:
 
 ```csharp
-// In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-var identityToRefresh = new CommunicationUserIdentifier(userId);
+var identityToRefresh = new CommunicationUserIdentifier(identity.Id);
 var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
