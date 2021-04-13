@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593873"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060234"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 
@@ -42,3 +42,4 @@ A continuación se muestra una lista de las transformaciones admitidas actualmen
 | [Unión](data-flow-union.md) | Varias entradas y salidas | Combina varios flujos de datos verticalmente. |
 | [Anulación de dinamización](data-flow-unpivot.md) | Modificador de esquema | Dinamiza columnas en valores de fila. |
 | [Ventana](data-flow-window.md) | Modificador de esquema |  Define agregaciones basadas en ventanas de las columnas en los flujos de datos. |
+| [Parse](data-flow-parse.md) | Modificador de esquema |  Analizar datos de columna en JSON o texto delimitado |

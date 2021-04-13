@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100368666"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096043"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introducción a las utilidades de Spark para Microsoft
 
@@ -25,7 +25,7 @@ Las utilidades de Spark para Microsoft (MSSparkUtils) son un paquete integrado q
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configuración del acceso a Azure Data Lake Storage Gen2 
 
-Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
+Los cuadernos de Synapse usan el tránsito de Azure Active Directory (Azure AD) para acceder a las cuentas de ADLS Gen2. Debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2. 
 
 Las canalizaciones de Synapse usan la identidad del área de trabajo (MSI) para acceder a las cuentas de almacenamiento. Para usar MSSparkUtils en las actividades de canalización, la identidad del área de trabajo debe ser un **colaborador de datos de Blob Storage** para acceder a la cuenta (o carpeta) de ADLS Gen2.
 

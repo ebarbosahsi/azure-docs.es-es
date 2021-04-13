@@ -2,17 +2,19 @@
 title: Módulos de Bicep
 description: Describe cómo definir y utilizar un módulo, y cómo usar ámbitos de módulo.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/30/2021
+ms.openlocfilehash: 6c325bbbe265e13241119761373985ca4552b158
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889712"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967887"
 ---
-# <a name="use-bicep-modules"></a>Uso de módulos de Bicep
+# <a name="use-bicep-modules-preview"></a>Uso de módulos de Bicep (versión preliminar)
 
-Bicep permite dividir una solución compleja en módulos. Un módulo de Bicep es un conjunto de uno o más recursos que se van a implementar juntos. Los módulos abstraen los detalles complejos de la declaración de recursos sin procesar, lo que puede aumentar la legibilidad. Puede volver a usar estos módulos y compartirlos con otras personas. En combinación con las [especificaciones de plantilla](./template-specs.md), un módulo de Bicep ofrece modularidad y la capacidad de reutilizar el código. Para ver un tutorial, consulte [Tutorial: Adición de módulos de Bicep](./bicep-tutorial-add-modules.md).
+Bicep permite dividir una solución compleja en módulos. Un módulo de Bicep es un conjunto de uno o más recursos que se van a implementar juntos. Los módulos abstraen los detalles complejos de la declaración de recursos sin procesar, lo que puede aumentar la legibilidad. Puede volver a usar estos módulos y compartirlos con otras personas. En combinación con las [especificaciones de plantilla](./template-specs.md), un módulo de Bicep ofrece modularidad y la capacidad de reutilizar el código. Los módulos de Bicep se transpilan en una sola plantilla de ARM con [plantillas anidadas](./linked-templates.md#nested-template) para su implementación. En Bicep, [_dependsOn_](./template-syntax.md#resources) se administra automáticamente.
+
+Para ver un tutorial, consulte [Tutorial: Adición de módulos de Bicep](./bicep-tutorial-add-modules.md).
 
 ## <a name="define-modules"></a>Definición de los módulos
 

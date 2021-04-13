@@ -3,17 +3,17 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 11/24/2020
-ms.openlocfilehash: 2eff30333362d461f196972fbaedbeac8f2ae7c9
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 03/31/2021
+ms.openlocfilehash: d878c7abf025b5c66790a96f9f921f669dcdf1ef
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033898"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491112"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará lo siguiente para completar los pasos de este artículo:
+Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 * Una aplicación de Azure IoT Central creada a partir de la plantilla **Custom application** (Aplicación personalizada). Para más información, consulte la [guía de inicio rápido para crear una aplicación](../articles/iot-central/core/quick-deploy-iot-central.md). La aplicación se debe haber creado el 14 de julio de 2020 o después.
 * Una máquina de desarrollo que tenga instalada la versión 3.7 de [Python](https://www.python.org/) o una posterior. Puede ejecutar `python --version` en la línea de comandos para comprobar la versión. Python está disponible para una amplia variedad de sistemas operativos. En las instrucciones de este tutorial se da por hecho que se ejecuta el comando **python** en el símbolo del sistema de Windows.
@@ -21,18 +21,18 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 ## <a name="review-the-code"></a>Revisión del código
 
-En la copia del SDK de IoT de Microsoft Azure para Python que descargó anteriormente, abra el archivo *azure-iot-sdk-python/azure-iot-device/samples/pnp/simple_thermostat.py* en un editor de texto.
+En la copia del SDK de Microsoft Azure IoT para Python que descargó anteriormente, abra el archivo *azure-iot-sdk-python/azure-iot-device/samples/pnp/temp_controller_with_thermostats.py* en un editor de texto.
 
 Al ejecutar el ejemplo para conectarse a IoT Central, usa Device Provisioning Service (DPS) para registrar el dispositivo y generar una cadena de conexión. En el ejemplo se recupera la información de conexión de DPS que necesita del entorno de línea de comandos.
 
 La función `main`:
 
 * Usa DPS para aprovisionar el dispositivo. La información de aprovisionamiento incluye el identificador de modelo. IoT Central usa el identificador de modelo para identificar o generar la plantilla de dispositivo específico. Para más información, consulte [¿Cómo se asocia un dispositivo a una plantilla de dispositivo?](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)
-* Crea un objeto `Device_client` y establece el identificador del modelo `dtmi:com:example:Thermostat;1` antes de abrir la conexión.
-* Envía la propiedad `maxTempSinceLastReboot` a IoT Central.
-* Crea un agente de escucha para el comando `getMaxMinReport`.
+* Crea un objeto `Device_client` y establece el identificador del modelo `dtmi:com:example:TemperatureController;2` antes de abrir la conexión.
+* Envía los valores de propiedad iniciales a IoT Central. Utiliza `pnp_helper` para crear las revisiones.
+* Crea agentes de escucha para los comandos `getMaxMinReport` y `reboot`. Cada componente de termostato tiene su propio comando `getMaxMinReport`.
 * Crea un agente de escucha de propiedad para realizar escuchas de las actualizaciones de las propiedades de escritura.
-* Inicia un bucle para enviar telemetría de temperatura cada 10 segundos.
+* Inicia un bucle para enviar telemetría de temperatura desde los dos componentes del termostato y la telemetría del conjunto de trabajo desde el componente predeterminado cada 8 segundos.
 
 ```python
 async def main():
@@ -52,7 +52,9 @@ async def main():
         )
 
         if registration_result.status == "assigned":
-
+            print("Device was assigned")
+            print(registration_result.registration_state.assigned_hub)
+            print(registration_result.registration_state.device_id)
             device_client = IoTHubDeviceClient.create_from_symmetric_key(
                 symmetric_key=symmetric_key,
                 hostname=registration_result.registration_state.assigned_hub,
@@ -65,18 +67,63 @@ async def main():
             )
 
     elif switch == "connectionString":
-
         # ...
 
     # Connect the client.
     await device_client.connect()
 
-    max_temp = 10.96  # Initial Max Temp otherwise will not pass certification
-    await device_client.patch_twin_reported_properties({"maxTempSinceLastReboot": max_temp})
+    ################################################
+    # Update readable properties from various components
+
+    properties_root = pnp_helper.create_reported_properties(serialNumber=serial_number)
+    properties_thermostat1 = pnp_helper.create_reported_properties(
+        thermostat_1_component_name, maxTempSinceLastReboot=98.34
+    )
+    properties_thermostat2 = pnp_helper.create_reported_properties(
+        thermostat_2_component_name, maxTempSinceLastReboot=48.92
+    )
+    properties_device_info = pnp_helper.create_reported_properties(
+        device_information_component_name,
+        swVersion="5.5",
+        manufacturer="Contoso Device Corporation",
+        model="Contoso 4762B-turbo",
+        osName="Mac Os",
+        processorArchitecture="x86-64",
+        processorManufacturer="Intel",
+        totalStorage=1024,
+        totalMemory=32,
+    )
+
+    property_updates = asyncio.gather(
+        device_client.patch_twin_reported_properties(properties_root),
+        device_client.patch_twin_reported_properties(properties_thermostat1),
+        device_client.patch_twin_reported_properties(properties_thermostat2),
+        device_client.patch_twin_reported_properties(properties_device_info),
+    )
+
+    ################################################
+    # Get all the listeners running
+    print("Listening for command requests and property updates")
+
+    global THERMOSTAT_1
+    global THERMOSTAT_2
+    THERMOSTAT_1 = Thermostat(thermostat_1_component_name, 10)
+    THERMOSTAT_2 = Thermostat(thermostat_2_component_name, 10)
 
     listeners = asyncio.gather(
         execute_command_listener(
+            device_client, method_name="reboot", user_command_handler=reboot_handler
+        ),
+        execute_command_listener(
             device_client,
+            thermostat_1_component_name,
+            method_name="getMaxMinReport",
+            user_command_handler=max_min_handler,
+            create_user_response_handler=create_max_min_report_response,
+        ),
+        execute_command_listener(
+            device_client,
+            thermostat_2_component_name,
             method_name="getMaxMinReport",
             user_command_handler=max_min_handler,
             create_user_response_handler=create_max_min_report_response,
@@ -84,31 +131,34 @@ async def main():
         execute_property_listener(device_client),
     )
 
+    ################################################
+    # Function to send telemetry every 8 seconds
+
     async def send_telemetry():
-        global max_temp
-        global min_temp
-        current_avg_idx = 0
+        print("Sending telemetry from various components")
 
         while True:
-            current_temp = random.randrange(10, 50)
-            if not max_temp:
-                max_temp = current_temp
-            elif current_temp > max_temp:
-                max_temp = current_temp
+            curr_temp_ext = random.randrange(10, 50)
+            THERMOSTAT_1.record(curr_temp_ext)
 
-            if not min_temp:
-                min_temp = current_temp
-            elif current_temp < min_temp:
-                min_temp = current_temp
+            temperature_msg1 = {"temperature": curr_temp_ext}
+            await send_telemetry_from_temp_controller(
+                device_client, temperature_msg1, thermostat_1_component_name
+            )
 
-            avg_temp_list[current_avg_idx] = current_temp
-            current_avg_idx = (current_avg_idx + 1) % moving_window_size
+            curr_temp_int = random.randrange(10, 50)  # Current temperature in Celsius
+            THERMOSTAT_2.record(curr_temp_int)
 
-            temperature_msg1 = {"temperature": current_temp}
-            await send_telemetry_from_thermostat(device_client, temperature_msg1)
-            await asyncio.sleep(8)
+            temperature_msg2 = {"temperature": curr_temp_int}
 
-    send_telemetry_task = asyncio.create_task(send_telemetry())
+            await send_telemetry_from_temp_controller(
+                device_client, temperature_msg2, thermostat_2_component_name
+            )
+
+            workingset_msg3 = {"workingSet": random.randrange(1, 100)}
+            await send_telemetry_from_temp_controller(device_client, workingset_msg3)
+
+    send_telemetry_task = asyncio.ensure_future(send_telemetry())
 
     # ...
 ```
@@ -123,36 +173,42 @@ async def provision_device(provisioning_host, id_scope, registration_id, symmetr
         id_scope=id_scope,
         symmetric_key=symmetric_key,
     )
+
     provisioning_device_client.provisioning_payload = {"modelId": model_id}
     return await provisioning_device_client.register()
 ```
 
-La función `execute_command_listener` controla las solicitudes de comando, ejecuta la función `max_min_handler` cuando el dispositivo recibe el comando `getMaxMinReport` y ejecuta la función `create_max_min_report_response` para generar la respuesta:
+La función `execute_command_listener` controla las solicitudes de comando, ejecuta la función `max_min_handler` cuando el dispositivo recibe el comando `getMaxMinReport` para los componentes del termostato y la función `reboot_handler` cuando el dispositivo recibe el comando `reboot`. Usa el módulo `pnp_helper` para generar la respuesta:
 
 ```python
 async def execute_command_listener(
-    device_client, method_name, user_command_handler, create_user_response_handler
+    device_client,
+    component_name=None,
+    method_name=None,
+    user_command_handler=None,
+    create_user_response_handler=None,
 ):
     while True:
-        if method_name:
+        if component_name and method_name:
+            command_name = component_name + "*" + method_name
+        elif method_name:
             command_name = method_name
         else:
             command_name = None
 
         command_request = await device_client.receive_method_request(command_name)
         print("Command request received with payload")
-        print(command_request.payload)
+        values = command_request.payload
+        print(values)
 
-        values = {}
-        if not command_request.payload:
-            print("Payload was empty.")
+        if user_command_handler:
+            await user_command_handler(values)
         else:
-            values = command_request.payload
+            print("No handler provided to execute")
 
-        await user_command_handler(values)
-
-        response_status = 200
-        response_payload = create_user_response_handler(values)
+        (response_status, response_payload) = pnp_helper.create_response_payload_with_status(
+            command_request, method_name, create_user_response=create_user_response_handler
+        )
 
         command_response = MethodResponse.create_from_method_request(
             command_request, response_status, response_payload
@@ -164,42 +220,27 @@ async def execute_command_listener(
             print("responding to the {command} command failed".format(command=method_name))
 ```
 
-`async def execute_property_listener` controla las actualizaciones de las propiedades de escritura como `targetTemperature` y genera la respuesta JSON:
+`async def execute_property_listener` controla las actualizaciones de las propiedades de escritura como `targetTemperature` para los componentes del termostato y genera la respuesta JSON. Usa el módulo `pnp_helper` para generar la respuesta:
 
 ```python
 async def execute_property_listener(device_client):
-    ignore_keys = ["__t", "$version"]
     while True:
         patch = await device_client.receive_twin_desired_properties_patch()  # blocking call
+        print(patch)
+        properties_dict = pnp_helper.create_reported_properties_from_desired(patch)
 
-        print("the data in the desired properties patch was: {}".format(patch))
-
-        version = patch["$version"]
-        prop_dict = {}
-
-        for prop_name, prop_value in patch.items():
-            if prop_name in ignore_keys:
-                continue
-            else:
-                prop_dict[prop_name] = {
-                    "ac": 200,
-                    "ad": "Successfully executed patch",
-                    "av": version,
-                    "value": prop_value,
-                }
-
-        await device_client.patch_twin_reported_properties(prop_dict)
+        await device_client.patch_twin_reported_properties(properties_dict)
 ```
 
-La función `send_telemetry_from_thermostat` envía los mensajes de telemetría a IoT Central:
+La función `send_telemetry_from_temp_controller` envía los mensajes de telemetría de los componentes del termostato a IoT Central. Usa el módulo `pnp_helper` para crear los mensajes:
 
 ```python
-async def send_telemetry_from_thermostat(device_client, telemetry_msg):
-    msg = Message(json.dumps(telemetry_msg))
-    msg.content_encoding = "utf-8"
-    msg.content_type = "application/json"
-    print("Sent message")
+async def send_telemetry_from_temp_controller(device_client, telemetry_msg, component_name=None):
+    msg = pnp_helper.create_telemetry(telemetry_msg, component_name)
     await device_client.send_message(msg)
+    print("Sent message")
+    print(msg)
+    await asyncio.sleep(5)
 ```
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
@@ -208,7 +249,7 @@ async def send_telemetry_from_thermostat(device_client, telemetry_msg):
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Para ejecutar la aplicación de ejemplo, abra un entorno de línea de comandos y vaya a la carpeta *azure-iot-sdk-python/azure-iot-device/samples/pnp* que contiene el archivo de ejemplo *simple_thermostat.py*.
+Para ejecutar la aplicación de ejemplo, abra un entorno de línea de comandos y vaya a la carpeta *azure-iot-sdk-python/azure-iot-device/samples/pnp* que contiene el archivo de ejemplo *temp_controller_with_thermostats.py*.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
@@ -221,21 +262,32 @@ pip install azure-iot-device
 Ejecución del ejemplo:
 
 ```cmd/sh
-python simple_thermostat.py
+python temp_controller_with_thermostats.py
 ```
 
-La salida siguiente muestra el registro del dispositivo y la conexión a IoT Central. El ejemplo envía la propiedad `maxTempSinceLastReboot` antes de comenzar a enviar telemetría:
+La salida siguiente muestra el registro del dispositivo y la conexión a IoT Central. El ejemplo envía las propiedades `maxTempSinceLastReboot` de los dos componentes del termostato antes de comenzar a enviar telemetría:
 
 ```cmd/sh
 Device was assigned
-iotc-.......azure-devices.net
+iotc-60a.....azure-devices.net
 sample-device-01
+Updating pnp properties for root interface
+{'serialNumber': 'alohomora'}
+Updating pnp properties for thermostat1
+{'thermostat1': {'maxTempSinceLastReboot': 98.34, '__t': 'c'}}
+Updating pnp properties for thermostat2
+{'thermostat2': {'maxTempSinceLastReboot': 48.92, '__t': 'c'}}
+Updating pnp properties for deviceInformation
+{'deviceInformation': {'swVersion': '5.5', 'manufacturer': 'Contoso Device Corporation', 'model': 'Contoso 4762B-turbo', 'osName': 'Mac Os', 'processorArchitecture': 'x86-64', 'processorManufacturer': 'Intel', 'totalStorage': 1024, 'totalMemory': 32, '__t': 'c'}}
 Listening for command requests and property updates
 Press Q to quit
-Sending telemetry for temperature
+Sending telemetry from various components
 Sent message
+{"temperature": 27}
 Sent message
+{"temperature": 17}
 Sent message
+{"workingSet": 13}
 ```
 
 [!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
@@ -243,16 +295,17 @@ Sent message
 Puede ver cómo responde el dispositivo a los comandos y las actualizaciones de propiedades:
 
 ```cmd/sh
-Sent message
-the data in the desired properties patch was: {'targetTemperature': {'value': 86.3}, '$version': 2}
+{'thermostat1': {'targetTemperature': 67, '__t': 'c'}, '$version': 2}
+the data in the desired properties patch was: {'thermostat1': {'targetTemperature': 67, '__t': 'c'}, '$version': 2}
+Values received are :-
+{'targetTemperature': 67, '__t': 'c'}
 Sent message
 
 ...
 
-Sent message
 Command request received with payload
-2020-10-14T08:00:00.000Z
-Will return the max, min and average temperature from the specified time 2020-10-14T08:00:00.000Z to the current time
+2021-03-31T05:00:00.000Z
+Will return the max, min and average temperature from the specified time 2021-03-31T05:00:00.000Z to the current time
 Done generating
-{"avgTemp": 31.5, "endTime": "2020-10-16T10:07:41.580722", "maxTemp": 49, "minTemp": 12, "startTime": "2020-10-16T10:06:21.580632"}
+{"avgTemp": 4.0, "endTime": "2021-03-31T12:29:48.322427", "maxTemp": 18, "minTemp": null, "startTime": "2021-03-31T12:28:28.322381"}
 ```

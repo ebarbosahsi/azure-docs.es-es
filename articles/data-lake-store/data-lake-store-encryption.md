@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92109160"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108951"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 
@@ -135,4 +135,4 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 Esta operación tardará menos de dos minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
 
 > [!IMPORTANT]
-> Una vez completada la operación de rotación de claves, la versión anterior de la clave ya no se usa de un modo activo para cifrar los datos.  Sin embargo, en algunos casos de error inesperado en los que se ven afectadas incluso copias redundantes de los datos, los datos se pueden restaurar desde una copia de seguridad que utiliza aún la clave antigua. Para asegurarse de que los datos son accesibles en estas circunstancias poco habituales, guarde una copia de la versión anterior de la clave de cifrado. Consulte la [Guía de recuperación ante desastres para los datos en Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para ver los procedimientos recomendados para el planeamiento de la recuperación ante desastres.
+> Una vez completada la operación de rotación de claves, la versión anterior de la clave ya no se usa de forma activa para cifrar datos nuevos. Puede haber casos en los que se necesite la clave antigua para el acceso a los datos más antiguos. Para permitir la lectura de estos datos más antiguos, no elimine la clave antigua

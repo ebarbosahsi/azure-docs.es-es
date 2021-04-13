@@ -3,12 +3,12 @@ title: Conceptos sobre identidad y acceso
 description: Obtenga información sobre los conceptos de identidad y acceso de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: f3a79c79acef07721bd0883fa70c835bee14ef0d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799282"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109822"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceptos de identidad en Azure VMware Solution
 
@@ -94,6 +94,9 @@ Para evitar la creación de roles que no se pueden asignar o eliminar, Azure VMw
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acceso e identidad de NSX-T Manager
 
+>[!NOTE]
+>NSX-T 2.5 se admite actualmente.
+
 Use la cuenta *administrador* para acceder a NSX-T Manager. Tiene privilegios completos y le permite crear y administrar puertas de enlace, segmentos (conmutadores lógicos) y todos los servicios de nivel 1 (T1). Los privilegios proporcionan acceso a la puerta de enlace de nivel 0 (T0) de NSX-T. Un cambio en la puerta de enlace T0 podría provocar una disminución en el rendimiento de la red o una pérdida de acceso a la nube privada. Abra una solicitud de soporte técnico en Azure Portal para solicitar cambios en la puerta de enlace NSX-T T0.
 
  
@@ -101,11 +104,11 @@ Use la cuenta *administrador* para acceder a NSX-T Manager. Tiene privilegios co
 
 Ahora que ha visto los conceptos de identidad y acceso de Azure VMware Solution, puede que quiera obtener información sobre:
 
-- [Conceptos de actualización de nube privada](concepts-upgrades.md).
-- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
-- [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
-- [Supervisión y reparación de nubes privadas de Azure VMware Solution](concepts-monitor-repair-private-cloud.md).
-- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md).
+- [Conceptos de actualización de nube privada](concepts-upgrades.md)
+- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
+- [Detalles de cada privilegio](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Supervisión y reparación de nubes privadas de Azure VMware Solution](concepts-monitor-repair-private-cloud.md)
+- [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md)
 
 
 <!-- LINKS - external-->

@@ -1,7 +1,7 @@
 ---
 title: Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 titleSuffix: Azure Machine Learning
-description: Obtenga información acerca de cómo iniciar, supervisar el estado y administrar las ejecuciones de los experimentos de aprendizaje automático con el SDK de Azure Machine Learning para Python.
+description: Aprenda a iniciar, supervisar y seguir las ejecuciones de los experimentos de aprendizaje automático con el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634783"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566292"
 ---
-# <a name="start-monitor-and-track-runs"></a>Inicio, supervisión y seguimiento de ejecuciones 
+# <a name="start-monitor-and-track-run-history"></a>Inicio, supervisión y seguimiento del historial de ejecución 
 
-El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Microsoft Azure Machine Learning Studio](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
+El [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Estudio de Azure Machine Learning](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y seguir las ejecuciones de entrenamiento y experimentación. El historial de ejecución de ML es una parte importante de un proceso de desarrollo de ML que se pueda explicar y repetir.
 
-En este artículo se muestran ejemplos de las tareas siguientes:
+En este artículo se muestra cómo realizar las tareas siguientes:
 
 * Supervisión del rendimiento de la ejecución.
 * Supervisión del estado de la ejecución mediante notificaciones por correo electrónico.
 * Etiquetado y búsqueda de ejecuciones.
 * Incorporación de la descripción de una ejecución. 
-* Búsqueda de una ejecución. 
+* Ejecución de búsquedas en el historial de ejecución. 
 * Cancelación o ejecuciones erróneas.
 * Creación de ejecuciones secundarias.
  
@@ -103,7 +103,7 @@ Necesitará los siguientes elementos:
     
         Para obtener más información, consulte [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
-    2. Para iniciar la ejecución, use el comando siguiente. Cuando use este comando, especifique el nombre del archivo runconfig (el texto que va antes de \*.runconfig, si mira el sistema de archivo) con respecto al parámetro -c.
+    2. Para iniciar la ejecución, use el comando siguiente. Cuando use este comando, especifique el nombre del archivo runconfig (el texto antes de \*.runconfig si está mirando el sistema de archivos) en el parámetro -c.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -134,7 +134,7 @@ Necesitará los siguientes elementos:
         print(notebook_run.get_status())
         ```
     
-    * Para obtener el identificador de ejecución, el tiempo de ejecución y los detalles adicionales sobre la ejecución, use el método [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--).
+    * Para obtener el identificador de ejecución, la hora de ejecución y otros detalles sobre esta, use el método [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--).
     
         ```python
         print(notebook_run.get_details())
@@ -190,7 +190,7 @@ Necesitará los siguientes elementos:
     
         En la página **Todas las ejecuciones**, puede filtrar la lista de ejecuciones por etiquetas, experimentos y destino de proceso, entre otros criterios, para organizar mejor el ámbito del trabajo.  
     
-    1. Para hacer personalizaciones en la página, seleccione ejecuciones para comparar, agregue gráficos o aplique filtros. Estos cambios se pueden guardar como una **vista personalizada** para que pueda volver fácilmente a su trabajo. Los usuarios con permisos de área de trabajo pueden editar o ver la vista personalizada. Además, comparta la vista personalizada con los miembros del equipo para mejorar la colaboración seleccionando **Compartir vista**.   
+    1. Para hacer personalizaciones en la página, seleccione ejecuciones para comparar, agregue gráficos o aplique filtros. Estos cambios se pueden guardar como una **vista personalizada** para que pueda volver fácilmente a su trabajo. Los usuarios con permisos en el área de trabajo pueden editar o ver la vista personalizada. Además, comparta la vista personalizada con los miembros del equipo para mejorar la colaboración seleccionando **Compartir vista**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Captura de pantalla: creación de una vista personalizada":::
     
@@ -211,7 +211,7 @@ Necesitará los siguientes elementos:
     1. En **Detalles de categoría**, seleccione **Enviar a área de trabajo de Log Analytics** y especifique la **suscripción** y el **área de trabajo de Log Analytics**. 
 
     > [!NOTE]
-    > El **área de trabajo de Azure Log Analytics** es un tipo de recurso de Azure distinto del **área de trabajo de Azure Machine Learning Service**. Si no hay opciones en esa lista, puede [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > El **área de trabajo de Azure Log Analytics** es un tipo de recurso de Azure distinto del **área de trabajo de Azure Machine Learning Service**. Si no hay opciones en esa lista, puede [crear un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Dónde guardar la notificación por correo electrónico](./media/how-to-manage-runs/log-location.png)
 
@@ -219,13 +219,13 @@ Necesitará los siguientes elementos:
 
     ![Nueva alerta de reglas](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. Consulte [cómo crear y administrar las alertas de registro mediante Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. Consulte [cómo crear y administrar las alertas de registro mediante Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="run-description"></a>Descripción de la ejecución 
 
 Se puede agregar una descripción a una ejecución para proporcionar más contexto e información a la ejecución. También puede buscar en estas descripciones desde la lista de ejecuciones y agregar la descripción de la ejecución como una columna en la lista de ejecuciones. 
 
-Vaya a la página **Detalles de ejecución** de la ejecución y seleccione el icono de edición o de lápiz para agregar, editar o eliminar descripciones de la ejecución. Para conservar los cambios en la lista de ejecuciones, guarde los cambios en la vista personalizada existente o en una nueva vista personalizada. Se admite el formato Markdown para las descripciones de las ejecuciones, lo que permite insertar imágenes y vinculación en profundidad, como se muestra a continuación.
+Vaya a la página **Detalles de ejecución** de la ejecución y seleccione el icono de edición o de lápiz para agregar, editar o eliminar descripciones de la ejecución. Para conservar los cambios en la lista de ejecuciones, guarde los cambios en la vista personalizada existente o en una nueva vista personalizada. Se admite el formato Markdown para las descripciones de ejecución, lo que permite la inserción de imágenes y la vinculación en profundidad, como se muestra a continuación.
 
 :::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Captura de pantalla: crear una descripción de ejecución"::: 
 
@@ -285,9 +285,9 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
-    Puede agregar, editar o eliminar etiquetas de ejecución desde el estudio. Vaya a la página **Detalles de ejecución** de la ejecución y seleccione el icono de edición o de lápiz para agregar, editar o eliminar etiquetas para las ejecuciones. También puede buscar y filtrar en estas etiquetas desde la página de la lista de ejecuciones.
+    Puede agregar, editar o eliminar etiquetas de ejecución desde el estudio. Vaya a la página **Detalles de ejecución** de la ejecución y seleccione el icono de edición o de lápiz para agregar, editar o eliminar etiquetas de las ejecuciones. También puede buscar y filtrar en estas etiquetas desde la página de la lista de ejecuciones.
     
-    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Captura de pantalla: agregar, editar o eliminar etiquetas de ejecución":::
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Captura de pantalla: adición, edición o eliminación de etiquetas de ejecución":::
     
     ---
 
@@ -403,11 +403,11 @@ Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`crea
 
 ### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
 
-Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. No se puede crear una ejecución secundaria sin elemento primario: aunque la ejecución primaria no hace más que iniciar ejecuciones secundarias, sigue siendo necesario crear la jerarquía. Los estados de todas las ejecuciones son independientes: una ejecución primaria puede tener el estado `"Completed"` correcto aunque una o varias ejecuciones secundarias se hayan cancelado o hayan dado error.  
+Las ejecuciones secundarias también se pueden enviar desde una ejecución principal. Esto le permite crear jerarquías de ejecuciones primarias y secundarias. No se puede crear una ejecución secundaria sin primaria: aunque la ejecución primaria no haga más que iniciar ejecuciones secundarias, sigue siendo necesaria para crear la jerarquía. Los estados de todas las ejecuciones son independientes: una ejecución primaria puede tener el estado `"Completed"` correcto aunque una o varias ejecuciones secundarias se hayan cancelado o hayan dado error.  
 
-Es posible que desee que las ejecuciones secundarias utilicen una configuración de ejecución diferente de la ejecución primaria. Por ejemplo, puede utilizar una configuración menos potente basada en CPU para el elemento primario, mientras usa configuraciones basadas en GPU para los elementos secundarios. Otro deseo habitual es pasar a cada ejecución secundaria argumentos y datos distintos. Para personalizar una ejecución secundaria, cree un objeto de `ScriptRunConfig` para la ejecución secundaria. El código que se muestra a continuación hace lo siguiente:
+Es posible que desee que las ejecuciones secundarias utilicen una configuración de ejecución diferente de la ejecución primaria. Por ejemplo, puede utilizar una configuración menos potente basada en CPU para el elemento primario, mientras usa configuraciones basadas en GPU para los elementos secundarios. Otro deseo habitual es pasar a cada ejecución secundaria argumentos y datos distintos. Para personalizar una ejecución secundaria, cree un objeto de `ScriptRunConfig` para la ejecución secundaria. El código siguiente:
 
-- Recuperación de un recurso de proceso denominado `"gpu-cluster"` del área de trabajo `ws`
+- Recupera un recurso de proceso denominado `"gpu-cluster"` del área de trabajo `ws`
 - Recorre en iteración los diferentes valores de los argumentos que se van a pasar a los objetos `ScriptRunConfig` secundarios
 - Crea y envía una nueva ejecución secundaria mediante el recurso de proceso personalizado y el argumento
 - Se bloquea hasta que se completan todas las ejecuciones secundarias
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Registro en la ejecución primaria o raíz
 
-Puede usar el campo `Run.parent` para acceder a la ejecución que inició la ejecución secundaria actual. Un caso de uso común para esto es cuando desea consolidar los resultados del registro en un único lugar. Tenga en cuenta que las ejecuciones secundarias se ejecutan de forma asincrónica y no hay ninguna garantía de ordenación o sincronización más allá de la capacidad del elemento primario de esperar a que se completen las ejecuciones secundarias.
+Puede usar el campo `Run.parent` para acceder a la ejecución que inició la ejecución secundaria actual. Un caso de uso habitual de `Run.parent` es combinar resultados de registro en una única ubicación. Tenga en cuenta que las ejecuciones secundarias se ejecutan de forma asincrónica y no hay ninguna garantía de ordenación o sincronización más allá de la capacidad del elemento primario de esperar a que se completen sus ejecuciones secundarias.
 
 ```python
 # in child (or even grandchild) run

@@ -3,12 +3,12 @@ title: Solicitud de la clave de autorización para ExpressRoute
 description: Pasos para solicitar una clave de autorización para ExpressRoute.
 ms.topic: include
 ms.date: 03/15/2021
-ms.openlocfilehash: 54a610c8b0f3f3fe9d3ebe39291bba7767007839
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 99d9fba33d64fca1d9c5b960041fbabe1f9060db
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491861"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027018"
 ---
 <!-- used in expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "103491861"
 
    :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Captura de pantalla que muestra la clave de autorización de ExpressRoute Global Reach.":::
   
-1. Tome nota de la clave de autorización y el identificador de ExpressRoute. Los usará para completar el emparejamiento.  
+1. Copie la clave de autorización y el identificador de ExpressRoute. Los usará para completar el emparejamiento.  
 
    > [!NOTE]
    > La clave de autorización desaparece tras un tiempo, por lo que debe copiarla en cuanto aparezca.

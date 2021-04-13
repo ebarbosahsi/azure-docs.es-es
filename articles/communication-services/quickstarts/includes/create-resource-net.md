@@ -4,23 +4,23 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: bf00b0829868b7099579c1a35113dbca1741cfe3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 443595a52458d7ff7c168f4c120257cfb60fad2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495912"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110903"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet/).
-- La versión más reciente de la [biblioteca cliente de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
-- Obtenga la versión más reciente de la [biblioteca cliente de .NET Identity](/dotnet/api/azure.identity).
-- Obtenga la versión más reciente de la [biblioteca cliente de administración de .NET](../../concepts/sdk-options.md).
+- La versión más reciente del [SDK de .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para su sistema operativo.
+- Obtenga la versión más reciente del [SDK de .NET Identity](/dotnet/api/azure.identity).
+- Obtenga la versión más reciente del [SDK de administración de .NET](../../concepts/sdk-options.md).
 
-## <a name="installing-the-client-library"></a>Instalación de la biblioteca cliente
+## <a name="installing-the-sdk"></a>Instalar el SDK
 
-En primer lugar, incluya la biblioteca cliente de administración de Communication Services en el proyecto de C#:
+En primer lugar, incluya el SDK de administración de Communication Services en el proyecto de C#:
 
 ```csharp
 using Azure.ResourceManager.Communication;
@@ -121,11 +121,11 @@ Ahora que se autenticó, puede usar el cliente de administración para realizar 
 
 En cada uno de los ejemplos siguientes, asignaremos los recursos de Communication Services a un grupo de recursos existente.
 
-Si necesita crear un grupo de recursos, puede hacerlo mediante [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) o la [biblioteca cliente de Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Si necesita crear un grupo de recursos, puede hacerlo mediante [Azure Portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) o el [SDK de Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Creación y administración de un recurso de Communication Services
 
-La instancia del cliente de la biblioteca cliente de administración de Communication Services (``Azure.ResourceManager.Communication.CommunicationManagementClient``) se puede usar para realizar operaciones en los recursos de Communication Services.
+La instancia del cliente del SDK de administración de Communication Services (``Azure.ResourceManager.Communication.CommunicationManagementClient``) se puede usar para realizar operaciones en los recursos de Communication Services.
 
 #### <a name="create-a-communication-services-resource"></a>Creación de un recurso de Communication Services
 
@@ -173,7 +173,7 @@ await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourc
 
 ## <a name="managing-keys-and-connection-strings"></a>Administración de las claves y las cadenas de conexión
 
-Cada recurso de Communication Services tiene un par de claves de acceso y las cadenas de conexión correspondientes. Se puede acceder a estas claves con la biblioteca cliente de administración y, a continuación, pueden usarlas otras bibliotecas cliente de Communication Services para autenticarse en Azure Communication Services.
+Cada recurso de Communication Services tiene un par de claves de acceso y las cadenas de conexión correspondientes. Se puede acceder a estas claves con el SDK de administración y, a continuación, pueden usarlos otros SDK de Communication Services para autenticarse en Azure Communication Services.
 
 #### <a name="get-access-keys-for-a-communication-services-resource"></a>Obtención de las claves de acceso de un recurso de Communication Services
 

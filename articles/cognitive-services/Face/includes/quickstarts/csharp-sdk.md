@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: b06a35274082e09ec0973c5123b39935a93e354d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ab99d574588989c84783e532fcf801dcaffdd54d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444284"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958034"
 ---
 Comience a usar el reconocimiento facial con la biblioteca cliente de Face para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. El servicio Face le proporciona acceso a algoritmos avanzados para detectar y reconocer rostros humanas en imágenes.
 
@@ -22,7 +22,7 @@ Use la biblioteca cliente de Face para .NET para:
 
 * [Detección de caras en una imagen](#detect-faces-in-an-image)
 * [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un grupo de personas](#create-a-person-group)
+* [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
 [Documentación de referencia](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Ejemplos](/samples/browse/?products=azure&term=face)
@@ -124,7 +124,7 @@ En estos fragmentos de código se muestra cómo realizar las siguientes tareas c
 * [Autenticar el cliente](#authenticate-the-client)
 * [Detección de caras en una imagen](#detect-faces-in-an-image)
 * [Búsqueda de caras similares](#find-similar-faces)
-* [Creación de un grupo de personas](#create-a-person-group)
+* [Creación de un elemento PersonGroup](#create-a-persongroup)
 * [Identificación de una cara](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
@@ -186,7 +186,7 @@ El siguiente código imprime los detalles coincidentes en la consola:
 
 La operación de identificación toma una imagen de una persona (o de varias) y busca la identidad de cada una de las caras de la imagen (búsqueda de reconocimiento facial). Compara cada cara detectada con un objeto **PersonGroup**, una base de datos con distintos objetos **Person** cuyos rasgos faciales se conocen. Para realizar la operación de identificación, primero debe crear y entrenar un objeto **PersonGroup**.
 
-### <a name="create-a-person-group"></a>Creación de un grupo de personas
+### <a name="create-a-persongroup"></a>Creación de un elemento PersonGroup
 
 En el siguiente código se crea un objeto **PersonGroup** con seis objetos **Person** distintos. Asocia cada objeto **Person** con un conjunto de imágenes de ejemplo y lo entrena para reconocer a cada persona por sus rasgos faciales. Los objetos  **Person** y **PersonGroup** se utilizan en las operaciones de comprobación, identificación y agrupación.
 

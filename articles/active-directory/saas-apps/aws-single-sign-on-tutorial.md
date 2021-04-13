@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 906c7e00cba1e0feb85289e8f2a46e74924dc0c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658854"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104720735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AWS Single Sign-on
 
@@ -37,9 +37,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* AWS Single Sign-on admite SSO iniciado por **SP e IDP**.
+* AWS Single Sign-on admite el inicio de sesión único iniciado por **SP e IDP**.
 
-* AWS Single Sign-on admite el [**aprovisionamiento automático de usuarios**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* AWS Single Sign-on admite el [**aprovisionamiento automático de usuarios**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="adding-aws-single-sign-on-from-the-gallery"></a>Incorporación de AWS Single Sign-on desde la galería
 
@@ -72,7 +72,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **AWS Single Sign-on**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -80,9 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![image1](common/upload-metadata.png)
-
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos que ha descargado en la sección **Configuración del inicio de sesión único de AWS Single Sign-on** (punto 8) y haga clic en **Agregar**.
 
     ![imagen2](common/browse-upload-metadata.png)
 
@@ -148,15 +146,45 @@ En esta sección, va a conceder a B. Simon acceso a AWS Single Sign-on utilizan
 
 ## <a name="configure-aws-single-sign-on-sso"></a>Configuración del inicio de sesión único de AWS Single Sign-on
 
-1. Abra la **consola de inicio de sesión único de AWS**. 
+1. Para automatizar la configuración en AWS Single Sign-On, debe instalar la **extensión del explorador de inicio de sesión seguro de Aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Set up AWS Single Sign-On** (Configurar AWS Single Sign-On) para ir a esta aplicación. Desde allí, proporcione las credenciales de administrador para iniciar sesión en AWS Single Sign-on. La extensión del navegador configurará automáticamente la aplicación y automatizará los pasos del 3 al 10.
+
+    ![Configuración](common/setup-sso.png)
+
+3. Si desea configurar manualmente AWS Single Sign-on, en otra ventana del explorador web, inicie sesión en el sitio de la empresa como administrador.
+
+1. Vaya a **Services -> Security, Identity, & Compliance -> AWS Single Sign-On** (Servicios -> Seguridad, identidad y complimiento -> AWS Single Sign-On).
 2. En el panel de navegación izquierdo, elija **Configuración**.
-3. En la página **Configuración**, busque **Origen de identidad**, elija **Cambiar**.
-4. En la página Cambiar directorio, Elija **Proveedor de identidades externo**.
-5. En la sección **Metadatos del proveedor de servicios**, busque **Metadatos de SAML de AWS Single Sign-on** y seleccione **Descargar archivo de metadatos** para descargar el archivo de metadatos y guardarlo en el equipo.
-6. En la sección **Metadatos del proveedor de identidades**, elija **Examinar** para cargar el archivo de metadatos que ha descargado desde Azure Portal.
-7. Elija **Siguiente: Revisar**.
-8. En el cuadro de texto, escriba **CONFIRMAR** para confirmar el cambio de directorio.
-9. Elija **Finalizar**.
+3. En la página **Settings** (Configuración), busque **Identity source** (Origen de la identidad), elija **Change** (Cambiar).
+
+    ![Captura de pantalla del servicio de cambio de origen de la identidad.](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. En Change identity source (Cambiar origen de la identidad), elija **External identity provider** (Proveedor de identidades externo).
+
+    
+    ![Captura de pantalla de la sección de selección del proveedor de identidades externo.](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Realice los pasos siguientes de la sección **Configure external identity provider** (Configurar proveedor de identidades externo):
+
+    ![Captura de pantalla de la sección de carga y descarga de metadatos.](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. En la sección **Service provider metadata** (Metadatos del proveedor de servicios), busque **AWS SSO SAML metadata** (Metadatos de SAML de AWS SSO) y seleccione **Download metadata file** (Descargar archivo de metadatos) para descargar el archivo de metadatos y guardarlo en el ordenador para usarlo para la carga en Azure Portal.
+
+    b. Copie el valor de **AWS SSO Sign.in URL** (URL de inicio de sesión de AWS SSO) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
+
+    c. En la sección **Metadatos del proveedor de identidades**, elija **Examinar** para cargar el archivo de metadatos que ha descargado desde Azure Portal.
+
+    d. Elija **Siguiente: Revisar**.
+
+8. En el cuadro de texto, escriba **ACCEPT** (ACEPTAR) para cambiar el origen de la identidad.
+
+    ![Captura de pantalla de confirmación de la configuración.](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Haga clic en **Change identity source** (Cambiar el origen de la identidad).
 
 ### <a name="create-aws-single-sign-on-test-user"></a>Creación de un usuario de prueba de AWS Single Sign-on
 
@@ -196,7 +224,7 @@ En esta sección, va a conceder a B. Simon acceso a AWS Single Sign-on utilizan
 10. Elija **Finalizar**.
 
 > [!NOTE]
-> AWS Single Sign-on también admite el aprovisionamiento automático de usuarios. [Aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+> AWS Single Sign-on también admite el aprovisionamiento automático de usuarios. [Aquí](./aws-single-sign-on-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -212,11 +240,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de AWS Single Sign-on para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de AWS Single Sign-on en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de AWS Single Sign-on para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de AWS Single Sign-on en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de AWS Single Sign-on para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado AWS Single Sign-on, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez que haya configurado AWS Single Sign-on, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

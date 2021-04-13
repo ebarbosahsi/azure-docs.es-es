@@ -3,18 +3,20 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950066"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166707"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
 Puede usar Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales Windows y Linux en Azure, en entornos locales y en otros entornos en la nube. Puede evaluar rápidamente el estado de las actualizaciones disponibles en todas las máquinas agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores.
+
+Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse permite realizar operaciones a gran escala en varios inquilinos de Azure Active Directory (Azure AD) a la vez, lo que hace que las tareas de administración, como la administración de actualizaciones, sean más eficaces en esos inquilinos de los que es responsable.
 
 > [!NOTE]
 > No se puede usar una máquina configurada con Update Management para ejecutar scripts personalizados desde Azure Automation. Esta máquina solo puede ejecutar el script de actualización con firma de Microsoft.
@@ -24,7 +26,7 @@ Puede usar Update Management en Azure Automation para administrar las actualizac
 
 Para descargar e instalar automáticamente las revisiones *críticas* y de *seguridad* disponibles en la máquina virtual de Azure, consulte [Revisiones de invitado de máquina virtual automática](../../virtual-machines/automatic-vm-guest-patching.md) para máquinas virtuales Windows.
 
-Antes de implementar Update Management y habilitar las máquinas para su administración, asegúrese de que comprende la información de las secciones siguientes.  
+Antes de implementar Update Management y habilitar las máquinas para su administración, asegúrese de que comprende la información de las secciones siguientes.
 
 ## <a name="about-update-management"></a>Acerca de Update Management
 
@@ -40,7 +42,7 @@ El siguiente diagrama muestra cómo Update Management evalúa y aplica las actua
 
 ![Flujo de trabajo de Update Management](./media/overview/update-mgmt-updateworkflow.png)
 
-Se puede utilizar Update Management para realizar la implementación de forma nativa en las máquinas de varias suscripciones del mismo inquilino.
+Update Management puede usarse para implementar de forma nativa máquinas en varias suscripciones del mismo inquilino o en varios inquilinos mediante la [administración delegada de recursos de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 Después de publicarse un paquete, la revisión tarda de 2 a 3 horas en aparecer en las máquinas Linux para su evaluación. Para las máquinas Windows, la revisión tarda de 12 a 15 horas en aparecer para su evaluación tras su publicación. Después de que una máquina finalice un examen de cumplimiento de actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada. En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics, se inicia un examen de cumplimiento al cabo de 15 minutos.
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/22/2021
-ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/23/2021
+ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737564"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107863"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|Velocidad de registro máxima por grupo (MBps)|42|48|48|48|48|48|
+|Velocidad de registro máxima por grupo (MBps)|42|48|54|60|62.5|62.5|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -120,7 +120,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Velocidad de registro máxima por grupo (MBps)|12|24|36|48|48|48|48|
+|Velocidad de registro máxima por grupo (MBps)|12|24|36|48|60|62.5|62.5|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -151,8 +151,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Tamaño máximo de datos de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máximo de IOPS de datos por grupo <sup>2</sup> |6\.400|7200|8,000|9600|12.800|16 000|16 000|
-|Velocidad de registro máxima por grupo (MBps)|48|48|48|48|48|48|48|
+|Número máximo de IOPS de datos por grupo <sup>2</sup> |6\.400|7200|8,000|9 600|12.800|16 000|16 000|
+|Velocidad de registro máxima por grupo (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -179,23 +179,22 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Memoria (GB)|15,1|18,9|22,7|26,5|30,2|
 |Máximo número de bases de datos por grupo <sup>1</sup>|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|No aplicable|No aplicable|N/D|N/D|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1536|
 |Tamaño máximo de registro (GB)|336|336|336|336|512|
-|Tamaño máximo de datos de TempDB (GB)|333|333|333|333|333|
+|Tamaño máximo de datos de TempDB (GB)|37|46|56|65|74|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|2560|3200|3840|4480|5120|
-|Velocidad de registro máxima por grupo (MBps)|48|48|48|48|48|
+|Velocidad de registro máxima por grupo (MBps)|48|60|62.5|62.5|62.5|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|400|500|600|700|800|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|800|1000|1200|1400|1600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0 a 8|0 a 10|0 a 12|0 a 14|0 a 16|
 |Número de réplicas|1|1|1|1|1|
-|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
-|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
-
 
 <sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
 
@@ -212,21 +211,21 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
 |Máximo número de bases de datos por grupo <sup>1</sup>|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|1536|1536|3072|3072|4096|
 |Tamaño máximo de registro (GB)|512|512|512|1024|1024|1024|
-|Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tamaño máximo de datos de TempDB (GB)|83|93|111|148|167|333|
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|5760|6400|7680|10240|11 520|12800|
-|Velocidad de registro máxima por grupo (MBps)|48|48|48|48|48|48|
+|Velocidad de registro máxima por grupo (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0 a 18|0-20|0-24|0 a 32|0 a 36|0-72|
 |Número de réplicas|1|1|1|1|1|1|
-|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
-|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 <sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
@@ -234,7 +233,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 <sup>2</sup> El valor máximo de los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
 <sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
-
 
 ## <a name="general-purpose---provisioned-compute---dc-series"></a>Uso general: proceso aprovisionado: serie DC
 
@@ -252,7 +250,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|800|1600|2400|3200|
-|Velocidad de registro máxima por grupo (MBps)|9,4|18,8|28,1|32,8|
+|Velocidad de registro máxima por grupo (MBps)|12|24|36|48|
 |Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
 |Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|168|336|504|672|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
@@ -446,12 +444,12 @@ Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una 
 |Generación de procesos|Serie M|Serie M|Serie M|Serie M|Serie M|
 |Núcleos virtuales|20|24|32|64|128|
 |Memoria (GB)|588,6|706,3|941,8|1883,5|3767,0|
-|Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|100|
+|Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|172|216|304|704|1768|
 |Tamaño máximo de datos (GB)|1280|1536|2048|4096|4096|
 |Tamaño máximo de registro (GB)|427|512|683|1024|1024|
-|Tamaño máximo de datos de TempDB (GB)|4096|2048|1024|768|640|
+|Tamaño máximo de datos de TempDB (GB)|640|768|1024|2048|4096|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |Número máximo de IOPS de datos por grupo <sup>2</sup>|31 248|37 497|49 996|99 993|160 000|

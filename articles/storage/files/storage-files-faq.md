@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202644"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064314"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -183,6 +183,10 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Si ha habilitado Azure Backup en los recursos compartidos de archivos administrados de sincronización de archivos, las listas de control de acceso de los archivos se pueden seguir restaurando como parte del flujo de trabajo de la restauración de la copia de seguridad. Esto puede realizarse tanto en todo el recurso compartido o en cada uno de los archivos o directorios.
 
     Si usa instantáneas como parte de la solución de copia de seguridad autoadministrada para los recursos compartidos de archivos administrados por la sincronización de archivos, es posible que las listas de control de acceso no se restauren correctamente en las ACL con formato NTFS si las instantáneas se tomaron antes del 24 de febrero de 2020. En ese caso, póngase en contacto con el soporte técnico de Azure.
+
+* <a id="afs-lastwritetime"></a>
+   **¿Sincroniza Azure File Sync el valor de LastWriteTime de los directorios?**  
+    No, Azure File Sync no sincroniza el valor de LastWriteTime de los directorios. es así por diseño.
     
 ## <a name="security-authentication-and-access-control"></a>Seguridad, autenticación y control de acceso
 * <a id="ad-support"></a>
@@ -308,6 +312,18 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Hay API REST que admitan las operaciones para obtener, establecer o copiar listas ACL de Windows en directorios o archivos?**
 
     Sí, se admiten las API REST que obtengan, establezcan o copien las listas de control de acceso con formato NTFS para directorios o archivos al usar la API REST de [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o posterior). También se admiten listas ACL de Windows persistentes en herramientas basadas en REST: [AzCopy versión 10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+ **¿Cómo quitar las credenciales almacenadas en caché con la clave de la cuenta de almacenamiento y eliminar las conexiones SMB existentes antes de inicializar una nueva conexión con las credenciales de Azure AD o AD?**
+
+    Puede seguir el proceso de dos pasos siguiente para quitar las credenciales guardadas asociadas a la clave de cuenta de almacenamiento y quitar la conexión SMB： 
+    1. Ejecute el siguiente cmdlet en Windows Cmd.exe para quitar la credencial. Si no encuentra uno, significa que no ha conservado la credencial y puede omitir este paso.
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. Elimine la conexión existente con el recurso compartido de archivos. Puede especificar la ruta de acceso de montaje como la letra de unidad montada o la ruta de acceso storage-account-name.file.core.windows.net.
+    
+       uso neto <letra de unidad/ruta de acceso compartido>/eliminar
 
 ## <a name="network-file-system"></a>Network File System
 

@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ffc97984a335b72a3aa8c8d8cca65a3fddf7af38
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780742"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561804"
 ---
-# <a name="containerize-aspnet-applications-and-migrate-to-azure-kubernetes-service"></a>Inclusión en contenedores de aplicaciones ASP.NET y migración a Azure Kubernetes Service
+# <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>Contenedorización de aplicaciones de ASP.NET y migración a Azure Kubernetes Service
 
 En este artículo, aprenderá a incluir en contenedores las aplicaciones ASP.NET y a migrarlas a [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) mediante la herramienta Azure Migrate: App Containerization. El proceso de contenedorización no requiere acceso a su código base y le proporciona una manera sencilla de incluir en contenedores las aplicaciones existentes. La herramienta usa el estado de ejecución de las aplicaciones en un servidor para determinar los componentes de la aplicación y ayuda a empaquetarlos en una imagen de contenedor. A continuación, la aplicación contenedorizada se puede implementar en Azure Kubernetes Service (AKS).
 
@@ -59,8 +59,8 @@ Antes de comenzar este tutorial, debe:
 
 **Requisito** | **Detalles**
 --- | ---
-**Identificar una máquina en la que instalar la herramienta** | Una máquina Windows para instalar y ejecutar la herramienta de contenedorización de aplicaciones de Azure Migrate. La máquina Windows puede ser un sistema operativo de servidor (Windows Server 2016 o posterior) o de cliente (Windows 10), lo que significa que la herramienta también puede ejecutarse en el escritorio. <br/><br/> La máquina Windows que ejecuta la herramienta debe tener conectividad de red con los servidores o las máquinas virtuales que hospedan las aplicaciones ASP.NET que se incluirán en contenedores.<br/><br/> Asegúrese de que haya disponible 6 GB de espacio en la máquina Windows que ejecuta la herramienta de contenedorización de aplicaciones de Azure Migrate a fin de almacenar los artefactos de la aplicación. <br/><br/> La máquina Windows debe tener acceso a Internet, ya sea directamente o a través de un proxy. <br/> <br/>Instale la herramienta Microsoft Web Deploy en el equipo que ejecuta la herramienta auxiliar de contenedorización de aplicaciones y el servidor de aplicaciones si aún no está instalado. Puede descargar la herramienta [aquí](https://aka.ms/webdeploy3.6).
-**Servidores de aplicaciones** | Habilite la comunicación remota de PowerShell en los servidores de aplicaciones: inicie sesión en el servidor de aplicaciones y siga [estas](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting) instrucciones para activar la comunicación remota de PowerShell. <br/><br/> Si el servidor de aplicaciones ejecuta Windows Server 2008 R2, asegúrese de que esté instalada la versión 5.1 de PowerShell en el servidor de aplicaciones. Siga las instrucciones que se indican [aquí](https://docs.microsoft.com/powershell/scripting/windows-powershell/wmf/setup/install-configure) para descargar e instalar PowerShell 5.1 en el servidor de aplicaciones. <br/><br/> Instale la herramienta Microsoft Web Deploy en el equipo que ejecuta la herramienta auxiliar de contenedorización de aplicaciones y el servidor de aplicaciones si aún no está instalado. Puede descargar la herramienta desde [aquí](https://aka.ms/webdeploy3.6).
+**Identificar una máquina en la que instalar la herramienta** | Una máquina Windows para instalar y ejecutar la herramienta de contenedorización de aplicaciones de Azure Migrate. La máquina Windows puede ser un sistema operativo de servidor (Windows Server 2016 o posterior) o de cliente (Windows 10), lo que significa que la herramienta también puede ejecutarse en el escritorio. <br/><br/> La máquina Windows que ejecuta la herramienta debe tener conectividad de red con los servidores o las máquinas virtuales que hospedan las aplicaciones ASP.NET que se incluirán en contenedores.<br/><br/> Asegúrese de que haya disponible 6 GB de espacio en la máquina Windows que ejecuta la herramienta de contenedorización de aplicaciones de Azure Migrate a fin de almacenar los artefactos de la aplicación. <br/><br/> La máquina Windows debe tener acceso a Internet, ya sea directamente o a través de un proxy. <br/> <br/>Instale la herramienta Microsoft Web Deploy en el equipo que ejecuta la herramienta auxiliar de contenedorización de aplicaciones y el servidor de aplicaciones si aún no está instalado. Puede descargar la herramienta desde [aquí](https://aka.ms/webdeploy3.6).
+**Servidores de aplicaciones** | Habilite la comunicación remota de PowerShell en los servidores de aplicaciones: inicie sesión en el servidor de aplicaciones y siga [estas](/powershell/module/microsoft.powershell.core/enable-psremoting) instrucciones para activar la comunicación remota de PowerShell. <br/><br/> Si el servidor de aplicaciones ejecuta Windows Server 2008 R2, asegúrese de que esté instalada la versión 5.1 de PowerShell en el servidor de aplicaciones. Siga las instrucciones que se indican [aquí](/powershell/scripting/windows-powershell/wmf/setup/install-configure) para descargar e instalar PowerShell 5.1 en el servidor de aplicaciones. <br/><br/> Instale la herramienta Microsoft Web Deploy en el equipo que ejecuta la herramienta auxiliar de contenedorización de aplicaciones y el servidor de aplicaciones si aún no está instalado. Puede descargar la herramienta desde [aquí](https://aka.ms/webdeploy3.6).
 **Aplicación ASP.NET** | La herramienta admite actualmente <br/><br/> - aplicaciones ASP.NET que usan Microsoft .NET Framework 3.5 o posterior.<br/> - servidores de aplicaciones que ejecutan Windows Server 2008 R2 o posterior (los servidores de aplicaciones deben ejecutar la versión 5.1 de PowerShell). <br/> - aplicaciones que se ejecutan en Internet Information Services (IIS) versión 7.5 o posterior. <br/><br/> La herramienta no admite actualmente <br/><br/> - aplicaciones que requieren la autenticación de Windows (AKS actualmente no admite gMSA). <br/> - aplicaciones que dependen de otros servicios de Windows hospedados fuera de IIS.
 
 
@@ -180,7 +180,7 @@ Al parametrizar la configuración, esta pasa a estar disponible como parámetro 
 
 ### <a name="externalize-file-system-dependencies"></a>Externalización de las dependencias del sistema de archivos
 
- Puede agregar otras carpetas que use la aplicación. Especifique si deben formar parte de la imagen de contenedor o se externalizarán a través de volúmenes persistentes en el recurso compartido de archivos de Azure. El uso de volúmenes persistentes funciona bien con las aplicaciones con estado que almacenan dicho estado fuera del contenedor o almacenan otro contenido estático en el sistema de archivos. [Más información](https://docs.microsoft.com/azure/aks/concepts-storage)
+ Puede agregar otras carpetas que use la aplicación. Especifique si deben formar parte de la imagen de contenedor o se externalizarán a través de volúmenes persistentes en el recurso compartido de archivos de Azure. El uso de volúmenes persistentes funciona bien con las aplicaciones con estado que almacenan dicho estado fuera del contenedor o almacenan otro contenido estático en el sistema de archivos. [Más información](../aks/concepts-storage.md)
 
 1. Haga clic en **Editar** en Carpetas de aplicaciones para revisar las carpetas de aplicaciones detectadas. Las carpetas de la aplicación detectadas se han identificado como artefactos obligatorios que la aplicación necesita y se copiarán en la imagen del contenedor.
 
@@ -195,7 +195,7 @@ Al parametrizar la configuración, esta pasa a estar disponible como parámetro 
 ## <a name="build-container-image"></a>Compilar la imagen del contenedor
 
 
-1. **Seleccione una instancia de Azure Container Registry**: use la lista desplegable para seleccionar una instancia de [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) que se usará para compilar y almacenar las imágenes de contenedor de las aplicaciones. Puede usar una instancia de Azure Container Registry existente o crear una mediante la opción Crear nuevo registro.
+1. **Seleccione una instancia de Azure Container Registry**: use la lista desplegable para seleccionar una instancia de [Azure Container Registry](../container-registry/index.yml) que se usará para compilar y almacenar las imágenes de contenedor de las aplicaciones. Puede usar una instancia de Azure Container Registry existente o crear una mediante la opción Crear nuevo registro.
 
     ![Captura de pantalla de la selección de una instancia de ACR de la aplicación.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 

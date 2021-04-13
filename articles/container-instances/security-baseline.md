@@ -4,22 +4,20 @@ description: La línea base de seguridad de Container Instances proporciona inst
 author: msmbaldwin
 ms.service: container-instances
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07eaa9fd9add14f136d68c50bca15807ef4037ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: be742de41979a218aeca588ce72a8ce80c8c59e5
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738096"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078612"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
 
-Esta línea base de seguridad aplica la guía de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview-v1.md) en Container Instances. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure.
-El contenido se agrupa mediante los **controles de seguridad** definidos en Azure Security Benchmark y las directrices relacionadas aplicables a Container Instances. Se han excluido los **controles** no aplicables a Container Instances.
+Esta línea base de seguridad aplica la guía de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview-v1.md) en Container Instances. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure. El contenido se agrupa mediante los **controles de seguridad** definidos en Azure Security Benchmark y las directrices relacionadas aplicables a Container Instances. Se han excluido los **controles** que no son aplicables a Container Instances o cuya responsabilidad es de Microsoft.
 
- 
 Para ver cómo Container Instances se asigna por completo a Azure Security Benchmark, consulte el [archivo completo de asignación de la línea base de seguridad de Container Instances](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Seguridad de redes
@@ -254,9 +252,9 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 Si usa un registro privado basado en la nube como Azure Container Registry con Azure Container Instances, para cada registro de contenedor de Azure, compruebe si la cuenta de administrador integrada está habilitada o deshabilitada. Deshabilite la cuenta cuando no esté en uso.
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Cuenta de administrador de Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
@@ -294,7 +292,7 @@ Si usa un registro privado basado en la nube como Azure Container Registry con A
 
 **Guía**: Siempre que sea posible, use el inicio de sesión único de Azure Active Directory (Azure AD) en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
-Si usa un registro privado basado en la nube como Azure Container Registry con Azure Container Instances, para el acceso individual al registro de contenedor, use inicios de sesión individuales integrados con Azure AD.
+Si usa un registro privado basado en la nube como Azure Container Registry con Azure Container Instances, para el acceso individual al registro de contenedor, use el inicio de sesión individual integrado con Azure AD.
 
 - [Descripción del SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -604,7 +602,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
@@ -728,7 +726,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: Use configuraciones específicas del sistema operativo o recursos de terceros para limitar la capacidad de los usuarios de ejecutar scripts en los recursos de proceso de Azure.
 
-- [Por ejemplo, cómo controlar la ejecución de scripts de PowerShell en entornos Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Por ejemplo, cómo controlar la ejecución de scripts de PowerShell en entornos Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsabilidad**: Customer
 
@@ -802,9 +800,9 @@ Si usa un registro privado basado en la nube, como Azure Container Registry (ACR
 
 **Guía**: Si usa definiciones de directivas personalizadas de Azure, use Azure Repos para almacenar y administrar el código de forma segura.
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentación de Azure Repos](/azure/devops/repos/)
 
 **Responsabilidad**: Customer
 
@@ -964,7 +962,7 @@ Realice una copia de seguridad de las claves administradas por el cliente en Azu
 
 - [Importación de imágenes de contenedor en un registro de contenedor](../container-registry/container-registry-import-images.md)
 
-- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 - [Cifrado de datos de implementación](container-instances-encrypt-data.md)
 
@@ -976,7 +974,7 @@ Realice una copia de seguridad de las claves administradas por el cliente en Azu
 
 **Guía**: Realice una copia de seguridad de las claves administradas por el cliente en Azure Key Vault con las herramientas de línea de comandos o los SDK de Azure.
 
-- [Restauración de las claves de Azure Key Vault en Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauración de las claves de Azure Key Vault en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilidad**: Customer
 

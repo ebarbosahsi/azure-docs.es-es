@@ -3,12 +3,12 @@ title: Entrega de eventos mediante el servicio Private Link
 description: En este artículo se describe cómo solucionar la limitación de no poder enviar eventos mediante el servicio Private Link.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722334"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629298"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entrega de eventos mediante el servicio Private Link
 Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Es decir, no hay compatibilidad si tiene requisitos de aislamiento de red estrictos por los que el tráfico de eventos entregados no debe abandonar el espacio de la IP privada. 
@@ -27,7 +27,7 @@ En esta configuración, el tráfico pasa por la dirección IP pública/Internet 
 ## <a name="deliver-events-to-event-hubs-using-managed-identity"></a>Entrega de eventos a Event Hubs mediante identidad administrada
 Para enviar eventos a Event Hubs en el espacio de nombres de Event Hubs mediante identidad administrada, siga estos pasos:
 
-1. [Habilite una identidad asignada por el sistema para un tema o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
+1. Habilite la identidad asignada por el sistema: [temas del sistema](enable-identity-system-topics.md), [temas y dominios personalizados](enable-identity-custom-topics-domains.md).  
 1. [Agregue la identidad al rol **Remitente de datos de Azure Event Hubs** en el espacio de nombres de Event Hubs](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
 1. [Habilite el valor **Allow trusted Microsoft services to bypass this firewall** (Permitir que servicios de Microsoft de confianza omitan este firewall) en el espacio de nombres de Event Hubs](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea un centro de eventos como punto de conexión para usar la identidad asignada por el sistema.
@@ -35,16 +35,16 @@ Para enviar eventos a Event Hubs en el espacio de nombres de Event Hubs mediante
 ## <a name="deliver-events-to-service-bus-using-managed-identity"></a>Entrega de eventos a Service Bus mediante identidad administrada
 Para enviar eventos a Service Bus colas o temas del espacio de nombres de Service Bus mediante identidad administrada, siga estos pasos:
 
-1. [Habilite una identidad asignada por el sistema para un tema o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Agregue la identidad al rol [Remitente de datos de Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) en el espacio de nombres de Service Bus.
+1. Habilite la identidad asignada por el sistema: [temas del sistema](enable-identity-system-topics.md), [temas y dominios personalizados](enable-identity-custom-topics-domains.md). 
+1. [Agregue la identidad al rol **Remitente de datos de Azure Service Bus**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) en el espacio de nombres de Service Bus.
 1. [Habilite el valor **Allow trusted Microsoft services to bypass this firewall** (Permitir que servicios de Microsoft de confianza omitan este firewall) en el espacio de nombres de Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
-1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea una cola o tema de Service Bus como punto de conexión para usar la identidad asignada por el sistema.
+1. [Configure la suscripción de eventos](managed-service-identity.md) que emplea una cola o tema de Service Bus como punto de conexión para usar la identidad asignada por el sistema.
 
 ## <a name="deliver-events-to-storage"></a>Entrega de eventos a Storage 
 Para enviar eventos a las colas de almacenamiento mediante identidad administrada, siga estos pasos:
 
-1. [Habilite una identidad asignada por el sistema para un tema o un dominio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity).
-1. Agregue la identidad al rol [Remitente del mensaje de datos de la cola de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md) en la cola de Azure Storage.
+1. Habilite la identidad asignada por el sistema: [temas del sistema](enable-identity-system-topics.md), [temas y dominios personalizados](enable-identity-custom-topics-domains.md). 
+1. [Agregue la identidad al rol **Remitente de mensajes de datos de Queue Storage**](../storage/common/storage-auth-aad-rbac-portal.md) en la cola de Azure Storage.
 1. [Configure la suscripción de eventos](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que emplea una cola o tema de Service Bus como punto de conexión para usar la identidad asignada por el sistema.
 
 

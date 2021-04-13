@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bd544b9eec0c1839ad94ede65e9d4ccde6df81dc
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009460"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063362"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Uso del cifrado dinámico común de PlayReady o Widevine
 
@@ -46,9 +46,9 @@ Para más información, consulte la integración con [Axinom](media-services-axi
 
 Media Services admite varias formas de autorizar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso puede tener una o más restricciones de autorización, ya sea restricciones de apertura o de token. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de [token de web simple](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) y de [token de web JSON](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). 
 
-Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-portal-configure-content-key-auth-policy.md).
 
-Para aprovechar las ventajas del cifrado dinámico, necesita un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También es preciso configurar las directivas de entrega del recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegura de que se reciba la secuencia en el protocolo seleccionado. Como resultado, puede almacenar y pagar los archivos en un solo formato de almacenamiento. Media Services crea y publica la respuesta HTTP adecuada según cada solicitud del cliente.
+Para aprovechar las ventajas del cifrado dinámico, cree un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También es preciso configurar las directivas de entrega del recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegura de que se reciba la secuencia en el protocolo seleccionado. Como resultado, puede almacenar y pagar los archivos en un solo formato de almacenamiento. Media Services crea y publica la respuesta HTTP adecuada según cada solicitud del cliente.
 
 Este artículo es útil para los desarrolladores que trabajan en aplicaciones que entregan medios protegidos con varios DRM, por ejemplo, PlayReady y Widevine. En este artículo se muestra cómo configurar el servicio de entrega de licencias de PlayReady con directivas de autorización para que solo los clientes autorizados puedan recibir licencias de PlayReady o Widevine. También se muestra cómo usar el cifrado dinámico con DRM de PlayReady o Widevine a través de DASH.
 

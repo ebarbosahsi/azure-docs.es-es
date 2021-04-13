@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas de Configuración de invitado para Windows
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104887706"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096604"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
@@ -25,8 +25,7 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 > [!IMPORTANT]
 > Las definiciones de directivas personalizadas con configuración de invitado en los entornos de Azure Government y Azure China es una característica en versión preliminar.
 >
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure.
-> Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Windows, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
 > No use secretos ni información confidencial en paquetes de contenido personalizado.
 
@@ -138,7 +137,7 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-Si el recurso tiene las propiedades necesarias, también debe devolverlos `Get-TargetResource` en paralelo con la clase `reasons`. Si no se incluye `reasons`, el servicio incluye un comportamiento "comodín" que compara los valores de entrada con `Get-TargetResource` y los valores devueltos por `Get-TargetResource` y proporciona una comparación detallada como `reasons`.
+Si el recurso tiene las propiedades necesarias, esas propiedades se deben devolver en `Get-TargetResource` en paralelo con la clase `reasons`. Si no se incluye `reasons`, el servicio incluye un comportamiento "comodín" que compara los valores de entrada con `Get-TargetResource` y los valores devueltos por `Get-TargetResource` y proporciona una comparación detallada como `reasons`.
 
 ### <a name="configuration-requirements"></a>Requisitos de configuración
 
@@ -181,9 +180,7 @@ La configuración de invitados usa el paquete completado para crear las definici
   - Módulo DscNativeResources
   - (Windows) Módulos de recursos de DSC requeridos por MOF
 
-Los cmdlets de PowerShell ayudan en la creación del paquete.
-No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones.
-El formato del paquete debe ser un archivo .zip y no puede superar el tamaño total de 100 MB cuando se descomprime.
+Los cmdlets de PowerShell ayudan en la creación del paquete. No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones. El formato del paquete debe ser un archivo .zip y no puede superar el tamaño total de 100 MB cuando se descomprima.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Almacenamiento de artefactos de Configuración de invitado
 
@@ -217,8 +214,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Ejecute este script en un terminal de PowerShell o guarde el archivo con `config.ps1` el nombre en la carpeta del proyecto.
-Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se crea un archivo mof nuevo.
+Ejecute este script en un terminal de PowerShell o guarde el archivo con `config.ps1` el nombre en la carpeta del proyecto. Ejecútelo en PowerShell mediante la ejecución de `./config.ps1` en el terminal. Se crea un archivo mof nuevo.
 
 El comando `Node AuditBitlocker` no es técnicamente necesario, pero genera un archivo denominado `AuditBitlocker.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
 
@@ -274,7 +270,7 @@ Parámetros del cmdlet `Publish-GuestConfigurationPackage`:
 - **Ruta de acceso**: Ubicación del paquete que se va a publicar.
 - **ResourceGroupName**: Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento.
 - **StorageAccountName**: Nombre de la cuenta de almacenamiento donde se debe publicar el paquete.
-- **StorageContainerName** (valor predeterminado: *guestconfiguration*): Nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
+- **StorageContainerName** (valor predeterminado: _guestconfiguration_): Nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
 - **Force**: Permite sobrescribir el paquete existente en la cuenta de almacenamiento con el mismo nombre.
 
 En el ejemplo siguiente se publica el paquete en un contenedor de almacenamiento denominado "guestconfiguration".
@@ -367,7 +363,7 @@ A continuación se muestra un fragmento de código de ejemplo de una definición
 
 ### <a name="using-parameters-in-custom-guest-configuration-policy-definitions"></a>Uso de parámetros en definiciones de directivas de Configuración de invitados personalizadas
 
-La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan a través de Azure Policy y no afectan al modo en que se crean o se compilan las configuraciones.
+La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan mediante Azure Policy y no cambian el modo en que se crean o compilan las configuraciones.
 
 Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parámetros**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea las secciones necesarias de cada archivo que se usa para crear la definición de Azure Policy.
 
@@ -389,7 +385,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -431,8 +427,7 @@ Si desea publicar una actualización de la directiva, realice el cambio en el pa
 > [!NOTE]
 > La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
 
-En primer lugar, al ejecutar `New-GuestConfigurationPackage`, especifique un nombre para el paquete que lo haga único con respecto a las versiones anteriores. Puede incluir un número de versión en el nombre, como `PackageName_1.0.0`.
-El número de este ejemplo solo se usa para hacer que el paquete sea único, no para especificar que el paquete sea más reciente o más antiguo que otros paquetes.
+En primer lugar, al ejecutar `New-GuestConfigurationPackage`, especifique un nombre para el paquete que lo haga único con respecto a las versiones anteriores. Puede incluir un número de versión en el nombre, como `PackageName_1.0.0`. El número de este ejemplo solo se usa para hacer que el paquete sea único, no para especificar que el paquete sea más reciente o más antiguo que otros paquetes.
 
 En segundo lugar, actualice los parámetros que se usan con el cmdlet `New-GuestConfigurationPolicy` después de cada una de las explicaciones siguientes.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065053"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550768"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Incorporación de un dominio personalizado a Front Door
 
@@ -70,7 +70,7 @@ Para crear un registro CNAME con el subdominio afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Origen: escriba un nombre de dominio personalizado, incluido el subdominio afdverify, con el siguiente formato: afdverify. _&lt;nombre de dominio personalizado&gt;_ . Por ejemplo, afdverify. www.contoso.com.
+    - Origen: escriba un nombre de dominio personalizado, incluido el subdominio afdverify, con el siguiente formato: afdverify. _&lt;nombre de dominio personalizado&gt;_ . Por ejemplo, afdverify. www.contoso.com. Si va a asignar un dominio con caracteres comodín, como \*.contoso.com, el valor de origen es el mismo que si fuera sin el carácter comodín: afdverify.contoso.com.
 
     - Escriba:  Escriba *CNAME*.
 

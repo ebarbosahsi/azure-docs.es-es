@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/24/2021
 ms.author: b-juche
-ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864013"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048381"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Creación y administración de conexiones de Active Directory para Azure NetApp Files
 
@@ -86,6 +86,8 @@ Debe haber una subred delegada en Azure NetApp Files.
 * Azure NetApp Files admite [Firma LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), lo que permite una transmisión segura del tráfico LDAP entre el servicio Azure NetApp Files y los [controladores de dominio de Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) de destino. Si sigue las instrucciones del aviso de Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para la firma LDAP, debe habilitar la característica de firma LDAP en Azure NetApp Files activando la casilla **Firma LDAP** en la ventana [Unir Active Directory](#create-an-active-directory-connection). 
 
     La configuración del [enlace de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) por sí sola no tiene ningún efecto en el servicio Azure NetApp Files. Pero si usa el enlace de canal LDAP y LDAP seguro (por ejemplo, LDAPS o `start_tls`), se produce un error en la creación del volumen SMB.
+
+* En el caso de DNS no integrado en AD, debe agregar un registro D o PTR de DNS para permitir que Azure NetApp Files funcione mediante un "nombre descriptivo". 
 
 ## <a name="decide-which-domain-services-to-use"></a>Decisión sobre los servicios de dominio que se van a usar 
 

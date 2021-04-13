@@ -9,28 +9,22 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5547e49cd7ea7f6c0cc97b5559564b64e0deda7c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487841"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168848"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
-> [Este ejemplo está disponible en GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+> [Este ejemplo está disponible **en GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-En el ejemplo de salón de chat de grupo **de Azure Communication Services** se muestra cómo se puede usar la biblioteca de cliente web de chat de servicios de comunicación para crear una experiencia de llamada de grupo.
+El **ejemplo de elementos principales de un chat grupal** de Azure Communication Services muestra cómo se puede usar el SDK web de chat de Communication Services para crear una experiencia de llamada grupal.
 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
@@ -111,7 +105,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Más información sobre los [conceptos de chat](../concepts/chat/concepts.md)
-- Familiarización con nuestra [biblioteca cliente de chat](../concepts/chat/sdk-features.md)
+- Familiarización con el [SDK de chat](../concepts/chat/sdk-features.md)
 - Examen del ejemplo de [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Lecturas adicionales

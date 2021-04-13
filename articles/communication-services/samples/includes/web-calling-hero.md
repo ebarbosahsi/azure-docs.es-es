@@ -10,22 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487955"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554673"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar la biblioteca cliente web de llamadas de Communication Services para crear una experiencia de llamada grupal.
+En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar el SDK web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
 ## <a name="download-code"></a>Descarga de código
 
-Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Busque el proyecto de este ejemplo en [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Se puede encontrar una versión del ejemplo con la [interoperabilidad de Teams](../../concepts/teams-interop.md) en una [rama](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop) independiente.
 
 ## <a name="overview"></a>Información general
 
@@ -48,6 +46,9 @@ Componentes de la pantalla principal de llamada:
 - **Galería multimedia**: la fase principal en la que se muestran los participantes. Si un participante tiene habilitada la cámara, aquí se muestra su fuente de vídeo. Cada participante tiene un icono individual que muestra su nombre para mostrar y la transmisión de vídeo (si hay alguna).
 - **Encabezado**: aquí es donde se encuentran los controles de llamada principales para ajustar la configuración y la barra lateral de participantes, activar o desactivar el vídeo y mezclas, compartir la pantalla y abandonar la llamada.
 - **Barra lateral**: aquí es donde se muestran los participantes y la información de configuración cuando se ajustan con los controles del encabezado. El componente se puede descartar con la "X" de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
+
+> [!NOTE]
+> En función de las limitaciones del SDK de llamadas web, solo se representa una secuencia de vídeo remota. Para más información, consulte [Compatibilidad con secuencias del SDK de llamadas](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -96,7 +97,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 Para más información, consulte los siguientes artículos.
 
-- Familiarícese con [el uso de la biblioteca cliente de llamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarícese con el [uso del SDK de llamadas](../../quickstarts/voice-video-calling/calling-client-samples.md).
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Lecturas adicionales

@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97895757"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077693"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
 
 La solución CloudSimple proporciona alta disponibilidad para las aplicaciones que se ejecutan en VMware en el entorno de Azure. En la tabla siguiente se enumeran los escenarios de error y las características de alta disponibilidad asociadas.
 
-| Escenario de error | ¿Aplicación protegida? | Característica de alta disponibilidad de la plataforma | Característica de alta disponibilidad de VMware | Característica de alta disponibilidad de Azure |
------------- | ------------- | ------------ | ------------ | ------------- |
-| Error de disco | SÍ | Sustitución rápida del nodo con errores | [Acerca de la Directiva de almacenamiento predeterminada de vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Error del ventilador | SÍ | Ventiladores redundantes, sustitución rápida del nodo con errores |  |  |
-| Error de NIC | SÍ | NIC redundante, sustitución rápida del nodo con errores
-| Error de alimentación del host | SÍ | Fuente de alimentación redundante |  |  |
-| Error del host ESXi | SÍ | Sustitución rápida del nodo con errores | [Alta disponibilidad de VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| Error de VM | SÍ | [Equilibradores de carga](load-balancers.md)  | [Alta disponibilidad de VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer para VM de VMware sin estado |
-| Error del puerto de conmutador de hoja | SÍ | NIC redundante |  |  |
-| Error del conmutador de hoja | SÍ | Conmutadores de hoja redundantes |  |  |
-| Error de bastidor | SÍ | Grupos de selección de ubicación |  |  |
-| Conectividad de red en un CD local | SÍ  | Servicios de red redundantes |  | Circuitos de ER redundantes |
-| Conectividad de la red a Azure | SÍ | |  | Circuitos de ER redundantes |
-| Error del centro de datos | SÍ |  |  | Zonas de disponibilidad |
-| Error regional | SÍ  |  |  | Regiones de Azure |
+|  Escenario de error  |  ¿Aplicación protegida?  |  Característica de alta disponibilidad de la plataforma  |  Característica de alta disponibilidad de VMware  |  Característica de alta disponibilidad de Azure  |
+|----------------------------------------|------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  Error de disco  |  SÍ  |  Sustitución rápida del nodo con errores  |  [Acerca de la directiva de almacenamiento predeterminada de vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html)  |  |
+|  Error del ventilador  |  SÍ  |  Ventiladores redundantes, sustitución rápida del nodo con errores  |  |  |
+|  Error de NIC  |  SÍ  |  NIC redundante, sustitución rápida del nodo con errores  |  |  |
+|  Error de alimentación del host  |  SÍ  |  Fuente de alimentación redundante  |  |  |
+|  Error del host ESXi  |  SÍ  |  Sustitución rápida del nodo con errores  |  [Alta disponibilidad de VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  |
+|  Error de máquina virtual  |  SÍ  |  [Equilibradores de carga](load-balancers.md)  |  [Alta disponibilidad de VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  Azure Load Balancer para máquinas virtuales de VMware sin estado  |
+|  Error del puerto de conmutador de hoja  |  SÍ  |  NIC redundante  |  |  |
+|  Error del conmutador de hoja  |  SÍ  |  Conmutadores de hoja redundantes  |  |  |
+|  Error de bastidor  |  SÍ  |  Grupos de selección de ubicación  |  |  |
+|  Conectividad de red a un CD local  |  SÍ  |  Servicios de red redundantes  |  |  Circuitos de ER redundantes  |
+|  Conectividad de red a Azure  |  SÍ  |  |  |  Circuitos de ER redundantes  |
+|  Error del centro de datos  |  SÍ  |  |  |  Zonas de disponibilidad  |
+|  Error regional  |  SÍ  |  |  |  Regiones de Azure  |
 
 Azure VMware Solution by CloudSimple proporciona las siguientes características de alta disponibilidad.
 

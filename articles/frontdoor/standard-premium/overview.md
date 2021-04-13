@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5c3ae5c7b1c45d170548f6fa00481094117e1737
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030552"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937369"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>¿Qué es Azure Front Door Standard/Premium (versión preliminar)?
 
@@ -28,7 +28,7 @@ Con Azure Front Door Estándar/Prémium, puede transformar sus aplicaciones empr
 
 Azure Front Door Estándar/Prémium funciona en la capa 7 (HTTP/HTTPS) y usa el protocolo de difusión por proximidad con división TCP y la red global de Microsoft para mejorar la conectividad global. Azure Front Door utiliza el método de enrutamiento que se haya personalizado mediante el conjunto de reglas para enrutar las solicitudes de cliente al origen más rápido y que esté más disponible. Un origen de aplicación es cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Azure Front Door Estándar/Prémium proporciona una serie de métodos de enrutamiento del tráfico y opciones de supervisión de estado del origen para satisfacer las distintas necesidades de las aplicaciones y los escenarios de conmutación automática por error. Al igual que Traffic Manager, Front Door es resistente a errores, incluidos los que afectan a una región completa de Azure.
 
-Azure Front-Door también protege la aplicación en los perímetros gracias a la protección integrada de Web Application Firewall, la protección contra bots y la protección integrada contra denegación de servicio (DDoS) distribuido de capa 3 y 4. También protege los servidores back-end privados con el servicio de vínculo privado. Azure Front-Door ofrece la mejor seguridad a escala global de Microsoft.  
+Azure Front-Door también protege la aplicación en el perímetro gracias a la protección integrada del firewall de aplicaciones web, la protección contra bots y la protección integrada contra denegación de servicio (DDoS) distribuido de capa 3 y 4. También protege los servidores back-end privados con el servicio de vínculo privado. Azure Front-Door ofrece la mejor seguridad a escala global de Microsoft.  
 
 >[!NOTE]
 > Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios.

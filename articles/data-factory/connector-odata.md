@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo copiar datos desde orígenes OData
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/30/2021
 ms.author: jingwang
-ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9dd86b4982edf5d206e64431a5e1458c4b848e9e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389729"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968502"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copia de datos desde un origen OData mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -326,6 +326,48 @@ Al copiar datos desde OData, se utilizan las siguientes asignaciones entre tipos
 
 > [!NOTE]
 > No se admiten tipos de datos complejos de OData (por ejemplo, **Object**).
+
+## <a name="copy-data-from-project-online"></a>Copia de datos de Project Online
+
+Para copiar datos de Project Online, puede usar el conector OData y un token de acceso obtenido de herramientas como Postman.
+
+> [!CAUTION]
+> El token de acceso expira en 1 hora de manera predeterminada; debe obtener uno nuevo en cuanto expire.
+
+1. Use **Postman** para obtener el token de acceso:
+
+   1. Vaya a la pestaña **Authorization** (Autorización) en el sitio web de Postman.
+   1. En el cuadro **Type** (Tipo), seleccione **OAuth 2.0** y, en el cuadro **Add authorization data to** (Agregar datos de autorización a), seleccione **Request Headers** (Encabezados de solicitud).
+   1. Rellene la siguiente información en la página **Configure New Token** (Configurar nuevo token) para obtener un nuevo token de acceso: 
+      - **Grant type** (Tipo de concesión): seleccione **Authorization Code** (Código de autorización).
+      - **Callback URL** (Dirección URL de devolución de llamada): escriba `https://www.localhost.com/`. 
+      - **Auth URL** (Dirección URL de autenticación): escriba `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Reemplace `<your tenant name>` por su propio nombre de inquilino. 
+      - **Access Token URL** (Dirección URL de token de acceso): escriba `https://login.microsoftonline.com/common/oauth2/token`.
+      - **Client ID** (Identificador de cliente): escriba el identificador de la entidad de servicio de AAD.
+      - **Client Secret** (Secreto de cliente): escriba el secreto de la entidad de servicio.
+      - **Client Authentication** (Autenticación de cliente): seleccione **Send as Basic Auth header** (Enviar como encabezado de autenticación básica).
+     
+   1. Se le va a pedir que inicie sesión con su nombre de usuario y contraseña.
+   1. Una vez que obtenga el token de acceso, cópielo y guárdelo para el siguiente paso.
+   
+    [![Uso de Postman para obtener el token de acceso](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+
+1. Cree el servicio vinculado de OData:
+    - **URL de servicio**: escriba `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Reemplace `<your tenant name>` por su propio nombre de inquilino. 
+    - **Tipo de autenticación**: seleccione **Anónimo**.
+    - **Encabezados de autenticación**:
+        - **Nombre de propiedad**: seleccione **Autorización**.
+        - **Valor**: escriba el **token de acceso** copiado en el paso 1.
+    - Pruebe el servicio vinculado.
+
+    ![Creación del servicio vinculado de OData](./media/connector-odata/odata-project-online-linked-service.png)
+
+1. Cree el conjunto de datos de OData:
+    1. Cree el conjunto de datos con el servicio vinculado de OData creado en el paso 2.
+    1. Obtenga una vista previa de los datos.
+ 
+    ![Vista previa de los datos](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda

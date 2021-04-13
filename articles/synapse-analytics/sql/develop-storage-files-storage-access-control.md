@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102501579"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552961"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Un usuario que haya iniciado sesión en un grupo de SQL sin servidor debe estar 
 La **identidad de usuario**, conocida también como "paso a través de Azure AD", es un tipo de autorización en el que se usa la identidad del usuario de Azure AD que inició sesión en el grupo de SQL sin servidor para autorizar el acceso a los datos. Antes de acceder a los datos, el administrador de Azure Storage debe conceder permisos al usuario de Azure AD. Como se indica en la tabla siguiente, no se admite para el tipo de usuario de SQL.
 
 > [!IMPORTANT]
-> Debe tener un rol de Propietario, Colaborador o Lector de datos de un blob de almacenamiento para usar su identidad para acceder a los datos.
-> Incluso si es propietario de una cuenta de almacenamiento, deberá agregarse a uno de los roles de datos del blob de almacenamiento.
->
-> Para más información sobre el control de acceso en Azure Data Lake Store Gen2, revise el artículo [Control de acceso en Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
+> Las aplicaciones cliente pueden almacenar en caché el token de autenticación de Azure Active Directory. Por ejemplo, PowerBI almacena en caché el token de Azure Active Directory y reutiliza el mismo token durante una hora. Puede producirse un error en las consultas de ejecución prolongada si el token expira en mitad de la ejecución de la consulta. Si experimenta errores de consulta causados por la expiración del token de acceso de Azure Active Directory en mitad de la consulta, considere la posibilidad de cambiar a la [identidad administrada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a la [firma de acceso compartido](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Debe tener un rol de Propietario, Colaborador o Lector de datos de un blob de almacenamiento para usar su identidad para acceder a los datos. Como alternativa, puede establecer reglas de ACL específicas para acceder a archivos y carpetas. Incluso si es propietario de una cuenta de almacenamiento, deberá agregarse a uno de los roles de datos del blob de almacenamiento.
+Para más información sobre el control de acceso en Azure Data Lake Store Gen2, revise el artículo [Control de acceso en Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 
 ### <a name="shared-access-signature"></a>[Firma de acceso compartido](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Para obtener un token de SAS, vaya a **Azure portal -> Cuenta de Storage -> Firm
 > SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Para habilitar el acceso mediante un token de SAS, debe crear una credencial con ámbito en la base de datos o con ámbito en el servidor. 
+
+
+> [!IMPORTANT]
+> No es posible acceder a las cuentas de almacenamiento privado con el token de SAS. Considere la posibilidad de cambiar a la [identidad administrada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a la autenticación de [paso a través de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) para acceder al almacenamiento protegido.
 
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
@@ -100,6 +104,15 @@ Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identi
 #### <a name="user-identity"></a>Identidad del usuario
 
 Para acceder a un almacenamiento que está protegido por firewall mediante Identidad de usuario, puede usar el módulo Az.Storage de PowerShell.
+#### <a name="configuration-via-azure-portal"></a>Configuración mediante Azure Portal
+
+1. Busque su cuenta de almacenamiento en Azure Portal.
+1. Vaya a Redes en la sección Configuración.
+1. En la sección "Resource instances" (Instancias de recursos), agregue una excepción para el área de trabajo de Synapse.
+1. Seleccione Microsoft.Synapse/workspaces en Tipo de recurso.
+1. Seleccione el nombre del área de trabajo como un nombre de instancia.
+1. Haga clic en Guardar.
+
 #### <a name="configuration-via-powershell"></a>Configuración mediante PowerShell
 
 Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y agregar una excepción para el área de trabajo de Synapse.

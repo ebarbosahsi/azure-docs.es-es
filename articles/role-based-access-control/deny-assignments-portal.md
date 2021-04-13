@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84790253"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077846"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de denegación de Azure mediante Azure Portal
 
@@ -54,7 +54,7 @@ Siga estos pasos para enumerar las asignaciones de denegación en el ámbito de 
 
     ![Asignaciones de denegación: columnas](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Columna | Descripción  |
     | --- | --- |
     | **Nombre** | Nombre de la asignación de denegación. |
     | **Tipo de entidad de seguridad** | Usuario, grupo, grupo definido por el sistema o entidad de servicio. |
@@ -79,7 +79,7 @@ Siga estos pasos para enumerar detalles adicionales sobre una asignación de den
 
     La hoja **Usuarios** incluye las dos secciones siguientes.
 
-    |  |  |
+    | Configuración de denegación  | Descripción |
     | --- | --- |
     | **La asignación de denegación se aplica a**  | Entidades de seguridad a las que se aplica la asignación de denegación. |
     | **La asignación de denegación excluye** | Entidades de seguridad que se excluyen de la asignación de denegación. |

@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad9e5665204dbd3f99f83af3578b1996814d6fa0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596951"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728850"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -67,7 +67,7 @@ Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de
 
 Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
 
-|    |     |
+| Ejemplo de sintaxis  |  Código |
 |--------|-----------|
 | **Sintaxis** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Ejemplo** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
@@ -103,14 +103,16 @@ Antes de establecer esta variable, se recomienda ejecutar una prueba del banco d
 
 ### <a name="optimize-memory-use"></a>Optimización del uso de memoria
 
-Establezca la variable de entorno `AZCOPY_BUFFER_GB` para especificar la cantidad máxima de memoria del sistema que desea que AzCopy use al descargar y cargar archivos.
-Exprese este valor en gigabytes (GB).
+Establezca la variable de entorno `AZCOPY_BUFFER_GB` para especificar la cantidad máxima de memoria del sistema que quiere que use AzCopy para el almacenamiento en búfer al descargar y cargar archivos. Exprese este valor en gigabytes (GB).
 
 | Sistema operativo | Get-Help  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> El seguimiento de trabajos siempre conlleva una sobrecarga adicional en el uso de memoria. La cantidad varía en función del número de transferencias de un trabajo. Los búferes son el componente más grande del uso de memoria. Puede ayudar a controlar la sobrecarga usando `AZCOPY_BUFFER_GB` para cumplir los requisitos aproximadamente, pero no hay disponible ninguna marca que limite estrictamente el uso de memoria total.
 
 ### <a name="optimize-file-synchronization"></a>Optimización de la sincronización de archivos
 
