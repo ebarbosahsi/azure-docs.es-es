@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199156"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044964"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -91,7 +91,7 @@ En la tabla siguiente se indican los paquetes necesarios para las [distribucione
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x o 1.1.x |
 |Curl | Cliente web de cURL | 7.15.5 |
-|Python | | 2.6+ o 3.3+
+|Python | | 2.7 o 3.6+
 |Python ctypes | | 
 |PAM | Módulos de autenticación conectables | | 
 
