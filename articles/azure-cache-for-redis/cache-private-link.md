@@ -1,19 +1,19 @@
 ---
-title: Azure Cache for Redis con Azure Private Link (versión preliminar)
+title: Azure Cache for Redis con Azure Private Link
 description: Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a Azure Cache for Redis de Azure Private Link. En este artículo, obtendrá información sobre cómo crear una memoria caché de Azure, una red virtual de Azure y un punto de conexión privado mediante Azure Portal.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 3/31/2021
+ms.openlocfilehash: 952f708d8f368b63f772e3af35f6fd441d65622d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97007592"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121666"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache for Redis con Azure Private Link (versión preliminar pública)
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache for Redis con Azure Private Link
 En este artículo, obtendrá información sobre cómo crear una red virtual y una instancia de Azure Cache for Redis con un punto de conexión privado mediante Azure Portal. También aprenderá a agregar un punto de conexión privado a una instancia de Azure Cache for Redis existente.
 
 Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a Azure Cache for Redis de Azure Private Link. 
@@ -22,8 +22,7 @@ Un punto de conexión privado de Azure es una interfaz de red que le conecta de 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Para usar puntos de conexión privados, la instancia de Azure Cache for Redis debe haberse creado después del 28 de julio de 2020.
-> Actualmente, no se admiten la replicación geográfica, las reglas de firewall, la compatibilidad con la consola del portal, varios puntos de conexión por caché en clúster, la persistencia en el firewall ni las cachés insertadas en redes virtuales. 
+> Actualmente, no se admiten la redundancia de zona, la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
 >
 >
 
@@ -112,19 +111,8 @@ La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página
 > [!IMPORTANT]
 > 
 > Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. 
-> Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled` con la siguiente solicitud PATCH. Edite el valor para que refleje la marca que desea para la memoria caché.
-> ```http
-> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-> {    "properties": {
->        "publicNetworkAccess":"Disabled"
->    }
-> }
-> ```
+> Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled`. Para más información sobre cómo cambiar el valor, consulte las [preguntas frecuentes](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
-
-> [!IMPORTANT]
-> 
-> Para conectarse a una caché en clúster, `publicNetworkAccess` debe establecerse en `Disabled`, y solo puede haber una conexión de punto de conexión privado. 
 >
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Creación de un punto de conexión privado con una instancia de Azure Cache for Redis existente 
@@ -173,7 +161,7 @@ Para crear un punto de conexión privado, siga estos pasos.
 
 2. Seleccione la instancia de caché a la que desea agregar un punto de conexión privado.
 
-3. En el lado izquierdo de la pantalla, seleccione **Punto de conexión privado (VERSIÓN PRELIMINAR)** .
+3. En el lado izquierdo de la pantalla, seleccione **Puntos de conexión privados**.
 
 4. Haga clic en el botón **Punto de conexión privado** para crear el punto de conexión privado.
 
@@ -204,16 +192,36 @@ Para crear un punto de conexión privado, siga estos pasos.
 
 13. Tras aparecer el mensaje verde **Validación superada**, seleccione **Crear**.
 
+> [!IMPORTANT]
+> 
+> Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. 
+> Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled`. Para más información sobre cómo cambiar el valor, consulte las [preguntas frecuentes](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+>
+>
+
+
 ## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>¿Por qué no puedo conectarme a un punto de conexión privado?
-Si la memoria caché ya está insertada en la red virtual, los puntos de conexión privados no se pueden usar con la instancia de la memoria caché. Si la instancia de la memoria caché usa una característica no admitida (se enumeran a continuación), no podrá conectarse a su instancia de punto de conexión privado. Además, las instancias de la memoria caché se deben haber creado después del 27 de julio para usar puntos de conexión privados.
+Si la memoria caché ya está insertada en la red virtual, los puntos de conexión privados no se pueden usar con la instancia de la memoria caché. Si la instancia de la memoria caché usa una característica no admitida (se enumeran a continuación), no podrá conectarse a su instancia de punto de conexión privado.
 
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>¿Qué características no son compatibles con los puntos de conexión privados?
-La replicación geográfica, las reglas de firewall, la compatibilidad con la consola del portal, varios puntos de conexión por memoria caché en clúster, la persistencia de las reglas de firewall y la redundancia de zona. 
+Actualmente, no se admiten la redundancia de zona, la compatibilidad con la consola del portal ni la persistencia en cuentas de almacenamiento de firewall. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>¿Cómo puedo cambiar el punto de conexión privado para que esté deshabilitado o habilitado el acceso desde la red pública?
-Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled` con la siguiente solicitud PATCH. Edite el valor para que refleje la marca que desea para la memoria caché.
+Hay una marca `publicNetworkAccess` que está establecida en `Disabled` de manera predeterminada. Esta marca está pensada para que pueda, de manera opcional, permitir el acceso de puntos de conexión públicos y privados a la memoria caché si está establecida en `Enabled`. Si se establece en `Disabled`, solo permitirá el acceso a puntos de conexión privados. Puede establecer el valor en `Disabled` o `Enabled` en Azure Portal o con una solicitud PATCH de API RESTful. 
+
+Para cambiar el valor en Azure Portal, haga lo siguiente:
+
+1. En Azure Portal, busque **Azure Cache for Redis** y presione Entrar o selecciónelo en las sugerencias de búsqueda.
+
+2. Seleccione la instancia de caché en la que quiere cambiar el valor de acceso a la red pública.
+
+3. En el lado izquierdo de la pantalla, seleccione **Puntos de conexión privados**.
+
+4. Haga clic en el botón **Enable public network access** (Habilitar acceso a la red pública).
+
+Para cambiar el valor mediante una solicitud PATCH de API RESTful, consulte a continuación y modifique el valor para que refleje la marca que quiere para la memoria caché.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -223,24 +231,23 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>¿Cómo puedo tener varios puntos de conexión en diferentes redes virtuales?
+Para tener varios puntos de conexión privados en diferentes redes virtuales, la zona DNS privada debe configurarse manualmente para las diversas redes virtuales _antes_ de crear el punto de conexión privado. Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](../private-link/private-endpoint-dns.md). 
+
+### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>¿Qué ocurre si se eliminan todos los puntos de conexión privados de la caché?
+Una vez que se eliminan los puntos de conexión privados de la caché, la instancia de caché puede quedar inaccesible hasta que se habilite explícitamente el acceso a la red pública o se agregue otro punto de conexión privado. Puede cambiar la marca `publicNetworkAccess` en Azure Portal o mediante una solicitud PATCH de API RESTful. Para más información sobre cómo cambiar el valor, consulte las [preguntas frecuentes](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>¿Están habilitados los grupos de seguridad de red (NSG) para los puntos de conexión privados?
 No, están deshabilitados para los puntos de conexión privados. Si bien las subredes que contienen el punto de conexión privado pueden tener un grupo de seguridad de red asociado, las reglas no serán efectivas en el tráfico procesado por el punto de conexión privado. Debe tener la [aplicación de directivas de red deshabilitada](../private-link/disable-private-endpoint-network-policy.md) para implementar puntos de conexión privados en una subred. El grupo de seguridad de red se sigue aplicando en otras cargas de trabajo hospedadas en la misma subred. Las rutas de cualquier subred de cliente utilizarán un prefijo /32, lo que cambia el comportamiento de enrutamiento predeterminado requiere un UDR similar. 
 
 Controle el tráfico mediante el uso de reglas del grupo de seguridad de red para el tráfico saliente en los clientes de origen. Implementación de rutas individuales con un prefijo /32 para invalidar rutas de punto de conexión privado. Todavía se admiten los registros de flujo de NSG y la información de supervisión de las conexiones salientes y se pueden usar.
 
-### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>¿Puedo usar reglas de firewall con puntos de conexión privados?
-No, esta es una de las limitaciones actuales de los puntos de conexión privados. El punto de conexión privado no funcionará correctamente si las reglas de firewall están configuradas en la memoria caché.
-
-### <a name="how-can-i-connect-to-a-clustered-cache"></a>¿Cómo puedo conectarme a una memoria caché en clúster?
-Se debe establecer `publicNetworkAccess` en `Disabled` y solo puede haber una conexión de punto de conexión privado.
-
 ### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Como mi instancia de punto de conexión privado no está en mi red virtual, ¿cómo se asocia a la red virtual?
 Solo está vinculada a la red virtual. Dado que no está en la red virtual, no es necesario modificar las reglas del NSG para los puntos de conexión dependientes.
 
 ### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>¿Cómo puedo migrar mi memoria caché insertada en la red virtual a una memoria caché de punto de conexión privado?
-Tendrá que eliminar la memoria caché insertada en la red virtual y crear una nueva instancia de memoria caché con un punto de conexión privado.
+Tendrá que eliminar la memoria caché insertada en la red virtual y crear una nueva instancia de memoria caché con un punto de conexión privado. Para más información, consulte [Migración a Azure Cache for Redis](cache-migration-guide.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 * Para más información sobre Azure Private Link, consulte la [documentación de Azure Private Link](../private-link/private-link-overview.md).
 * Para comparar las distintas opciones de aislamiento de red para la instancia de memoria caché, consulte [Opciones de aislamiento de red de Azure Cache for Redis](cache-network-isolation.md).

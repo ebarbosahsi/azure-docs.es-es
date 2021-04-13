@@ -8,12 +8,12 @@ ms.author: ddematheu2
 ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 41d959468e3183af00d2ab514e7c1bf0a134a1f8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5b71a0581bf4f9d8239171e6abc56f87e7ae8183
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490488"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105152783"
 ---
 ## <a name="download-code"></a>Descarga de código
 
@@ -76,7 +76,7 @@ Ahora vamos a instalar las bibliotecas de Azure Communication Services.
 
 Usaremos la biblioteca `Identity` para generar `User Access Tokens`.
 
-Use el comando `npm install` para instalar la biblioteca cliente de identidades de Azure Communication Services para JavaScript.
+Use el comando `npm install` para instalar Identity SDK de Azure Communication Services para JavaScript.
 
 ```console
 
@@ -104,7 +104,7 @@ const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
 
 A continuación, modificaremos la función original para generar `User Access Tokens`.
 
-`User Access Tokens` se generan al crear un usuario a partir del método `createUser`. Una vez creado el usuario, se puede usar el método `issueToken` para generar un token para ese usuario que devuelve la instancia de Azure Functions.
+`User Access Tokens` se generan al crear un usuario a partir del método `createUser`. Una vez creado el usuario, se puede usar el método `getToken` para generar un token para ese usuario que devuelve la instancia de Azure Functions.
 
 En este ejemplo, configuraremos el ámbito del token para `voip`. Puede que se necesiten otros ámbitos para su aplicación. Obtenga más información sobre los [ámbitos](../../quickstarts/access-tokens.md).
 
@@ -114,7 +114,7 @@ module.exports = async function (context, req) {
 
     const user = await tokenClient.createUser();
 
-    const userToken = await tokenClient.issueToken(user, ["voip"]);
+    const userToken = await tokenClient.getToken(user, ["voip"]);
 
     context.res = {
         body: userToken

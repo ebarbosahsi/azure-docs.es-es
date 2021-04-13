@@ -1,15 +1,15 @@
 ---
 title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99525354"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096570"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -90,9 +90,7 @@ DSC actúa como contenedor de InSpec para normalizar cómo se ejecuta, cómo se 
 
 El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Azure Resource Manager (plantilla de ARM) deben ser el mismo.
 
-Los cmdlets de PowerShell ayudan en la creación del paquete.
-No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones.
-El formato del paquete debe ser un archivo .zip. y no pueden superar un tamaño total de 100 MB sin comprimir.
+Los cmdlets de PowerShell ayudan en la creación del paquete. No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones. El formato del paquete debe ser un archivo .zip. y no pueden superar un tamaño total de 100 MB sin comprimir.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
 
@@ -211,7 +209,7 @@ Parámetros del cmdlet `Publish-GuestConfigurationPackage`:
 - **Ruta de acceso**: Ubicación del paquete que se va a publicar.
 - **ResourceGroupName**: Nombre del grupo de recursos donde se encuentra la cuenta de almacenamiento.
 - **StorageAccountName**: Nombre de la cuenta de almacenamiento donde se debe publicar el paquete.
-- **StorageContainerName** (valor predeterminado: *guestconfiguration*): Nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
+- **StorageContainerName** (valor predeterminado: _guestconfiguration_): Nombre del contenedor de almacenamiento en la cuenta de almacenamiento.
 - **Force**: Permite sobrescribir el paquete existente en la cuenta de almacenamiento con el mismo nombre.
 
 En el ejemplo siguiente se publica el paquete en un contenedor de almacenamiento denominado "guestconfiguration".
@@ -277,7 +275,7 @@ Con la directiva creada en Azure, el último paso es asignar la definición. Con
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Usar parámetros en directivas de configuración de invitados personalizadas
 
-La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan a través de Azure Policy y no afectan al modo en que se crean o se compilan las configuraciones.
+La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan mediante Azure Policy y no cambian el modo en que se crean o compilan las configuraciones.
 
 Con InSpec, los parámetros se suelen administrar como entrada en tiempo de ejecución o como código mediante atributos. Configuración de invitado ofusca este proceso, por lo que se puede proporcionar la entrada cuando se asigna la directiva. Un archivo de atributos se crea automáticamente dentro de la máquina. No es necesario crear y agregar un archivo al proyecto. Existen dos pasos para agregar parámetros al proyecto de auditoría de Linux.
 
@@ -350,8 +348,7 @@ Si desea publicar una actualización de la directiva, realice el cambio en el pa
 > [!NOTE]
 > La propiedad `version` de la asignación de configuración de invitado solo afecta a los paquetes hospedados por Microsoft. El procedimiento recomendado para el control de versiones del contenido personalizado es incluir la versión en el nombre de archivo.
 
-En primer lugar, al ejecutar `New-GuestConfigurationPackage`, especifique un nombre para el paquete que lo haga único con respecto a las versiones anteriores. Puede incluir un número de versión en el nombre, como `PackageName_1.0.0`.
-El número de este ejemplo solo se usa para hacer que el paquete sea único, no para especificar que el paquete sea más reciente o más antiguo que otros paquetes.
+En primer lugar, al ejecutar `New-GuestConfigurationPackage`, especifique un nombre para el paquete que lo haga único con respecto a las versiones anteriores. Puede incluir un número de versión en el nombre, como `PackageName_1.0.0`. El número de este ejemplo solo se usa para hacer que el paquete sea único, no para especificar que el paquete sea más reciente o más antiguo que otros paquetes.
 
 En segundo lugar, actualice los parámetros que se usan con el cmdlet `New-GuestConfigurationPolicy` después de cada una de las explicaciones siguientes.
 

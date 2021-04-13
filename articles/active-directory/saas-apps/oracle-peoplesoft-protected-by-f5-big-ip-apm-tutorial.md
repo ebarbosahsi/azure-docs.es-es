@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af149f0c1db7f354be6bd968bbd0cf858493d4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522298"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -41,18 +41,18 @@ Para empezar, necesita los siguientes elementos:
     3. Licencia del complemento F5 BIG-IP Access Policy Manager™ (APM) en una instalación de F5 BIG-IP® Local Traffic Manager™ (LTM) ya existente.
     4. Además de la licencia anterior, el sistema F5 también puede tener licencia para: 
         * Una suscripción de filtrado de direcciones URL para usar la base de datos de categorías de URL. 
-        * Una suscripción a F5 IP Intelligence para detectar y bloquear a atacantes conocidos y tráfico malintencionado. 
-        * Un módulo de seguridad de hardware (HSM) de red para proteger y administrar claves digitales para la autenticación segura.
-1. El sistema F5 BIG-IP se aprovisiona con módulos de APM (LTM es opcional). 
+        * Una suscripción a F5 IP Intelligence para detectar y bloquear a los atacantes conocidos y el tráfico malintencionado. 
+        * Un módulo de seguridad de hardware (HSM) de red para proteger y administrar las claves digitales para la autenticación segura.
+1. El sistema F5 BIG-IP se aprovisiona con módulos de APM (LTM es opcional).
 1. Aunque es opcional, es muy recomendable implementar los sistemas F5 en un [grupo de dispositivos de sincronización/conmutación por error](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), que incluye el par activo en espera, con una dirección IP flotante para la alta disponibilidad (HA). Se puede lograr una mayor redundancia de la interfaz mediante el protocolo de control de agregación de vínculos (LACP). LACP administra las interfaces físicas conectadas como una sola interfaz virtual (grupo agregado) y detecta cualquier error de interfaz dentro del grupo.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Oracle PeopleSoft - Protected by F5 BIG-IP APM admite el inicio de sesión único iniciado por **SP e IDP**.
+* Oracle PeopleSoft - Protected by F5 BIG-IP APM admite el inicio de sesión único comenzado por **SP e IDP**.
 
-## <a name="adding-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Incorporación de Oracle PeopleSoft - Protected by F5 BIG-IP APM desde la galería
+## <a name="add-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Incorporación de Oracle PeopleSoft - Protected by F5 BIG-IP APM desde la galería
 
 Para configurar la integración de Oracle PeopleSoft - Protected by F5 BIG-IP APM en Azure AD, es preciso agregar Oracle PeopleSoft - Protected by F5 BIG-IP APM desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -83,7 +83,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Oracle PeopleSoft - Protected by F5 BIG-IP APM**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -231,7 +231,7 @@ Vaya a **Local Traffic > Profiles > SSL > Client > +** (Tráfico local > Perfile
 >[!Note]
 > Referencia: https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm
 
-1. Inicie sesión en la consola de PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` con las credenciales de administrador (por ejemplo: PS/PS).
+1. Inicie sesión en la consola de PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` con las credenciales de administrador (por ejemplo, PS/PS).
 
     ![Autoservicio de administrador](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-console.png)
 
@@ -329,9 +329,8 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Oracle PeopleSoft - Protected by F5 BIG-IP APM en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
-
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Oracle PeopleSoft - Protected by F5 BIG-IP APM en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Oracle PeopleSoft - Protected by F5 BIG-IP APM, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Oracle PeopleSoft - Protected by F5 BIG-IP APM, puede aplicar el control de sesión, que protege a la organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

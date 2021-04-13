@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565830"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628380"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-Para más información sobre las tecnologías en memoria, vea [Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database y Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
+Para más información sobre las tecnologías en memoria, vea [Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database y Azure SQL Managed Instance](../in-memory-oltp-overview.md).
 
 ### <a name="create-a-performance-baseline"></a>Creación de una base de referencia de rendimiento
 
@@ -89,7 +89,7 @@ La base de referencia del rendimiento es un conjunto de parámetros como el uso 
 Algunos de los parámetros que necesitará medir en su instancia de SQL Server son:
 
 - [Supervisión del uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y registro del uso medio y uso máximo de la CPU.
-- [Supervisión del uso de memoria en la instancia de SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
+- [Supervisión del uso de memoria en la instancia de SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
 - Supervise el uso de E/S de disco en la instancia de SQL Server de origen mediante la vista [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) o los [contadores de rendimiento](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Supervise el rendimiento de la carga de trabajo y de la consulta o la instancia de SQL Server mediante el análisis de vistas de administración dinámica o el almacén de consultas si va a migrar desde la versión SQL Server 2016 o versiones posteriores. Identifique el promedio de duración y el uso de CPU de las consultas más importantes de la carga de trabajo para compararlos con las consultas que se ejecutan en la instancia administrada.
 
@@ -100,7 +100,7 @@ Como resultado de esta actividad, debería tener documentados los valores promed
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementación en una instancia administrada con tamaño óptimo
 
-Instancia administrada de SQL se ha diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](../database/service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El modelo de compra de Instancia administrada se basa en núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube. Aquí se describen algunas directrices generales que pueden ayudarle a elegir las características y el nivel de servicio correctos:
+Instancia administrada de SQL se ha diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](../database/service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El modelo de compra de instancia administrada se basa en núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube. Aquí se describen algunas directrices generales que pueden ayudarle a elegir las características y el nivel de servicio correctos:
 
 - Según el uso de CPU de la base, puede aprovisionar una instancia administrada que coincida con el número de núcleos que usa en SQL Server, teniendo en cuenta que puede que las características de la CPU deban escalarse para que coincidan con las [características de la máquina virtual en la que está instalada la instancia administrada](resource-limits.md#hardware-generation-characteristics).
 - En función del uso de memoria de la base de referencia, elija [el nivel de servicio que se ajuste a la memoria](resource-limits.md#hardware-generation-characteristics). La cantidad de memoria no se puede elegir directamente, por lo que tendría que seleccionar la instancia administrada con la cantidad de núcleos virtuales que coincida con la memoria (por ejemplo, 5,1 GB/núcleo virtual en Gen5).
@@ -189,7 +189,7 @@ Una vez que haya preparado el entorno de forma que sea lo más parecido posible 
 Como resultado, debe comparar los parámetros de rendimiento con la base de referencia e identificar las diferencias más importantes.
 
 > [!NOTE]
-> En muchos casos, no podrá obtener un rendimiento que coincida exactamente en la instancia administrada y en SQL Server. Azure SQL Managed Instance es un motor de base de datos de SQL Server, pero la infraestructura y la configuración de alta disponibilidad de una instancia administrada pueden suponer algunas diferencias. Posiblemente algunas consultas serán más rápidas mientras que otras pueden ser más lentas. El objetivo de la comparación es comprobar que el rendimiento de la carga de trabajo en la instancia administrada coincide con el rendimiento en SQL Server (el promedio) e identificar si hay alguna consulta crítica con un rendimiento que no coincida con el rendimiento original.
+> En muchos casos, no podrá obtener un rendimiento que coincida exactamente en la instancia administrada y en SQL Server. Azure SQL Managed Instance es un motor de base de datos de SQL Server, pero la infraestructura y la configuración de alta disponibilidad de una instancia administrada pueden suponer algunas diferencias. Posiblemente algunas consultas serán más rápidas mientras que otras pueden ser más lentas. El objetivo de la comparación es comprobar que el rendimiento de la carga de trabajo en la instancia administrada coincide con el rendimiento en SQL Server (el promedio) e identificar si hay alguna consulta crítica con un rendimiento que no coincida con el rendimiento original.
 
 El resultado de la comparación de rendimiento puede ser:
 

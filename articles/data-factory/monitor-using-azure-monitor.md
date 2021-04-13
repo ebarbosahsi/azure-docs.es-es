@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 04aba71e49fedc8a4ca22aed576aaa978f733336
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: bceacf0a22b7add0533b72b4ebf06d503366baa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783649"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932495"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -76,7 +76,7 @@ Cree o agregue la configuración de diagnóstico de su factoría de datos.
    ![Asignación de un nombre a la configuración y selección de un área de trabajo de Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para obtener más información, consulte la [referencia de registros de AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Como una tabla de registro de Azure no puede tener más de 500 columnas, se **recomienda encarecidamente** seleccionar el _modo específico de recursos_. Para obtener más información, consulte la [referencia de registros de AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Seleccione **Guardar**.
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | El identificador de recurso de la cuenta de almacenamiento en la que quiere enviar los registros de diagnóstico. |
 | **serviceBusRuleId** |String | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde quiere tener los centros de eventos creados para la transmisión de los registros de diagnóstico. El identificador de la regla tiene el formato `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Tipo complejo | Una matriz de intervalos de agregación de métricas y sus directivas de retención. El valor de esta propiedad está vacío. |
+| **workspaceId** | String | Identificador del área de trabajo donde se van a guardar los registros. |
 |**métricas**| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Objeto JSON que asigna nombres de parámetro a los valores de argumento. |
 | **logs**| Tipo complejo| El nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice una operación de configuración de diagnóstico GET. |
 | **category**| String| Una matriz de las categorías de registro y sus directivas de retención. |

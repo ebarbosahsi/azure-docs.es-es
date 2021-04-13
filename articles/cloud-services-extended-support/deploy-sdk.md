@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123044"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166894"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implementación de Cloud Services (soporte extendido) con Azure SDK
 
@@ -156,7 +156,8 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Cree una dirección IP pública y, si lo desea, establezca la propiedad de la etiqueta DNS de la dirección IP pública. Si usa una dirección IP estática, el archivo de configuración del servicio tiene que hacer referencia a ella como una dirección IP reservada.
+7. Cree una dirección IP pública y establezca la propiedad de la etiqueta DNS de esa dirección IP pública. Cloud Services (soporte extendido) solo admite direcciones IP públicas de la SKU [básica] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) ). Las direcciones IP públicas de la SKU estándar no funcionan con Cloud Services.
+Si usa una dirección IP estática, debe hacer referencia a ella como IP reservada del archivo de configuración de servicio (.cscfg).
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Consulte los [requisitos previos de implementación](deploy-prerequisite.md) de 
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga creado por la plataforma.
+8. Cree un objeto de perfil de red y asocie la dirección IP pública al front-end del equilibrador de carga. La plataforma Azure crea automáticamente un recurso de equilibrador de carga de SKU "clásica" en la misma suscripción que el recurso de servicio en la nube. El recurso de equilibrador de carga es un recurso de solo lectura en ARM. Las actualizaciones del recurso solo se admiten a través de los archivos de implementación de servicios en la nube (.cscfg y .csdef).
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

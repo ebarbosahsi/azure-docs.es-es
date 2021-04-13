@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 62296acaba77017cd71227582447b9fa7c4f1934
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799095"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090246"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -257,13 +257,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Comentarios:
 
-- En .NET Standard, el elemento `object` esperado es `Activity` en Android, `UIViewController` en iOS, `NSWindow` en MAC y `IWin32Window` o `IntPr` en Windows.
+- En .NET Standard, el elemento `object` esperado es `Activity` en Android, `UIViewController` en iOS, `NSWindow` en Mac y `IWin32Window` o `IntPr` en Windows.
 - En Windows, debe llamar a `AcquireTokenInteractive` desde el subproceso de interfaz de usuario para que el explorador integrado obtenga el contexto de sincronización de la interfaz de usuario adecuado. Si no se llama desde el subproceso de interfaz de usuario, es posible que los mensajes no se suministren correctamente o que se produzcan escenarios de interbloqueo con la interfaz de usuario. Una manera de llamar a bibliotecas de autenticación de Microsoft (MSAL) desde el subproceso de interfaz de usuario (si aún no está en él) es usar `Dispatcher` en WPF.
 - Si usa WPF, para obtener una ventana de un control WPF puede usar la clase `WindowInteropHelper.Handle`. Así, la llamada procede de un control WPF (`this`):
 
@@ -277,15 +277,26 @@ Comentarios:
 
 `WithPrompt()` se usa para controlar la interactividad con el usuario mediante la especificación de un símbolo del sistema.
 
-![Imagen que muestra los campos de la estructura del mensaje. Estos valores constantes controlan la interactividad con el usuario al definir el tipo de mensaje que muestra el método WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
+![Imagen que muestra los campos de la estructura del mensaje. Estos valores constantes controlan la interactividad con el usuario al definir el tipo de mensaje que muestra el método WithPrompt().](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 La clase define las constantes siguientes:
 
 - ``SelectAccount`` obliga a STS a presentar el cuadro de diálogo de selección de cuenta que contiene las cuentas para las que el usuario tiene una sesión. Esta opción es útil cuando los desarrolladores de aplicaciones quieren permitir a los usuarios elegir entre diferentes identidades. Esta opción dirige a MSAL para que envíe ``prompt=select_account`` al proveedor de identidades. Es la opción predeterminada. Funciona bien para proporcionar la mejor experiencia posible en función de la información disponible, como cuenta y presencia de una sesión para el usuario. No la cambie a menos que tenga buena razón para hacerlo.
 - ``Consent`` permite que el desarrollador de la aplicación obligue al usuario a pedir consentimiento, aunque ya lo haya otorgado antes. En este caso, MSAL envía `prompt=consent` al proveedor de identidades. Esta opción se puede usar en algunas aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que se presente al usuario el cuadro de diálogo de consentimiento cada vez que se usa la aplicación.
 - ``ForceLogin`` permite que el desarrollador de la aplicación obligue al servicio a solicitar las credenciales al usuario, incluso si este mensaje de usuario no es necesario. Esta opción puede ser útil para permitir que el usuario vuelva a iniciar sesión si se produce un error al adquirir un token. En este caso, MSAL envía `prompt=login` al proveedor de identidades. A veces se usa en aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
+- ``Create`` desencadena una experiencia de inicio de sesión, que se usa con External Identities, mediante el envío de `prompt=create` al proveedor de identidades. Este aviso no se debe enviar en el caso de aplicaciones de Azure AD B2C. Para más información, consulte [Incorporación de un flujo de usuario de registro de autoservicio a una aplicación](https://aka.ms/msal-net-prompt-create).
 - ``Never`` (solo para .NET 4.5 y WinRT) no pregunta al usuario, sino que, en su lugar, intenta usar la cookie almacenada en la vista web insertada oculta. Para más información, consulte las vistas web de MSAL.NET. Se puede producir un error al usar esta opción. En ese caso, `AcquireTokenInteractive` produce una excepción para notificar que se necesita una interacción de la interfaz de usuario. Debe usar otro parámetro `Prompt`.
 - ``NoPrompt`` no envía ningún símbolo del sistema al proveedor de identidades. Esta opción solo es útil para directivas de perfil de edición de Azure Active Directory (Azure AD) B2C. Para más información, consulte [Información específica sobre Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
+
+#### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
+
+Este método le permite especificar si quiere forzar el uso de una vista web insertada o una vista web del sistema (si está disponible). Para más información, consulte [Uso de exploradores web](msal-net-web-browsers.md).
+
+ ```csharp
+ var result = await app.AcquireTokenInteractive(scopes)
+                   .WithUseEmbeddedWebView(true)
+                   .ExecuteAsync();
+  ```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 

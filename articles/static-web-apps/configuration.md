@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034054"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218981"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -39,6 +39,7 @@ Consulte el [archivo de configuración de ejemplo](#example-configuration-file) 
 
 Las reglas de rutas permiten definir el patrón de direcciones URL que proporcionan acceso a la aplicación en la web. Las rutas se definen como una matriz de reglas de enrutamiento. Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
 
+- Las reglas se definen en la matriz `routes`, aunque solo tenga una ruta.
 - Las reglas se ejecutan en el orden en que aparecen en la matriz `routes`.
 - La evaluación de la regla se detiene en la primera coincidencia, ya que las reglas de enrutamiento no están encadenadas.
 - Tiene control total sobre los nombres de los roles personalizados.
@@ -50,7 +51,7 @@ El archivo predeterminado para el contenido estático es *index.html*.
 
 ## <a name="defining-routes"></a>Definición de rutas
 
-Cada una se compone de un patrón de ruta, junto con una o varias de las propiedades de regla opcionales. Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
+Cada una se compone de un patrón de ruta, junto con una o varias de las propiedades de regla opcionales. Las reglas de ruta se definen en la matriz `routes`. Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
 
 | Propiedad de regla  | Obligatorio | Valor predeterminado | Comentario                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -275,7 +276,7 @@ En la configuración del ejemplo siguiente, se muestra cómo invalidar un códig
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -315,7 +316,7 @@ En la configuración del ejemplo siguiente, se muestra cómo invalidar un códig
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 

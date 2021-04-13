@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8da5c24265a43eaaf1ecfe80649b6f4fea588b3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c867add4d4214dc847c39ee66b7177daaafdfc8a
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464076"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221694"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -47,7 +47,7 @@ En este tutorial, aprenderá a:
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de contenedores de Linux: [Desarrollo de módulos IoT Edge con contenedores de Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos:
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
-* Un dispositivo que ejecuta Azure IoT Edge. Puede usar los inicios rápidos para configurar un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
+* Un dispositivo que ejecute Azure IoT Edge con contenedores de Linux. Puede usar los inicios rápidos para configurar un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
 * Un registro de contenedor, como [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurado con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [CE de Docker](https://docs.docker.com/install/) configurado para ejecutar contenedores de Linux.
@@ -74,7 +74,7 @@ Una vez que se crea y se entrena el clasificador de imágenes, puede exportarlo 
 
 4. Cree el proyecto con los valores siguientes:
 
-   | Campo | Valor |
+   | Campo | Value |
    | ----- | ----- |
    | Nombre | Proporcione un nombre para el proyecto, como **EdgeTreeClassifier**. |
    | Descripción | Descripción opcional del proyecto. |

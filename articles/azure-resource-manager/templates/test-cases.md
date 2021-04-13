@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97674049"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064160"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de prueba predeterminados del kit de herramientas para pruebas de plantillas de Resource Manager
 
-En este artículo se describen las pruebas predeterminadas que se ejecutan con el [kit de herramientas para pruebas de plantillas](test-toolkit.md). Proporciona ejemplos que ilustran la superación y no superación de las pruebas. También incluye el nombre cada prueba.
+En este artículo se describen las pruebas predeterminadas que se ejecutan con el [Kit de herramientas de pruebas de plantillas](test-toolkit.md) para las plantillas de Azure Resource Manager (plantillas de ARM). Proporciona ejemplos que ilustran la superación y no superación de las pruebas. También incluye el nombre cada prueba. Para ejecutar una prueba concreta, consulte [Parámetros de prueba](test-toolkit.md#test-parameters).
 
 ## <a name="use-correct-schema"></a>Uso del esquema correcto
 
@@ -137,7 +137,7 @@ En el ejemplo siguiente **se supera** esta prueba.
 
 Nombre de la prueba: **La ubicación no debe estar codificada de forma rígida**
 
-Las plantillas deben tener un parámetro denominado location. Use este parámetro para establecer la ubicación de los recursos en la plantilla. En la plantilla principal (denominada azuredeploy.json o mainTemplate.json), este parámetro puede tener como valor predeterminado la ubicación del grupo de recursos. En las plantillas vinculadas o anidadas, el parámetro location no debe tener una ubicación predeterminada.
+Las plantillas deben tener un parámetro denominado location. Use este parámetro para establecer la ubicación de los recursos en la plantilla. En la plantilla principal (denominada _azuredeploy.json_ o _mainTemplate.json_), este parámetro puede tener como valor predeterminado la ubicación del grupo de recursos. En las plantillas vinculadas o anidadas, el parámetro location no debe tener una ubicación predeterminada.
 
 Es posible que los usuarios de la plantilla tengan a su disposición un número limitado de regiones. Al codificar de forma rígida la ubicación del recurso, es posible que se bloquee a los usuarios para que no puedan crear un recurso en dicha región. Se podría bloquear a los usuarios incluso si establece la ubicación del recurso en `"[resourceGroup().location]"`. Puede que el grupo de recursos se haya creado en una región a la que otros usuarios no pueden acceder. A esos usuarios se le impide usar la plantilla.
 
@@ -393,11 +393,11 @@ Cuando incluya parámetros para `_artifactsLocation` y `_artifactsLocationSasTok
 * Si proporciona uno de los parámetros, debe proporcionar el otro
 * `_artifactsLocation` debe ser de tipo **string**
 * `_artifactsLocation` debe tener un valor predeterminado en la plantilla principal
-* `_artifactsLocation` no puede tener un valor predeterminado en una plantilla anidada 
+* `_artifactsLocation` no puede tener un valor predeterminado en una plantilla anidada
 * `_artifactsLocation` debe tener `"[deployment().properties.templateLink.uri]"` o la dirección URL del repositorio sin formato como valor predeterminado
 * `_artifactsLocationSasToken` debe ser de tipo **secureString**
 * `_artifactsLocationSasToken` solo puede tener una cadena vacía como valor predeterminado
-* `_artifactsLocationSasToken` no puede tener un valor predeterminado en una plantilla anidada 
+* `_artifactsLocationSasToken` no puede tener un valor predeterminado en una plantilla anidada
 
 ## <a name="declared-variables-must-be-used"></a>Se deben usar variables declaradas
 
@@ -520,7 +520,7 @@ En el ejemplo siguiente **se supera** esta prueba.
 
 Nombre de la prueba: **ResourceId no debe contener**
 
-Al generar identificadores de recursos, no use funciones innecesarias para parámetros opcionales. De forma predeterminada, la función [ResourceId](template-functions-resource.md#resourceid) usa la suscripción y el grupo de recursos actuales. No es necesario proporcionar esos valores.  
+Al generar identificadores de recursos, no use funciones innecesarias para parámetros opcionales. De forma predeterminada, la función [ResourceId](template-functions-resource.md#resourceid) usa la suscripción y el grupo de recursos actuales. No es necesario proporcionar esos valores.
 
 En el siguiente ejemplo **no se supera** esta prueba, porque no es necesario proporcionar el identificador de suscripción y el nombre del grupo de recursos actuales.
 
@@ -691,7 +691,40 @@ En el siguiente ejemplo **no se supera** porque utiliza una función [list*](tem
 }
 ```
 
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Uso de protectedSettings para secretos de commandToExecute
+
+Nombre de la prueba: **CommandToExecute debe usar ProtectedSettings para secretos**
+
+En una extensión de script personalizado, use la propiedad cifrada `protectedSettings` cuando `commandToExecute` incluya datos secretos, como una contraseña. Ejemplos de tipos de datos de secreto son las funciones `secureString`, `secureObject`, `list()` o scripts.
+
+Para obtener más información sobre la extensión de scripts personalizados para máquinas virtuales, consulte [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)y el esquema [Microsoft. Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+En este ejemplo, una plantilla con un parámetro denominado `adminPassword` y el tipo `secureString` **pasa** la prueba porque la propiedad cifrada `protectedSettings` incluye `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+**Se produce un error en** la prueba si la propiedad sin cifrar `settings` incluye `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre cómo ejecutar el kit de herramientas para pruebas, consulte [Uso del kit de herramientas para pruebas de plantillas de Resource Manager](test-toolkit.md).
-- Para obtener un módulo de Microsoft Learn que trate del uso del kit de herramientas de pruebas, vea [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de ARM](/learn/modules/arm-template-test/).
+* Para más información sobre cómo ejecutar el kit de herramientas para pruebas, consulte [Uso del kit de herramientas para pruebas de plantillas de Resource Manager](test-toolkit.md).
+* Para obtener un módulo de Microsoft Learn que trate del uso del kit de herramientas de pruebas, vea [Obtención de una vista previa de los cambios y validación de recursos de Azure mediante What If y el kit de herramientas de pruebas de plantillas de ARM](/learn/modules/arm-template-test/).

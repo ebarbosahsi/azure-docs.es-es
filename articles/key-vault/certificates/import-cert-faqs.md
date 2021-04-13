@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 78ec0af0acbb74436af16abba75d64de061d5268
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d8a06471129f8d79e1ced150f7410392b91d498b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202172"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728035"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Preguntas frecuentes sobre la importación de certificados de Azure Key Vault
 
@@ -28,7 +28,7 @@ En este artículo se responde a las preguntas frecuentes sobre la importación d
 En la operación de importación de certificados, Azure Key Vault acepta dos formatos de archivo de certificado: PEM y PFX. Aunque hay archivos PEM que contienen solo la parte pública, Key Vault requiere y acepta únicamente un archivo PEM o PFX con una clave privada. Para más información, consulte [Importación de un certificado en Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Después de importar un certificado protegido por contraseña a Key Vault y luego descargarlo, ¿por qué se ve la contraseña que tiene asociada?
-    
+     
 Una vez que se ha importado y protegido un certificado en Key Vault, su contraseña asociada no se guarda. La contraseña solo es necesaria una vez durante la operación de importación. Aunque se trata de una decisión intencionada, siempre puede obtener el certificado como secreto y convertirlo de Base64 a PFX y agregar la contraseña mediante [Azure PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
 ### <a name="how-can-i-resolve-a-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-to-key-vault"></a>¿Cómo se puede resolver un error de "parámetro incorrecto"? ¿Cuáles son los formatos de certificado admitidos para la importación en Key Vault?
@@ -42,8 +42,8 @@ Para más información, consulte los [requisitos de certificado](./certificate-s
 No, no es posible realizar operaciones de certificado mediante una plantilla de Azure Resource Manager (ARM). La solución alternativa recomendada sería usar los métodos de importación de certificados en Azure API, la CLI de Azure o PowerShell. Si ya tiene un certificado, puede importarlo como secreto.
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Al importar un certificado a través de Azure Portal, aparece el error "Hubo un problema". ¿Cómo puedo investigar más?
-    
-Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+     
+Para ver un error más descriptivo, importe el archivo de certificado mediante la [CLI de Azure](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) o [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>¿Cómo se resuelve el "Tipo de error: Acceso denegado o usuario no autorizado para importar el certificado"?
     

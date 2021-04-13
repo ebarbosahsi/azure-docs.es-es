@@ -2,13 +2,13 @@
 title: Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
-ms.date: 07/08/2020
-ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 04/01/2021
+ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716744"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167897"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -33,7 +33,7 @@ En este artículo se tratan los temas siguientes:
 
 - Esta característica no está relacionada con [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), que usa el cifrado basado en invitado de los discos de una máquina virtual con BitLocker (para Windows) y DM-Crypt (para Linux).
 
-- El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA 2048** y deben estar en estado **habilitado**.
+- El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA** y deben estar en estado **habilitado**.
 
 - Actualmente no se admite la migración del almacén de Recovery Services cifrado de CMK entre grupos de recursos y suscripciones.
 - Al trasladar un almacén de Recovery Services ya cifrado con claves administradas por el cliente a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y la clave administrada por el cliente (que debe estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
@@ -42,6 +42,9 @@ En este artículo se tratan los temas siguientes:
 
     >[!NOTE]
     >Use la versión 5.3.0 del módulo Az o una versión posterior para utilizar las claves administradas del cliente en las copias de seguridad del almacén de Recovery Services.
+    
+    >[!Warning]
+    >Si usa PowerShell para administrar las claves de cifrado para la copia de seguridad, no se recomienda actualizar las claves desde el portal.<br></br>Si actualiza la clave desde el portal, no puede usar PowerShell para actualizar también la clave de cifrado hasta que esté disponible una actualización de PowerShell que admita el nuevo modelo. Sin embargo, puede seguir actualizando la clave desde Azure Portal.
 
 Si no ha creado y configurado un almacén de Recovery Services, [lea aquí cómo hacerlo](backup-create-rs-vault.md).
 
@@ -59,22 +62,32 @@ Esta acción implica los pasos siguientes:
 
 Es necesario que todos estos pasos se sigan en el orden mencionado anteriormente para lograr los resultados deseados. Cada paso se describe en detalle a continuación.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Habilitación de la identidad administrada para el almacén de Recovery Services
+## <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Habilitación de la identidad administrada para el almacén de Recovery Services
 
-Azure Backup usa la identidad administrada asignada por el sistema para autenticar el almacén de Recovery Services para tener acceso a las claves de cifrado almacenadas en Azure Key Vault. Para habilitar la identidad administrada para el almacén de Recovery Services, siga los pasos que se mencionan a continuación.
+Azure Backup usa identidades administradas asignadas por el sistema y por el usuario para autenticar el almacén de Recovery Services y acceder a las claves de cifrado almacenadas en Azure Key Vault. Para habilitar la identidad administrada para el almacén de Recovery Services, siga los pasos que se mencionan a continuación.
 
 >[!NOTE]
 >Una vez habilitada, la identidad administrada **no** debe deshabilitarse (ni siquiera temporalmente). Deshabilitar la identidad administrada puede provocar un comportamiento incoherente.
+
+### <a name="enable-system-assigned-managed-identity-for-the-vault"></a>Habilitación de una identidad administrada asignada por el sistema en el almacén
 
 **En el portal:**
 
 1. Vaya al almacén de Recovery Services -> **Identidad**.
 
-    ![Configuración de identidad](./media/encryption-at-rest-with-cmk/managed-identity.png)
+    ![Configuración de identidad](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
-1. Cambie el **Estado** a **Activado** y seleccione **Guardar**.
+1. Vaya a la pestaña **Asignado por el sistema**.
 
-1. Se genera un identificador de objeto, que es la identidad administrada del almacén.
+1. Cambie el **estado** a **Activado**.
+
+1. Haga clic en **Guardar** para habilitar la identidad en el almacén.
+
+Se genera un identificador de objeto, que es la identidad administrada del almacén.
+
+>[!NOTE]
+>Una vez habilitada, la identidad administrada no debe deshabilitarse (ni siquiera temporalmente). Deshabilitar la identidad administrada puede provocar un comportamiento incoherente.
+
 
 **Con PowerShell:**
 
@@ -98,7 +111,28 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Asignación de permisos al almacén de Recovery Services para tener acceso a la clave de cifrado en Azure Key Vault
+### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Asignación de una identidad administrada asignada por el usuario al almacén
+
+Para asignar una identidad administrada asignada por el usuario al almacén de Recovery Services, realice los siguientes pasos:
+
+1.  Vaya al almacén de Recovery Services -> **Identidad**.
+
+    ![Asignación de una identidad administrada asignada por el usuario al almacén](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+
+1.  Vaya a la pestaña **Asignado por el usuario**.
+
+1.  Haga clic en **+ Agregar** para agregar una identidad asignada por el usuario.
+
+1.  En la hoja **Agregar identidad administrada asignada por el usuario** que se abre, seleccione la suscripción de la identidad.
+
+1.  Seleccione la identidad de la lista. También puede filtrar por el nombre de la identidad o el grupo de recursos.
+
+1.  Una vez hecho esto, haga clic en **Agregar** para terminar de asignar la identidad.
+
+## <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Asignación de permisos al almacén de Recovery Services para tener acceso a la clave de cifrado en Azure Key Vault
+
+>[!Note]
+>Si usa identidades asignadas por el usuario, se deben asignar los mismos permisos a la identidad asignada por el usuario.
 
 Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacén de Azure Key Vault que contiene la clave de cifrado. Para ello, se permite que la identidad administrada del almacén de Recovery Services tenga acceso al almacén de Key Vault.
 
@@ -120,7 +154,7 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 
 1. Seleccione **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
 
-### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
+## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 
 Debe **habilitar la eliminación temporal y la protección de purga** en el almacén de Azure Key Vault que almacena la clave de cifrado. Puede hacerlo desde la interfaz de usuario de Azure Key Vault, como se muestra a continuación. (También tiene la posibilidad de configurar estas propiedades al crear el almacén de Key Vault). Obtenga más información sobre estas propiedades de Key Vault [aquí](../key-vault/general/soft-delete-overview.md).
 
@@ -160,7 +194,7 @@ También puede habilitar la eliminación temporal y la protección de purga a tr
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### <a name="assign-encryption-key-to-the-rs-vault"></a>Asignación de la clave de cifrado al almacén de RS
+## <a name="assign-encryption-key-to-the-rs-vault"></a>Asignación de la clave de cifrado al almacén de RS
 
 >[!NOTE]
 > Compruebe los siguientes puntos antes de continuar:
@@ -172,7 +206,7 @@ También puede habilitar la eliminación temporal y la protección de purga a tr
 
 Una vez comprobado lo anterior, continúe con la selección de la clave de cifrado para el almacén.
 
-#### <a name="to-assign-the-key-in-the-portal"></a>Para asignar la clave en el portal
+### <a name="to-assign-the-key-in-the-portal"></a>Para asignar la clave en el portal
 
 1. Vaya al almacén de Recovery Services -> **Propiedades**.
 
@@ -192,7 +226,7 @@ Una vez comprobado lo anterior, continúe con la selección de la clave de cifra
     1. Busque y seleccione la clave en el almacén de Key Vault en el panel del selector de claves.
 
         >[!NOTE]
-        >Al especificar la clave de cifrado mediante el panel Selector de claves, la clave rotará automáticamente cada vez que se habilite una versión nueva de la clave.
+        >Al especificar la clave de cifrado mediante el panel Selector de claves, la clave rotará automáticamente cada vez que se habilite una versión nueva de la clave. [Más información](#enabling-auto-rotation-of-encryption-keys) sobre la habilitación de la rotación automática de claves de cifrado.
 
         ![Selección de clave del almacén de claves](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -206,7 +240,7 @@ Una vez comprobado lo anterior, continúe con la selección de la clave de cifra
 
     ![Registro de actividades](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### <a name="to-assign-the-key-with-powershell"></a>Para asignar la clave con PowerShell
+### <a name="to-assign-the-key-with-powershell"></a>Para asignar la clave con PowerShell
 
 Use el comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar el cifrado mediante claves administradas por el cliente y para asignar o actualizar la clave de cifrado que se va a usar.
 
@@ -249,8 +283,8 @@ Antes de continuar con la configuración de la protección, recomendamos encarec
 > Antes de continuar con la configuración de la protección, debe haber completado **correctamente** los siguientes pasos:
 >
 >1. Se creó el almacén de Backup.
->1. Se habilitó la identidad administrada asignada por el sistema del almacén de Backup.
->1. Se asignaron permisos al almacén de Backup para tener acceso a las claves de cifrado desde el almacén de Key Vault.
+>1. Se habilitó la identidad administrada asignada por el sistema del almacén de Recovery Services o se utilizó una identidad administrada asignada por el usuario para el almacén.
+>1. Se asignaron permisos al almacén de copia de seguridad (o a la identidad administrada asignada por el usuario) para acceder a las claves de cifrado desde Key Vault.
 >1. Se habilitó la eliminación temporal y la protección de purga para el almacén de Key Vault.
 >1. Se asignó una clave de cifrado válida para el almacén de Backup.
 >
@@ -311,6 +345,44 @@ Al realizar una restauración de archivos, los datos restaurados se cifrarán co
 ### <a name="restoring-sap-hanasql-databases-in-azure-vms"></a>Restauración de bases de datos de SAP HANA/SQL en máquinas virtuales de Azure
 
 Al restaurar desde una copia de seguridad de una base de datos de SAP HANA/SQL que se ejecuta en una máquina virtual de Azure, los datos restaurados se cifrarán con la clave de cifrado usada en la ubicación de almacenamiento de destino. Puede ser una clave administrada por el cliente o una clave administrada por la plataforma que se usa para cifrar los discos de la máquina virtual.
+
+## <a name="additional-topics"></a>Otros temas
+
+### <a name="enable-encryption-using-customer-managed-keys-at-vault-creation-in-preview"></a>Habilitación del cifrado mediante claves administradas por el cliente en la creación del almacén (en versión preliminar)
+
+>[!NOTE]
+>La habilitación del cifrado al crear el almacén mediante claves administradas por el cliente se encuentra en una versión preliminar pública limitada y solo se aplica a una lista de suscripciones permitidas. Para suscribirse a la versión preliminar, rellene el [formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) y escríbanos a la dirección [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+Si la suscripción está en la lista de suscripciones permitidas, se mostrará la pestaña **Cifrado de copia de seguridad**. Esta pestaña le permite habilitar el cifrado en la copia de seguridad mediante claves administradas por el cliente durante la creación de un almacén de Recovery Services. Para habilitar el cifrado, realice los pasos siguientes:
+
+1. Junto a la pestaña **Aspectos básicos**, en la pestaña **Cifrado de copia de seguridad**, especifique la clave de cifrado y la identidad que se usarán para el cifrado.
+
+   ![Habilitación del cifrado en el nivel de almacén](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+
+
+   >[!NOTE]
+   >La configuración solo se aplica a la copia de seguridad y es opcional.
+
+1. En Tipo de cifrado, seleccione **Usar clave administrada por el cliente**.
+
+1. Para especificar la clave que se va a usar para el cifrado, seleccione la opción adecuada.
+
+   Puede proporcionar el URI de la clave de cifrado o buscar la clave y seleccionarla. Cuando se especifica la clave mediante la opción **Seleccionar Key Vault**, la rotación automática de la clave de cifrado se habilitará automáticamente. [Más información sobre la rotación automática](#enabling-auto-rotation-of-encryption-keys). 
+
+1. Especifique la identidad administrada asignada por el usuario para administrar el cifrado con claves administradas por el cliente. Haga clic en **Seleccionar** para buscar la identidad necesaria y seleccionarla.
+
+1. Una vez hecho esto, continúe con la adición de etiquetas (opcional) y con la creación del almacén.
+
+### <a name="enabling-auto-rotation-of-encryption-keys"></a>Habilitación de la rotación automática de las claves de cifrado
+
+Cuando indique la clave administrada por el cliente que se debe usar para cifrar las copias de seguridad, use los métodos siguientes para especificarla:
+
+- Escribir el URI de la clave
+- Seleccionarla de Key Vault
+
+La opción **Seleccionar de Key Vault** ayuda a habilitar la rotación automática de la clave seleccionada. De esta forma, se elimina el esfuerzo manual de actualizarla a la versión siguiente. Sin embargo, con esta opción:
+- La actualización de la versión de la clave puede tardar hasta una hora en surtir efecto.
+- Cuando se aplica una nueva versión de la clave, la versión anterior también debe estar disponible (en estado habilitado) durante al menos un trabajo de copia de seguridad posterior después de que la actualización de la clave haya surtido efecto.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

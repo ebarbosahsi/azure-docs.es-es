@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.date: 04/01/2021
+ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784040"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121479"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -335,7 +335,7 @@ Esta es una explicación de cómo se construye la plantilla anterior, desglosada
 * Aunque la personalización específica de tipos está disponible para conjuntos de datos, puede proporcionar configuración sin necesidad de una configuración explícita de nivel \*. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
 
 > [!NOTE]
-> Las **alertas y matrices de Azure**, si están configuradas para una canalización, no se admiten actualmente como parámetros para las implementaciones de ARM. Para volver a aplicar las alertas y las matrices en el nuevo entorno, siga las instrucciones de [Supervisión, alertas y matrices de Data Factory.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> Las **alertas y matrices de Azure**, si están configuradas para una canalización, no se admiten actualmente como parámetros para las implementaciones de ARM. Para volver a aplicar las alertas y las matrices en el nuevo entorno, siga las instrucciones de [Supervisión, alertas y matrices de Data Factory.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Plantilla de parametrización predeterminada
@@ -697,6 +697,9 @@ Al ejecutar un script anterior a la implementación, tendrá que especificar una
 Al ejecutar un script posterior a la implementación, tendrá que especificar una variante de los siguientes parámetros en el campo **Argumentos de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+> [!NOTE]
+> La marca `-deleteDeployment` se usa para especificar la eliminación de la entrada de implementación de ADF del historial de implementación en ARM.
 
 ![Tarea de Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 

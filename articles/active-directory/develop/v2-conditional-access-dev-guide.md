@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584237"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120153"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -72,10 +72,10 @@ Específicamente, todos los ámbitos de Microsoft Graph representan un conjunto 
 Por ejemplo, si una aplicación solicita los siguientes ámbitos de Microsoft Graph,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-Una aplicación puede esperar que sus usuarios cumplan con todas las directivas establecidas en Bookings y Exchange. Algunos ámbitos pueden asignarse a varios conjuntos de datos si se concede acceso.
+Una aplicación puede esperar que sus usuarios cumplan con todas las directivas establecidas en Teams y Exchange. Algunos ámbitos pueden asignarse a varios conjuntos de datos si se concede acceso.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Cumplimiento con una directiva de acceso condicional
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 278bb106789452d14001da5bd0bab6570d114666
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2878efd0e392479e35530220d025055eacae3b43
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428249"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105013"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -31,11 +31,11 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 
 En primer lugar, deberá instalar Speech SDK. Utilice las siguientes instrucciones en función de la plataforma:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp" target="_blank">.NET Framework </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp" target="_blank">.NET Core </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=unity&pivots=programming-language-csharp" target="_blank">Unity </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=uwps&pivots=programming-language-csharp" target="_blank">UWP </a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=xaml&pivots=programming-language-csharp" target="_blank">Xamarin </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnet" target="_blank">.NET Framework </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=dotnetcore" target="_blank">.NET Core </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=unity" target="_blank">Unity </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=uwps" target="_blank">UWP </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp&tabs=xaml" target="_blank">Xamarin </a>
 
 ## <a name="import-dependencies"></a>Dependencias de importación
 
@@ -67,14 +67,14 @@ Existen diversas maneras para inicializar un elemento [`SpeechConfig`](/dotnet/a
 En este ejemplo, se crea un elemento [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) mediante una clave de suscripción y una región. Para obtener estas credenciales, siga los pasos descritos en [Prueba gratuita del servicio Voz](../../../overview.md#try-the-speech-service-for-free). Cree también código reutilizable básico para usarlo en el resto del artículo y que modificará cuando realice distintas personalizaciones.
 
 ```csharp
-public class Program 
+public class Program
 {
     static async Task Main()
     {
         await SynthesizeAudioAsync();
     }
 
-    static async Task SynthesizeAudioAsync() 
+    static async Task SynthesizeAudioAsync()
     {
         var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     }
@@ -88,7 +88,7 @@ A continuación, creará un objeto [`SpeechSynthesizer`](/dotnet/api/microsoft.c
 Para empezar, cree un objeto `AudioConfig` para escribir automáticamente la salida en un archivo `.wav`, para lo que se usa la función `FromWavFileOutput()`, y cree las instancias necesarias con una instrucción `using`. En este contexto, una instrucción `using` desecha automáticamente los recursos no administrados y hace que el objeto deje de estar dentro del ámbito después de la eliminación.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -98,7 +98,7 @@ static async Task SynthesizeAudioAsync()
 A continuación, cree una instancia de `SpeechSynthesizer` con otra instrucción `using`. Use los objetos `config` y `audioConfig` como parámetros. Después, para ejecutar la síntesis de voz y realizar la escritura en un archivo solo hay que ejecutar `SpeakTextAsync()` con una cadena de texto.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -111,10 +111,10 @@ Ejecute el programa y se escribirá un archivo `.wav` sintetizado en la ubicaci�
 
 ## <a name="synthesize-to-speaker-output"></a>Síntesis a la salida de altavoz
 
-En algunos casos, puede que desee enviar la voz sintetizada directamente a un altavoz. Para ello, simplemente omita el parámetro `AudioConfig` al crear `SpeechSynthesizer` en el ejemplo anterior. De esta forma, la salida s realiza a través del dispositivo de salida activo actual.
+En algunos casos, puede que desee enviar la voz sintetizada directamente a un altavoz. Para ello, omita el parámetro `AudioConfig` al crear `SpeechSynthesizer` en el ejemplo anterior. De esta forma, se sintetiza en el dispositivo de salida activo actual.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config);
@@ -130,7 +130,7 @@ Para muchos de los escenarios del desarrollo de aplicaciones de voz, es probable
 * Integrar el resultado con otros servicios o API.
 * Modificar los datos de audio, escribir encabezados `.wav` personalizados, etc.
 
-Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite el bloqueo de `AudioConfig`, porque a partir de este momento administrará el comportamiento de la salida de forma manual, ya que así obtiene mayor control. Después, use `null` en `AudioConfig` en el constructor `SpeechSynthesizer`. 
+Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite el bloqueo de `AudioConfig`, porque a partir de este momento administrará el comportamiento de la salida de forma manual, ya que así obtiene mayor control. Después, use `null` en `AudioConfig` en el constructor `SpeechSynthesizer`.
 
 > [!NOTE]
 > Al usar `null` en `AudioConfig`, en lugar de omitirlo como en el ejemplo de salida del altavoz anterior, el audio no se reproducirá de forma predeterminada en el dispositivo de salida activo actual.
@@ -138,11 +138,11 @@ Es sencillo hacer este cambio en el ejemplo anterior. En primer lugar, quite el 
 Esta vez se guarda el resultado en una variable [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). La propiedad `AudioData` contiene un `byte []` de los datos de salida. Puede trabajar con `byte []` manualmente, o bien puede usar la clase [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) para administrar la secuencia en memoria. En este ejemplo, se usa la función estática `AudioDataStream.FromResult()` para obtener una secuencia del resultado.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
     using var stream = AudioDataStream.FromResult(result);
 }
@@ -168,7 +168,7 @@ Hay varias opciones para los distintos tipos de archivo, por lo que puede elegir
 En este ejemplo, se especifica un formato RIFF de alta fidelidad `Riff24Khz16BitMonoPcm`, para lo que se establece `SpeechSynthesisOutputFormat` en el objeto `SpeechConfig`. Al igual que en el ejemplo de la sección anterior, se usa [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) para obtener una secuencia en memoria del resultado y, después, escribirla en un archivo.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -204,11 +204,11 @@ A continuación, debe cambiar la solicitud de síntesis de voz para que haga ref
 > Si usa Visual Studio, es probable que la configuración de compilación no encuentre el archivo XML de forma predeterminada. Para solucionarlo, haga clic con el botón derecho en el archivo XML y seleccione **Propiedades**. Cambie **Acción de compilación** a *Contenido* y cambie **Copiar en el directorio de resultados** a *Copiar siempre*.
 
 ```csharp
-public static async Task SynthesizeAudioAsync() 
+public static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var ssml = File.ReadAllText("./ssml.xml");
     var result = await synthesizer.SpeakSsmlAsync(ssml);
 
@@ -247,3 +247,10 @@ Para cambiar a una voz neuronal, cambie `name` a una de las [opciones de voz neu
   </voice>
 </speak>
 ```
+## <a name="get-facial-pose-events"></a>Obtención de eventos de postura facial
+
+La voz puede ser una buena forma de llevar a cabo la animación de las expresiones faciales.
+Con frecuencia se usan [visemas](../../../how-to-speech-synthesis-viseme.md) para representar las posiciones principales en el habla observada, como la colocación de los labios, la mandíbula y la lengua al producir un fonema determinado.
+Puede suscribirse al evento viseme en Speech SDK.
+Después, puede aplicar eventos de visema para animar la cara de un personaje mientras se reproduce el audio de voz.
+Aprenda a [obtener eventos de visema](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

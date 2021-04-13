@@ -1,7 +1,7 @@
 ---
-title: Llamada a Computer Vision API
+title: Llamada a API Análisis de imágenes
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo llamar a la API Computer Vision mediante la API REST en Azure Cognitive Services.
+description: Obtenga información sobre cómo llamar a Image Analysis API mediante la API REST en Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: abb367b64da0811a1ff46efe60b60485375f809f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486070"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286443"
 ---
-# <a name="call-the-computer-vision-api"></a>Llamada a Computer Vision API
+# <a name="call-the-image-analysis-api"></a>Llamada a API Análisis de imágenes
 
-En este artículo se muestra cómo llamar a la API Computer Vision mediante la API REST. Los ejemplos están escritos en C# mediante la biblioteca cliente de la API Computer Vision y como llamadas HTTP POST o GET. Este artículo se centra en:
+En este artículo se muestra cómo llamar a Image Analysis API mediante la API REST. Los ejemplos están escritos en C# mediante la biblioteca cliente de Image Analysis API y como llamadas HTTP POST o GET. Este artículo se centra en:
 
 - Obtención de etiquetas, descripciones y categorías
 - Obtención de información específica de dominio o "celebridades"
@@ -49,11 +49,11 @@ Las características ofrecen las siguientes opciones:
   
 ## <a name="authorize-the-api-call"></a>Autorización de la llamada a la API
 
-Cada llamada a Computer Vision API requiere una clave de suscripción. Esta clave debe pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud.
+Cada llamada a Image Analysis API requiere una clave de suscripción. Esta clave debe pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud.
 
 Para pasar la clave de suscripción, realice una de las acciones siguientes:
 
-* Pásela mediante una cadena de consulta, como en este ejemplo de la API Computer Vision:
+* Pásela mediante una cadena de consulta, como en este ejemplo de Image Analysis API:
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -74,9 +74,9 @@ Para pasar la clave de suscripción, realice una de las acciones siguientes:
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Carga de una imagen en el servicio de la API Computer Vision
+## <a name="upload-an-image-to-the-image-analysis-service"></a>Carga de una imagen en el servicio de análisis de imágenes
 
-La forma básica para realizar la llamada a la API Computer Vision es cargar directamente una imagen para devolver etiquetas, una descripción y las celebridades. Para ello, envíe una solicitud "POST" con la imagen binaria en el cuerpo HTTP junto con los datos leídos de la imagen. El método de carga es el mismo para todas las llamadas a la API Computer Vision. La única diferencia radicará en los parámetros de consulta que se especifican. 
+La forma básica para realizar la llamada a Image Analysis API es cargar directamente una imagen para devolver etiquetas, una descripción y las celebridades. Para ello, envíe una solicitud "POST" con la imagen binaria en el cuerpo HTTP junto con los datos leídos de la imagen. El método de carga es el mismo para todas las llamadas de Image Analysis API. La única diferencia radicará en los parámetros de consulta que se especifican. 
 
 En el caso de una imagen especificada, obtenga etiquetas y una descripción mediante cualquiera de las siguientes opciones:
 
@@ -254,4 +254,4 @@ Estos errores son idénticos a los de vision.analyze, con el error adicional de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para usar la API de REST, vaya a la [referencia de Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+Para usar la API REST, vaya a la [referencia de Image Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

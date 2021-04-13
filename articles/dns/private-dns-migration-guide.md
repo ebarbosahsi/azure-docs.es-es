@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 72d046cde70d1224eb1fd47f527c9e49c6b002f6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6bb828aaff0c1d026e977863a6e224aaea81b629
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729242"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migración de zonas privadas de Azure DNS heredadas al nuevo modelo de recursos
 
-Durante la versión preliminar pública, las zonas DNS privadas se crearon mediante el recurso "dnszones" con la propiedad "zoneType" establecida en "Private". Estas zonas no se admitirán después del 31 de diciembre de 2019 y deben migrarse al modelo de recursos de disponibilidad general, que hace uso del tipo de recurso "privateDnsZones" en lugar de "dnszones". El proceso de migración es sencillo y le proporcionaremos un script de PowerShell para automatizar el proceso. En esta guía se proporcionan instrucciones paso a paso para migrar las zonas privadas de Azure DNS al nuevo modelo de recursos.
+Durante la versión preliminar pública, las zonas DNS privadas se crearon mediante el recurso "dnszones" con la propiedad "zoneType" establecida en "Private". Estas zonas no se admiten después del 31 de diciembre de 2019 y deben migrarse al modelo de recursos de disponibilidad general, que hace uso del tipo de recurso "privateDnsZones" en lugar de "dnszones". El proceso de migración es sencillo y le proporcionaremos un script de PowerShell para automatizar el proceso. En esta guía se proporcionan instrucciones paso a paso para migrar las zonas privadas de Azure DNS al nuevo modelo de recursos.
 
 Para averiguar los recursos de dnszones que requieren migración, ejecute el comando siguiente en la CLI de Azure.
 ```azurecli
@@ -67,7 +67,7 @@ PrivateDnsMigrationScript.ps1
 
 ### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Escriba el identificador de la suscripción e inicie sesión en Azure.
 
-Se le pedirá que escriba el Id. de suscripción que contiene las zonas DNS privadas que quiere migrar. Se le pedirá que inicie sesión en su cuenta de Azure. Complete el inicio de sesión para que el script pueda acceder a los recursos de zona DNS privada en la suscripción.
+Se le pedirá que escriba el identificador de suscripción que contiene las zonas DNS privadas que quiere migrar. Se le pedirá que inicie sesión en su cuenta de Azure. Complete el inicio de sesión para que el script pueda acceder a los recursos de zona DNS privada en la suscripción.
 
 ![Inicio de sesión en Azure](./media/private-dns-migration-guide/login-migration-script.png)
 
@@ -81,7 +81,7 @@ El script obtendrá la lista de todas las zonas DNS privadas en la suscripción 
 
 Una vez que se han copiado las zonas y los registros al nuevo modelo de recursos, el script le pedirá que cambie la resolución DNS a las nuevas zonas DNS. Este paso quita la asociación entre las zonas DNS privadas heredadas y las redes virtuales. Cuando la zona heredada se desvincula de las redes virtuales, las nuevas zonas DNS creadas en el paso anterior automáticamente toman el control de la resolución DNS para esas redes virtuales.
 
-Seleccione "A" para cambiar la resolución de DNS para todas las redes virtuales.
+Seleccione "A" para cambiar la resolución de DNS de todas las redes virtuales.
 
 ![Cambiar la resolución de nombres](./media/private-dns-migration-guide/switchresolution-migration-script.png)
 
@@ -96,11 +96,11 @@ Si descubre que las consultas de DNS no se resuelven, espere unos minutos y vuel
 ![Confirmar resolución de nombres](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
 >[!IMPORTANT]
->Si por cualquier motivo la resolución DNS de las zonas migradas no funciona según lo previsto, escriba "N" en el paso anterior y el script volverá a cambiar la resolución DNS a las zonas heredadas. Cree una incidencia de soporte técnico y podremos ayudarle con la migración de las zonas DNS.
+>Si, por cualquier motivo, la resolución DNS de las zonas migradas no funciona según lo previsto, escriba "N" en el paso anterior y el script volverá a cambiar la resolución DNS a las zonas heredadas. Cree una incidencia de soporte técnico y podremos ayudarle con la migración de las zonas DNS.
 
 ## <a name="cleanup"></a>Limpieza
 
-Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después comprobar que la resolución DNS funciona según lo previsto. Se le pedirá que elimine todas las zonas DNS privadas. Escriba "Y" en cada símbolo del sistema después de comprobar que la resolución DNS para esas zonas funciona correctamente.
+Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después comprobar que la resolución DNS funciona según lo previsto. Se le pedirá que elimine todas las zonas DNS privadas. Escriba "Y" en cada aviso después de comprobar que la resolución DNS de esas zonas funciona correctamente.
 
 ![Limpieza](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
@@ -108,9 +108,9 @@ Este paso eliminarán las zonas DNS heredadas y solo se debe ejecutar después c
 
 Si está usando automatización que incluye plantillas, scripts de PowerShell o código personalizado desarrollado con el SDK, debe actualizar la automatización para que use el nuevo modelo de recursos para las zonas DNS privadas. A continuación se incluyen los vínculos a la documentación de los nuevos CLI, PowerShell y SDK de DNS privados.
 * [API REST de zonas privadas de Azure DNS](/rest/api/dns/privatedns/privatezones)
-* [CLI de zonas privadas de Azure DNS](/cli/azure/ext/privatedns/network/private-dns)
+* [CLI de zonas privadas de Azure DNS](/cli/azure/network/private-dns/link/vnet)
 * [PowerShell de zonas privadas de Azure DNS](/powershell/module/az.privatedns/)
-* [SDK de zonas privadas de Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [SDK de zonas privadas de Azure DNS](/dotnet/api/overview/azure/privatedns/management)
 
 ## <a name="need-further-help"></a>Ayuda adicional
 

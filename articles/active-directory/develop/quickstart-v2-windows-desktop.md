@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a084b8d14acc02c67b0678cd7fa9e5993b629a51
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104578537"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075022"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -99,13 +99,15 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 >
 > Donde:
 > - `Enter_the_Application_Id_here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
+>    
+>    Para buscar el valor de **Id. de aplicación (cliente)** , vaya a la página **Información general** de la aplicación en Azure Portal.
 > - `Enter_the_Tenant_Info_Here` se establece como una de las opciones siguientes:
 >   - Si la aplicación admite **Accounts in this organizational directory** (Cuentas en este directorio de la organización), reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
->   - Si la aplicación admite **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales), reemplace este valor por `common`
+>   - Si la aplicación admite **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales**, reemplace este valor por `common`.
 >
-> > [!TIP]
-> > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
+>     Para buscar los valores de **Id. de directorio (inquilino)** y **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página Información general en Azure Portal.
+>
 
 ## <a name="more-information"></a>Más información
 
@@ -137,9 +139,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Donde: | Descripción |
-> |---------|---------|
-> | `ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
+|Donde: | Descripción |
+|---------|---------|
+| `ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 
@@ -159,9 +161,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Donde:| Descripción |
-> |---------|---------|
-> | `_scopes` | Contiene los ámbitos que se solicitan, como `{ "user.read" }` para Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` para las API web personalizadas. |
+|Donde:| Descripción |
+|---------|---------|
+| `_scopes` | Contiene los ámbitos que se solicitan, como `{ "user.read" }` para Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` para las API web personalizadas. |
 
 #### <a name="get-a-user-token-silently"></a>Obtención de un token de usuario en silencio
 
@@ -174,10 +176,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Donde: | Descripción |
-> |---------|---------|
-> | `scopes` | Contiene los ámbitos que se solicitan, como `{ "user.read" }` para Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` para las API web personalizadas. |
-> | `firstAccount` | Especifica el primer usuario en la memoria caché (MSAL admite varios usuarios en una sola aplicación). |
+|Donde: | Descripción |
+|---------|---------|
+| `scopes` | Contiene los ámbitos que se solicitan, como `{ "user.read" }` para Microsoft Graph o `{ "api://<Application ID>/access_as_user" }` para las API web personalizadas. |
+| `firstAccount` | Especifica el primer usuario en la memoria caché (MSAL admite varios usuarios en una sola aplicación). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

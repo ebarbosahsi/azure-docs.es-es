@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211811"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109244"
 ---
 # <a name="managed-hsm-logging"></a>Registro de Managed HSM 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 Qué se registra:
 
 * Todas las solicitudes de la API REST autenticadas, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas.
-* Operaciones en el propio HSM administrado, incluidas la creación, eliminación y actualización de atributos, como las etiquetas.
+* Operaciones del plano de administración en el propio recurso de HSM administrado, incluidas la creación, eliminación y actualización de atributos, como las etiquetas.
 * Operaciones relacionadas con el dominio de seguridad, como la inicialización y descarga, la inicialización de la recuperación y la carga.
 * Operaciones de copia de seguridad completa de HSM, restauración y restauración selectiva.
+* Operaciones de administración de roles, como crear, ver o eliminar asignaciones de roles, y crear, ver o eliminar definiciones de roles personalizados.
 * Operaciones con claves, entre las que se incluyen las siguientes:
   * Creación, modificación o eliminación de las claves.
   * Firma, comprobación, cifrado, descifrado, encapsulado, desencapsulado y enumeración de claves.
@@ -121,30 +122,13 @@ Los blobs individuales se almacenan como texto, con formato de JSON. Veamos una 
 ]
 ```
 
-En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 
-| Nombre del campo | Descripción |
-| --- | --- |
-| **TenantId** | Identificador de inquilino de Azure Active Directory de la suscripción donde se crea el HSM administrado. |
-| **time** |Fecha y hora en UTC. |
-| **resourceId** |Identificador de recursos de Azure Resource Manager. En el caso de los registros de HSM administrado, siempre es el identificador de recursos del HSM administrado. |
-| **operationName** |Nombre de la operación, como se documenta en la tabla siguiente. |
-| **operationVersion** |Versión de la API REST solicitada por el cliente. |
-| **category** |Tipo de resultado. Para los registros de HSM administrado, **AuditEvent** es el único valor disponible. |
-| **resultType** |Resultado de la solicitud de la API REST. |
-| **properties** |Información que varía en función de la operación (**operationName**).|
-| **resultSignature** |Estado de HTTP |
-| **resultDescription** |Descripción adicional acerca del resultado, cuando esté disponible. |
-| **durationMs** |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Esto no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
-| **callerIpAddress** |Dirección IP del cliente que realizó la solicitud. |
-| **correlationId** |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio. |
-| **identity** |Identidad del token que se ha presentado al realizar la solicitud de la API REST. Por lo general, suele ser un usuario o una entidad de servicio. |
-| **requestUri** | URI de solicitud de la API REST. |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Uso de registros de Azure Monitor
 
-Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros **AuditEvent** de HSM administrado. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita. 
+Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros **AuditEvent** de HSM administrado. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita.
+
+Para más información, incluido cómo configurar esta opción, consulte [Azure Key Vault en Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

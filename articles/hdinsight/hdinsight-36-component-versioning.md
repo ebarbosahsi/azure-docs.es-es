@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: 0180f94109d01443390da363d9e09c5ad0b26d18
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32b287c3d7b1974db5a079d1ee84aaafad3faed7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496123"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727695"
 ---
 # <a name="hdinsight-36-component-versions"></a>Versiones de componentes de HDInsight 3.6
 
@@ -19,20 +19,22 @@ En este artículo, obtendrá información sobre los componentes y las versiones 
 
 ## <a name="support-for-hdinsight-36"></a>Compatibilidad con HDInsight 3.6
 
+A partir del 1 de julio de 2021, Microsoft ofrecerá soporte técnico Basic para determinados tipos de clúster de HDI 3.6.
 En la tabla siguiente se muestra el período de soporte técnico de los tipos de clúster de HDInsight 3.6.
 
-| Tipo de clúster                    | Versión del marco | Expiración del soporte técnico actual        | Nueva fecha de expiración del soporte técnico |
-|---------------------------------|-------------------|-----------------------------------|-----------------------------|
-| HDInsight 3.6 Hadoop            | 2.7.3             | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 Spark             | 2.3               | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 Spark             | 2,2               | Retirado el 30 de junio de 2020          |                             |
-| HDInsight 3.6 Spark             | 2.1               | Retirado el 30 de junio de 2020          |                             |
-| HDInsight 3.6 Kafka             | 1,1               | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 Kafka             | 1,0               | Retirado el 30 de junio de 2020         |                             |
-| HDInsight 3.6 HBase             | 1,1               | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 Interactive Query | 2.1               | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 Storm             | 1,1               | 31 de diciembre de 2020                      | 30 de junio de 2021               |
-| HDInsight 3.6 ML Services      | 9.3               | 31 de diciembre de 2020                      | 31 de diciembre de 2020                |
+| Tipo de clúster                    | Versión del marco | Expiración del soporte técnico estándar       | Nueva fecha de expiración del soporte Basic | Fecha de retirada |
+|---------------------------------|-------------------|-----------------------------------|------------------------------|-----------------|
+| HDInsight 3.6 Hadoop            | 2.7.3             | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 Spark             | 2.3               | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 Kafka             | 1,1               | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 HBase             | 1,1               | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 Interactive Query | 2.1               | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 Storm             | 1,1               | 30 de junio de 2021                     | 3 de abril de 2022                | 4 de abril de 2022 |
+| HDInsight 3.6 ML Services      | 9.3               | -                                 | -                            | 31 de diciembre de 2020 |
+| HDInsight 3.6 Spark             | 2,2               | -                                 | -                            | 30 de junio de 2020 |
+| HDInsight 3.6 Spark             | 2.1               | -                                 | -                            | 30 de junio de 2020 |
+| HDInsight 3.6 Kafka             | 1,0               | -                                 | -                            | 30 de junio de 2020 |
+
 ## <a name="apache-components-available-with-hdinsight-version-36"></a>Componentes de Apache disponibles con la versión 3.6 de HDInsight
 
 En la tabla siguiente se enumeran las versiones de los componentes de software de código abierto asociadas a HDInsight 3.6.

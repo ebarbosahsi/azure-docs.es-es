@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221021"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732608"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -36,8 +36,8 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 |-------|---------                                               |---------      |
 |Valor predeterminado|Único para la red virtual                           |Virtual network|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
-|Valor predeterminado|10.0.0.0/8                                              |None           |
-|Valor predeterminado|192.168.0.0/16                                          |None           |
+|Valor predeterminado|10.0.0.0/8                                              |Ninguno           |
+|Valor predeterminado|192.168.0.0/16                                          |Ninguno           |
 |Valor predeterminado|100.64.0.0/10                                           |None           |
 
 Los tipos de próximo salto enumerados en la tabla anterior representan la forma en que Azure enruta el tráfico destinado al prefijo de dirección enumerado. Estas son las explicaciones de los tipos de próximo salto:
@@ -96,6 +96,38 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
 
 En las rutas definidas por el usuario, no se pueden especificar **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** como tipo de próximo salto. Las rutas con los tipos de próximo salto **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** solo las crea Azure, al configurar un emparejamiento de red virtual o un punto de conexión de servicio.
 
+### <a name="service-tags-for-user-defined-routes-preview"></a>Etiquetas de servicio para rutas definidas por el usuario (versión preliminar)
+
+Ahora puede especificar una [etiqueta de servicio](service-tags-overview.md) como prefijo de dirección de una ruta definida por el usuario en lugar de un intervalo de direcciones IP explícito. Una etiqueta de servicio representa un grupo de prefijos de dirección IP de un servicio de Azure determinado. Microsoft administra los prefijos de dirección incluidos en la etiqueta de servicio y actualiza automáticamente esta a medida que cambian las direcciones, lo que reduce la complejidad de las actualizaciones frecuentes a las rutas definidas por el usuario y el número de rutas que se deben crear. Actualmente, puede crear hasta 25 rutas con etiquetas de servicio en cada tabla de rutas. </br>
+
+> [!IMPORTANT]
+> Las etiquetas de servicio de las rutas definidas por el usuario se encuentran actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+#### <a name="exact-match"></a>Coincidencia exacta
+Cuando hay una coincidencia exacta del prefijo entre una ruta con un prefijo de IP explícito y una ruta con una etiqueta de servicio, se da preferencia a la ruta con el prefijo explícito. Cuando varias rutas con etiquetas de servicio tienen prefijos de IP que coinciden, las rutas se evalúan en el orden siguiente: 
+
+   1. Etiquetas regionales (por ejemplo, Storage.EastUS, AppService.AustraliaCentral)
+   2. Etiquetas de nivel superior (por ejemplo, Storage, AppService)
+   3. Etiquetas regionales de AzureCloud (por ejemplo, AzureCloud.canadacentral, AzureCloud.eastasia)
+   4. La etiqueta de AzureCloud </br></br>
+
+Para usar esta característica, especifique un nombre de etiqueta de servicio para el parámetro de prefijo de dirección en los comandos de la tabla de rutas. Por ejemplo, en PowerShell puede crear una ruta para dirigir el tráfico enviado a un prefijo de IP de Azure Storage a una aplicación virtual mediante: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+El mismo comando en la CLI será: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> En la versión preliminar pública, hay varias limitaciones. La característica no se admite actualmente en Azure Portal y solo está disponible mediante PowerShell y la CLI. No se admite el uso con contenedores. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Tipos de próximo salto en las herramientas de Azure
 
 El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +141,8 @@ El nombre que se muestra y al que hace referencia en los tipos de próximo salto
 |None                            |None                                            |Null (no disponible en la CLI clásica en modo asm)|
 |Emparejamiento de redes virtuales de Azure         |Emparejamiento de VNET                                    |No aplicable|
 |Puntos de conexión de servicio de red virtual|VirtualNetworkServiceEndpoint                   |No aplicable|
+
+
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
@@ -248,8 +282,8 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.2.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
-|Valor predeterminado |Activo |10.0.0.0/8          |None                      |                   |
-|Valor predeterminado |Active |100.64.0.0/10       |None                      |                   |
+|Valor predeterminado |Activo |10.0.0.0/8          |Ninguno                      |                   |
+|Valor predeterminado |Active |100.64.0.0/10       |Ninguno                      |                   |
 |Valor predeterminado |Activo |192.168.0.0/16      |None                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  

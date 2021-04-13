@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505484"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056018"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configuración de Azure Private Link para un área de trabajo de Azure Machine Learning
 
@@ -175,7 +175,7 @@ Para más información sobre Azure Virtual Machines, consulte [Documentación so
 En algunas situaciones, puede que desee permitir que alguien se conecte al área de trabajo protegida mediante un punto de conexión público, en lugar de hacerlo mediante la red virtual. Después de configurar un área de trabajo con un punto de conexión privado, tiene la opción de habilitar el acceso público al área de trabajo. Al hacerlo, no se quita el punto de conexión privado. Todas las comunicaciones entre los componentes de la red virtual siguen estando protegidas. Se habilita el acceso público solo al área de trabajo, además del acceso privado mediante la red virtual.
 
 > [!WARNING]
-> Al conectarse mediante el punto de conexión público, algunas características de Estudio de Azure Machine Learning no podrán acceder a los datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage.
+> Al conectarse mediante el punto de conexión público, algunas características de Estudio de Azure Machine Learning no podrán acceder a los datos. Este problema se produce cuando los datos se almacenan en un servicio protegido detrás de la red virtual. Por ejemplo, una cuenta de Azure Storage. Además, tenga en cuenta que la funcionalidad Jupyter/JupyterLab/RStudio de la instancia de proceso y los cuadernos en ejecución no van a funcionar.
 
 Para habilitar el acceso público a un área de trabajo con el vínculo privado habilitado, siga estos pasos:
 

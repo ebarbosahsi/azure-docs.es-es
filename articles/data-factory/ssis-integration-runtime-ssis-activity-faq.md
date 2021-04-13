@@ -4,16 +4,16 @@ description: En este artículo se proporciona orientación para solucionar probl
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: wenjiefu
-author: wenjiefu
+author: RodgeFu
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361883"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934009"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -121,7 +121,10 @@ Este error se produce cuando SSIS Integration Runtime no puede acceder al almace
 Una posible causa es que el nombre de usuario o la contraseña con Multi-Factor Authentication de Azure AD habilitado esté configurado para la autenticación de Azure Analysis Services. Esta autenticación no se admite en SSIS Integration Runtime. Intente usar una entidad de servicio para la autenticación de Azure Analysis Services:
 
 1. Prepare una entidad de servicio como se describe en [Automatización con entidades de servicio](../analysis-services/analysis-services-service-principal.md).
-2. En el Administrador de conexiones, configure **Usar un nombre de usuario y contraseña específicos**: defina **AppID** como nombre de usuario y **clientSecret** como contraseña.
+2. En Connection Manager, configure **Usar un nombre de usuario y contraseña específicos**, establezca **app: *&lt;AppID&gt;* @*&lt;TenantID&gt;** * como nombre de usuario y clientSecret como contraseña. A continuación, se muestra un ejemplo de un nombre de usuario con el formato correcto:
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. En el Administrador de conexiones, configure **Usar un nombre de usuario y contraseña específicos**: defina **AppID** como nombre de usuario y **clientSecret** como contraseña.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Mensaje de error: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" (El origen de ADONET no ha podido adquirir la conexión {GUID} con el siguiente mensaje de error: error de inicio de sesión para el usuario "NT AUTHORITY\ANONYMOUS LOGON")
 

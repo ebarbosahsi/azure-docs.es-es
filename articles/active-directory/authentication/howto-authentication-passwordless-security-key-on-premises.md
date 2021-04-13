@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101647479"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959864"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
@@ -108,7 +108,7 @@ Este comando genera las propiedades del servidor Kerberos de Azure AD. Puede re
 
 | Propiedad | Descripción |
 | --- | --- |
-| id | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
+| ID | Identificador único del objeto controlador de dominio de AD DS. En ocasiones, a este identificador se le conoce como "ranura" o "id. de rama". |
 | DomainDnsName | Nombre de dominio DNS del dominio de Active Directory. |
 | ComputerAccount | Objeto de cuenta de equipo del objeto de servidor Kerberos de Azure AD (controlador de dominio). |
 | UserAccount | Objeto de cuenta de usuario deshabilitado que contiene la clave de cifrado del TGT del servidor Kerberos de Azure AD. El DN de esta cuenta es `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |
@@ -193,6 +193,8 @@ Si realiza una instalación limpia de una máquina unida a Azure AD híbrido de
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>No puedo obtener el SSO en el recurso de red NTLM después de iniciar sesión con FIDO y obtener una petición de credenciales
 
 Asegúrese de que se han revisado suficientes controladores de dominio para responder a tiempo para atender la solicitud de recursos. Para comprobar si puede ver un controlador de dominio que ejecute la característica, revise la salida de `nltest /dsgetdc:contoso /keylist /kdc`.
+
+Nota: Este modificador /KeyList del comando nltest se puede encontrar en el cliente de Windows 10 v2004 y superior
 
 ## <a name="next-steps"></a>Pasos siguientes
 

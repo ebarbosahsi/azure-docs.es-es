@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503205"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628584"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -135,7 +135,7 @@ Una instancia administrada ofrece los mismos niveles de rendimiento por proceso 
 
 Una opción es [exportar una base de datos a un archivo BACPAC](../database/database-export.md) y, a continuación, [importar dicho archivo](../database/database-import.md). Este enfoque es aconsejable si la base de datos tiene menos de 100 GB.
 
-La [replicación transaccional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) se puede utilizar si todas las tablas de la base de datos tienen claves *principales* y no hay objetos OLTP en memoria en la base de datos.
+La [replicación transaccional](replication-two-instances-and-sql-server-configure-tutorial.md) se puede utilizar si todas las tablas de la base de datos tienen claves *principales* y no hay objetos OLTP en memoria en la base de datos.
 
 Las copias de seguridad nativas COPY_ONLY realizadas de una instancia administrada no se pueden restaurar en SQL Server, porque la instancia administrada tiene una versión superior de la base de datos en comparación con SQL Server. Para obtener más información, vea [Copias de seguridad de solo copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -171,7 +171,7 @@ Consulte [Causas clave de las diferencias de rendimiento entre SQL Managed Insta
 
 Puede optimizar el rendimiento de la instancia administrada con las opciones siguientes:
 - [Ajuste automático](../database/automatic-tuning-overview.md), que proporciona un alto rendimiento y cargas de trabajo estables gracias al ajuste continuo del rendimiento basado en la inteligencia artificial y el aprendizaje automático.
--   [OLTP en memoria](../in-memory-oltp-overview.md), que mejora el rendimiento y la latencia en las cargas de trabajo de procesamiento transaccional y ofrece información empresarial más rápida. 
+-    [OLTP en memoria](../in-memory-oltp-overview.md), que mejora el rendimiento y la latencia en las cargas de trabajo de procesamiento transaccional y ofrece información empresarial más rápida. 
 
 Para optimizar aún más el rendimiento, considere la posibilidad de aplicar algunos de los *procedimientos recomendados* del artículo [Ajuste de aplicaciones y bases de datos](../database/performance-guidance.md#tune-your-database).
 Si la carga de trabajo consta de muchas transacciones pequeñas, considere la posibilidad de [cambiar el tipo de conexión de proxy a modo de redirección](connection-types-overview.md#changing-connection-type) para obtener una latencia más baja y un rendimiento más alto.
@@ -214,7 +214,7 @@ Sí, puede comprar el almacenamiento de complementos, independientemente del pro
 
 **¿Cómo puedo optimizar el rendimiento del almacenamiento en el nivel de servicio De uso general?**
 
-Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com).
+Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -263,9 +263,9 @@ Sí. Después de aprovisionar una instancia administrada, puede establecer un NS
 **¿Puedo establecer la NVA o el firewall local para filtrar el tráfico de administración saliente en función de los FQDN?**
 
 No. No se admite por distintos motivos:
--   El tráfico de enrutamiento que representa la respuesta a la solicitud de administración entrante sería asimétrico y podría no funcionar.
--   El enrutamiento del tráfico que va al almacenamiento se vería afectado por las restricciones de rendimiento y la latencia, lo que nos impediría proporcionar la calidad y la disponibilidad esperadas del servicio.
--   En función de la experiencia, estas configuraciones son propensas a errores y no se admiten.
+-    El tráfico de enrutamiento que representa la respuesta a la solicitud de administración entrante sería asimétrico y podría no funcionar.
+-    El enrutamiento del tráfico que va al almacenamiento se vería afectado por las restricciones de rendimiento y la latencia, lo que nos impediría proporcionar la calidad y la disponibilidad esperadas del servicio.
+-    En función de la experiencia, estas configuraciones son propensas a errores y no se admiten.
 
 **¿Puedo establecer la NVA o el firewall para el tráfico que no es de administración saliente?**
 
@@ -403,7 +403,7 @@ Puede girar el protector de TDE de Instancia administrada mediante Azure Cloud S
 Sí, no es preciso descifrar la base de datos para poder restaurarla en Instancia administrada de SQL. Tiene que especificar la clave o el certificado utilizados como un protector de clave de cifrado en el sistema de origen a SQL Managed Instance para poder leer los datos desde el archivo de copia de seguridad cifrado. Existen dos formas posibles de hacerlo:
 
 - *Cargar el protector de certificado en SQL Managed Instance*. Solo se puede hacer mediante PowerShell. El [script de ejemplo](./tde-certificate-migrate.md) describe todo el proceso.
-- *Cargar el protector de clave asimétrica en Azure Key Vault y apuntar SQL Managed Instance hacia este*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como un protector de clave de cifrado y solo quiere que esté disponible para Instancia administrada de SQL y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), y no seleccione la casilla **Hacer que la clave seleccionada sea el protector de TDE predeterminado**.
+- *Cargar el protector de clave asimétrica en Azure Key Vault y apuntar SQL Managed Instance hacia este*. Este enfoque es similar al caso de uso del cifrado de datos transparente de Bring Your Own Key (BYOK), que también usa la integración de Key Vault para almacenar la clave de cifrado. Si no quiere usar la clave como protector de la clave de cifrado y solo quiere que esté disponible para SQL Managed Instance y así poder restaurar las bases de datos cifradas, siga las instrucciones para [configurar BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) y no active la casilla **Hacer que la clave seleccionada sea el protector de TDE predeterminado**.
 
 Una vez que el protector de cifrado está disponible para Instancia administrada de SQL, puede continuar con el procedimiento de restauración de base de datos estándar.
 
@@ -416,9 +416,9 @@ SQL Managed Instance ofrece el [modelo de compra basado en núcleo virtual](sql-
 **¿Qué ventajas de costos están disponibles para SQL Managed Instance?**
 
 Puede ahorrar costos con las ventajas de SQL Azure de las siguientes maneras:
--   Maximice las inversiones existentes en licencias locales y ahorre hasta un 55 % con [Ventaja híbrida de Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--   Confirme una reserva de recursos de proceso y ahorre hasta un 33 % con [Ventaja de instancia reservada](../database/reserved-capacity-overview.md). Combínela con Ventaja híbrida de Azure para ahorrar hasta un 82 %. 
--   Ahorre hasta un 55 % en comparación con la lista de [Ventaja de precios para desarrollo/pruebas de Azure](https://azure.microsoft.com/pricing/dev-test/), que ofrece tarifas con descuento para las cargas de trabajo de desarrollo y pruebas en curso.
+-    Maximice las inversiones existentes en licencias locales y ahorre hasta un 55 % con [Ventaja híbrida de Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Confirme una reserva de recursos de proceso y ahorre hasta un 33 % con [Ventaja de instancia reservada](../database/reserved-capacity-overview.md). Combínela con Ventaja híbrida de Azure para ahorrar hasta un 82 %. 
+-    Ahorre hasta un 55 % en comparación con la lista de [Ventaja de precios para desarrollo/pruebas de Azure](https://azure.microsoft.com/pricing/dev-test/), que ofrece tarifas con descuento para las cargas de trabajo de desarrollo y pruebas en curso.
 
 **¿Quién puede optar a la Ventaja de instancia reservada?**
 

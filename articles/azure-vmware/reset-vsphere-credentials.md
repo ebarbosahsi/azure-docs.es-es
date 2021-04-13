@@ -2,17 +2,19 @@
 title: Restablecimiento de las credenciales de vSphere para Azure VMware Solution
 description: Aprenda a restablecer las credenciales de vSphere para la nube privada de Azure VMware Solution y asegúrese de que el conector de HCX tiene las credenciales de vSphere más recientes.
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 1376b6322250da506d32b8ced0a62ddbf60ba9f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587634"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109108"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Restablecimiento de las credenciales de vSphere para Azure VMware Solution
 
 En este artículo, se le guiará por los pasos necesarios para restablecer las credenciales de vCenter Server y NSX-T Manager para la nube privada de Azure VMware Solution. Esto le permitirá asegurarse de que el conector de HCX tiene las credenciales de vCenter Server más recientes.
+
+Además de este procedimiento, también puede ver el vídeo para [restablecer la contraseña de administrador de vCenter CloudAdmin & NSX-T](https://youtu.be/cK1qY3knj88).
 
 ## <a name="reset-your-azure-vmware-solution-credentials"></a>Restablecimiento de las credenciales de Azure VMware Solution
 

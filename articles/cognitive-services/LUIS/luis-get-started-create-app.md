@@ -4,13 +4,13 @@ description: En este inicio rápido se indica cómo crear una aplicación de LUI
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019167"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277035"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Inicio rápido: Uso de automatización del hogar compilada previamente
 
@@ -31,7 +31,7 @@ En la ventana que aparece, escriba la siguiente información:
 
 |Nombre  |Descripción  |
 |---------|---------|
-|Nombre     | El nombre de la aplicación. Por ejemplo, "home automation".        |
+|Nombre     | Un nombre para la aplicación. Por ejemplo, "home automation".        |
 |Cultura     | El idioma que la aplicación entiende y habla.   |
 |Descripción | La descripción de la aplicación.
 |Recurso de predicción | El recurso de predicción que recibirá las consultas. |
@@ -220,7 +220,5 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede llamar al punto de conexión desde el código:
-
 > [!div class="nextstepaction"]
-> [Llamada a un punto de conexión de LUIS mediante código](./luis-get-started-get-intent-from-rest.md)
+> [Desarrollo iterativo de aplicaciones para LUIS](./luis-concept-app-iteration.md)

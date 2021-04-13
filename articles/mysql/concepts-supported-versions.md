@@ -6,24 +6,34 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d84f56e5ae0f3c364a0fd3a08ccb173d7c65a5e2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467721"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121768"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versiones admitidas de servidores de Azure Database for MySQL
 
 Azure Database for MySQL se ha desarrollado a partir de [MySQL Community Edition](https://www.mysql.com/products/community/), con el motor de almacenamiento InnoDB. El servicio es compatible con todas las versiones principales actuales admitidas por la comunidad: MySQL 5.6, 5.7 y 8.0. MySQL usa el esquema de nomenclatura X.Y.Z, donde X es la versión principal, Y es la secundaria y Z es la versión de corrección de errores. Para más información sobre el esquema, consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-> [!NOTE]
-> En la opción de implementación de un solo servidor, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL.
-
-Actualmente, Azure Database for MySQL admite las siguientes versiones principales y secundarias de MySQL:
 
 
-| Versión | Servidor único <br/> Versión secundaria actual |Servidor flexible (versión preliminar) <br/> Versión secundaria actual  |
+## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Conexión a un nodo de puerta de enlace que ejecuta una versión específica de MySQL
+
+En la opción de implementación de un solo servidor, se usa una puerta de enlace para redirigir las conexiones a las instancias de servidor. Una vez establecida la conexión, el cliente de MySQL muestra la versión de MySQL establecida en la puerta de enlace, no la versión real que se ejecuta en la instancia del servidor MySQL. Para determinar la versión de la instancia del servidor MySQL, use el comando `SELECT VERSION();` en el símbolo del sistema de MySQL. Revise la [arquitectura de conectividad](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) para aprender sobre las puertas de enlace en la arquitectura de servicio de Azure Database for MySQL.
+
+Como Azure Database for MySQL admite las versiones principales v5.6, v5.7 y v8.0, el puerto predeterminado 3306 para conectarse a dicho servicio ejecuta la versión 5.6 del cliente de MySQL (mínimo común denominador) para permitir conexiones a servidores de las tres versiones principales admitidas. Sin embargo, si la aplicación tiene el requisito de conectarse a una versión principal específica, por ejemplo v5.7 o v8.0, puede hacerlo cambiando el puerto en la cadena de conexión del servidor.
+
+En el servicio Azure Database for MySQL, los nodos de puerta de enlace escuchan en el puerto 3308 en el caso de los clientes v5.7 y en el puerto 3309 en los clientes v8.0. En otras palabras, si quiere conectar con el cliente de puerta de enlace v5.7, debe usar el nombre de servidor completo y el puerto 3308 para conectarse a su servidor desde la aplicación cliente. Del mismo modo, si quiere conectarse al cliente de puerta de enlace v8.0, puede usar el nombre de servidor completo y el puerto 3309 para conectarse al servidor. Para mayor claridad, consulte el ejemplo siguiente.
+
+:::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Ejemplo de conexión a través de diferentes versiones de MySQL de puerta de enlace":::
+
+
+## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Actualmente, Azure Database for MySQL admite las siguientes versiones principales y secundarias de MySQL:
+
+
+| Versión | [Servidor único](overview.md) <br/> Versión secundaria actual |[Servidor flexible (versión preliminar)](/../flexible-server/overview.md) <br/> Versión secundaria actual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL versión 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (retirada) | No compatible|
 |MySQL versión 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|

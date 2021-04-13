@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9ae576a2d0ab8aee00be5b755c348806b412bef
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600435"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108496"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -23,10 +23,12 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
 |------------------------------|---------------|---------------|
-| [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la pertinencia de los resultados de la búsqueda con muy poco esfuerzo. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) son pasajes relevantes del documento que resumen mejor el documento, con resaltados en los términos o frases más importantes. </br></br>Las [respuestas semánticas](semantic-answers.md) son los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use la API REST de [búsqueda de documentos](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview y el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
+| [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la relevancia de los resultados de búsqueda mediante ajustes mínimos en una solicitud de consulta. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) devuelven los pasajes relevantes del documento que lo resumen mejor, con los términos o frases más importantes destacados. </br></br>Las [respuestas semánticas](semantic-answers.md) devuelven los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Documentos de búsqueda (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview o el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
 | [Corrector ortográfico de términos de consulta](speller-how-to-add.md) | Antes de que los términos de la consulta lleguen al motor de búsqueda, puede comprobar que no tengan errores ortográficos. La opción `speller` funciona con cualquier tipo de consulta (simple, completa o semántica). |  Versión preliminar pública, solo REST, api-version=2020-06-30-Preview|
 | [Indexador de SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador le conecta a un sitio de SharePoint Online para que pueda indexar el contenido de una biblioteca de documentos. | Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
 | [Normalizadores](search-normalizers.md) | Los normalizadores realizan un procesamiento previo simple del texto, como el uso de mayúsculas y minúsculas, la eliminación de toldes, el plegamiento ASCII, etc. sin tener que pasar por toda la cadena de análisis.| Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
+[**Aptitud de búsqueda de entidades personalizadas**](cognitive-search-skill-custom-entity-lookup.md ) |  Aptitud cognitiva que busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas. | Disponible con carácter general. |
+|
 
 ## <a name="february-2021"></a>Febrero de 2021
 

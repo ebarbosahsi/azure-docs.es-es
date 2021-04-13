@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a832c8956f7a3d4f8669209d7ed311e7555e1e75
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100558134"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644245"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roles y requisitos de Azure Data Share 
 
@@ -19,26 +19,22 @@ En este artículo se describen los roles y los permisos necesarios para comparti
 
 ## <a name="roles-and-requirements"></a>Roles y requisitos
 
-Con el servicio de Azure Data Share, puede compartir datos sin intercambiar credenciales entre el proveedor de datos y el consumidor. El servicio de Azure Data Share usa identidades administradas (anteriormente conocidas como MSI) para autenticarse en el almacén de datos de Azure. 
+Con el servicio de Azure Data Share, puede compartir datos sin intercambiar credenciales entre el proveedor de datos y el consumidor. En el caso del uso compartido basado en instantáneas, el servicio Azure Data Share usa identidades administradas (anteriormente conocidas como MSI) para autenticarse en el almacén de datos de Azure. Se debe conceder a la identidad administrada del recurso de Azure Data Share acceso al almacén de datos de Azure para leer o escribir datos.
 
-Se debe conceder a la identidad administrada del recurso de Azure Data Share acceso al almacén de datos de Azure. Después, el servicio de Azure Data Share usa esta identidad administrada para leer y escribir datos para el uso compartido basado en instantáneas, y para establecer un vínculo simbólico para el uso compartido en contexto. 
-
-Para compartir o recibir datos de un almacén de datos de Azure, el usuario necesita al menos los permisos siguientes. Se requieren permisos adicionales para el uso compartido basado en SQL.
+Para compartir o recibir datos de un almacén de datos de Azure, el usuario necesita al menos los permisos siguientes. 
 
 * Permiso para escribir en el almacén de datos de Azure. Generalmente, este permiso existe en el rol **Colaborador**.
-* Permiso para crear la asignación de roles en el almacén de datos de Azure. Normalmente, el permiso para crear asignaciones de rol existe en el rol **Propietario**, en el rol Administrador de acceso de usuario o en un rol personalizado con el permiso Microsoft.Authorization/role assignments/write (asignación de roles o escritura) asignado. Este permiso no es necesario si ya se concedió a la identidad administrada del recurso compartido de datos acceso al almacén de datos de Azure. Consulte la tabla siguiente para obtener el rol requerido.
 
-A continuación se muestra un resumen de los roles asignados a la identidad administrada del recurso compartido de datos:
+En el caso del uso compartido basado en instantáneas de almacenamiento y de lago de datos, también necesita permiso para crear la asignación de roles en el almacén de datos de Azure. Normalmente, el permiso para crear asignaciones de roles existe en el rol **Propietario**, en el rol Administrador de acceso de usuario o en un rol personalizado con el permiso *Microsoft.Authorization/asignación de roles/escritura* asignado. Este permiso no es necesario si ya se concedió a la identidad administrada del recurso compartido de datos acceso al almacén de datos de Azure. A continuación se muestra un resumen de los roles asignados a la identidad administrada del recurso compartido de datos:
 
 |**Tipo de almacén de datos**|**Almacén de datos de origen del proveedor de datos**|**Almacén de datos de destino del consumidor de datos**|
 |---|---|---|
 |Azure Blob Storage| Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
 |Azure Data Lake Gen1 | Propietario | No compatible
 |Azure Data Lake Gen2 | Lector de datos de blobs de almacenamiento | Colaborador de datos de blobs de almacenamiento
-|Clúster de Azure Data Explorer | Colaborador | Colaborador
 |
 
-En el caso del uso compartido basado en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en Azure SQL Database con el mismo nombre que el recurso de Azure Data Share. Se requiere el permiso de administrador de Azure Active Directory para crear este usuario. A continuación se muestra un resumen del permiso requerido por el usuario de SQL.
+En el caso del uso compartido basado en instantáneas de SQL, se debe crear un usuario de SQL a partir de un proveedor externo de Azure SQL Database con el mismo nombre que el recurso de Azure Data Share. Se requiere el permiso de administrador de Azure Active Directory para crear este usuario. A continuación se muestra un resumen del permiso requerido por el usuario de SQL.
 
 |**Tipo de base de datos SQL**|**Permiso de usuario de SQL del proveedor de datos**|**Permiso de usuario de SQL del consumidor de datos**|
 |---|---|---|
@@ -47,14 +43,9 @@ En el caso del uso compartido basado en SQL, se debe crear un usuario de SQL a p
 |
 
 ### <a name="data-provider"></a>Proveedor de datos
+Si el uso compartido se basa en instantáneas de almacenamiento o de lago de datos, para agregar un conjunto de datos en Azure Data Share, se debe conceder a la identidad administrada del recurso compartido de datos del proveedor acceso al almacén de datos de Azure de origen. Por ejemplo, en el caso de la cuenta de almacenamiento, a la identidad administrada del recurso compartido de datos se le concede el rol *Lector de datos de Storage Blob*. Esto lo hace automáticamente el servicio de Azure Data Share cuando el usuario agrega un conjunto de datos a través de Azure Portal y tiene el permiso adecuado. Por ejemplo, el usuario es propietario del almacén de datos de Azure o miembro de un rol personalizado que tiene asignado el permiso *Microsoft.Authorization/asignación de roles/escritura*. 
 
-Para agregar un conjunto de datos en Azure Data Share, se debe conceder a la identidad administrada del recurso compartido de datos del proveedor acceso al almacén de datos de Azure de origen. Por ejemplo, en el caso de la cuenta de almacenamiento, a la identidad administrada del recurso compartido de datos se le concede el rol Lector de datos de blobs de almacenamiento. 
-
-Esto lo hace automáticamente el servicio de Azure Data Share cuando el usuario agrega un conjunto de datos a través de Azure Portal y tiene el permiso adecuado. Por ejemplo, el usuario es un propietario del almacén de datos de Azure o miembro de un rol personalizado que tiene asignado el permiso Microsoft.Authorization/role assignments/write (asignación de roles o escritura). 
-
-Como alternativa, el usuario puede hacer que el propietario del almacén de datos de Azure agregue manualmente la identidad administrada del recurso compartido de datos al almacén de datos de Azure. Esta acción solo debe realizarse una vez por cada recurso compartido de datos.
-
-Para crear una asignación de roles manualmente para la identidad administrada del recurso compartido de datos, siga estos pasos.  
+Como alternativa, el usuario puede hacer que el propietario del almacén de datos de Azure agregue manualmente la identidad administrada del recurso compartido de datos al almacén de datos de Azure. Esta acción solo debe realizarse una vez por cada recurso compartido de datos. Para crear una asignación de roles manualmente para la identidad administrada del recurso compartido de datos, siga estos pasos.  
 
 1. Vaya al almacén de datos de Azure.
 1. Seleccione **Access Control (IAM)** .
@@ -65,16 +56,12 @@ Para crear una asignación de roles manualmente para la identidad administrada d
 
 Para más información sobre las asignaciones de roles, consulte [Asignación de roles mediante Azure Portal](../role-based-access-control/role-assignments-portal.md). Consulte [Asignación de roles de Azure mediante la API REST](../role-based-access-control/role-assignments-rest.md) si comparte datos empleando las API REST y quiere crear una asignación de roles mediante la API. 
 
-En el caso de orígenes basados en SQL, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share a conectar a SQL Database mediante la autenticación de Azure Active Directory. Se debe conceder a este usuario el permiso *db_datareader*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido desde Azure SQL Database o Azure Synapse Analytics](how-to-share-from-sql.md). 
+Si el uso compartido se basa en instantáneas de SQL, se debe crear un usuario de SQL a partir de un proveedor externo en SQL Database con el mismo nombre que el recurso de Azure Data Share al conectarse a la base de datos SQL mediante la autenticación de Azure Active Directory. Se debe conceder a este usuario el permiso *db_datareader*. Puede encontrar un script de ejemplo junto con otros requisitos previos para el uso compartido basado en SQL en el tutorial [Uso compartido desde Azure SQL Database o Azure Synapse Analytics](how-to-share-from-sql.md). 
 
 ### <a name="data-consumer"></a>Consumidor de datos
-Para recibir datos, se debe conceder a la identidad administrada del recurso compartido de datos del consumidor acceso al almacén de datos de Azure de destino. Por ejemplo, en el caso de la cuenta de almacenamiento, a la identidad administrada del recurso compartido de datos se le concede el rol Colaborador de datos de blobs de almacenamiento. 
+Para recibir datos en la cuenta de almacenamiento, se debe conceder a la identidad administrada del recurso compartido de datos del consumidor acceso a la cuenta de almacenamiento de destino. A la identidad administrada del recurso compartido de datos se le debe conceder el rol *Lector de datos de Storage Blob*. El servicio Azure Data Share hace esto automáticamente si el usuario especifica una cuenta de almacenamiento de destino mediante Azure Portal y tiene el permiso adecuado. Por ejemplo, el usuario es propietario de la cuenta de almacenamiento o es miembro de un rol personalizado que tiene asignado el permiso *Microsoft.Authorization/asignación de roles/escritura*. 
 
-Esto lo hace automáticamente el servicio de Azure Data Share si el usuario especifica un almacén de datos de destino a través de Azure Portal y el usuario tiene el permiso adecuado. Por ejemplo, el usuario es el propietario del almacén de datos de Azure o es miembro de un rol personalizado que tiene asignado el permiso Microsoft.Authorization/role assignments/write (asignación de roles o escritura). 
-
-Como alternativa, el usuario puede hacer que el propietario del almacén de datos de Azure agregue manualmente la identidad administrada del recurso compartido de datos al almacén de datos de Azure. Esta acción solo debe realizarse una vez por cada recurso compartido de datos.
-
-Para crear una asignación de roles manualmente para la identidad administrada del recurso compartido de datos, siga estos pasos. 
+Como alternativa, el usuario puede hacer que el propietario de la cuenta de almacenamiento agregue manualmente la identidad administrada del recurso compartido de datos a dicha cuenta. Esta acción solo debe realizarse una vez por cada recurso compartido de datos. Para crear una asignación de roles manualmente para la identidad administrada del recurso compartido de datos, siga estos pasos. 
 
 1. Vaya al almacén de datos de Azure.
 1. Seleccione **Access Control (IAM)** .
