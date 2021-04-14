@@ -231,7 +231,7 @@ Se puede tener acceso a la configuración del servicio desde el Azure Portal, pa
 
 ## <a name="trusted-ips"></a>IP de confianza
 
-La característica _IP de confianza_ de Azure AD Multi-Factor Authentication omite las solicitudes de autenticación multifactor de los usuarios que inician sesión desde un intervalo de direcciones IP definido. Puede establecer intervalos de direcciones IP de confianza para los entornos locales, de manera que, cuando los usuarios se encuentren en una de esas ubicaciones, Azure AD Multi-Factor Authentication no emita ninguna solicitud.
+La característica _IP de confianza_ de Azure AD Multi-Factor Authentication omite las solicitudes de autenticación multifactor de los usuarios que inician sesión desde un intervalo de direcciones IP definido. Puede establecer intervalos de direcciones IP de confianza para los entornos locales, de manera que, cuando los usuarios se encuentren en una de esas ubicaciones, Azure AD Multi-Factor Authentication no emita ninguna solicitud. La función de IP de confianza de la autenticación multifactorial de Azure AD requiere edición de Azure AD Premium P1.
 
 > [!NOTE]
 > Las direcciones IP de confianza pueden incluir intervalos de direcciones IP privadas solo cuando se usa un servidor MFA. En el caso de Azure AD Multi-Factor Authentication basado en la nube, solo puede usar intervalos de direcciones IP públicas.
